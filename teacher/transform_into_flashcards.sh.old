@@ -1,0 +1,7 @@
+:
+for topic in `ls.topics`; do
+	if [ $topic != "langs" ]; then
+		sh $HOME/work/adyn.com/httpdocs/teacher/transform1_into_flashcards.sh $topic
+	fi
+done
+exit 0

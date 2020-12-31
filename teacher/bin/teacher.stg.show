@@ -1,0 +1,14 @@
+#!/bin/bash
+browser_teacher_session_state_fn="$1"
+export OS=win   # since the browser will run on windows
+if [ -z "$browser_teacher_session_state_fn" ]; then
+        
+        browser_teacher_session_state_fn=${TMP-/tmp}/teacher.stg.show.$$.144
+        trap "rm $browser_teacher_session_state_fn" EXIT
+
+        url="`teacher.ex.url verb_speak_1`&special_op=dump_only"
+        teacher.ex.dump "$url" > $browser_teacher_session_state_fn
+fi
+grep '^stg:' $browser_teacher_session_state_fn
+exit
+bx $DROP/adyn/teacher/bin/teacher.stg.show 

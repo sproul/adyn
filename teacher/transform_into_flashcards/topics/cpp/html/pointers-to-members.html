@@ -1,0 +1,212 @@
+<html>
+<head>
+<title>[30] Pointers to member functions, C++ FAQ Lite, Marshall Cline</title>
+<link rev=made href="mailto:cline@parashift.com">
+</head>
+<body vlink="#551a8b" text="#000000" bgcolor="#c1c1c1" alink="#ff0000" link="#0000ee">
+<a name="top"></a>
+<h1>[30] Pointers to member functions<br>
+<small><small>(Part of <a href="index.html"><em>C++ FAQ Lite</em></a>, <a href="copy-permissions.html#[1.2]">Copyright&nbsp;&copy; 1991-96</a>, <a href="http://www.cerfnet.com/~mpcline/">Marshall Cline</a>, <a href="mailto:cline@parashift.com">cline@parashift.com</a>)</small></small></h1>
+<hr width="100%" >
+<h3>FAQs in section [30]:</h3>
+<ul>
+<li><a href="pointers-to-members.html#[30.1]">[30.1] Is the type of &quot;pointer-to-member-function&quot;
+different from &quot;pointer-to-function&quot;?</a></li>
+<li><a href="pointers-to-members.html#[30.2]">[30.2] How do I pass a pointer to member function to a signal
+handler, X event callback, etc?</a></li>
+<li><a href="pointers-to-members.html#[30.3]">[30.3] Why do I keep getting compile errors (type
+mismatch) when I try to use a member function as an interrupt service routine?</a></li>
+<li><a href="pointers-to-members.html#[30.4]">[30.4] Why am I having trouble taking the address of a C++
+function?</a></li>
+<li><a href="pointers-to-members.html#[30.5]">[30.5] How can I avoid syntax errors when calling a member
+function using a pointer-to-member-function?</a></li>
+<li><a href="pointers-to-members.html#[30.6]">[30.6] How do I create and use an array of pointers to member
+functions?</a></li>
+</ul>
+<p><hr width="100%" >
+<p><a name="[30.1]"></a>
+<h3>[30.1] Is the type of &quot;pointer-to-member-function&quot;
+different from &quot;pointer-to-function&quot;?</h3>
+<p>Yep.
+<p>Consider the following function:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;f(char&nbsp;a,&nbsp;float&nbsp;b);
+</code>
+<p>The type of this function is different depending on whether it is an ordinary
+function or a non-<tt>static</tt> member function of some class:
+<ul>
+<li>It's type is &quot;<tt>int&nbsp;(*)(char,float)</tt>&quot; if an ordinary
+function</li>
+<li>It's type is &quot;<tt>int&nbsp;(Fred::*)(char,float)</tt>&quot; if a non-<tt>static</tt>
+member function of <tt>class</tt> <tt>Fred</tt></li>
+</ul>
+<p>Note: if it's a <tt>static</tt> member function of <tt>class</tt> <tt>Fred</tt>, its type is the
+same as if it was an ordinary function: &quot;<tt>int&nbsp;(*)(char,float)</tt>&quot;.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="mixing-c-and-cpp.html">Previous&nbsp;section</a> |&nbsp;<a href="containers-and-templates.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[30.2]"></a>
+<h3>[30.2] How do I pass a pointer to member function to a signal
+handler, X event callback, etc?</h3>
+<p>Don't.
+<p>Because a member function is meaningless without an object to invoke it on, you
+can't do this directly (if The X Windows System was rewritten in C++, it would
+probably pass references to <em>objects</em> around, not just pointers to
+functions; naturally the objects would embody the required function and
+probably a whole lot more).
+<p>As a patch for existing software, use a top-level (non-member) function as a
+wrapper which takes an object obtained through some other technique (held in a
+global, perhaps).  The top-level function would apply the desired member
+function against the global object.
+<p>E.g., suppose you want to call <tt>Fred::memberFunction()</tt> on interrupt:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;Fred&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;memberFunction();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;void&nbsp;staticMemberFunction();&nbsp;&nbsp;</tt><em>//&nbsp;A&nbsp;<tt>static</tt>&nbsp;member&nbsp;function&nbsp;can&nbsp;handle&nbsp;it</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Wrapper&nbsp;function&nbsp;uses&nbsp;a&nbsp;global&nbsp;to&nbsp;remember&nbsp;the&nbsp;object:</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;Fred*&nbsp;object_which_will_handle_signal;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;Fred_memberFunction_wrapper()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;object_which_will_handle_signal-&gt;memberFunction();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;main()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>/*&nbsp;<tt>signal(SIGINT,&nbsp;Fred::memberFunction);</tt>&nbsp;*/</em><tt>&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Can&nbsp;NOT&nbsp;do&nbsp;this</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;signal(SIGINT,&nbsp;Fred_memberFunction_wrapper);&nbsp;&nbsp;</tt><em>//&nbsp;OK</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;signal(SIGINT,&nbsp;Fred::staticMemberFunction);&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Also&nbsp;OK</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p>Note: <tt>static</tt> member functions do not require an actual object to be invoked,
+so pointers-to-<tt>static</tt>-member-functions are type compatible with regular
+pointers-to-functions.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="mixing-c-and-cpp.html">Previous&nbsp;section</a> |&nbsp;<a href="containers-and-templates.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[30.3]"></a>
+<h3>[30.3] Why do I keep getting compile errors (type
+mismatch) when I try to use a member function as an interrupt service routine?</h3>
+<p>This is a special case of the previous two questions, therefore read the
+previous two answers first.
+<p>Non-<tt>static</tt> member functions have a hidden parameter that corresponds to the
+<tt>this</tt> pointer.  The <tt>this</tt> pointer points to the instance data for the
+object.  The interrupt hardware/firmware in the system is not capable of
+providing the <tt>this</tt> pointer argument.  You must use &quot;normal&quot; functions (non
+class members) or <tt>static</tt> member functions as interrupt service routines.
+<p>One possible solution is to use a <tt>static</tt> member as the interrupt service
+routine and have that function look somewhere to find the instance/member pair
+that should be called on interrupt.  Thus the effect is that a member function
+is invoked on an interrupt, but for technical reasons you need to call an
+intermediate function first.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="mixing-c-and-cpp.html">Previous&nbsp;section</a> |&nbsp;<a href="containers-and-templates.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[30.4]"></a>
+<h3>[30.4] Why am I having trouble taking the address of a C++
+function?</h3>
+<p>This is a corollary to the previous FAQ.
+<p>Long answer: In C++, member functions have an implicit parameter which points
+to the object (the <tt>this</tt> pointer inside the member function).  Normal C
+functions can be thought of as having a different calling convention from
+member functions, so the types of their pointers (pointer-to-member-function <i>vs.</i>
+pointer-to-function) are different and incompatible.  C++ introduces a new type
+of pointer, called a pointer-to-member, which can be invoked only by providing
+an object.
+<p>NOTE: do <em>not</em> attempt to &quot;cast&quot; a pointer-to-member-function into a
+pointer-to-function; the result is undefined and probably disastrous.  E.g., a
+pointer-to-member-function is <em>not</em> required to contain the machine
+address of the appropriate function.  As was said in the last example, if you
+have a pointer to a regular C function, use either a top-level (non-member)
+function, or a <tt>static</tt> (class) member function.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="mixing-c-and-cpp.html">Previous&nbsp;section</a> |&nbsp;<a href="containers-and-templates.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[30.5]"></a>
+<h3>[30.5] How can I avoid syntax errors when calling a member
+function using a pointer-to-member-function?</h3>
+<p>Two things: (1) use a <tt>typedef</tt>, and (2) use a <tt>#define</tt> macro.
+<p>Here's the way you create the <tt>typedef</tt>:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;Fred&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;f(char&nbsp;x,&nbsp;float&nbsp;y);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;g(char&nbsp;x,&nbsp;float&nbsp;y);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;h(char&nbsp;x,&nbsp;float&nbsp;y);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;i(char&nbsp;x,&nbsp;float&nbsp;y);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;<tt>FredMemberFn</tt>&nbsp;points&nbsp;to&nbsp;a&nbsp;member&nbsp;of&nbsp;<tt>Fred</tt>&nbsp;that&nbsp;takes&nbsp;<tt>(char,float)</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;typedef&nbsp;&nbsp;int&nbsp;(Fred::*FredMemberFn)(char&nbsp;x,&nbsp;float&nbsp;y);
+</code>
+<p>Here's the way you create the <tt>#define</tt> macro (<a href="inline-functions.html#[9.3]">normally I dislike
+<tt>#define</tt> macros<!--rawtext:[9.3]:rawtext--></a>, but this is one of those rare cases
+where they actually improve the readability and writability of your code):
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;#define&nbsp;callMemberFunction(object,ptrToMember)&nbsp;&nbsp;((object).*(ptrToMember))
+</code>
+<p>Here's how you use these features:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;userCode(Fred&amp;&nbsp;fred,&nbsp;FredMemberFn&nbsp;memFn)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;callMemberFunction(fred,memFn)('x',&nbsp;3.14);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Would&nbsp;normally&nbsp;be:&nbsp;<tt>(fred.*memFn)('x',&nbsp;3.14);</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p>I <em>strongly</em> recommend these features.  In the real world, member
+function invocations are a <em>lot</em> more complex than the simple example
+just given, and the difference in readability and writability is significant.
+<a href="news:comp.lang.c++"><tt>comp.lang.c++</tt></a> has had to endure hundreds and hundreds of
+postings from confused programmers who couldn't quite get the syntax right.
+Almost all these errors would have vanished had they used these features.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="mixing-c-and-cpp.html">Previous&nbsp;section</a> |&nbsp;<a href="containers-and-templates.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[30.6]"></a>
+<h3>[30.6] How do I create and use an array of pointers to member
+functions?</h3>
+<p>Use the usual <a href="pointers-to-members.html#[30.5]"><tt>typedef</tt> and <tt>#define</tt> macro<!--rawtext:[30.5]:rawtext--></a>
+and you're 90% done.
+<p>First, use a <tt>typedef</tt>:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;Fred&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;f(char&nbsp;x,&nbsp;float&nbsp;y);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;g(char&nbsp;x,&nbsp;float&nbsp;y);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;h(char&nbsp;x,&nbsp;float&nbsp;y);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;i(char&nbsp;x,&nbsp;float&nbsp;y);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;<tt>FredMemberFn</tt>&nbsp;points&nbsp;to&nbsp;a&nbsp;member&nbsp;of&nbsp;<tt>Fred</tt>&nbsp;that&nbsp;takes&nbsp;<tt>(char,float)</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;typedef&nbsp;&nbsp;int&nbsp;(Fred::*FredMemberFn)(char&nbsp;x,&nbsp;float&nbsp;y);
+</code>
+<p>That makes the array of pointers-to-member-functions straightforward:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;FredMemberFn&nbsp;a[4]&nbsp;=&nbsp;{&nbsp;&amp;Fred::f,&nbsp;&amp;Fred::g,&nbsp;&amp;Fred::h,&nbsp;&amp;Fred::i&nbsp;};
+</code>
+<p>Second, use the <tt>callMemberFunction</tt> macro:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;#define&nbsp;callMemberFunction(object,ptrToMember)&nbsp;&nbsp;((object).*(ptrToMember))
+</code>
+<p>That makes calling one of the member functions on object &quot;fred&quot;
+straightforward:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;userCode(Fred&amp;&nbsp;fred,&nbsp;int&nbsp;memberFunctionNum)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Assume&nbsp;<tt>memberFunctionNum</tt>&nbsp;is&nbsp;between&nbsp;0&nbsp;and&nbsp;3&nbsp;inclusive:</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;callMemberFunction(fred,&nbsp;a[memberFunctionNum])&nbsp;('x',&nbsp;3.14);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="mixing-c-and-cpp.html">Previous&nbsp;section</a> |&nbsp;<a href="containers-and-templates.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<a name="bottom"></a>
+<a href="mailto:cline@parashift.com"><img src="mbox.gif" border=2 height=26 width=89>&nbsp;E-mail the author</a><br>
+[&nbsp;<a href="index.html"><em>C++ FAQ Lite</em></a>
+|&nbsp;<a href="index.html#table-of-contents">Table&nbsp;of&nbsp;contents</a>
+|&nbsp;<a href="subject-index.html">Subject&nbsp;index</a>
+|&nbsp;<a href="copy-permissions.html#[1.1]">About&nbsp;the&nbsp;author</a>
+|&nbsp;<a href="copy-permissions.html#[1.2]">&copy;</a>
+|&nbsp;<a href="on-line-availability.html#[2.2]">Download&nbsp;your&nbsp;own&nbsp;copy</a>&nbsp;]<br>
+<small>Revised Sep 8, 1997</small>
+</body>
+</html>

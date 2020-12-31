@@ -1,0 +1,20 @@
+# formatted
+@val = (
+{
+'English' => 'quickly',
+'French_note#vite;;French' => 'Note that <i>vite</i> is both an adjective and an adverb (i.e., <i>vite</i> means <i>rapid</i> <b>and</b> <i>rapidly</i>.',
+'French' => 'vite',
+'German' => 'schnell',
+'Italian' => 'rapidamente',
+'Spanish' => 'r/apidamente',
+'id' => 0,
+},
+{
+'English' => 'slowly',
+'French' => 'lentement',
+'German' => 'langsam',
+'Italian' => 'lentamente',
+'Spanish' => 'lentamente',
+'id' => 1,
+},
+);

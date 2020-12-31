@@ -1,0 +1,158 @@
+<html>
+<head>
+<title>[35] Miscellaneous environmental issues, C++ FAQ Lite, Marshall Cline</title>
+<link rev=made href="mailto:cline@parashift.com">
+</head>
+<body vlink="#551a8b" text="#000000" bgcolor="#c1c1c1" alink="#ff0000" link="#0000ee">
+<a name="top"></a>
+<h1>[35] Miscellaneous environmental issues<br>
+<small><small>(Part of <a href="index.html"><em>C++ FAQ Lite</em></a>, <a href="copy-permissions.html#[1.2]">Copyright&nbsp;&copy; 1991-96</a>, <a href="http://www.cerfnet.com/~mpcline/">Marshall Cline</a>, <a href="mailto:cline@parashift.com">cline@parashift.com</a>)</small></small></h1>
+<hr width="100%" >
+<h3>FAQs in section [35]:</h3>
+<ul>
+<li><a href="misc-environmental-issues.html#[35.1]">[35.1] Is there a TeX or LaTeX macro that fixes the spacing on
+&quot;C++&quot;?</a></li>
+<li><a href="misc-environmental-issues.html#[35.2]">[35.2] Are there any pretty-printers that reformat C++ source
+code?</a> <img src="updated.gif" alt="UPDATED!" border=0></li>
+<li><a href="misc-environmental-issues.html#[35.3]">[35.3] Is there a C++-mode for GNU emacs?  If so, where can I
+get it?</a></li>
+<li><a href="misc-environmental-issues.html#[35.4]">[35.4] Where can I get OS-specific questions answered (e.g.,
+BC++, DOS, Windows, etc)?</a> <img src="updated.gif" alt="UPDATED!" border=0></li>
+<li><a href="misc-environmental-issues.html#[35.5]">[35.5] Why does my DOS C++ program says &quot;Sorry: floating
+point code not linked&quot;?</a></li>
+<li><a href="misc-environmental-issues.html#[35.6]">[35.6] Why does my BC++ Windows app crash when I'm not running the
+BC45 IDE?</a></li>
+</ul>
+<p><hr width="100%" >
+<p><a name="[35.1]"></a>
+<h3>[35.1] Is there a TeX or LaTeX macro that fixes the spacing on
+&quot;C++&quot;?</h3>
+<p>Yes, here are three (the first prevents line breaks between the <tt>C</tt> and &quot;++&quot;):
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;\def\CC{{C\nolinebreak[4]\hspace{-.05em}\raisebox{.4ex}{\tiny\bf&nbsp;++}}}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;\def\CC{C\raise.22ex\hbox{{\footnotesize&nbsp;+}}\raise.22ex\hbox{\footnotesize&nbsp;+}}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;\def\CC{{C\hspace{-.05em}\raisebox{.4ex}{\tiny\bf&nbsp;++}}}
+</code>
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="misc-technical-issues.html">Previous&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[35.2]"></a>
+<h3>[35.2] Are there any pretty-printers that reformat C++ source
+code? <img src="updated.gif" alt="UPDATED!" border=0></h3>
+<small><em>[Recently added informatil about <tt>tgrind</tt> (on 9/97).  <a href="misc-environmental-issues.html#[35.4]">Click here to go to the next FAQ in the &quot;chain&quot; of recent changes<!--rawtext:[35.4]:rawtext--></a>.]</em></small>
+<p>In alphabetical order:
+<ul>
+<li>C++2LaTeX is a LaTeX pretty printer.  It is available via ftp from
+<a href="ftp://ftp.germany.eu.net/pub/packages/TeX/support/pretty/C++2LaTeX-3.02.tar.gz"><tt>ftp://ftp.germany.eu.net/pub/packages/TeX/support/pretty/C++2LaTeX-3.02.tar.gz</tt></a></li>
+<li>C-Clearly by V Communications, Inc. is a Windows program that comes
+with standard formatting templates and also allows you to customize your own.
+<a href="http://www.v-com.com/"><tt>http://www.v-com.com/</tt></a></li>
+<li>GNU <tt>indent</tt> program may help.  It's somewhere on
+<a href="ftp://www.cygnus.com"><tt>ftp://www.cygnus.com</tt></a> <em>[Note: If anyone has a better URL, please
+let me know (<a href="mailto:cline@parashift.com">cline@parashift.com</a>).]</em></li>
+<li><tt>tgrind</tt> is a Unix based pretty printer.  It usually comes with the
+public distribution of TeX and LaTeX in the directory
+<tt>&quot;...tex82/contrib/van/tgrind&quot;</tt>.  A more up-to-date version of tgrind by
+Jerry Leichter can be found on: <a href="ftp://venus.ycc.yale.edu/pub"><tt>ftp://venus.ycc.yale.edu/pub</tt></a> in
+[.TGRIND].  <em>[Note: If anyone has an updated URL for tgrind, please let me
+know (<a href="mailto:cline@parashift.com">cline@parashift.com</a>).]</em></li>
+</ul>
+<p>Finally, you might consider <tt>lgrind</tt> which is another C++ to LaTeX
+translator (<a href="ftp://ftp.tex.ac.uk/pub/archive/README.mirrors">check for
+the closest mirror site of the ctan archive</a>).  The following is a
+grind definition for C++ (but this one doesn't recognize some new keywords such
+as <tt>bool</tt> or <tt>wchar_t</tt>, and it doesn't recognize a file ending with
+<tt>.cpp</tt> as C++):
+<p><!--BEGIN_REMOVE_FROM_RAW_TEXT-->
+<tt><blockquote><pre>
+C++|c++|CC:\
+        :pb=\p\d?\(:cf:np=\)\d?;:bb={:be=}:\
+        :cb=/*:ce=*/:ab=//:ae=$:sb=":se=\e":lb=':\
+        :zb=@:ze=@:tb=%%:te=%%:mb=%\$:me=\$%:vb=%\|:ve=\|%:\
+        :le=\e':tl:id=_~\::\
+        :kw=asm auto break case cdecl char continue default do double else\
+        enum extern far float for fortran goto huge if int interrupt long\
+        near pascal register return short signed sizeof static struct\
+        switch typedef union unsigned while void\
+        #define #else #endif #if #ifdef #ifndef #include #undef # define\
+        endif ifdef ifndef include undef defined #pragma\
+        class const delete friend inline new operator overload private\
+        protected public template this virtual:
+</pre></blockquote></tt>
+<!--END_REMOVE_FROM_RAW_TEXT-->
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="misc-technical-issues.html">Previous&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[35.3]"></a>
+<h3>[35.3] Is there a C++-mode for GNU emacs?  If so, where can I
+get it?</h3>
+<p>Yes, there is a C++-mode for GNU emacs.
+<p>The latest and greatest version of C++-mode (and C-mode) is implemented in the
+file <tt>cc-mode.el</tt>.  It is an extension of Detlef and Clamen's version.  A
+version is included with emacs.  Newer version are available from the elisp
+archives.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="misc-technical-issues.html">Previous&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[35.4]"></a>
+<h3>[35.4] Where can I get OS-specific questions answered (e.g.,
+BC++, DOS, Windows, etc)? <img src="updated.gif" alt="UPDATED!" border=0></h3>
+<small><em>[Recently added Borland C++ URLs thanks to <a href="mailto:simon@isy.liu.se">Simon Edlund</a> (on 1/97).  <a href="index.html#chain-of-changed-faqs">Click here to go back to the beginning of the &quot;chain&quot; of recent changes</a>.]</em></small>
+<p>See one of the following:
+<ul>
+<li>MS-DOS issues: <a href="news:comp.os.msdos.programmer"><tt>comp.os.msdos.programmer</tt></a></li>
+<li>MS-Windows issues:
+<a href="news:comp.windows.ms.programmer"><tt>comp.windows.ms.programmer</tt></a></li>
+<li>Unix issues: <a href="news:comp.unix.programmer"><tt>comp.unix.programmer</tt></a></li>
+<li>Borland C++ issues (e.g., OWL, BC++ compiler bugs, general C++
+concepts, windows programming):
+<ul>
+<li>Using your Web browser:
+<a href="http://www.cs.rpi.edu/~wiseb/owl-list/"><tt>http://www.cs.rpi.edu/~wiseb/owl-list/</tt></a></li>
+<li>To get on the mailing list: send an e-mail message with the word
+&quot;SUBSCRIBE&quot; in the <tt>Subject:</tt> line to
+<a href="mailto:majordomo@netlab.cs.rpi.edu"><tt>majordomo@netlab.cs.rpi.edu</tt></a></li>
+<li>To get the FAQ:
+<a href="ftp://ftp.netlab.cs.rpi.edu/pub/lists/owl-list-faq/drafts/owl_faq.hlp"><tt>ftp://ftp.netlab.cs.rpi.edu/pub/lists/owl-list-faq/drafts/owl_faq.hlp</tt></a></li>
+</ul>
+</li>
+</ul>
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="misc-technical-issues.html">Previous&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[35.5]"></a>
+<h3>[35.5] Why does my DOS C++ program says &quot;Sorry: floating
+point code not linked&quot;?</h3>
+<p>The compiler attempts to save space in the executable by not including the
+float-to-string format conversion routines unless they are necessary, but
+sometimes it guesses wrong, and gives you the above error message.  You can fix
+this by (1) using <tt>&lt;iostream.h&gt;</tt> instead of <tt>&lt;stdio.h&gt;</tt>, or (2) by including
+the following function somewhere in your compilation (but don't call it!):
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;void&nbsp;dummyfloat(float&nbsp;*x)&nbsp;{&nbsp;float&nbsp;y;&nbsp;dummyfloat(&amp;y);&nbsp;}
+</code>
+<p>See FAQ on stream I/O for more reasons to use <tt>&lt;iostream.h&gt;</tt> <i>vs.</i> <tt>&lt;stdio.h&gt;</tt>.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="misc-technical-issues.html">Previous&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[35.6]"></a>
+<h3>[35.6] Why does my BC++ Windows app crash when I'm not running the
+BC45 IDE?</h3>
+<p>If you're using BC++ for a Windows app, and it works OK as long as you have the
+BC45 IDE running, but when the BC45 IDE is shut down you get an exception
+during the creation of a window, then add the following line of code to the
+<tt>InitMainWindow()</tt> member function of your application
+(<tt>YourApp::InitMainWindow()</tt>):
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;EnableBWCC(TRUE);
+</code>
+<p>
+<hr width="100%" >
+<a name="bottom"></a>
+<a href="mailto:cline@parashift.com"><img src="mbox.gif" border=2 height=26 width=89>&nbsp;E-mail the author</a><br>
+[&nbsp;<a href="index.html"><em>C++ FAQ Lite</em></a>
+|&nbsp;<a href="index.html#table-of-contents">Table&nbsp;of&nbsp;contents</a>
+|&nbsp;<a href="subject-index.html">Subject&nbsp;index</a>
+|&nbsp;<a href="copy-permissions.html#[1.1]">About&nbsp;the&nbsp;author</a>
+|&nbsp;<a href="copy-permissions.html#[1.2]">&copy;</a>
+|&nbsp;<a href="on-line-availability.html#[2.2]">Download&nbsp;your&nbsp;own&nbsp;copy</a>&nbsp;]<br>
+<small>Revised Sep 8, 1997</small>
+</body>
+</html>

@@ -1,0 +1,24 @@
+bx /cygdrive/c/Users/nelsons/Dropbox/teacher/bin/teacher.test
+
++ export 'PATH=/cygdrive/c/Users/nelsons/Dropbox/teacher/bin:/cygdrive/c/Users/nelsons/downloads/jruby-1.5.3/bin:/cygdrive/c/Users/nelsons/Dropbox/python/site_cp/scripts:/cygdrive/c/PROGRA~1/Oracle/VIRTUA~1:/cygdrive/c/Users/nelsons/Dropbox/bin/win64:/cygdrive/c/Users/nelsons/Dropbox/bin/win:/cygdrive/c/Users/nelsons/Dropbox/bin/perl:/cygdrive/c/Users/nelsons/Dropbox/bin:/cygdrive/c/Users/nelsons/Dropbox/downloads/apache-maven-3.0.4/bin:/cygdrive/c/Python27:/cygdrive/c/Python27/Scripts:/cygdrive/c/Java/jdk1.7/bin:/usr/local/bin:/cygdrive/c/Program Files/Mozilla Firefox:/BIN:/cygdrive/c/windows/system32:/cygdrive/c/windows:/usr/bin:/usr/local/bin:/usr/sbin:/cygdrive/c/bin:/usr/X11R6/bin:/usr/X11R6/lib:/cygdrive/c/Users/nelsons/Dropbox/bin/ruby:/cygdrive/c/Program Files/Perforce:/cygdrive/c/windows/System32/WindowsPowerShell/v1.0:/cygdrive/c/HashiCorp/Vagrant/bin:/cygdrive/c/Users/nelsons/Dropbox/python/site_cp/scripts/test:/cygdrive/c/Users/nelsons/Dropbox/bin/backstop:/cygdrive/c/Users/nelsons/Dropbox/cloud/ec2-api-tools-1.6.7.3/bin:/bin:/cygdrive/c/Users/nelsons/Dropbox/bin/backstop'
++ PATH='/cygdrive/c/Users/nelsons/Dropbox/teacher/bin:/cygdrive/c/Users/nelsons/downloads/jruby-1.5.3/bin:/cygdrive/c/Users/nelsons/Dropbox/python/site_cp/scripts:/cygdrive/c/PROGRA~1/Oracle/VIRTUA~1:/cygdrive/c/Users/nelsons/Dropbox/bin/win64:/cygdrive/c/Users/nelsons/Dropbox/bin/win:/cygdrive/c/Users/nelsons/Dropbox/bin/perl:/cygdrive/c/Users/nelsons/Dropbox/bin:/cygdrive/c/Users/nelsons/Dropbox/downloads/apache-maven-3.0.4/bin:/cygdrive/c/Python27:/cygdrive/c/Python27/Scripts:/cygdrive/c/Java/jdk1.7/bin:/usr/local/bin:/cygdrive/c/Program Files/Mozilla Firefox:/BIN:/cygdrive/c/windows/system32:/cygdrive/c/windows:/usr/bin:/usr/local/bin:/usr/sbin:/cygdrive/c/bin:/usr/X11R6/bin:/usr/X11R6/lib:/cygdrive/c/Users/nelsons/Dropbox/bin/ruby:/cygdrive/c/Program Files/Perforce:/cygdrive/c/windows/System32/WindowsPowerShell/v1.0:/cygdrive/c/HashiCorp/Vagrant/bin:/cygdrive/c/Users/nelsons/Dropbox/python/site_cp/scripts/test:/cygdrive/c/Users/nelsons/Dropbox/bin/backstop:/cygdrive/c/Users/nelsons/Dropbox/cloud/ec2-api-tools-1.6.7.3/bin:/bin:/cygdrive/c/Users/nelsons/Dropbox/bin/backstop'
++ t=/cygdrive/c/Users/nelsons/tmp/teacher.test
++ cd /cygdrive/c/Users/nelsons/Dropbox/adyn/cgi-bin/data
++ assert.grep.sh cgi_mostCommonVerb ''\''keys'\'' =>' 'cgi_mostCommonVerb should have a keys setting'
+OK cgi_mostCommonVerb should have a keys setting
++ assert.no_grep.sh cgi_mostCommonVerb ''\''keys'\'' => '\'''\''' 'cgi_mostCommonVerb keys setting should not be empty'
+OK cgi_mostCommonVerb keys setting should not be empty
++ Wt 20 50
++ exerciseSetTargetSize=20
++ reviewPercentage=50
++ web_get 'http://127.0.0.1:81/cgi-bin/choose.cgi?whichPanel=choose.htm&exerciseSetTargetSize=20&promptLang=Spanish&lang_French=French&lang_German=German&lang_Italian=Italian&lang_Spanish=Spanish&exerciseType=verb_common&reviewPercentage=50&tense=present&userID=t3'
++ cat /cygdrive/c/Users/nelsons/tmp/teacher.test.20.50
++ teacher.filter.se_calls
++ assert.wc-l 20 't3 requested 20 exercises, so we should get 20'
+FAILED t3 requested 20 exercises, so we should get 20 wc -l /cygdrive/c/Users/nelsons/tmp/assert.wc-l.3548, expected 20 but saw 0
++ cat /cygdrive/c/Users/nelsons/tmp/teacher.test.20.50
++ teacher.filter.se_calls.rvw
++ assert.wc-l 10 't3 requested 20 exercises w/ 50% rvw, so there should be 10 rvw exercises'
+FAILED t3 requested 20 exercises w/ 50% rvw, so there should be 10 rvw exercises wc -l /cygdrive/c/Users/nelsons/tmp/assert.wc-l.8480, expected 10 but saw 0
++ exit
+14:56:15 nsproul NSPROUL-US 504$ 

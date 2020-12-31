@@ -1,0 +1,21 @@
+# formatted
+@val = (
+{
+'English' => 'something stupid',
+'French' => '{quelque chose>s> de stupide}',
+'French_note#de;;French' => '<i>de</i> is required when modifying <i>quelque chose</i> (<i>something</i>) with an adjective.',
+'German' => 'etwas Dummes',
+'German_note#Dummes;;German' => 'adj_after_indef_pron',
+'Italian' => 'qualcosa di stupido',
+'Spanish' => 'algo est/upido',
+'id' => 0,
+},
+{
+'English' => 'something',
+'French' => 'quelque chose',
+'German' => 'etwas',
+'Italian' => 'qualcosa',
+'Spanish' => 'algo',
+'id' => 1,
+},
+);

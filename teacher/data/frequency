@@ -1,0 +1,26 @@
+@val = (
+{
+'English' => 'sometimes',
+'French' => 'parfois',
+'German' => 'manchmal',
+'Italian' => 'a {volta>p>}',
+'Spanish' => 'a veces',
+'id' => 0,
+},
+{
+'English' => 'often',
+'French' => 'souvent',
+'German' => 'oft',
+'Italian' => 'spesso',
+'Spanish' => 'a menudo',
+'id' => 1,
+},
+{
+'English' => 'rarely',
+'French' => 'rarement',
+'German' => 'selten',
+'Italian' => 'raramente',
+'Spanish' => 'raramente',
+'id' => 2,
+},
+);

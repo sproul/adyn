@@ -1,0 +1,54 @@
+thoughts about the problem of tracking and controlling resource consumption across different resource providers (e.g., OVM, VirtualBox, VMW, etc.).
+
+
+
+We should
+
+
+
+1.) Use "points" to measure consumption of various things
+
+
+
+2.) Centralize record-keeping, but decouple this record-keeping from the various resource providers
+
+
+
+Using "points," i.e., an arbitrary unit of value, to measure consumption has several advantages.
+
+
+
+- simple to record, share and combine:
+
+
+
+"Points" make it very simple to distribute resources to people in a transparent way, since point holdings can be represented by integers. Dividing resources between members of a group is as simple as dividing a number. Likewise, aggregating the buying power of a set of people is as easy as summing the points held by the individuals. This makes it easy to award resources at a high level based on business priorities without getting caught up in the low-level details of which particular compute resources will really be used.
+
+
+
+- flexibility of what is being measured
+
+
+
+"Points" facilitate arbitrary complexity of resource pricing. The alternative is to establish quotas in terms of units of hardware or hardware use, and this can lead to awkward situations. For example, limiting users to fixed numbers of VM's doesn't distinguish between categories of VMs which may have very different cost profiles. And even if we are talking about the same type of VM, there may be other properties which make one more valuable than another, such as which data center it lives in or what virtual hardware it is provided with. If we use points, we can establish pricing on any aspect of VMs that is proving to be a precious resource.
+
+
+
+- facilitates comparisons and prioritizing between different resources
+
+
+
+"Points" provide a common denominator between different kinds of resources. If it proves to be the case that there is a shortage of OVM instances in ADC, but lots of VirtualBox instances in UCF, their relative prices can reflect that. As the situation changes, these prices could also be adjusted to express the relative values of these commodities within the organization.
+
+
+
+- decouple central records from resource providers
+
+
+
+Record-keeping must be centralized, but this needn't imply a monolithic system. Since priorities are set at the organizational level, there should only be one reckoning of the points held by each individual employee. But this doesn't mean that the individual resource providers must be combined; there just has to be an interface to the central record-keeper which allows these providers to report consumption (and download quotas).
+
+
+
+This allows different providers to report and query on unrelated schedules. The central recordkeeper will always be aggregating reports in terms of points, but must remember the source of each piece of information to allow updates. This decoupled scheme allows the central recordkeeper to provide reports even if individual resource managers are down or cannot be contacted.
+

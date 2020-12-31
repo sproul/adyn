@@ -1,0 +1,22 @@
+# formatted
+@val = (
+{
+'English' => 'a story',
+'French' => '{un histoire>s>}',
+'German_note#Geschichte;;German' => 'I always confuse this word with <i>das Gedicht</i> (,the <i>poem)</i> and also <i>das</i> Gesicht (,the <i>face)</i>.  It\'s just the kind of error that can make you totally incomprehensible to the average German.',
+'German' => '{ein Geschichte>s>}',
+'Italian' => '{un storia>s>}',
+'Spanish' => '{un cuento>s>}',
+'id' => 0,
+'suppress_Spanish_note#cuento;;Spanish' => 1,
+},
+{
+'English' => 'some stories',
+'French' => '{un histoire>p>}',
+'German' => '{Geschichte>p>}',
+'Italian' => '{un storia>p>}',
+'Spanish' => '{un cuento>p>}',
+'Spanish_note#unos;;Spanish' => 'sp_some_several_particular',
+'id' => 1,
+},
+);

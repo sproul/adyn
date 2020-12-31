@@ -1,0 +1,19 @@
+# formatted
+@val = (
+{
+'English' => 'to go',
+'French' => '{aller}',
+'German' => 'zu gehen',
+'Italian' => '{andare}',
+'Spanish' => 'ir',
+'id' => 0,
+},
+{
+'English' => 'to be loyal',
+'French' => '{#etre} {fid`ele>x>}',
+'German' => 'treu zu sein',
+'Italian' => '{essere} {fedele>x>}',
+'Spanish' => 'ser {leal>x>}',
+'id' => 1,
+},
+);

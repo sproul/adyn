@@ -1,0 +1,163 @@
+sh -x ./xlate.sh
+07:07:13 x lt 501$ + :
++ Xlate xlate_input/things_to_put put
++ inputFile=xlate_input/things_to_put
++ xlateCapitalizeGerman=put
++ verbToAddTo=
++ args=
+++ echo xlate_input/things_to_put
+++ sed -e 's;xlate_input/;;'
++ dataFile=things_to_put
++ perl -w ./tx.pl -xlate xlate_input/things_to_put -xlatePath things_to_put -xlateCapitalizeGerman put
+TIME: 07.07: start
+teacher::Init()
+Settings::load could not load teacher.ini
+Settings::load could not load teacher.old
+leaving teacher::Init()
+TIME: 07.07: post init
+teacher.pm saw goog.xlate output les enfants dans la voiture...
+teacher.pm saw goog.xlate output les jouets dans la bo^ite...
+teacher.pm saw goog.xlate output les livres sur l'/etag`ere...
+teacher.pm saw goog.xlate output le chien dans le sous-sol...
+teacher.pm saw goog.xlate output le lion dans une cage...
+teacher.pm saw goog.xlate output le manteau dans le placard...
+teacher.pm saw goog.xlate output die Kinder im Auto...
+teacher.pm saw goog.xlate output das Spielzeug in die Box...
+teacher.pm saw goog.xlate output die B:ucher auf dem Regal...
+teacher.pm saw goog.xlate output der Hund im Keller...
+teacher.pm saw goog.xlate output der L:owe in einem K:afig...
+teacher.pm saw goog.xlate output der Mantel in den Schrank...
+teacher.pm saw goog.xlate output los ni~nos en el coche...
+teacher.pm saw goog.xlate output los juguetes en la caja...
+teacher.pm saw goog.xlate output los libros en el estante...
+teacher.pm saw goog.xlate output el perro en el s/otano...
+teacher.pm saw goog.xlate output el le/on en una jaula...
+teacher.pm saw goog.xlate output el abrigo en el armario...
+teacher.pm saw goog.xlate output i bambini in macchina...
+teacher.pm saw goog.xlate output i giocattoli nella scatola...
+teacher.pm saw goog.xlate output i libri sullo scaffale...
+teacher.pm saw goog.xlate output il cane nel seminterrato...
+teacher.pm saw goog.xlate output il leone in una gabbia...
+teacher.pm saw goog.xlate output il cappotto nell'armadio...
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>langToVectorOfText: 
+%h = (
+       'English' => [
+                      'the kids in the car',
+                      'the toys in the box',
+                      'the books on the shelf',
+                      'the dog in the basement',
+                      'the lion into a cage',
+                      'the coat into the closet'
+                    ],
+       'German' => [
+                     'die Kinder im Auto',
+                     'das Spielzeug in die Box',
+                     'die B:ucher auf dem Regal',
+                     'der Hund im Keller',
+                     'der L:owe in einem K:afig',
+                     'der Mantel in den Schrank'
+                   ],
+       'French' => [
+                     'les enfants dans la voiture',
+                     'les jouets dans la bo^ite',
+                     'les livres sur l\'/etag`ere',
+                     'le chien dans le sous-sol',
+                     'le lion dans une cage',
+                     'le manteau dans le placard'
+                   ],
+       'Italian' => [
+                      'i bambini in macchina',
+                      'i giocattoli nella scatola',
+                      'i libri sullo scaffale',
+                      'il cane nel seminterrato',
+                      'il leone in una gabbia',
+                      'il cappotto nell\'armadio'
+                    ],
+       'Spanish' => [
+                      'los ni~nos en el coche',
+                      'los juguetes en la caja',
+                      'los libros en el estante',
+                      'el perro en el s/otano',
+                      'el le/on en una jaula',
+                      'el abrigo en el armario'
+                    ]
+     );
+EOD================================langToVectorOfText: 
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>exercise: 
+%h = (
+       'English' => 'the kids in the car',
+       'German' => 'die Kinder im Auto',
+       'French' => 'les enfants dans la voiture',
+       'Italian' => 'i bambini in macchina',
+       'Spanish' => 'los ni~nos en el coche'
+     );
+EOD================================exercise: 
+teacher::AddNewlyTranslatedExercise(things_to_put, 0, HASH(0x80461558), put): die Kinder im Auto
+to die Kinder im Auto
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>exercise: 
+%h = (
+       'English' => 'the toys in the box',
+       'German' => 'das Spielzeug in die Box',
+       'French' => 'les jouets dans la bo^ite',
+       'Italian' => 'i giocattoli nella scatola',
+       'Spanish' => 'los juguetes en la caja'
+     );
+EOD================================exercise: 
+teacher::AddNewlyTranslatedExercise(things_to_put, 1, HASH(0x808a0d28), put): das Spielzeug in die Box
+to das Spielzeug in die Box
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>exercise: 
+%h = (
+       'English' => 'the books on the shelf',
+       'German' => 'die B:ucher auf dem Regal',
+       'French' => 'les livres sur l\'/etag`ere',
+       'Italian' => 'i libri sullo scaffale',
+       'Spanish' => 'los libros en el estante'
+     );
+EOD================================exercise: 
+teacher::AddNewlyTranslatedExercise(things_to_put, 2, HASH(0x8089c660), put): die B:ucher auf dem Regal
+to die B:ucher auf dem Regal
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>exercise: 
+%h = (
+       'English' => 'the dog in the basement',
+       'German' => 'der Hund im Keller',
+       'French' => 'le chien dans le sous-sol',
+       'Italian' => 'il cane nel seminterrato',
+       'Spanish' => 'el perro en el s/otano'
+     );
+EOD================================exercise: 
+teacher::AddNewlyTranslatedExercise(things_to_put, 3, HASH(0x8089c5e8), put): der Hund im Keller
+to der Hund im Keller
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>exercise: 
+%h = (
+       'English' => 'the lion into a cage',
+       'German' => 'der L:owe in einem K:afig',
+       'French' => 'le lion dans une cage',
+       'Italian' => 'il leone in una gabbia',
+       'Spanish' => 'el le/on en una jaula'
+     );
+EOD================================exercise: 
+teacher::AddNewlyTranslatedExercise(things_to_put, 4, HASH(0x808a03e0), put): der L:owe in einem K:afig
+to der L:owe in einem K:afig
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>exercise: 
+%h = (
+       'English' => 'the coat into the closet',
+       'German' => 'der Mantel in den Schrank',
+       'French' => 'le manteau dans le placard',
+       'Italian' => 'il cappotto nell\'armadio',
+       'Spanish' => 'el abrigo en el armario'
+     );
+EOD================================exercise: 
+teacher::AddNewlyTranslatedExercise(things_to_put, 5, HASH(0x808a0ad0), put): der Mantel in den Schrank
+to der Mantel in den Schrank
+TIME: 07.07: post xlate
+TIME: 07.07: fixups+
+TIME: 07.07: pre link
+TIME: 07.07: post link
+TIME: 07.07: post rvw
+TIME: 07.07: post save
+TIME: 07.07: post infra
+TIME: 07.07: post propose
+TIME: 07.07: end
++ '[' -n '' ']'
++ exit
+07:07:28 x lt 502$ 

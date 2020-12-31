@@ -1,0 +1,36 @@
+# formatted
+@val = (
+{
+'English' => 'the wedding',
+'French' => '{le noce>p>}',
+'German' => '{der Hochzeit>s>}',
+'Italian' => '{il matrimonio>s>}',
+'Spanish' => '{el nupcia>p>}',
+'id' => 0,
+},
+{
+'English' => 'the coronation',
+'French' => '{le couronnement>s>}',
+'German' => '{der Kr:onung>s>}',
+'Italian' => '{il incoronazione>s>}',
+'Spanish' => '{el coronaci/on>s>}',
+'id' => 1,
+},
+{
+'English' => 'my arrival',
+'French' => '{mon arriv/ee>s>}',
+'German' => '{mein Ankunft>s>}',
+'Italian' => '{il mio arrivo>s>}',
+'Spanish' => '{mi llegada>s>}',
+'id' => 2,
+'suppress_Italian_note#arrivo;;Italian' => 1,
+},
+{
+'English' => 'the departure of the bus',
+'French' => '{le d/epart>s>} {de le autobus>s>}',
+'German' => '{der Abfahrt>s>} {der Bus>sg>}',
+'Italian' => '{il partenza>s>} {da il autobus>s>}',
+'Spanish' => '{el salida>s>} {de el autob/us>s>}',
+'id' => 3,
+},
+);

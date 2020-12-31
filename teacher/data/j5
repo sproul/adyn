@@ -1,0 +1,627 @@
+@val = (
+{
+'A' => 'clone()<br>equals() & hashcode()<br>getClass()<br>finalize()<br>wait() & notify()<br>toString() ',
+'Q' => 'How many methods in Object class? ',
+'id' => 0,
+},
+{
+'A' => 'It uses low order bytes of the result that can fit into the size of the type allowed by the operation. ',
+'Q' => 'How does Java handle integer overflows and underflows? ',
+'id' => 1,
+},
+{
+'A' => 'Numeric promotion is used with both unary and binary bitwise operators. This means that byte, char, and short values are converted to int values before a bitwise operator is applied.<br>If a binary bitwise operator has one long operand, the other operand is converted to a long value.<br>The type of the result of a bitwise operation is the type to which the operands have been promoted. For example:<br>short a = 5;<br>byte b = 10;<br>long c = 15;<br>The type of the result of (a+b) is int, not short or byte. The type of the result of (a+c) or (b+c) is long. ',
+'Q' => 'What is the numeric promotion? ',
+'id' => 2,
+},
+{
+'A' => 'A class does not inherit constructors from any of its superclasses. ',
+'Q' => 'Does a class inherit the constructors of its superclass? ',
+'id' => 3,
+},
+{
+'A' => 'The primitive types are byte, char, short, int, long, float, double, and boolean. ',
+'Q' => 'Name primitive Java types. ',
+'id' => 4,
+},
+{
+'A' => 'Private constructor can be used if you do not want any other class to instanstiate it by using new. The instantiation is done from a static public method, which is used when dealing with the factory method pattern. ',
+'Q' => 'Where and how can you use a private constuctor. ',
+'id' => 5,
+},
+{
+'A' => 'Yes, we can declare a private <br>class as an inner class. For example,<br>&nbsp;class MyPrivate &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;private static class MyKey &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String key = "12345";<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;public static void main(String[] args) &#123;<br>System.out.println(new MyKey().key);//prints 12345<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&#125; ',
+'Q' => 'Can you declare a class as private? ',
+'id' => 6,
+},
+{
+'A' => 'The JVM is guaranteed to treat reads and writes of data of 32 bits or less as atomic.(Some JVM might treat reads and writes of data of 64 bits or less as atomic in future) For long or double variable, programmers should take care in multi-threading environment. Either put these variables in a synchronized method or block, or declare them volatile. ',
+'Q' => 'What is the relationship between synchronized and volatile keyword? ',
+'id' => 7,
+},
+{
+'A' => 'The Collections class has six methods to help out here:<br>1. unmodifiableCollection(Collection c)<br>2. unmodifiableList(List list)<br>3. unmodifiableMap(Map m)<br>4. unmodifiableSet(Set s)<br>5. unmodifiableSortedMap(SortedMap m)<br>6. unmodifiableSortedSet(SortedSet s)<br>If you get an Iterator from one of these unmodifiable collections, when you call remove(), it will throw an UnsupportedOperationException. ',
+'Q' => 'How do you create a read-only collection? ',
+'id' => 8,
+},
+{
+'A' => 'One of options is to use the equals() method of Arrays class.<br>Arrays.equals(a, b);<br>If the array types are different, a compile-time error will happen. ',
+'Q' => 'How to check two arrays to see if contents have the same types and contain the same elements? ',
+'id' => 9,
+},
+{
+'A' => 'There are four different types of inner classes in Java. They are: a)Static member classes , a static member class has access to all static methods of the parent, or top-level, class b) Member classes, the member class is instance specific and has access to any and all methods and members, even the parent\'s this reference c) Local classes, are declared within a block of code and are visible only within that block, just as any other method variable. d) Anonymous classes, is a local class that has no name ',
+'Q' => 'What are the different types of inner classes? ',
+'id' => 10,
+},
+{
+'A' => 'The &gt;&gt; operator carries the sign bit when shifting right. The &gt;&gt;&gt; zero-fills bits that have been shifted out. ',
+'Q' => 'What is the difference between the &gt;&gt; and &gt;&gt;&gt; operators? ',
+'id' => 11,
+},
+{
+'A' => 'don\'t prevent their target from being garbage collected<br>&nbsp;cf <a href=\'http://weblogs.java.net/blog/enicholas/archive/2006/05/understanding_w.html<br>&nbsp\'>http://weblogs.java.net/blog/enicholas/archive/2006/05/understanding_w.html<br>&nbsp</a>;WeakHashMap, other built-in classes which use weak references ',
+'Q' => 'weak references ',
+'id' => 12,
+},
+{
+'A' => 'Java volatile ',
+'Q' => 'Java equiv of C register ',
+'id' => 13,
+},
+{
+'A' => 'The mark-and-sweep algorithm described in Section gif has the unfortunate tendency to fragment the heap. The stop-and-copy algorithm described in Section gif avoids fragmentation at the expense of doubling the size of the heap. This section describes the mark-and-compact approach to garbage collection which eliminates fragmentation without the space penalty of stop-and-copy.<br>&nbsp;The mark-and-compact algorithm consists of two phases: In the first phase, it finds and marks all live objects. The first phase is called the mark phase. In the second phase, the garbage collection algorithm compacts the heap by moving all the live objects into contiguous memory locations. The second phase is called the compaction phase. The algorithm can be expressed as follows:<br>&nbsp;for each root variable r<br>&nbsp;&nbsp;&nbsp;&nbsp;mark (r);<br>compact (); ',
+'Q' => 'C# garbage collection algorithm ',
+'id' => 14,
+},
+{
+'A' => 'System.Text.StringBuilder ',
+'Q' => 'C# equiv of java.lang.StringBuffer ',
+'id' => 15,
+},
+{
+'A' => 'is declared like a C++ dtor: ~MyClass() &#123; ',
+'Q' => 'C# equiv to public void finalize()&#123; ',
+'id' => 16,
+},
+{
+'A' => 'lock(this)&#123; ',
+'Q' => 'C# equiv of synchronized(this)&#123; ',
+'id' => 17,
+},
+{
+'A' => '[MethodImpl(MethodImplOptions.Synchronized)]<br>&nbsp;public void WithdrawAmount(... ',
+'Q' => 'C# equiv of public synchronized void withdrawAmount(... ',
+'id' => 18,
+},
+{
+'A' => 'internal ',
+'Q' => 'C# equiv protected ',
+'id' => 19,
+},
+{
+'A' => 'reflection in C# is done at the assembly level while reflection in Java is done at the class level. ',
+'Q' => 'The primary difference between reflection in Java versus reflection in C# ',
+'id' => 20,
+},
+{
+'A' => 'C# Code<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Type t = typeof(ArrayList);<br>&nbsp;Java Code<br>&nbsp;&nbsp;&nbsp;&nbsp;Class c = java.util.Arraylist.class; /* Must append ".class" to fullname of class */ ',
+'Q' => 'get object\'s type ',
+'id' => 21,
+},
+{
+'A' => 'Java: final<br>&nbsp;C#: const, readonly for refs<br>&nbsp;Final variables can be set either at compile time or run time. In Java, when the final is used on a primitive it makes the value of the primitive immutable while when used on object references it makes the reference constant meaning that the reference can only point to only one object during its lifetime. Final members can be left uninitialized when declared but then must be defined in the constructor.<br>&nbsp;To declare constants in C# the const keyword is used for compile time constants while the readonly keyword is used for runtime constants. The semantics of constant primitives and object references in C# is the same as in Java.<br>&nbsp;Unlike C++, it is not possible to specify an immutable class via language constructs in either C# or Java. Neither is it possible to create a reference through which it\'s impossible to modify a mutable object.<br>&nbsp;C# Code<br>&nbsp;using System; <br>&nbsp;public class ConstantTest&#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* Compile time constants */ <br>&nbsp;&nbsp;&nbsp;&nbsp;const int i1 = 10; //implicitly a static variable <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// code below won\'t compile because of \'static\' keyword<br>&nbsp;&nbsp;&nbsp;&nbsp;// public static const int i2 = 20; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* run time constants */<br>&nbsp;&nbsp;&nbsp;&nbsp;public static readonly uint l1 = (uint) DateTime.Now.Ticks;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* object reference as constant */ <br>&nbsp;&nbsp;&nbsp;&nbsp;readonly Object o = new Object();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* uninitialized readonly variable */ <br>&nbsp;&nbsp;&nbsp;&nbsp;readonly float f; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ConstantTest() &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;// unitialized readonly variable must be initialized in constructor <br>&nbsp;&nbsp;&nbsp;&nbsp;f = 17.21f; <br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;Java Code<br>&nbsp;import java.util.*; <br>&nbsp;public class ConstantTest&#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* Compile time constants */ <br>&nbsp;&nbsp;&nbsp;&nbsp;final int i1 = 10; //instance variable <br>&nbsp;&nbsp;&nbsp;&nbsp;static final int i2 = 20; //class variable <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* run time constants */<br>&nbsp;&nbsp;&nbsp;&nbsp;public static final long l1 = new Date().getTime();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* object reference as constant */ <br>&nbsp;&nbsp;&nbsp;&nbsp;final Vector v = new Vector();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* uninitialized final */ <br>&nbsp;&nbsp;&nbsp;&nbsp;final float f; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ConstantTest() &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;// unitialized final variable must be initialized in constructor <br>&nbsp;&nbsp;&nbsp;&nbsp;f = 17.21f; <br>&nbsp;&nbsp;&nbsp;&nbsp;&#125; ',
+'Q' => 'declare constants in C#, Java ',
+'id' => 22,
+},
+{
+'A' => 'strictfp <br>&nbsp;[disallows intermediate expressions that &gt; Double.MAX_VALUE] ',
+'Q' => 'Java: how can you guarantee consistent floating point behavior ',
+'id' => 23,
+},
+{
+'A' => 'DynaBean<br>&nbsp;[To the maximum degree feasible, other components of the BeanUtils package will recognize such beans and treat them as standard JavaBeans for the purpose of retrieving and setting property values.] ',
+'Q' => 'what is the name of a Java object that supports properties whose names and data types, as well as values, may be dynamically modified? ',
+'id' => 24,
+},
+{
+'A' => '[from <a href=\'http://www-106.ibm.com/developerworks/java/library/j-threads3.html\'>http://www-106.ibm.com/developerworks/java/library/j-threads3.html</a>]<br>&nbsp;public class ThreadLocal &#123; <br>&nbsp;&nbsp;private Map values = Collections.synchronizedMap(new HashMap());<br>&nbsp;&nbsp;&nbsp;public Object get() &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;Thread curThread = Thread.currentThread();<br>&nbsp;&nbsp;&nbsp;&nbsp;Object o = values.get(curThread);<br>&nbsp;&nbsp;&nbsp;&nbsp;if (o == null && !values.containsKey(curThread)) &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o = initialValue();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;values.put(curThread, o);<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;return o;<br>&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;public void set(Object newValue) &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;values.put(Thread.currentThread(), newValue);<br>&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;public Object initialValue() &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;return null;<br>&nbsp;&nbsp;&#125;<br>&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;This implementation will perform poorly because it requires synchronization on the values map for each get() and set() operation, and if multiple threads are accessing the same ThreadLocal at once, there will be contention. Additionally, this implementation is impractical because using Thread objects as the key in the values map will prevent the Thread from being garbage collected after the thread exits, and the thread-specific values of the ThreadLocal for deceased threads will also not be garbage collected. ',
+'Q' => 'Bad implementation of ThreadLocal? ',
+'id' => 25,
+},
+{
+'A' => 'ThreadLocal (<a href=\'http://www-106.ibm.com/developerworks/java/library/j-threads3.html\'>http://www-106.ibm.com/developerworks/java/library/j-threads3.html</a>) ',
+'Q' => 'per-thread-singleton ',
+'id' => 26,
+},
+{
+'A' => 'is an optional method that lets you set the initial value of the variable if it has not yet been used in this thread; it allows for a form of lazy initialization ',
+'Q' => 'ThreadLocal.initialValue() method ',
+'id' => 27,
+},
+{
+'A' => 'public class ConnectionDispenser &#123; <br>&nbsp;private static class ThreadLocalConnection extends ThreadLocal &#123;<br>&nbsp;&nbsp;&nbsp;public Object initialValue() &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return DriverManager.getConnection(ConfigurationSingleton.getDbUrl());<br>&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&#125;<br>&nbsp;&nbsp;private ThreadLocalConnection conn = new ThreadLocalConnection();<br>&nbsp;&nbsp;public static Connection getConnection() &#123;<br>&nbsp;&nbsp;&nbsp;return (Connection) conn.get();<br>&nbsp;&#125;<br>&#125; ',
+'Q' => 'Storing a JDBC Connection in a per-thread Singleton ',
+'id' => 28,
+},
+{
+'A' => 'public class DebugLogger &#123;<br>&nbsp;private static class ThreadLocalList extends ThreadLocal &#123;<br>&nbsp;&nbsp;&nbsp;public Object initialValue() &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return new ArrayList();<br>&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;public List getList() &#123; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return (List) super.get(); <br>&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&#125;<br>&nbsp;&nbsp;private ThreadLocalList list = new ThreadLocalList();<br>&nbsp;private static String[] stringArray = new String[0];<br>&nbsp;&nbsp;public void clear() &#123;<br>&nbsp;&nbsp;&nbsp;list.getList().clear();<br>&nbsp;&#125;<br>&nbsp;&nbsp;public void put(String text) &#123;<br>&nbsp;&nbsp;&nbsp;list.getList().add(text);<br>&nbsp;&#125;<br>&nbsp;&nbsp;public String[] get() &#123;<br>&nbsp;&nbsp;&nbsp;return list.getList().toArray(stringArray);<br>&nbsp;&#125;<br>&#125; ',
+'Q' => 'code to manage a per-thread debugging log ',
+'id' => 29,
+},
+{
+'A' => 'The ThreadLocal class has a relative, InheritableThreadLocal, which functions in a similar manner, but is suitable for an entirely different sort of application. When a thread is created, if it holds values for any InheritableThreadLocal objects, these values are automatically passed on to the child process as well. If a child process calls get() on an InheritableThreadLocal, it sees the same object as the parent would. To preserve thread-safety, you should use InheritableThreadLocal only for immutable objects (objects whose state will not ever be changed once created), because the object is shared between multiple threads. InheritableThreadLocal is useful for passing data from a parent thread to a child thread, such as a user id, or a transaction id, but not for stateful objects like JDBC Connections. ',
+'Q' => 'ThreadLocal\'s less thread-safe cousin, InheritableThreadLocal ',
+'id' => 30,
+},
+{
+'A' => '1.2 was bad. Used WeakHashMap to avoid garbage collection problem, but slow due to sync on accesses.<br>&nbsp;The version of ThreadLocal provided with version 1.3 of the Java platform is substantially better; it does not use any synchronization and so does not present a scalability problem, and it does not use weak references either. Instead, the Thread class was modified to support ThreadLocal by adding an instance variable to Thread that holds a HashMap mapping thread-local variables to their values for the current thread. Because the process of retrieving or setting a thread-local variable does not involve reading or writing data that might be read or written by another thread, you can implement ThreadLocal.get() and set() without any synchronization. Also, because the references to the per-thread values are stored in the owning Thread object, when the Thread gets garbage collected, so can its per-thread values.<br>&nbsp;Unfortunately, even with these improvements, the performance of ThreadLocal under Java 1.3 is still surprisingly slow. My rough benchmarks running the Sun 1.3 JDK on a two-processor Linux system show that a ThreadLocal.get() operation takes about twice as long as an uncontended synchronization.<br>&nbsp;For 1.4, rewritten again; much faster. ',
+'Q' => 'ThreadLocal performance ',
+'id' => 31,
+},
+{
+'A' => 'import net.sf.hibernate.*;<br>import net.sf.hibernate.cfg.*;<br>&nbsp;public class HibernateUtil &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private static Log log = LogFactory.getLog(HibernateUtil.class);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private static final SessionFactory sessionFactory;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;static &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Create the SessionFactory<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sessionFactory = new Configuration().configure().buildSessionFactory();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125; catch (Throwable ex) &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;log.error("Initial SessionFactory creation failed.", ex);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw new ExceptionInInitializerError(ex);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public static final ThreadLocal session = new ThreadLocal();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public static Session currentSession() throws HibernateException &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Session s = (Session) session.get();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Open a new Session, if this Thread has none yet<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (s == null) &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s = sessionFactory.openSession();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;session.set(s);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return s;<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public static void closeSession() throws HibernateException &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Session s = (Session) session.get();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;session.set(null);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (s != null)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s.close();<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&#125; ',
+'Q' => 'hibernate per thread session management code ',
+'id' => 32,
+},
+{
+'A' => 'Session session = HibernateUtil.currentSession();<br>&nbsp;Transaction tx= session.beginTransaction();<br>&nbsp;Cat princess = new Cat();<br>princess.setName("Princess");<br>princess.setSex(\'F\');<br>princess.setWeight(7.4f);<br>&nbsp;session.save(princess);<br>tx.commit();<br>&nbsp;HibernateUtil.closeSession(); ',
+'Q' => 'show xaction management in hibernate ',
+'id' => 33,
+},
+{
+'A' => 'The most flexible way is using the Hibernate Query Language (HQL), which is an easy to learn and powerful object-oriented extension to SQL: <br>&nbsp;[ns: do we really need the xaction management calls?]<br>&nbsp;Transaction tx = session.beginTransaction();<br>&nbsp;Query query = session.createQuery("select c from Cat as c where c.sex = :sex");<br>query.setCharacter("sex", \'F\');<br>for (Iterator it = query.iterate(); it.hasNext();) &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;Cat cat = (Cat) it.next();<br>&nbsp;&nbsp;&nbsp;&nbsp;out.println("Female Cat: " + cat.getName() );<br>&#125;<br>&nbsp;tx.commit(); ',
+'Q' => 'Hibernate has various methods that can be used to retrieve objects from the database. ',
+'id' => 34,
+},
+{
+'A' => 'SessionFactory (net.sf.hibernate.SessionFactory) ',
+'Q' => 'What hibernate obj could hold an optional (second-level) cache of data that is reusable between transactions, at a process- or cluster-level? ',
+'id' => 35,
+},
+{
+'A' => 'Configuration cfg = new Configuration()<br>&nbsp;&nbsp;&nbsp;&nbsp;.addClass(org.hibernate.auction.Item.class)<br>&nbsp;&nbsp;&nbsp;&nbsp;.addClass(org.hibernate.auction.Bid.class);<br>&nbsp;SessionFactory sessions = cfg.buildSessionFactory();<br>&nbsp;&nbsp;Then Hibernate will look for mapping files named /org/hibernate/autcion/Item.hbm.xml and /org/hibernate/autcion/Bid.hbm.xml in the classpath. This approach eliminates any hardcoded filenames. ',
+'Q' => 'hibernate dynamic config ',
+'id' => 36,
+},
+{
+'A' => '<ul><li>Hibernate\'s own connection pooling algorithm (which is quite rudimentary)</li><li>tomcat dbcp</li><li>C3P0</li><li>Proxool</li></ul> ',
+'Q' => 'what are Hibernate\'s connection pooling options? ',
+'id' => 37,
+},
+{
+'A' => 'EJB will require JSR 175 (.NET-style metadata), so you will definitely need SDK 1.5. will require JSR 175 (.NET-style metadata), so you will definitely need SDK 1.5. ',
+'Q' => 'EJB3 JDK dependency ',
+'id' => 38,
+},
+{
+'A' => 'major advantage of HibernateInterceptor is that it allows any checked application exception to be thrown within the data access code, while HibernateTemplate is restricted to unchecked exceptions within the callback. Note that one can offen defer the respective checks and throwing of application exceptions to after the callback, though. ',
+'Q' => 'hibernate AOP approach pros and cons ',
+'id' => 39,
+},
+{
+'A' => '[from <a href=\'http://www-106.ibm.com/developerworks/java/library/j-jstl0211.html\'>http://www-106.ibm.com/developerworks/java/library/j-jstl0211.html</a>]<br>&nbsp;11:<br>&nbsp;<table width="100%" cellspacing="0" cellpadding="3" border="1"><tr valign="top"><td>&lt;b xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fo="http://www.w3.org/1999/XSL/Format"&gt;Category</b></td><td>&lt;b xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fo="http://www.w3.org/1999/XSL/Format"&gt;Identifier</b></td><td>&lt;b xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fo="http://www.w3.org/1999/XSL/Format"&gt;Description</b></td></tr><tr valign="top"><td>JSP</td><td><code>pageContext</code></td><td>The <code>PageContext</code> instance corresponding to the processing of the current page</td></tr><tr valign="top"><td rowspan="4">Scopes</td><td><code>pageScope</code></td><td>A <code>Map</code> associating the names and values of page-scoped attributes</td></tr><tr valign="top"><td><code>requestScope</code></td><td>A <code>Map</code> associating the names and values of request-scoped attributes</td></tr><tr valign="top"><td><code>sessionScope</code></td><td>A <code>Map</code> associating the names and values of session-scoped attributes</td></tr><tr valign="top"><td><code>applicationScope</code></td><td>A <code>Map</code> associating the names and values of application-scoped attributes</td></tr><tr valign="top"><td rowspan="2">Request parameters</td><td><code>param</code></td><td>A <code>Map</code> storing the primary values of the request parameters by name</td></tr><tr valign="top"><td><code>paramValues</code></td><td>A <code>Map</code> storing all values of the request parameters as <code>String</code> arrays</td></tr><tr valign="top"><td rowspan="2">Request headers</td><td><code>header</code></td><td>A <code>Map</code> storing the primary values of the request headers by name</td></tr><tr valign="top"><td><code>headerValues</code></td><td>A <code>Map</code> storing all values of the request headers as <code>String</code> arrays</td></tr><tr valign="top"><td>Cookies</td><td><code>cookie</code></td><td>A <code>Map</code> storing the cookies accompanying the request by name</td></tr><tr valign="top"><td>Initialization parameters</td><td><code>initParam</code></td><td>A <code>Map</code> storing the context initialization parameters of the Web application by name</td></tr></table> ',
+'Q' => 'jstl EL knows about some implicit objects ',
+'id' => 40,
+},
+{
+'A' => '9:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<table class="fonts" width="600" cellpadding="0" cellspacing="10"><tr><td width="80">&lt;strong&gt;Object&lt;/strong&gt;</td><td width="200">&lt;strong&gt;Class&lt;/strong&gt;</td><td width="150">&lt;strong&gt;Purpose&lt;/strong&gt;</td></tr><tr><td width="80">application</td><td width="200">javax.servlet.ServletContext</td><td width="150">Refers to the Web application\'s environment in which the JSP is executed.</td></tr><tr><td width="80">config</td><td width="200">javax.servlet.ServletConfig</td><td width="150">The initialization parameters given in the deployment descriptor can be retrieved from this object.</td></tr><tr><td width="80">exception</td><td width="200">java.lang.Throwable</td><td width="150">Available for pages that set the page directive attribute isErrorPage to true. It can be used for exception handling.</td></tr><tr><td width="80">Out</td><td width="200">javax.servlet.jsp.JspWriter</td><td width="150">Refers to the output stream of the JSP page.</td></tr><tr><td width="80">page</td><td width="200">java.lang.Object</td><td width="150">Refers to the current instance of the servlet generated from the JSP page.</td></tr><tr><td width="80">pageContext</td><td width="200">javax.servlet.jsp.PageContext</td><td width="150">Provides certain convenience methods and stores references to the implicit objects.</td></tr><tr><td width="80">request</td><td width="200">Subtype of javax.servlet.ServletRequest</td><td width="150">Refers to the current request passed to the _jspService() method.</td></tr><tr><td width="80">response</td><td width="200">Subtype of javax.servlet.ServletResponse</td><td width="150">Refers to the response sent to the client. It is also passed to the _jspService() method.</td></tr></table> ',
+'Q' => 'JSP implicit objects ',
+'id' => 41,
+},
+{
+'A' => '<table width="100%" cellspacing="0" cellpadding="3" border="1"><tr valign="top"><td>&lt;b xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fo="http://www.w3.org/1999/XSL/Format"&gt;Category</b></td><td>&lt;b xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fo="http://www.w3.org/1999/XSL/Format"&gt;Operators</b></td></tr><tr valign="top"><td>Arithmetic</td><td><code>+</code>, <code>-</code>, <code>*</code>, <code>/</code> (or <code>div</code>), <code>%</code> (or <code>mod</code>)</td></tr><tr valign="top"><td>Relational</td><td><code>==</code> (or <code>eq</code>), <code>!=</code> (or <code>ne</code>), <code>&amp;lt;</code> (or <code>lt</code>), <code>&gt;</code> (or <code>gt</code>), <code>&amp;lt;=</code> (or <code>le</code>), <code>&gt;=</code> (or <code>ge</code>)</td></tr><tr valign="top"><td>Logical</td><td><code>&amp;amp;&amp;amp;</code> (or <code>and</code>), <code>||</code> (or <code>or</code>), <code>!</code> (or <code>not</code>)</td></tr><tr valign="top"><td>Validation</td><td><code>empty</code></td></tr></table> ',
+'Q' => 'EL ops ',
+'id' => 42,
+},
+{
+'A' => 'Actually, there are two taglib directives that correspond to the JSTL core library because in JSTL 1.0 the EL is optional. All four of the JSTL 1.0 custom tag libraries have alternate versions that use JSP expressions rather than the EL for specifying dynamic attribute values. Because these alternate libraries rely on JSP\'s more traditional request-time attribute values, they are referred to as the RT libraries, whereas those using the expression language are referred to as the EL libraries. Developers distinguish between the two versions of each library using alternate taglib directives. The directive for using the RT version of the core library is shown in Listing 8. Given our current focus on the EL, however, it is the first of these directives that is needed.<ul><li>&lt;%@ taglib uri="http://java.sun.com/jstl/core" prefix="c" %&gt;</li><li>&lt;%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c_rt" %&gt;</li></ul> ',
+'Q' => 'RT libraries ',
+'id' => 43,
+},
+{
+'A' => 'c:remove ',
+'Q' => 'eliminate a scoped JSP var created by c:set ',
+'id' => 44,
+},
+{
+'A' => 'c:out ... escapeXml=false ',
+'Q' => 'stop HTML substitution for special characters in c:out ',
+'id' => 45,
+},
+{
+'A' => '&lt;c:set var="timezone" scope=="session"&gt;<br>&nbsp;&nbsp;&lt;c:out value="$&#123;cookie[\'tzPref\'].value&#125;" default=="CST"/&gt;<br>&lt;/c:set&gt; ',
+'Q' => 'c:set to a val from c:out ',
+'id' => 46,
+},
+{
+'A' => '&lt;c:forEach var="x" begin="0" end="10" step="2"&gt; ',
+'Q' => 'c:forEach numeric loop ',
+'id' => 47,
+},
+{
+'A' => 'by means of the LoopTagStatus object<br>&nbsp;<table width="100%" cellspacing="0" cellpadding="3" border="1"><tr valign="top"><td>&lt;b xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fo="http://www.w3.org/1999/XSL/Format"&gt;Property</b></td><td>&lt;b xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fo="http://www.w3.org/1999/XSL/Format"&gt;Getter</b></td><td>&lt;b xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fo="http://www.w3.org/1999/XSL/Format"&gt;Description</b></td></tr><tr valign="top"><td>current</td><td><code>getCurrent()</code></td><td>The item (from the collection) for the current round of iteration</td></tr><tr valign="top"><td>index</td><td><code>getIndex()</code></td><td>The zero-based index for the current round of iteration</td></tr><tr valign="top"><td>count</td><td><code>getCount()</code></td><td>The one-based count for the current round of iteration</td></tr><tr valign="top"><td>first</td><td><code>isFirst()</code></td><td>Flag indicating whether the current round is the first pass through the iteration</td></tr><tr valign="top"><td>last</td><td><code>isLast()</code></td><td>Flag indicating whether the current round is the last pass<br>&nbsp;&nbsp;through the iteration</td></tr><tr valign="top"><td>begin</td><td><code>getBegin()</code></td><td>The value of the <code>begin</code> attribute</td></tr><tr valign="top"><td>end</td><td><code>getEnd()</code></td><td>The value of the <code>end</code> attribute</td></tr><tr valign="top"><td>step</td><td><code>getStep()</code></td><td>The value of the <code>step</code> attribute</td></tr></table> ',
+'Q' => 'in a c:forEach loop, how can I tell the count of the current loop ',
+'id' => 48,
+},
+{
+'A' => '&lt;c:url value="/content/search.jsp"&gt;<br>&nbsp;&lt;c:param name="keyword" value="$&#123;searchTerm&#125;"/&gt;<br>&nbsp;&lt;c:param name="month" value="02/2003"/&gt;<br>&lt;/c:url&gt;<br>&nbsp;-&gt;<br>&nbsp;/blog/content/search.jsp?keyword=foo+bar&month=02%2F2003 ',
+'Q' => 'jstl url: encode parms ',
+'id' => 49,
+},
+{
+'A' => '<ul><li>include: compilation time combo, in app only</li><li>jsp:include: processing time como, in app only</li><li>c:import: processing time como, from anywhere</li></ul> ',
+'Q' => 'contrast include, jsp:include, c:import ',
+'id' => 50,
+},
+{
+'A' => 'Insert the following section to the WEB-INF/web.xml file of your Web application (and adjust it if required):<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;servlet&gt;<br>&nbsp;&nbsp;&lt;servlet-name&gt;freemarker&lt;/servlet-name&gt;<br>&nbsp;&nbsp;&lt;servlet-class&gt;freemarker.ext.servlet.FreemarkerServlet&lt;/servlet-class&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- FreemarkerServlet settings: --&gt;<br>&nbsp;&nbsp;&lt;init-param&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;param-name&gt;TemplatePath&lt;/param-name&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;param-value&gt;/&lt;/param-value&gt;<br>&nbsp;&nbsp;&lt;/init-param&gt;<br>&nbsp;&nbsp;&lt;init-param&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;param-name&gt;NoCache&lt;/param-name&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;param-value&gt;true&lt;/param-value&gt;<br>&nbsp;&nbsp;&lt;/init-param&gt;<br>&nbsp;&nbsp;&lt;init-param&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;param-name&gt;ContentType&lt;/param-name&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;param-value&gt;text/html&lt;/param-value&gt;<br>&nbsp;&nbsp;&lt;/init-param&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- FreeMarker settings: --&gt;<br>&nbsp;&nbsp;&lt;init-param&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;param-name&gt;template_update_delay&lt;/param-name&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;param-value&gt;0&lt;/param-value&gt; &lt;!-- 0 is for development only! Use higher value otherwise. --&gt;<br>&nbsp;&nbsp;&lt;/init-param&gt;<br>&nbsp;&nbsp;&lt;init-param&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;param-name&gt;default_encoding&lt;/param-name&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;param-value&gt;ISO-8859-1&lt;/param-value&gt;<br>&nbsp;&nbsp;&lt;/init-param&gt;<br>&nbsp;&nbsp;&lt;init-param&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;param-name&gt;number_format&lt;/param-name&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;param-value&gt;0.##########&lt;/param-value&gt;<br>&nbsp;&nbsp;&lt;/init-param&gt;<br>&nbsp;&nbsp;&nbsp;&lt;load-on-startup&gt;1&lt;/load-on-startup&gt;<br>&lt;/servlet&gt;<br>&nbsp;&lt;servlet-mapping&gt;<br>&nbsp;&nbsp;&lt;servlet-name&gt;freemarker&lt;/servlet-name&gt;<br>&nbsp;&nbsp;&lt;url-pattern&gt;*.ftl&lt;/url-pattern&gt;<br>&lt;/servlet-mapping&gt; ',
+'Q' => 'freemarker integration into servlet code ',
+'id' => 51,
+},
+{
+'A' => 'FreemarkerServlet also puts 3 hashes into the data-model, by which you can access the attributes of the 3 objects directly. The hash variables are: Request, Session, Application (corresponds to ServletContext). ',
+'Q' => 'freemarker implicit objects ',
+'id' => 52,
+},
+{
+'A' => 'FreeMarker does not rely on the JSP support of the servlet container in which it is run when it uses JSP taglibs since it implements its own lightweight JSP runtime environment. There is only one small detail to pay attention to: to enable the FreeMarker JSP runtime environment to dispatch events to JSP taglibs that register event listeners in their TLD files, you should add this to the WEB-INF/web.xml of your Web application:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;listener&gt;<br>&nbsp;&nbsp;&lt;listener-class&gt;freemarker.ext.jsp.EventForwarding&lt;/listener-class&gt;<br>&lt;/listener&gt; ',
+'Q' => 'freemarker support for JSP ',
+'id' => 53,
+},
+{
+'A' => 'The list directive<br>&nbsp;This is useful when you want to list something. For example if you merge this template with the data model I used earlier to demonstrate sequences:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p>We have these animals:<br><table border=1><tr>&lt;th&gt;Name&lt;th&gt;Price<br>&nbsp;&nbsp;&lt;#list animals as being&gt;<tr><td>$&#123;being.name&#125;<td>$&#123;being.price&#125; Euros<br>&nbsp;&nbsp;&lt;/#list&gt;</table> ',
+'Q' => 'freemarker repetition ',
+'id' => 54,
+},
+{
+'A' => '[<a href=\'http://freemarker.sourceforge.net/docs/dgui_template_exp.html\'>http://freemarker.sourceforge.net/docs/dgui_template_exp.html</a>]<ul><li>* Specify values directly</li><li>o Strings: "Foo" or \'Foo\' or "It\'s &#092;"quoted&#092;"" or r"C:&#092;raw&#092;string"</li><li>o Numbers: 123.45</li><li>o Booleans: true, false</li><li>o Sequences: ["foo", "bar", 123.45], 1..100</li><li>o Hashes: &#123;"name":"green mouse", "price":150&#125;</li><li>* Retrieving variables</li><li>o Top-level variables: user</li><li>o Retrieving data from a hash: user.name, user["name"]</li><li>o Retrieving data from a sequence: products[5]</li><li>o Sequence slice: products[10..19]</li><li>o Special variable: .main</li><li>* String operations</li><li>o Interpolation (or concatenation): "Hello $&#123;user&#125;!" (or "Free" + "Marker")</li><li>o Substrings: name[0..3]</li><li>* Sequence operations</li><li>o Concatenation: users + ["guest"]</li><li>* Hash operations</li><li>o Concatenation: passwords + &#123;"joe":"secret42"&#125;</li><li>* Arithmetical calculations: (x * 1.5 + 10) / 2 - y % 100</li><li>* Comparison: x == y, x != y, x &lt; y, x &gt; y, x &gt;= y, x &lt;= y, x &lt; y, ...etc.</li><li>* Logical operations: !registered && (firstVisit || fromEurope)</li><li>* Built-ins: name?upper_case</li><li>* Method call: repeat("What", 3)</li><li>* Parentheses</li><li>* White-space in expressions</li><li>* Operator precedence</li></ul> ',
+'Q' => 'freemarker expressions ',
+'id' => 55,
+},
+{
+'A' => '$&#123;x?upper_case&#125; ',
+'Q' => 'freemarker: give me upper case of var x ',
+'id' => 56,
+},
+{
+'A' => '$&#123;x?html&#125; ',
+'Q' => 'freemarker: encode var x to display in html (e.g., s/&/&amp;/g) ',
+'id' => 57,
+},
+{
+'A' => '$&#123;1.5&#125; <br>&nbsp;freemarker will do the right thing ',
+'Q' => 'freemarker: print a numeric literal according to the current locale: ',
+'id' => 58,
+},
+{
+'A' => '&lt;#macro greet person color&gt;<br>&nbsp;&nbsp;&lt;font size="+2" color="$&#123;color&#125;"&gt;Hello $&#123;person&#125;!&lt;/font&gt;<br>&lt;/#macro&gt; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and then you can use this macro like:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;@greet person="Fred" color="black"/&gt; ',
+'Q' => 'freemarker macro syntax ',
+'id' => 59,
+},
+{
+'A' => 'Nested content<br>&nbsp;Custom directive can have nested content, similarly as predefined directives like &lt;#if ...&gt;nested content&lt;/#if&gt; can have. For example, this creates a macro that draws borders around its nested content:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;#macro border&gt;<br>&nbsp;&nbsp;<table border=4 cellspacing=0 cellpadding=4><tr><td>&lt;#nested&gt;</tr></td></table>&lt;/#macro&gt; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The &lt;#nested&gt; directive executes the template fragment between the start-tag and end-tags of the directive. So if you do this:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;@border&gt;The bordered text&lt;/@border&gt; ',
+'Q' => 'freemarker: how to you get at the body content between custom tags? ',
+'id' => 60,
+},
+{
+'A' => 'The "rt" tag libraries will accept request-time expressions for most attribute values <br>as in:<br>&nbsp;&lt;c:out value=\'&lt;%= ((Foo)session.getAttribute("foo")).getBar()\'%&gt;/&gt;<br>&nbsp;The tag libraries without the "rt" do not accept Request-time expressions but operate <br>on EL (expression language) -- for example:<br>&nbsp;&lt;c:out value=\'$&#123;sessionScope.foo.bar&#125;\'/&gt;<br>&nbsp;You can use both the "rt" and the non-rt (EL-supporting) tags in your JSP -- just be <br>sure and give them different prefixes in the taglib directives. In the long term, you <br>want to get away from the rt tags - and use EL instead. ',
+'Q' => 'Difference between c.tld and c-rt.tld ',
+'id' => 61,
+},
+{
+'A' => 'bag can contain dupes ',
+'Q' => 'difference between a bag and a set ',
+'id' => 62,
+},
+{
+'A' => 'For a collection with inverse="true" (the standard bidirectional one-to-many relationship idiom, for example) we can add elements to a bag or list without needing to initialize (fetch) the bag elements! This is because Collection.add() or Collection.addAll() must always return true for a bag or List (unlike a Set). This can make the following common code much faster.<br>&nbsp;Parent p = (Parent) sess.load(Parent.class, id);<br>&nbsp;&nbsp;&nbsp;&nbsp;Child c = new Child();<br>&nbsp;&nbsp;&nbsp;&nbsp;c.setParent(p);<br>&nbsp;&nbsp;&nbsp;&nbsp;p.getChildren().add(c); //no need to fetch the collection!<br>&nbsp;&nbsp;&nbsp;&nbsp;sess.flush(); ',
+'Q' => 'hibernate: what is the particular case in which bags (and also lists) are much more performant than sets ',
+'id' => 63,
+},
+{
+'A' => '"Managed C++" -- comes w/ some extensions ',
+'Q' => '.NET C++ ',
+'id' => 64,
+},
+{
+'A' => 'VB.NET ',
+'Q' => 'VBScript replaced by ',
+'id' => 65,
+},
+{
+'A' => 'do not use .NET framework. The similar name is a marketing construct ',
+'Q' => '.NET Enterprise Servers ',
+'id' => 66,
+},
+{
+'A' => 'enterprise service bus<br>&nbsp;ESB, while not fully embraced in all circles, is originally attributed to a report by Stamford, Conn.-based Gartner. The technology uses industry-standard specifications such as SOAP or JMS (Java Message Service) to create loosely coupled architectures based on interfaces and flexible programming requirements. In this paradigm, applications are merely services, not the monolithic, difficult-to-integrate systems of the past. ',
+'Q' => 'ESB ',
+'id' => 67,
+},
+{
+'A' => '<ul><li>Messaging frameworks (such as Mule (<a href=\'http://mule.codehaus.org\'>http://mule.codehaus.org</a>)) provide standardized endpoints for a wide variety of transports, and facilities for transmitting and routing messages synchronously and asynchronously through communication channels. They are flexible building blocks for enterprise class ESBs, but aren¢t complete solutions.</li><li>Group communication facilities (such as JGroups (<a href=\'http://www.jgroups.org\'>http://www.jgroups.org</a>) and the current implementation of the Plumtree Message Bus) use sophisticated unicast, broadcast and multicast network protocols to allow clients to find and communicate with each other with various degrees of reliability. Group communication represents a mechanism for building an ESB with a minimum of formal configuration, but the special network requirements can make them challenging to deploy and difficult to administer.</li><li>JMS and MSMQ (Microsoft Message Queues) are a step up from basic messaging frameworks and group communication facilities, in that they provide explicit support for features like message persistence, true publish-subscribe semantics, transactions and request-reply support. They wrap the underlying technology in a more accessible API.</li><li>"True" commercial ESB solutions (IBM MQSeries, Tibco RendezVous) provide a rich communications infrastructure for reliable asynchronous point-to-point and publish-subscribe messaging, along with integration, deployment and administrative tools.</li><li>Some new hybrid approaches are appearing as well. Several companies are introducing products that use protocols like RSS to deliver event-like information to consuming processes. Central servers pushing RSS feeds down persistent HTTP connections can produce behavior similar to publish-subscribe ESBs -- with far less infrastructure. It¢s an interesting middle ground.</li></ul> ',
+'Q' => 'list some technologies that can legitimately be called Enterprise Service Buses (or be used to implement them) ',
+'id' => 68,
+},
+{
+'A' => 'There are several known use cases for an ESB within the current Plumtree product suite. In three of them, the PMB is already serving a role:<ul><li>Logging: Log messages from multiple portal components are transmitted to via the PMB to collectors (e.g., PTSpy) on remote machines. Different collectors can receive the same messages.</li><li>Event monitoring: In response to actions within the portal, messages are sent over the PMB to a dedicated collector within the Analytics Server. Data extracted from the messages is stored in a database for report generation.</li><li>Distributed caching: The OpenSharedCache implementation is being used within the Martok portal to maintain a distributed cache of session objects within the portal servers. Cache updates are asynchronously communicated to other servers, and a state-transfer facility allows re-population of caches upon startup. The current implementation is functional but not particularly robust. In this case, coherency errors are non-fatal (the worst that happens is that a user loses some local state and must log in again) and could be minimized via frequent cache expiry and semi-pessimistic updating. A related use case comes from Collaboration Server, where JGroups messaging is used to invalidate cache entries.</li><li>Notification service: There are currently a number of mechanisms for sending email from the portal. A single notification service would simplify product designs. An RPC mechanism for invoking such a service would suffice, but an asynchronous message queue would be a perfect fit.</li><li>Security/object cache management: The G7 security management service (and potentially an associated object store) will require local caches of centrally stored information. These caches and related data structures will require greater reliability guarantees than the portal session caches. An ESB supporting reliable messaging would provide the necessary infrastructure. Cooperating components would exchange update messages on a dedicated communication channel.</li><li>Pushing security updates: Within Collab, Content and Workflow, security information needs to be updated whenever it changes in the portal. These portal components must currently poll the portal (or portal database) to detect updates. An ESB would simplify the integration of these components by providing a channel for publishing security updates. This is a case where reliable, persistent (and possibly transactional) messaging is a key requirement.</li><li>Service invocation: Communication between components in an SOA (the current designs for the Hydrogen project represent a good example: <a href=\'http://portal.plumtree.com/portal/server.pt/gateway/PTARGS_32_0_9405_0_-1_47/http\'>http://portal.plumtree.com/portal/server.pt/gateway/PTARGS_32_0_9405_0_-1_47/http</a>;/prodgadget12.plumtree.com/collab/do/document/overview?projID=12583&folderID=148910) could benefit from a low-overhead, high-throughput ESB implementation that includes support for synchronous or half-sync/half-async request-reply strategies. ESBs are largely payload-agnostic, so whether the messages contain SOAP, Hessian, or serialized POJO data isn¢t really important (so long as sender and receiver agree). Formalizing the configuration of the channels connecting the components can help during deployment and management. An ESB will typically provide support for wiretaps and conditional routers that can be spliced into the communication channels to help with debugging and performance analysis.</li></ul> ',
+'Q' => 'Known use cases for an ESB within the Plumtree product suite ',
+'id' => 69,
+},
+{
+'A' => 'The JBI specification is an attempt to provide a standardized architecture for delivering pluggable components for a Service Oriented Architecture. It¢s still relatively new, but it does show how to merge concepts from the Web Services and Message Oriented Middleware (i.e., ESB) spheres.<br>The messaging infrastructure is based on JAX-RPC (SOAP) but provides support for ESB-style asynchronous message channels. Messages pass through what¢s termed a Normalized Message Router which can handle the details of sending the message over the wire, or transferring it directly to an in-process receiver. Communicating components are unaware of nature of the connection between them: the JBI container configuration specifies how the components are wired together. Messages in the system are tagged with properties in a standard (-Y´normalized¡) fashion that allows routing decisions to be made independently of any knowledge of the actual message body another key feature of ESB implementations.<br>The JBI spec also addresses issues surrounding deployment and administration of components within the JBI containers, but it¢s currently pretty sketchy.<br>Finally, the JBI spec includes the notion of a Binding Component. These can act as Service Adapters to talk to existing application APIs outside the JBI environment, or as Message Bridges to translate between JBI Normalized Messages and other wire protocols using WSDL information to guide the transformation. Binding components can act as outgoing or incoming message endpoints.<br>Suffice it to say, this is an interesting standard to examine given the goals of the G7 architecture. Sun has a reference implementation of the JBI 1.0 spec. Given the obvious dependency on an enterprise-quality message bus, it¢s not surprising that Tibco and Iona have announced their support for the standard. ',
+'Q' => 'A nascent standard to watch: JSR-208 Java Business Integration ',
+'id' => 70,
+},
+{
+'A' => 'Java object that supports properties whose names and data types, as well as values, may be dynamically modified. To the maximum degree feasible, other components of the BeanUtils package will recognize such beans and treat them as standard JavaBeans for the purpose of retrieving and setting property values. ',
+'Q' => 'DynaBean ',
+'id' => 71,
+},
+{
+'A' => 'sealed ',
+'Q' => 'C# equiv of java "final" ',
+'id' => 72,
+},
+{
+'A' => 'is<br>&nbsp;also, note "safe" cast: <br>&nbsp;&nbsp;&nbsp;&nbsp;String s = x as String; // if (x is String) s = (String)x; else s = null; ',
+'Q' => 'C# equiv of java "instanceof" ',
+'id' => 73,
+},
+{
+'A' => 'stackalloc ',
+'Q' => 'C# equiv of C "alloca" ',
+'id' => 74,
+},
+{
+'A' => 'fixed<br>&nbsp;only permitted in an unsafe context.<br>&nbsp;The fixed statement sets a pointer to a managed variable and "pins" that variable during the execution of statement. Without fixed, pointers to managed variables would be of little use since garbage collection could relocate the variables unpredictably. (In fact, the C# compiler will not allow you to set a pointer to a managed variable except in a fixed statement.)<br>&nbsp;// assume class Point &#123; public int x, y; &#125;<br>Point pt = new Point(); // pt is a managed variable, subject to g.c.<br>fixed ( int* p = &pt.x )&#123; // must use fixed to get address of pt.x and<br>&nbsp;&nbsp;&nbsp;&nbsp;*p = 1; // pin pt in place while we use the pointer<br>&#125;<br>&nbsp;You can initialize a pointer with the address of an array or a string:<br>&nbsp;fixed (int* p = arr) ... // equivalent to p = &arr[0]<br>fixed (char* p = str) ... // equivalent to p = &str[0] ',
+'Q' => 'C#: prevent relocation of data (e.g., so you can give a pointer reference outside of C# world) ',
+'id' => 75,
+},
+{
+'A' => 'use serialization. N.b., 200-fold pfr penalty in the following code:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// hand-coded deep copy<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;static ArrayList copy2(ArrayList list) &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ArrayList newlist = new ArrayList();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A aobj = (A)list.get(0);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;newlist.add(new A(aobj.getX()));<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return newlist;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// deep copy via serialization<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;static ArrayList copy3(ArrayList list) throws<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exception &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// serialize ArrayList into byte array<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ByteArrayOutputStream baos =<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new ByteArrayOutputStream(100);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ObjectOutputStream oos = new<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ObjectOutputStream(baos);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;oos.writeObject(list);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;byte buf[] = baos.toByteArray();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;oos.close();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// deserialize byte array into ArrayList<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ByteArrayInputStream bais =<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new ByteArrayInputStream(buf);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ObjectInputStream ois = new<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ObjectInputStream(bais);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ArrayList newlist =<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ArrayList)ois.readObject();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ois.close();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return newlist;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125; ',
+'Q' => 'Java: how can you implement a deep copy w/ little programmer maintenance overhead? ',
+'id' => 76,
+},
+{
+'A' => 'it\'s a means of guaranteeing consistent floating point behavior, disallowing intermediate expressions that &gt; Double.MAX_VALUE.<br>&nbsp;Because the expression is FP-strict, the implementation is required to evaluate the whole expression as resulting in positive infinity (which the program prints as "Infinity"). This is true even though the later multiplication by 0.5 produces a final value for the expression of 1.6e+308, which is less than Double.MAX_VALUE.<br>&nbsp;By contrast, if the expression is not FP-strict, an implementation is allowed to use an extended exponent range to represent intermediate results. In the FpDemo3 example, this could keep the expression from overflowing, and produce a final result that is within range. An implementation is not required to do this; it can, in effect, use FP-strict rules everywhere. ',
+'Q' => 'Java strictfp ',
+'id' => 77,
+},
+{
+'A' => 'Transient instance fields are neither saved nor restored by the standard serialisation mechanism. You have to handle restoring them yourself. ',
+'Q' => 'Java: transient ',
+'id' => 78,
+},
+{
+'A' => 'use decimal ',
+'Q' => 'C#: how to avoid rounding errors in fp ',
+'id' => 79,
+},
+{
+'A' => 'Java: <br>non-static nested classes (aka inner classes) and static nested classes<br>&nbsp;In Java and C# it is possible to nest class declarations within each other. In Java there are two kinds of nested classes; non-static nested classes also known as inner classes and static nested classes. A Java inner class can be considered as a one-to-one relationship between the inner class and its enclosing class where for each instance of the enclosing class there exists a corresponding instance of the inner class that has access to the enclosing class\'s instance variables and contains no static methods. On the other hand a Java static nested class is a similar to nesting a class decaration within another where the nested class has access to the static members and methods of the enclosing class.<br>&nbsp;C# has the equivalent of Java\'s static nested classes but has nothing analogous to Java\'s inner classes. The following nested class declarations below are equivalent ',
+'Q' => 'types of Nested classes ',
+'id' => 80,
+},
+{
+'A' => 'any C# instance method can be the basis for a thread, whereas in Java it has to be (subclassed java.lang.Runnable).run<br>&nbsp;Java threads are created by subclassing the java.lang.Thread class and overriding its run() method or by implementing the java.lang.Runnable interface and implementing the run() method. Whereas in C#, one creates a thread by creating a new System.Threading.Thread object and passing it a System.Threading.ThreadStart delegate which is initialized with the method that is to be run as a thread. Thus, in Java a method that shall run in a multithreaded context is designed up front specifically with that in mind. On the other hand, in C# any method can be passed to a ThreadStart object and run in a multithreaded scenario. ',
+'Q' => 'cf Java/C# threading constructs ',
+'id' => 81,
+},
+{
+'A' => 'Unlike C++, C# does not allow the overloading of the following operators; new, ( ), ||, &&, =, or any variations of compound assignments such as +=, -=, etc. However, compound assignment operators will call overloaded operators, for instance, += would call overloaded +. ',
+'Q' => 'cf C#, C++ operator overloading ',
+'id' => 82,
+},
+{
+'A' => 'C# switch statements support the use of string literals<br>C# switch statements do not allow fall-through (i.e., when there\'s no \'break\', just go to the next label clause) unless the label contains no statements ',
+'Q' => 'cf C#, Java switch ',
+'id' => 83,
+},
+{
+'A' => 'yes, but in C#, one cannot jump into a statement block using the goto statement; ',
+'Q' => 'C# support goto? ',
+'id' => 84,
+},
+{
+'A' => 'In Java all methods are virtual methods while in C# is like C++: one must explicitly state which are virtual<br>&nbsp;It is possible to mark methods as final in Java which means that the method cannot be overridden by derived classes. In C# this can be done by not marking the method as virtual. The major difference is that in C#, the class can still define the method but the base class version is the one that will be called if the object is used via a base class reference. Java disallows the derived class from containing a method that has the same signature as the final base class method.<br>C# Code ',
+'Q' => 'cf Java/C# "virtual" functions ',
+'id' => 85,
+},
+{
+'A' => 'Serializable objects in C# are annotated with the [Serializable] attribute. <br>The [NonSerialized] attribute is used to annote members of a C# class that should not be serialized by the runtime. [Such fields are usually calculated or temporary values that have no meaning when saved.]<br>C# provides two formats for serializing classes; XML or binary format; one can also define custom ways to serialize an object by implementing ISerializable<br>&nbsp;In Java, serializable objects are those that implement the Serializable interface while the transient keyword is used to mark members of a Java class as ones not to be serialized. By default Java supports serializing objects to a binary format but does provide a way of overriding the standard ',
+'Q' => 'cf C#/Java serialization ',
+'id' => 86,
+},
+{
+'A' => '<ul><li>Create a Java program that contains the declaration of the native method(s) marked with the native keyword.</li><li>Write a main method that loads the library created in step 6 and uses the native method(s).</li><li>Compile the class containing the declaration of the native method(s) and the main with the javac compiler.</li><li>Use the javah compiler with the -jni compiler option to generate a header file for the native method(s).</li><li>Write the native method in your language of choice (currently C, C++ or assembly).</li><li>Compile the header file and native source file into a shared library (i.e. a .dll on Windows or a .so file on UNIX).</li></ul> ',
+'Q' => 'To create a JNI program one performs the following steps: ',
+'id' => 87,
+},
+{
+'A' => 'To provide total control of releasing resources used by classes, C# provides the System.IDisposable interface which contains the Dispose() method that can be called by users of the class to release resources ',
+'Q' => 'Deterministic Object Cleanup in C#? ',
+'id' => 88,
+},
+{
+'A' => '//delegate base<br>public class HasDelegates<br>&#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// delegate declaration, similar to a function pointer declaration<br>&nbsp;&nbsp;&nbsp;&nbsp;public delegate bool CallbackFunction(string a, int b);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//method that uses the delegate <br>&nbsp;&nbsp;&nbsp;&nbsp;public bool execCallback(CallbackFunction doCallback, string x, int y)<br>&nbsp;&nbsp;&nbsp;&nbsp;&#123; <br>&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine("Executing Callback function...");<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (doCallback == null)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw ArgumentException("Callback can\'t be null!");<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return doCallback(x, y); <br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&#125; ',
+'Q' => 'C# function pointers ',
+'id' => 89,
+},
+{
+'A' => 'To specify stack based classes, one declares them using the keyword struct instead of class. <br>&nbsp;use ,new to create ',
+'Q' => 'automatically use stackalloc for type X ',
+'id' => 90,
+},
+{
+'A' => 'In situations where value types need to be treated as objects, the .NET runtime automatically converts value types to objects by wrapping them within a heap-allocated reference type in a process called boxing. ',
+'Q' => 'boxing ',
+'id' => 91,
+},
+{
+'A' => 'dynamic_cast ',
+'Q' => 'C# as is like C++ ',
+'id' => 92,
+},
+{
+'A' => 'It is possible to create, read-only, write-only or read-write properties depending on if the getter and setter are implemented or not. The example below shows different kinds of properties.<br>&nbsp;C# Code<br>using System; <br>&nbsp;public class User &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public User(string name)&#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.name = name; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private string name; <br>&nbsp;&nbsp;&nbsp;//read-only property for name member variable <br>&nbsp;&nbsp;&nbsp;&nbsp;public string Name&#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;get&#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return name; <br>&nbsp;&nbsp;&nbsp;&nbsp;&#125; <br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private static int minimum_age = 13; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//read-write property for class member, minimum_age<br>&nbsp;&nbsp;&nbsp;&nbsp;public static int MinimumAge&#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;get&#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return minimum_age; <br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set&#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(value &gt; 0 && value &lt; 100)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;minimum_age = value; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine("&#123;0&#125; is an invalid age, so minimum age remains at &#123;1&#125;", value, minimum_age);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public static void Main(string[] args)&#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;User newuser = new User("Bob Hope"); <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;User.MinimumAge = -5; /* prints error to screen since value invalid */ <br>&nbsp;&nbsp;&nbsp;&nbsp;User.MinimumAge = 18; <br>&nbsp;&nbsp;&nbsp;&nbsp;//newuser.Name = "Kevin Nash"; Causes compiler error since Name property is read-only <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine("Minimum Age: " + User.MinimumAge); <br>&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine("Name: &#123;0&#125;", newuser.Name);<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&#125; // User<br>&nbsp;&nbsp;The use of properties as an abstraction away from whether a member access is a method call or not may fall apart if the property throws an exception. When this occurs users of the object must then treat operations that look like member accesses as if they were method calls which can lead to unintuitive looking code. The example below shows code that sets the values for the fields of a Clock class that where the setters throw an exception if the value is invalid. ',
+'Q' => 'C# properties ',
+'id' => 93,
+},
+{
+'A' => 'C# makes the distinction between multidimensional and jagged arrays. A multidimensional array is akin to a multidimensional array in C or C++ that is a contiguous block containing members of the same type. A jagged array is akin to an array in Java which is an array of arrays, meaning that it contains references to other arrays which may contain members of the same type or other arrays depending on how many levels the array has. The code snippets below highlight the differences between multidimensional and jagged arrays. The lack of true multidimensional arrays in Java has made it problematic to use Java in certain aspects of technical computing which has lead to various efforts to improve this position including research efforts by IBM which involved writing their own Array class to get around the shortcomings in Java arrays.<br>&nbsp;The following code snippet emphasizes the differences between using multidimensional arrays and jagged arrays in C#.<br>&nbsp;C# Code<br>using System;<br>&nbsp;&nbsp;public class ArrayTest &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public static void Main(string[] args)&#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int[,] congiuous = &#123; &#123;0, 1&#125;, &#123;2, 3&#125;, &#123;4, 5&#125;, &#123;6, 7&#125; &#125;; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int[][] jagged = new int[4][];<br>&nbsp;&nbsp;&nbsp;&nbsp;jagged[0] = new int[2]&#123;0, 1&#125;;<br>&nbsp;&nbsp;&nbsp;&nbsp;jagged[1] = new int[2]&#123;2, 3&#125;;<br>&nbsp;&nbsp;&nbsp;&nbsp;jagged[2] = new int[2]&#123;4, 5&#125;;<br>&nbsp;&nbsp;&nbsp;&nbsp;jagged[3] = new int[2]&#123;6, 7&#125;; ',
+'Q' => 'cf C#, Java arrays ',
+'id' => 94,
+},
+{
+'A' => '[FlagsAttribute]: is used to specify that an enum should support bitwise operations. This is particularly important for enumerations where the target can have multiple values.<br>&nbsp;C# Code<br>&nbsp;&nbsp;&nbsp;//declaration of bit field enumeration <br>&nbsp;&nbsp;&nbsp;[Flags]<br>&nbsp;&nbsp;&nbsp;enum ProgrammingLanguages&#123; <br>&nbsp;&nbsp;&nbsp;C = 1, <br>&nbsp;&nbsp;&nbsp;Lisp = 2, <br>&nbsp;&nbsp;&nbsp;Basic = 4, <br>&nbsp;&nbsp;&nbsp;All = C | Lisp | Basic<br>&nbsp;&nbsp;&nbsp;&#125; ',
+'Q' => 'C# bit enums ',
+'id' => 95,
+},
+{
+'A' => 'essentially a local class without a name. ',
+'Q' => 'Java anonymous class ',
+'id' => 96,
+},
+{
+'A' => 'only C# has them (for Java, all arrays are potentially jagged):<br>&nbsp;C# Code<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int[,] multi = &#123; &#123;0, 1&#125;, &#123;2, 3&#125;, &#123;4, 5&#125;, &#123;6, 7&#125; &#125;; ',
+'Q' => 'multi dimensional arrays for C#, Java ',
+'id' => 97,
+},
+{
+'A' => 'only C#: ',
+'Q' => 'cpp: cf C# and Java ',
+'id' => 98,
+},
+{
+'A' => 'Aliases<br>&nbsp;using Terminal = System.Console;<br>&nbsp;The using keyword can be used to alias the fully qualified name for a type similar to the way typedef is used in C and C++. This is useful in creating readable code where the fully qualified name of a class is needed to resolve namespace conflicts. ',
+'Q' => 'C# analog to typedef ',
+'id' => 99,
+},
+{
+'A' => 'C# does not have a restriction on the number of public classes that can exist in a source file; also no requirement for the name of any of the classes in the file to match the source file. ',
+'Q' => 'C#: how many classes per file? ',
+'id' => 100,
+},
+{
+'A' => 'analogous to the package import facility, except that it imports static members from a class, rather than classes from a package. Here\'s how it looks:<br>&nbsp;import static org.iso.Physics.*;<br>&nbsp;class Guacamole &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;public static void main(String[] args) &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;double molecules = AVOGADROS_NUMBER * moles;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&#125; ',
+'Q' => 'jdk 1.5: static imports ',
+'id' => 101,
+},
+{
+'A' => 'import static org.junit.Assert.assertEquals;<br>&nbsp;public class SomeAddition &#123;<br>&nbsp;&nbsp;private int x = 1;<br>&nbsp;private int y = 1;<br>&nbsp;&nbsp;&nbsp;@BeforeSuite protected void initWorld() &#123; ... &#125;<br>&nbsp;@AfterSuite protected void cleanupWorld() &#123; ... &#125;<br>&nbsp;@Before protected void init1test() &#123; ... &#125;<br>&nbsp;@After protected void cleanup1test() &#123; ... &#125;<br>&nbsp;@Test(Timeout=300) public void addition() &#123;<br>&nbsp;&nbsp;&nbsp;int z = x + y;<br>&nbsp;&nbsp;&nbsp;assertEquals(2, z);<br>&nbsp;&#125;<br>&nbsp;@Test(expected=ArithmeticException.class) public void divideByZero() &#123;<br>&nbsp;&nbsp;&nbsp;int n = 2 / 0;<br>&nbsp;&#125;<br>&nbsp;@Ignore public void multiplication() &#123; ... &#125;<br>&#125; ',
+'Q' => 'junit4 ',
+'id' => 102,
+},
+{
+'A' => 'In junit, each test run creates a new instance of the test class. In JsUnit the corresponding event (which would be reloading the Test Page) does not happen. Thus any variables declared in your Test Page will preserve their state across test runs.<br>&nbsp;Also: jsunit has setUpPage(), which gets called before any tests run on the page ',
+'Q' => 'setUp: cf JUnit, jsunit ',
+'id' => 103,
+},
+{
+'A' => 'Firefox supports data: URLs, which are a way to embed chunks of data into a URL instead of retrieving the data from the server in a separate call. You\'ve probably never heard of data: URLs because Internet Explorer doesn\'t support them, so no one uses them. But they can come in handy in user scripts.<br>&nbsp;var logo = document.createElement(\'img\');<br>logo.src = \'data:image/gif;base64,R0lGODlhDQAOAJEAANno6wBmZgAAAAAAACH5BAAAAAAA\'+<br>&nbsp;&nbsp;&nbsp;&nbsp;\'LAAAAAANAA4AQAIjjI8Iyw3GhACSQecutsFV3nzgNi7SVEbo06lZa66LRib2UQAAOw%3D%3D\';<br>document.body.insertBefore(logo, document.body.firstChild);<br>&nbsp;In this example, the src of the &lt;img&gt; element is a data: URL which contains the entire image data in encoded form. Once the new element is inserted into the page, it will display just like any other image, but without requiring that the image be stored on a central server. In essence, you can embed images in your user scripts and distribute them as part of the same file as the rest of your code.<br>&nbsp;Generate data: URLs using the URI kitchen: <a href=\'http://software.hixie.ch/utilities/cgi/data/data\'>http://software.hixie.ch/utilities/cgi/data/data</a> ',
+'Q' => 'gm: how to Add a graphical logo at the top of the page ',
+'id' => 104,
+},
+{
+'A' => 'var logo = document.createElement("div");<br>logo.innerHTML = \'&lt;div style="margin: 0 auto 0 auto; \' +<br>&nbsp;&nbsp;&nbsp;&nbsp;\'border-bottom: 1px solid #000000; margin-bottom: 5px; \' +<br>&nbsp;&nbsp;&nbsp;&nbsp;\'font-size: small; background-color: #000000; \' +<br>&nbsp;&nbsp;&nbsp;&nbsp;\'color: #ffffff;"&gt;&lt;p style="margin: 2px 0 1px 0;"&gt; \' +<br>&nbsp;&nbsp;&nbsp;&nbsp;\'YOUR TEXT HERE \' +<br>&nbsp;&nbsp;&nbsp;&nbsp;\'</p>&lt;/div&gt;\';<br>document.body.insertBefore(logo, document.body.firstChild); ',
+'Q' => 'gm: insert arbitrary HTML at the head of a page ',
+'id' => 105,
+},
+{
+'A' => 'var newBody = \'&lt;html&gt;\' + \'&lt;head&gt;\' + \'&lt;title&gt;My New Page&lt;/title&gt;\' + \'&lt;/head&gt;\' + \'&lt;body&gt;\' + \'<p>This page is a complete replacement of the original.</p>\' + \'&lt;/body&gt;\' + \'&lt;/html&gt;\'; window.addEventListener( \'load\', function() &#123; document.body.innerHTML = newBody; &#125;, true); ',
+'Q' => 'var logo = document.createElement("div");<br>logo.innerHTML = \'&lt;div style="margin: 0 auto 0 auto; \' +<br>&nbsp;&nbsp;&nbsp;&nbsp;\'border-bottom: 1px solid #000000; margin-bottom: 5px; \' +<br>&nbsp;&nbsp;&nbsp;&nbsp;\'font-size: small; background-color: #000000; \' +<br>&nbsp;&nbsp;&nbsp;&nbsp;\'color: #ffffff;"&gt;&lt;p style="margin: 2px 0 1px 0;"&gt; \' +<br>&nbsp;&nbsp;&nbsp;&nbsp;\'YOUR TEXT HERE \' +<br>&nbsp;&nbsp;&nbsp;&nbsp;\'</p>&lt;/div&gt;\';<br>document.body.insertBefore(logo, document.body.firstChild);<br>&nbsp;var logo = document.createElement("div");<br>logo.innerHTML = \'&lt;div style="margin: 0 auto 0 auto; \' +<br>&nbsp;&nbsp;&nbsp;&nbsp;\'border-bottom: 1px solid #000000; margin-bottom: 5px; \' +<br>&nbsp;&nbsp;&nbsp;&nbsp;\'font-size: small; background-color: #000000; \' +<br>&nbsp;&nbsp;&nbsp;&nbsp;\'color: #ffffff;"&gt;&lt;p style="margin: 2px 0 1px 0;"&gt; \' +<br>&nbsp;&nbsp;&nbsp;&nbsp;\'YOUR TEXT HERE \' +<br>&nbsp;&nbsp;&nbsp;&nbsp;\'</p>&lt;/div&gt;\';<br>document.body.insertBefore(logo, document.body.firstChild);<br>&nbsp;&nbsp;&nbsp;q<br>gm: Replace an entire page with custom content ',
+'id' => 106,
+},
+{
+'A' => 'I have often found the need to add my own CSS styles to a page. You can add styles that override existing styles, or styles specific to new elements that your user script inserts. <br>&nbsp;&nbsp;&nbsp;Example: Make paragraph text larger<br>function addGlobalStyle(css) &#123; var head, style; head = document.getElementsByTagName(\'head\')[0]; if (!head) &#123; return; &#125; style = document.createElement(\'style\'); style.type = \'text/css\'; style.innerHTML = css; head.appendChild(style); &#125; addGlobalStyle(\'p &#123; font-size: large ! important; &#125;\');This function takes one argument, a string containing the style rules you want to add to the page. It works by quite literally injecting a &lt;style&gt; element into the page\'s &lt;head&gt; section that contains your style rules. Firefox automatically picks up the change, parses the style rules, and applies them to the page. You may include as many separate style rules as you like in a single function call; just concatenate them together as a string and pass them all at once. <br>&nbsp;&nbsp;You can use the addGlobalStyle function to style elements that you insert into a page, or elements that were part of the original page. However, if you are styling existing elements, you should use the ! important keyword for each rule you define to ensure your styles override the rules defined by the original page. ',
+'Q' => 'gm: Adding CSS styles ',
+'id' => 107,
+},
+{
+'A' => 'You might naively assume that an element\'s style property will give you this, but you would be mistaken. That only returns the contents of the element\'s style attribute. To get the final style (including any styles defined in external stylesheets), you need to use the getComputedStyle function. <br>&nbsp;var p1elem, p2elem, p1style, p2style; p1elem = document.getElementById(\'p1\'); p2elem = document.getElementById(\'p2\'); p1style = getComputedStyle(p1elem, \'\'); p2style = getComputedStyle(p2elem, \'\'); alert(p1style.color); // will display "rgb(255, 0, 0)" alert(p2style.color); // will display "rgb(0, 0, 255)" ',
+'Q' => 'gm: getting css style ',
+'id' => 108,
+},
+{
+'A' => 'var postforms = document.evaluate( "//form[translate(@method, \'POST \', \'post\')=\'post\']", document, null, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, null); ',
+'Q' => 'gm: Find all forms whose method is "POST" or "post" ',
+'id' => 109,
+},
+{
+'A' => 'var href = window.location.host; ',
+'Q' => 'gm: Get the current domain ',
+'id' => 110,
+},
+{
+'A' => 'Once you find a link on a page, you can rewrite it by setting its href attribute. <br>&nbsp;&nbsp;&nbsp;Example: Add a query parameter to the end of a link<br>This presumes that there is a link with the id "article". <br>&nbsp;var a = document.getElementById(\'article\'); if (a.href.match(/&#092;?/i)) &#123; // link already contains other parameters, so append "&amp;printer=1" a.href += \'&amp;printer=1\'; &#125; else &#123; // link does not contain any parameters, so append "?printer=1" a.href += \'?printer=1\'; &#125; ',
+'Q' => 'gm: Rewriting links ',
+'id' => 111,
+},
+{
+'A' => 'window.location.href = window.location.href.replace(/^http:/, \'https:\'); ',
+'Q' => 'gm: Redirect a site to its secure counterpart ',
+'id' => 112,
+},
+{
+'A' => 'document.addEventListener(\'click\', function(event) &#123; // event.target is the element that was clicked // do whatever you want here // if you want to prevent the default click action // (such as following a link), use these two commands: event.stopPropagation(); event.preventDefault(); &#125;, true); ',
+'Q' => 'gm: Do something when the user clicks anywhere on the page ',
+'id' => 113,
+},
+{
+'A' => 'function newsubmit(event) &#123; <br>&nbsp;&nbsp;var target = event ? event.target : this;<br>&nbsp;&nbsp;// do anything you like here <br>&nbsp;&nbsp;alert(\'Submitting form to \' + target.action); <br>&nbsp;&nbsp;// call real submit function <br>&nbsp;&nbsp;this._submit(); <br>&#125;<br>&nbsp;&nbsp;&nbsp;// capture the onsubmit event on all forms <br>&nbsp;&nbsp;window.addEventListener(\'submit\', newsubmit, true); <br>&nbsp;&nbsp;&nbsp;// If a script calls someForm.submit(), the onsubmit event does not fire,<br>&nbsp;&nbsp;// so we need to redefine the submit method of the HTMLFormElement class. <br>&nbsp;&nbsp;HTMLFormElement.prototype._submit = HTMLFormElement.prototype.submit; <br>&nbsp;&nbsp;HTMLFormElement.prototype.submit = newsubmit; ',
+'Q' => 'gm: Do something before a form is submitted ',
+'id' => 114,
+},
+{
+'A' => 'var xmlString = \'&lt;passwd&gt;\' + \' &lt;user id="101"&gt;\' + \' &lt;login&gt;mark&lt;/login&gt;\' + \' &lt;group id="100"/&gt;\' + \' &lt;displayname&gt;Mark Pilgrim&lt;/displayname&gt;\' + \' &lt;homedir&gt;/home/mark/&lt;/homedir&gt;\' + \' &lt;shell&gt;/bin/bash&lt;/shell&gt;\' + \' &lt;/user&gt;\' + \'&lt;/passwd&gt;\' var parser = new DOMParser(); var xmlDoc = parser.parseFromString(xmlString, "application/xml"); ',
+'Q' => 'gm: Parse an arbitrary string as XML ',
+'id' => 115,
+},
+{
+'A' => 'GM_xmlhttpRequest(&#123; method: \'GET\', url: \'http://greaseblog.blogspot.com/atom.xml\', headers: &#123; \'User-agent\': \'Mozilla/4.0 (compatible) Greasemonkey/0.3\', \'Accept\': \'application/atom+xml,application/xml,text/xml\', &#125;, onload: function(responseDetails) &#123; var parser = new DOMParser(); var dom = parser.parseFromString(responseDetails.responseText, "application/xml"); var entries = dom.getElementsByTagName(\'entry\'); var title; for (var i = 0; i &lt; entries.length; i++) &#123; title = entries[i].getElementsByTagName(\'title\')[0].textContent; alert(title); &#125; &#125; &#125;); ',
+'Q' => 'gm: Parse XML from a remote source ',
+'id' => 116,
+},
+{
+'A' => '// recall: gm puts your code within an anonymous function<br>&nbsp;if (whatever) &#123; return; &#125; ',
+'Q' => 'gm: abort script ',
+'id' => 117,
+},
+{
+'A' => 'assign a bogus href attribute to the link, otherwise Firefox would treat it a named anchor and wouldn\'t add it to the tab index (i.e. you wouldn\'t be able to tab to it, making it inaccessible with the keyboard).<br>&nbsp;In the event handler, do event.preventDefault() unless you want the browser to jump to the href. ',
+'Q' => 'gm: get a newly created link into the tab order ',
+'id' => 118,
+},
+{
+'A' => 'Greasemonkey defines two functions, GM_setValue and GM_getValue, that allow user scripts to store and retrieve -Y´private¡ data that only the user script can access. (Other scripts can\'t access them, not even other user scripts.) You can use these functions to store script-specific configuration, to maintain a cache that persists between pages, or to keep a permanent activity log. <br>&nbsp;&nbsp;Data stored with GM_setValue and retrieved with GM_getValue are similar to browser cookies, but there are important differences. Both are stored on the local machine, but while cookies are domain-specific and can only be accessed from their originating domain, Greasemonkey configuration values are script-specific and can only be accessed by the user script that created them (regardless of the URL that the user script is currently running on). And unlike cookies, user script data are never transmitted to remote servers. <br>&nbsp;&nbsp;&nbsp;GM_setValue stores a script-specific configuration value, and GM_getValue retrieves it. <br>&nbsp;function GM_setValue(key, value); function GM_getValue(key, defaultValue); ',
+'Q' => 'gm: Storing and retrieving persistent data ',
+'id' => 119,
+},
+{
+'A' => 'Greasemonkey defines a function, GM_registerMenuCommand, that allows user scripts to add menu items to the Firefox menu bar. Registered menu items appear in the User Script Commands submenu when the user script is active. <br>&nbsp;function GM_registerMenuCommand(menuText, callbackFunction); ',
+'Q' => 'gm: Adding items to the menubar ',
+'id' => 120,
+},
+{
+'A' => 'Greasemonkey defines a function, GM_xmlhttpRequest, that allows user scripts to GET data from any URL or POST data to any URL. <br>&nbsp;GM_xmlhttpRequest(&#123; method: \'GET\', url: \'http://greaseblog.blogspot.com/atom.xml\', headers: &#123; \'User-agent\': \'Mozilla/4.0 (compatible) Greasemonkey\', \'Accept\': \'application/atom+xml,application/xml,text/xml\', &#125;, onload: function(responseDetails) &#123; alert(\'Request for Atom feed returned \' + responseDetails.status + \' \' + responseDetails.statusText + \'&#092;n&#092;n\' + \'Feed data:&#092;n\' + responseDetails.responseText); &#125; &#125;); <br>Bugs<br>The onreadystatechange callback does not work properly with readyState &lt; 4. <br>&nbsp;&nbsp;&nbsp;Notes<br>Unlike the XMLHttpRequest object, GM_xmlhttpRequest is not restricted to the current domain; it can GET or POST data from any URL. ',
+'Q' => 'gm: Integrating data from other sites ',
+'id' => 121,
+},
+{
+'A' => 'Z:&#092;downloads&#092;greasemonkey&#092;diveintogreasemonkey-2005-05-09&#092;advanced&#092;compiler.html<br><a href=\'http://www.letitblog.com/greasemonkey-compiler/\'>http://www.letitblog.com/greasemonkey-compiler/</a> ',
+'Q' => 'gm: Compiling your user script into an extension ',
+'id' => 122,
+},
+{
+'A' => 'Atomic commits are one serious advantage Subversion has over CVS. <br>&nbsp;In Java applications, where you tend to have a lot of files (as opposed to C where a lot of logic is concentrated into a smaller number of source files), it\'s vitally important that all of your changes are submitted along with each other. ',
+'Q' => 'cf Subversion CVS ',
+'id' => 123,
+},
+{
+'A' => '@@ ',
+'Q' => '@@ ',
+'id' => 124,
+},
+);

@@ -1,0 +1,18 @@
+@val = (
+{
+'English' => 'the tire',
+'French' => '{le pneu>s>}',
+'German' => '{der Reifen>s>}',
+'Italian' => '{il pneumatico>s>}',
+'Spanish' => '{el llanta>s>}',
+'id' => 0,
+},
+{
+'English' => 'the balloon',
+'French' => '{le ballon>s>}',
+'German' => '{der Ballon>s>}',
+'Italian' => '{il pallone>s>}',
+'Spanish' => '{el globo>s>}',
+'id' => 1,
+},
+);

@@ -1,0 +1,43 @@
+# formatted
+@val = (
+{
+'English' => 'your money',
+'French' => '{votre argent>s>}',
+'German' => '{Ihr Geld>s>}',
+'Italian' => '{il Suo denaro>s>}',
+'Spanish' => '{su dinero>s>}',
+'id' => 0,
+},
+{
+'English' => 'the votes',
+'French' => '{le vote>p>}',
+'German' => '{der W:ahlerstimme>p>}',
+'Italian' => '{il voto>p>}',
+'Spanish' => '{el voto>p>}',
+'id' => 1,
+},
+{
+'English' => 'the hours',
+'French' => '{le heure>p>}',
+'German' => '{der Stunde>p>}',
+'Italian' => '{il ora>p>}',
+'Spanish' => '{el hora>p>}',
+'id' => 2,
+},
+{
+'English' => 'the minutes',
+'French' => '{le minute>p>}',
+'German' => '{der Minute>p>}',
+'Italian' => '{il minuto>p>}',
+'Spanish' => '{el minuto>p>}',
+'id' => 3,
+},
+{
+'English' => 'the seconds',
+'French' => '{le seconde>p>}',
+'German' => '{der Sekunde>p>}',
+'Italian' => '{il secondo>p>}',
+'Spanish' => '{el segundo>p>}',
+'id' => 4,
+},
+);

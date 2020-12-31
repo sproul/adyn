@@ -1,0 +1,12 @@
+# formatted
+@val = (
+{
+'English_note#knife;;English' => 'vocab_place_setting',
+'English' => 'your knife',
+'French' => '{votre couteau>s>}',
+'German' => '{Ihr Messer>s>}',
+'Italian' => '{il Suo coltello>s>}',
+'Spanish' => '{su cuchillo>s>}',
+'id' => 0,
+},
+);

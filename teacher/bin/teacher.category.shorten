@@ -1,0 +1,23 @@
+#!/bin/bash
+case "$1" in
+        English)
+                echo en
+        ;;
+        Italian)
+                echo it
+        ;;
+        Spanish)
+                echo es
+        ;;
+        German)
+                echo de
+        ;;
+        French)
+                echo fr
+        ;;
+        *)
+                echo $1
+        ;;
+esac
+exit
+$DROP/bin/teacher.category.shorten French

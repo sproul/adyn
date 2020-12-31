@@ -1,0 +1,18 @@
+#!/bin/sh -x
+when=$1
+case $when in
+        tomorrow)
+                perl -w -e 'my @t=localtime(time() +     (24 * 60 * 60)); print sprintf("%02d/%d/%d", ($t[4]+1), $t[3], ($t[5]+1900));'
+        ;;
+        today)
+                perl -w -e 'my @t=localtime(time()                     ); print sprintf("%02d/%d/%d", ($t[4]+1), $t[3], ($t[5]+1900));'
+        ;;
+        nextWeek)
+                perl -w -e 'my @t=localtime(time() + (7 * 24 * 60 * 60)); print sprintf("%02d/%d/%d", ($t[4]+1), $t[3], ($t[5]+1900));'
+        ;;
+        *)
+                echo error: do not know what to do w/ $when
+        ;;
+esac
+exit
+sh -x $NELSON_HOME/work/bin/get_date today

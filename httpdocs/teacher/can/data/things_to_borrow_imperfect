@@ -1,0 +1,20 @@
+# formatted
+@val = (
+{
+'English' => 'book',
+'French' => '{un livre>p>}',
+'German' => '{Buch>p>}',
+'Italian' => '{un libro>p>}',
+'Spanish' => '{libro>p>}',
+'id' => 0,
+},
+{
+'English' => 'compact discs',
+'French' => '{un disque>p>}',
+'German' => '{Kompaktscheibe>p>}',
+'Italian' => '{un dischetto>p>}',
+'Spanish' => '{disco>p> compacto}',
+'Spanish_note#unos;;Spanish' => 'sp_some_several_particular',
+'id' => 1,
+},
+);

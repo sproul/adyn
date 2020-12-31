@@ -1,0 +1,6 @@
+#!/bin/sh
+ex=$1
+url=`teacher.ex.url "$ex"`
+nohup browser "$url"
+exit
+bx $DROP/adyn/teacher/bin/teacher.ex.url.goto  verb_understand_34

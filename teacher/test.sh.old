@@ -1,0 +1,538 @@
+:
+mode=$1
+
+cd html
+
+Init()
+{
+	if [ -z "$mode" ]; then
+		mode=quick
+	fi
+	can=can/teacher_test_output
+	output=$TEMP/teacher_test_output
+	rm -rf $output
+	mkdir -p $output
+}
+
+TestOk()
+{
+	htmlExerciseFile=$1
+	if [ -n "`grep '^=TEST DONE' $output/$htmlExerciseFile.log`" ]; then
+		echo "yes"
+	else
+		echo "no"
+	fi
+}
+
+Test()
+{
+	htmlExerciseFile=$1
+	echo "Test $htmlExerciseFile"
+	java student $htmlExerciseFile > $output/$htmlExerciseFile.out
+	grep '^=' $output/$htmlExerciseFile.out > $output/$htmlExerciseFile.log
+	if [ `TestOk $htmlExerciseFile` = "yes" ]; then
+		rm -f $output/$htmlExerciseFile.out
+	else
+		echo  $output/$htmlExerciseFile.out >> $output/ERRORS
+	fi
+}
+
+Diff()
+{
+	sh ./cf.sh test
+}
+
+TestWithPromptingLanguageChange()
+{
+	startingHtml=$1
+	newPromptingLang=$2
+	canonizedTest=$3
+	
+	htmlFile=`echo $startingHtml|sed -e 's/.html$//' -e "s/$/.$newPromptingLang.htm/"`
+	(
+	echo "promptLang=$newPromptingLang"
+	echo "tense=all"
+	echo "userID=speraw"
+	echo "exerciseType=verb_all"
+	if [ -n "$canonizedTest" ]; then
+		echo "canonizedTest=$canonizedTest"
+	fi
+
+	)|perl -w choose.cgi > $htmlFile
+	Test $htmlFile
+	if [ `TestOk $htmlFile` = "yes" ]; then
+		rm -f $htmlFile
+		rm -f $output/$htmlFile.out
+	fi
+}
+
+TestForAllPromptingLanguages()
+{
+	 startingHtml=$1	
+	 canonizedTest=$2
+	 Test $startingHtml						$canonizedTest
+	 TestWithPromptingLanguageChange $startingHtml 'Spanish'	$canonizedTest
+	 TestWithPromptingLanguageChange $startingHtml 'French'		$canonizedTest
+	 TestWithPromptingLanguageChange $startingHtml 'Italian'	$canonizedTest
+	 TestWithPromptingLanguageChange $startingHtml 'German'		$canonizedTest
+}
+
+TestTopicForAllPromptingLanguages()
+{
+	canonizedTest=$1
+	dataFile=$2
+	
+	echo "for some reason the expected files do not show up in the pipe to the while loop...   fuck this!"
+	exit
+		
+	
+	
+	
+	
+	ls | grep $dataFile | grep html|
+	while [ 1 ]; do
+		read fn
+		if [ -z "$fn" ]; then
+			break
+		fi
+		TestForAllPromptingLanguages $fn $canonizedTest
+	done
+}
+
+TestBase()
+{
+	Test base.0.html
+	Test base.1.html
+	Test base.2.html
+	Test base.3.html
+	Test base.4.html
+	Test base.5.html
+	Test base.6.html
+	Test base.7.html
+	Test base.8.html
+	Test base.9.html
+	Test base.10.html
+	Test base.11.html
+	Test base.12.html
+	Test base.13.html
+	Test base.14.html
+	Test base.15.html
+	Test base.16.html
+	Test base.17.html
+	Test base.18.html
+	Test base.19.html
+	Test base.20.html
+	Test base.21.html
+	Test base.22.html
+	Test base.23.html
+	Test base.24.html
+	Test base.25.html
+	Test base.26.html
+	Test base.27.html
+	Test base.28.html
+	Test base.29.html
+	Test base.30.html
+	Test base.31.html
+	Test base.32.html
+	Test base.33.html
+	Test base.34.html
+	Test base.35.html
+	Test base.36.html
+	Test base.37.html
+	Test base.38.html
+	Test base.39.html
+	Test base.40.html
+	Test base.41.html
+	Test base.42.html
+	Test base.43.html
+	Test base.44.html
+	Test base.45.html
+	Test base.46.html
+	Test base.47.html
+	Test base.48.html
+	Test base.49.html
+	Test base.50.html
+	Test base.51.html
+	Test base.52.html
+	Test base.53.html
+	Test base.54.html
+	Test base.55.html
+	Test base.56.html
+	Test base.57.html
+	Test base.58.html
+	Test base.59.html
+	Test base.60.html
+	Test base.61.html
+	Test base.62.html
+	Test base.63.html
+	Test base.64.html
+	Test base.65.html
+	Test base.66.html
+	Test base.67.html
+	Test base.68.html
+	Test base.69.html
+	Test base.70.html
+	Test base.71.html
+	Test base.72.html
+	Test base.73.html
+	Test base.74.html
+	Test base.75.html
+	Test base.76.html
+	Test base.77.html
+	Test base.78.html
+	Test base.79.html
+	Test base.80.html
+	Test base.81.html
+	Test base.82.html
+	Test base.83.html
+	Test base.84.html
+	Test base.85.html
+	Test base.86.html
+	Test base.87.html
+	Test base.88.html
+	Test base.89.html
+	Test base.90.html
+	Test base.91.html
+	Test base.92.html
+	Test base.93.html
+	Test base.94.html
+	Test base.95.html
+	Test base.96.html
+	Test base.97.html
+	Test base.98.html
+	Test base.99.html
+	Test base.100.html
+	Test base.101.html
+	Test base.102.html
+	Test base.103.html
+	Test base.104.html
+	Test base.105.html
+	Test base.106.html
+	Test base.107.html
+	Test base.108.html
+	Test base.109.html
+	Test base.110.html
+	Test base.111.html
+	Test base.112.html
+	Test base.113.html
+	Test base.114.html
+	Test base.115.html
+	Test base.116.html
+	Test base.117.html
+	Test base.118.html
+	Test base.119.html
+	Test base.120.html
+	Test base.121.html
+	Test base.122.html
+	Test base.123.html
+	Test base.124.html
+	Test base.125.html
+	Test base.126.html
+	Test base.127.html
+	Test base.128.html
+	Test base.129.html
+	Test base.130.html
+	Test base.131.html
+	Test base.132.html
+	Test base.133.html
+	Test base.134.html
+	Test base.135.html
+	Test base.136.html
+	Test base.137.html
+	Test base.138.html
+	Test base.139.html
+	Test base.140.html
+	Test base.141.html
+	Test base.142.html
+	Test base.143.html
+	Test base.144.html
+	Test base.145.html
+	Test base.146.html
+	Test base.147.html
+	Test base.148.html
+	Test base.149.html
+	Test base.150.html
+	Test base.151.html
+	Test base.152.html
+	Test base.153.html
+	Test base.154.html
+	Test base.155.html
+	Test base.156.html
+	Test base.157.html
+	Test base.158.html
+	Test base.159.html
+	Test base.160.html
+	Test base.161.html
+	Test base.162.html
+	Test base.163.html
+	Test base.164.html
+	Test base.165.html
+	Test base.166.html
+	Test base.167.html
+	Test base.168.html
+	Test base.169.html
+	Test base.170.html
+	Test base.171.html
+	Test base.172.html
+	Test base.173.html
+	Test base.174.html
+	Test base.175.html
+	Test base.176.html
+	Test base.177.html
+	Test base.178.html
+	Test base.179.html
+	Test base.180.html
+	Test base.181.html
+	Test base.182.html
+	Test base.183.html
+	Test base.184.html
+	Test base.185.html
+	Test base.186.html
+	Test base.187.html
+	Test base.188.html
+	Test base.189.html
+	Test base.190.html
+	Test base.191.html
+	Test base.192.html
+	Test base.193.html
+	Test base.194.html
+	Test base.195.html
+	Test base.196.html
+	Test base.197.html
+	Test base.198.html
+	Test base.199.html
+	Test base.200.html
+	Test base.201.html
+	Test base.202.html
+	Test base.203.html
+	Test base.204.html
+	Test base.205.html
+	Test base.206.html
+	Test base.207.html
+	Test base.208.html
+	Test base.209.html
+	Test base.210.html
+	Test base.211.html
+	Test base.212.html
+	Test base.213.html
+	Test base.214.html
+	Test base.215.html
+	Test base.216.html
+	Test base.217.html
+	Test base.218.html
+	Test base.219.html
+	Test base.220.html
+	Test base.221.html
+	Test base.222.html
+	Test base.223.html
+	Test base.224.html
+	Test base.225.html
+	Test base.226.html
+	Test base.227.html
+	Test base.228.html
+	Test base.229.html
+	Test base.230.html
+	Test base.231.html
+	Test base.232.html
+	Test base.233.html
+	Test base.234.html
+	Test base.235.html
+	Test base.236.html
+	Test base.237.html
+	Test base.238.html
+	Test base.239.html
+	Test base.240.html
+	Test base.241.html
+	Test base.242.html
+	Test base.243.html
+	Test base.244.html
+	Test base.245.html
+	Test base.246.html
+	Test base.247.html
+	Test base.248.html
+	Test base.249.html
+	Test base.250.html
+	Test base.251.html
+	Test base.252.html
+	Test base.253.html
+	Test base.254.html
+	Test base.255.html
+	Test base.256.html
+	Test base.257.html
+	Test base.258.html
+	Test base.259.html
+	Test base.260.html
+	Test base.261.html
+	Test base.262.html
+	Test base.263.html
+	Test base.264.html
+	Test base.265.html
+	Test base.266.html
+	Test base.267.html
+	Test base.268.html
+	Test base.269.html
+	Test base.270.html
+	Test base.271.html
+	Test base.272.html
+	Test base.273.html
+	Test base.274.html
+	Test base.275.html
+	Test base.276.html
+	Test base.277.html
+	Test base.278.html
+	Test base.279.html
+	Test base.280.html
+	Test base.281.html
+	Test base.282.html
+	Test base.283.html
+	Test base.284.html
+	Test base.285.html
+	Test base.286.html
+	Test base.287.html
+	Test base.288.html
+	Test base.289.html
+	Test base.290.html
+	Test base.291.html
+	Test base.292.html
+	Test base.293.html
+	Test base.294.html
+	Test base.295.html
+	Test base.296.html
+	Test base.297.html
+	Test base.298.html
+	Test base.299.html
+	Test base.300.html
+	Test base.301.html
+	Test base.302.html
+	Test base.303.html
+	Test base.304.html
+	Test base.305.html
+	Test base.306.html
+	Test base.307.html
+	Test base.308.html
+	Test base.309.html
+	Test base.310.html
+	Test base.311.html
+	Test base.312.html
+	Test base.313.html
+	Test base.314.html
+	Test base.315.html
+	Test base.316.html
+	Test base.317.html
+	Test base.318.html
+	Test base.319.html
+	Test base.320.html
+	Test base.321.html
+	Test base.322.html
+	Test base.323.html
+	Test base.324.html
+	Test base.325.html
+	Test base.326.html
+	Test base.327.html
+	Test base.328.html
+	Test base.329.html
+	Test base.330.html
+	Test base.331.html
+	Test base.332.html
+	Test base.333.html
+	Test base.334.html
+	Test base.335.html
+	Test base.336.html
+	Test base.337.html
+	Test base.338.html
+	Test base.339.html
+	Test base.340.html
+	Test base.341.html
+	Test base.342.html
+	Test base.343.html
+	Test base.344.html
+	Test base.345.html
+	Test base.346.html
+	Test base.347.html
+	Test base.348.html
+	Test base.349.html
+	Test base.350.html
+	Test base.351.html
+	Test base.352.html
+	Test base.353.html
+	Test base.354.html
+	Test base.355.html
+	Test base.356.html
+	Test base.357.html
+	Test base.358.html
+	Test base.359.html
+	Test base.360.html
+	Test base.361.html
+	Test base.362.html
+	Test base.363.html
+	Test base.364.html
+	Test base.365.html
+	Test base.366.html
+	Test base.367.html
+	Test base.368.html
+	Test base.369.html
+	Test base.370.html
+	Test base.371.html
+	Test base.372.html
+	Test base.373.html
+	Test base.374.html
+	Test base.375.html
+	Test base.376.html
+	Test base.377.html
+	Test base.378.html
+	Test base.379.html
+	Test base.380.html
+	Test base.381.html
+	Test base.382.html
+	Test base.383.html
+	Test base.384.html
+	Test base.385.html
+	Test base.386.html
+	Test base.387.html
+	Test base.388.html
+	Test base.389.html
+	Test base.390.html
+	Test base.391.html
+	Test base.392.html
+	Test base.393.html
+	Test base.394.html
+	Test base.395.html
+	Test base.396.html
+	Test base.397.html
+	Test base.398.html	
+}
+
+
+Init
+case $mode in
+	quick)
+		Test base.10.html
+		Test verb_do.0.html
+	;;
+	40min|all)
+		TestBase
+	;;
+	old40min|oldall)
+		TestTopicForAllPromptingLanguages yes base
+		TestTopicForAllPromptingLanguages yes verb_have
+	;;
+	godKnows)
+		for f in *.0.html; do
+			topic=`echo $f|sed -e 's/.0.html//'`
+			TestTopicForAllPromptingLanguages yes $topic
+		done
+	;;
+esac
+
+Diff
+
+if [ -f $output/ERRORS ]; then
+	echo "Errors detected:"
+	cat $output/ERRORS
+fi 
+echo "`ls $output/*.log|wc -l` tests ran"
+
+exit
+cd $HOME/work/adyn.com/httpdocs/teacher/;sh -x test.sh quick
+exit
+cd $HOME/work/adyn.com/httpdocs/teacher/;sh -x test.sh 40min

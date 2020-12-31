@@ -1,0 +1,11 @@
+# formatted
+@val = (
+{
+'English' => 'the child',
+'French' => '{le enfant>s>}',
+'German' => '{der Kind>s>}',
+'Italian' => '{il bambino>s>}',
+'Spanish' => '{el ni~no>s>}',
+'id' => 0,
+},
+);

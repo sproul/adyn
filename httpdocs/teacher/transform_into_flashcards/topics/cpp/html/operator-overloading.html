@@ -1,0 +1,437 @@
+<html>
+<head>
+<title>[13] Operator overloading, C++ FAQ Lite, Marshall Cline</title>
+<link rev=made href="mailto:cline@parashift.com">
+</head>
+<body vlink="#551a8b" text="#000000" bgcolor="#c1c1c1" alink="#ff0000" link="#0000ee">
+<a name="top"></a>
+<h1>[13] Operator overloading<br>
+<small><small>(Part of <a href="index.html"><em>C++ FAQ Lite</em></a>, <a href="copy-permissions.html#[1.2]">Copyright&nbsp;&copy; 1991-96</a>, <a href="http://www.cerfnet.com/~mpcline/">Marshall Cline</a>, <a href="mailto:cline@parashift.com">cline@parashift.com</a>)</small></small></h1>
+<hr width="100%" >
+<h3>FAQs in section [13]:</h3>
+<ul>
+<li><a href="operator-overloading.html#[13.1]">[13.1] What's the deal with <tt>operator</tt> overloading?</a></li>
+<li><a href="operator-overloading.html#[13.2]">[13.2] What are the benefits of operator overloading?</a></li>
+<li><a href="operator-overloading.html#[13.3]">[13.3] What are some examples of operator overloading?</a></li>
+<li><a href="operator-overloading.html#[13.4]">[13.4] But <tt>operator</tt> overloading makes my class look
+ugly; isn't it supposed to make my code clearer?</a></li>
+<li><a href="operator-overloading.html#[13.5]">[13.5] What operators can/cannot be overloaded?</a></li>
+<li><a href="operator-overloading.html#[13.6]">[13.6] Can I overload <tt>operator==</tt> so it lets
+me compare two <tt>char[]</tt> using a string comparison?</a></li>
+<li><a href="operator-overloading.html#[13.7]">[13.7] Can I create a <tt>operator**</tt> for &quot;to-the-power-of&quot;
+operations?</a></li>
+<li><a href="operator-overloading.html#[13.8]">[13.8] How do I create a subscript <tt>operator</tt> for a
+<tt>Matrix</tt> class?</a></li>
+<li><a href="operator-overloading.html#[13.9]">[13.9] Should I design my classes from the outside
+(interfaces first) or from the inside (data first)?</a></li>
+</ul>
+<p><hr width="100%" >
+<p><a name="[13.1]"></a>
+<h3>[13.1] What's the deal with <tt>operator</tt> overloading?</h3>
+<p>It allows you to provide an intuitive interface to users of your class.
+<p>Operator overloading allows C/C++ operators to have user-defined meanings on
+user-defined types (classes).  Overloaded operators are syntactic sugar for
+function calls:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;Fred&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#if&nbsp;0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Without&nbsp;<tt>operator</tt>&nbsp;overloading:</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fred&nbsp;add(Fred,&nbsp;Fred);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fred&nbsp;mul(Fred,&nbsp;Fred);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fred&nbsp;f(Fred&nbsp;a,&nbsp;Fred&nbsp;b,&nbsp;Fred&nbsp;c)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;add(add(mul(a,b),&nbsp;mul(b,c)),&nbsp;mul(c,a));&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Yuk...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#else<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;With&nbsp;<tt>operator</tt>&nbsp;overloading:</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fred&nbsp;operator+&nbsp;(Fred,&nbsp;Fred);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fred&nbsp;operator*&nbsp;(Fred,&nbsp;Fred);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fred&nbsp;f(Fred&nbsp;a,&nbsp;Fred&nbsp;b,&nbsp;Fred&nbsp;c)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;a*b&nbsp;+&nbsp;b*c&nbsp;+&nbsp;c*a;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#endif
+</code>
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="assignment-operators.html">Previous&nbsp;section</a> |&nbsp;<a href="friends.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[13.2]"></a>
+<h3>[13.2] What are the benefits of operator overloading?</h3>
+<p>By overloading standard operators on a class, you can exploit the intuition of
+the users of that class.  This lets users program in the language of the
+problem domain rather than in the language of the machine.
+<p>The ultimate goal is to reduce both the learning curve and the defect rate.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="assignment-operators.html">Previous&nbsp;section</a> |&nbsp;<a href="friends.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[13.3]"></a>
+<h3>[13.3] What are some examples of operator overloading?</h3>
+<p>Here are a few of the many examples of operator overloading:
+<ul>
+<li><tt>myString&nbsp;+&nbsp;yourString</tt> might concatenate two <tt>string</tt>
+objects</li>
+<li><tt>myDate++</tt> might increment a <tt>Date</tt> object</li>
+<li><tt>a&nbsp;*&nbsp;b</tt> might multiply two <tt>Number</tt> objects</li>
+<li><tt>a[i]</tt> might access an element of an <tt>Array</tt> object</li>
+<li><tt>x&nbsp;=&nbsp;*p</tt> might dereference a &quot;smart pointer&quot; that actually
+&quot;points&quot; to a disk record &#151; it could actually seek to the location on disk
+where <tt>p</tt> &quot;points&quot; and return the appropriate record into <tt>x</tt></li>
+</ul>
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="assignment-operators.html">Previous&nbsp;section</a> |&nbsp;<a href="friends.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[13.4]"></a>
+<h3>[13.4] But <tt>operator</tt> overloading makes my class look
+ugly; isn't it supposed to make my code clearer?</h3>
+<p>Operator overloading <a href="operator-overloading.html#[13.2]">makes life easier for the
+<em>users</em> of a class<!--rawtext:[13.2]:rawtext--></a>, not for the developer of the class!
+<p>Consider the following example.
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;Array&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&amp;&nbsp;operator[]&nbsp;(unsigned&nbsp;i);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Some&nbsp;people&nbsp;don't&nbsp;like&nbsp;this&nbsp;syntax</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;inline<br>
+&nbsp;&nbsp;&nbsp;&nbsp;int&amp;&nbsp;Array::operator[]&nbsp;(unsigned&nbsp;i)&nbsp;&nbsp;</tt><em>//&nbsp;Some&nbsp;people&nbsp;don't&nbsp;like&nbsp;this&nbsp;syntax</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p>Some people don't like the keyword <tt>operator</tt> or the somewhat funny
+syntax that goes with it in the body of the class itself.  But the <tt>operator</tt>
+overloading syntax isn't supposed to make life easier for the <em>developer</em>
+of a class.  It's supposed to make life easier for the <em>users</em> of the
+class:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;main()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Array&nbsp;a;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a[3]&nbsp;=&nbsp;4;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;User&nbsp;code&nbsp;should&nbsp;be&nbsp;obvious&nbsp;and&nbsp;easy&nbsp;to&nbsp;understand...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p>Remember: in a reuse-oriented world, there will usually be many people who use
+your class, but there is only one person who builds it (yourself); therefore
+you should do things that favor the many rather than the few.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="assignment-operators.html">Previous&nbsp;section</a> |&nbsp;<a href="friends.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[13.5]"></a>
+<h3>[13.5] What operators can/cannot be overloaded?</h3>
+<p>Most can be overloaded. The only C operators that can't be are <tt>.</tt> and <tt>?:</tt>
+(and <tt>sizeof</tt>, which is technically an operator).  C++ adds a few of its own
+operators, most of which can be overloaded except <tt>::</tt> and <tt>.*</tt>.
+<p>Here's an example of the subscript <tt>operator</tt> (it returns a reference).  First
+with<em>out</em> <tt>operator</tt> overloading:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;Array&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#if&nbsp;0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&amp;&nbsp;elem(unsigned&nbsp;i)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;if&nbsp;(i&nbsp;&gt;&nbsp;99)&nbsp;error();&nbsp;return&nbsp;data[i];&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#else<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&amp;&nbsp;operator[]&nbsp;(unsigned&nbsp;i)&nbsp;{&nbsp;if&nbsp;(i&nbsp;&gt;&nbsp;99)&nbsp;error();&nbsp;return&nbsp;data[i];&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#endif<br>
+&nbsp;&nbsp;&nbsp;&nbsp;private:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;data[100];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;main()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Array&nbsp;a;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#if&nbsp;0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a.elem(10)&nbsp;=&nbsp;42;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a.elem(12)&nbsp;+=&nbsp;a.elem(13);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#else<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a[10]&nbsp;=&nbsp;42;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a[12]&nbsp;+=&nbsp;a[13];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#endif<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="assignment-operators.html">Previous&nbsp;section</a> |&nbsp;<a href="friends.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[13.6]"></a>
+<h3>[13.6] Can I overload <tt>operator==</tt> so it lets
+me compare two <tt>char[]</tt> using a string comparison?</h3>
+<p>No: at least one operand of any overloaded <tt>operator</tt> must be of some class
+type.
+<p>But even if C++ allowed you to do this, which it doesn't, you wouldn't want to
+do it anyway since you really should be using a <a href="exceptions.html#[17.3]"><tt>string</tt>-like class rather than an array of <tt>char</tt> in the first place<!--rawtext:[17.3]:rawtext--></a>
+since <a href="proper-inheritance.html#[21.5]">arrays are evil<!--rawtext:[21.5]:rawtext--></a>.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="assignment-operators.html">Previous&nbsp;section</a> |&nbsp;<a href="friends.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[13.7]"></a>
+<h3>[13.7] Can I create a <tt>operator**</tt> for &quot;to-the-power-of&quot;
+operations?</h3>
+<p>Nope.
+<p>The names of, precedence of, associativity of, and arity of operators is fixed
+by the language.  There is no <tt>operator**</tt> in C++, so you cannot create one for
+a <tt>class</tt> type.
+<p>If you're in doubt, consider that <tt>x&nbsp;**&nbsp;y</tt> is the same as <tt>x&nbsp;*&nbsp;(*y)</tt> (in other words, the compiler assumes <tt>y</tt> is a pointer).  Besides,
+<tt>operator</tt> overloading is just syntactic sugar for function calls.  Although
+this particular syntactic sugar can be very sweet, it doesn't add anything
+fundamental.  I suggest you overload <tt>pow(base,exponent)</tt> (a double
+precision version is in <tt>&lt;math.h&gt;</tt>).
+<p>By the way, <tt>operator^</tt> can work for to-the-power-of, except it has the wrong
+precedence and associativity.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="assignment-operators.html">Previous&nbsp;section</a> |&nbsp;<a href="friends.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[13.8]"></a>
+<h3>[13.8] How do I create a subscript <tt>operator</tt> for a
+<tt>Matrix</tt> class?</h3>
+<p>Use <tt>operator()</tt> rather than <tt>operator[]</tt>.
+<p>When you have multiple subscripts, the cleanest way to do it is with
+<tt>operator()</tt> rather than with <tt>operator[]</tt>.  The reason is that
+<tt>operator[]</tt> always takes exactly one parameter, but <tt>operator()</tt>
+can take any number of parameters (in the case of a rectangular matrix, two
+paramters are needed).
+<p>For example:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;Matrix&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Matrix(unsigned&nbsp;rows,&nbsp;unsigned&nbsp;cols);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;double&amp;&nbsp;operator()&nbsp;(unsigned&nbsp;row,&nbsp;unsigned&nbsp;col);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;double&nbsp;&nbsp;operator()&nbsp;(unsigned&nbsp;row,&nbsp;unsigned&nbsp;col)&nbsp;const;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~Matrix();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Destructor</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Matrix(const&nbsp;Matrix&amp;&nbsp;m);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Copy&nbsp;constructor</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Matrix&amp;&nbsp;operator=&nbsp;(const&nbsp;Matrix&amp;&nbsp;m);&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Assignment&nbsp;operator</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;private:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unsigned&nbsp;rows_,&nbsp;cols_;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;double*&nbsp;data_;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;inline<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Matrix::Matrix(unsigned&nbsp;rows,&nbsp;unsigned&nbsp;cols)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;rows_&nbsp;(rows),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cols_&nbsp;(cols),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data_&nbsp;(new&nbsp;double[rows&nbsp;*&nbsp;cols])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(rows&nbsp;==&nbsp;0&nbsp;||&nbsp;cols&nbsp;==&nbsp;0)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;BadIndex("Matrix&nbsp;constructor&nbsp;has&nbsp;0&nbsp;size");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;inline<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Matrix::~Matrix()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;delete[]&nbsp;data_;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;inline<br>
+&nbsp;&nbsp;&nbsp;&nbsp;double&amp;&nbsp;Matrix::operator()&nbsp;(unsigned&nbsp;row,&nbsp;unsigned&nbsp;col)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(row&nbsp;&gt;=&nbsp;rows_&nbsp;||&nbsp;col&nbsp;&gt;=&nbsp;cols_)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;BadIndex("Matrix&nbsp;subscript&nbsp;out&nbsp;of&nbsp;bounds");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;data_[cols_*row&nbsp;+&nbsp;col];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;inline<br>
+&nbsp;&nbsp;&nbsp;&nbsp;double&nbsp;Matrix::operator()&nbsp;(unsigned&nbsp;row,&nbsp;unsigned&nbsp;col)&nbsp;const<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(row&nbsp;&gt;=&nbsp;rows_&nbsp;||&nbsp;col&nbsp;&gt;=&nbsp;cols_)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;BadIndex("const&nbsp;Matrix&nbsp;subscript&nbsp;out&nbsp;of&nbsp;bounds");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;data_[cols_*row&nbsp;+&nbsp;col];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p>Then you can access an element of <tt>Matrix</tt> <tt>m</tt> using <tt>m(i,j)</tt>
+rather than <tt>m[i][j]</tt>:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;main()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Matrix&nbsp;m;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m(5,8)&nbsp;=&nbsp;106.15;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;m(5,8);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="assignment-operators.html">Previous&nbsp;section</a> |&nbsp;<a href="friends.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[13.9]"></a>
+<h3>[13.9] Should I design my classes from the outside
+(interfaces first) or from the inside (data first)?</h3>
+<p>From the outside!
+<p>A good interface provides a <a href="classes-and-objects.html#[7.3]"><em>simplified</em> view that
+is expressed in the <em>vocabulary of a user</em><!--rawtext:[7.3]:rawtext--></a>.  In the case of OO
+software, the interface is normally to a class or a <a href="friends.html#[14.2]">tight group of classes<!--rawtext:[14.2]:rawtext--></a>.
+<p>First think about what the object logically represents, not how you intend to
+physically build it.  For example, suppose you have a <tt>Stack</tt> class that will
+be built by containing a <tt>LinkedList</tt>:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;Stack&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;private:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LinkedList&nbsp;list_;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};
+</code>
+<p>Should the Stack have a <tt>get()</tt> method that returns the <tt>LinkedList</tt>?  Or a
+<tt>set()</tt> method that takes a <tt>LinkedList</tt>?  Or a constructor that takes a
+<tt>LinkedList</tt>?  Obviously the answer is <em>No,</em> since you should design your
+interfaces from the outside-in.  I.e., users of <tt>Stack</tt> objects don't care
+about <tt>LinkedList</tt>s; they care about pushing and popping.
+<p>Now for another example that is a bit more subtle.  Suppose class <tt>LinkedList</tt>
+is built using a linked list of <tt>Node</tt> objects, where each <tt>Node</tt> object has a
+pointer to the next <tt>Node</tt>:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;Node&nbsp;{&nbsp;</tt><em>/*...*/</em><tt>&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;LinkedList&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;private:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Node*&nbsp;first_;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};
+</code>
+<p>Should the <tt>LinkedList</tt> class have a <tt>get()</tt> method that will let users access
+the first <tt>Node</tt>?  Should the <tt>Node</tt> object have a <tt>get()</tt> method that will let
+users follow that <tt>Node</tt> to the next <tt>Node</tt> in the chain?  In other words, what
+should a <tt>LinkedList</tt> look like from the outside?  Is a <tt>LinkedList</tt> really a
+chain of <tt>Node</tt> objects?  Or is that just an implementation detail?  And if it
+is just an implementation detail, how will the <tt>LinkedList</tt> let users access
+each of the elements in the <tt>LinkedList</tt> one at a time?
+<p>One man's answer: A <tt>LinkedList</tt> is <em>not</em> a chain of <tt>Node</tt>s.  That may
+be <em>how</em> it is built, but that is not <em>what</em> it is.  What it is is
+a sequence of elements.  Therefore the <tt>LinkedList</tt> abstraction should provide
+a &quot;LinkedListIterator&quot; <tt>class</tt> as well, and that &quot;LinkedListIterator&quot; might
+have an <tt>operator++</tt> to go to the next element, and it might have a
+<tt>get()</tt>/<tt>set()</tt> pair to access its <em>value</em> stored in the <tt>Node</tt> (the
+value in the <tt>Node</tt> element is solely the responsibility of the <tt>LinkedList</tt>
+user, which is why there is a <tt>get()</tt>/<tt>set()</tt> pair that allows the user to
+freely manipulate that value).
+<p>Starting from the user's perspective, we might want our <tt>LinkedList</tt> <tt>class</tt> to
+support operations that look similar to accessing an array using pointer
+arithmetic:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;userCode(LinkedList&amp;&nbsp;a)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(LinkedListIterator&nbsp;p&nbsp;=&nbsp;a.begin();&nbsp;p&nbsp;!=&nbsp;a.end();&nbsp;++p)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;*p&nbsp;&lt;&lt;&nbsp;'\n';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p>To implement this interface, <tt>LinkedList</tt> will need a <tt>begin()</tt> method and an
+<tt>end()</tt> method.  These return a &quot;LinkedListIterator&quot; object.  The
+&quot;LinkedListIterator&quot; will need a method to go forward, <tt>++p</tt>; a method to
+access the current element, <tt>*p</tt>; and a comparison operator, <tt>p&nbsp;!=&nbsp;a.end()</tt>.
+<p>The code follows.  The key insight is that the <tt>LinkedList</tt> <tt>class</tt> does
+<em>not</em> have any methods that lets users access the <tt>Node</tt>s.  <tt>Node</tt>s are
+an implementation technique that is <em>completely</em> buried.  The
+<tt>LinkedList</tt> <tt>class</tt> could have its internals replaced with a doubly linked
+list, or even an array, and the only difference would be some performance
+differences with the <tt>prepend(elem)</tt> and <tt>append(elem)</tt> methods.
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;#include&nbsp;&lt;assert.h&gt;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Poor&nbsp;man's&nbsp;exception&nbsp;handling</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;typedef&nbsp;&nbsp;int&nbsp;&nbsp;bool;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Someday&nbsp;we&nbsp;won't&nbsp;have&nbsp;to&nbsp;do&nbsp;this</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;LinkedListIterator;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;LinkedList;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;Node&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;No&nbsp;<tt>public</tt>&nbsp;members;&nbsp;this&nbsp;is&nbsp;a&nbsp;&quot;<tt>private</tt>&nbsp;<tt>class</tt>&quot;</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;friend&nbsp;LinkedListIterator;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;<a href="friends.html">A&nbsp;friend&nbsp;class<!--rawtext:[14]:rawtext--></a></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;friend&nbsp;LinkedList;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Node*&nbsp;next_;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;elem_;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;LinkedListIterator&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bool&nbsp;operator==&nbsp;(LinkedListIterator&nbsp;i)&nbsp;const;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bool&nbsp;operator!=&nbsp;(LinkedListIterator&nbsp;i)&nbsp;const;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;operator++&nbsp;();&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Go&nbsp;to&nbsp;the&nbsp;next&nbsp;element</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&amp;&nbsp;operator*&nbsp;&nbsp;();&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Access&nbsp;the&nbsp;current&nbsp;element</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;private:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LinkedListIterator(Node*&nbsp;p);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Node*&nbsp;p_;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;LinkedList&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;append(int&nbsp;elem);&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Adds&nbsp;<tt>elem</tt>&nbsp;after&nbsp;the&nbsp;end</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;prepend(int&nbsp;elem);&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Adds&nbsp;<tt>elem</tt>&nbsp;before&nbsp;the&nbsp;beginning</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LinkedListIterator&nbsp;begin();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LinkedListIterator&nbsp;end();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;private:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Node*&nbsp;first_;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};
+</code>
+<p>Here are the methods that are obviously inlinable (probably in the same header
+file):
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;inline&nbsp;bool&nbsp;LinkedListIterator::operator==&nbsp;(LinkedListIterator&nbsp;i)&nbsp;const<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;p_&nbsp;==&nbsp;i.p_;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;inline&nbsp;bool&nbsp;LinkedListIterator::operator!=&nbsp;(LinkedListIterator&nbsp;i)&nbsp;const<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;p_&nbsp;!=&nbsp;i.p_;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;inline&nbsp;void&nbsp;LinkedListIterator::operator++()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;assert(p_&nbsp;!=&nbsp;NULL);&nbsp;&nbsp;</tt><em>//&nbsp;or&nbsp;<tt>if&nbsp;(p_==NULL)&nbsp;throw&nbsp;...</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p_&nbsp;=&nbsp;p_-&gt;next_;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;inline&nbsp;int&amp;&nbsp;LinkedListIterator::operator*()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;assert(p_&nbsp;!=&nbsp;NULL);&nbsp;&nbsp;</tt><em>//&nbsp;or&nbsp;<tt>if&nbsp;(p_==NULL)&nbsp;throw&nbsp;...</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;p_-&gt;elem_;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;inline&nbsp;LinkedListIterator::LinkedListIterator(Node*&nbsp;p)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;p_(p)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;inline&nbsp;LinkedListIterator&nbsp;LinkedList::begin()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;first_;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;inline&nbsp;LinkedListIterator&nbsp;LinkedList::end()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;NULL;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p>Conclusion: The linked list had two different kinds of data.  The values of the
+elements stored in the linked list are the responsibility of the user of the
+linked list (and <em>only</em> the user; the linked list itself makes no attempt
+to prohibit users from changing the third element to 5), and the linked list's
+infrastructure data (<tt>next</tt> pointers, etc.), whose values are the
+responsibility of the linked list (and <em>only</em> the linked list; e.g., the
+linked list does not let users change (or even look at!) the various
+<tt>next</tt> pointers).
+<p>Thus the only <tt>get()</tt>/<tt>set()</tt> methods were to get and set the <em>elements</em>
+of the linked list, but not the infrastructure of the linked list.  Since the
+linked list hides the infrastructure pointers/etc., it is able to make very
+strong promises regarding that infrastructure (e.g., if it was a doubly linked
+list, it might guarantee that every forward pointer was matched by a backwards
+pointer from the next <tt>Node</tt>).
+<p>So, we see here an example of where the values of <em>some</em> of a class's
+data is the responsibility of <em>users</em> (in which case the class needs to
+have <tt>get()</tt>/<tt>set()</tt> methods for that data) but the data that the class wants
+to control does not necessarily have <tt>get()</tt>/<tt>set()</tt> methods.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="assignment-operators.html">Previous&nbsp;section</a> |&nbsp;<a href="friends.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<a name="bottom"></a>
+<a href="mailto:cline@parashift.com"><img src="mbox.gif" border=2 height=26 width=89>&nbsp;E-mail the author</a><br>
+[&nbsp;<a href="index.html"><em>C++ FAQ Lite</em></a>
+|&nbsp;<a href="index.html#table-of-contents">Table&nbsp;of&nbsp;contents</a>
+|&nbsp;<a href="subject-index.html">Subject&nbsp;index</a>
+|&nbsp;<a href="copy-permissions.html#[1.1]">About&nbsp;the&nbsp;author</a>
+|&nbsp;<a href="copy-permissions.html#[1.2]">&copy;</a>
+|&nbsp;<a href="on-line-availability.html#[2.2]">Download&nbsp;your&nbsp;own&nbsp;copy</a>&nbsp;]<br>
+<small>Revised Sep 8, 1997</small>
+</body>
+</html>

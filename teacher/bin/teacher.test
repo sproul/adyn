@@ -1,0 +1,97 @@
+#!/bin/bash
+
+unset http_proxy
+
+cd `dirname $0`
+
+t=$TMP/teacher.test
+background_only_mode=''
+while [ -n "$1" ]; do
+        case "$1" in
+                -background_only)
+                        background_only_mode=yes
+                ;;
+                *)
+                        break
+                ;;
+        esac
+        shift
+done
+
+
+if ! which assert.grep.sh > /dev/null 2>&1; then
+        . $HOME/.profile
+fi
+
+if ! assert.grep.sh '//return false; return // forcing onLine mode for testing' $DROP/adyn/httpdocs/teacher/html/forms.js "verify not forcing offline mode"; then
+        exit 1
+fi
+assert.js.includes.is_superset_of $DROP/adyn/httpdocs/teacher/html/choose.htm $DROP/adyn/httpdocs/teacher/html/simple_choose.htm
+assert.js.includes.is_superset_of $DROP/adyn/cgi-bin/choose.cgi               $DROP/adyn/httpdocs/teacher/html/simple_choose.htm
+
+case $OS in
+        Linux)
+                err $0 cannot send URLs to win to run w/out screwups, so we will only run this on win
+                exit 0
+        ;;
+esac
+
+t=${TMP-/tmp}/teacher.test.$$.16
+trap "rm $t" EXIT
+
+
+url=`teacher.ex.url verb_speak_1`
+web_get "$url" > $t
+assert.no_grep.sh null $t "verify no nulls when retrieving uncached"
+
+
+url="$url&cached_keys=verb_speak_1/1002"
+web_get "$url" > $t
+assert.grep.sh null                                                      $t                                        "verify nulls when retrieving cached"
+
+test_server=${1-`teacher.get_server`}
+export PATH=$DROP/adyn/teacher/bin:$PATH
+
+if [ -z "$background_only_mode" ]; then
+        state=${TMP-/tmp}/teacher.test.546
+        trap "rm $state" EXIT
+
+        teacher.stg.clear > $state
+        assert.eq "" "`teacher.stg.show $state`" "verifying teacher.stg.clear worked"
+
+        # verb_speak_1 loaded data into web stg:
+        teacher.ex.dump `teacher.ex.url verb_speak_1` | sort > $state
+        diff.canon teacher.stg.show 
+        assert.grep.sh "all_cached_keys=verb_speak_1$" $state "verify js is caching and correctly tracking downloaded exercises"
+fi
+
+Choose()
+{
+        exerciseSetTargetSize=$1
+        reviewPercentage=$2
+        extra="$3"
+        perl.choose.sh "http://$test_server/cgi-bin/choose.cgi?whichPanel=choose.htm&exerciseSetTargetSize=$exerciseSetTargetSize&promptLang=Spanish&lang_French=French&lang_German=German&lang_Italian=Italian&lang_Spanish=Spanish&exerciseType=verb_common&reviewPercentage=$reviewPercentage&tense=present&userID=t3&pw=x$extra"
+}
+
+cd $DROP/adyn/cgi-bin/data
+(
+assert.grep.sh "'keys' =>"     cgi_mostCommonVerb   "cgi_mostCommonVerb should have a keys setting"
+
+# this next test was failing.  I generated new cgi_mostCommonVerb by doing: $DROP/adyn/teacher/bin/teacher.regen_cgi_mostCommonVerb
+assert.no_grep.sh "'keys' => ''"   cgi_mostCommonVerb  "cgi_mostCommonVerb keys setting should not be empty"
+
+Choose 20 50 > $t.20.50
+cat $t.20.50 | teacher.filter.se_calls     | assert.wc-l -raw_input $t.20.50 20 "t3 requested 20 exercises, so we should get 20"
+cat $t.20.50 | teacher.filter.se_calls.rvw | assert.wc-l -raw_input $t.20.50 10 "t3 requested 20 exercises w/ 50% rvw, so there should be 10 rvw exercises"
+
+assert.match $DROP/adyn/cgi-bin/data/out_verb_speak
+assert.match $DROP/adyn/httpdocs/teacher/html/French_vt_parler.html
+) > $t
+
+if grep FAILED $t; then
+        rc=-1
+fi
+cat $t
+exit $rc
+exit
+bx $DROP/adyn/teacher/bin/teacher.test

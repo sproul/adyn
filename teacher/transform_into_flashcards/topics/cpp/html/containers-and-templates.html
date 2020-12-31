@@ -1,0 +1,266 @@
+<html>
+<head>
+<title>[31] Container classes and templates, C++ FAQ Lite, Marshall Cline</title>
+<link rev=made href="mailto:cline@parashift.com">
+</head>
+<body vlink="#551a8b" text="#000000" bgcolor="#c1c1c1" alink="#ff0000" link="#0000ee">
+<a name="top"></a>
+<h1>[31] Container classes and templates<br>
+<small><small>(Part of <a href="index.html"><em>C++ FAQ Lite</em></a>, <a href="copy-permissions.html#[1.2]">Copyright&nbsp;&copy; 1991-96</a>, <a href="http://www.cerfnet.com/~mpcline/">Marshall Cline</a>, <a href="mailto:cline@parashift.com">cline@parashift.com</a>)</small></small></h1>
+<hr width="100%" >
+<h3>FAQs in section [31]:</h3>
+<ul>
+<li><a href="containers-and-templates.html#[31.1]">[31.1] How can I make a <tt>perl</tt>-like associative array in
+C++?</a></li>
+<li><a href="containers-and-templates.html#[31.2]">[31.2] How can I build a &lt;favorite container&gt; of objects of
+different types?</a></li>
+<li><a href="containers-and-templates.html#[31.3]">[31.3] How can I insert/access/change elements from a linked
+list/hashtable/etc?</a></li>
+<li><a href="containers-and-templates.html#[31.4]">[31.4] What's the idea behind templates?</a></li>
+<li><a href="containers-and-templates.html#[31.5]">[31.5] What's the syntax / semantics for a &quot;function template&quot;?</a></li>
+<li><a href="containers-and-templates.html#[31.6]">[31.6] What's the syntax / semantics for a &quot;class template&quot;?</a></li>
+<li><a href="containers-and-templates.html#[31.7]">[31.7] What is a &quot;parameterized type&quot;?</a></li>
+<li><a href="containers-and-templates.html#[31.8]">[31.8] What is &quot;genericity&quot;?</a></li>
+</ul>
+<p><hr width="100%" >
+<p><a name="[31.1]"></a>
+<h3>[31.1] How can I make a <tt>perl</tt>-like associative array in
+C++?</h3>
+<p>Use the standard class template <tt>map&lt;Key,Val&gt;</tt>:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;#include&nbsp;&lt;string&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#include&nbsp;&lt;map&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#include&nbsp;&lt;iostream&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;using&nbsp;namespace&nbsp;std;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;main()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;map&lt;string,int,less&lt;string&gt;&nbsp;&gt;&nbsp;&nbsp;age;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;<tt>age</tt>&nbsp;is&nbsp;a&nbsp;<tt>map</tt>&nbsp;from&nbsp;<tt>string</tt>&nbsp;to&nbsp;<tt>int</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;age["Fred"]&nbsp;=&nbsp;42;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;<tt>Fred</tt>&nbsp;is&nbsp;42&nbsp;years&nbsp;old</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;age["Barney"]&nbsp;=&nbsp;37;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;<tt>Barney</tt>&nbsp;is&nbsp;37</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(todayIsFredsBirthday())&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;On&nbsp;<tt>Fred</tt>'s&nbsp;birthday,</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;++&nbsp;age["Fred"];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;increment&nbsp;<tt>Fred</tt>'s&nbsp;age</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;"Fred&nbsp;is&nbsp;"&nbsp;&lt;&lt;&nbsp;age["Fred"]&nbsp;&lt;&lt;&nbsp;"&nbsp;years&nbsp;old\n";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="pointers-to-members.html">Previous&nbsp;section</a> |&nbsp;<a href="class-libraries.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[31.2]"></a>
+<h3>[31.2] How can I build a &lt;favorite container&gt; of objects of
+different types?</h3>
+<p>You can't, but you can fake it pretty well.  In C/C++ all arrays are
+homogeneous (i.e., the elements are all the same type).  However, with an extra
+layer of indirection you can give the appearance of a heterogeneous container
+(a heterogeneous container is a container where the contained objects are of
+different types).
+<p>There are two cases with heterogeneous containers.
+<p>The first case occurs when all objects you want to store in a container are
+publicly derived from a common base class.  You can then declare/define your
+container to hold pointers to the base class.  You indirectly store a derived
+class object in a container by storing the object's address as an element in
+the container.  You can then access objects in the container indirectly through
+the pointers (enjoying polymorphic behavior).  If you need to know the exact
+type of the object in the container you can use <tt>dynamic_cast&lt;&gt;</tt> or
+<tt>typeid()</tt>.  You'll probably need the <a href="virtual-functions.html#[20.5]">Virtual Constructor
+Idiom<!--rawtext:[20.5]:rawtext--></a> to copy a container of disparate object types.  The
+downside of this approach is that it makes memory management a little more
+problematic (who &quot;owns&quot; the pointed-to objects? if you <tt>delete</tt> these
+pointed-to objects when you destroy the container, how can you guarantee that
+no one else has a copy of one of these pointers? if you don't <tt>delete</tt> these
+pointed-to objects when you destroy the container, how can you be sure that
+someone else will eventually do the <tt>delete</tt>ing?).  It also makes copying the
+container more complex (may actually break the container's copying functions
+since you don't want to copy the pointers, at least not when the container
+&quot;owns&quot; the pointed-to objects).
+<p>The second case occurs when the object types are disjoint &#151; they do not share
+a common base class.  The approach here is to use a handle class.  The
+container is a container of handle objects (by value or by pointer, your
+choice; by value is easier).  Each handle object knows how to &quot;hold on to&quot;
+(i.e. ,maintain a pointer to) one of the objects you want to put in the
+container.  You can use either a single handle class with several different
+types of pointers as instance data, or a hierarchy of handle classes that
+shadow the various types you wish to contain (requires the container be of
+handle base class pointers).  The downside of this approach is that it opens up
+the handle class(es) to maintenance every time you change the set of types
+that can be contained.  The benefit is that you can use the handle class(es)
+to encapsulate most of the ugliness of memory management and object lifetime.
+Thus using handle objects may be beneficial even in the first case.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="pointers-to-members.html">Previous&nbsp;section</a> |&nbsp;<a href="class-libraries.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[31.3]"></a>
+<h3>[31.3] How can I insert/access/change elements from a linked
+list/hashtable/etc?</h3>
+<p>I'll use an &quot;inserting into a linked list&quot; as a prototypical example.  It's
+easy to allow insertion at the head and tail of the list, but limiting
+ourselves to these would produce a library that is too weak (a weak library is
+almost worse than no library).
+<p>This answer will be a lot to swallow for novice C++'ers, so I'll give a couple
+of options.  The first option is easiest; the second and third are better.
+<ol>
+<li>Empower the <tt>List</tt> with a &quot;current location,&quot; and member functions
+such as <tt>advance()</tt>, <tt>backup()</tt>, <tt>atEnd()</tt>, <tt>atBegin()</tt>, <tt>getCurrElem()</tt>,
+<tt>setCurrElem(Elem)</tt>, <tt>insertElem(Elem)</tt>, and <tt>removeElem()</tt>.  Although this
+works in small examples, the notion of <em>a</em> current position makes it
+difficult to access elements at two or more positions within the list (e.g.,
+&quot;for all pairs x,y do the following...&quot;).</li>
+<li>Remove the above member functions from <tt>List</tt> itself, and move them
+to a separate class, <tt>ListPosition</tt>.  <tt>ListPosition</tt> would act as a &quot;current
+position&quot; within a list.  This allows multiple positions within the same list.
+<tt>ListPosition</tt> would be a <a href="friends.html"><tt>friend</tt><!--rawtext:[14]:rawtext--></a> of <tt>class</tt> <tt>List</tt>, so
+<tt>List</tt> can hide its innards from the outside world (else the innards of <tt>List</tt>
+would have to be publicized via <tt>public</tt> member functions in <tt>List</tt>).  Note:
+<tt>ListPosition</tt> can use <tt>operator</tt> overloading for things like <tt>advance()</tt> and
+<tt>backup()</tt>, since <tt>operator</tt> overloading is syntactic sugar for normal member
+functions.</li>
+<li>Consider the entire iteration as an atomic event, and create a
+class template to embodies this event.  This enhances performance by
+allowing the public access member functions (which may be
+<a href="virtual-functions.html"><tt>virtual</tt><!--rawtext:[20]:rawtext--></a> functions) to be avoided during the
+inner loop.  Unfortunately you get extra object code in the application, since
+templates gain speed by duplicating code.  For more, see [Koenig, &quot;Templates
+as interfaces,&quot; JOOP, 4, 5 (Sept 91)], and [Stroustrup, &quot;The C++ Programming
+Language Second Edition,&quot; under &quot;Comparator&quot;].</li>
+</ol>
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="pointers-to-members.html">Previous&nbsp;section</a> |&nbsp;<a href="class-libraries.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[31.4]"></a>
+<h3>[31.4] What's the idea behind templates?</h3>
+<p>A template is a cookie-cutter that specifies how to cut cookies that all look
+pretty much the same (although the cookies can be made of various kinds of
+dough, they'll all have the same basic shape).  In the same way, a class
+template is a cookie cutter for a description of how to build a family of
+classes that all look basically the same, and a function template describes
+how to build a family of similar looking functions.
+<p>Class templates are often used to build type safe containers (although this
+only scratches the surface for how they can be used).
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="pointers-to-members.html">Previous&nbsp;section</a> |&nbsp;<a href="class-libraries.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[31.5]"></a>
+<h3>[31.5] What's the syntax / semantics for a &quot;function template&quot;?</h3>
+<p>Consider this function that swaps its two integer arguments:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;swap(int&amp;&nbsp;x,&nbsp;int&amp;&nbsp;y)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;tmp&nbsp;=&nbsp;x;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;=&nbsp;y;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y&nbsp;=&nbsp;tmp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p>If we also had to swap floats, longs, Strings, Sets, and FileSystems, we'd get
+pretty tired of coding lines that look almost identical except for the type.
+Mindless repetition is an ideal job for a computer, hence a function
+template:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;template&lt;class&nbsp;T&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;swap(T&amp;&nbsp;x,&nbsp;T&amp;&nbsp;y)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T&nbsp;tmp&nbsp;=&nbsp;x;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;=&nbsp;y;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y&nbsp;=&nbsp;tmp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p>Every time we used <tt>swap()</tt> with a given pair of types, the compiler will go to
+the above definition and will create yet another &quot;template function&quot; as an
+instantiation of the above.  E.g.,
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;main()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;&nbsp;&nbsp;&nbsp;i,j;&nbsp;&nbsp;</tt><em>/*...*/</em><tt>&nbsp;&nbsp;swap(i,j);&nbsp;&nbsp;</tt><em>//&nbsp;Instantiates&nbsp;a&nbsp;swap&nbsp;for&nbsp;<tt>int</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float&nbsp;&nbsp;a,b;&nbsp;&nbsp;</tt><em>/*...*/</em><tt>&nbsp;&nbsp;swap(a,b);&nbsp;&nbsp;</tt><em>//&nbsp;Instantiates&nbsp;a&nbsp;swap&nbsp;for&nbsp;<tt>float</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char&nbsp;&nbsp;&nbsp;c,d;&nbsp;&nbsp;</tt><em>/*...*/</em><tt>&nbsp;&nbsp;swap(c,d);&nbsp;&nbsp;</tt><em>//&nbsp;Instantiates&nbsp;a&nbsp;swap&nbsp;for&nbsp;<tt>char</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;s,t;&nbsp;&nbsp;</tt><em>/*...*/</em><tt>&nbsp;&nbsp;swap(s,t);&nbsp;&nbsp;</tt><em>//&nbsp;Instantiates&nbsp;a&nbsp;swap&nbsp;for&nbsp;<tt>String</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p>Note: A &quot;template function&quot; is the instantiation of a &quot;function template&quot;.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="pointers-to-members.html">Previous&nbsp;section</a> |&nbsp;<a href="class-libraries.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[31.6]"></a>
+<h3>[31.6] What's the syntax / semantics for a &quot;class template&quot;?</h3>
+<p>Consider a container <tt>class</tt> <tt>Array</tt> that acts like an array of integers:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;This&nbsp;would&nbsp;go&nbsp;into&nbsp;a&nbsp;header&nbsp;file&nbsp;such&nbsp;as&nbsp;&quot;<tt>Array.h</tt>&quot;</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;Array&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Array(int&nbsp;len=10)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;len_(len),&nbsp;data_(new&nbsp;int[len])&nbsp;{&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~Array()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;delete&nbsp;[]&nbsp;data_;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;len()&nbsp;const&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;return&nbsp;len_;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;int&amp;&nbsp;operator[](int&nbsp;i)&nbsp;const&nbsp;{&nbsp;return&nbsp;data_[check(i)];&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&amp;&nbsp;operator[](int&nbsp;i)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;return&nbsp;data_[check(i)];&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Array(const&nbsp;Array&amp;);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Array&amp;&nbsp;operator=&nbsp;(const&nbsp;Array&amp;);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;private:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;&nbsp;len_;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int*&nbsp;data_;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;&nbsp;check(int&nbsp;i)&nbsp;const<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;if&nbsp;(i&nbsp;&lt;&nbsp;0&nbsp;||&nbsp;i&nbsp;&gt;=&nbsp;len_)&nbsp;throw&nbsp;BoundsViol("Array",&nbsp;i,&nbsp;len_);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;i;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};
+</code>
+<p>Just as with <tt>swap()</tt> above, repeating the above over and over for Array of
+float, of char, of String, of Array-of-String, etc, will become tedious.
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;This&nbsp;would&nbsp;go&nbsp;into&nbsp;a&nbsp;header&nbsp;file&nbsp;such&nbsp;as&nbsp;&quot;<tt>Array.h</tt>&quot;</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;template&lt;class&nbsp;T&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;Array&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Array(int&nbsp;len=10)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;len_(len),&nbsp;data_(new&nbsp;T[len])&nbsp;{&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~Array()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;delete&nbsp;[]&nbsp;data_;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;len()&nbsp;const&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;return&nbsp;len_;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;T&amp;&nbsp;operator[](int&nbsp;i)&nbsp;const&nbsp;{&nbsp;return&nbsp;data_[check(i)];&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T&amp;&nbsp;operator[](int&nbsp;i)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;return&nbsp;data_[check(i)];&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Array(const&nbsp;Array&lt;T&gt;&amp;);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Array&lt;T&gt;&amp;&nbsp;operator=&nbsp;(const&nbsp;Array&lt;T&gt;&amp;);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;private:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;len_;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T*&nbsp;&nbsp;data_;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;check(int&nbsp;i)&nbsp;const<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;if&nbsp;(i&nbsp;&lt;&nbsp;0&nbsp;||&nbsp;i&nbsp;&gt;=&nbsp;len_)&nbsp;throw&nbsp;BoundsViol("Array",&nbsp;i,&nbsp;len_);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;i;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};
+</code>
+<p>Unlike template functions, template classes (instantiations of class
+templates) need to be explicit about the parameters over which they are
+instantiating:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;main()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Array&lt;int&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ai;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Array&lt;float&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;af;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Array&lt;char*&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ac;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Array&lt;String&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;as;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Array&lt;&nbsp;Array&lt;int&gt;&nbsp;&gt;&nbsp;&nbsp;aai;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p>Note the space between the two <tt>&gt;</tt>'s in the last example.  Without this
+space, the compiler would see a <tt>&gt;&gt;</tt> (right-shift) token instead of two
+<tt>&gt;</tt>'s.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="pointers-to-members.html">Previous&nbsp;section</a> |&nbsp;<a href="class-libraries.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[31.7]"></a>
+<h3>[31.7] What is a &quot;parameterized type&quot;?</h3>
+<p>Another way to say, &quot;class templates.&quot;
+<p>A parameterized type is a type that is parameterized over another type or some
+value.  List&lt;int&gt; is a type (<tt>List</tt>) parameterized over another type (<tt>int</tt>).
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="pointers-to-members.html">Previous&nbsp;section</a> |&nbsp;<a href="class-libraries.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[31.8]"></a>
+<h3>[31.8] What is &quot;genericity&quot;?</h3>
+<p>Yet another way to say, &quot;class templates.&quot;
+<p>Not to be confused with &quot;generality&quot; (which just means avoiding solutions which
+are overly specific), &quot;genericity&quot; means class templates.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="pointers-to-members.html">Previous&nbsp;section</a> |&nbsp;<a href="class-libraries.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<a name="bottom"></a>
+<a href="mailto:cline@parashift.com"><img src="mbox.gif" border=2 height=26 width=89>&nbsp;E-mail the author</a><br>
+[&nbsp;<a href="index.html"><em>C++ FAQ Lite</em></a>
+|&nbsp;<a href="index.html#table-of-contents">Table&nbsp;of&nbsp;contents</a>
+|&nbsp;<a href="subject-index.html">Subject&nbsp;index</a>
+|&nbsp;<a href="copy-permissions.html#[1.1]">About&nbsp;the&nbsp;author</a>
+|&nbsp;<a href="copy-permissions.html#[1.2]">&copy;</a>
+|&nbsp;<a href="on-line-availability.html#[2.2]">Download&nbsp;your&nbsp;own&nbsp;copy</a>&nbsp;]<br>
+<small>Revised Sep 8, 1997</small>
+</body>
+</html>

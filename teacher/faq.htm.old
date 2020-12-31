@@ -1,0 +1,30 @@
+<html>
+        <head>
+        <title>@@product FAQ</title>
+        </head>
+        <body bgcolor=#cccce2>
+        <!--anchor file_teacher_faq-->
+        <h1>@@product FAQ</h1><p><a href=#1>1. What is @@product?</a>
+<p><a href=#2>2. How many exercises are there?</a>
+<p><a href=#3>3. How does the software know what exercises I should review?</a>
+<p><a href=#4>4. Where can I send feedback on the product?</a>
+<p><a href=#5>5. What if you suddenly think of a verb you'd like help with - how do you get back to the verb list?</a>
+<p><a href=#6>6. Why did a screen appear telling me something about squids?</a>
+<p><a href=#7>7. How come navigator is remembering the wrong password or user ID?</a>
+<p><a href=#8>8. Why aren't my preferences remembered?  For example, I'm only interested in French, and get every time I go into the exercise election form, I have to uncheck German, Italian and Spanish.  What's the deal?</a>
+<h3><a name=1>1. What is @@product?</a></h3>
+@@product is a software tool for studying languages.<h3><a name=2>2. How many exercises are there?</a></h3>
+At the last count, over 14,000 exercises for each of the supported languages (currently Italian, German, Spanish, and French).<h3><a name=3>3. How does the software know what exercises I should review?</a></h3>
+The software keeps track of how "interesting" each flashcard is to each user by associating a numerical weight with each flashcard for each user.  The "heavier" a flashcard is, the more interesting it is for the user.  Each time the user sees a flashcard and clicks on the <b>Keep flashcard</b> button, the weight for that particular flashcard goes up.  Conversely, each time the user sees a flashcard and clicks on the Discard flashcard button, that flashcard's weight goes down.  The flashcards start with a weight of zero; flashcards with large positive weights are the most likely to be retrieved for the user as Review exercises.<h3><a name=4>4. Where can I send feedback on the product?</a></h3>
+Send feedback to <a href='mailto:teacher@adyn.com?subject=feedback' alt='mail teacher@adyn.com'>teacher support</a><h3><a name=5>5. What if you suddenly think of a verb you'd like help with - how do you get back to the verb list?</a></h3>
+There are two ways that you would accomplish this:
+<ul>
+<li> If you decided that you didn't want to work on the current set of exercises anymore, you would click on the "Change topic" button; this would discard the current set of exercises and take you to the exercise selection form, where you would select the verb that you are interested (assuming that it is on my list -- since the list only contains around 150 verbs at this time, this is not a given (however, the most interesting irregular verbs should all be there).</li>
+<li>If you decided that you wanted to study some verb in addition to the current set of exercises, you would click on the "New topic" button; this would open up a new window which would show you the exercise selection form, from which you would attempt to study the new verb, if possible.</li>
+</ul><h3><a name=6>6. Why did a screen appear telling me something about squids?</a></h3>
+Error messages from adynware's Web hosting company (e.g., "my tentacles don't know where to find the page that you want") is called laughingsquid.com, and they maintain this motif in their error pages.  If you get an error message from them, then I definitely want to know about it.  If you could record the URL (i.e., the contents of the field at the top of the IE window, labeled "Location") which led to the error, and then mail this information to adynware, I would be very grateful.<h3><a name=7>7. How come navigator is remembering the wrong password or user ID?</a></h3>
+If you are using Navigator's Password Manager feature, it is possible that Navigator becomes confused about what user ID or password really is appropriate.  It is best to disable the Password Manager for www.adyn.com.  You can do this by means of the following steps: <ul> <li>click on the Edit pulldown menu</li> <li>choose Preferences</li> <li>Under the Privacy & Security category, click Passwords. (If no subcategories are visible, double-click Privacy & Security to expand the list.)</li> <li>click on the Manage Stored Passwords button</li> <li>scroll to the row for www.adyn.com; click on it</li> <li>click on the Remove button</li> <li>now the next time that Navigator proposes to remember passwords for www.adyn.com -- which will probably happen the next time that you log in -- click on the No button and also check the "Never for this site" checkbox, which will put a stop to the Password Manager's efforts so far as www.adyn.com is concerned.</li> </ul><h3><a name=8>8. Why aren't my preferences remembered?  For example, I'm only interested in French, and get every time I go into the exercise election form, I have to uncheck German, Italian and Spanish.  What's the deal?</a></h3>
+Your language preferences should always be remembered so that when you go to the exercise election form, all the settings should match what you asked for in your most recent visit to that page.  I have seen, however, a user whose browser somehow created an extra pair of cookies which prevented the preferences from being remembered.  These cookies were related to the domain ".www.adyn.com" -- note the leading period.  These cookies should be removed.  If anyone has a clue as to how they are created, please let me know so I can attempt to counteract their creation, if possible.  Very strange!
+<!--include copyright-->
+</body>
+</html>

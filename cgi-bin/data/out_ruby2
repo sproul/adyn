@@ -1,0 +1,2510 @@
+@val = (
+{
+'A' => '4: <br>File.open("fn") do |f|<br>line = f.readLine<br>end',
+'Q' => 'read a single line from a file',
+},
+{
+'A' => '6:<br>define a method ending with =<br>&nbsp;o.x = 1<br>&nbsp;same as<br>&nbsp;o.x=(1)',
+'Q' => 'how to implement support for being assignable',
+},
+{
+'A' => '7:<br>? means predicate<br>! means watch out! OR mutator',
+'Q' => 'method suffixes',
+},
+{
+'A' => '7:<br>$ means global<br>@ means instance<br>@@ means class<br>means local, or method call',
+'Q' => 'var prefices',
+},
+{
+'A' => 'membership! supported by Regexp and Range: ===<br>Also called <i>case equality</i>',
+'Q' => 'operator for matching or...',
+},
+{
+'A' => 'alias y x',
+'Q' => 'make a new name for x',
+},
+{
+'A' => 'p: converts objects to strings using <i>inspect</i> (v. puts, which uses <i>to_s</i>)',
+'Q' => 'alternative to puts',
+},
+{
+'A' => 'irb',
+'Q' => 'Ruby shell',
+},
+{
+'A' => 'ri<br>You can invoke it to show doc for class, etc., e.g.,<br>ri Array<br>ri Array.sort<br>ri Math::sqrt',
+'Q' => 'Ruby doc viewer',
+},
+{
+'A' => '13:<br>ClassX::classMethod<br>ClassX#instanceMethod',
+'Q' => 'how to distinguish between class and instance methods of same name?',
+},
+{
+'A' => '14:<br>gem install rails<br>gem uninstall rails<br>gem list # show all installed<br>gem update rails<br>gem update # update all installed<br>gem update system # update RubyGems itself',
+'Q' => 'gem use',
+},
+{
+'A' => 'export RUBYOPTS=w',
+'Q' => 'how to run in warning mode all the time',
+},
+{
+'A' => '15:<br>require x<br>&nbsp;or<br>&nbsp;gem x, &gt; 7.0, &lt; 9.0<br>require x',
+'Q' => 'how to express dependency on another gem x',
+},
+{
+'A' => 'first char of line:<br>=begin<br>=end',
+'Q' => 'comments',
+},
+{
+'A' => '43:<br>immutable',
+'Q' => 'numeric objects',
+},
+{
+'A' => '43:<br>0b...<br>0x...<br>0... # octal',
+'Q' => 'numeric formats',
+},
+{
+'A' => 'if the result is negative, rounds to neg. infinity (like Python and Tcl)',
+'Q' => 'Ruby wrinkle to rounding of fractional results of division of integers',
+},
+{
+'A' => '45:<br>BigDecimal',
+'Q' => 'how to avoid floating point rounding errors',
+},
+{
+'A' => '46:<br>mutable',
+'Q' => 'interesting about strings from a Javaguys point of view',
+},
+{
+'A' => 'don\'t have to be doubled if they don\'t precede a special',
+'Q' => 'backslashes in strings',
+},
+{
+'A' => 'automatically concatenated',
+'Q' => 'consecutive strings',
+},
+{
+'A' => '&#092;u',
+'Q' => 'embed unicode characters',
+},
+{
+'A' => '#&#123;xxx&#125; where xxx is any expression<br>or if its a prefixed variable (i.e., anything but a local), the curlies can be omitted',
+'Q' => 'string interpolation',
+},
+{
+'A' => '48:<br>like python % operator<br>"%s:%d" % [ $fn, $lineNumber ]',
+'Q' => 'terse sprintf',
+},
+{
+'A' => '49:<br>&#092;e',
+'Q' => 'ESC character',
+},
+{
+'A' => '49:<br>&#092;s',
+'Q' => 'space character',
+},
+{
+'A' => '49:<br>&#092;v',
+'Q' => 'vertical tab character',
+},
+{
+'A' => '49:<br>&#092;cx, or &#092;Cx',
+'Q' => 'ctrlx character',
+},
+{
+'A' => '49:<br>&#092;Mx',
+'Q' => 'metax character',
+},
+{
+'A' => '51:<br>doc = &lt;&lt;HERE<br>a b c<br>HERE<br>&nbsp;or<br>&nbsp;doc = &lt;&lt;HERE1 + &lt;&lt;HERE2<br>a b c<br>HERE<br>d e f<br>HERE2',
+'Q' => 'here doc',
+},
+{
+'A' => '52:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;doc &lt;&lt;-HERE<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a b c<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HERE',
+'Q' => 'indented here doc',
+},
+{
+'A' => '53:<br>back ticks, w/ rules like double quotes<br>&nbsp;listing = `ls`<br>&nbsp;equivalent to<br>&nbsp;listing = Kernel.`("ls")',
+'Q' => 'process execution inline',
+},
+{
+'A' => '%x[cmd]',
+'Q' => 'generalized quote syntax to use in place of backticks',
+},
+{
+'A' => 'causes a new object to be created with each loop.<br>&nbsp;Ruby creates a new object each time it encounters a string literal',
+'Q' => 'string literal in a loop',
+},
+{
+'A' => '55:<br>operator: &lt;&lt;<br>s="abc"<br>s &lt;&lt; 67 # treats it as a character<br>s=="abcC"<br>&nbsp;or<br>&nbsp;assign to a substring:<br>s[s.length,0] = "more stuff"',
+'Q' => 'append',
+},
+{
+'A' => '55:<br>"ha " * 3',
+'Q' => 'repeat a string',
+},
+{
+'A' => '56:<br>a[-1]',
+'Q' => 'last cell of an array',
+},
+{
+'A' => '56:<br>a[0]<br>&nbsp;or<br>&nbsp;a[-a.length] # neg. indices are onebased',
+'Q' => 'first cell of an array',
+},
+{
+'A' => 's[j,len]',
+'Q' => 'substring',
+},
+{
+'A' => 'a Ruby string cell can contain a multibyte character<br>&nbsp;you can get length with bytesize() method',
+'Q' => 'multibyte characters in Ruby strings',
+},
+{
+'A' => 'ASCII8BIT == BINARY<br>&nbsp;or<br>&nbsp;USASCII is 7bit ASCII',
+'Q' => 'ASCII Encoding',
+},
+{
+'A' => '65:<br>a[-2..-1]',
+'Q' => 'last 2 elts of an array',
+},
+{
+'A' => 'pro forma',
+'Q' => 'latin: perfunctory',
+},
+{
+'A' => 'h=&#123; :a =&gt; "a", :b =&gt; "b" &#125;',
+'Q' => 'hash',
+},
+{
+'A' => '68:<br>then override hash() also, or else class instances won\'t work as hash keys',
+'Q' => 'if you override eql?',
+},
+{
+'A' => '68:<br>you are protected because ruby makes private copies of all strings used as keys.<br>&nbsp;But for other mutable types, using them as hash keys presents pitfalls<br>&nbsp;one approach: freeze<br>&nbsp;another approach: if you mutate a key, then call h.rehash()',
+'Q' => 'if you use a string as a hash key,',
+},
+{
+'A' => '69:<br>discrete (defines succ())<br>continuous<br>&nbsp;Also a couple of syntaxes for describing them:<br>7:<br>1..3 # 1,2,3<br>1...3 # 1,2',
+'Q' => 'types of ranges',
+},
+{
+'A' => '70:<br>y.cover?(x)<br>n.b.: perhaps !y.include?(x)',
+'Q' => 'range: test whether x is within the range of values covered by y',
+},
+{
+'A' => 'y.include?(x)<br>y.member?(x)',
+'Q' => 'range: test whether x is in range y',
+},
+{
+'A' => '71:<br>sym = "symbol".intern<br>sym = "symbol".to_sym<br>sym = %s["symbol"]<br>sym = :symbol<br>sym = :"symbol"<br>&nbsp;sym.to_s=="symbol"<br>sym.id2name=="symbol"<br>&nbsp;symbols support a number of string methods, and can be used as a kind of immutable (and not garbage collected) string',
+'Q' => 'symbols and strings',
+},
+{
+'A' => 'no',
+'Q' => 'can two symbols have the same contents but be different objects?',
+},
+{
+'A' => '72:<br>no Boolean class<br>TrueClass, FalseClass',
+'Q' => 'booleans',
+},
+{
+'A' => '73:<br>method args are object refs passed by value',
+'Q' => 'what is passed as args to methods',
+},
+{
+'A' => '73:<br>Fixnum and Symbol',
+'Q' => 'immutable vals',
+},
+{
+'A' => '73:<br>Class#new is called, which calls classX.initialize',
+'Q' => 'how is an object constructed',
+},
+{
+'A' => '74:<br>object_id==__id__',
+'Q' => 'object identity',
+},
+{
+'A' => 'C.superclass',
+'Q' => 'what is the parent class of class C?',
+},
+{
+'A' => '75:<br>o.class==Object<br>o.instance_of? Fixnum # doesnt check inheritance<br>o.is_a? Fixnum<br>ClassX===Fixnum # defined by Class as a synonym for is_a',
+'Q' => 'test whether an instance is in a class',
+},
+{
+'A' => '75:<br>ClassX.responds_to? :"&lt;&lt;"',
+'Q' => 'does ClassX have method z',
+},
+{
+'A' => '75:<br>ClassX.responds_to? :"&lt;&lt;" and not ClassX.is_a? Numeric',
+'Q' => 'ClassX support &lt;&lt; as an append op',
+},
+{
+'A' => 'never it tests identity',
+'Q' => 'override equal?',
+},
+{
+'A' => '77:<br>means a1.length==a2.length && a1[j]==a2[j] for all j',
+'Q' => 'a1==a2',
+},
+{
+'A' => '78:<br>implement &lt;=&gt;, returning 1, 0, 1',
+'Q' => 'how to define object order',
+},
+{
+'A' => '79:<br>no<br>&nbsp;note, use Float.nan?(f)',
+'Q' => 'nan==nan',
+},
+{
+'A' => 'yes x.equal?(x) for all x',
+'Q' => 'nan.equal?(nan)',
+},
+{
+'A' => '79:<br>on various objects: to_s, to_i, to_f, to_a <br>81:<br>Kernel.Array<br>Kernel.Float<br>Kernel.Integer<br>Kernel.String<br>&nbsp;1.1.coerce(1)==[1.0, 1.1] # coerce may produce objects of a 3rd type but theyll be assignment compatible with each other',
+'Q' => 'object conversion',
+},
+{
+'A' => '82:<br>if (x==nil || x==false) yes<br>else no',
+'Q' => 'is x false?',
+},
+{
+'A' => '83:<br>clone, dup by dft make a shallow copy<br>&nbsp;if an object implements initialize_copy(), then that method will be called by clone and dup<br>&nbsp;clone v. dup:<br>1.) clone copies both the frozen and tainted state, whereas dup only copies tainted state<br>2.) clone copies any singleton methods of the object',
+'Q' => 'copying',
+},
+{
+'A' => '83:<br>Marshal.dump<br>Marshal.load<br>&nbsp;note that Marshals data format is version dependent.<br>&nbsp;yaml is a humanreadable text exporting alternative.',
+'Q' => 'serializing',
+},
+{
+'A' => '84:<br>if $SAFE &gt; 0 Ruby restricts various builtin methods so that won\'t work w/ tainted data<br>&nbsp;user input is tainted<br>&nbsp;code (i.e., objects) can be trusted or untrusted.',
+'Q' => 'trust',
+},
+{
+'A' => '88:<br>aren\'t allowed Ruby only figures out that they are local vars by the initial assignment. So an uninitialized local var is assumed to be a method.',
+'Q' => 'uninitialized local vars',
+},
+{
+'A' => '90:<br>functions defined outside of scope<br>&nbsp;Kernel functions<br>&nbsp;all are added to Objects private methods',
+'Q' => 'global functions',
+},
+{
+'A' => '91:<br>o.x=(z)<br>a[4]=<br>a[]=(4, z3)',
+'Q' => 'o.x = z<br>a[4]<br>a[4] = z3',
+},
+{
+'A' => '92:<br>super',
+'Q' => 'call the same method in the parent class',
+},
+{
+'A' => 'a,b,c = 1,2,3',
+'Q' => 'parallel assignment',
+},
+{
+'A' => '93:<br>expression with no side effects and no change to state',
+'Q' => 'idempotent',
+},
+{
+'A' => '93:<br>idempotent',
+'Q' => 'expression with no side effects and no change to state',
+},
+{
+'A' => '95:<br>o.m=(o.m() + 1)',
+'Q' => 'verbose<br>o.m += 1',
+},
+{
+'A' => '95:<br>o.[]=(x, o.[](x) + 2)',
+'Q' => 'verbose<br>o[x] += 2',
+},
+{
+'A' => '96:<br>x ||= []',
+'Q' => 'set x to be an empty array if its nil',
+},
+{
+'A' => '97:<br>x,y=y,x',
+'Q' => 'swap x, y',
+},
+{
+'A' => '98:<br>if m.responds? to_ary then x,y,z = m.to_ary<br>&nbsp;i.e., if m can be converted into an array by means of to_ary, then to_ary will be called to do a parallel assignment',
+'Q' => 'x,y,z = m',
+},
+{
+'A' => '98:<br>x,=[1,2]',
+'Q' => 'x=[1,2]<br>hmm.. what if I just want x to get the first element?',
+},
+{
+'A' => '99:<br>splat operator<br>*x=b,c<br>&nbsp;is equivalent in this case to<br>x[0], x[1] = b, c<br>&nbsp;Can be applied to ranges, hashes, arrays',
+'Q' => 'x=[5,6]<br>x=[b, c]<br>How to expand x so its individual cells will be assigned to, instead of just setting the x obj ref?',
+},
+{
+'A' => '98:<br>splat operator<br>x,y,z=a,*[b,c]<br>&nbsp;Can be applied to ranges, hashes, arrays',
+'Q' => 'x,y,z=a,[b, c]<br>How to expand the array so it will be like x,y,z=a,b,c?',
+},
+{
+'A' => '99:<br>a splat operator is implicitly added to the single val',
+'Q' => 'parallel assignment where there is a single rvalue or lvalue',
+},
+{
+'A' => '100:<br>x,(y,z) = 1, [2,3]<br>&nbsp;a,(b,(c,d)) = [1, [2, [3,4]]]',
+'Q' => 'how can parens be used to unpack an array',
+},
+{
+'A' => '100:<br>you need an extra dose of parens to prevent the components of the assignment from being broken up and passed as separate args to the method',
+'Q' => 'parallel assignment in a method invocation',
+},
+{
+'A' => '105:<br>include Comparable<br>implement &lt;=&gt;',
+'Q' => 'to support ordering for a class',
+},
+{
+'A' => '&, |',
+'Q' => 'set intersection, union in terms of arrays',
+},
+{
+'A' => 'short circuited logic',
+'Q' => 'boolean ops: whats the difference between (||, &&) and (|, &)?',
+},
+{
+'A' => '105:<br>implements comparison operators to express them:<br>A &lt; B # if A is a descendant of B',
+'Q' => 'how does Module reveal class relationships?',
+},
+{
+'A' => '10910:<br>use a flipflop:<br>(1..10).each &#123;|x| print x if x==3..x==5&#125;<br>&nbsp;or<br>&nbsp;ARGF.each do |line|<br>print line if line=~/TODO/..line=~/^$/<br>end<br>&nbsp;flipflops also supported by perl, awk, sed',
+'Q' => 'to read delimited sections of a file',
+},
+{
+'A' => 'no not method based',
+'Q' => 'can you redefine .. or ...?',
+},
+{
+'A' => '113:<br>defined? returns category<br>&nbsp;only an error gives us nil (even nil yields "nil")',
+'Q' => 'how to determine category of variable?',
+},
+{
+'A' => '121:<br>in Ruby these control structures all return a value, and therefore can be used as an rval',
+'Q' => 'LISPlike character of if, case, etc.',
+},
+{
+'A' => '122:<br>x=y if b',
+'Q' => 'if (b)<br>x = y<br>else<br>x = nil',
+},
+{
+'A' => 'unless b',
+'Q' => 'if not b',
+},
+{
+'A' => '123:<br>case expr<br>&nbsp;&nbsp;when x then # e.g., expr==x<br>&nbsp;&nbsp;when y then<br>&nbsp;&nbsp;else<br>end<br>126:<br>Also: Ruby supports arbitrary expressions its not trying to implement the switch as a jump table',
+'Q' => 'switch... otherwise',
+},
+{
+'A' => '1289:<br>6 patterns:<br>&nbsp;until .. do<br>end<br>&nbsp;while .. do<br>end<br>&nbsp;begin<br>end until .. # executes at least once<br>&nbsp;(<br>) until .. # may execute 0 times<br>&nbsp;for var in collection <br>end<br>&nbsp;for key,val in hash<br>end',
+'Q' => 'loop constructs',
+},
+{
+'A' => 'for key,val in hash<br>end',
+'Q' => 'hash.each do |key,val|<br>end',
+},
+{
+'A' => 'hash.each do |key,val|<br>end',
+'Q' => 'for key,val in hash<br>end',
+},
+{
+'A' => '1301:<br>auto free resources File example: if a block of code is associated w/ the object, then the object is freed immediately after exiting the block<br>no',
+'Q' => 'do all iterators iterate?',
+},
+{
+'A' => '130:<br>tap',
+'Q' => 'tee',
+},
+{
+'A' => '1312:<br>for integers:<br>upto, downto, times<br>&nbsp;for floating point:<br>step<br>&nbsp;e.g., <br>0.step(Math::PI, 0.1) &#123;|x| puts Math.sin(x)&#125;',
+'Q' => 'numeric iterators',
+},
+{
+'A' => '132:<br>File.open(fn) do |f|<br>f.each &#123;|line| print line&#125;<br>end<br>&nbsp;or<br>&nbsp;File.open(fn) do |f|<br>f.each_with_index do |line, number|<br>print "#&#123;number&#125;: #&#123;line&#125;"<br>end<br>end',
+'Q' => 'process the lines of a file',
+},
+{
+'A' => '1323:<br>collect, select, reject, inject<br>&nbsp;inject carries forward the result of the previous operation:<br>&nbsp;data = [2,5,3,4]<br>max = data.inject &#123;|m,x| m&gt;x ? m : x &#125;',
+'Q' => 'Enumerable iterators',
+},
+{
+'A' => '134:<br>Java iterators are external, and pull data as needed.<br>Normally in Ruby iterators are internal, and the iterator method pushes data to the block that will process them.',
+'Q' => 'cf Java and Ruby iterators',
+},
+{
+'A' => '135:<br>block_given? reveals whether a yield can be executed.',
+'Q' => 'how to vary behavior depending on whether a block is present?',
+},
+{
+'A' => '135:<br>iterator?',
+'Q' => 'another name for block_given?',
+},
+{
+'A' => '135:<br>block_given?',
+'Q' => 'synonym for iterator?',
+},
+{
+'A' => '144:<br>h.each_pair&#123;|key, val| ... &#125;<br>h.each&#123;|key, val| ... &#125;',
+'Q' => 'iterate over the keys and values of a hash',
+},
+{
+'A' => '135:<br>not w/ new, use Object.to_enum',
+'Q' => 'how do you get an Enumerator obj',
+},
+{
+'A' => '1356:<br>enum_for, often used when a particular method (besides <i>each</i> will be used)',
+'Q' => 'Object.to_enum synonym',
+},
+{
+'A' => '135:<br>to_enum',
+'Q' => 'Object.enum_for synonym',
+},
+{
+'A' => 'a.to_enum',
+'Q' => 'strategy to protect a mutable array a',
+},
+{
+'A' => '136:<br>String itself is not enumerable, but String has 3 iterator methods:<br>each_char, each_byte, each_line<br>&nbsp;Also synonyms:<br>chars, bytes, lines<br>&nbsp;I think you can add _with_index to any of these.',
+'Q' => 'String iterator methods',
+},
+{
+'A' => '1378:<br>it = 9.downto(1)<br>begin<br>&nbsp;&nbsp;print it.next while true<br>&nbsp;&nbsp;rescue StopIteration<br>&nbsp;&nbsp;&nbsp;&nbsp;puts "...blast off!"<br>end<br>&nbsp;or, since Kernel.loop includes an implicit StopIteration rescue,<br>&nbsp;it = 9.downto(1)<br>loop do<br>&nbsp;&nbsp;print it.next<br>end<br>puts "...blast off!"',
+'Q' => 'external enumerator example',
+},
+{
+'A' => 'external are more flexible and can be combined as needed<br>internal are simpler, since flow control is handled by the iterator',
+'Q' => 'cf internal v. external iterators',
+},
+{
+'A' => 'rewind<br>&nbsp;n.b.: doesnt work for all enumerators',
+'Q' => 'reset an external enumerator',
+},
+{
+'A' => '138:<br>1.) do not interfere with each other<br>2.) cannot be cloned or duped',
+'Q' => 'enumerators, once in progress...',
+},
+{
+'A' => '13940:<br>def interleave(*enumerables)<br>&nbsp;&nbsp;enumerators = enumerables.map&#123;|e| e.to_enum&#125;<br>&nbsp;&nbsp;until enumerators.empty?<br>&nbsp;&nbsp;begin<br>&nbsp;&nbsp;&nbsp;&nbsp;e = enumerators.shift<br>&nbsp;&nbsp;&nbsp;&nbsp;yield e.next<br>&nbsp;&nbsp;&nbsp;&nbsp;rescue StopIteration<br>&nbsp;&nbsp;&nbsp;&nbsp;else<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;enumerators &lt;&lt; e<br>&nbsp;&nbsp;&nbsp;&nbsp;end<br>&nbsp;&nbsp;end<br>end<br>&nbsp;a,b,c = [1,2,3], 4..6, a..e<br>interleave(a,b,c) &#123;|x| print x&#125; # prints "14a25b36cde"',
+'Q' => 'given a set enumerables, interleave their members into a single string',
+},
+{
+'A' => '13940:<br>def sequence(*enumerables, &block)<br>&nbsp;&nbsp;enumerables.each do |enumerable|<br>&nbsp;&nbsp;&nbsp;&nbsp;enumerable.each(&block)<br>&nbsp;&nbsp;end<br>end<br>&nbsp;a,b,c = [1,2,3], 4..6, a..e<br>sequence(a,b,c) &#123;|x| print x&#125; # prints "123456abcde"',
+'Q' => 'given a set of enumerables, apply a block to each element of each enumerable',
+},
+{
+'A' => 'Note this matches the routine \'zip\'.<br>&nbsp;13940:<br>def bundle(*enumerables)<br>&nbsp;&nbsp;enumerators = enumerables.map&#123;|e| e.to_enum&#125;<br>&nbsp;&nbsp;loop &#123; yield enumerators.map&#123;|e| e.next&#125;&#125;<br>end<br>&nbsp;a,b,c = [1,2,3], 4..6, a..e<br>bundle(a,b,c) &#123;|x| print x&#125; # prints [1, 4, "a"][2, 5, "b"][3, 6, "c"]<br>&nbsp;NB: this scheme uses \'yield\', and therefore if !block_given then raise LocalJumpError. Really we should check for a block and then follow the best response.',
+'Q' => 'given a set enumerables, bundle their identically indexed members into their own tuples',
+},
+{
+'A' => '141:<br>after any method invocation',
+'Q' => 'where can you put a block',
+},
+{
+'A' => '&#123; |parm1, parm2; local1, local2| ... &#125;<br>do |parm1, parm2; local1, local2| <br>&nbsp;&nbsp;&nbsp;...<br>end<br>&nbsp;For curlies, note Ruby binds tightly to the preceding element, so if you don\'t parenthesize the preceding method call, it\'s likely to bind to the last arg',
+'Q' => 'block syntax',
+},
+{
+'A' => '142:<br>yes, but can\'t assign to them',
+'Q' => 'can a block see local vars in the calling method',
+},
+{
+'A' => '144:<br>two &#123;|x| p x&#125; # prints 1<br>two &#123;|*x| p x&#125; # prints [1, 2]<br>two &#123;|x,| p x&#125; # prints 1<br>two &#123;|*x,y=3| p x, y&#125; # prints [1, 2], 3',
+'Q' => 'def two; yield 1,2; end # iter which yields 2 vals<br>&nbsp;What goes to output from the following:<br>&nbsp;two &#123;|x| p x&#125; <br>two &#123;|*x| p x&#125; <br>two &#123;|x,| p x&#125; <br>two &#123;|*x,y=3| p x, y&#125;',
+},
+{
+'A' => 'next, redo',
+'Q' => 'flow control in a loop',
+},
+{
+'A' => 'next, <br>rewind,<br>redo, # restarts current iteration (e.g., after processing invalid user input)<br>retry # restarts iter from the very beginning (not always supported). Guards against infinitely looping',
+'Q' => 'flow control in an iter',
+},
+{
+'A' => '147:<br>causes the lexically enclosing method (i.e., the method containing the definition of the block) to return',
+'Q' => 'return, called from a block',
+},
+{
+'A' => 'a.each_with_index &#123;|cell, j| ..&#125;',
+'Q' => 'process an array, with knowledge of the index',
+},
+{
+'A' => 'break',
+'Q' => 'stop an iterator from continuing',
+},
+{
+'A' => 'LocalJumpError',
+'Q' => 'next, executed outside of any loop/block',
+},
+{
+'A' => 'Nice for breaking out of nested loops:<br>&nbsp;catch :whatever do<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;loop<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;loop<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;..<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw :whatever if ..<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end<br>end',
+'Q' => 'Ruby: kind of a goto',
+},
+{
+'A' => 'NameError',
+'Q' => 'if no <br>catch :something<br>&nbsp;but you do<br>&nbsp;throw :something',
+},
+{
+'A' => 'backtrace returns array of fn:n showing stack',
+'Q' => 'Exception methods',
+},
+{
+'A' => 'raise',
+'Q' => 'rethrow the original exception in a rescue clause',
+},
+{
+'A' => 'really raises a RuntimeError',
+'Q' => 'raise "unexpected situation in my_class"',
+},
+{
+'A' => 'Kernel.caller<br>or if you have an exception e,<br>e.backtrace',
+'Q' => 'what\'s the current stack',
+},
+{
+'A' => 'if obj.responds? exception, then obj.exception is called. Optional 2nd arg is emsg',
+'Q' => 'raise obj',
+},
+{
+'A' => '1589:<br>begin<br>rescue <br>end<br>&nbsp;or<br>&nbsp;160:<br>begin<br>rescue TypeX<br>rescue TypeY<br>end',
+'Q' => 'catching an exception',
+},
+{
+'A' => '$!<br>&nbsp;if pgm does<br>&nbsp;require English<br>&nbsp;then you can look at $ERROR_INFO<br>&nbsp;Best alternative:<br>&nbsp;rescue =&gt; ex',
+'Q' => 'global var containing current exception being handled',
+},
+{
+'A' => '159:<br>rescue Exception<br>&nbsp;by dft, rescue sees StandardError and descendants.',
+'Q' => 'catch any exception',
+},
+{
+'A' => 'retry<br>&nbsp;reexecutes the block of code to which the rescue clause is attached',
+'Q' => 'what if you get an exception and want to just rerun whatever it was you were doing?',
+},
+{
+'A' => '162:<br>ensure<br>&nbsp;163:<br>additional power of ensure: you can do a new return that overrides the old',
+'Q' => 'Java finally',
+},
+{
+'A' => 'statement rescue x',
+'Q' => 'catch exceptions for a single statement, and in that case make the expression evaluate to x',
+},
+{
+'A' => '165:<br>BEGIN &#123; .. &#125;<br>&nbsp;Note that BEGIN clauses are executed at initialization regardless of any surrounding flow control, e.g., <br>&nbsp;if (false)<br>BEGIN &#123; .. &#125; # its going to run<br>10.times BEGIN &#123; .. &#125; # its going to run once',
+'Q' => 'program initialization code',
+},
+{
+'A' => '165:<br>END &#123; .. &#125;<br>&nbsp;END code doesnt run immediately; rather it is registered for execution at exit time.<br>&nbsp;END code within a loop doesnt execute multiple times these are multiple registrations of the same code<br>&nbsp;166:<br>An alternative: Kernel.exit: takes a block as an arg',
+'Q' => 'code to run at global shutdown',
+},
+{
+'A' => '166:<br>Thread.new &#123;|x,y;z| ..&#125;',
+'Q' => 'thread',
+},
+{
+'A' => '167:<br>Ruby fibers implement semicoroutines cooperating code that yields to each other<br>168:<br>Note that Fiber.yield gives control from the current fiber to the caller that invoked it.<br>The Ruby language yield statement, OTOH, yields control from an iter to the block associated with the method',
+'Q' => 'coroutines',
+},
+{
+'A' => '171:<br>require fiber<br>&nbsp;n.b. not all ruby implementations support these features; in particular, JRuby doesnt.<br>&nbsp;Ruby fibers aren\'t true coroutines because of the asymmetry between the code since the caller calls resume while the callee calls yield.<br>If you require fiber, however, then you can call transfer to move control back and forth.',
+'Q' => 'advanced fiber features',
+},
+{
+'A' => 'replaced by fibers, and not supported by JRuby',
+'Q' => 'continuations',
+},
+{
+'A' => '179:<br>singleton method<br>&nbsp;Many seeming class methods are really singleton methods',
+'Q' => 'Method defined on a particular object:<br>&nbsp;obj = "whatever"<br>def obj.some_new_method(x,y)<br>..',
+},
+{
+'A' => '179:<br>Method defined on a particular object:<br>&nbsp;obj = "whatever"<br>def obj.some_new_method(x,y)<br>..<br>&nbsp;Many seeming class methods are really singleton methods',
+'Q' => 'singleton method',
+},
+{
+'A' => 'undefine methods:<br>&nbsp;undef xyz',
+'Q' => 'keep the namespace clean',
+},
+{
+'A' => '181:<br>unary plus and minus operators are +@ and @',
+'Q' => 'operator method naming anomaly',
+},
+{
+'A' => '# 182: the key is that alias is not an indirection; rather it associates a name with the existing code. If you define a new method for the old name, the alias is untouched<br>alias saved method_x<br>def method_x()<br>new impl<br>&nbsp;method_x # call new one<br>saved # call old one',
+'Q' => 'override and then call the old guy',
+},
+{
+'A' => '182:<br>alias just adds a name<br>&nbsp;Ruby is flexible about args, but doesnt support multiple method impls, distinguished by expected pattern of args',
+'Q' => 'method aliasing v. overloading',
+},
+{
+'A' => 'x.between? 1,5',
+'Q' => 'x.between?(1,5)',
+},
+{
+'A' => 'def max(first, *rest)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;max = first<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rest.each &#123;|x| max = x if x &gt; max &#125;<br>max',
+'Q' => 'use LISP &rest to implement max(a,b,c,d..)',
+},
+{
+'A' => 'in the method associated with the block, add a &arg',
+'Q' => 'how to get a block as a Proc',
+},
+{
+'A' => '191:<br>to avoid redundancy among similar blocks<br>&nbsp;p = Proc.new &#123;|x,y| ..&#125;<br>sum = a.inject(obj, &p)<br>sum = b.inject(obj, &p)<br>&nbsp;Proc.new # needs no args if invoked in a method which is associated with a block',
+'Q' => 'why use a Proc instead of a block',
+},
+{
+'A' => '196:<br>p.call(x,y)<br>&nbsp;or<br>&nbsp;p[x,y]<br>&nbsp;or<br>&nbsp;p.(x,y)',
+'Q' => 'calling a Proc',
+},
+{
+'A' => '197:<br>Proc is the obj form of a block<br>lambda is more like a method<br>&nbsp;You can tell which is which using the instance method lambda?.<br>&nbsp;return is risky from a Proc if called after the associated method has already returned, LocalJumpError. This is called "outofcontext" use.',
+'Q' => 'cf Proc and lambda',
+},
+{
+'A' => '196:<br>p.arity<br>&nbsp;If p supports optional args, arity returns n1 (where n args are required).',
+'Q' => 'how many args does Proc p expect',
+},
+{
+'A' => '199:<br>Proc.new, which is done before we have a chance to use the block. Therefore its invalid for us to return or break (LocalJumpError).',
+'Q' => 'block = Proc.new &#123;|x| .. &#125;<br>&nbsp;What is the routine call the block is associated with?',
+},
+{
+'A' => '199:<br>next <br>&nbsp;terminates the call to the Proc/lambda/whatever',
+'Q' => 'safe way to return from a block',
+},
+{
+'A' => '200:<br>to Proc: yield semantics (just like what you see in parallel assignment)<br>to lambda: invocation semantics (like any method call)',
+'Q' => 'cf arg passing to Proc v. to lambda',
+},
+{
+'A' => '202:<br>x.binding<br>&nbsp;x.binding can be passed as evals arg 2',
+'Q' => 'what are saved args for a closure x',
+},
+{
+'A' => '203:<br>obj.method(symbol)<br>obj.public_method(symbol)<br>&nbsp;e.g.,<br>&nbsp;obj.method(:succ)',
+'Q' => 'get something like a Proc/lambda containing an existing method, given that method\'s symbol',
+},
+{
+'A' => 'm.to_proc',
+'Q' => 'given a Method m, get a Proc',
+},
+{
+'A' => '2045:<br>sure: UnboundMethod<br>ub = ClassX.instance_method(methodName)<br>xMethod = ub.bind(objX)',
+'Q' => 'can I work with a Method which isn\'t bound to an object',
+},
+{
+'A' => '208:<br>technique of caching the results of a functional invocation<br>&nbsp;def memoize<br>cache = &#123;&#125;<br>lambda &#123;|*args|<br>unless cache.has_key?(args)<br>cache[args] = self[*args]<br>end<br>cache[args]<br>end<br>alias +@ memoize # cached_f = +f',
+'Q' => 'memoization',
+},
+{
+'A' => '208:<br>memoization',
+'Q' => 'what do you call the technique of caching the results of a functional invocation?',
+},
+{
+'A' => '209:<br>prefix w/ & (which leads to Symbol.to_proc being called under the covers), e.g.,<br>[1,2,3].map(&:succ) # =&gt; [2,3,4]',
+'Q' => 'given the name of a method, how can you use it where a block is expected?',
+},
+{
+'A' => '209:<br>[1,2,3].map(&:succ) # =&gt; [2,3,4]',
+'Q' => '[1,2,3].map &#123;|n| n.succ&#125;',
+},
+{
+'A' => '210:<br>class Symbol<br>&nbsp;&nbsp;def to_proc<br>&nbsp;&nbsp;&nbsp;&nbsp;lambda &#123;|receiver, *args| receiver.send(self, *args)&#125;<br>&nbsp;&nbsp;end<br>&nbsp;or<br>&nbsp;&nbsp;&nbsp;def to_proc<br>&nbsp;&nbsp;&nbsp;&nbsp;lambda &#123;|receiver, *args| receiver.method(self)[*args]&#125;<br>&nbsp;&nbsp;end<br>end',
+'Q' => 'implement Symbol.to_proc',
+},
+{
+'A' => '217:<br>self =&gt; the class',
+'Q' => 'what is self for code in a class but outside of method defs',
+},
+{
+'A' => '220:<br>duck typing',
+'Q' => 'loose typing, where if the code will work then we say its ok',
+},
+{
+'A' => '135:<br>iterator?',
+'Q' => 'block_given?',
+},
+{
+'A' => '135:<br>block_given?',
+'Q' => 'iterator?',
+},
+{
+'A' => '201:<br>method call with args bound<br>&nbsp;Make one with a lambda:<br>&nbsp;def multiplier(n)<br>&nbsp;&nbsp;lambda &#123;|data| data.collect&#123;|x| x*n&#125;&#125;<br>end<br>&nbsp;doubler = multiplier(2)<br>&nbsp;n.b.: closures don\'t copy their args, they actually extend their args\' lifetime',
+'Q' => 'closure',
+},
+{
+'A' => '142:<br>next',
+'Q' => 'exit a block',
+},
+{
+'A' => 'same they both test object identity by default<br>&nbsp;And yet some classes make eql? stricter; e.g., Numeric does type conversion w/ == but not w/ eql?.<br>&nbsp;If you want to ensure they act identically, do<br>&nbsp;alias eql? ==',
+'Q' => 'compare default behavior of eql? and ==',
+},
+{
+'A' => 'eql?<br>&nbsp;And so if eql? tests object identity, then a key will only work if it is the exact object k you stored the value with (i.e., q won\'t work, even if q==k).',
+'Q' => 'how does the Hash class compare hash keys?',
+},
+{
+'A' => 'If multiple components a and b have the same type, then &#123;a=x, b=y&#125; and &#123;a=y, b=x&#125; would yield the same hash key if just added the component hash keys.<br>&nbsp;So multiply the individual hash keys by distinct constants.',
+'Q' => 'pitfall to making hash keys for an aggregate type by combining the hash keys of its components',
+},
+{
+'A' => 'nil',
+'Q' => '&lt;=&gt; given incompatible types',
+},
+{
+'A' => 'mix in Comparable and define your own &lt;=&gt;<br>&nbsp;include Comparable<br>&nbsp;def &lt;=&gt;(other)<br>...<br>end',
+'Q' => 'how to implement all the comparing operators',
+},
+{
+'A' => '# generate getter:<br>&nbsp;attr_reader :x<br># generate setter and getter:<br>&nbsp;attr_accessor :x',
+'Q' => 'generate getters and setters',
+},
+{
+'A' => 'ClassX = Struct.new(:a, :b, :c)<br>&nbsp;Struct.new creates an anonymous class. An anonymous class assigned to a const ClassX renames the anonymous class as ClassX<br>&nbsp;Another way to do this:<br>class ClassX &lt; Struct.new(:a, :b, :c)<br>&nbsp;&nbsp;Struct also creates<br>1.) [] and []= operators for hashstyle indexing.<br>2.) each and each_pair iterators',
+'Q' => 'define a class with some fields a,b,c all of which have getters and setters',
+},
+{
+'A' => 'no, the class is "reopened" for additions each time the same name X appears as follows:<br>class X<br>...<br>end',
+'Q' => 'must a class be defined in a single place',
+},
+{
+'A' => 'don\'t repeat yourself',
+'Q' => 'DRY principles',
+},
+{
+'A' => 'class X<br>def self.classMethod1()<br>...<br>end<br>def X.classMethod2()<br>...<br>end<br>end<br>class &lt;&lt; X # syntax for adding stuff to a single object, in this case class X<br>def classMethod3()<br>...<br>end<br>end',
+'Q' => 'define a class method',
+},
+{
+'A' => 'yes:<br>X::WHATEVER = 5',
+'Q' => 'can you define a const for class X outside of class X?',
+},
+{
+'A' => 'class variables start w/ @@<br>instance variables start w/ @; class instance variables are instance variables owned by the class<br>&nbsp;CV are accessible within instance methods, inherited by all subclasses<br>CIV are not accessible within instance methods, not inherited',
+'Q' => 'class variables',
+},
+{
+'A' => 'no, it is an instance method',
+'Q' => 'is initialize a class method?',
+},
+{
+'A' => 'public<br>&nbsp;Except: initialize is always implicitly private',
+'Q' => 'default visibility of methods',
+},
+{
+'A' => 'formally no; rather it is a private method on Object<br>practically yes: since everything descends from Object, everyone can use Objects "private" methods (since private methods are inherited by subclasses)',
+'Q' => 'is a "global" method defined outside of a class definition public?',
+},
+{
+'A' => 'all are inherited. private methods can\'t be called w/ an object; they are automatically called on self (EXCEPTION: \'var=\' must be called w/ self to distinguish from local var)<br>protected is like private except any instance of the class can call protected methods on other instances of the class. Thus instances can share state.',
+'Q' => 'private methods, protected methods',
+},
+{
+'A' => 'No. But a var can have public accessors.<br>&nbsp;Constants are all public.',
+'Q' => 'Can you have a public variable?',
+},
+{
+'A' => 'public_class_method/private_class_method',
+'Q' => 'make a class method public/private',
+},
+{
+'A' => 'obj = X.new<br>x.send :privMethod<br>x.instance_eval &#123; :privMethod &#125;<br>x.instance_eval &#123; @instanceVariable &#125;',
+'Q' => 'how to invoke a private method or var from outside the class?',
+},
+{
+'A' => 'no longer Object; now BasicObject',
+'Q' => 'Ruby 1.9 base object',
+},
+{
+'A' => 'no syntax for it just don\'t implement the methods',
+'Q' => 'how to define an abstract class',
+},
+{
+'A' => 'if you implement a private method w/ same name as ancestor, you will override the ancestors routine',
+'Q' => 'pitfall of subclassing someone elses class',
+},
+{
+'A' => 'super<br>&nbsp;or, w/ args x,y,z<br>super(x,y,z)',
+'Q' => 'call same method in the super class w/ same args',
+},
+{
+'A' => 'no (though accessors certainly are)',
+'Q' => 'instance variables inherited?',
+},
+{
+'A' => 'constants are looked up in the lexical scope of the place they are used before they are looked up in the inheritance hierarchy. Makes it less likely that overriding a constant will break superclass code.<br>&nbsp;if it can\'t be found, const_missing() of the containing class or module is invoked',
+'Q' => 'difference between inheritance behavior of constants vs. that of methods',
+},
+{
+'A' => 'obj = self.allocate<br>obj.initialize(*args)',
+'Q' => '2 jobs for :new',
+},
+{
+'A' => 'Class::new is the Class class method for creating new classes<br>Class#new is the instance method every class inherits',
+'Q' => 'cf Class::new and Class#new',
+},
+{
+'A' => 'implement initialize_copy',
+'Q' => 'how to affect object copies',
+},
+{
+'A' => 'NAMES = %w&#123; Spring Summer Autumn Winter &#125;',
+'Q' => 'array of season names',
+},
+{
+'A' => 'private_class_method :new, :allocate<br>private :dup, :clone<br>&nbsp;or <br>&nbsp;undef dup<br>undef clone',
+'Q' => 'prevent new instances of a class from being created',
+},
+{
+'A' => 'implement X#marshal_dump<br>implement X#marshal_load',
+'Q' => 'alter Ruby\'s serializing strategy for class X',
+},
+{
+'A' => 'syn: eigenclass<br>&nbsp;require singleton # not builtin<br>...<br>include Singleton # suppress dup, clone, new, allocate, implement instance() which will call your initialize() implementation w/ no args',
+'Q' => 'singleton class',
+},
+{
+'A' => 'singleton class<br>&nbsp;require singleton # not builtin<br>...<br>include Singleton # suppress dup, clone, new, allocate, implement instance() which will call your initialize() implementation w/ no args',
+'Q' => 'eigenclass',
+},
+{
+'A' => 'both require capitalized name<br>a module can\'t be instantiated, can\'t be subclassed, but can be nested<br>&nbsp;modules are used as namespaces and mixins<br>&nbsp;Module is a superclass of Class (and thus all ClassX.is_a? Module)',
+'Q' => 'Class vs. Module',
+},
+{
+'A' => 'if a module has instance methods<br>mixin: uses Module.include<br>to create singleton methods: Object.extend',
+'Q' => 'mixin',
+},
+{
+'A' => 'e.g., Math, Kernel<br>&nbsp;methods defined as instance methods of the module, and then<br>&nbsp;module_function<br>&nbsp;converts these methods to module functions (which makes them private (to avoid confusing them w/ nonmixedin instance methods), after duplicating them as class functions)',
+'Q' => 'how to make includable namespace modules',
+},
+{
+'A' => 'don\'t refer to self, since that\'ll depend on who includes the module',
+'Q' => 'when defining a module function, avoid a pitfall',
+},
+{
+'A' => 'require_relative # ignores load path',
+'Q' => 'how to load a private module',
+},
+{
+'A' => 'Both execute in a new toplvel scope temporarily created<br>&nbsp;require can load binary extensions<br>require tries to prevent duplicate loads<br>load loads at the current $SAFE level; require loads w/ $SAFE=0',
+'Q' => 'compare load, require',
+},
+{
+'A' => 'can contain obj if obj.responds_to? to_path',
+'Q' => 'LOAD_PATH',
+},
+{
+'A' => 'main object',
+'Q' => 'default value for self',
+},
+{
+'A' => 'With 2nd arg !(nil || false), load \'wraps\', i.e., loads into an anonymous module (and so doesn\'t touch global namespace).<br>&nbsp;The loaded file must set a global variable to be accessible, e.g.:<br>&nbsp;$XUtil = XUtil<br>&nbsp;Now, the code that loads util.rb into an anonymous namespace can access the utility functions through the global $Util instead of the constant Util.',
+'Q' => 'Wrapped loads',
+},
+{
+'A' => 'The autoload methods of Kernel and Module allow lazy loading of files on an asneeded basis. <br>&nbsp;&nbsp;# Require socket if and when the TCPSocket is first used<br>autoload :TCPSocket, "socket"<br>&nbsp;Use autoload? or Module.autoload? to test whether a reference to a constant will cause a file to be loaded. If a file will be loaded when the constant named by the symbol is referenced, then autoload? returns the name of the file.',
+'Q' => 'lazy loading',
+},
+{
+'A' => 'class &lt;&lt; obj, e.g.<br>&nbsp;class &lt;&lt; Point<br>&nbsp;&nbsp;def class_method1 # This is an instance method of the eigenclass.<br>&nbsp;&nbsp;&nbsp;&nbsp;...<br>&nbsp;&nbsp;end # It is also a class method of Point.<br>&nbsp;&nbsp;&nbsp;def class_method2<br>&nbsp;&nbsp;&nbsp;&nbsp;...<br>&nbsp;&nbsp;end<br>end<br>&nbsp;Can be used in a class defn also:<br>&nbsp;class Point<br>&nbsp;# instance methods go here<br>&nbsp;class &lt;&lt; self<br>&nbsp;# class methods go here as instance methods of the eigenclass<br>end<br>end',
+'Q' => 'syntax for opening the eigenclass of an object and adding methods to it',
+},
+{
+'A' => 'When you open the eigenclass of an object, self refers to the eigenclass object. The idiom for obtaining the eigenclass of an object o is therefore:<br>&nbsp;eigenclass = class &lt;&lt; o; self; end<br>&nbsp;We can formalize this into a method of Object, so that we can ask for the eigenclass of any object:<br>&nbsp;class Object<br>&nbsp;&nbsp;def eigenclass<br>&nbsp;&nbsp;&nbsp;&nbsp;class &lt;&lt; self; self; end<br>&nbsp;&nbsp;end<br>end',
+'Q' => 'get the eigenclass object',
+},
+{
+'A' => '1 checks the eigenclass of o for singleton methods named m.<br>2 searches the class of o for an instance method named m.<br>3 searches the instance methods of any modules included by the class of o (in the reverse of the order in which they were included)<br>4 repeat 23 w/ superclasses<br>5 repeat 14 looking for method_missing',
+'Q' => 'Method Lookup steps',
+},
+{
+'A' => 'Module',
+'Q' => 'Class.superclass',
+},
+{
+'A' => 'c.superclass',
+'Q' => 'get the parent class of c',
+},
+{
+'A' => 'kind_of',
+'Q' => 'is_a syn',
+},
+{
+'A' => 'A &lt; B',
+'Q' => 'if module A includes module B',
+},
+{
+'A' => 'module A includes module B',
+'Q' => 'modules: A &lt; B',
+},
+{
+'A' => 'Integer &lt; Comparable',
+'Q' => 'all integers are comparable, so...',
+},
+{
+'A' => 'A.included_modules',
+'Q' => 'what modules does module A include?',
+},
+{
+'A' => 'they do have ancestry and a hierarchy of nesting, based on whos included whom<br>&nbsp;ModuleX.ancestors<br>module M<br>&nbsp;&nbsp;class C<br>&nbsp;&nbsp;&nbsp;&nbsp;Module.nesting # &gt; [M::C, M]<br>&nbsp;&nbsp;end<br>end',
+'Q' => 'no subclassing of modules, but...',
+},
+{
+'A' => 'Class.new(X)',
+'Q' => 'dynamically create a subclass of X',
+},
+{
+'A' => 'Kernel.binding<br>&nbsp;can be passed as 2nd arg to eval to give context<br>&nbsp;or (Ruby 1.9) just call bindingX.eval(...)',
+'Q' => 'get the state of Ruby\'s variable bindings at some moment',
+},
+{
+'A' => 'gets the state of Ruby\'s variable bindings at the current moment<br>&nbsp;can be passed as 2nd arg to eval to give context<br>&nbsp;or (Ruby 1.9) just call bindingX.eval(...)',
+'Q' => 'Kernel.binding',
+},
+{
+'A' => '1.) binding.eval(...)<br>2.) obj.instance_eval(...)<br>3.) moduleX.class_eval(...) or moduleX.module_eval(...)<br>4.) instance_exec, class_exec take blocks of code (w/ parms) # 270<br>&nbsp;NB: method def in evaluated code: 1.) regular instance method: use class_eval<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.) singleton: use instance_eval',
+'Q' => 'eval',
+},
+{
+'A' => 'instance_exec, class_exec take blocks of code (w/ parms)',
+'Q' => 'parameterize instance_eval/class_eval',
+},
+{
+'A' => 'module_eval<br>&nbsp;n.b., class_eval is a method of Module',
+'Q' => 'class_eval syn',
+},
+{
+'A' => 'obj.instance_variable_defined?(:@propX)<br>obj.instance_variable_get(:@propX)<br>obj.instance_variable_set(:@propX, val)<br>&nbsp;obj.class_variable_defined?(:@propX)<br>obj.class_variable_get(:@propX)<br>obj.class_variable_set(:@propX, val)<br>&nbsp;obj.const_defined?(:@propX)<br>obj.const_get(:@propX)<br>obj.const_set(:@propX, val)',
+'Q' => 'does an obj (or class) have a variable or const :@propX? How can I set it?',
+},
+{
+'A' => 'obj.methods<br>&nbsp;obj.public_methods<br>obj.public_methods(false) # no inheritance<br>obj.private_methods<br>obj.private_methods(false) # no inherited private methods q<br>obj.singleton_methods<br>&nbsp;obj.public_method_defined?<br>obj.private_method_defined?<br>obj.method_defined?',
+'Q' => 'what are the supported methods for obj?',
+},
+{
+'A' => 'def X.extended(c)<br>puts "extended"<br>end<br>&nbsp;N.B.: Singleton methods are added using Object.extend -- or X.define_singleton_method(...',
+'Q' => 'output a message each time class X is used to create singleton methods',
+},
+{
+'A' => 'alias_method is similar, but takes arbitrary expressions as its args which are then evaluated',
+'Q' => 'dynamic aliasing',
+},
+{
+'A' => '# invoke it on the eigenclass:<br>&nbsp;def add_class_method(c, m, &b)<br>&nbsp;eigenclass = class &lt;&lt; c; self; end<br>&nbsp;eigenclass.class_eval &#123;<br>&nbsp;&nbsp;&nbsp;define_method(m, &b)<br>&nbsp;&#125;<br>end<br>&nbsp;add_class_method(String, :greet) &#123;|name| "Hello, " + name &#125;<br>&nbsp;String.greet("world") # =&gt; "Hello, world"',
+'Q' => 'define a class method (or any singleton method) on an arbitrary class',
+},
+{
+'A' => '# Create an alias for the method m in the class (or module) c<br>def backup(c, m, prefix="original")<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n = :"#&#123;prefix&#125;_#&#123;m&#125;" # Compute the alias<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c.class_eval &#123; # Because alias_method is private<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alias_method n, m # Make n an alias for m<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>end',
+'Q' => 'implement method alias chaining<br>e.g.,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;backup(String, :reverse)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"test".original_reverse # =&gt; "tset"',
+},
+{
+'A' => 'class Hash<br>&nbsp;&nbsp;&nbsp;# Allow hash values to be queried and set as if they were attributes.<br>&nbsp;&nbsp;&nbsp;# We simulate attribute getters and setters for any key.<br>&nbsp;&nbsp;def method_missing(key, *args)<br>&nbsp;&nbsp;&nbsp;&nbsp;text = key.to_s<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if text[-1,1] == "=" # If key ends with = set a value<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self[text.chop.to_sym] = args[0] # Strip = from key<br>&nbsp;&nbsp;&nbsp;&nbsp;else # Otherwise...<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self[key] # ...just return the key value<br>&nbsp;&nbsp;&nbsp;&nbsp;end<br>&nbsp;&nbsp;end<br>end',
+'Q' => 'modify hash so we can query or set the value of any named key as if the key were the name of a method, e.g.,<br>&nbsp;h = &#123;&#125; # Create an empty hash object<br>h.one = 1 # Same as h[:one] = 1<br>puts h.one # Prints 1. Same as puts h[:one]',
+},
+{
+'A' => '# Now we have to include Math in order to invoke its methods<br>Math.private_class_method *Math.singleton_methods',
+'Q' => 'how to make all Math methods private?',
+},
+{
+'A' => 'on Module, Class, and Object<br>classes are subclassed, # Object.inherited(c)<br>when modules are included, or # IncludedModule.included(c)<br>when objects are extended or<br>when methods are defined. <br>&nbsp;Hook methods end in ed',
+'Q' => 'Ruby hooks',
+},
+{
+'A' => 'def Object.inherited(c)<br>puts "class #&#123;c&#125; &lt; #&#123;self&#125;"<br>end',
+'Q' => 'output a message each time a class is subclassed',
+},
+{
+'A' => 'module Final # A class that includes Final can\'t be subclassed<br>&nbsp;&nbsp;def self.included(c) # When included in class c<br>&nbsp;&nbsp;&nbsp;&nbsp;c.instance_eval do # Define a class method of c<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;def inherited(sub) # To detect subclasses<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;raise Exception, # And abort with an exception<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Attempt to create subclass #&#123;sub&#125; of Final class #&#123;self&#125;"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end<br>&nbsp;&nbsp;&nbsp;&nbsp;end<br>&nbsp;&nbsp;end<br>end',
+'Q' => 'prevent a class from ever being subclassed',
+},
+{
+'A' => 'String.define_singleton_method(:greet) &#123;|name| "hi, " + name &#125;<br>&nbsp;or<br>&nbsp;obj.extend(...)',
+'Q' => 'quick, add a singleton method to an object',
+},
+{
+'A' => '__FILE__, __LINE__<br>Kernel.__method__',
+'Q' => 'where am I in the source code?',
+},
+{
+'A' => 'Kernel.__method__ or<br>Kernel.__callee__',
+'Q' => 'currently executing method',
+},
+{
+'A' => 'define a global constant SCRIPT_LINES__ and set it equal to a hash, then the require and load methods add an entry to this hash for each file they load. The hash keys are filenames and the values associated with those keys are arrays that contain the lines of those files. If you want to include the main file (rather than just the files it requires) in the hash, initialize it like this:<br>&nbsp;SCRIPT_LINES__ = &#123;__FILE__ =&gt; File.readlines(__FILE__)&#125;<br>&nbsp;If you do this, then you can obtain the current line of source code anywhere in your program with this expression:<br>&nbsp;SCRIPT_LINES__[__FILE__][__LINE__1]',
+'Q' => 'show the code that has loaded',
+},
+{
+'A' => '(Note if you define a global constant SCRIPT_LINES__ and set it equal to a hash, then the require and load methods add an entry to this hash for each file they load. The hash keys are filenames and the values associated with those keys are arrays that contain the lines of those files.)<br>&nbsp;SCRIPT_LINES__ does not include the main file.<br>&nbsp;If you want to include the main file (rather than just the files it requires) in the hash, initialize it like this:<br>&nbsp;SCRIPT_LINES__ = &#123;__FILE__ =&gt; File.readlines(__FILE__)&#125;<br>&nbsp;If you do this, then you can obtain the current line of source code anywhere in your program with this expression:<br>&nbsp;SCRIPT_LINES__[__FILE__][__LINE__1]',
+'Q' => 'gap in SCRIPT_LINES__',
+},
+{
+'A' => 'Kernel.trace_var<br>&nbsp;trace_var(:$SAFE) &#123;|v|<br>&nbsp;&nbsp;puts "$SAFE set to #&#123;v&#125; at #&#123;caller[1]&#125;" # Print a message every time $SAFE changes<br>&#125;<br>&nbsp;cf Kernel.set_trace_func, which executes with each instruction',
+'Q' => 'trace assignments to global variables',
+},
+{
+'A' => 'trace_var(:$SAFE) &#123;|v|<br>&nbsp;&nbsp;puts "$SAFE set to #&#123;v&#125; at #&#123;caller[1]&#125;"<br>&#125;<br>&nbsp;cf Kernel.set_trace_func, which executes with each instruction',
+'Q' => 'print a message every time $SAFE changes',
+},
+{
+'A' => 'Kernel.set_trace_func',
+'Q' => 'hook for every executed line',
+},
+{
+'A' => 'ObjectSpace.each_object(Class) &#123;|c| puts c &#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cf Kernel.trace_var, for tracing one variable:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;trace_var(:$SAFE) &#123;|v|<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puts "$SAFE set to #&#123;v&#125; at #&#123;caller[1]&#125;" # Print a message every time $SAFE changes<br>&#125;',
+'Q' => 'print out a list of all known classes',
+},
+{
+'A' => 'ObjectSpace.garbage_collect, or GC.start',
+'Q' => 'gc',
+},
+{
+'A' => 'GC.disable',
+'Q' => 'disable gc',
+},
+{
+'A' => 'WeakRef',
+'Q' => 'track an object without preventing its garbage collection',
+},
+{
+'A' => 'def after(seconds, &block) # Execute block after sleeping the specified number of seconds.<br>&nbsp;&nbsp;Thread.new do # In a new thread...<br>&nbsp;&nbsp;&nbsp;&nbsp;sleep(seconds) # First sleep <br>&nbsp;&nbsp;&nbsp;&nbsp;block.call # Then call the block<br>&nbsp;&nbsp;end # Return the Thread object right away<br>end<br>&nbsp;def every(seconds, value=nil, &block) # Repeatedly sleep and then execute the block; Pass value to the block on the first invocation; On subsequent invocations, pass the value of the previous invocation.<br>&nbsp;&nbsp;Thread.new do # In a new thread...<br>&nbsp;&nbsp;&nbsp;&nbsp;loop do # Loop forever (or until break in block)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sleep(seconds) # Sleep<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value = block.call(value) # And invoke block<br>&nbsp;&nbsp;&nbsp;&nbsp;end # Then repeat..<br>&nbsp;&nbsp;end # every returns the Thread<br>end',
+'Q' => 'implement afterevery control constructs<br>require afterevery<br>&nbsp;1.upto(5) &#123;|i| after i &#123; puts i&#125; &#125; # Slowly print the numbers 1 to 5<br>sleep(5) # Wait five seconds<br>every 1, 6 do |count| # Now slowly print 6 to 10<br>puts count<br>break if count == 10<br>count + 1 # The next value of count<br>end<br>sleep(6) # Give the above time to run',
+},
+{
+'A' => 'require thread # Ruby 1.8 keeps Mutex in this library<br>&nbsp;&nbsp;# Obtain the Mutex associated with the object o, and then evaluate the block under the protection of that Mutex. This works like the synchronized keyword of Java.<br>def synchronized(o)<br>&nbsp;&nbsp;o.mutex.synchronize &#123; yield &#125;<br>end<br>&nbsp;# Object.mutex does not exist by dft -- we must define it. This method returns a unique Mutex for every object:<br>class Object<br>&nbsp;&nbsp;def mutex<br>&nbsp;&nbsp;&nbsp;&nbsp;return @__mutex if @__mutex<br>&nbsp;&nbsp;&nbsp;&nbsp;synchronized(self.class) &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@__mutex = @__mutex || Mutex.new<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;end<br>end<br>&nbsp;&nbsp;# The Object.mutex method defined above needs to lock the class if the object doesnt have a Mutex yet. If the class doesnt have its own Mutex yet, then the class of the class (the Class object) will be locked. <br>&nbsp;# In order to prevent infinite recursion, we must ensure that the Class object has a mutex.<br>Class.instance_eval &#123; @__mutex = Mutex.new &#125;',
+'Q' => 'implement critical section synchronizing',
+},
+{
+'A' => 'module Unicode<br>&nbsp;&nbsp;def self.const_missing(name)<br>&nbsp;&nbsp;&nbsp;&nbsp;if name.to_s =~ /^U([09afAF]&#123;4,5&#125;|10[09afAF]&#123;4&#125;)$/<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;codepoint = $1.to_i(16)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;utf8 = [codepoint].pack("U")<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;utf8.freeze<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const_set(name, utf8)<br>&nbsp;&nbsp;&nbsp;&nbsp;else <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;raise NameError, "Uninitialized constant: Unicode::#&#123;name&#125;"<br>&nbsp;&nbsp;end<br>end',
+'Q' => 'lazily create constants as needed to represent all Unicode codepoints from U+00000 to U+10FFFF',
+},
+{
+'A' => '# Call the trace method of any object to obtain a new object that behaves just like the original, but which traces all method calls on that object. If tracing more than one object, specify a name to<br># appear in the output. By default, messages will be sent to STDERR, but you can specify any stream (or any object that accepts strings as arguments to &lt;&lt;).<br>class Object<br>def trace(name="", stream=STDERR)<br># Return a TracedObject that traces and delegates everything else to us.<br>TracedObject.new(self, name, stream)<br>end<br>end<br>&nbsp;# This class uses method_missing to trace method invocations and then delegate them to some other object. It deletes most of its own instance methods so that they don\'t get in the way of method_missing.<br># Note that only methods invoked through the TracedObject will be traced. If the delegate object calls methods on itself, those invocations will not be traced.<br>class TracedObject<br># Note the use of Module.instance_methods and Module.undef_method.<br>instance_methods.each do |m|<br>m = m.to_sym # Ruby 1.8 returns strings, instead of symbols<br>next if m == :object_id || m == :__id__ || m == :__send__<br>undef_method m<br>end<br>&nbsp;def initialize(o, name, stream)<br>@o = o # The object we delegate to<br>@n = name # The object name to appear in tracing messages<br>@trace = stream # Where those tracing messages are sent<br>end<br>&nbsp;def method_missing(*args, &block)<br>m = args.shift # First arg is the name of the method<br>begin<br>arglist = args.map &#123;|a| a.inspect&#125;.join(, )<br>@trace &lt;&lt; "Invoking: #&#123;@n&#125;.#&#123;m&#125;(#&#123;arglist&#125;) at #&#123;caller[0]&#125;&#092;n"<br>r = @o.send m, *args, &block<br>@trace &lt;&lt; "Returning: #&#123;r.inspect&#125; from #&#123;@n&#125;.#&#123;m&#125; to #&#123;caller[0]&#125;&#092;n"<br>r<br>rescue Exception =&gt; e<br># Trace an abnormal return from the method.<br>@trace &lt;&lt; "Raising: #&#123;e.class&#125;:#&#123;e&#125; from #&#123;@n&#125;.#&#123;m&#125;&#092;n"<br>raise<br>end<br>end<br>&nbsp;def __delegate<br>@o<br>end<br>end',
+'Q' => 'implement a means to trace method invocations for a given object',
+},
+{
+'A' => '8.9.3<br>def synchronized(o)<br>if block_given?<br>o.mutex.synchronize &#123; yield &#125;<br>else<br>SynchronizedObject.new(o) # here is where all methods are synced<br>end<br>end<br>&nbsp;&nbsp;# A delegating wrapper class using method_missing for thread safety<br>&nbsp;# Instead of extending Object and deleting our methods we just extend<br>&nbsp;# BasicObject, which is defined in Ruby 1.9. BasicObject does not<br>&nbsp;# inherit from Object or Kernel, so the methods of a BasicObject cannot<br>&nbsp;# invoke any toplevel methods: they are just not there.<br>class SynchronizedObject &lt; BasicObject<br>def initialize(o); @delegate = o; end<br>def __delegate; @delegate; end<br>&nbsp;def method_missing(*args, &block)<br>@delegate.mutex.synchronize &#123;<br>@delegate.send *args, &block<br>&#125;<br>end<br>end',
+'Q' => 'implement a means to synchronize every method in a given class',
+},
+{
+'A' => 'arguments.callee // yields the entire function definition, not just its name',
+'Q' => 'JavaScript: in a function, what is the current function?',
+},
+{
+'A' => 'within a function, a ref to the current function',
+'Q' => 'JavaScript: arguments.callee',
+},
+{
+'A' => '...crosscutting concerns, that is, functionality which “cuts across” or overlaps multiple areas of a system.',
+'Q' => 'AOP seeks to address the issue of...',
+},
+{
+'A' => 'a category of occurrence (e.g., "before entering a routine requiring participation in a DB transaction")<br>&nbsp;We use aspects to modularize a concern that cuts across multiple classes. Transaction management is a good example of a crosscutting concern in J2EE applications. In Spring AOP, aspects are implemented using regular classes (the schemabased approach) or regular classes annotated with the @Aspect annotation (the @AspectJ style).',
+'Q' => 'AOP term: Aspect',
+},
+{
+'A' => 'a point during the execution of a program, such as the execution of a method or the handling of an exception. In Spring AOP, a join point always represents a method execution.',
+'Q' => 'AOP term: Join point',
+},
+{
+'A' => 'action taken by an aspect at a particular join point. Different types of advice include "around," "before" and "after" advice. (Advice types are discussed below.) Many AOP frameworks, including Spring, model an advice as an interceptor, maintaining a chain of interceptors around the join point.',
+'Q' => 'AOP term: Advice',
+},
+{
+'A' => 'a predicate that matches join points. Advice is associated with a pointcut expression and runs at any join point matched by the pointcut (for example, the execution of a method with a certain name). The concept of join points as matched by pointcut expressions is central to AOP, and Spring uses the AspectJ pointcut expression language by default.',
+'Q' => 'AOP term: Pointcut',
+},
+{
+'A' => 'declaring additional methods or fields on behalf of a type. Spring AOP allows you to introduce new interfaces (and a corresponding implementation) to any advised object. For example, you could use an introduction to make a bean implement an IsModified interface, to simplify caching. <br>&nbsp;(An introduction is known as an intertype declaration in the AspectJ community.)',
+'Q' => 'AOP term: Introduction',
+},
+{
+'A' => 'object being advised by one or more aspects. Also referred to as the advised object. Since Spring AOP is implemented using runtime proxies, this object will always be a proxied object.',
+'Q' => 'AOP term: Target object',
+},
+{
+'A' => 'an object created by the AOP framework in order to implement the aspect contracts (advise method executions and so on). In the Spring Framework, an AOP proxy will be a JDK dynamic proxy or a CGLIB proxy.',
+'Q' => 'AOP term: AOP proxy',
+},
+{
+'A' => 'linking aspects with other application types or objects to create an advised object. <br>&nbsp;This can be done at compile time (using the AspectJ compiler, for example), load time, or at runtime. Spring AOP, like other pure Java AOP frameworks, performs weaving at runtime.',
+'Q' => 'AOP term: weaving',
+},
+{
+'A' => '1.) Before advice: Advice that executes before a join point, but which does not have the ability to prevent execution flow proceeding to the join point (unless it throws an exception).<br>2.) After returning advice: Advice to be executed after a join point completes normally: for example, if a method returns without throwing an exception.<br>3.) After throwing advice: Advice to be executed if a method exits by throwing an exception.<br>4.) After (finally) advice: Advice to be executed regardless of the means by which a join point exits (normal or exceptional return).<br>5.) Around advice: Advice that surrounds a join point such as a method invocation. This is the most powerful kind of advice. Around advice can perform custom behavior before and after the method invocation. It is also responsible for choosing whether to proceed to the join point or to shortcut the advised method execution by returning its own return value or throwing an exception.<br>&nbsp;Around advice is the most general kind of advice. Since Spring AOP, like AspectJ, provides a full range of advice types, we recommend that you use the least powerful advice type that can implement the required behavior. For example, if you need only to update a cache with the return value of a method, you are better off implementing an after returning advice than an around advice, although an around advice can accomplish the same thing. Using the most specific advice type provides a simpler programming model with less potential for errors. For example, you do not need to invoke the proceed() method on the JoinPoint used for around advice, and hence cannot fail to invoke it.',
+'Q' => 'AOP terms: Types of advice',
+},
+{
+'A' => '$("#orderedlist").find("li")<br><a href=\'http://docs.jquery.com/Tutorials:Getting_Started_with_jQuery\'>http://docs.jquery.com/Tutorials:Getting_Started_with_jQuery</a>',
+'Q' => 'jquery: verbose version of the selector expression $("#orderedlist li")',
+},
+{
+'A' => 'Aspect',
+'Q' => 'AOP term: what do you call: a modularization of a concern that cuts across multiple classes. Transaction management is a good example of a crosscutting concern in J2EE applications. In Spring AOP, aspects are implemented using regular classes (the schemabased approach) or regular classes annotated with the @Aspect annotation (the @AspectJ style).',
+},
+{
+'A' => 'e.g., get all li nodes under the node w/ id=orderedlist:<br>&nbsp;$(document).ready(function() &#123;<br>$("#orderedlist &gt; li").addClass("blue");<br>&#125;);<br><a href=\'http://docs.jquery.com/Tutorials:Getting_Started_with_jQuery\'>http://docs.jquery.com/Tutorials:Getting_Started_with_jQuery</a>',
+'Q' => 'jquery: combine getElementById("orderedlist") with xpath',
+},
+{
+'A' => 'Join point<br>&nbsp;In Spring AOP, a join point always represents a method execution.',
+'Q' => 'AOP term: what do you call: a moment during the execution of a program, such as the execution of a method or the handling of an exception.',
+},
+{
+'A' => 'Advice<br>&nbsp;Different types of advice include "around," "before" and "after" advice. (Advice types are discussed below.) Many AOP frameworks, including Spring, model an advice as an interceptor, maintaining a chain of interceptors around the join point.',
+'Q' => 'AOP term: what do you call: action taken by an aspect at a particular join point.',
+},
+{
+'A' => 'var fp = function()&#123; myCallBack(param1, param2); &#125;<br>&nbsp;<a href=\'http://docs.jquery.com/How_jQuery_Works\'>http://docs.jquery.com/How_jQuery_Works</a>',
+'Q' => 'js: how to pass a function pointer that includes parm values, e.g., to bring about the invocation myCallBack(param1, param2)?',
+},
+{
+'A' => 'Pointcut',
+'Q' => 'AOP term: what do you call: a predicate that matches join points. Advice is associated with a pointcut expression and runs at any join point matched by the pointcut (for example, the execution of a method with a certain name). The concept of join points as matched by pointcut expressions is central to AOP, and Spring uses the AspectJ pointcut expression language by default.',
+},
+{
+'A' => 'Before advice: Advice that executes before a join point, but which does not have the ability to prevent execution flow proceeding to the join point (unless it throws an exception).<br>After returning advice: Advice to be executed after a join point completes normally: for example, if a method returns without throwing an exception.<br>After throwing advice: Advice to be executed if a method exits by throwing an exception.<br>After (finally) advice: Advice to be executed regardless of the means by which a join point exits (normal or exceptional return).<br>Around advice: Advice that surrounds a join point such as a method invocation. This is the most powerful kind of advice. Around advice can perform custom behavior before and after the method invocation. It is also responsible for choosing whether to proceed to the join point or to shortcut the advised method execution by returning its own return value or throwing an exception.<br>&nbsp;Around advice is the most general kind of advice. Since Spring AOP, like AspectJ, provides a full range of advice types, we recommend that you use the least powerful advice type that can implement the required behavior. For example, if you need only to update a cache with the return value of a method, you are better off implementing an after returning advice than an around advice, although an around advice can accomplish the same thing. Using the most specific advice type provides a simpler programming model with less potential for errors. For example, you do not need to invoke the proceed() method on the JoinPoint used for around advice, and hence cannot fail to invoke it.',
+'Q' => 'AOP term: Types of advice',
+},
+{
+'A' => 'Introduction',
+'Q' => 'AOP term: what do you call: declaring additional methods or fields on behalf of a type. Spring AOP allows you to introduce new interfaces (and a corresponding implementation) to any advised object. For example, you could use an introduction to make a bean implement an IsModified interface, to simplify caching. (An introduction is known as an intertype declaration in the AspectJ community.)',
+},
+{
+'A' => 'Weaving',
+'Q' => 'AOP term: what do you call: linking aspects with other application types or objects to create an advised object. This can be done at compile time (using the AspectJ compiler, for example), load time, or at runtime. Spring AOP, like other pure Java AOP frameworks, performs weaving at runtime.',
+},
+{
+'A' => 'Target object',
+'Q' => 'AOP term: what do you call: object being advised by one or more aspects. Also referred to as the advised object. Since Spring AOP is implemented using runtime proxies, this object will always be a proxied object.',
+},
+{
+'A' => 'AOP proxy<br>&nbsp;In Spring, an AOP proxy will be either<br>JDK dynamic proxy or<br>CGLIB proxy (necessary to proxy classes, rather than interfaces)',
+'Q' => 'AOP term: what do you call: an object created by the AOP framework in order to implement the aspect contracts (advise method executions and so on).',
+},
+{
+'A' => '&#092;cI<br>Note that &#092;cC will let you choose an element in firebug',
+'Q' => 'firefox: what key to show DOM inspector',
+},
+{
+'A' => '&#092;cJ',
+'Q' => 'firefox: what key to show error console',
+},
+{
+'A' => 'yields control from an iter to the block associated with the method<br>when can a protected method defined in class C be invoked on object o by object p?<br>a<br>iff o.is_a C && p.is_a C',
+'Q' => 'yield',
+},
+{
+'A' => 'An introduction<br>&nbsp;i.e., declaring additional methods or fields on behalf of a type. <br>&nbsp;Spring AOP allows you to introduce new interfaces (and a corresponding implementation) to any advised object. For example, you could use an introduction to make a bean implement an IsModified interface, to simplify caching.',
+'Q' => 'AOP: what is a general term for something known as an intertype declaration in the AspectJ community?',
+},
+{
+'A' => 'until (b)',
+'Q' => 'while (!b)',
+},
+{
+'A' => 'chomp by default only removes line terminator.<br>&nbsp;chomp can also take an arg:<br>&nbsp;"hello".chomp("o") # =&gt; "hell"',
+'Q' => 'ruby: chomp v. chop',
+},
+{
+'A' => 'pre execution environment, an Intel standard<br>&nbsp;<a href=\'http://syslinux.zytor.com/wiki/index.php/PXELINUX\'>http://syslinux.zytor.com/wiki/index.php/PXELINUX</a>',
+'Q' => 'PXE',
+},
+{
+'A' => 'boot loader for the Linux operating system which operates off an MSDOS/Windows FAT filesystem.',
+'Q' => 'SYSLINUX',
+},
+{
+'A' => 'SYSLINUX',
+'Q' => 'boot loader for the Linux operating system which operates off an MSDOS/Windows FAT filesystem.',
+},
+{
+'A' => '-rclasstrace<br>&nbsp;--traceout fn',
+'Q' => 'ruby equivalent to verbose:class',
+},
+{
+'A' => '# Define a Module.synchronize_method that alias chains instance methods<br># so they synchronize on the instance before running.<br># This is a helper function for alias chaining.<br># Given a method name (as a string or symbol) and a prefix, create<br># a unique alias for the method, and return the name of the alias<br># as a symbol. Any punctuation characters in the original method name<br># will be converted to numbers so that operators can be aliased.<br>def create_alias(original, prefix="alias")<br>&nbsp;aka = "#&#123;prefix&#125;_#&#123;original&#125;"<br>&nbsp;aka.gsub!(/([&#092;=&#092;|&#092;&&#092;+&#092;&#092;*&#092;/&#092;^&#092;!&#092;?&#092;~&#092;%&#092;&lt;&#092;&gt;&#092;[&#092;]])/) &#123;<br>&nbsp;num = $1[0] # Ruby 1.8 character &gt; ordinal<br>&nbsp;num = num.ord if num.is_a? String # Ruby 1.9 character &gt; ordinal<br>&nbsp;_ + num.to_s<br>&#125;<br>&nbsp;# Keep appending underscores until we get a name that is not in use<br>aka += "_" <br>while method_defined? aka or private_method_defined? aka<br>&nbsp;aka = aka.to_sym # Convert the alias name to a symbol<br>alias_method aka, original # Actually create the alias<br>aka # Return the alias name<br>end<br>&nbsp;# Alias chain the named method to add synchronization<br>def synchronize_method(m)<br>&nbsp;# First, make an alias for the unsynchronized version of the method.<br>&nbsp;aka = create_alias(m, "unsync")<br>&nbsp;# Now redefine the original to invoke the alias in a synchronized block.<br>&nbsp;# We want the defined method to be able to accept blocks, so we<br>&nbsp;# can\'t use define_method, and must instead evaluate a string with<br>&nbsp;# class_eval. Note that everything between %Q&#123; and the matching &#125;<br>&nbsp;# is a doublequoted string, not a block.<br>&nbsp;class_eval %Q&#123;<br>&nbsp;&nbsp;&nbsp;def #&#123;m&#125;(*args, &block)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;synchronized(self) &#123; #&#123;aka&#125;(*args, &block) &#125;<br>&nbsp;&nbsp;&nbsp;end<br>&nbsp;&#125;<br>&nbsp;end<br>end<br>&nbsp;def synchronized(*args)<br>&nbsp;# Case 1: with one argument and a block, synchronize on the object<br>&nbsp;# and execute the block<br>&nbsp;if args.size == 1 && block_given?<br>&nbsp;&nbsp;&nbsp;args[0].mutex.synchronize &#123; yield &#125;<br>&nbsp;&nbsp;# Case two: with one argument that is not a symbol and no block<br>&nbsp;# return a SynchronizedObject wrapper<br>&nbsp;elsif args.size == 1 and not args[0].is_a? Symbol and not block_given?<br>&nbsp;&nbsp;&nbsp;SynchronizedObject.new(args[0])<br>&nbsp;&nbsp;# Case three: when invoked on a module with no block, alias chain the<br>&nbsp;# named methods to add synchronization. Or, if there are no arguments,<br>&nbsp;# then alias chain the next method defined.<br>&nbsp;elsif self.is_a? Module and not block_given?<br>&nbsp;&nbsp;&nbsp;if (args.size &gt; 0) # Synchronize the named methods<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;args.each &#123;|m| self.synchronize_method(m) &#125;<br>&nbsp;&nbsp;&nbsp;else<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# If no methods are specified synchronize the next method defined<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;eigenclass = class&lt;&lt;self; self; end<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;eigenclass.class_eval do # Use eigenclass to define class methods<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Define method_added for notification when next method is defined<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;define_method :method_added do |name|<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# First remove this hook method<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;eigenclass.class_eval &#123; remove_method :method_added &#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Next, synchronize the method that was just added<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.synchronize_method name<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end<br>&nbsp;&nbsp;&nbsp;end<br>&nbsp;end<br>&nbsp;else<br>&nbsp;&nbsp;&nbsp;raise ArgumentError, "Invalid arguments to synchronize()"<br>&nbsp;end<br>end',
+'Q' => 'implement alias chaining for thread safety',
+},
+{
+'A' => '# Define trace! and untrace! instance methods for all objects. trace! "chains" the named methods by defining singleton methods that add tracing functionality and then <br># use super to call the original. untrace! deletes the singleton methods to remove tracing.<br>class Object<br>&nbsp;# Trace the specified methods, sending output to STDERR.<br>&nbsp;def trace!(*methods)<br>&nbsp;&nbsp;&nbsp;@_traced = @_traced || [] # Remember the set of traced methods<br>&nbsp;&nbsp;&nbsp;&nbsp;# If no methods were specified, use all public methods defined<br>&nbsp;&nbsp;&nbsp;# directly (not inherited) by the class of this object<br>&nbsp;&nbsp;&nbsp;methods = public_methods(false) if methods.size == 0<br>&nbsp;&nbsp;&nbsp;&nbsp;methods.map! &#123;|m| m.to_sym &#125; # Convert any strings to symbols<br>&nbsp;&nbsp;&nbsp;methods = @_traced # Remove methods that are already traced<br>&nbsp;&nbsp;&nbsp;return if methods.empty? # Return early if there is nothing to do<br>&nbsp;&nbsp;&nbsp;@_traced |= methods # Add methods to set of traced methods<br>&nbsp;&nbsp;&nbsp;&nbsp;# Trace the fact that were starting to trace these methods<br>&nbsp;&nbsp;&nbsp;STDERR &lt;&lt; "Tracing #&#123;methods.join(, )&#125; on #&#123;object_id&#125;&#092;n"<br>&nbsp;&nbsp;&nbsp;&nbsp;# Singleton methods are defined in the eigenclass<br>&nbsp;&nbsp;&nbsp;eigenclass = class &lt;&lt; self; self; end<br>&nbsp;&nbsp;&nbsp;&nbsp;methods.each do |m| # For each method m<br>&nbsp;&nbsp;&nbsp;# Define a traced singleton version of the method m.<br>&nbsp;&nbsp;&nbsp;# Output tracing information and use super to invoke the<br>&nbsp;&nbsp;&nbsp;# instance method that it is tracing.<br>&nbsp;&nbsp;&nbsp;# We want the defined methods to be able to accept blocks, so we<br>&nbsp;&nbsp;&nbsp;# can\'t use define_method, and must instead evaluate a string.<br>&nbsp;&nbsp;&nbsp;# Note that everything between %Q&#123; and the matching &#125; is a<br>&nbsp;&nbsp;&nbsp;# doublequoted string, not a block. Also note that there are<br>&nbsp;&nbsp;&nbsp;# two levels of string interpolations here. #&#123;&#125; is interpolated<br>&nbsp;&nbsp;&nbsp;# when the singleton method is defined. And &#092;#&#123;&#125; is interpolated<br>&nbsp;&nbsp;&nbsp;# when the singleton method is invoked.<br>&nbsp;&nbsp;&nbsp;eigenclass.class_eval %Q&#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;def #&#123;m&#125;(*args, &block)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;begin<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STDERR &lt;&lt; "Entering: #&#123;m&#125;(&#092;#&#123;args.join(, )&#125;)&#092;n"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result = super<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STDERR &lt;&lt; "Exiting: #&#123;m&#125; with &#092;#&#123;result&#125;&#092;n"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rescue<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STDERR &lt;&lt; "Aborting: #&#123;m&#125;: &#092;#&#123;$!.class&#125;: &#092;#&#123;$!.message&#125;"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;raise<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end<br>&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;end<br>&nbsp;end<br>&nbsp;&nbsp;# Untrace the specified methods or all traced methods<br>&nbsp;def untrace!(*methods)<br>&nbsp;&nbsp;&nbsp;if methods.size == 0 # If no methods specified untrace<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;methods = @_traced # all currently traced methods<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STDERR &lt;&lt; "Untracing all methods on #&#123;object_id&#125;&#092;n"<br>&nbsp;&nbsp;&nbsp;else # Otherwise, untrace<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;methods.map! &#123;|m| m.to_sym &#125; # Convert string to symbols<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;methods &= @_traced # all specified methods that are traced<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STDERR &lt;&lt; "Untracing #&#123;methods.join(, )&#125; on #&#123;object_id&#125;&#092;n"<br>&nbsp;&nbsp;&nbsp;end <br>&nbsp;&nbsp;&nbsp;@_traced = methods # Remove them from our set of traced methods<br>&nbsp;&nbsp;&nbsp;&nbsp;# Remove the traced singleton methods from the eigenclass<br>&nbsp;&nbsp;&nbsp;# Note that we class_eval a block here, not a string<br>&nbsp;&nbsp;&nbsp;(class &lt;&lt; self; self; end).class_eval do<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;methods.each do |m|<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;remove_method m # undef_method would not work correctly<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end<br>&nbsp;&nbsp;&nbsp;end<br>&nbsp;&nbsp;&nbsp;&nbsp;# If no methods are traced anymore, remove our instance var<br>&nbsp;&nbsp;&nbsp;if @_traced.empty?<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;remove_instance_variable :@_traced<br>&nbsp;&nbsp;&nbsp;end<br>&nbsp;end<br>end',
+'Q' => 'implement method tracing using singleton methods',
+},
+{
+'A' => 'class XML<br>&nbsp;# Create an instance of this class, specifying a stream or object to<br>&nbsp;# hold the output. This can be any object that responds to &lt;&lt;(String).<br>def initialize(out)<br>@out = out # Remember where to send our output<br>end<br>&nbsp;&nbsp;# Output the specified object as CDATA, return nil.<br>def content(text)<br>@out &lt;&lt; text.to_s<br>nil<br>end<br>&nbsp;&nbsp;# Output the specified object as a comment, return nil.<br>def comment(text)<br>@out &lt;&lt; "&lt;! #&#123;text&#125; &gt;"<br>nil<br>end<br>&nbsp;&nbsp;# Output a tag with the specified name and attributes.<br>&nbsp;# If there is a block invoke it to output or return content.<br>&nbsp;# Return nil.<br>def tag(tagname, attributes=&#123;&#125;)<br>&nbsp;# Output the tag name<br>@out &lt;&lt; "&lt;#&#123;tagname&#125;"<br>&nbsp;&nbsp;# Output the attributes<br>attributes.each &#123;|attr,value| @out &lt;&lt; " #&#123;attr&#125;=#&#123;value&#125;" &#125;<br>&nbsp;if block_given?<br>&nbsp;# This block has content<br>@out &lt;&lt; &gt; # End the opening tag<br>content = yield # Invoke the block to output or return content<br>if content # If any content returned<br>@out &lt;&lt; content.to_s # Output it as a string<br>end<br>@out &lt;&lt; "&lt;/#&#123;tagname&#125;&gt;" # Close the tag<br>else<br>&nbsp;# Otherwise, this is an empty tag, so just close it.<br>@out &lt;&lt; /&gt;<br>end<br>nil # Tags output themselves, so they don\'t return any content<br>end<br>&nbsp;&nbsp;# The code below is what changes this from an ordinary class into a DSL.<br>&nbsp;# First: any unknown method is treated as the name of a tag.<br>alias method_missing tag<br>&nbsp;&nbsp;# Second: run a block in a new instance of the class.<br>def self.generate(out, &block)<br>XML.new(out).instance_eval(&block)<br>end<br>end',
+'Q' => 'implement a simple class named XML for generating XML output. Here’s an example of how the XML can be used:<br>&nbsp;pagetitle = "Test Page for XML.generate"<br>XML.generate(STDOUT) do<br>html do<br>head do<br>title &#123; pagetitle &#125;<br>comment "This is a test"<br>end<br>body do<br>h1(:style =&gt; "fontfamily:sansserif") &#123; pagetitle &#125;<br>ul :type=&gt;"square" do<br>li &#123; Time.now &#125;<br>li &#123; RUBY_VERSION &#125;<br>end<br>end<br>end<br>end',
+},
+{
+'A' => 'class XMLGrammar<br>&nbsp;# Create an instance of this class, specifying a stream or object to<br>&nbsp;# hold the output. This can be any object that responds to &lt;&lt;(String).<br>def initialize(out)<br>@out = out # Remember where to send our output<br>end<br>&nbsp;&nbsp;# Invoke the block in an instance that outputs to the specified stream.<br>def self.generate(out, &block)<br>new(out).instance_eval(&block)<br>end<br>&nbsp;&nbsp;# Define an allowed element (or tag) in the grammar.<br>&nbsp;# This class method is the grammarspecification DSL<br>&nbsp;# and defines the methods that constitute the XMLoutput DSL.<br>def self.element(tagname, attributes=&#123;&#125;)<br>@allowed_attributes ||= &#123;&#125;<br>@allowed_attributes[tagname] = attributes<br>&nbsp;class_eval %Q&#123;<br>def #&#123;tagname&#125;(attributes=&#123;&#125;, &block)<br>tag(:#&#123;tagname&#125;,attributes,&block)<br>end<br>&#125;<br>end<br>&nbsp;&nbsp;# These are constants used when defining attribute values.<br>OPT = :opt # for optional attributes<br>REQ = :req # for required attributes<br>BOOL = :bool # for attributes whose value is their own name<br>&nbsp;def self.allowed_attributes<br>@allowed_attributes<br>end<br>&nbsp;&nbsp;# Output the specified object as CDATA, return nil.<br>def content(text)<br>@out &lt;&lt; text.to_s<br>nil<br>end<br>&nbsp;&nbsp;# Output the specified object as a comment, return nil.<br>def comment(text)<br>@out &lt;&lt; "&lt;! #&#123;text&#125; &gt;"<br>nil<br>end<br>&nbsp;&nbsp;# Output a tag with the specified name and attribute.<br>&nbsp;# If there is a block, invoke it to output or return content.<br>&nbsp;# Return nil.<br>def tag(tagname, attributes=&#123;&#125;)<br>&nbsp;# Output the tag name<br>@out &lt;&lt; "&lt;#&#123;tagname&#125;"<br>&nbsp;&nbsp;# Get the allowed attributes for this tag.<br>allowed = self.class.allowed_attributes[tagname]<br>&nbsp;&nbsp;# First, make sure that each of the attributes is allowed.<br>&nbsp;# Assuming they are allowed, output all of the specified ones.<br>attributes.each_pair do |key,value|<br>raise "unknown attribute: #&#123;key&#125;" unless allowed.include?(key)<br>@out &lt;&lt; " #&#123;key&#125;=#&#123;value&#125;"<br>end<br>&nbsp;&nbsp;# Now look through the allowed attributes, checking for<br>&nbsp;# required attributes that were omitted and for attributes with<br>&nbsp;# default values that we can output.<br>allowed.each_pair do |key,value|<br>&nbsp;# If this attribute was already output, do nothing.<br>next if attributes.has_key? key<br>if (value == REQ)<br>raise "required attribute #&#123;key&#125; missing in &lt;#&#123;tagname&#125;&gt;"<br>elsif value.is_a? String<br>@out &lt;&lt; " #&#123;key&#125;=#&#123;value&#125;"<br>end<br>end<br>&nbsp;if block_given?<br>&nbsp;# This block has content<br>@out &lt;&lt; &gt; # End the opening tag<br>content = yield # Invoke the block to output or return content<br>if content # If any content returned<br>@out &lt;&lt; content.to_s # Output it as a string<br>end<br>@out &lt;&lt; "&lt;/#&#123;tagname&#125;&gt;" # Close the tag<br>else<br>&nbsp;# Otherwise, this is an empty tag, so just close it.<br>@out &lt;&lt; /&gt;<br>end<br>nil # Tags output themselves, so they don\'t return any content.<br>end<br>end',
+'Q' => 'implement an XML DSL w/ some validation, e.g.,<br>&nbsp;class HTMLForm &lt; XMLGrammar<br>element :form, :action =&gt; REQ,<br>:method =&gt; "GET",<br>:enctype =&gt; "application/xwwwformurlencoded",<br>:name =&gt; OPT<br>element :input, :type =&gt; "text", :name =&gt; OPT, :value =&gt; OPT,<br>:maxlength =&gt; OPT, :size =&gt; OPT, :src =&gt; OPT,<br>:checked =&gt; BOOL, :disabled =&gt; BOOL, :readonly =&gt; BOOL<br>element :textarea, :rows =&gt; REQ, :cols =&gt; REQ, :name =&gt; OPT,<br>:disabled =&gt; BOOL, :readonly =&gt; BOOL<br>element :button, :name =&gt; OPT, :value =&gt; OPT,<br>:type =&gt; "submit", :disabled =&gt; OPT<br>end',
+},
+{
+'A' => '"xyz".insert(1, "ABC")<br>&nbsp;n.b., String.insert is a mutator',
+'Q' => 'how to transform "xyz" to "xABCyz"?',
+},
+{
+'A' => '"xyz".slice!(1, 3)',
+'Q' => 'how to transform "xABCyz" to "xyz"?',
+},
+{
+'A' => 'x="..."<br>x.index(/^#/)',
+'Q' => 'ruby equivalent to <br>String x = "...";<br>x.matches("^#")',
+},
+{
+'A' => 'stringVar.start_with?("#")',
+'Q' => 'ruby equivalent to stringVar.startsWith("#")',
+},
+{
+'A' => 'stringVar.end_with?("#")',
+'Q' => 'ruby equivalent to stringVar.endsWith("#")',
+},
+{
+'A' => 'stringVar.include?("xx")',
+'Q' => 'ruby equivalent to stringVar.contains("xx")',
+},
+{
+'A' => '?h',
+'Q' => 'ruby equivalent to \'h\'',
+},
+{
+'A' => 'stringVar.rindex("alksdfj")',
+'Q' => 'ruby: search a string backwards from the end',
+},
+{
+'A' => 'stringVar.partition(/,/)',
+'Q' => 'ruby: what op is like stringVar.split(/,/) but yields the delimiter also?',
+},
+{
+'A' => 'stringVar.sub("old", "new")<br>stringVar.sub!("old", "new")<br>&nbsp;stringVar.gsub("old", "new")<br>stringVar.gsub!("old", "new")',
+'Q' => 'ruby equivalent to stringVar.replaceFirst(), stringVar.replaceAll()',
+},
+{
+'A' => 's.gsub(/re/) &#123; |match| match.upcase &#125;<br>s.gsub!(/re/) &#123; |match| match.upcase &#125;',
+'Q' => 'For each match of regexp /re/ in string s, do something.',
+},
+{
+'A' => 'W/ single backslash:<br>&nbsp;s.sub!(/(.)(.)/, &#092;2&#092;1) # swap 2 chars',
+'Q' => 'in ruby, how do you refer to matched groups w/ sub?',
+},
+{
+'A' => '# In Ruby 1.9, you can specify a hash to map matches to replacements<br>s.gsub(/[aeiou]/,"a"=&gt;0, "e"=&gt;1, "i"=&gt;2)',
+'Q' => 'kind of a ruby equivalent to $HOME/data/transform',
+},
+{
+'A' => '"xyz".upcase',
+'Q' => 'how to transform "xyz" to "XYZ"?',
+},
+{
+'A' => '"xyz".downcase',
+'Q' => 'how to transform "XYZ" to "xyz"?',
+},
+{
+'A' => '"xyz".capitalize',
+'Q' => 'how to transform "xyz" to "Xyz"?',
+},
+{
+'A' => '"xyz".swapcase',
+'Q' => 'how to transform "XyZ" to "xYz"?',
+},
+{
+'A' => '"world".casecmp("WORLD") # =&gt; 0',
+'Q' => 'ruby: case insensitive cf',
+},
+{
+'A' => 's.strip<br>&nbsp;also:<br>s.lstrip<br>s.rstrip',
+'Q' => 'how to transform " xyz " to "xyz"?',
+},
+{
+'A' => '"99".to_i(2)',
+'Q' => 'convert "99" to binary',
+},
+{
+'A' => '"1A".hex<br>"17".oct',
+'Q' => 'parse hex number.<br>parse octal number.',
+},
+{
+'A' => 's.center(88)<br>&nbsp;Center with = chars instead of spaces:<br>s.center(88, =)',
+'Q' => 'center a message in 88 character output',
+},
+{
+'A' => '"aab".succ<br>&nbsp;or<br>&nbsp;"aab".next',
+'Q' => 'go from "aab" to "aac"',
+},
+{
+'A' => 's.dump # =&gt;, e.g., "hi&#092;n"',
+'Q' => 'show a string w/ special characters escaped',
+},
+{
+'A' => 's.tr(charset1, charset2)',
+'Q' => 'map a set of chars to another set of chars within a string',
+},
+{
+'A' => 's.count("abc")',
+'Q' => 'count incidences of the characters a, b and c within a string',
+},
+{
+'A' => 's.delete("abc")',
+'Q' => 'remove incidences of the characters a, b and c within a string',
+},
+{
+'A' => 's.sum<br>s.sum(8) # 8bit cksum<br>&nbsp;ruby oneway cryptographic checksum:<br>&nbsp;s.crypt("xx") # pass in 2 char string',
+'Q' => 'make a cksum from a string s',
+},
+{
+'A' => 'Array.pack and String.unpack<br>&nbsp;a = [1,2,3,4,5,6,7,8,9,10] # An array of 10 integers<br>b = a.pack(i10) # Pack 10 4byte integers (i) into binary string b<br>c = b.unpack(i*) # Decode all (*) the 4byte integers from b<br>c == a # =&gt; true<br>&nbsp;m = hello world # A message to encode<br>data = [m.size, m] # Length first, then the bytes<br>template = Sa* # Unsigned short, any number of ASCII chars<br>b = data.pack(template) # =&gt; "&#092;v&#092;000hello world"<br>b.unpack(template) # =&gt; [11, "hello world"]',
+'Q' => 'what should you use if you are working with binary file formats or binary network protocols?',
+},
+{
+'A' => 'treat newline as an ordinary character, i.e., . matches &#092;n',
+'Q' => 'What does the m modifier below mean?<br>&nbsp;/as./m',
+},
+{
+'A' => '%r&#123;^xx&#125;<br>&nbsp;You can substitute any delimiter.',
+'Q' => 'ruby equivalent to m&#123;^xx&#125;',
+},
+{
+'A' => 'Perform #&#123;&#125; interpolations only once, the first time the regexp literal is evaluated.',
+'Q' => 'what does the o modifier mean here?<br>&nbsp;%r[#&#123;varX&#125;]o',
+},
+{
+'A' => 'Regexp.new("xx")<br>Regexp.compile("xx") # syn',
+'Q' => 'verbose ruby equivalent to /xx/',
+},
+{
+'A' => 'Regexp.escape(specialCharStr)<br>&nbsp;e.g.,<br>&nbsp;pattern = "[az]+" # One or more letters<br>suffix = Regexp.escape("()") # Treat these characters literally<br>r = Regexp.new(pattern + suffix) # /[az]+&#092;(&#092;)/',
+'Q' => 'how to incorporate special chars as literals in a regexp',
+},
+{
+'A' => 'patt = Regexp.union(regexp1, regexp2)<br>if (patt)',
+'Q' => 'if (regexp1 || regexp2)',
+},
+{
+'A' => '/&#092;d&#123;3&#125;/',
+'Q' => 'regexp match exactly 3 digits',
+},
+{
+'A' => '/&#092;d&#123;3,&#125;/',
+'Q' => 'regexp match 3 or more digits',
+},
+{
+'A' => '/&#092;d&#123;3,5&#125;/',
+'Q' => 'regexp match 3, 4, or 5 digits',
+},
+{
+'A' => '??, +?, and &#123;n,m&#125;?',
+'Q' => 'we know about .*? nongreedy matching. What are other nongreedy matching constructs?',
+},
+{
+'A' => '# Named groups and backreferences in Ruby 1.9:<br>/(?&lt;first&gt;&#092;w)(?&lt;second&gt;&#092;w)&#092;k&lt;second&gt;&#092;k&lt;first&gt;/<br>&nbsp;or<br>&nbsp;/(?first&#092;w)(?second&#092;w)&#092;ksecond&#092;kfirst/ # Alternate syntax',
+'Q' => 'regexp match a 4letter palindrome',
+},
+{
+'A' => '/&#092;ARuby/',
+'Q' => 'regexp match "Ruby" at the start of a string',
+},
+{
+'A' => '/Ruby&#092;Z/',
+'Q' => 'regexp match "Ruby" at the end of a string',
+},
+{
+'A' => 'use a zerowidth assertion<br>&nbsp;/Ruby(?=!)/',
+'Q' => 'regexp match "Ruby", if followed by an exclamation point',
+},
+{
+'A' => 'use a zero width assertion<br>&nbsp;/Ruby(?!!)/ <br>&nbsp;Negative lookahead: (?!...)<br>Positive lookahead: (?=...)<br>&nbsp;Negative lookbehind: (?&lt;!...)<br>Positive lookbehind: (?&lt;=...)<br>&nbsp;NB: lookbehind limitation: many regex flavors, including those used by Perl and Python, only allow fixed-length lookbehinds -- thus you can use literal text and character classes, but not repetition or optional items; you can use alternation iff all options in the alternation have the same length',
+'Q' => 'regexp match "Ruby", if not followed by an exclamation point',
+},
+{
+'A' => 'Special syntax with parentheses /R(?#comment)/ # regexp matches "R". All the rest is a comment',
+'Q' => 'regexp embedded comment',
+},
+{
+'A' => '/R(?i)uby/ # Caseinsensitive while matching "uby"',
+'Q' => 'mix casesensitive and caseinsensitive search',
+},
+{
+'A' => '/rub(?:y|le))/ # Regexp group <a target=win2 href=http://strugglingwithruby.blogspot.com/2009/05/regular-expressions-in-ruby.html>suppressing &#092;1 backreference ("remembering that you are limited to only 9 back-references")</a>',
+'Q' => 'regexp group only without creating &#092;1 backreference',
+},
+{
+'A' => '&#092;12. If there werent 12 matched expressions, then &#092;12 is the character whose value is the octal number 012 .',
+'Q' => 'regexp: how to match the 12th grouped expression',
+},
+{
+'A' => '&#092;Z Matches end of string. If string ends with a newline, it matches just before newline.<br>&#092;z Matches end of string.',
+'Q' => 'regexp: match end of string',
+},
+{
+'A' => 'Positive lookahead assertion: ensures that the following characters match re, but doesn’t include those characters in the matched text.',
+'Q' => '(?= re )',
+},
+{
+'A' => 'Negative lookahead assertion: ensures that the following characters do not match re.',
+'Q' => '(?! re )',
+},
+{
+'A' => 'Positive lookbehind assertion: ensures that the preceeding characters match re, but doesn’t include those characters in the matched text. Ruby 1.9.',
+'Q' => '(?&lt;= re )',
+},
+{
+'A' => 'Ruby 1.9: negative lookbehind assertion. Must evaluate to a fixed length expression',
+'Q' => '(?&lt;! re )',
+},
+{
+'A' => '1.)<br>Regexp.last_match<br>2.)<br>or $~ holds a MatchData object which contains complete information about the match:<br>&nbsp;"hello" =~ /e&#092;w&#123;2&#125;/ # 1: Match an e followed by 2 word characters<br>$~.string # "hello": the complete string<br>$~.to_s # "ell": the portion that matched<br>$~.pre_match # "h": the portion before the match<br>$~.post_match # "o": the portion after the match<br>&nbsp;In Ruby 1.9, if a pattern includes named captures, then a MatchData obtained from that pattern can be used like a hash, with the names of capturing groups (as strings or symbols) as keys. For example:<br>&nbsp;&nbsp;# Ruby 1.9 only pattern = /(?&lt;lang&gt;Ruby|Perl) (?&lt;ver&gt;&#092;d(&#092;.&#092;d)+) (?&lt;review&gt;rocks|sucks)!/<br>if (pattern =~ "Ruby 1.9.1 rocks!")<br>$~[:lang] # =&gt; "Ruby"<br>$~[:ver] # =&gt; "1.9.1"<br>$~["review"] # =&gt; "rocks"<br>$~.offset(:ver) # =&gt; [5,10] start and end offsets of version number<br>end<br>&nbsp;# Names of capturing groups and a map of group names to group numbers pattern.names # =&gt; ["lang", "ver", "review"]<br>pattern.named_captures # =&gt; &#123;"lang"=&gt;[1],"ver"=&gt;[2],"review"=&gt;[3]&#125;',
+'Q' => 'objects corresponding to a successful regexp match',
+},
+{
+'A' => 'Regexp and String classes also define a match method, similar to the match operator (=~), except that instead of returning the index at which a match is found, it returns the MatchData object:<br>&nbsp;if data = pattern.match(text) # Or: data = text.match(pattern)<br>handle_match(data)<br>end<br>&nbsp;Ruby 1.9: associate a block with a call to match.',
+'Q' => 'alternative to =~ operator',
+},
+{
+'A' => 'n.even?',
+'Q' => 'is n an even number?',
+},
+{
+'A' => '!n.finite?',
+'Q' => 'is n infinite?',
+},
+{
+'A' => 'n.round<br>n.truncate (or n.to_i)<br>n.ceiling<br>n.floor',
+'Q' => 'convert from fractional to integer',
+},
+{
+'A' => 'rand # yields output in 0..1<br>rand(100) # yields output in 0..100<br>&nbsp;If you want it to be repeatable, do srand(fixedVal)',
+'Q' => 'ruby random number',
+},
+{
+'A' => '^b power on<br>^e power off<br>^t reset<br>^d shutdown guest<br>^r restart guest',
+'Q' => 'virtualcenter: key to power on',
+},
+{
+'A' => '^e',
+'Q' => 'virtualcenter: key to power off',
+},
+{
+'A' => '^t<br>^b power on<br>^e power off<br>^t reset<br>^d shutdown guest<br>^r restart guest',
+'Q' => 'virtualcenter: key to power reset (reboot)',
+},
+{
+'A' => '^d<br>^b power on<br>^e power off<br>^t reset<br>^d shutdown guest<br>^r restart guest',
+'Q' => 'virtualcenter: key to shut down guest',
+},
+{
+'A' => '^r<br>^b power on<br>^e power off<br>^t reset<br>^d shutdown guest<br>^r restart guest',
+'Q' => 'virtualcenter: key to restart guest',
+},
+{
+'A' => 'r1.9: if a regular expression containing named captures appears literally on the lefthand side of the =~ operator, then the names of the capturing groups are taken to be local variables, and the text that matches is assigned to those variables. <br>&nbsp;&nbsp;# Ruby 1.9 only if /(?&lt;lang&gt;&#092;w+) (?&lt;ver&gt;&#092;d+&#092;.(&#092;d+)+) (?&lt;review&gt;&#092;w+)/ =~ "Ruby 1.9 rules!"<br>lang # =&gt; "Ruby"<br>ver # =&gt; "1.9"<br>review # =&gt; "rules"<br>end<br>&nbsp;This is magical behavior, but it only occurs when a regular expression appears literally in your code. If a pattern is stored in a variable or a constant or is returned by a method, or if the pattern appears on the righthand side, then the =~ operator does not perform this special local variable assignment. If Ruby is invoked with the w option, then it issues a warning if the =~ operator overwrites a variable that is already defined.',
+'Q' => 'In Ruby 1.9, how can named captures lead to local var spawning?',
+},
+{
+'A' => '(Time represents dates and times.)<br>It is a thin layer over the system date and time functionality provided by the operating system. On some platforms, therefore, this class may be unable to represent dates before 1970 or after 2038.<br>&nbsp;Date and DateTime classes are not constrained in this way',
+'Q' => 'what is a limitation of the ruby Time class',
+},
+{
+'A' => 'e.collect',
+'Q' => 'e.map',
+},
+{
+'A' => 'each_slice and each_cons<br>&nbsp;each_slice(n) iterates the enumerable values in slices of size n:<br>&nbsp;(1..10).each_slice(4) &#123;|x| print x &#125; # Prints "[1,2,3,4][5,6,7,8][9,10]"<br>&nbsp;each_cons is similar to each_slice, but it uses a sliding window on the enumerable collection:<br>&nbsp;(1..5).each_cons(3) &#123;|x| print x &#125; # Prints "[1,2,3][2,3,4][3,4,5]"',
+'Q' => 'iterators that yield subarrays of a collection',
+},
+{
+'A' => 'each_cons<br>&nbsp;(1..5).each_cons(3) &#123;|x| print x &#125; # Prints "[1,2,3][2,3,4][3,4,5]"',
+'Q' => 'what iterator uses a sliding window on the enumerable collection?',
+},
+{
+'A' => 'zip<br>&nbsp;yields an array of elements (one from each collection) to the associated block. <br>&nbsp;If no block is provided, the return value is an array of arrays:<br>&nbsp;Code View: Scroll / Show All<br>(1..3).zip([4,5,6]) &#123;|x| print x.inspect &#125; # Prints "[1,4][2,5][3,6]"<br>(1..3).zip([4,5,6],[7,8]) &#123;|x| print x&#125; # Prints "14725836"<br>(1..3).zip(a..c) &#123;|x,y| print x,y &#125; # Prints "1a2b3c"<br>p (1..3).zip(a..z) # Prints [[1,"a"],[2,"b"],[3,"c"]]<br>p (1..3).zip(a..b) # Prints [[1,"a"],[2,"b"],[3,nil]]',
+'Q' => 'what iter interleaves the elements of one enumerable collection with the elements of zero or more other collections?',
+},
+{
+'A' => 'Enumerable.to_a',
+'Q' => 'Enumerable.entries',
+},
+{
+'A' => 'Enumerable.entries',
+'Q' => 'Enumerable.to_a',
+},
+{
+'A' => 'require set<br>enum.to_set()',
+'Q' => 'how to convert to a Set?',
+},
+{
+'A' => '"Ruby".each_char.max # =&gt; "y"; Enumerable method of Enumerator',
+'Q' => 'given a string, what is the greatest character?',
+},
+{
+'A' => 'w = Set[apple,Beet,carrot] # A set of words to sort<br>w.sort # [Beet,apple,carrot]: alphabetical',
+'Q' => 'sort a set',
+},
+{
+'A' => 'w = Set[apple,Beet,carrot] # A set of words to sort<br>w.sort &#123;|a,b| b&lt;=&gt;a &#125; # [carrot,apple,Beet]: reverse',
+'Q' => 'sort a set in reverse order',
+},
+{
+'A' => 'w = Set[apple,Beet,carrot] # A set of words to sort<br>w.sort &#123;|a,b| a.casecmp(b) &#125; # [apple,Beet,carrot]: ignore case',
+'Q' => 'sort a set but ignore case',
+},
+{
+'A' => 'w = Set[apple,Beet,carrot] # A set of words to sort<br>w.sort &#123;|a,b| b.size&lt;=&gt;a.size&#125; # [carrot,apple,Beet]: reverse length',
+'Q' => 'sort a set of words in reverse order of their lengths',
+},
+{
+'A' => '...sort_by instead.<br>&nbsp;The block associated with sort_by will be called once for each element in the collection, and should return a numeric sort key for that element. The collection will then be sorted by ascending order of the sort key. This way, a sort key is only computed once for each element, rather than twice for each comparison:<br>&nbsp;&nbsp;# Caseinsensitive sort words = [carrot, Beet, apple]<br>words.sort_by &#123;|x| x.downcase&#125; # =&gt; [apple, Beet, carrot]',
+'Q' => 'If the block you associate with sort must do substantial computation in order to perform its comparison, then it is more efficient to use...',
+},
+{
+'A' => 'data = [[1,2], [0,1], [7,8]]<br>data.find &#123;|x| x.include? 1&#125; # =&gt; [1,2]<br>&nbsp;data.detect == data.find',
+'Q' => 'given an array of arrays, find the first subarray that includes the number 1',
+},
+{
+'A' => 'a.find_index &#123;|x| ...code...&#125;',
+'Q' => 'where in an array is a particular entry?',
+},
+{
+'A' => '(1..8).select &#123;|x| x%2==0&#125; # =&gt; [2,4,6,8]:',
+'Q' => 'given a range, collect the even integers',
+},
+{
+'A' => 'primes = [2,3,5,7]<br>primes.reject &#123;|x| x%2==0&#125; # =&gt; [3,5,7]: reject the even ones',
+'Q' => 'filter out even numbers from a set of integers',
+},
+{
+'A' => 'category_count==2:<br>(1..8).partition &#123;|x| x%2==0&#125; # =&gt; [[2, 4, 6, 8], [1, 3, 5, 7]]<br>&nbsp;category_count &gt; 2:<br>group_by method Ruby 1.9 is a generalization of partition. Use block return value as a hash key, e.g.,<br>&nbsp;groups = langs.group_by &#123;|lang| lang[0] &#125;<br>groups # =&gt; &#123;"j"=&gt;["java"], "p"=&gt;["perl", "python"], "r"=&gt;["ruby"]&#125;<br>&nbsp;cf: for Set collections: divide, classify',
+'Q' => 'divide a collection into two (or more) categories',
+},
+{
+'A' => 'group_by of Ruby 1.9: generalization of partition. Rather than treating the block as a predicate and returning two groups, group_by takes the return value of the block and uses it as a hash key. It maps that key to an array of all collection elements for which the block returned that value. For example:<br>&nbsp;&nbsp;# Group programming languages by their first letter langs = %w[ java perl python ruby ]<br>groups = langs.group_by &#123;|lang| lang[0] &#125;<br>groups # =&gt; &#123;"j"=&gt;["java"], "p"=&gt;["perl", "python"], "r"=&gt;["ruby"]&#125;<br>&nbsp;cf: for Set collections: divide, classify',
+'Q' => 'divide a collection into categories',
+},
+{
+'A' => 'langs.grep(/^p/)',
+'Q' => 'langs = %w[ java perl python ruby ]<br>&nbsp;# get a set of those langs starting w/ \'p\'',
+},
+{
+'A' => 'langs.grep(/^p/) &#123;|x| x.capitalize&#125; # =&gt; [Perl, Python]: fix caps',
+'Q' => 'langs = %w[ java perl python ruby ]<br>&nbsp;# get a set of those langs starting w/ \'p\', but capitalize them in the resulting list',
+},
+{
+'A' => 'data = [1, 17, 3.0, 4]<br>ints = data.grep(Integer) # =&gt; [1, 17, 4]: only integers',
+'Q' => 'given a list of numbers, retrieve the integers.',
+},
+{
+'A' => 'data = [1, 17, 3.0, 4]<br>ints = data.grep(Integer) # =&gt; [1, 17, 4]: only integers<br>small = ints.grep(0..9) # [1,4]: only in range',
+'Q' => 'given a list of numbers, retrieve the single-digit integers',
+},
+{
+'A' => '5: first, take, drop, take_while, and drop_while. <br>&nbsp;p (1..5).first(2) # =&gt; [1,2]<br>p (1..5).take(3) # =&gt; [1,2,3]<br>p (1..5).drop(3) # =&gt; [4,5]<br>[1,2,3,nil,4].take_while &#123;|x| x &#125; # =&gt; [1,2,3]: take until nil<br>[nil, 1, 2].drop_while &#123;|x| !x &#125; # =&gt; [1,2]: drop leading nils',
+'Q' => 'what are the canned collection select methods?',
+},
+{
+'A' => 'Ruby 1.9 also defines minmax and minmax_by, which compute both the minimum and maximum value of a collection and return them as a two-element array [min,max]:<br>&nbsp;(1..100).minmax # =&gt; [1,100] min, max as numbers<br>(1..100).minmax_by &#123;|n| n.to_s &#125; # =&gt; [1,99] min, max as strings',
+'Q' => 'get the minimum and maximum values of a collection',
+},
+{
+'A' => 'c.any?<br>c.all?<br>c.none?<br>c.one?<br>&nbsp;are predicates that perform a reduction.',
+'Q' => 'are there any elements in collection c that satisfy a condition?',
+},
+{
+'A' => 'c.count<br>&nbsp;Another Ruby 1.9 addition is the count method: it returns the number of elements in the collection that equal a specified value, or the number for which an associated block returns true:<br>&nbsp;a = [1,1,2,3,5,8]<br>a.count(1) # =&gt; 2: two elements equal 1<br>a.count &#123;|x| x % 2 == 1&#125; # =&gt; 4: four elements are odd',
+'Q' => 'how many elements of a collection c satisfy a condition?',
+},
+{
+'A' => 'inject is a general purpose method for reducing a collection. <br>&nbsp;reduce==inject<br>&nbsp;The block expects two args: an accumulated value; and an element from the collection. The accumulated value for the first iteration is the argument passed to inject. The block return value on one iteration becomes the accumulated value for the next iteration. The return value after the last iteration becomes the return value of inject. Here are some examples:<br>&nbsp;&nbsp;# How many negative numbers? <br>(-2..10).inject(0) &#123;|num, x| x&lt;0 ? num+1 : num &#125; # =&gt; 2<br>&nbsp;&nbsp;# Sum of word lengths <br>%w[pea queue are].inject(0) &#123;|total, word| total + word.length &#125; # =&gt; 11',
+'Q' => 'how to cumulatively compute a value based on entries of a collection c that satisfy some condition?',
+},
+{
+'A' => '(-2..10).inject(0) &#123;|num, x| x&lt;0 ? num+1 : num &#125; # =&gt; 2',
+'Q' => 'Given a collection of numbers, how many are negative?',
+},
+{
+'A' => '%w[pea queue are].inject(0) &#123;|total, word| total + word.length &#125; # =&gt; 11',
+'Q' => 'Given a collection of words, sum their lengths',
+},
+{
+'A' => 'prod = (1..5).reduce(:*)<br>&nbsp;or<br>&nbsp;prod = (1..5).inject &#123;|total,x| total * x&#125; # =&gt; 120<br>&nbsp;If no argument is passed to inject, then the first time the block is invoked, it is passed the first two elements of the collection. (Or, if there is only one element in the collection, inject simply returns that element.) This form of inject is useful for a number of common operations:<br>&nbsp;sum = (1..5).inject &#123;|total,x| total + x&#125; # =&gt; 15<br>prod = (1..5).inject &#123;|total,x| total * x&#125; # =&gt; 120<br>max = [1,3,2].inject &#123;|m,x| m&gt;x ? m : x&#125; # =&gt; 3<br>[1].inject &#123;|total,x| total + x&#125; # =&gt; 1: block never called',
+'Q' => 'Given a collection of numbers, compute their product.',
+},
+{
+'A' => 'Array[1,2,3] # =&gt; [1,2,3]: just like an array literal<br>&nbsp;or<br>&nbsp;Array.new(3)&#123;|i| i+1&#125; # [1,2,3]: three elements computed by block',
+'Q' => 'make an array of 3 integers, ascending 1 to 3',
+},
+{
+'A' => 'zeros = Array.new(10, -99)',
+'Q' => 'make an Array of 10 entries, each one set to -99',
+},
+{
+'A' => 'a=Array.new(3,\'a\') # =&gt; [\'a\',\'a\',\'a\']: three references to the same string<br>b=Array.new(3)&#123;\'b\'&#125; # =&gt; [\'b\',\'b\',\'b\']: three distinct string objects<br>&nbsp;a[0].upcase! # Capitalize the first element of the array<br>a # =&gt; [\'A\',\'A\',\'A\']: they are all the same string!<br>b[0].upcase!; # Capitalize the first one<br>b # =&gt; [\'B\',\'b\',\'b\']: the others are still lowercase',
+'Q' => '1.) allocate an array of 3 entries, all containing the same string and<br>2.) allocate an array of 3 entries, containing different strings w/ same content',
+},
+{
+'A' => '[1,2,nil].count(nil) # =&gt; 1: # of nils (Enumerable method in Ruby 1.9)<br>[1,2,3].count &#123;|x| x&gt;2&#125; # =&gt; 1: # of elts matching block (Ruby 1.9)',
+'Q' => 'Given a collection of numbers, how many of them &lt; 2?',
+},
+{
+'A' => 'a.at(2) # =&gt; \'c\': just like [] for single integer argument<br>a.fetch(1) # =&gt; \'b\': also like [] and at<br>&nbsp;a.fetch(5, 0) # =&gt; 0: return 2nd arg when out-of-bounds',
+'Q' => 'array indexing synonyms to [] operator',
+},
+{
+'A' => 'a.fetch(5, 17)<br>&nbsp;Second arg can be a block, in which case the returned val is computed.',
+'Q' => '(a.length &gt; 5) ? a[5] : 17',
+},
+{
+'A' => '=&gt; 25: compute value when out-of-bounds',
+'Q' => 'a.fetch(5)&#123;|x|x*x&#125;',
+},
+{
+'A' => 'a.last',
+'Q' => 'a[a.length-1]',
+},
+{
+'A' => 'a.sample # Ruby 1.9: return one element at random<br>&nbsp;or, to get &gt;1:<br>a.sample(n) # Ruby 1.9: return array of n random elements',
+'Q' => 'a[rand(a.length-1)]',
+},
+{
+'A' => 'a.last(4)',
+'Q' => 'a[a.length-4..a.length-1]',
+},
+{
+'A' => 'a.values_at(4,3,0..2)',
+'Q' => 'From a 5-cell array create a new array with the cells ordered 4,3,0,1,2',
+},
+{
+'A' => '[1,2,3,4,nil,6]',
+'Q' => 'a = [1,2,3] # Start with this array<br>a[3] = 4<br>a[5] = 6<br>&nbsp;What is in a?',
+},
+{
+'A' => 'a &lt;&lt; newEntry',
+'Q' => 'lengthen an array',
+},
+{
+'A' => 'a1 + a2<br>&nbsp;or<br>&nbsp;a1.concat(a2) # works in place, despite the lack of \'!\'<br>&nbsp;sets: s1.merge(s2)',
+'Q' => 'concatenate arrays a1 and a2',
+},
+{
+'A' => 'a.insert(1, x, y)',
+'Q' => 'a = [a,b,c]<br>&nbsp;add x and y between a and b',
+},
+{
+'A' => 'a.delete_at(1)<br>&nbsp;or delete by value:<br>&nbsp;a.delete(b)<br>&nbsp;Note that the deleting routines return the deleted entry',
+'Q' => 'a = [a,b,c]<br>&nbsp;remove b, leaving us w/ [a,c]',
+},
+{
+'A' => 'a = [1,2,3]<br>a.delete_if &#123;|x| x%2==1&#125; # Remove odd values: a is now [2]<br>a.reject! &#123;|x| x%2==0&#125; # Like delete_if: a is now []',
+'Q' => 'delete odd values from an array of integers',
+},
+{
+'A' => 'a.slice(1..3)<br>&nbsp;or<br>&nbsp;a.slice(1, 3)',
+'Q' => 'from [1,2,3,4,5] extract the middle 3 entries and remove them from the array',
+},
+{
+'A' => 'a = [4,5]<br>a.replace([1,2,3]) # a now holds [1,2,3]: a copy of its argument',
+'Q' => 'deep copy into an array',
+},
+{
+'A' => 'a.fill(0) # a now holds [0,0,0]<br>a.fill(nil,1,3) # a now holds [0,nil,nil,nil]<br>a.fill(\'a\',2..4) # a now holds [0,nil,\'a\',\'a\',\'a\']<br>a.fill(2..4) &#123; \'b\' &#125; # a now holds [0,nil,\'b\',\'b\',\'b\']',
+'Q' => 'set part of an array to some repeating value',
+},
+{
+'A' => 'a.compact # =&gt; [0,\'b\',\'B\',\'b\']: copy with nils removed<br>&nbsp;or<br>&nbsp;a.compact! # Remove nils in place: a now holds [0,\'b\',\'B\',\'b\']',
+'Q' => 'remove null entries from an array',
+},
+{
+'A' => 'a.clear',
+'Q' => 'remove all values from an array',
+},
+{
+'A' => 'a = [\'a\',\'b\',\'c\']<br>a.reverse_each &#123;|e| print e&#125; # Array-specific: prints "cba"',
+'Q' => 'iterate backward through an array starting at the end',
+},
+{
+'A' => 'a.cycle &#123;|e| print e &#125; # Ruby 1.9, 1.8.7: print "abcabc..." forever',
+'Q' => 'endlessly iterate through an array',
+},
+{
+'A' => 'a.each_index &#123;|i| print i&#125; # Array-specific: prints "012"<br>a.each_with_index&#123;|e,i| print e,i&#125; # Enumerable: prints "a0b1c2"',
+'Q' => 'iterate through the indices into an array',
+},
+{
+'A' => 'a.map! &#123;|x| x.upcase&#125; # Array-specific: alters a in place<br>a.collect! &#123;|x| x.downcase!&#125; # collect! is synonym for map!',
+'Q' => 'make every string in an array uppercase',
+},
+{
+'A' => 'push, pop, (un)shift<br>&nbsp;a.push(1) # =&gt; [1]: a is now [1]<br>a.push(2,3) # =&gt; [1,2,3]: a is now [1,2,3]<br>a.pop # =&gt; 3: a is now [1,2]<br>a.pop # =&gt; 2: a is now [1]<br>a.pop # =&gt; 1: a is now []<br>a.pop # =&gt; nil: a is still []<br>&nbsp;shift is like pop, but it works w/ first element of an array instead of the last.<br>&nbsp;a = []<br>a.push(1) # =&gt; [1]: a is [1]<br>a.push(2) # =&gt; [1,2]: a is [1,2]<br>a.shift # =&gt; 1: a is [2]<br>a.push(3) # =&gt; [2,3]: a is [2,3]<br>a.shift # =&gt; 2: a is [3]<br>a.shift # =&gt; 3: a is []<br>a.shift # =&gt; nil: a is []',
+'Q' => 'ways to add or remove items to/from array ends',
+},
+{
+'A' => 'uniq<br>uniq!',
+'Q' => 'remove duplicate values from an array',
+},
+{
+'A' => 'You can use real Set objects or just use Array, since it implements the &, |, and - operators to perform set-like ops.<br>&nbsp;Array is not an efficient set implementation (for that, see the Set class in the standard library), but it may be convenient for small data:<br>&nbsp;[1,3,5] & [1,2,3] # =&gt; [1,3]: set intersection<br>[1,1,3,5] & [1,2,3] # =&gt; [1,3]: duplicates removed<br>[1,3,5] | [2,4,6] # =&gt; [1,3,5,2,4,6]: set union<br>[1,3,5,5] | [2,4,6,6] # =&gt; [1,3,5,2,4,6]: duplicates removed<br>[1,2,3] - [2,3] # =&gt; [1]: set difference<br>[1,1,2,2,3,3] - [2, 3] # =&gt; [1,1]: not all duplicates removed<br>&nbsp;small = 0..10.to_a # A set of small numbers<br>even = 0..50.map &#123;|x| x*2&#125; # A set of even numbers<br>smalleven = small & even # Set intersection<br>smalleven.include?(8) # =&gt; true: test for set membership<br>&nbsp;[1, 1, nil, nil].uniq # =&gt; [1, nil]: remove dups. Also uniq!<br>&nbsp;Note that the & and | - operators do not specify the order of the elements in the arrays they return. Only use these operators if your array truly represents an unordered set of values.',
+'Q' => 'sets',
+},
+{
+'A' => '3: permutation, combination, product<br>&nbsp;a = [1,2,3]<br>a<br>a.permutation(2) &#123;|x| print x &#125; # Prints "[1,2][1,3][2,1][2,3][3,1][3,2]"<br>a.combination(2) &#123;|x| print x &#125; # Prints "[1, 2][1, 3][2, 3]"<br>&nbsp;&nbsp;# Return the Cartesian product of the two sets a.product([\'a\',\'b\']) # =&gt; [[1,"a"],[1,"b"],[2,"a"],[2,"b"],[3,"a"],[3,"b"]]<br>[1,2].product([3,4],[5,6]) # =&gt; [[1,3,5],[1,3,6],[1,4,5],[1,4,6], etc... ]',
+'Q' => 'get all possible permutations of an array',
+},
+{
+'A' => 'Array.assoc, rassoc methods (work iff the array must be an array of 2-member-arrays, eg<br>&nbsp;[[key1, value1], [key2, value2], [key3, value3], ...]<br>&nbsp;The Hash class defines methods that convert a hash to a nested array of this form. The assoc methods looks for a nested array whose first element matches the supplied argument. It returns the first matching nested array. The rassoc method does the same thing, but returns the first nested array whose second element matches:<br>&nbsp;h = &#123; :a =&gt; 1, :b =&gt; 2&#125; # Start with a hash<br>a = h.to_a # =&gt; [[:b,2], [:a,1]]: associative array<br>a.assoc(:a) # =&gt; [:a,1]: subarray for key :a<br>a.assoc(:b).last # =&gt; 2: value for key :b<br>a.rassoc(1) # =&gt; [:a,1]: subarray for value 1<br>a.rassoc(2).first # =&gt; :b: key for value 2<br>a.assoc(:c) # =&gt; nil<br>a.transpose # =&gt; [[:a, :b], [1, 2]]: swap rows and cols',
+'Q' => 'how to move back and forth between Array and Hash?',
+},
+{
+'A' => '# Binary conversion with pack. See also String.unpack.[1,2,3,4].pack("CCCC") # =&gt; "&#092;001&#092;002&#092;003&#092;004"<br>[1,2].pack(\'s2\') # =&gt; "&#092;001&#092;000&#092;002&#092;000"<br>[1234].pack("i") # =&gt; "&#092;322&#092;004&#092;000&#092;000"',
+'Q' => 'Array to binary data',
+},
+{
+'A' => '# Other methods [0,1]*3 # =&gt; [0,1,0,1,0,1]: * operator repeats<br>[1, [2, [3]]].flatten # =&gt; [1,2,3]: recursively flatten; also flatten!<br>[1, [2, [3]]].flatten(1) # =&gt; [1,2,[3]]: specify # of levels; Ruby 1.9',
+'Q' => 'take a tree of arrays and reduce to a single array',
+},
+{
+'A' => 'a.transpose # =&gt; [[1,2,3],[:a,:b,:c]]',
+'Q' => 'Array: swap rows/cols',
+},
+{
+'A' => 'h.assoc :one # =&gt; [:one, 1]: <br>h.index 1 # =&gt; :one: search for key associated with a value<br>h.index 4 # =&gt; nil: no mapping to this value exists<br>h.rassoc 2 # =&gt; [:two, 2]: key/value pair matching value. Ruby 1.9.',
+'Q' => 'Hash: find key/value pair',
+},
+{
+'A' => 'has_key? == include? == member?<br>has_value? == value?',
+'Q' => 'Ruby equivalent to Java hash.containsKey, containsValue',
+},
+{
+'A' => 'z=hash.fetch(k,dft)<br>&nbsp;or<br>&nbsp;z=hash.fetch(k) &#123;|failedKey| dft&#125;',
+'Q' => 'z=hashX[k]<br>z=dft unless z',
+},
+{
+'A' => 'values_at:<br>&nbsp;h = &#123; :a =&gt; 1, :b =&gt; 2, :c =&gt; 3 &#125;<br>h.values_at(:c) # =&gt; [3]: values returned in an array<br>h.values_at(:a, :b) # =&gt; [1, 2]: pass any # of args<br>h.values_at(:d, :d, :a) # =&gt; [nil, nil, 1]<br>&nbsp;or<br>&nbsp;extract keys and values selected by a block with the select method:<br>&nbsp;h = &#123; :a =&gt; 1, :b =&gt; 2, :c =&gt; 3 &#125;<br>h.select &#123;|k,v| v % 2 == 0 &#125; # =&gt; [:b,2] Ruby 1.8<br>h.select &#123;|k,v| v % 2 == 0 &#125; # =&gt; &#123;:b=&gt;2&#125; Ruby 1.9<br>&nbsp;This method overrides Enumerable.select. In Ruby 1.8, select returns an array of key/value pairs. It has been modified in Ruby 1.9 so that it returns a hash of the selected keys and values instead.',
+'Q' => 'If you want to extract more than one value from a hash at once?',
+},
+{
+'A' => '# Merge hashes h and j into new hash k.# If h and j share keys, use values from j<br>k = h.merge(j)<br>&#123;:a=&gt;1,:b=&gt;2&#125;.merge(:a=&gt;3,:c=&gt;3) # =&gt; &#123;:a=&gt;3,:b=&gt;2,:c=&gt;3&#125;<br>h.merge!(j) # Modifies h in place.<br>&nbsp;# If there is a block, use it to decide which value to use h.merge!(j) &#123;|key,h,j| h &#125; # Use value from h<br>h.merge(j) &#123;|key,h,j| (h+j)/2 &#125; # Use average of two values<br>&nbsp;h.update==h.merge!',
+'Q' => 'combine two hashes:',
+},
+{
+'A' => 'h.delete(key)',
+'Q' => 'remove from a hash',
+},
+{
+'A' => 'delete_if, reject, reject! iterators<br>&nbsp;h = &#123;:a=&gt;1, :b=&gt;2, :c=&gt;3, :d=&gt;"four"&#125;<br>h.reject! &#123;|k,v| v.is_a? String &#125; # =&gt; &#123;:a=&gt;1, :b=&gt;2, :c=&gt;3 &#125;<br>h.delete_if &#123;|k,v| k.to_s &lt; \'b\' &#125; # =&gt; &#123;:b=&gt;2, :c=&gt;3 &#125;<br>h.reject! &#123;|k,v| k.to_s &lt; \'b\' &#125; # =&gt; nil: no change<br>h.delete_if &#123;|k,v| k.to_s &lt; \'b\' &#125; # =&gt; &#123;:b=&gt;2, :c=&gt;3 &#125;: unchanged hash<br>h.reject &#123;|k,v| true &#125; # =&gt; &#123;&#125;: h is unchanged',
+'Q' => 'delete multiple key/value pairs from a hash',
+},
+{
+'A' => 'h.clear # h is now &#123;&#125;',
+'Q' => 'remove all values from a hash',
+},
+{
+'A' => 'empty = Hash.new(-1) # default=-1<br>empty.default = -2 # Change it anytime<br>&nbsp;or compute a default:<br>&nbsp;Hash.new &#123;|hash, key| key.succ &#125;<br>plus1.default_proc # Returns the Proc that computes defaults<br>plus1.default(10) # =&gt; 11: default returned for key 10<br>&nbsp;NB: w/ computed defaults, common to enter the computed value into the hash',
+'Q' => 'set a default val for a hash to use when a key isn\'t found',
+},
+{
+'A' => 'h = &#123;:a=&gt;1, :b=&gt;2&#125;<br>h.invert # =&gt; &#123;1=&gt;:a, 2=&gt;:b&#125;: swap keys and values',
+'Q' => 'given a hash h1, make a new hash h2 whose keys are h1.values and whose values are h1.keys',
+},
+{
+'A' => 'use a SortedSet instead',
+'Q' => 'how do you iterate through a Set in order?',
+},
+{
+'A' => 'Because Set is not a core Ruby class, there is no literal syntax for creating sets. The set library adds a to_set method to the Enumerable module, and a set can be created from any enumerable object with this method:<br>&nbsp;(1..5).to_set # =&gt; #&lt;Set: &#123;5, 1, 2, 3, 4&#125;&gt;<br>[1,2,3].to_set # =&gt; #&lt;Set: &#123;1, 2, 3&#125;&gt;<br>&nbsp;Alternatively, any enumerable object can be passed to Set.new. <br>Any provided block is used to preprocess:<br>&nbsp;Set.new(1..5) # =&gt; #&lt;Set: &#123;5, 1, 2, 3, 4&#125;&gt;<br>Set.new([1,2,3]) # =&gt; #&lt;Set: &#123;1, 2, 3&#125;&gt;<br>Set.new([1,2,3]) &#123;|x| x+1&#125; # =&gt; #&lt;Set: &#123;2, 3, 4&#125;&gt;<br>&nbsp;If you prefer to enumerate the members of your set without first placing them in an array or other enumerable object, use the [] operator of the Set class:<br>&nbsp;Set["cow", "pig", "hen"] # =&gt; #&lt;Set: &#123;"cow", "pig", "hen"&#125;&gt;',
+'Q' => 'make a set',
+},
+{
+'A' => 'set1.subset? set2<br>&nbsp;It is also possible to test sets for membership in other sets. A set S is a subset of T if all the elements of S are also elements of T. We can also say that T is a superset of S. If two sets are equal, then they are both subsets and supersets of each other. S is a proper subset of T if it is a subset of T but not equal to T. In this case, T is a proper superset of S:<br>&nbsp;s = Set[2, 3, 5]<br>t = Set[2, 3, 5, 7]<br>s.subset? t # =&gt; true<br>t.subset? s # =&gt; false<br>s.proper_subset? t # =&gt; true<br>t.superset? s # =&gt; true<br>t.proper_superset? s # =&gt; true<br>s.subset? s # =&gt; true<br>s.proper_subset? s # =&gt; false',
+'Q' => 'is set1 a subset of set2?',
+},
+{
+'A' => 's.proper_subset? t # =&gt; true<br>&nbsp;It is also possible to test sets for membership in other sets. A set S is a subset of T if all the elements of S are also elements of T. We can also say that T is a superset of S. If two sets are equal, then they are both subsets and supersets of each other. S is a proper subset of T if it is a subset of T but not equal to T. In this case, T is a proper superset of S:<br>&nbsp;s = Set[2, 3, 5]<br>t = Set[2, 3, 5, 7]<br>s.subset? t # =&gt; true<br>t.subset? s # =&gt; false<br>s.proper_subset? t # =&gt; true<br>t.superset? s # =&gt; true<br>t.proper_superset? s # =&gt; true<br>s.subset? s # =&gt; true<br>s.proper_subset? s # =&gt; false',
+'Q' => 'is set s a subset of set t and also not the same as t?',
+},
+{
+'A' => 'intersection, union, subtract, difference (for arrays)<br>&, |, -<br>delete<br>delete? # return t if successful<br>&nbsp;s = (1..3).to_set # =&gt; #&lt;Set: &#123;1, 2, 3&#125;&gt;<br>s.subtract(2..10) # =&gt; #&lt;Set: &#123;1&#125;&gt;',
+'Q' => 'set operations',
+},
+{
+'A' => 's &lt;&lt; 1 # =&gt; #&lt;Set: &#123;1&#125;&gt;<br>s.add 2 # =&gt; #&lt;Set: &#123;1, 2&#125;&gt;: add is a synonym for &lt;&lt;<br>s &lt;&lt; 3 &lt;&lt; 4 &lt;&lt; 5 # =&gt; #&lt;Set: &#123;5, 1, 2, 3, 4&#125;&gt;: can be chained<br>s.add 3 # =&gt; #&lt;Set: &#123;5, 1, 2, 3, 4&#125;&gt;: value unchanged<br>s.add? 6 # =&gt; #&lt;Set: &#123;5, 6, 1, 2, 3, 4&#125;&gt;<br>s.add? 3 # =&gt; nil: the set was not changed',
+'Q' => 'add an element to a set:',
+},
+{
+'A' => 'merge<br>&nbsp;s = (1..3).to_set # =&gt; #&lt;Set: &#123;1, 2, 3&#125;&gt;<br>s.merge(2..5) # =&gt; #&lt;Set: &#123;5, 1, 2, 3, 4&#125;&gt;<br>&nbsp;collections: a1.concat(a2) or a1 += a2',
+'Q' => 'Set: mutating version of the union method?',
+},
+{
+'A' => 'delete_if returns the receiver set<br>reject! returns the receiver set iff it was modified<br>&nbsp;primes = Set[2, 3, 5, 7] # set of prime numbers<br>primes.delete_if &#123;|x| x%2==1&#125; # =&gt; #&lt;Set: &#123;2&#125;&gt;: remove odds<br>primes.delete_if &#123;|x| x%2==1&#125; # =&gt; #&lt;Set: &#123;2&#125;&gt;: unchanged<br>primes.reject! &#123;|x| x%2==1&#125; # =&gt; nil: unchanged',
+'Q' => 'what\'s the difference between Set.delete_if and Set.reject!?',
+},
+{
+'A' => 's = (1..5).to_set<br>t = (4..8).to_set<br>s.reject! &#123;|x| not t.include? x&#125; # =&gt; #&lt;Set: &#123;5, 4&#125;&gt;<br>N.B.: if we are working with arrays, use &',
+'Q' => 'in-place Set intersection',
+},
+{
+'A' => 'divide or classify:<br>&nbsp;divide returns: set of subsets<br>classify returns: hash of sets:<br>&nbsp;s = (0..3).to_set # =&gt; #&lt;Set: &#123;0, 1, 2, 3&#125;&gt;<br>s.classify &#123;|x| x%2&#125; # =&gt; &#123;0=&gt;#&lt;Set: &#123;0, 2&#125;&gt;, 1=&gt;#&lt;Set: &#123;1, 3&#125;&gt;&#125; # even or odd?<br>&nbsp;or<br>&nbsp;s.divide &#123;|x| x%2&#125; # =&gt; #&lt;Set: &#123;#&lt;Set: &#123;0, 2&#125;&gt;, #&lt;Set: &#123;1, 3&#125;&gt;&#125;&gt;<br>&nbsp;N.B.: non-sets: partition, group_by',
+'Q' => 'break up a Set into Set objects according to some arbitrary logic',
+},
+{
+'A' => 'File.basename<br>File.dirname<br>File.split -&gt; [dir, basename]<br>File.extname -&gt; \'.exe\', e.g.<br>&nbsp;full = \'/home/matz/bin/ruby.exe\'<br>file=File.basename(full) # =&gt; \'ruby.exe\': just the local filename<br>File.basename(full, \'.exe\') # =&gt; \'ruby\': with extension stripped<br>dir=File.dirname(full) # =&gt; \'/home/matz/bin\': no / at end<br>File.dirname(file) # =&gt; \'.\': current directory<br>File.split(full) # =&gt; [\'/home/matz/bin\', \'ruby.exe\']<br>File.extname(full) # =&gt; \'.exe\'<br>File.extname(file) # =&gt; \'.exe\'<br>File.extname(dir) # =&gt; \'\'<br>File.join(\'home\',\'matz\') # =&gt; \'home/matz\': relative<br>File.join(\'\',\'home\',\'matz\') # =&gt; \'/home/matz\': absolute',
+'Q' => 'get a fn\'s components',
+},
+{
+'A' => 'File.expand_path # resolves ~ also',
+'Q' => 'convert a relative file path to a fully qualified path',
+},
+{
+'A' => 'Dir.chdir("/usr/bin") # Current working directory is "/usr/bin"',
+'Q' => 'cd',
+},
+{
+'A' => 'File.identical?(fn1, fn2) # file must exist for this to work; also resolves links',
+'Q' => 'Are these file names referring to the same file? ./x ../../a/b/x',
+},
+{
+'A' => 'File.fnmatch("*.rb", "hello.rb") # =&gt; true<br>File.fnmatch("*.[ch]", "ruby.c") # =&gt; true<br>File.fnmatch("*.[ch]", "ruby.h") # =&gt; true<br>File.fnmatch("?.txt", "ab.txt") # =&gt; false<br>flags = File::FNM_PATHNAME | File::FNM_DOTMATCH<br>File.fnmatch("lib/*.rb", "lib/a.rb", flags) # =&gt; true<br>File.fnmatch("lib/*.rb", "lib/a/b.rb", flags) # =&gt; false<br>File.fnmatch("lib/**/*.rb", "lib/a.rb", flags) # =&gt; true<br>File.fnmatch("lib/**/*.rb", "lib/a/b.rb", flags) # =&gt; true',
+'Q' => 'apply shell wildcards to a name',
+},
+{
+'A' => 'filenames = Dir.entries("config")<br>&nbsp;or<br>&nbsp;Dir.foreach("config") &#123;|filename| ... &#125;',
+'Q' => 'ruby ls',
+},
+{
+'A' => 'Dir[\'*.data\'] # Files with the "data" extension<br>Dir[\'ruby.*\'] # Any filename beginning with "ruby."<br>Dir[\'?\'] # Any single-character filename<br>Dir[\'*.[ch]\'] # Any file that ends with .c or .h<br>Dir[\'*.&#123;java,rb&#125;\'] # Any file that ends with .java or .rb<br>Dir[\'*/*.rb\'] # Any Ruby program in any direct sub-directory<br>Dir[\'**/*.rb\'] # Any Ruby program in any descendant directory<br>&nbsp;or<br>&nbsp;Dir.glob is similar, but can take a block and also can take an optional 2nd arg File::FNM_DOTMATCH to see hidden files<br>&nbsp;Code View: Scroll / Show All<br>Dir.glob(\'*.rb\') &#123;|f| ... &#125; # Iterate all Ruby files<br>Dir.glob(\'*\') # Does not include names beginning with \'.\'<br>Dir.glob(\'*\',File::FNM_DOTMATCH) # Include . files, just like Dir.entries',
+'Q' => 'get a list of files that match a given pattern:',
+},
+{
+'A' => 'Both return files that match the globbed name<br>&nbsp;Dir.glob is similar, but can take a block and also can take an optional 2nd arg File::FNM_DOTMATCH to see hidden files<br>&nbsp;Dir.glob(\'*.rb\') &#123;|f| ... &#125; # Iterate all Ruby files<br>Dir.glob(\'*\') # Does not include names beginning with \'.\'<br>Dir.glob(\'*\',File::FNM_DOTMATCH) # Include . files, just like Dir.entries',
+'Q' => 'what\'s the difference between Dir[...] and Dir.glob?',
+},
+{
+'A' => 'Dir.getwd<br>&nbsp;or <br>&nbsp;Dir.pwd',
+'Q' => 'get cwd',
+},
+{
+'A' => 'If you pass a block to Dir.chdir method, the directory will be restored to its original value when the block exits. <br>NB: while the directory change is limited in duration, it is still global in scope and affects other threads. <br>NBii: Two threads may not call Dir.chdir with a block at the same time.',
+'Q' => 'pushd',
+},
+{
+'A' => 'File.exists?(fn)<br>File.exist?( fn)',
+'Q' => 'does a file exist?',
+},
+{
+'A' => 'File.file?(f) # not a directory?<br>File.directory?(f)<br>File.symlink?(f)',
+'Q' => 'what kind of file is fn?',
+},
+{
+'A' => 'File.size(fn) # Size in bytes or nil if empty file.<br>File.zero?(fn) # True if file is empty.',
+'Q' => 'how big is the file named by fn?',
+},
+{
+'A' => 'File.readable?(f) # Can we read the file?<br>File.writable?(f) # Can we write the file? No "e" in "writable"<br>File.executable?(f) # Can we execute the file?<br>File.world_readable?(f) # Can everybody read it? Ruby 1.9.<br>File.world_writable?(f) # Can everybody write it? Ruby 1.9.',
+'Q' => 'what perms on a file?',
+},
+{
+'A' => '# File times/dates. Use File.utime to set the times. <br>File.mtime(f) # =&gt; Last modification time as a Time object<br>File.atime(f) # =&gt; Last access time as a Time object',
+'Q' => 'when was fn accessed last?',
+},
+{
+'A' => 'File.open(fn, "w") &#123;&#125;<br>&nbsp;or don\'t clobber:<br>File.open(fn, "a") &#123;&#125;',
+'Q' => 'echo \'\' &gt; file',
+},
+{
+'A' => 'File.open(fn, "a") &#123;&#125;',
+'Q' => 'touch fn',
+},
+{
+'A' => 'File.copy_stream("test", "test.backup")',
+'Q' => 'cp',
+},
+{
+'A' => 'File.rename("test", "test.old")',
+'Q' => 'mv',
+},
+{
+'A' => 'File.symlink("test.old", "oldtest")<br>&nbsp;also<br>&nbsp;File.link("test.old", "test2")',
+'Q' => 'ln -s',
+},
+{
+'A' => 'File.delete(fn)',
+'Q' => 'rm',
+},
+{
+'A' => 'File.open (but not File.new) takes a block; in that case File.open returns the block\'s value instead of the File object, which is automatically closed when the block exits.<br>&nbsp;File.open("log.txt", "a") do |log| # Open for appending<br>&nbsp;&nbsp;log.puts("INFO: Logging a message") # Output to the file<br>end # Automatically closed',
+'Q' => 'use a block of code to set a file\'s contents',
+},
+{
+'A' => 'uptime = open("|uptime") &#123;|f| f.gets &#125;',
+'Q' => 'open a command as a stream',
+},
+{
+'A' => 'require "open-uri" # Required library<br>f = open("http://www.davidflanagan.com/") # Webpage as a file<br>webpage = f.read # Read it as one big string<br>f.close # Don\'t forget to close!',
+'Q' => 'wget',
+},
+{
+'A' => 'require "stringio"<br>input = StringIO.open("now is the time") # Read from this string<br>buffer = ""<br>output = StringIO.open(buffer, "w") # Write into buffer<br>&nbsp;StringIO class not a subclass of IO, but it defines many of the same methods as IO does, and duck typing usually makes things ok.',
+'Q' => 'treat a String as a stream',
+},
+{
+'A' => 'STDIN, STDOUT, STDERR<br>ARGF (or $&lt;): stream of all files on command line concat\'d together, or, if there were no args, STDIN<br>DATA: text following __END__ in your program',
+'Q' => 'Predefined streams',
+},
+{
+'A' => 'lines = ARGF.readlines',
+'Q' => 'Read all input to the program as an array of lines',
+},
+{
+'A' => 'on EOF gets returns nil, readline instead raises an EOFError<br>&nbsp;So, if you do not know how many lines to expect, use gets. <br>If you expect another line (and it is an error if it is not there), then use readline.',
+'Q' => 'difference between readline and gets?',
+},
+{
+'A' => 's.eof?',
+'Q' => 'are we out of data on a stream s?',
+},
+{
+'A' => 'change global variable $/ or pass the new setting to the routine itself',
+'Q' => 'to use line-oriented stream reading (e.g., gets, readline) for data subdivisions other than lines',
+},
+{
+'A' => 'data = IO.read("data") # Read and return the entire file<br>data = IO.read("data", mode:"rb") # Open with mode string "rb"<br>data = IO.read("data", encoding:"binary") # Read unencoded bytes<br>data = IO.read("data", 4, 2) # Read 4 bytes starting at byte 2<br>data = IO.read("data", nil, 6) # Read from byte 6 to end-of-file<br>&nbsp;&nbsp;# Read lines into an array <br>words = IO.readlines("/usr/share/dict/words")<br>&nbsp;&nbsp;# Read lines one at a time and initialize a hash words = &#123;&#125;<br>IO.foreach("/usr/share/dict/words") &#123;|w| words[w] = true&#125;',
+'Q' => 'read file\'s contents',
+},
+{
+'A' => 'In Ruby 1.9 you can use IO.copy_stream to read a file (or a portion) and write its content to a stream:<br>&nbsp;IO.copy_stream("/usr/share/dict/words", STDOUT) # Print the dictionary<br>IO.copy_stream("/usr/share/dict/words", STDOUT, 10, 100) # Print bytes 100-109<br>&nbsp;Although these class methods are defined by the IO class, it is common to see them invoked on File:, they operate on named files, and it is also common to see them invoked as class methods of File: <br>File.read, File.readlines, File.foreach, and File.copy_stream.',
+'Q' => 'from a file make a stream',
+},
+{
+'A' => 'f = File.open("data", "r:binary") # Open data file for binary reads<br>c = f.getc # Read the first byte as an integer<br>f.ungetc(c) # Push that byte back<br>c = f.readchar # Read it back again<br>&nbsp;You can also iterate and enumerate the characters and bytes of a stream:<br>&nbsp;f.each_byte &#123;|b| ... &#125; # Iterate through remaining bytes<br>f.bytes # An enumerator for each_byte: Ruby 1.9<br>f.each_char &#123;|c&#125; ...&#125; # Iterate characters: Ruby 1.9<br>f.chars # An enumerator for each_char: Ruby 1.9',
+'Q' => 'read a character from a file',
+},
+{
+'A' => '1.) readbytes(n) # blocks until n bytes; raises EOFError if EOF occurs before n bytes<br>2.) readpartial(n, buffer=nil) # reads between 1 and n bytes, only blocks if 0 bytes waiting. EOFError is no bytes gotten and we see EOF<br>3.) read(n=nil, buffer=nil) # similar to readPartial<br>4.) read_nonblock(n, buffer=nil)<br>5.) sysread(n) # like read_nonblock, except raises SystemCallError if no data available<br>&nbsp;Here is some example code you might use when reading a binary file:<br>&nbsp;Code View: Scroll / Show All<br>f = File.open("data.bin", "rb:binary") # No newline conversion, no encoding<br>magic = f.readbytes(4) # First four bytes identify filetype<br>exit unless magic == "INTS" # Magic number spells "INTS" (ASCII)<br>bytes = f.read # Read the rest of the file<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Encoding is binary, so this is a byte string<br>data = bytes.unpack("i*") # Convert bytes to an array of integers',
+'Q' => 'read &gt;1 byte at a time from a stream',
+},
+{
+'A' => 'f = File.open("test.txt")<br>f.pos # =&gt; 0: return the current position in bytes<br>f.pos = 10 # skip to position 10<br>f.tell # =&gt; 10: synonym for pos<br>f.rewind # go back to position 0, reset lineno to 0, also<br>f.seek(10, IO::SEEK_SET) # Skip to absolute position 10<br>f.seek(10, IO::SEEK_CUR) # Skip 10 bytes from current position<br>f.seek(-10, IO::SEEK_END) # Skip to 10 bytes from end<br>f.seek(0, IO::SEEK_END) # Skip to very end of file<br>f.eof? # =&gt; true: we\'re at the end<br>&nbsp;NB: If you use sysread or syswrite, then use sysseek.',
+'Q' => 'change the current position in a stream',
+},
+{
+'A' => 'out.flush # Manually flush output buffer to OS<br>&nbsp;out.sync = true # Automatically flush buffer after every write<br>out.sync = false # Don\'t automatically flush<br>out.sync # Return current sync mode<br>out.fsync # Flush output buffer and ask OS to flush its buffers<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Returns nil if unsupported on current platform',
+'Q' => 'flush a stream',
+},
+{
+'A' => 'f.eof? # true if stream is at EOF<br>f.closed? # true if stream has been closed<br>f.tty? # true if stream is interactive<br>&nbsp;f.isatty==f.tty?',
+'Q' => 'stream properties',
+},
+{
+'A' => 'require \'socket\'<br>host, port = ARGV<br>TCPSocket.open(host, port) do |s| # Use block form of open<br>&nbsp;&nbsp;while line = s.gets<br>&nbsp;&nbsp;&nbsp;&nbsp;puts line.chop<br>&nbsp;&nbsp;end<br>end # Socket automatically closed',
+'Q' => 'simple client network code',
+},
+{
+'A' => 'require \'socket\' # Get sockets from stdlib<br>&nbsp;server = TCPServer.open(2000) # Socket to listen on port 2000<br>loop &#123; # Infinite loop: servers run forever<br>&nbsp;&nbsp;client = server.accept # Wait for a client to connect<br>&nbsp;&nbsp;client.puts(Time.now.ctime) # Send the time to the client<br>&nbsp;&nbsp;client.close # Disconnect from the client<br>&#125;',
+'Q' => 'simple server network code',
+},
+{
+'A' => 'UDPSocket',
+'Q' => 'udp support',
+},
+{
+'A' => 'Net::HTTP',
+'Q' => 'HTTP support',
+},
+{
+'A' => '1.) standard Ruby 1.8 is singlethreaded; thus Ruby 1.8 threads are very lightweight, but never run in parallel.<br>2.) standard Ruby 1.9 allocates a native thread for each Ruby thread, but is to protect against non-threadsafe C runtimes never allows simultaneous execution of multiple threads. (This restriction may be relaxed later.)<br>3.) JRuby maps each Ruby thread to a Java thread',
+'Q' => 'how efficient is Ruby with its threads?',
+},
+{
+'A' => 'Thread.start, Thread.fork',
+'Q' => 'Thread.new aka',
+},
+{
+'A' => 'The value of the last expression in the thread\'s block is the value of the thread.<br>t.value # blocks if the thread isn\'t done yet',
+'Q' => 'how to retrieve a value from a thread',
+},
+{
+'A' => 'Thread.current',
+'Q' => 'current thread',
+},
+{
+'A' => '# Wait for all threads (other than the current thread and # main thread) to stop running.<br># Assumes that no new threads are started while waiting.def join_all<br>&nbsp;main = Thread.main # The main thread<br>&nbsp;current = Thread.current # The current thread<br>&nbsp;all = Thread.list # All threads still running<br>&nbsp;all.each &#123;|t| t.join unless t == current or t == main &#125;<br>end',
+'Q' => 'wait until all threads, other than the main thread and the current thread (which may be the same thing), have exited:',
+},
+{
+'A' => 'in main thread: fatal to process<br>else: fatal to current thread (silently)<br>&nbsp;If thread s calls t.join or t.value, then s sees exception<br>&nbsp;NB: if you would like any unhandled exception in any thread to be fatal:<br>&nbsp;Thread.abort_on_exception = true<br>&nbsp;If you want an unhandled exception in one particular thread to cause the interpreter to exit, use the instance method by the same name:<br>&nbsp;t = Thread.new &#123; ... &#125;<br>t.abort_on_exception = true',
+'Q' => 'consequence of an unhandled exception',
+},
+{
+'A' => 'threads are defined by blocks, and have access to whatever variables are in the scope of the block:<br>&nbsp;x = 0<br>&nbsp;t1 = Thread.new do<br>&nbsp;&nbsp;# This thread can query and set the variable x<br>end<br>&nbsp;t2 = Thread.new do<br>&nbsp;&nbsp;# This thread can also query and set x<br>&nbsp;&nbsp;# And it can query and set t1 and t2 as well.<br>end',
+'Q' => 'shared access by threads',
+},
+{
+'A' => 'Some Ruby special global variables are thread-local: they may have different values by thread. $SAFE and $~ are examples. This means that if two threads are performing regular expression matching concurrently, they will see different values of $~<br>&nbsp;The Thread class provides hash-like behavior, but the keys must be symbols (or must have a to_sym method, perhaps).<br>&nbsp;e.g.,<br>&nbsp;Thread.current[:progress] = bytes_received',
+'Q' => 'Thread-local variables',
+},
+{
+'A' => 't.key?(:abc)',
+'Q' => 'does a thread t have a thread-local keyed by :abc?',
+},
+{
+'A' => 't.alive?<br>t.status # returns "run",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"sleep",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"aborting",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;false /* Terminated normally */, or<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nil /* Terminated with exception */',
+'Q' => 'is a thread running or sleeping?',
+},
+{
+'A' => 'Thread.stop # no interface for one thread to "stop" another<br>&nbsp;same as <br>&nbsp;Kernel.sleep',
+'Q' => 'Ruby equivalent to Java Thread.getCurrentThread().yield()',
+},
+{
+'A' => 't.wakeup<br>t.run',
+'Q' => 'move a thread from sleeping to runnable state',
+},
+{
+'A' => 't.kill<br>t.terminate<br>t.exit<br>&nbsp;No ensure clauses run in the thread block.',
+'Q' => 'kill a thread',
+},
+{
+'A' => 't.raise',
+'Q' => 'throw an exception in thread t',
+},
+{
+'A' => 'Thread.list',
+'Q' => 'what are all the live threads currently?',
+},
+{
+'A' => 'ThreadGroup<br>t.group tells you its membership<br>group.add(t)<br>group.list',
+'Q' => 'hierarchy of threads',
+},
+{
+'A' => 'group = ThreadGroup.new<br>3.times &#123;|n| group.add(Thread.new &#123; do_task(n) &#125;&#125;',
+'Q' => 'make 3 threads which will execute do_task(n)',
+},
+{
+'A' => 'group.enclose<br>&nbsp;Once a thread group has been enclosed, threads may not be removed from it and new threads cannot be added to it. The threads in the group may create new threads, and these new threads will become members of the group. <br>&nbsp;useful when you run untrusted Ruby code under the $SAFE variable',
+'Q' => 'security use for ThreadGroup',
+},
+{
+'A' => 'def conread(filenames) # returns a hash mapping filenames to content.<br>&nbsp;&nbsp;fnToLines = &#123;&#125; # Empty hash of results<br>&nbsp;&nbsp;&nbsp;filenames.each do |filename| # w/ the "open-uri" module, this code could handle URLs<br>&nbsp;&nbsp;&nbsp;&nbsp;fnToLines[filename] = Thread.new do<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;open(filename) &#123;|f| f.read &#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;end # Thread value is file contents<br>&nbsp;&nbsp;end<br>&nbsp;&nbsp;&nbsp;# Iterate through the hash, waiting for each thread to complete.<br>&nbsp;&nbsp;# Replace the thread in the hash with its value (the file contents)<br>&nbsp;&nbsp;fnToLines.each_pair do |filename, thread|<br>&nbsp;&nbsp;&nbsp;&nbsp;begin<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fnToLines[filename] = thread.value # Map filename to file contents<br>&nbsp;&nbsp;&nbsp;&nbsp;rescue<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fnToLines[filename] = $! # Or to the exception raised<br>&nbsp;&nbsp;&nbsp;&nbsp;end<br>&nbsp;&nbsp;end<br>end',
+'Q' => 'implement reading n files concurrently',
+},
+{
+'A' => 'require \'socket\'<br>&nbsp;# read lines from the client, reverses them and send them back.<br>def handle_client(c)<br>&nbsp;&nbsp;while true<br>&nbsp;&nbsp;&nbsp;&nbsp;input = c.gets.chop # Read a line of input from the client<br>&nbsp;&nbsp;&nbsp;&nbsp;break if !input # Exit if no more input<br>&nbsp;&nbsp;&nbsp;&nbsp;break if input=="quit" # or if the client asks to.<br>&nbsp;&nbsp;&nbsp;&nbsp;c.puts(input.reverse) # Otherwise, respond to client.<br>&nbsp;&nbsp;&nbsp;&nbsp;c.flush # Force our output out<br>&nbsp;&nbsp;end<br>&nbsp;&nbsp;c.close # Close the client socket<br>end<br>&nbsp;server = TCPServer.open(2000) # Listen on port 2000<br>&nbsp;while true # Servers loop forever<br>&nbsp;&nbsp;client = server.accept # Wait for a client to connect<br>&nbsp;&nbsp;Thread.start(client) do |c| # Start a new thread<br>&nbsp;&nbsp;&nbsp;&nbsp;handle_client(c) # And handle the client on that thread<br>&nbsp;&nbsp;end<br>end',
+'Q' => 'implement a multithreaded server',
+},
+{
+'A' => '# add a method conmap (for concurrent map) to the Enumerable module -- works like map but processes each element of the input array using a separate thread:<br>&nbsp;module Enumerable # Open the Enumerable module<br>&nbsp;def conmap(&block) # Define a new method that expects a block<br>&nbsp;&nbsp;&nbsp;threads = [] # Start with an empty array of threads<br>&nbsp;&nbsp;&nbsp;self.each do |item| # For each enumerable item<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Invoke the block in a new thread, and remember the thread<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;threads &lt;&lt; Thread.new &#123; block.call(item) &#125;<br>&nbsp;&nbsp;&nbsp;end<br>&nbsp;&nbsp;&nbsp;# Now map the array of threads to their values<br>&nbsp;&nbsp;&nbsp;threads.map &#123;|t| t.value &#125; # And return the array of values<br>&nbsp;end<br>end<br>&nbsp;And here\'s a similar concurrent version of the each iterator:<br>&nbsp;module Enumerable<br>&nbsp;def concurrently<br>&nbsp;&nbsp;&nbsp;map &#123;|item| Thread.new &#123; yield item &#125;&#125;.each &#123;|t| t.join &#125;<br>&nbsp;end<br>end<br>=======================================<br>We resolve problems like these by using a cooperative locking mechanism. Each thread that wants to access shared data must first lock that data. The lock is represented by a Mutex (short for “mutual exclusion”) object. To lock a Mutex, you call its lock method. When you’re done reading or altering the shared data, you call the unlock method of the Mutex. The lock method blocks when called on a Mutex that’s already locked, and it does not return until the caller has successfully obtained a lock. If each thread that accesses the shared data locks and unlocks the Mutex correctly, no thread will see the data in an inconsistent state and we won’t have problems like those we’ve described.<br>&nbsp;Mutex is a core class in Ruby 1.9 and is part of the standard thread library in Ruby 1.8. Instead of using the lock and unlock methods explicitly, it is more common to use the synchronize method and associate a block with it. synchronize locks the Mutex, runs the code in the block, and then unlocks the Mutex in an ensure clause so that exceptions are properly handled. Here is a simple model of our bank account example, using a Mutex object to synchronize thread access to shared account data:<br>&nbsp;require \'thread\' # For Mutex class in Ruby 1.8<br>&nbsp;# A BankAccount has a name, a checking amount, and a savings amount.class BankAccount<br>&nbsp;def init(name, checking, savings)<br>&nbsp;&nbsp;&nbsp;@name,@checking,@savings = name,checking,savings<br>&nbsp;&nbsp;&nbsp;@lock = Mutex.new # For thread safety<br>&nbsp;end<br>&nbsp;&nbsp;# Lock account and transfer money from savings to checking<br>&nbsp;def transfer_from_savings(x)<br>&nbsp;&nbsp;&nbsp;@lock.synchronize &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@savings -= x<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@checking += x<br>&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;end<br>&nbsp;&nbsp;# Lock account and report current balances<br>&nbsp;def report<br>&nbsp;&nbsp;&nbsp;@lock.synchronize &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"#@name&#092;nChecking: #@checking&#092;nSavings: #@savings"<br>&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;end<br>end<br>&nbsp;9.9.7.1. Deadlock<br>&nbsp;When we start using Mutex objects for thread exclusion we must be careful to avoid deadlock. Deadlock is the condition that occurs when all threads are waiting to acquire a resource held by another thread. Because all threads are blocked, they cannot release the locks they hold. And because they cannot release the locks, no other thread can acquire those locks.<br>&nbsp;A classic deadlock scenario involves two threads and two Mutex objects. Thread 1 locks Mutex 1 and then attempts to lock Mutex 2. Meanwhile, thread 2 locks Mutex 2 and then attempts to lock Mutex 1. Neither thread can acquire the lock it needs, and neither thread can release the lock the other one needs, so both threads block forever:<br>&nbsp;# Classic deadlock: two threads and two locks require \'thread\'<br>&nbsp;m,n = Mutex.new, Mutex.new<br>&nbsp;t = Thread.new &#123;<br>&nbsp;m.lock<br>&nbsp;puts "Thread t locked Mutex m"<br>&nbsp;sleep 1<br>&nbsp;puts "Thread t waiting to lock Mutex n"<br>&nbsp;n.lock<br>&#125;<br>&nbsp;s = Thread.new &#123;<br>&nbsp;n.lock<br>&nbsp;puts "Thread s locked Mutex n"<br>&nbsp;sleep 1<br>&nbsp;puts "Thread s waiting to lock Mutex m"<br>&nbsp;m.lock<br>&#125;<br>&nbsp;t.join<br>s.join<br>&nbsp;The way to avoid this kind of deadlock is to always lock resources in the same order. If the second thread locked m before locking n, then deadlock would not occur.<br>&nbsp;Note that deadlock is possible even without using Mutex objects. Calling join on a thread that calls Thread.stop will deadlock both threads, unless there is a third thread that can awaken the stopped thread.<br>&nbsp;Bear in mind that some Ruby implementations can detect simple deadlocks like these and abort with an error, but this is not guaranteed.<br>&nbsp;9.9.8. Queue and SizedQueue<br>&nbsp;The standard thread library defines the Queue and SizedQueue data structures specifically for concurrent programming. They implement thread-safe FIFO queues and are intended for a producer/consumer model of programming. Under this model, one thread produces values of some sort and places them on a queue with the enq (enqueue) method or its synonym push. Another thread “consumes” these values, removing them from the queue with the deq (dequeue) method as needed. (The pop and shift methods are synonyms for deq.)<br>&nbsp;The key features of Queue that make it suitable for concurrent programming is that the deq method blocks if the queue is empty and waits until the producer thread adds a value to the queue. The Queue and SizedQueue classes implement the same basic API, but the SizedQueue variant has a maximum size. If the queue is already at its maximum size, then the method for adding a value to the queue will block until the consumer thread removes a value from the queue.<br>&nbsp;As with Ruby’s other collection classes, you can determine the number of elements in a queue with size or length, and you can determine if a queue is empty with empty?. Specify the maximum size of a SizedQueue when you call SizedQueue.new. After creating a SizedQueue, you can query and alter its maximum size with max and max=.<br>&nbsp;Earlier in this chapter, we saw how to add a concurrent map method to the Enumerable module. We now define a method that combines a concurrent map with a concurrent inject. It creates a thread for each element of the enumerable collection and uses that thread to apply a mapping Proc. The value returned by that Proc is enqueued on a Queue object. One final thread acts as a consumer; it removes values from the queue and passes them to the injection Proc as they become available.<br>&nbsp;We call this concurrent injection method conject, and you could use it like this to concurrently compute the sum of the squares of the values in an array. Note that a sequential algorithm would almost certainly be faster for a simple sum-of-squares example like this:<br>&nbsp;a = [-2,-1,0,1,2]<br>mapper = lambda &#123;|x| x*x &#125; # Compute squares<br>injector = lambda &#123;|total,x| total+x &#125; # Compute sum<br>a.conject(0, mapper, injector) # =&gt; 10<br>&nbsp;The code for this conject method is as follows—note the use of a Queue object and its enq and deq methods:<br>&nbsp;Code View: Scroll / Show All<br>module Enumerable<br>&nbsp;# Concurrent inject: expects an initial value and two Procs<br>&nbsp;def conject(initial, mapper, injector)<br>&nbsp;&nbsp;&nbsp;# Use a Queue to pass values from mapping threads to injector thread<br>&nbsp;&nbsp;&nbsp;q = Queue.new<br>&nbsp;&nbsp;&nbsp;count = 0 # How many items?<br>&nbsp;&nbsp;&nbsp;each do |item| # For each item<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thread.new do # Create a new thread<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;q.enq(mapper[item]) # Map and enqueue mapped value<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count += 1 # Count items<br>&nbsp;&nbsp;&nbsp;end<br>&nbsp;&nbsp;&nbsp;&nbsp;t = Thread.new do # Create injector thread<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x = initial # Start with specified initial value<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while(count &gt; 0) # Loop once for each item<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x = injector[x,q.deq] # Dequeue value and inject<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count -= 1 # Count down<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x # Thread value is injected value<br>&nbsp;&nbsp;&nbsp;end<br>&nbsp;&nbsp;&nbsp;&nbsp;t.value # Wait for injector thread and return its value<br>&nbsp;end<br>end<br>&nbsp;9.9.9. Condition Variables and Queues<br>&nbsp;There is something important to notice about the Queue class: the deq method can block. Normally, we only think of blocking as happening with IO methods (or when calling join on a thread or lock on a Mutex). In multithreaded programming, however, it is sometimes necessary to have a thread wait for some condition (outside of the control of that thread) to become true. In the case of the Queue class, the condition is the nonempty status of the queue: if the queue is empty, then a consumer thread must wait until a producer thread calls enq and makes the queue nonempty.<br>&nbsp;Making a thread wait until some other thread tells it that it can go again is accomplished most cleanly with a ConditionVariable. Like Queue, ConditionVariable is part of the standard thread library. Create a ConditionVariable with ConditionVariable.new. Make a thread wait on the condition with the wait method. Wake one waiting thread with signal. Wake all waiting threads with broadcast. There is one slightly tricky part to the use of condition variables: in order to make things work correctly, the waiting thread must pass a locked Mutex object to the wait method. This mutex will be temporarily unlocked while the thread waits, and it will be locked again when the thread wakes up.<br>&nbsp;We conclude our coverage of threads with a utility class that is sometimes useful in multithreaded programs. It is called Exchanger, and it allows two threads to swap arbitrary values. Suppose we have threads t1 and t2 and an Exchanger object e. t1 calls e.exchange(1). This method then blocks (using a ConditionVariable, of course) until t2 calls e.exchange(2). This second thread does not block, it simply returns 1—the value passed by t1. Now that the second thread has called exchange, t1 wakes up again and returns 2 from the exchange method.<br>&nbsp;The Exchanger implementation shown here is somewhat complex, but it demonstrates a typical use of the ConditionVariable class. One interesting feature of this code is that it uses two Mutex objects. One of them is used to synchronize access to the exchange method and is passed to the wait method of the condition variable. The other Mutex is used to determine whether the calling thread is the first or the second thread to invoke exchange. Instead of using lock with this Mutex, this class uses the nonblocking try_lock method. If @first.try_lock returns true, then the calling thread is the first thread. Otherwise, it is the second thread:<br>&nbsp;Code View: Scroll / Show All<br>require \'thread\'<br>&nbsp;class Exchanger<br>&nbsp;def initialize<br>&nbsp;&nbsp;&nbsp;# These variables will hold the two values to be exchanged.<br>&nbsp;&nbsp;&nbsp;@first_value = @second_value = nil<br>&nbsp;&nbsp;&nbsp;# This Mutex protects access to the exchange method.<br>&nbsp;&nbsp;&nbsp;@lock = Mutex.new<br>&nbsp;&nbsp;&nbsp;# This Mutex allows us to determine whether we\'re the first or<br>&nbsp;&nbsp;&nbsp;# second thread to call exchange.<br>&nbsp;&nbsp;&nbsp;@first = Mutex.new<br>&nbsp;&nbsp;&nbsp;# This ConditionVariable allows the first thread to wait for<br>&nbsp;&nbsp;&nbsp;# the arrival of the second thread.<br>&nbsp;&nbsp;&nbsp;@second = ConditionVariable.new<br>&nbsp;end<br>&nbsp;&nbsp;# Exchange this value for the value passed by the other thread.<br>&nbsp;def exchange(value)<br>&nbsp;&nbsp;&nbsp;@lock.synchronize do # Only one thread can call this method at a time<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if @first.try_lock # We are the first thread<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@first_value = value # Store the first thread\'s argument<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Now wait until the second thread arrives.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# This temporarily unlocks the Mutex while we wait, so<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# that the second thread can call this method, too<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@second.wait(@lock) # Wait for second thread<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@first.unlock # Get ready for the next exchange<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@second_value # Return the second thread\'s value<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else # Otherwise, we\'re the second thread<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@second_value = value # Store the second value<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@second.signal # Tell the first thread we\'re here<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@first_value # Return the first thread\'s value<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end<br>&nbsp;&nbsp;&nbsp;end<br>&nbsp;end<br>end',
+'Q' => 'implement concurrent iterators',
+},
+{
+'A' => 'avoid by always locking resources in the same order',
+'Q' => 'interlocking resource allocation deadlock',
+},
+{
+'A' => 'yes, any combination of blocking calls can do it (e.g., join on a thread that calls Thread.stop would deadlock both threads unless a third thread can awaken the stopped thread)',
+'Q' => 'is deadlock possible even without using Mutex objects?',
+},
+{
+'A' => 'ConditionVariable c<br>c.wait<br>c.signal<br>c.broadcast<br>&nbsp;NB: waiting thread must pass a locked Mutex object to wait(). This mutex will be temporarily unlocked while the thread waits, and it will be locked again when the thread wakes up.',
+'Q' => 'make a thread wait until some other thread tells to go',
+},
+{
+'A' => 'require \'thread\'<br>&nbsp;class Exchanger<br>&nbsp;&nbsp;def initialize<br>&nbsp;&nbsp;&nbsp;&nbsp;# These variables will hold the two values to be exchanged.<br>&nbsp;&nbsp;&nbsp;&nbsp;@first_value = @second_value = nil<br>&nbsp;&nbsp;&nbsp;&nbsp;# This Mutex protects access to the exchange method.<br>&nbsp;&nbsp;&nbsp;&nbsp;@lock = Mutex.new<br>&nbsp;&nbsp;&nbsp;&nbsp;# This Mutex allows us to determine whether we\'re the first or<br>&nbsp;&nbsp;&nbsp;&nbsp;# second thread to call exchange.<br>&nbsp;&nbsp;&nbsp;&nbsp;@first = Mutex.new<br>&nbsp;&nbsp;&nbsp;&nbsp;# This ConditionVariable allows the first thread to wait for<br>&nbsp;&nbsp;&nbsp;&nbsp;# the arrival of the second thread.<br>&nbsp;&nbsp;&nbsp;&nbsp;@second = ConditionVariable.new<br>&nbsp;&nbsp;end<br>&nbsp;&nbsp;&nbsp;# Exchange this value for the value passed by the other thread.<br>&nbsp;&nbsp;def exchange(value)<br>&nbsp;&nbsp;&nbsp;&nbsp;@lock.synchronize do # Only one thread can call this method at a time<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if @first.try_lock # We are the first thread<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@first_value = value # Store the first thread\'s argument<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Now wait until the second thread arrives.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# This temporarily unlocks the Mutex while we wait, so<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# that the second thread can call this method, too<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@second.wait(@lock) # Wait for second thread<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@first.unlock # Get ready for the next exchange<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@second_value # Return the second thread\'s value<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else # Otherwise, we\'re the second thread<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@second_value = value # Store the second value<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@second.signal # Tell the first thread we\'re here<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@first_value # Return the first thread\'s value<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end<br>&nbsp;&nbsp;&nbsp;&nbsp;end<br>&nbsp;&nbsp;end<br>end',
+'Q' => 'implement Exchanger, a class to allow two threads to swap arbitrary values.<br>&nbsp;Suppose we have threads t1 and t2 and an Exchanger object e. t1 calls e.exchange(1). This method then blocks (using a ConditionVariable, of course) until t2 calls e.exchange(2). This second thread does not block, it simply returns 1 the value passed by t1. Now that the second thread has called exchange, t1 wakes up again and returns 2 from the exchange method.',
+},
+{
+'A' => '--disable-gems',
+'Q' => 'Ruby 1.9: prevent the addition of gem installation directories to the default load path',
+},
+{
+'A' => '-w<br>-d or --debug: set $DEBUG and $VERBOSE to true, prints to stdout all exceptions (even if rescued)',
+'Q' => 'be strict',
+},
+{
+'A' => '-W0:',
+'Q' => 'suppress warnings',
+},
+{
+'A' => '-c',
+'Q' => 'parse the program, but does not run',
+},
+{
+'A' => '-C dir',
+'Q' => 'cd to a dir before running',
+},
+{
+'A' => '-s<br>&nbsp;When this option is specified, the interpreter preprocesses any arguments that appear after the program name and begin with a hyphen. For arguments of the form -x=y, it sets $x to y. For arguments of the form -x, it sets $x to true. The preprocessed arguments are removed from ARGV.',
+'Q' => 'set some variables before running',
+},
+{
+'A' => '-S<br>&nbsp;This option looks for the specified program file relative to the path specified in the RUBY_PATH environment variable. If it is not found there, it looks for it relative to the PATH environment variable. And if it is still not found, it looks for it normally.',
+'Q' => 'use paths to find the program',
+},
+{
+'A' => '-T n<br>&nbsp;This option sets $SAFE to n, or to 1 if n is omitted. See Section 10.5 for more.',
+'Q' => 'security command line option',
+},
+{
+'A' => 'File.chmod (system dependent)',
+'Q' => 'change file perms',
+},
+{
+'A' => 'lines = &#123;&#125;<br>IO.foreach("file_of_lines") &#123;|line| lines[line] = true&#125;',
+'Q' => 'Read a file\'s lines one at a time and get them into a hash',
+},
+{
+'A' => 'use Dir[]\'s \'**\' to find in a tree:<br>&nbsp;Dir[\'*.data\'] # Files with the "data" extension<br>Dir[\'ruby.*\'] # Any filename beginning with "ruby."<br>Dir[\'?\'] # Any single-character filename<br>Dir[\'*.[ch]\'] # Any file that ends with .c or .h<br>Dir[\'*.&#123;java,rb&#125;\'] # Any file that ends with .java or .rb<br>Dir[\'*/*.rb\'] # Any Ruby program in any direct sub-directory<br>Dir[\'**/*.rb\'] # Any Ruby program in any descendant directory<br>&nbsp;or<br>&nbsp;Dir.glob is similar, but can take a block and also can take an optional 2nd arg File::FNM_DOTMATCH to see hidden files<br>&nbsp;Code View: Scroll / Show All<br>Dir.glob(\'*.rb\') &#123;|f| ... &#125; # Iterate all Ruby files<br>Dir.glob(\'*\') # Does not include names beginning with \'.\'<br>Dir.glob(\'*\',File::FNM_DOTMATCH) # Include . files, just like Dir.entries',
+'Q' => 'find a file matching a pattern under some directory',
+},
+{
+'A' => 'Kernel.trace_var.<br>&nbsp;# Print a message every time $xyz changes<br>trace_var(:$xyz) &#123;|v|<br>puts "$xyz set to #&#123;v&#125; at #&#123;caller[1]&#125;"<br>&#125;',
+'Q' => 'how could you debug corruption for var xyz?',
+},
+{
+'A' => '2&gt;&1',
+'Q' => 'unix bash: combine STDERR into STDOUT',
+},
+{
+'A' => '&#092;b&#092;w+(?&lt;!s)&#092;b<br>&nbsp;NB: definitely not the same as &#092;b&#092;w+[^s]&#092;b -- see <a href=\'http://www.regular-expressions.info/lookaround.html\'>http://www.regular-expressions.info/lookaround.html</a> for details<br>&nbsp;Negative lookahead: (?!...)<br>Positive lookahead: (?=...)<br>&nbsp;Negative lookbehind: (?&lt;!...)<br>Positive lookbehind: (?&lt;=...)<br>&nbsp;NB: lookbehind limitation: many regex flavors, including those used by Perl and Python, only allow fixed-length lookbehinds -- thus you can use literal text and character classes, but not repetition or optional items; you can use alternation iff all options in the alternation have the same length',
+'Q' => 'regexp: find a word not ending with "s"',
+},
+{
+'A' => 'Thread.main returns the Thread object that represents the main thread<br>&nbsp;Thread.current for current thread',
+'Q' => 'what is the primary thread',
+},
+{
+'A' => 'it can\'t handle blocks. So if you want to handle blocks, use class_eval:<br>&nbsp;&nbsp;# NB: %Q&#123;...&#125; is a doublequoted string, not a block.<br>class_eval %Q&#123;<br>&nbsp;&nbsp;def #&#123;m&#125;(*args, &block)<br>&nbsp;&nbsp;&nbsp;&nbsp;synchronized(self) &#123; #&#123;aka&#125;(*args, &block) &#125;<br>&nbsp;&nbsp;end<br>&#125;',
+'Q' => 'what\'s wrong w/ using define_method?',
+},
+{
+'A' => 'define_method(m, &b)',
+'Q' => 'make a new method',
+},
+{
+'A' => 'aka IA-64<br>architecture cooked up by Intel and HP as an enterprise 64-bit platform, now marginalized by 64-bit x86.',
+'Q' => 'itanium',
+},
+{
+'A' => 'French for "superior force", also known as cas fortuit (French) or casus fortuitus (Latin)[1]<br>a common clause in contracts which essentially frees both parties from liability or obligation when an extraordinary event or circumstance beyond the control of the parties, such as a war, strike, riot, crime, or an event described by the legal term "act of God" (e.g., flooding, earthquake, volcanic eruption), prevents one or both parties from fulfilling their obligations under the contract',
+'Q' => 'force majeure',
+},
+{
+'A' => 'force majeure<br>&nbsp;French for "superior force", also known as cas fortuit (French) or casus fortuitus (Latin)[1]<br>&nbsp;event examples: war, strike, riot, crime, or an event described by the legal term "act of God" (e.g., flooding, earthquake, volcanic eruption), prevents one or both parties from fulfilling their obligations under the contract',
+'Q' => 'Legal: a common clause in contracts which essentially frees both parties from liability or obligation when an extraordinary event or circumstance beyond the control of the parties occurs',
+},
+{
+'A' => 'google',
+'Q' => 'web: hey desktop user, what\'s 110 * (654/8 + 3)?',
+},
+{
+'A' => 'google: time new york',
+'Q' => 'web: what time is it in new york?',
+},
+{
+'A' => 'google: bulls - jordan',
+'Q' => 'web: tell me about the Bulls but not about Michael Jordan',
+},
+{
+'A' => 'google: [0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9][0-9][0-9] filetype:xls',
+'Q' => 'web: give me spread sheets with social security numbers',
+},
+{
+'A' => 'as s/w evolves, the app data will evolve too, and old sessions will be invalidated.<br>&nbsp;Best to keep it simple (e.g., IDs which refer to objects, etc.)',
+'Q' => 'rails: trouble w/ storing app data in session data',
+},
+{
+'A' => 'the flash<br>(which appears to be a local reference to a global hash)',
+'Q' => 'rails: DOM storage equivalent',
+},
+{
+'A' => '"quirks" mode',
+'Q' => 'IE: what do you call its mode for compatiblity w/ old (IE6?) apps',
+},
+{
+'A' => 'IE mode for compatiblity w/ old (IE6?) apps',
+'Q' => 'IE "quirks" mode',
+},
+{
+'A' => 'based on gtalk, supports<br>-automatic syncing<br>-remote control<br>&nbsp;Doesn\'t work over proxies.<br>&nbsp;TeamView is an alternative -- establishes a private VPN between 2 boxes, allowing any TCP-based protocol',
+'Q' => 'collab products: gbridge',
+},
+{
+'A' => 'excessive desire',
+'Q' => 'define:cupidity',
+},
+{
+'A' => 'on its appearance, on its face',
+'Q' => 'define:prima facie',
+},
+{
+'A' => 'jsPDF, a JavaScript soln',
+'Q' => 'network-centric way to produce PDFs',
+},
+{
+'A' => 'meanspirited, negative',
+'Q' => 'define:invidious',
+},
+{
+'A' => '@include <a href=\'http://www.amazon.tld/*\'>http://www.amazon.tld/*</a>',
+'Q' => 'greasemonkey: @include <a href=\'http://www.amazon.com/*\'>http://www.amazon.com/*</a> AND @include <a href=\'http://www.amazon.cn/*\'>http://www.amazon.cn/*</a>',
+},
+{
+'A' => '@include <a href=\'http://*\'>http://*</a>',
+'Q' => 'greasemonkey: don\'t include local file HTML',
+},
+{
+'A' => 'someElement.style.marginTop, someElement.style.cssFloat',
+'Q' => 'greasemonkey: what is the js equivalent of css rule margin-top? of float?',
+},
+{
+'A' => 'GM_log<br>GM_getValue -- work w/ pref db<br>GM_setValue<br>GM_registerMenuCommand<br>GM_xmlhttpRequest -- cross domain ajax',
+'Q' => 'greasemonkey: APIs',
+},
+{
+'A' => 'use https://www.squarefree.com/bookmarklets/webdevel.html js shell<br>To list obj\'s props, do<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;props(obj)',
+'Q' => 'greasemonkey: nice way to eval js expressions in the current window',
+},
+{
+'A' => 'embed it:<br>data:image/png;base64,lkdjfsldkjfslkfjsdlkfjsflk...',
+'Q' => 'greasemonkey: how to include graphics in your gm script?',
+},
+{
+'A' => 'DOMNodeInserted event',
+'Q' => 'greasemonkey: how to listen for new data arriving in the page',
+},
+{
+'A' => 'redefine window.commonOp which gm uses, then use GM_xmlhttpRequest to inspect local disk<br>Therefore gm wraps everything in XPCNativeWrapper, to prevent redefines of common stuff',
+'Q' => 'greasemonkey: how were sites taking over gm users\' machines?',
+},
+{
+'A' => 'obj.watch(propName)',
+'Q' => 'js: get notified if a property is set',
+},
+{
+'A' => '&lt;s t y l e&gt;<br>html f v i s i b i l i t y : hidden ; g<br>&lt;/s t y l e&gt;<br>&lt;s c r i p t &gt;<br>i f ( s e l f == top ) f document . documentElement . s t y l e . v i s i b i l i t y = \' v i s i b l e \' ;<br>g el se f top . l o c a t i o n = s e l f . l o c a t i o n ;<br>g&lt;<br>/s c r i p t &gt;<br>Figure 7: Our proposed framebusting code<br>5.3 Using JavaScript<br>Until X-FRAME-OPTIONS or another browser-<br>based defense is universally deployed, web sites<br>that wish to defend against clickjacking have<br>little choice but to use JavaScript. We present<br>in Figure 7 what we think is currently the best<br>JavaScript code to defend against framing.<br>This code works as follows: When the page<br>is loaded, the style sheet hides all content on<br>the page. If JavaScript is disabled, the page will<br>remain blank. Similarly, if the page is framed,<br>it will either remain blank or it will attempt to<br>frame bust. If the frame busting code is blocked,<br>say by hooking the unload event or doing a 204<br>ushing attack, the page will remain blank. The<br>script only reveals the document\'s contents if the<br>page is not running in a frame. Note that users<br>who have JavaScript disabled, via browser set-<br>ting or NoScript, will not be able to use the site.<br>Designers might want to have a fallback mecha-<br>nism if such is the case.<br>In our example the entire page is initially in-<br>visible, but this defense can be more ne grained<br>by having sub-elements be invisible instead. This<br>way, a user can be presented with a message if<br>JavaScript is disabled. However, enabling any<br>subset of functionality beyond that simple mes-<br>sage is not advised.',
+'Q' => 'stopping clickjacking',
+},
+{
+'A' => 'Jar Jar Links is a utility that makes it easy to repackage Java libraries and embed them into your own distribution. This is useful for two reasons:<br>&nbsp;You can easily ship a single jar file with no external dependencies.<br>You can avoid problems where your library depends on a specific version of a library, which may conflict with the dependencies of another library.<br>How does it work?<br>&nbsp;Jar Jar Links includes an Ant task that extends the built-in jar task. The normal zipfileset element is used to embed jar files. A new rule element is added which uses wildcards patterns to rename the embedded class files. Bytecode transformation (via ASM) is used to change references to the renamed classes, and special handling is provided for moving resource files and transforming string literals.',
+'Q' => 'java: how to protect against problems w/ evolving dependencies on 3rd party projects',
+},
+{
+'A' => 'ruby script/console # calls irb in server context',
+'Q' => 'rails: interact directly with your code',
+},
+{
+'A' => 'raise ActiveRecord::Rollback<br>&nbsp;Nice place to do it from: ActiveRecord hooks, e.g., after_destroy',
+'Q' => 'rails: silently rollback DB change',
+},
+{
+'A' => 'filters can be set up to execute before/after requests',
+'Q' => 'rails: hooks',
+},
+{
+'A' => 'obj.errors.full_messages',
+'Q' => 'rails: ActiveRecord errors',
+},
+{
+'A' => '...REpresentational State Transfer<br>&nbsp;basically means avoiding shared state and focusing on exchanging representation of resources',
+'Q' => 'REST stands for...',
+},
+{
+'A' => 'ProductTest -&gt; ActiveSupport::TestCase -&gt; Test::Unit::TestCase',
+'Q' => 'rails: test obj hierarchy',
+},
+{
+'A' => 'about<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Displays the version numbers of Ruby and the Rails components being<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;used by your application, along with other configuration information.<br>dbconsole<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Allows you to directly interact with your database via the command line.<br>console<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Allows you to use irb to interact with your Rails application methods. irb<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.! page 677<br>destroy<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Removes autogenerated files created by generate.<br>generate<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A code generator. Out of the box, it will create controllers, mailers, models,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scaffolds, and web services. You can also download additional generator<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;modules from the Rails website.2 Run generate with no arguments<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for usage information on a particular generator, for example: ruby script/<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;generate migration.<br>plugin<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Helps you install and administer plug-insà¥†à¤††à¥†à¤…††à¥†à¤††à¥†à¤………à¥†à¤††à¥†à¤………—pieces of functionality that<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;extend the capabilities of Rails.<br>runner<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Executes a method in your application outside the context of the Web.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You could use this to invoke cache expiry methods from a cron job or<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;handle incoming e-mail.<br>server<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Runs your Rails application in a self-contained web server, using Mongrel<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(if it is available on your box) or WEBrick. Weà¥†à¤††à¥†à¤…††à¥†à¤††à¥†à¤………à¥†à¤††à¥†à¤………’ve been using this in our<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Depot application during development.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The script directory contains two subdirectories, each holding more specialized<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scripts. The directory script/process contains three scripts that help control a<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;deployed Rails application. Weà¥†à¤††à¥†à¤…††à¥†à¤††à¥†à¤………à¥†à¤††à¥†à¤………’ll discuss these in the chapter on deployment.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The directory script/performance contains three scripts that help you understand<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the performance characteristics of your application.<br>benchmarker<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Generates performance numbers on one or more methods in your<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;application.<br>profiler<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates a runtime-profile summary of a chunk of code from your<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;application.<br>request<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creates a runtime-profile summary of a URI request processed by your<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;application.',
+'Q' => 'rails: rake tasks',
+},
+{
+'A' => 'rake rails:freeze:gems<br>&nbsp;installs the current version of rails into the vendor dir',
+'Q' => 'rails: how to protect yourself from rails evolving in an incompatible manner',
+},
+{
+'A' => 'depot&gt; ruby script/server -e development # the default if -e omitted<br>depot&gt; ruby script/server -e test<br>depot&gt; ruby script/server -e production',
+'Q' => 'rails: how to control which env the server will run?',
+},
+{
+'A' => '1. Insert a call to the method debugger in the code<br>2.ruby script/server -u<br>3. Using a browser, prod your application<br>4. help # on debugger console for commands',
+'Q' => 'rails: how to run the debugger',
+},
+{
+'A' => '&lt;%= debug(@order) -&gt;',
+'Q' => 'rails: how to show debug info in the web app',
+},
+{
+'A' => 'rails<br>- adds to_yaml, to_json to all objects<br>- adds to_xml to ActiveRecord and all hashes',
+'Q' => 'rails: how to convert objects to data formats',
+},
+{
+'A' => 'state_lookup = us_states.index_by &#123;|state| state.short_name&#125;',
+'Q' => 'rails: make a lookup',
+},
+{
+'A' => 'html saved to disk will not reflect http headers. Best to do meta tag:<br>&lt;head&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta http-equiv="content-type" content="text/html; charset=UTF-8"&gt;&lt;/meta&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;My Name List&lt;/title&gt;<br>&lt;/head&gt;',
+'Q' => 'web: drawback of relying on http header for charset info',
+},
+{
+'A' => 'custom made to customer spec',
+'Q' => 'define:bespoke',
+},
+{
+'A' => 'disdainful',
+'Q' => 'define:supercilious',
+},
+{
+'A' => 'in fact, or in practice (but not spelled out by law)<br>&nbsp;de jure: opposite<br>&nbsp;<a href=\'http://listverse.com/2007/10/02/30-latin-terms-explained/\'>http://listverse.com/2007/10/02/30-latin-terms-explained/</a>',
+'Q' => 'de facto',
+},
+{
+'A' => 'w2k8 is a vista derivative<br>w2k8r2 is a 2k7 derivative',
+'Q' => 'windows: cf w2k8, w2k8r2',
+},
+{
+'A' => 'c-T',
+'Q' => 'web: undo close tab in chrome:',
+},
+{
+'A' => 'of its own kind',
+'Q' => 'latin: sui generis',
+},
+{
+'A' => 'wonderful to say',
+'Q' => 'latin: mirabile dictu',
+},
+{
+'A' => 'derived VM which tracks changes incrementally',
+'Q' => 'vmware: linked clone',
+},
+{
+'A' => 'Google Goggles: accessible from any Android device. After installing the tool, snap a photo (Google (GOOG) heeds that right now it works best with pictures of books, DVDs, landmarks, logos, business cards, artwork and bar codes) and wait as Goggles scans the image, analyzes it and identifies it. You\'ll receive information based on the image, such as details about a landmark or price comparisons for a certain book. Bar code matches will provide a link to Google Product Search to allow you to compare prices',
+'Q' => 'goog: a photo-based search tool',
+},
+{
+'A' => 'http://newstimeline.googlelabs.com/',
+'Q' => 'goog: get a sorted list of news items relating to some theme',
+},
+{
+'A' => 'aardvark (goog): <a href=\'http://vark.com/\'>http://vark.com/</a>',
+'Q' => 'web: crowd source a question',
+},
+{
+'A' => 'http://www.google.com/publicdata/directory',
+'Q' => 'web: find gov\'t stats, graphs',
+},
+{
+'A' => '/Ruby&#092;B/',
+'Q' => 'regexp match "Ruby" not ending at a word boundary (e.g., Rubylicious)',
+},
+{
+'A' => 'collect',
+'Q' => 'map syn',
+},
+{
+'A' => 'Multi-Catch:<br>&nbsp;Current way:<br>&nbsp;try &#123;<br>// Say some file parser code here...<br>&#125; catch (IOException ex) &#123;<br>// log and rethrow exception<br>&#125; catch (ParseException ex) &#123;<br>// log and rethrow exception<br>&#125; catch (ClassNotFoundException ex) &#123;<br>// log and rethrow exception<br>&#125;<br>&nbsp;This can now become...<br>&nbsp;try &#123;<br>// Say some file parser code here...<br>&#125; catch (IOException ex | ParseException ex | ClassNotFoundException ex) &#123;<br>// log and rethrow exception<br>&#125;',
+'Q' => 'java7: exception handling improvement',
+},
+{
+'A' => 'case values can be String',
+'Q' => 'java7: switch',
+},
+{
+'A' => '0b101011',
+'Q' => 'java7: numeric literals',
+},
+{
+'A' => 'map["key"]<br>list[j] // v. list.get(j)',
+'Q' => 'java7: collections',
+},
+{
+'A' => 'WatchService, WatchKey monitor fs',
+'Q' => 'java7: system monitoring',
+},
+{
+'A' => 'fork/join framework:',
+'Q' => 'java7: concurrency',
+},
+{
+'A' => 'ranges by browser from 4k to infinity<br>&nbsp;also: max number of cookies per site is commonly limited to 50, 60, 100 or so',
+'Q' => 'web: max cookie len',
+},
+{
+'A' => 'windows messenger-&gt;tools-&gt;ask for remote assistance',
+'Q' => 'windows: how to request remote assistance?',
+},
+{
+'A' => 'declare them "protected" -- makes them require SSL',
+'Q' => 'web: how to protect sensitive cookies?',
+},
+{
+'A' => 'most browsers ban cookie header fields',
+'Q' => 'cookies ok from xmlhttprequest?',
+},
+{
+'A' => 'zcat',
+'Q' => 'unix: gunzip',
+},
+{
+'A' => 'gunzip',
+'Q' => 'unix: zcat',
+},
+{
+'A' => 'small cellular base station, typically designed for use in a home or small business. It connects to the service provider’s network via broadband (such as DSL or cable); current designs typically support 2 to 4 active mobile phones in a residential setting, and 8 to 16 active mobile phones in enterprise setting',
+'Q' => 'define: femtocell',
+},
+{
+'A' => 'femtocell',
+'Q' => 'define:small cellular base station, typically designed for use in a home or small business. It connects to the service provider’s network via broadband (such as DSL or cable); current designs typically support 2 to 4 active mobile phones in a residential setting, and 8 to 16 active mobile phones in enterprise setting',
+},
+{
+'A' => 'So, in JRuby\'s bin directory I have a file named jruby-debug.bat, with<br>the following content:<br>@jruby.exe -J-Xdebug<br>-J-Xrunjdwp:transport=dt_socket,server=y,address=3232,suspend=y %*<br>&nbsp;Then, I start whatever jruby script I wish, just instead of \'jruby foo<br>bar baz\' I invoke jruby-debug .... .<br>From within Eclipse, I start remote debugging, specify the port (3232,<br>the same as in jruby-debug.bat file) and that\'s it, breakpoints work,<br>etc.<br>&nbsp;P.S.<br>Eclipse should open JRuby project just fine, all eclipse settings are<br>provided in JRuby\'s repository. As you\'ve mentioned, you just need to<br>add ANT lib to eliminate the broken dependency errors.',
+'Q' => 'jruby debug',
+},
+{
+'A' => 'http://mislav.uniqpath.com/2011/06/ruby-verbose-mode/<br>&nbsp;module Kernel<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;def silence_warnings<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with_warnings(nil) &#123; yield &#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;def with_warnings(flag)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;old_verbose, $VERBOSE = $VERBOSE, flag<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yield<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ensure<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$VERBOSE = old_verbose<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end<br>end unless Kernel.respond_to? :silence_warnings<br>&nbsp;&nbsp;AND NOW YOU CAN:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;silence_warnings do<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;require \'xyz\'<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end',
+'Q' => 'how to suppress warnings in a "required" module',
+},
+{
+'A' => 'http://whynotwiki.com/Ruby_/_Process_management<br>&nbsp;system("command")<br>result = `command`<br>pipe = IO.popen("command", "r")<br>pipe = IO.popen("command", "w+")<br>Open3.popen3("command")<br>exec("command")<br>if fork.nil?<br>&nbsp;For those commands that only capture stdout (`...`, IO.popen), you should probably decide between one of two options:<br>&nbsp;Discard stderr (result = `command 2&gt;/dev/null`)<br>Redirect stderr to stdout (result = `command 2&gt;&1`)',
+'Q' => 'writing/reading a process',
+},
+{
+'A' => 'File.open(local_filename, \'w\') &#123;|f| f.write(doc) &#125;',
+'Q' => 'write string to file',
+},
+{
+'A' => 'find_all',
+'Q' => 'syn for select',
+},
+{
+'A' => '1 # integer division',
+'Q' => '3/2',
+},
+{
+'A' => 'soap_opera.any? do |word|<br>&nbsp;&nbsp;word[0] == "a"<br>end<br>&nbsp;use all? to test all entries for a condition',
+'Q' => 'soap_opera = ["all", "my", "children"]<br>&nbsp;Return true if any of the elements in the soap_opera array start with the letter "a"',
+},
+{
+'A' => 'test_scores.select do |name, score|<br>&nbsp;&nbsp;score &gt; 80<br>end',
+'Q' => 'test_scores = [["jon", 99], ["sally", 65], ["bill", 85]]<br>&nbsp;Create an array of all students with test scores greater than 80. The result should be [["jon", 99], ["bill", 85]].',
+},
+{
+'A' => 'Kernel',
+'Q' => 'Object\'s module',
+},
+{
+'A' => 'map',
+'Q' => 'collect syn',
+},
+{
+'A' => 'Object',
+'Q' => 'Module.superclass',
+},
+{
+'A' => '&lt;&lt;-EOD.gsub /^&#092;s+/, ""',
+'Q' => 'stop leading space in an indented here doc',
+},
+{
+'A' => 'http://mentalized.net/journal/2010/03/08/5_ways_to_run_commands_from_ruby/<ul><li>Kernel#exec<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Replaces the current process by running the given external command.<br>&nbsp;&gt;&gt; exec(\'./err.rb\')</li><li>Kernel#`<br>rc in $?, capture all output by doing 2&gt;&1</li><li>Kernel#system<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Executes cmd in a subshell, returning true if the command was found and ran successfully, false otherwise. An error status is available in $?. The arguments are processed in the same way as for Kernel::exec.<br>&nbsp;ran = system(cmd)<br>puts "cmd #&#123;cmd&#125; rc #&#123;$?&#125;"</li><li>open<br>&nbsp;f = open("| ls")</li><li>IO#popen<br><br>&nbsp;output = IO.popen(\'./err.rb\')<br>=&gt; #&lt;IO:0x1017511b8&gt;<br>&gt;&gt; err<br>output.readlines<br>=&gt; ["out&#092;n"]</li><li>Open3#popen3<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Open stdin, stdout, and stderr streams and start external executable.<br>&nbsp;&gt;&gt; require \'open3\'<br>=&gt; true<br>&gt;&gt; stdin, stdout, stderr = Open3.popen3(\'./err.rb\')</li></ul>',
+'Q' => 'ways to run system commands',
+},
+{
+'A' => 'ObjectSpace.define_finalizer doesnt let you touch the object itself',
+'Q' => 'hook for gc of a specific obj',
+},
+);

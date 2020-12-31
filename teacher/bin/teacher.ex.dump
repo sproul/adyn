@@ -1,0 +1,13 @@
+#!/bin/bash
+ex_url="$1"
+if [ -z "$ex_url" ]; then
+        ex_url=`teacher.ex.url verb_speak_1`
+fi
+
+if ! browser -sync_with_dirty_output "$ex_url&special_op=load_and_dump"; then
+        err "$0: browser -sync_with_dirty_output $ex_url&special_op=load_and_dump failed, exiting..."
+        exit -1
+fi
+
+exit
+bx $DROP/adyn/teacher/bin/teacher.ex.dump 'http://127.0.0.1:2082/cgi-bin/choose.cgi?whichPanel=choose.htm&exerciseSetTargetSize=1&promptLang=Spanish&lang_French=French&lang_German=German&lang_Italian=Italian&lang_Spanish=Spanish&specific_exercise_IDs_for_testing=verb_speak_1&userID=t&pw=x'

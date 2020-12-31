@@ -1,0 +1,22 @@
+#!/bin/bash
+area=$1
+
+# sequence to insert new addends afresh
+#
+# gg.ResolveLinks
+# gg.OnExerciseGeneration
+# eg.SaveExercise
+# eg.Save
+# gg.OnEndofPrint1VerbTableAndGenX
+# gg.Print1VerbTableAndGenX
+# tx.PrintVerbTables
+
+cd $DROP/adyn/teacher/
+. bin/teacher.env
+#perl -w tx.pl -genPath $area -genExercises -lang all -relinkAll -verb_b $area -grammar 
+perl -w tx.pl -genPath $area -genExercises -lang all -verb_a $area 
+cp -p $DROP/adyn/teacher/data/*$area $DROP/adyn/cgi-bin/data
+exit
+date; touch $DROP/adyn/teacher/data/places_to_swim; bx $DROP/adyn/teacher/bin/ex.gen verb_swim
+exit
+bx $DROP/adyn/teacher/bin/ex.gen verb_know

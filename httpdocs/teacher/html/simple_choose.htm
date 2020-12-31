@@ -1,0 +1,154 @@
+<!--Copyright 2001 Adynware Corp., all rights reserved-->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"><!doctype html>
+<head>
+    <link rel="icon" type="image/gif" href="/favicon.GIF" />
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+    <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+    <META name="viewport" content="width=device-width">
+    <title>Short Form to Choose Some Exercises</title>
+</head>
+<body bgcolor=#cccccc><font face='arial'>
+<script src="jquery-1.9.0.js"></script>
+<script src="jquery-cookie-1.4.0/jquery.cookie.js"></script><!-- https://github.com/carhartl/jquery-cookie/blob/master/jquery.cookie.js, https://raw.github.com/carhartl/jquery-cookie/master/jquery.cookie.js -->
+<script src="julien-maurel-jQuery-Storage-API-e5a8a64/jquery.storageapi.js"></script>
+<script src="/teacher/html/test.js"></script>
+<script src="forms.js"></script>
+<script src="stg.js"></script>
+<script src="cookie_field.js"></script>
+<script src="cookie_field__defaults.js"></script>
+<script src="u.js"></script>
+<script src="choose.js"></script>
+<script src="win.js"></script>
+<script src="new2.js"></script>
+<script language=JavaScript>
+var adyn_url_offset='/teacher/html/'
+var test_output_fn = ""
+var special_op = ""
+var user_likes_studying_one_lang_and_wants_it_as_his_prompt_lang
+var whichPanel='simple_choose.htm'
+
+$(document).ready(
+function()
+{
+    ui_compression_level = 2
+    if (!userID)
+    {
+        window.location.href = adyn_url_offset + "login.htm"
+    }
+    document.onkeypress = watch_for_enter_to_submit
+    cookie_field__defaults("simple_choose.htm")
+    
+    // must follow cookie_field__defaults if it is to have an accurate reckoning of current cookie-based settings
+    var selected_lang = get_the_only_lang_selected_iff_just_one_is_selected()
+    user_likes_studying_one_lang_and_wants_it_as_his_prompt_lang = ((selected_lang!=null) && selected_lang==choose__get_prompt_lang_cookie_default())
+    
+    document.title = 'Short Form: Choose Exercises for ' + userID
+    $("#help_span").html(GetHelpButton())
+    $("#lang_French").change(on_Lang_change)
+    $("#lang_German").change(on_Lang_change)
+    $("#lang_Italian").change(on_Lang_change)
+    $("#lang_Spanish").change(on_Lang_change)
+})
+
+function on_Lang_change(evt)
+{
+    if (user_likes_studying_one_lang_and_wants_it_as_his_prompt_lang)
+    {
+        var selected_lang = get_the_only_lang_selected_iff_just_one_is_selected()
+        if (selected_lang!=null)
+        {
+            choose__set_prompt_lang_cookie_default(selected_lang)
+        } 
+    } 
+}
+
+function on_submit_click()
+{
+    choose_shared_submit()
+}
+
+function choose__get_prompt_lang_cookie_default()
+{
+    if (__get_cookie("promptLang__French__default")) return "French"
+    if (__get_cookie("promptLang__German__default")) return "German"
+    if (__get_cookie("promptLang__Italian__default")) return "Italian"
+    if (__get_cookie("promptLang__Spanish__default")) return "Spanish"
+    return "English"
+}
+    
+function choose__set_prompt_lang_cookie_default(lang)
+{
+    lang = lang.replace(/.*_/, '')
+    
+    __set_cookie("promptLang__French", null)
+    __set_cookie("promptLang__French__default", null)
+    __set_cookie("promptLang__German", null)
+    __set_cookie("promptLang__German__default", null)
+    __set_cookie("promptLang__Italian", null)
+    __set_cookie("promptLang__Italian__default", null)
+    __set_cookie("promptLang__Spanish", null)
+    __set_cookie("promptLang__Spanish__default", null)
+    __set_cookie("promptLang__English", null)
+    __set_cookie("promptLang__English__default", null)
+    __set_cookie("promptLang", null)    // if I don't do this, I end up w/ multiple identically named cookies
+    __set_cookie("promptLang", lang)
+    __set_cookie("promptLang__" + lang + "__default", lang)
+}
+
+function on_Long_form_click()
+{
+    if (onLine())
+    {
+        $.cookie("whichPanel", "choose.htm")
+        location = adyn_url_offset + 'choose.htm'
+    }
+    else
+    {
+        alert('In offline mode, only this simple choosing form is currently supported...')
+    } 
+}
+
+</script>
+
+<div id='simple_choose_div'>
+    <form name=teacher_form action=/cgi-bin/choose.cgi method=post>
+        <input type=hidden id=userID name=userID size=64 />
+        <input type=hidden id=whichPanel name=whichPanel />
+        <center>
+            <!-- new_user.cgi needs the h2 in the following line as a marker to modify -->
+            <h2>Choose Exercises<span id=help_span></span></h2>
+                        
+            <table bgcolor=white border=0 cellpadding=5 cellspacing=1 width=90%>
+                <tr>
+                    <td colspan=2>
+                        <h3>Which languages are you studying?</h3>
+                        <center>
+                        <table bgcolor=white border=1 cellpadding=5 cellspacing=0 width=95%>
+                            <tr>
+                                <td>
+                                    <input type=checkbox id=lang_French name=lang_French value="French">French<br>
+                                    <input type=checkbox id=lang_German name=lang_German value="German">German<br>
+                                    <input type=checkbox id=lang_Italian name=lang_Italian value="Italian">Italian<br>
+                                    <input type=checkbox id=lang_Spanish name=lang_Spanish value="Spanish">Spanish<br>
+                                </td>
+                            </tr>
+                        </table>
+                        </center>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan=2><font size=+1><b>Retrieve <input type=text name=exerciseSetTargetSize id=exerciseSetTargetSize size=3> flashcards</td>
+                </tr>
+                <tr>
+                    <td><input type=button name=submitButton value="Go" onClick="on_submit_click()"></td>
+                    <td align=right><input type=button name=topic_help value="Advanced" onClick="on_Long_form_click()"></td>
+                </tr>
+            </table>
+        </center>
+    </form>
+</div>
+<div id=ex>
+</div>
+</body>
+</html>

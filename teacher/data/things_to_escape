@@ -1,0 +1,10 @@
+@val = (
+{
+'English' => 'the prison',
+'French' => '{le prison>s>}',
+'German' => '{der Gef:angnis>s>}',
+'Italian' => '{il prigione>s>}',
+'Spanish' => '{el c/arcel>s>}',
+'id' => 0,
+},
+);

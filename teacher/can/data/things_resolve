@@ -1,0 +1,24 @@
+# formatted
+@val = (
+{
+'English' => 'problem',
+'French' => 'le probl`eme',
+'German' => 'problem',
+'Italian' => 'il problema',
+'Spanish' => 'el problema',
+},
+{
+'English' => 'conflict',
+'French' => 'le conflit',
+'German' => 'konflikt',
+'Italian' => 'il conflitto',
+'Spanish' => 'el conflicto',
+},
+{
+'English' => 'question',
+'French' => 'le question',
+'German' => 'frage',
+'Italian' => 'il domanda',
+'Spanish' => 'la pregunta',
+},
+);

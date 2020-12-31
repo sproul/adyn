@@ -1,0 +1,19 @@
+@val = (
+{
+'English' => 'his grammar',
+'French' => '{son grammaire>s>}',
+'German' => '{sein Grammatik>s>}',
+'Italian' => '{il suo grammatica>s>}',
+'Spanish' => '{su gram/atica>s>}',
+'id' => 0,
+},
+{
+'English' => 'her spelling',
+'French' => '{son orthographe>s>}',
+'German_note#Rechtschreibung;;German' => ',Rechtschreibung refers to ones ability to spell; use <i>die Schreibweise</i> to refer to the spelling of a particular word.',
+'German' => '{ihr Rechtschreibung>s>}',
+'Italian' => '{il suo ortografia>s>}',
+'Spanish' => '{su ortograf/ia>s>}',
+'id' => 1,
+},
+);

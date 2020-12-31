@@ -1,0 +1,24 @@
+##
+##  printenv -- demo CGI program which just prints its environment
+##
+use strict;
+
+print <<"END";
+Content-type: text/html
+
+<HTML><HEAD>
+<TITLE>Environment</TITLE>
+</HEAD><BODY>
+<H3>Environment variables</H3><UL>
+END
+
+foreach my $var (sort keys %ENV) {
+  my $val = $ENV{$var};
+  $val =~ s|\n|\\n|g;
+  $val =~ s|"|\\"|g;
+  print qq{<LI>${var} = "${val}"</LI>\n};
+}
+
+print '</UL></BODY></HTML>';
+
+

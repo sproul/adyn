@@ -1,0 +1,56 @@
+#!/bin/sh
+new_user="$1"
+pw="$2"
+
+if [ -z "$pw" ]; then
+        first2last1=`echo $new_user | sed -e 's/^..//' -e 's/.$//'`
+        pw=`date '+%s' | sed -e 's/^......//'`$first2last1
+        echo $pw
+fi
+
+cd $DROP/adyn/httpdocs/teacher/usr
+if [ -d "$new_user" ]; then
+        err $0: error: $new_user already exists
+        exit -1
+fi
+mkdir "$new_user"
+printf "%s" "$pw" > "$new_user/pw"
+case `whoami` in
+        root)
+                put "$new_user"
+                echo Created new teacher user $new_user with password $pw, available at http://162.222.176.130:81/teacher/login.htm
+        ;;
+esac
+
+exit
+bx $DROP/adyn/teacher/bin/teacher.user.new maude bg1
+exit
+bx $DROP/adyn/teacher/bin/teacher.user.new craig andres1
+bx $DROP/adyn/teacher/bin/teacher.user.new scheiner mad1
+bx $DROP/adyn/teacher/bin/teacher.user.new clare rick1
+bx $DROP/adyn/teacher/bin/teacher.user.new bettiga bet123
+bx $DROP/adyn/teacher/bin/teacher.user.new walwark wal321
+exit
+$DROP/adyn/teacher/bin/teacher.user.new anna
+$DROP/adyn/teacher/bin/teacher.user.new barbara
+$DROP/adyn/teacher/bin/teacher.user.new carol
+$DROP/adyn/teacher/bin/teacher.user.new john
+$DROP/adyn/teacher/bin/teacher.user.new user
+$DROP/adyn/teacher/bin/teacher.user.new sandy
+$DROP/adyn/teacher/bin/teacher.user.new lukem 
+$DROP/adyn/teacher/bin/teacher.user.new matthewl
+$DROP/adyn/teacher/bin/teacher.user.new t4 x
+$DROP/adyn/teacher/bin/teacher.user.new t5000
+$DROP/adyn/teacher/bin/teacher.user.new al x
+$DROP/adyn/teacher/bin/teacher.user.new @@ @@
+$DROP/adyn/teacher/bin/teacher.user.new @@ @@
+$DROP/adyn/teacher/bin/teacher.user.new @@ @@
+$DROP/adyn/teacher/bin/teacher.user.new @@ @@
+$DROP/adyn/teacher/bin/teacher.user.new @@ @@
+$DROP/adyn/teacher/bin/teacher.user.new @@ @@
+$DROP/adyn/teacher/bin/teacher.user.new @@ @@
+$DROP/adyn/teacher/bin/teacher.user.new @@ @@
+$DROP/adyn/teacher/bin/teacher.user.new @@ @@
+$DROP/adyn/teacher/bin/teacher.user.new @@ @@
+$DROP/adyn/teacher/bin/teacher.user.new @@ @@
+$DROP/adyn/teacher/bin/teacher.user.new @@ @@

@@ -1,0 +1,1083 @@
+Re: Perl Application Developer - Ref# 060305
+
+Hello,
+
+I think my skills, background and interest make me a good match for your
+Perl Application Developer position.
+
+I am a perl expert with 7 years of experience developing Perl web
+applications, including Perl/CGI and DBD/DBI.
+
+I have a BS in Computer Science from UC-Berkeley.
+
+I have designed and implemented software solutions using Oracle via DBI in
+Perl, JDBC from Java, and ODBC from C++.
+
+I am a Unix shell programming expert, with many extensive projects
+under my belt.
+
+I have designed and implemented PL/SQL functions and procedures for
+verifying data integrity in an Oracle database.
+
+I communicate and work well in teams.  One of my evaluations put it this
+way:
+
+"Nelson communicates clearly, and provides well organized analysis of
+issues. Nelson's positive and friendly attitude allow him to easily
+communicate with his peers."
+
+I would welcome an opportunity to discuss your work and my background
+further.
+
+
+
+
+
+
+·	Strong server-side Java/J2EE experience (2+ yrs)
+I have a strong background writing both client and server side Java since 1997.  I designed and implemented server side Java applications for financial reporting and analysis for 2.5 years.
+
+·	Major contributor to multi-tier web application architecture, design, and implementation
+I have designed and implemented several multi-tier web apps, and contributed components to others.
+
+·	Strong OO analysis, design, and implementation (5+ yrs)
+I have worked exclusively in object-oriented environments for 7 years.  During that time I have contributed to all phases of the development cycle, including design, implementation, and release.
+
+·	Strong knowledge of relational database design, and SQL
+My focus has been on database-oriented software for most of my career.  I have extensive experience with Oracle, Sybase, and MySQL, among the other RDBMSs.
+
+·	Good development habits, process, and intuition
+My work is clean and my pace is fast.  My inclination is to work according to agile methodologies.
+
+·	Excellent knowledge of HTML, XML, and JavaScript
+I have authored many web pages using HTML and JavaScript, designed to be compatible across all of the major browsers.  I have also designed and implemented several projects including automated generators of HTML and JavaScript.
+
+·	Entrepreneurial, and self-starting
+I have taken several products from conception to commercial availability, including an adaptive learning system.
+
+Hello,
+
+I think my strong design and implementation skills in multithreaded software
+make me a good match for your Technical Project Lead/Project Architect
+position.  To make it easier to relate my qualifications to the job, I have
+summarized my relevant experience against the requirements:
+
+- 4-6 years recent programming in C++ 
+
+
+- Extensive multithreaded server application experience, either on Win32 or Unix 
+- Hands-on experience developing multithreaded applications 
+I have developed multithreaded software on both Windows and various UNIX platforms.
+
+
+- Carried out the complete development lifecycle of at least 1 complete commercial enterprise product 
+I have worked under all phases of the development cycle for
+	* Sybase connectivity products, shipped across the Fortune 500
+	* Whitelight Systems' OLAP product, deployed at Barclay's and J.P. Morgan
+	* Extensity's enterprise financial software, deployed at Verizon
+
+- Database experience a big plus 
+I have extensive experience working with and tuning Oracle, as well as Sybase and MS SQL Server.  I have written C++ full function database clients communicating with these servers via ODBC.  I have also written Java software using JDBC against these servers.
+
+- Cross-platform (Windows, Unix) development experience is a plus 
+My work for Sybase, Whitelight Systems and Extensity was all done under a requirement of support and compatibility for windows NT and Sun Solaris UNIX.
+
+- Solid knowledge of TCP/IP, SMTP, IMAP is a plus 
+I have good experience with TCP/IP, in particular from my work for TRW Financial Systems.
+
+I would welcome an opportunity to discuss your work and my background
+further.
+
+
+
+Nelson
+
+
+
+P.S.: Below is my resume in plain text. I have also attached an
+intelligent version of this resume supporting searches and filters. (Note
+that the search capability requires an active Internet connection.)
+
+
+
+- Experience with object oriented design and development, using
+	- Java: extensive experience writing applets and backend server software
+	- Perl: several significant projects, including a browser accelerator and CGI software
+	- C++: heavy experience with database application programming
+
+- Experience in architecting as well as full lifecycle deployment of enterprise software application solutions such as supply chain, ERP, CRM solutions 
+I have significant experience in all phases of the development cycle for enterprise financial software.
+
+- Experience in a consulting environment and/or working with Fortune 500 customers is a significant plus
+My software has been deployed at American Express, Barclay's, J.P. Morgan, Verizon, HBO, and Incyte.
+
+- Experience with electronic data exchange technologies (EDI, HTML, XML, HTTP) a strong plus 
+I have heavy experience with HTML and HTTP (from writing perl proxy servers), and XML (for tool migration and J2EE configuration).
+
+- Knowledge of Oracle and Relational databases is highly desirable. 
+I have extensive experience working with and tuning Oracle, as well as Sybase and MS SQL Server.
+
+- Knowledge of user interface design approaches and development aspects is a plus 
+I have designed and implemented UI code in a number of environments.
+
+- Experience in an outsourcing / service provider business a plus. 
+My experience with Extensity's Professional Services group gave me good exposure to this type of relationship.
+
+- Knowledge or experience in understanding solution workflow and implications is desirable. 
+My work with TRW Financial Systems and Extensity was very focused on organizational workflow.
+
+- Proven ability to work within a team environment and manage software projects. 
+As my references will confirm, I fit well with teams
+
+- Understanding of the software product development life cycle methodologies. 
+
+- Must possess strong technical skills and have an eagerness to excel in multiple areas (client facing, project oversight, technical depth) and be part of a fast moving and growing professional services team 
+
+- Attention to detail, results oriented, and a commitment to quality work 
+- Demonstrable skills in problem solving and a history of successful implementations 
+- Highly customer-focused with a great desire to do what it takes to solve customers' problems 
+- Must be a team player, and have excellent communication skills 
+- 4-7+ years integration/implementation experience 
+- Ability to work in highly demanding situations and meet deadlines 
+- Must be willing to travel internationally
+
+Yes, Yes, Yes, Yes, Yes, Yes, Yes.
+
+I would welcome an opportunity to discuss your work and my background
+further.
+
+
+
+Nelson
+
+
+
+P.S.: Below is my resume in plain text. I have also attached an
+intelligent version of this resume supporting searches and filters. (Note
+that the search capability requires an active Internet connection.)
+
+
+
+
+
+
+- 8+ years of experience in development of commercial products, 3+ years of experience with Java technology
+
+I have 14 years experience developing commercial products, with 4 years of Java.
+
+- Experience and good understanding of object oriented analysis, design, and design patterns
+
+I am very familiar with various design patterns (e.g., gang of four, J2EE best practices, etc.).
+
+- Participated in full life-cycle development (use of version control systems, testing/QA methodology, exposure to project management discipline, etc)
+
+I have extensive experience with all phases of enterprise software development.  
+
+- Experience with and knowledge of the following technical areas is an advantage: database programming, database schema design, data modeling, data warehousing, analytic applications, J2EE, XML, Java security, MS Analysis Services, OLAP, .Net
+
+I have designed and implemented database programs communicating with all of the major RDBMS vendors.  I have designed database schemas to support integration of financial applications.
+
+- Exposure to Agile Methodologies is a plus
+
+I am quite familiar with XP and also lightweight methodologies proposed by Martin Fowler.
+
+I would welcome an opportunity to discuss your work and my background
+further.
+
+
+
+Nelson
+
+
+
+P.S.: Below is my resume in plain text. I have also attached an
+intelligent version of this resume supporting searches and filters. (Note
+that the search capability requires an active Internet connection.)
+
+
+
+- Java and C/C++ fluency. 
+I have nine years experience developing enterprise server products in C++ under Windows NT and UNIX.
+I have five years experience developing in Java in these same environments.
+
+- Object-oriented analysis and design skills. 
+I am very familiar with object oriented design patterns (e.g., GoF), and have expressed designs using the UML.
+
+- Editing, compiling, linking, debugging and profiling skills on UNIX or Windows are mandatory. 
+The skills are second nature for me given my lengthy experience in these environments.
+
+- Standard source-code control and defect tracking skills are mandatory. 
+I have extensive experience with industry standard tools for source-code control and bug tracking.
+
+- Server experience from inception through development, release and maintenance. 
+I have heavy experience implementing servers through all phases of the development cycle.
+
+- Commercial Java server design and implementation on UNIX or Windows NT/2000. 
+I have strong experience implementing Extensity Corp.'s enterprise expense reports application under UNIX and Windows NT, and integrating with the software infrastructure of various Fortune 500 companies.
+
+- Experience designing and building a concurrent server (e.g. thread-pooling, load-balancing). 
+I have designed and implemented several concurrent server software components, responsible for thread pooling and database connection pooling.
+
+- Fundamental understanding of multi-threading, data synchronization, marshalling, and RPCs. 
+I have designed and implemented numerous multi-threading software solutions.
+
+- Understanding of messaging and asynchronous, event-driven architectures. 
+I have an excellent understanding of the various
+
+- Experience implementing TCP/IP application protocols (e.g. HTTP, FTP, SMTP, SNMP). 
+I have implemented HTTP in Perl and Java, and FTP in Java.
+
+- Implementation of least one non-TCP network protocol (e.g. custom UDP, TNPP, WCTP). 
+I have implemented server software using UDP for communication in my work for TRW Financial Systems.
+
+- Integration with standard RDBMS packages (e.g. Oracle, SQL Server, MySQL). 
+I have developed software integrated via ODBC and JDBC with Oracle, SQL Server, Sybase, and Informix databases.
+
+- Server performance analysis and transaction optimization skills. 
+Performance tuning was a key element of my work with Extensity's products and WebLogic.
+
+- Minimum 6 years commercial software engineering experience. 
+I have 14 years developing software commercially.
+
+- B.S. or equivalent experience.
+I earned a B.S. in computer science at Cal-Berkeley.
+
+- perl and/or shell scripting skills. 
+I am an expert in perl and Bourne shell scripting, with numerous substantial projects to my credit.
+
+- Knowledge and support of multiple Java VMs and operating systems. 
+I have good experience working with Sun's and Microsoft's JVMs.  My programming experience has been split between UNIX and Windows operating systems, so I am comfortable and fluent in both.
+
+- Knowledge of web application programming (e.g. CGI, JSP, ASP). 
+I have decent experience implementing CGI perl, Java servlets, and JSPs.
+
+- Knowledge of standard server data exchange and control protocols (e.g. XML, RMI, COM/DCOM, EJB, web services).
+I am very familiar with XML, RMI, EJBs, and web services.
+
+
+I would welcome an opportunity to discuss your work and my background
+further.
+
+
+
+Nelson
+
+
+
+P.S.: Below is my resume in plain text. I have also attached an
+intelligent version of this resume supporting searches and filters. (Note
+that the search capability requires an active Internet connection.)
+#
+
+
+
+
+****5+ years developing highly robust, scalable, and enterprise-wide software.
+I have ten years experience developing enterprise-class software.
+
+****7+ years of C++ (in both WINDOWS and UNIX environments) development experience.
+I have nine years experience developing in C++ under Windows NT and Sun Solaris UNIX.
+
+****Experience participating in full life cycle development of at least 3 products that shipped successfully.
+I contributed throughout the development cycle for 
+  1. Sybase CT-lib, shipped to various Fortune 500 clients.
+  2. Whitelight Analytics, an OLAP product used by J.P. Morgan and Barclays.
+  3. Extensity ER, an enterprise-wide expense reports application used by Verizon, HBO, and Incyte Genomics.
+  4. TRW Financial Systems automated credit receipt processing system, deployed by American Express.
+
+****Experience with SYSTEMS level programming, interacting heavily with TCP/IP.
+In my work with TRW I had heavy exposure to TCP/IP.
+
+****At least a B.S. in Computer Science or related technical degree. M.S. and Ph.D. are a plus.
+I earned a B.S. in computer science at Cal-Berkeley.
+
+
+- web scripting, such as HTML, JavaScript, ASP
+I have 6 years of heavy web programming experience, writing HTML and
+JavaScript, and automated generators for HTML and JavaScript.
+
+- SQL
+My years at Sybase gave me excellent exposure to SQL and RDBMS
+programming.
+
+- shell script, batch scripts
+I am an expert in Bourne shell programming.
+
+- programming in a one or more programming languages, such as C/C++/C#, Perl, Java, Visual Basic
+I am a very strong programmer in Perl, Java, and C++.
+
+- Windows platform, Visual Studio, IIS/ASP, .NET, SQL Server 2000, Oracle, Excel
+I have extensive experience on Windows NT.  I have administered IIS, SQL Server, and Oracle installations under Windows.  I am quite familiar with Excel.
+
+- XML, XSL 
+I have good exposure to XML from my work with J2EE.  I have programmed to XSL.
+
+- 5+ years server software engineering experience working with relational database systems.
+I have 6 years of heavy commercial engineering experience with relational database systems.
+
+- This person will need to have significant experience developing application frameworks with C/C++.
+I have developed object interfaces to multiple database products in C++.
+
+- Unix experience is required and Linux experience is a plus. 
+I have 10 years of heavy application development experience in C, C++ under UNIX.
+
+- This person will need to have an extensive relational database development background.
+My years at Sybase and then with Whitelight Systems have given me excellent relational database programming experience.
+
+- This person will also need to have a strong database tuning background as well.	
+My work as an integration engineer for Fortune 500 clients gave me excellent experience tuning relational databases.
+
+- Knowledge of client/server and multi-tier architectures. 
+I have ten years of n-tier client/server development and integration experience, with excellent exposure to design patterns.
+
+- B.S. or M.S. in Computer Science or equivalent degree is required.
+I earned a B.S. in computer science at Cal-Berkeley.
+
+
+
+
+- Possess strong verbal and writing skills.
+From one of my evaluations at Sybase:
+
+"Nelson communicates clearly, and provides well organized analysis of
+issues. Nelson's positive and friendly attitude allow him to easily
+communicate with his peers."  My references will confirm that I am a
+capable and very willing communicator, in person and in written form.
+
+- Demonstrate business judgement, initiative, and organizational skills.
+In my jobs I've frequently juggled many simultaneous projects,
+prioritizing according to business need.  I have consistently taken the
+lead in identifying problems, proposing solutions, and then executing.
+
+- Be able to work with team members under minimal supervision.
+I always keep a friendly and supportive attitude with my co-workers. I
+think being nice and maintaining clear and strong channels of
+communication are the keys to a pleasant and effective workplace
+which doesn't require continual management intervention.
+
+- Be a team player and capable of coordinating development efforts with
+members of cross-functional teams.
+My friendly and cooperative attitude, along with my excellent
+communications skills have helped me be very effective in achieving
+results in conjunction with external groups.
+
+- Be able to create engineering documentation in accordance with
+organizational standards.
+All of my jobs have included extensive documentation requirements.  I have
+writing samples available on request, and my references will confirm that
+my documentation fit well with group standards and conventions.
+
+- Be able to design, develop, and implement advanced product components in
+a fast-paced environment.
+I have been very productive in intense, demanding environments.
+
+- The ideal candidate will have taken products from concept to release.
+I have contributed throughout the full development cycle for a number of
+commercial products, including design, elaboration, implementation, beta
+testing and final release.
+
+- The candidate should have a BSCS or equivalent
+I earned a B.S. in computer science at Cal-Berkeley.
+
+- The candidate should have 5+ years of experience developing applications
+in a commercial product development environment using C++.
+I have 10 years of heavy commercial application development experience in
+C++.
+
+- The candidate should have working knowledge of object oriented analysis
+and design methodologies.
+I am very familiar with object oriented design patterns (e.g., GoF), and
+have expressed designs using the UML.
+
+- The candidate should be familiar with MFC, HTML, Scripts
+I have 6 years of heavy web programming experience, writing perl, HTML and
+JavaScript, and automated generators for HTML and JavaScript.
+
+
+
+
+- BA/BS in Math, Engineering, Science or Business.
+I earned a B.S. in computer science at Cal-Berkeley.
+
+- Detailed knowledge of test design, execution and failure isolation
+required.
+	I designed and implemented various white box tests for Sybase
+	and then executed and diagnosed failures.  Also automated the
+	build and test infrastructure for the client connectivity
+	products of Sybase.
+- Functional testing of complex enterprise applications required.
+- 3 or more years of testing experience required.
+	Four years of QA at Sybase.
+- 2 years Java programming experience.
+	Five years experience designing and implementing Java web apps.
+- Proficiency in white-box testing using Junit.
+	He is very familiar with JUnit.
+- Knowledge of relational databases such as Oracle & SQL Server required.
+	He has extensive experience programming against Oracle, SQL Server
+	and Sybase.
+
+
+
+
+- Excellent C/C++ skills
+I have 10 years of heavy application development experience in C, C++
+under UNIX.
+
+- Excellent design skills
+I have designed and implemented a number of web applications.
+
+- Systems programming background on NT or Linux/Unix
+I have extensive experience programming direct to the Win32 API, including
+multi-
+threaded software using various IPC facilities.  I also have substantial
+experience coding networked applications using UNIX system calls.
+
+- Experience with large complex bodies of code
+- A history of developing commercially successful products a plus.
+I have ten years of experience developing, customizing and implementing
+the following enterprise-class software products:
+
+	I designed and implemented the database connectivity for
+	WhiteLight Systems' OLAP product, including object oriented
+	interfaces to Oracle, Sybase and Informix.  This product is
+	currently being used by such companies as Barclays, J. P. Morgan,
+	and G. E. Financial.
+
+	I implemented the customization and integration of Extensity
+	Corp.'s enterprise Java expense reports application with the
+	accounting and HR databases of such Fortune 500 clients as
+	Verizon, HBO, and Incyte.
+
+	I implemented custom components of TRW's image processing
+	software used by American Express to process credit card
+	receipts.
+
+- Experience with networking, device control or other systems level
+programming a plus
+In addition to the network programming described above, I have coded
+C interfaces to control a 370-channel mainframe connection from a PC
+running OS/2.  I have also implemented direct control of 370 tape
+drives from PL/1 code on mainframes.
+
+- Experience in designing server products or in other computer
+architecture a plus
+I have designed and implemented client/server educational software, and
+proxy
+servers for browser acceleration.
+
+- Five or more years of application development, customization and
+implementation
+experience with large commercial software products (ERP, CRM, etc.)
+
+I have ten years of experience developing, customizing and implementing
+the following enterprise-class software products:
+
+	I designed and implemented the database connectivity for
+	WhiteLight Systems' OLAP product, including object oriented
+	interfaces to Oracle, Sybase and Informix.  This product is
+	currently being used by such companies as Barclays, J. P. Morgan,
+	and G. E. Financial.
+
+	I implemented the customization and integration of Extensity
+	Corp.'s enterprise Java expense reports application with the
+	accounting and HR databases of such Fortune 500 clients as
+	Verizon, HBO, and Incyte.
+
+	I designed and implemented various white box tests and the
+	build and test infrastructure for the client connectivity
+	products of Sybase.
+
+- Experience designing and extending database structures.
+I have extensive experience developing custom schemas to facilitate
+the integration of Extensity's products with their customers'
+existing software infrastructures.
+
+- Experience developing complex applications using metadata or tools
+Extensity's base products are entirely configured via metadata.
+
+- Sucessful track record of working with end-users/customers.
+My customer references can confirm the success of the projects
+I executed as an integration engineer.
+
+- Ability to work from broad specifications; Must be self motivated,
+dedicated, flexible and results oriented.
+My employer references will confirm my initiative, motivation and
+great effectiveness.
+
+- Knowledge of web based applications and workflow enabled applications.
+I have designed and implemented a number of web applications
+
+- Good knowledge of Java programming (highly preferred)
+I have five years of experience as a prolific but clean Java coder.
+
+- Knowledge of XML and XSLT.
+My work with J2EE systems has given me excellent exposure to XML,
+and I'm very familiar with XSLT.
+
+- Bachelors of Science or equivalent in Computer Science...
+I earned a B.S. in computer science at Cal-Berkeley.
+
+- 5+ years of progressive experience as software engineer...
+I have 12 years of experience as a software engineer.
+
+
+- This position requires solid knowledge of UNIX,
+- 1-2 years in programming with C / C++,
+I have 10 years of heavy application development experience in C, C++
+under UNIX.
+
+- familiarity with W2k a plus,
+I have strong development experience with W2k, and 6 years experience with
+Windows NT.
+
+- good coding and debugging skills,
+I am a prolific and clean coder, with many successful projects completed.
+My work
+as a developer and integration engineer for multi-tier systems has honed
+my ability
+to debug complex combinations of software.
+
+- and a minimum of two years experience in testing or developing server
+based products.
+I have 4 years dedicated QA experience on UNIX and Windows NT at Sybase,
+designing and implementing white box tests and test infrastructure.
+
+- Additional experience with HTML,
+I have extensive experience writing JavaScript and HTML, and code
+generators for JavaScript and HTML.
+
+- Additional experience with SQL,
+My experience doing QA at one of the major RDBMS vendors, and then
+subsequent work
+developing database products has given me excellent familiarity with SQL.
+
+- Additional experience with networking,
+I have excellent network experience and have written a number of
+applications communicating
+directly over sockets.  I have also written a socket sniffer in Java to
+assist network application
+debugging.
+
+- Additional experience with Win32 API,
+I have extensive experience programming direct to the Win32 API, including
+multi-
+threaded software using various IPC facilities.
+
+- Additional experience with Java,
+I have heavy Java experience, both with client applets and on the server
+side.
+
+- Additional experience with XML...
+I have good exposure to XML from my work with J2EE.
+
+- A BS degree in Computer Science or related technical discipline is
+desired.
+University of CA at Berkeley, B.S. Computer Science.
+
+- 5+ years of software testing QA experience on UNIX and MS-Windows
+platforms
+I have 7 years heavy QA experience on UNIX and Windows NT, designing and
+implementing white box tests and test infrastructure.
+
+- 2+ years of software testing experience and software QA on Windows
+platform
+I have 4 years QA experience on Windows NT.
+
+- Experience creating test plans, test cases and writing test reports (a
+must)
+I designed and then carried out test plan specifications covering all test
+cases in my years at Sybase Corp. I also automated the generation of build
+and test reports for Sybase.
+
+- Knowledge of writing shell scripts (strong plus)
+I am an expert in Bourne shell programming.
+
+- Knowledge of SQL and experience with Relational Database (RDBMS) systems
+is a plus
+My years at Sybase gave me excellent exposure to SQL and RDBMS
+programming.
+My subsequent work with Whitelight Systems and Extensity gave me the
+opportunity to work
+extensively with Oracle as well.
+
+- Knowledge of MS Access, MS Word, and Excel
+I am quite familiar with these applications.
+
+- Strong communication and organizational skills
+From one of my evaluations at Sybase:
+
+"Nelson communicates clearly, and provides well organized analysis of
+issues. Nelson's positive and friendly attitude allow him to easily
+communicate with his peers."  My references will confirm that I am a
+capable and very willing communicator, in person and in written form.
+
+- Willingness to work in a highly regulated, Standard Operating	
+Procedure-driven environment
+Sybase achieved ISO-9000 certification during my tenure there, putting
+into place standard procedures for all significant functions.
+
+- Knowledge of software development life cycle
+I have participated in the full development cycle several times.
+
+- Previous experience with Medical Imaging (e.g., x-ray, MRI, CT) desired,
+but not mandatory
+My work for TRW gave me get experience with image systems, although theirs
+were
+dedicated to financial documents, not medical systems.
+
+- Local applicants only (no relocation benefits)
+I live in S.F.
+
+- 5+ years of software development experience - at least 2 in a senior or
+Lead position
+
+I have 14 years of software development experience, including 4 in senior
+engineering positions.
+
+- In depth knowledge and experience in OO development
+
+My last six years have been dedicated to the design and implementation of
+OO software, giving me excellent familiarity with OO design patterns.
+
+- Experience with Java, C/C++, Javascript, ASP/PHP, Unix/Linux, XML, HTML,
+Sybase, Oracle, Access, VB
+
+I have heavy experience with Java, C and C++ on both the client and server
+sides. I have extensive experience writing JavaScript and HTML, and code
+generators for JavaScript and HTML. I am very familiar with the
+architectures and usage of ASP and PHP. I am a strong UNIX developer, with
+almost all of my industry experience with companies that focused on UNIX
+as the primary development platform. My J2EE work has given me good
+exposure to XML. My years at Sybase gave me an excellent exposure to
+Sybase databases and client software, and my subsequent work with
+Whitelight Systems and Extensity gave me the opportunity to work
+extensively with Oracle as well.
+
+- Accounting system software development and/or integration experience a
+plus
+
+One of my primary missions at Extensity was the integration of their
+enterprise expense reports and timesheets applications with their Fortune
+500 clients' enterprise accounting and HR systems, giving me wide
+experience with the problems that come with merging software across
+organizations and disparate underlying systems.
+
+- Travel industry, Lawson Accounting Systems, Saleslogix experience a plus
+
+I have written a Java and perl-based web agent for finding and comparing
+online airfares.
+
+- Bachelors Degree in CS or related
+
+I earned a B.S. in computer science at Cal-Berkeley.
+
+- Proven ability to multi-task and lead development projects
+
+My work for Sybase and Extensity involved heavy multi-tasking; my
+references will happily confirm my ability to prioritize appropriately to
+make projects succeed. My work for Adynware, my own company, has given me
+the opportunity to take software projects through the entire cycle of
+development, from use case analysis to production.
+
+- Must be a strong pro-active problem solver and decision maker, attention
+to detail is critical
+
+Throughout my career I have consistently shown initiative in not only
+solving the problems at hand, but also analyzing the factors and causes
+which led to these problems, and then proposing appropriate changes and
+solutions. Paying close attention to detail has been a crucial element in
+my ability to solve problems without leaving loose ends.
+
+- Able to meet tight deadlines and work under pressure
+
+At all of my jobs I have maintained a high level of productivity and also
+have always been willing to crank up my hours during crunch times to make
+sure that deadlines don't slip.
+
+- Team player who works well with others
+
+I always keep a friendly and supportive attitude with my co-workers. I
+think being nice and maintaining clear and strong channels of
+communication are the keys to a pleasant and effective workplace.
+
+
+-Exceptional software engineers or senior software engineers that have a
+strong command of the C++ language and experience working in a UNIX/Linux
+environment.
+
+I have 10 years of heavy C++ experience with an emphasis on database
+programming, most of it working in UNIX environments.
+
+-The ideal candidate has minimum one year of industry experience and is
+familiar with, or an expert in fundamental web technologies including
+HTML,
+
+I have 6 years of heavy web programming experience, writing HTML and
+JavaScript, and automated generators for HTML and JavaScript.
+
+-CGI,
+
+I have implemented a number of significant CGI solutions using perl and
+Bourne shell for e-commerce and also for simple database access.
+
+-Apache,
+
+I have administered my own Apache web servers for the last four years.
+
+-SQL, Oracle databases.
+
+My years at Sybase gave me an excellent exposure to
+Sybase databases and client software, and my subsequent work with
+Whitelight Systems and Extensity gave me the opportunity to work
+extensively with Oracle as well.
+
+-Knowledge of character set support and encoding schemes is a plus.
+
+My work at extensity gave me much experience with international currencies
+and the issues they bring.  I also have an excellent grasp of the issues
+involved supporting international character sets.
+
+- Thorough knowledge of web site organization, setup, and maintenance.
+I am experienced writing and deploying Web software for Apache and IIS.
+
+- Programming experience with Perl, Java, SQL scripts, and XML.
+I have very heavy experience writing heavy web applications in perl and
+Java.  I have ten years experience with SQL.  And I have good exposure to
+XML from my work with J2EE.
+
+- Comfortable managing multiple, simultaneous, deadline-driven projects.
+My work for Sybase and Extensity involved heavy multi-tasking; my
+references will happily confirm my ability to prioritize appropriately to
+make projects succeed.  At all of my jobs I have maintained a high level
+of
+productivity and have always been willing to crank up my hours during
+crunch
+times to make sure that deadlines don't slip.
+
+- Problem-solver and troubleshooter.
+I have a very strong background diagnosing and fixing problems in
+complex software environments.  Throughout my career I have shown
+initiative
+in not only solving the problems at hand, but also analyzing the factors
+and
+causes which led to these problems, and then proposing appropriate changes
+and solutions.
+
+- Personally organized and very detail-oriented.
+Paying close attention to detail has been a crucial element in
+my ability to solve problems without leaving loose ends.
+
+- Flexible, helpful team player.
+I always keep a friendly and supportive attitude with my co-workers. I
+think being nice and maintaining clear and strong channels of
+communication are the keys to a pleasant and effective workplace.
+
+- Conversant with HTML differences among various web browsers.
+I have implemented products across IE 3, 4, 5, and 6, as well as
+Navigator 4, 6, and 7, resolving incompatibilities as I went.
+
+- Good verbal and written communications skills.
+From one of my evaluations at Sybase:
+
+"Nelson communicates clearly, and provides well organized analysis of
+issues. Nelson's positive and friendly attitude allow him to easily
+communicate with his peers."  My references will confirm that I am a
+capable and very willing communicator, in person and in written form.
+
+- BS or BA preferred.
+I earned a B.S. in computer science at Cal-Berkeley.
+
+- 5+ years of software development experience - at least 2 in a senior or
+Lead position
+
+I have 14 years of software development experience, including 4 in senior
+engineering positions.
+
+- In depth knowledge and experience in OO development
+
+My last six years have been dedicated to the design and implementation of
+OO software, giving me excellent familiarity with OO design patterns.
+
+- Experience with Java, C/C++, Javascript, ASP/PHP, Unix/Linux, XML, HTML,
+Sybase, Oracle, Access, VB
+
+I have heavy experience with Java, C and C++ on both the client and server
+sides. I have extensive experience writing JavaScript and HTML, and code
+generators for JavaScript and HTML. I am very familiar with the
+architectures and usage of ASP and PHP. I am a strong UNIX developer, with
+almost all of my industry experience with companies that focused on UNIX
+as the primary development platform. My J2EE work has given me good
+exposure to XML. My years at Sybase gave me an excellent exposure to
+Sybase databases and client software, and my subsequent work with
+Whitelight Systems and Extensity gave me the opportunity to write
+extensive software accessing and administrating Oracle as well.
+
+- Accounting system software development and/or integration experience a
+plus
+
+One of my primary missions at Extensity was the integration of their
+enterprise expense reports and timesheets applications with their Fortune
+500 clients' enterprise accounting and HR systems, giving me wide
+experience with the problems that come with merging software across
+organizations and disparate underlying systems.
+
+- Travel industry, Lawson Accounting Systems, Saleslogix experience a plus
+
+I have written a Java and perl-based web agent for finding and comparing
+online airfares.
+
+- Bachelors Degree in CS or related
+
+I earned a B.S. in computer science at Cal-Berkeley.
+
+- Proven ability to multi-task and lead development projects
+
+My work for Sybase and Extensity involved heavy multi-tasking; my
+references will happily confirm my ability to prioritize appropriately to
+make projects succeed. My work for Adynware, my own company, has given me
+the opportunity to take software projects through the entire cycle of
+development, from use case analysis to production.
+
+- Must be a strong pro-active problem solver and decision maker, attention
+to detail is critical
+
+Throughout my career I have consistently shown initiative in not only
+solving the problems at hand, but also analyzing the factors and causes
+which led to these problems, and then proposing appropriate changes and
+solutions. Paying close attention to detail has been a crucial element in
+my ability to solve problems without leaving loose ends.
+
+- Able to meet tight deadlines and work under pressure
+
+At all of my jobs I have maintained a high level of productivity and also
+have always been willing to crank up my hours during crunch times to make
+sure that deadlines don't slip.
+
+- Team player who works well with others
+
+I always keep a friendly and supportive attitude with my co-workers. I
+think being nice and maintaining clear and strong channels of
+communication are the keys to a pleasant and effective workplace.
+
+- Strong written and verbal communication skills essential.
+
+From one of my evaluations at Sybase:
+
+"Nelson communicates clearly, and provides well organized analysis of
+issues. Nelson's positive and friendly attitude allow him to easily
+communicate with his peers." My references will confirm that I am a
+capable and very willing communicator, in person and in written form.
+
+I would welcome an opportunity to discuss your work and my background
+further.
+
+
+
+Nelson
+
+
+
+P.S.: Below is my resume in plain text. I have also attached an
+intelligent version of this resume supporting searches and filters. (Note
+that the search capability requires an active Internet connection.)
+hello,
+
+I think I am an excellent fit for the Software Engineer position.  I will
+make my case by responding to each of the items asked for in the job
+listing:
+
+- Experience with workflow, infrastructure, transaction or fulfillment
+systems
+I have extensive experience implementing for Fortune 100 clients
+Extensity's enterprise expense reports applications, which include complex
+workflow of documents through various layers of review and integration
+with external data feeds (e.g., corporate credit card data, HR databases,
+etc.).  This workflow culminates in employees' checks being cut, analogous
+to a fulfillment system's culminating in shipment of a physical item.
+
+- Comfortable with databases (20+ terabytes of data in the system)
+I have heavy experience over the last ten years programming to databases
+from multiple vendors in environments requiring high-performance handling
+of frequently huge amounts of data.
+
+- Enjoys solving intense problems and working with other talented
+engineers
+Resolving difficult technical issues with strong co-workers has been the
+highlight of my career.
+
+- Would like a long-term stable career position with great benefits
+Just married; long-term + stable sounds excellent to me.
+
+- Has glowing references
+They do love me.  I almost find it embarrassing sometimes.  References
+available on request.
+
+- Likes a super-casual work environment
+yes.
+
+- Has a good sense of humor
+My hijinks are legendary, only barely eclipsed by my stupendous
+productivity.
+
+- MUST have 4-5 years of professional Java experience
+I have six years of pro Java experience.
+
+- MUST have used Java to write test code (test harnesses, test tools or
+test suites)
+I have written Java test harnesses.
+
+- Must have gone through the bug/QA process with an application you have
+written
+I have taken several products through the entire development cycle.  Where
+I have been allowed to do so, I have attempted to integrate QA and testing
+into even the earliest phases of the implementation so that unit tests are
+not thrown away and significant changes naturally result in the system
+test suite absorbing the corresponding unit tests.  This technique, in
+combination with frequent integration, reduces the number of regressions
+and prevents instability at the end of the development cycle as the
+release date looms.
+
+- Database schema design, stored procedures, triggers, etc.
+In my work for Extensity I designed and implemented various tables and
+stored procedures to bring about integration of the product with customer
+accounting and HR databases.
+
+- Experience developing Java applications in a distributed environment
+My work for Whitelight Systems' enterprise OLAP product supported the
+analysis and logical aggregation of arbitrary numbers of databases from
+different vendors.  My work for Extensity sometimes involved multiple
+database servers (although in this case the databases were always from the
+same vendor, either Oracle, Sybase or SQL Server).
+
+- Industrial-strength problem-solving skills
+I have honed my skills diagnosing and solving problems in complex
+environments involving software from disparate vendors across multi-tier
+applications.
+
+- Excellent English language communication skills
+From one of my evaluations at Sybase: "Nelson communicates clearly, and
+provides well organized analysis of issues. Nelson's positive and friendly
+attitude allow him to easily communicate with his peers."
+My references will confirm that I am a capable and very willing
+communicator, in person and in written form.
+
+- 1+ years as a Software QA Engineer (white box).
+I spent 3 years doing white box testing for Sybase.
+
+
+I would welcome an opportunity to discuss your work and my background
+further.
+
+Nelson
+
+
+P.S.: Below is my resume in plain text. I have also attached an
+intelligent version of this resume supporting searches and filters. (Note
+that the search capability requires an active Internet connection.)
+
+c:\users\nsproul\work\public\resume\resume.txt
+P.S.: Below is my resume in plain text.
+
+hey Josh,
+
+I'm curious to know how you became aware of me.
+
+I have most of what the job listing asks for, and if we were having this
+conversation several years ago, I would say that I was an excellent match.
+ But my understanding is that in these days of plentiful candidates,
+ employers are much stricter than they were in asking that all of their
+ requirements be satisfied, and there are several which I don't:
+
+|	*	M.S. or equivalent experience
+
+I have a B.S. in computer science from Berkeley.  I have 14 years of
+experience in the software industry, but it hasn't been particularly
+theoretical.  I'm not sure if this experience is "equivalent" to a M.S.
+
+|	*	Intimate knowledge of Excel macros and experience with VBA
+
+My knowledge of Visual Basic and Excel macros is quite rudimentary,
+certainly not intimate.  I don't even mention it on my resume.
+
+|	*	Experience with forward and backward calculation dependency chains
+
+I have never implemented calculation dependency chains, although I am
+familiar with their theoretical underpinnings.
+
+If these gaps are not a deal killer, then I think my background is a match
+for the rest of the requirements:
+
+|	*	Demonstrated experience designing and implementing a major, server-based subsystem shared by multiple, concurrent users
+
+I have extensive experience engineering server-side middleware solutions
+shared by multiple concurrent users.
+
+|	*	J2EE fluency, with an understanding of stateless session beans
+
+My work at Extensity was all in the context of WebLogic's J2EE server.
+Although this work did not include stateless session beans, I have written
+stateless session beans under Sun's J2EE reference implementation.
+
+|	*	Familiarity with J2EE design patterns
+
+I feel confident of my understanding of the J2EE architecture and the
+dominant approaches being taken by designers of performance-critical J2EE
+applications.
+
+|	*	Developing and maintaining complex UML diagrams
+
+I have used the UML in several projects.
+
+|	*	Effective written and oral communication skills
+
+From one of my evaluations at Sybase:
+
+"Nelson communicates clearly, and provides well organized analysis of
+issues. Nelson's positive and friendly attitude allow him to easily
+communicate with his peers."  My references will confirm that I am a
+capable and very willing communicator, in person and in written form.
+
+|	*	Minimum 9 years commercial software engineering experience
+
+I have 14 years of selfless toiling in a software engineering capacity.
+
+|	*	Strong, hands-on experience with multi-threading and data synchronization
+
+I have very heavy experience with multithreaded programming and data
+synchronization in Java and C++.
+
+|	*	Experience with lexical analysis and expression parsing, defining and maintaining BNF grammar
+
+I have experience designing and implementing cnf, a file processing
+language with C-like syntax, using lex and yacc.  I am fluent with
+standard BNF also.
+
+|	*	Fluent with XML schema design, generation and parsing
+
+My experience here is on the light side, but I have written Java programs
+which parse XML.  My J2EE experience has given me good exposure to XML in
+various forms.
+
+|	*	Familiarity with XPath
+
+I am fluent in XPath.
+
+|	*	Understanding of scripting language design and execution
+
+I have designed and implemented several scripting languages.  These
+include cnf, the file processing language I mentioned above, and also a
+multithreaded scripting language designed to be used as a test harness for
+Sybase' transaction management library.
+
+Give me a ring if you would like to discuss your work and my background
+further.
+
+
+
+Nelson
+
+
+
+P.S.: Below is my resume in plain text. I have also attached an
+intelligent version of this resume supporting searches and filters. (Note
+that the search capability requires an active Internet connection.)

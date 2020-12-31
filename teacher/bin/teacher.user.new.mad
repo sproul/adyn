@@ -1,0 +1,9 @@
+#!/bin/bash
+t=$TMP/teacher.user.new.mad.$$
+cat $DOWNLOADS/Lingo_Upload_April2014.csv | $DROP/bin/delete_line1 |tr '\r' '\n' | sed -e 's/,/\t/g' | awk '{ print $3, $4 }' |
+while read user_and_pw; do
+        $DROP/adyn/teacher/bin/teacher.user.new $user_and_pw
+done
+
+exit
+bx $DROP/adyn/teacher/bin/teacher.user.new.mad 

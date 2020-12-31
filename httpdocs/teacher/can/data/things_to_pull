@@ -1,0 +1,11 @@
+# formatted
+@val = (
+{
+'English' => 'a cart',
+'French' => '{un charrette>s>}',
+'German' => '{ein Wagen>s>}',
+'Italian' => '{un carro>s>}',
+'Spanish' => '{un carrito>s>}',
+'id' => 0,
+},
+);

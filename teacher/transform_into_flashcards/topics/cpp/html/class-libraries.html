@@ -1,0 +1,171 @@
+<html>
+<head>
+<title>[32] Class libraries, C++ FAQ Lite, Marshall Cline</title>
+<link rev=made href="mailto:cline@parashift.com">
+</head>
+<body vlink="#551a8b" text="#000000" bgcolor="#c1c1c1" alink="#ff0000" link="#0000ee">
+<a name="top"></a>
+<h1>[32] Class libraries<br>
+<small><small>(Part of <a href="index.html"><em>C++ FAQ Lite</em></a>, <a href="copy-permissions.html#[1.2]">Copyright&nbsp;&copy; 1991-96</a>, <a href="http://www.cerfnet.com/~mpcline/">Marshall Cline</a>, <a href="mailto:cline@parashift.com">cline@parashift.com</a>)</small></small></h1>
+<hr width="100%" >
+<h3>FAQs in section [32]:</h3>
+<ul>
+<li><a href="class-libraries.html#[32.1]">[32.1] Where can I get a copy of &quot;STL&quot;?</a></li>
+<li><a href="class-libraries.html#[32.2]">[32.2] How can I find a <tt>Fred</tt> object in an STL
+container of <tt>Fred*</tt> such as <tt>vector&lt;Fred*&gt;</tt>?</a></li>
+<li><a href="class-libraries.html#[32.3]">[32.3] Where can I get help on how to use STL?</a></li>
+<li><a href="class-libraries.html#[32.4]">[32.4] How can you tell if you have a dynamically typed C++
+class library?</a></li>
+<li><a href="class-libraries.html#[32.5]">[32.5] What is the NIHCL?  Where can I get it?</a></li>
+<li><a href="class-libraries.html#[32.6]">[32.6] Where can I ftp the code that accompanies &quot;Numerical
+Recipes&quot;?</a></li>
+<li><a href="class-libraries.html#[32.7]">[32.7] Why is my executable so large?</a></li>
+<li><a href="class-libraries.html#[32.8]">[32.8] Where can I get tons and tons of more information on C++
+class libraries?</a></li>
+</ul>
+<p><hr width="100%" >
+<p><a name="[32.1]"></a>
+<h3>[32.1] Where can I get a copy of &quot;STL&quot;?</h3>
+<p>&quot;STL&quot; is the &quot;Standard Templates Library&quot;.  You can get a copy from:
+<ul>
+<li>An STL site:
+<a href="ftp://ftp.cs.rpi.edu/pub/stl"><tt>ftp://ftp.cs.rpi.edu/pub/stl</tt></a></li>
+<li>STL HP official site:
+<a href="ftp://butler.hpl.hp.com/stl/"><tt>ftp://butler.hpl.hp.com/stl/</tt></a></li>
+<li>Mirror site in Europe:
+<a href="http://www.maths.warwick.ac.uk/ftp/mirrors/c++/stl/"><tt>http://www.maths.warwick.ac.uk/ftp/mirrors/c++/stl/</tt></a></li>
+<li>STL code alternate:
+<a href="ftp://ftp.cs.rpi.edu/stl"><tt>ftp://ftp.cs.rpi.edu/stl</tt></a></li>
+<li>STL code + examples:
+<a href="http://www.cs.rpi.edu/~musser/stl.html"><tt>http://www.cs.rpi.edu/~musser/stl.html</tt></a></li>
+</ul>
+<p>STL hacks for GCC-2.6.3 are part of the GNU libg++ package 2.6.2.1 or later
+(and they may be in an earlier version as well).  Thanks to Mike Lindner.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="containers-and-templates.html">Previous&nbsp;section</a> |&nbsp;<a href="compiler-dependencies.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[32.2]"></a>
+<h3>[32.2] How can I find a <tt>Fred</tt> object in an STL
+container of <tt>Fred*</tt> such as <tt>vector&lt;Fred*&gt;</tt>?</h3>
+<p>STL functions such as <tt>std::find_if()</tt> help you find a <tt>T</tt> element
+in a container of <tt>T</tt>'s.  But if you have a container of pointers such as
+<tt>vector&lt;Fred*&gt;</tt>, these functions will enable you to find an element that
+matches a given <tt>Fred*</tt> pointer, but they don't let you find an element that
+matches a given <tt>Fred</tt> object.
+<p>The solution is to use an optional parameter that specifies the &quot;match&quot;
+function.  The following class template lets you compare the objects on the
+other end of the dereferenced pointers.
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;template&lt;class&nbsp;T&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;DereferencedEqual&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DereferencedEqual(const&nbsp;T*&nbsp;p)&nbsp;:&nbsp;p_(p)&nbsp;{&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bool&nbsp;operator==&nbsp;(const&nbsp;T*&nbsp;p2)&nbsp;const&nbsp;{&nbsp;return&nbsp;*p&nbsp;==&nbsp;*p2;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;private:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;T*&nbsp;p_;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};
+</code>
+<p>Now you can use this template to find an appropriate <tt>Fred</tt> object:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;userCode(vector&lt;Fred*&gt;&nbsp;v,&nbsp;const&nbsp;Fred&amp;&nbsp;match)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;find_if(v.begin(),&nbsp;v.end(),&nbsp;DereferencedEqual&lt;Fred&gt;(&amp;match));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="containers-and-templates.html">Previous&nbsp;section</a> |&nbsp;<a href="compiler-dependencies.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[32.3]"></a>
+<h3>[32.3] Where can I get help on how to use STL?</h3>
+<p>Kenny Zalewski's STL guide:
+<a href="http://www.cs.rpi.edu/projects/STL/htdocs/stl.html"><tt>http://www.cs.rpi.edu/projects/STL/htdocs/stl.html</tt></a>
+<p>Dave Musser's STL guide:
+<a href="http://www.cs.rpi.edu/~musser/stl.html"><tt>http://www.cs.rpi.edu/~musser/stl.html</tt></a>
+<p>Mumit's STL Newbie's guide:
+<a href="http://www.xraylith.wisc.edu/~khan/software/stl/STL.newbie.html"><tt>http://www.xraylith.wisc.edu/~khan/software/stl/STL.newbie.html</tt></a>
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="containers-and-templates.html">Previous&nbsp;section</a> |&nbsp;<a href="compiler-dependencies.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[32.4]"></a>
+<h3>[32.4] How can you tell if you have a dynamically typed C++
+class library?</h3>
+<ul>
+<li>Hint #1: when everything is derived from a single root class,
+usually <tt>Object</tt>.</li>
+<li>Hint #2: when the container classes (<tt>List</tt>, <tt>Stack</tt>, <tt>Set</tt>, etc)
+are non-templates.</li>
+<li>Hint #3: when the container classes (<tt>List</tt>, <tt>Stack</tt>, <tt>Set</tt>, etc)
+insert/extract elements as pointers to <tt>Object</tt>.  This lets you put an
+<tt>Apple</tt> into such a container, but when you get it out, the compiler knows only
+that it is derived from <tt>Object</tt>, so you have to use a pointer cast to
+convert it back to an <tt>Apple*</tt>; and you better pray a lot that it really
+<em>is</em> an <tt>Apple</tt>, cause your blood is on your own head).</li>
+</ul>
+<p>You can make the pointer cast &quot;safe&quot; by using <tt>dynamic_cast</tt>, but this dynamic
+testing is just that: dynamic.  This coding style is the essence of dynamic
+typing in C++.  You call a function that says &quot;convert this <tt>Object</tt> into
+an <tt>Apple</tt> or give me <tt>NULL</tt> if its not an <tt>Apple</tt>,&quot; and you've got dynamic
+typing: you don't know what will happen until run-time.
+<p>When you use templates to implement your containers, the C++ compiler can
+statically validate 90+% of an application's typing information (the figure
+&quot;90+%&quot; is apocryphal; some claim they always get 100%, those who need
+<a href="misc-technical-issues.html#[34.4]">persistence<!--rawtext:[34.4]:rawtext--></a> get something less than 100% static type
+checking).  The point is: C++ gets genericity from templates, not from
+inheritance.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="containers-and-templates.html">Previous&nbsp;section</a> |&nbsp;<a href="compiler-dependencies.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[32.5]"></a>
+<h3>[32.5] What is the NIHCL?  Where can I get it?</h3>
+<p>NIHCL stands for &quot;National-Institute-of-Health's-class-library.&quot; It can be
+acquired via <a href="ftp://128.231.128.7/pub/NIHCL/nihcl-3.0.tar.Z"><tt>ftp://128.231.128.7/pub/NIHCL/nihcl-3.0.tar.Z</tt></a>
+<p>NIHCL (some people pronounce it &quot;N-I-H-C-L,&quot; others pronounce it like &quot;nickel&quot;)
+is a <a href="class-libraries.html#[32.4]">C++ translation of the Smalltalk class
+library<!--rawtext:[32.4]:rawtext--></a>.  There are some ways where NIHCL's use of
+dynamic typing helps (e.g., <a href="misc-technical-issues.html#[34.4]">persistent<!--rawtext:[34.4]:rawtext--></a> objects).  There
+are also places where its use of dynamic typing creates
+<a href="smalltalk.html#[27.3]">tension<!--rawtext:[27.3]:rawtext--></a> with the static typing of the C++
+language.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="containers-and-templates.html">Previous&nbsp;section</a> |&nbsp;<a href="compiler-dependencies.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[32.6]"></a>
+<h3>[32.6] Where can I ftp the code that accompanies &quot;Numerical
+Recipes&quot;?</h3>
+<p>This software is sold and therefore it would be illegal to provide it on the
+net.  However, it's only about $30.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="containers-and-templates.html">Previous&nbsp;section</a> |&nbsp;<a href="compiler-dependencies.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[32.7]"></a>
+<h3>[32.7] Why is my executable so large?</h3>
+<p>Many people are surprised by how big executables are, especially if the source
+code is trivial.  For example, a simple <tt>&quot;hello&nbsp;world&quot;</tt> program can
+generate an executable that is larger than most people expect (40+K bytes).
+<p>One reason executables can be large is that portions of the C++ runtime library
+gets linked with your program. How much gets linked in depends on how much of
+it you are using, and on how the implementer split up the library into pieces.
+For example, the <tt>&lt;iostream.h&gt;</tt> library is quite large, and consists of
+numerous classes and <a href="virtual-functions.html"><tt>virtual</tt><!--rawtext:[20]:rawtext--></a> functions.
+Using any part of it might pull in nearly all of the <tt>&lt;iostream.h&gt;</tt> code as a
+result of the interdependencies.
+<p>You might be able to make your program smaller by using a dynamically-linked
+version of the library instead of the static version.
+<p>You have to consult your compiler manuals or the vendor's technical support
+for a more detailed answer.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="containers-and-templates.html">Previous&nbsp;section</a> |&nbsp;<a href="compiler-dependencies.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[32.8]"></a>
+<h3>[32.8] Where can I get tons and tons of more information on C++
+class libraries?</h3>
+<p>The <em>C++ Libraries</em> FAQ is maintained by Nikki Locke
+<a href="mailto:cpplibs@trmphrst.demon.co.uk"><tt>cpplibs@trmphrst.demon.co.uk</tt></a> and is available at
+<a href="http://www.trmphrst.demon.co.uk/cpplibs1.html"><tt>http://www.trmphrst.demon.co.uk/cpplibs1.html</tt></a>
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="containers-and-templates.html">Previous&nbsp;section</a> |&nbsp;<a href="compiler-dependencies.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<a name="bottom"></a>
+<a href="mailto:cline@parashift.com"><img src="mbox.gif" border=2 height=26 width=89>&nbsp;E-mail the author</a><br>
+[&nbsp;<a href="index.html"><em>C++ FAQ Lite</em></a>
+|&nbsp;<a href="index.html#table-of-contents">Table&nbsp;of&nbsp;contents</a>
+|&nbsp;<a href="subject-index.html">Subject&nbsp;index</a>
+|&nbsp;<a href="copy-permissions.html#[1.1]">About&nbsp;the&nbsp;author</a>
+|&nbsp;<a href="copy-permissions.html#[1.2]">&copy;</a>
+|&nbsp;<a href="on-line-availability.html#[2.2]">Download&nbsp;your&nbsp;own&nbsp;copy</a>&nbsp;]<br>
+<small>Revised Sep 8, 1997</small>
+</body>
+</html>

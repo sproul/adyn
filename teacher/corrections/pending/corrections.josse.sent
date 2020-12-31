@@ -1,0 +1,57 @@
+# English
+vocab_languages.0: l'anglais
+
+# Portuguese
+vocab_languages.10: le portugais
+
+# Arabic
+vocab_languages.11: l'arabe
+
+# Spanish
+vocab_languages.1: l'espagnol
+
+# French
+vocab_languages.2: le fran,cais
+
+# Italian
+vocab_languages.3: l'italien
+
+# German
+vocab_languages.4: l'allemand
+
+# Russian
+vocab_languages.5: le russe
+
+# Chinese
+vocab_languages.6: le chinois
+
+# Japanese
+vocab_languages.7: le japonais
+
+# Danish
+vocab_languages.8: le danois
+
+# Swedish
+vocab_languages.9: le su/edois
+
+# aluminum
+vocab_materials.4: l'aluminium
+
+# twenty-second
+vocab_ordinals.21: vingt-deuxi`eme
+
+# She cuts her bread at the table.
+base.215: Elle rompt son pain `a table.
+
+# ...that he celebrate [subjunctive] an enemy's death.
+verb_celebrate.4/things_to_celebrate.4: ...qu'il c/el`ebre la mort d'un ennemi.
+
+# Let's not close that shop!
+verb_close.1/things_to_close.4: Ne fermons pas cette boutique!
+
+# I will cut her arm.
+verb_cut.1/things_to_cut.1: Je couperai son bras.
+
+# She will deceive the bully.
+verb_deceive.7/people.7: Elle dupera la brute.
+

@@ -1,0 +1,29 @@
+# formatted
+@val = (
+{
+'English' => 'his story',
+'French' => '{son histoire>s>}',
+'German' => '{sein Geschichte>s>}',
+'Italian' => '{il suo storia>s>}',
+'Spanish' => '{su cuento>s>}',
+'id' => 0,
+'suppress_Spanish_note#cuento;;Spanish' => 1,
+},
+{
+'English' => 'the witness',
+'French' => '{le t/emoin>s>}',
+'German' => '{der Zeuge>s>}',
+'Italian' => '{il testimone>s>}',
+'Spanish_note#al;;Spanish' => ',al is the combination of <i>a</i> and <i>el</i>.  The "personal" <i>a</i> is required since <i>el testigo</i> is a direct object and a person.',
+'Spanish' => '{al testigo>s>}',
+'id' => 1,
+},
+{
+'English' => 'this alibi',
+'French' => '{ce alibi>s>}',
+'German' => '{dieser Alibi>s>}',
+'Italian' => '{questo alibi>s>}',
+'Spanish' => '{esta coartada>s>}',
+'id' => 2,
+},
+);

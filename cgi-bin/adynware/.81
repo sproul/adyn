@@ -1,0 +1,403 @@
+use strict;
+use diagnostics;
+package DecorateIE;
+use Fcntl;
+use IO::File;
+use adynware::web_site;
+use adynware::utility;
+use adynware::utility_file;
+
+
+my @__superScriptCharacterList = ( "0","1","2","3","4","5","6","7","8","9","B","C","D","E","G","I","J","K","L","M","N","O","P","Q","R","S","U","W","X","Y","Z","?","!","@","#","\$","&","*","+","=" );
+
+my $__color = "red";
+sub setColor { ($__color) = @_; }
+
+my $__enabled = 1;
+sub setEnabled { ($__enabled) = @_; }
+
+my $__expression = "<FONT color=$__color><B><SUP>%s</SUP></B></FONT>";
+sub setDefaultSuperscriptExpression { $__expression = "<FONT color=$__color><B><SUP>%s</SUP></B></FONT>"; }
+sub setSuperscriptExpression { ($__expression) = @_; }
+setDefaultSuperscriptExpression();
+
+
+my $__listFormsFirst = 0;
+sub listFormsFirst { $__listFormsFirst = 1; }
+
+my $__version = "";
+sub setVersion { ($__version) = @_; }
+
+my $useOnlyDigits = 0;
+my $uniqueSuperScriptCount = scalar(@__superScriptCharacterList);
+	
+sub UseOnlyDigits
+{
+	@__superScriptCharacterList = ( "1","2","3","4","5","6","7","8","9","0" );
+	$uniqueSuperScriptCount = scalar(@__superScriptCharacterList);
+	$useOnlyDigits = 1;
+}
+
+
+sub SuperScript
+{
+	my($self, $char) = @_;
+	my $s;
+	$self->{"itemCount"}++;
+	if ($useOnlyDigits)
+	{
+		$s = $self->{"itemCount"};
+	} 
+	else
+	{
+		my $repetitions = int($self->{"itemCount"} / $uniqueSuperScriptCount) + 1;
+		if ($repetitions == 1)
+		{
+			$s = $char;
+		} 
+		else
+		{
+			$s = $char . "x" . $repetitions;
+		}
+	}
+
+        return sprintf $__expression, $s;
+}
+
+sub Init
+{
+        my($self, $target, $status) = @_;
+        if (defined $target)
+        {
+                $self->{"base"} = utility_file::dirname($target) . "/";
+        }
+        else
+        {
+                $self->{"base"} = "";
+        }
+        utility::Log("DecorateIE::Init($self, $target, $status)" . $self->{"base"});
+                        
+        $self->{"enabled"} = 1;
+        $self->{"headerSeen"} = 0;
+	$self->{"index"} = 1;		# counter for generating superscripts for all items, unless unique
+        $self->{"inputGroupIndices"} = {};	# place to keep track of radio button indices
+        $self->{"inScript"} = 0;	# are we within a <script...</script> block?  If yes, then be careful.
+        $self->{"inComment"} = 0;	# are we within a <--...!-> HTML comment block?  If yes, then ignore fields.
+        $self->{"itemCount"} = 0;
+        $self->{"superScriptCharacterIndex"} = 0;
+        $self->{"safe"} = 1;		# is it safe to insert JavaScript?
+        $self->{"slicedItem"} = "";	# holding area for link fragment which crosses the chunk boundary
+        $self->{"status"} = "Processing...";
+        $self->{"target"} = $target;
+        return "";
+}                
+
+sub Cleanup
+{
+        my($self) = @_;
+        my $string = $self->{"slicedItem"};
+	
+	$self->{"status"} = "Done"; 
+        return $string;
+}
+
+sub getSuperScriptCharacter()
+{
+        my($self) = @_;
+	my $superScriptCharacterIndex = $self->{"superScriptCharacterIndex"};
+	die "uninited char index" unless defined $superScriptCharacterIndex;
+	my $c = $__superScriptCharacterList[$superScriptCharacterIndex];
+	
+	$superScriptCharacterIndex++;		
+	if ($superScriptCharacterIndex >= @__superScriptCharacterList)
+	{
+		$superScriptCharacterIndex = 0;
+	}
+	$self->{"superScriptCharacterIndex"} = $superScriptCharacterIndex; 
+	
+	return $c;
+}
+
+sub DoLink
+{
+        my($self, $link) = @_;
+	return $link unless ($link =~ m{\bhref\s*=}i); # anchor
+	
+	$link =~ s/\bhref\b/accesskey="<<superScriptCharacter>>" href/i;
+	return $link . "<<SuperScript>>";
+}
+
+
+
+sub DoLinks
+{
+        my($self, $string) = @_;
+                        
+        # ignore links with no associated text (e.g., <a  href="http://alpha.cmpexpress.com/store/htmlos/27127" ></a>)
+        $string =~ s
+        {
+                <\s*a\b([^>]*>\s*)<\s*/\s*a\s*>
+        }{"<_a" . $1 . "</_a>"}egisx;
+                                
+        $string =~ s
+        {
+                <\s*a\b([^<]*?)<\s*/\s*a\s*>
+	}{$self->DoLink("<_a" . $1 . "</_a>")}egisx;
+                                
+        # process links which are terminated with /a, but have nested HTML declarations
+        $string =~ s
+        {
+                <\s*a\b(.*?)<\s*/a\s*>
+        }{$self->DoLink("<_a" . $1 . "</_a>")}egisx;
+        
+        # process links which are terminated with /td
+        $string =~ s
+        {
+                <\s*a\b(.*?)<\s*/td\s*>
+        }{$self->DoLink("<_a" . $1) . "</td>"}egisx;
+                                                                                 
+        # process links which are not terminated with /a, or which have nested font directives
+        #$string =~ s
+        #{
+        #<\s*a\b(.*?)<(.*?)>
+        #}{$self->DoLink("<_a" . $1 . "</_a>") . "<$2>"}egisx;
+                                                                                 
+                               
+        if ($string =~ s/(<\s*a\b.*$)//is)
+        {
+                my $addition = $1;
+                if ($addition =~ m{</?_a})
+                {
+                        utility::Log("confused by malformed HTML: mismatched <a> and </a> seen");
+                        $string .= $addition;	# put it back
+                }
+                else
+                {
+                        if ($self->{"slicedItem"})
+                        {
+                                utility::Log("a: already: slice:" . $self->{"slicedItem"});
+                                $self->{"slicedItem"} = $addition . $self->{"slicedItem"};
+                        }
+                        else
+                        {
+                                $self->{"slicedItem"} = $addition;
+                        }
+                }
+        }
+                                                                        
+        $string =~ s/<_a/<a/g;
+        $string =~ s{</_a}{</a}g;
+	
+	my $superScriptCharacter;
+	$string =~ s/<<superScriptCharacter>>(.*?)<<SuperScript>>/$superScriptCharacter = $self->getSuperScriptCharacter(), $superScriptCharacter . "$1" . $self->SuperScript($superScriptCharacter)/eg;
+
+        return $string;
+}                                
+        
+sub Chunk
+{
+        my($self, $stringR) = @_;
+                                               
+        if ($self->{"slicedItem"})
+        {
+                utility::Log("chunk: slice:" . $self->{"slicedItem"});
+                $$stringR = $self->{"slicedItem"} . $$stringR;
+                $self->{"slicedItem"} = "";
+        }
+        if ($$stringR =~ s/(<[^<>]*$)//is) # grab sliced tag from the end
+        {
+                $self->{"slicedItem"} = $1;
+        }
+                                
+        #$$stringR =~ s/(<script[^>]*>)\s*<!--[^\n]*/$1 /gis; 
+        #$$stringR =~ s{-->\s*(</script)}{ $1}gis; 
+	#$$stringR =~ s/<!--.*?-->//gs; 
+	
+	if ($$stringR =~ m{<!--\s*wk_hint\s+(.*?)-->}i)
+	{
+		my $hint = $1;
+		if ($hint =~ /^disable/i)
+		{
+			$self->{"enabled"} = 0;
+		}
+		else
+		{
+			utility::Log("DecorateIE did not understand wk_hint: '$hint'");
+		}
+	} 
+	                                                                        
+        my $headerPreviouslyInserted = $self->{"headerSeen"};
+        if (!$headerPreviouslyInserted)
+	{
+		$self->{"headerSeen"} = 1;
+		
+		# this setting will cause link text to turn red when 'current'
+		if ($$stringR =~ m/\balink\b/)
+		{
+			$$stringR =~ s/\balink\s*=\s*\w+/alink=red/;
+		}
+		else
+		{
+			$$stringR =~ s/<body\b/<body alink=red/i;
+		} 
+		
+		if ($$stringR =~ /wk_key_handler/)
+                {
+                        utility::Log($self->{"target"} . " contents already processed by Web Keyboard");
+                        $self->{"enabled"} = 0; 
+			return;
+                }
+                elsif ($$stringR !~ /^\s*</s and $$stringR !~ /^\s*$/s)
+                {
+                        utility::Log($self->{"target"} . " contents do not look like HTML.  Web Keyboard will not process this file");
+                        $self->{"enabled"} = 0; 
+                }
+        }
+        return unless $__enabled and $self->{"enabled"};
+        #if ($$stringR =~ m{\bdocument\.write}i)
+        #{
+                #utility::Log("saw document.write calls");
+                                                                                                #
+                #$self->{"safe"} = 0;
+        #}
+        my $inScript = $self->{"inScript"};
+        #utility::Log("Chunk processing entrance: in script: $inScript");
+                                                                                                                                        
+        if (!$self->{"hasScriptContent"} and $$stringR =~ m{<\s*script\b}i)
+        {
+		$self->{"safe"} = 0;
+        }
+                                                                                        
+        my @processedChunks = ();
+        my $generationIndex = 0;
+        $$stringR =~ s{</script>(.*?)<script}{$processedChunks[$generationIndex] = $self->DoChunk($1, "/script to script"), "<s__" . $generationIndex++ . "__t>"}egis;
+                                                                                                        
+        if ($inScript)
+        {
+                if ($$stringR =~ s{</script(.*)}{"</s____t" . $self->DoChunk($1, "in:/script on")}egis)
+                {
+                        $self->{"inScript"} = 0;
+                }
+        }
+        else
+        {
+                if ($$stringR =~ s{^(.*?)<script}{$self->DoChunk($1, "out: to script") . "<s____t"}egis)
+                {
+                        if ($$stringR =~ s{</script>(.*)}{"</s____t>" . $self->DoChunk($1, "out:/script on")}egis)
+                        {
+                                $self->{"inScript"} = 0;
+                        }
+                        else
+                        {
+                                $self->{"inScript"} = 1;
+                        }
+                }
+                else
+                {
+                        $$stringR = $self->DoChunk($$stringR, "out: all");
+                } 
+        }
+        $$stringR =~ s/\bs____t\b/script/g;
+        $$stringR =~ s{<s__(\d+)__t>}{"</script>" . $processedChunks[$1] . "<script"}eg;
+                                                        
+        $$stringR =~ s/<!doctype.*?>//i;  # some of the stricter doctypes reject my JavaScript
+                
+        #utility::Log("Chunk processing exit: in script: " . $self->{"inScript"});
+}
+
+sub DoChunk
+{
+        my($self, $string, $from) = @_;
+                                                                
+        if ($string =~ m{<\s*iframe}i)
+        {
+                $self->{"safe"} = 0;
+        }
+                                                                                      
+                                                          
+        my @htmlComments = ();
+        my $generationIndex = 0;
+        if ($self->{"inComment"})
+        {
+                if ($string =~ m/-->/)
+                {
+                        $string =~ s{(^.*?-->)}{$htmlComments[$generationIndex] = $1, "<h__" . $generationIndex++ . "__c>"}egs;
+                        $self->{"inComment"} = 0;
+                }
+        }
+                
+        if (!$self->{"inComment"})
+        {
+                $string =~ s{(<!--.*?-->)}{$htmlComments[$generationIndex] = $1, "<h__" . $generationIndex++ . "__c>"}egs;
+                if ($string =~ m/<!--/)
+                {
+                        $string =~ s{(<!--.*$)}{$htmlComments[$generationIndex] = $1, "<h__" . $generationIndex++ . "__c>"}egs;
+                        $self->{"inComment"} = 1;
+                }
+	}                        
+        $string =~ s{<h__(\d+)__c>}{$htmlComments[$1]}eg;
+        
+        $string = $self->DoLinks($string);
+        return $string;
+}
+                                                                                                                
+
+sub Page
+{
+        my($data, $target) = @_;
+
+        my $d = DecorateIE->new($target, 200);
+        $d->Chunk(\$data);
+        return $data . $d->Cleanup();
+}
+
+#=====================================================================================
+# methods below
+# 
+use vars '@ISA';
+require adynware::s_user;
+@ISA = qw(s_user);
+
+sub DocumentStart
+{
+        my($self) = @_;
+        return "";
+}
+
+sub DocumentFinish
+{
+        my($self) = @_;
+        return $self->Cleanup();
+}
+
+sub DocumentChunk
+{
+        my($self, $chunk) = @_;
+        my $s = $self->Chunk($chunk);
+        #print     "\n===================================================================\n";
+        #print $s, "\n===================================================================\n";
+        return $s;
+}
+
+sub Redirect
+{
+}
+
+sub new
+{
+        my $this = shift;
+        my $target = shift;
+        my $status = shift;
+        die "target is a required argument for DecorateIE object" unless defined $target;
+        my $class = ref($this) || $this;
+        my $self = {};
+        
+        bless $self, $class;
+        $self->Init($target, $status);
+        return $self;
+}
+
+1;
+
+# test with: sh -x $HOME/work/bin/decorator -ie c:/k.htm; cat c:/k.htm
+# test with: sh -x $HOME/work/bin/decorator -ie -browse c:/users/nsproul/work/public/wk_ie/samples/www.altavista.com/index.htm

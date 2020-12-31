@@ -1,0 +1,163 @@
+
+ Welcome, Nelson Sproul 	BEA Systems, Inc.   
+objectives  |  users  |  help  |  options  |  logout
+View Documents
+Documents
+
+Coaching - Writing Asst
+Coaching - Writing Asst
+
+Process Guide
+Process Guide
+
+SuccessFactors Inc.
+	
+  		  		  		  		  		  		  		  		  		  	  	 
+  	Print Setup 	  	Print 	  	Notes 	  	Form 	  	Info 	  	Export 	  	Export(Compact) 	  	Send 	  	Close 	  	(Read-only Mode) 	 
+FY '07 Performance Planning and Review Form for Nelson Sproul
+Important FY '07 Process Information   Employee Information   Review Information   FY '07 Company and ELT Goals   Unit or Function Goals   Individual Objectives Section   Competency Definitions   Technical/Functional Competencies (Optional)   Employee Summary Comments   Manager Summary Comments   Ratings   Overall Performance Summary and Additional Comments   Signatures
+Important FY '07 Process Information 	   
+This form has been designed to reflect BEA's performance management cycle for FY '07 (February 1, 2006 - January 31, 2007). The process begins with an annual goals cascade from the highest levels in the organization, through departments and teams, to first line managers and individual contributors. This cascade provides the link so that each employee is able to set individual key objectives and metrics. Individual objectives should include business objectives which focus on meeting the corporate goals, and development objectives which focus on improving competencies in your current position. Metrics should align with and support the overall strategy of the company.
+
+To begin the process, employees list their measurable development objectives in the "Individual Objectives" section of the form. Employees and managers can utilize this form to modify existing objectives throughout the year. The objective setting and development planning phase is followed by the annual review cycle.
+
+For additional help on development planning, or to focus on career development, employees and managers can utilize the "Development Planning Form" and corresponding tools located at the following link: http://myhr.beasys.com:7501/hr/od_training/performance_mgmt/career_dev/index.jsp.
+
+The form is color-coded by section to help simplify completion: Red: Process and form information, Green: Employee section - employee is responsible for completing these sections, Blue: Manager section - reviewing manager is responsible for completing these sections.
+
+For additional information refer to the "Help" link at the upper right of this page, or select the individual "Instructions" links associated with each section of the form.
+
+Employee Information 	   
+Last Name: 	Sproul
+First Name: 	Nelson
+Manager: 	Jeremy Kuhnash
+Title: 	Engineer, Software Sr.
+Review Information 	   
+Originator:   	SuccessFactors System (admin)
+Review Period:   	02/01/2006 - 01/31/2007
+Due Date:  	03/30/2007
+FY '07 Company and ELT Goals 	   
+BEA's key overarching Corporate goal is to increase license revenue year over year.
+
+Company Goals Link
+
+ELT Goals Link
+Unit or Function Goals 	   
+In this section, employees will get goals from their manager and enter them into the goals box.
+
+Instructions
+Goals
+- successfully implement and release new products
+- improve test automation infrastructure
+Individual Objectives Section 	   
+Employees should develop two types of individual performance objectives: "Business Objectives" which come from the cascading of unit or function goals and "Development Objectives" which focus on improvement on competencies in your current position and can include milestones from your career plan. Employees should be sure to validate their objectives with their manager. Employees will be asked to provide comments on their performance against their individual objectives in the "Employee Summary Comments" section during the annual review cycle. For more information on "Development Planning" refer to the following link: http://myhr.beasys.com:7501/hr/od_training/performance_mgmt/career_dev/index.jsp
+
+Instructions
+Objectives
+- successfully implement and release new products
+Supported the opencontrols and builder development and QA teams in their use of selenium; contributed many fixes to selenium in a drive with Dan to make that testing framework a viable alternative to QTP for BEA.
+
+Managed, analyzed, and in many cases rewrote portal stress tests which had been broken and/or outdated by the evolution of the various test tools with which they had to be integrated.
+
+- improve test automation infrastructure
+o supported search team in their use of xpunit
+o resource allocation service: researched needs, built a consensus on a solution, designed and almost finished the implementation of the RAS, a tool to facilitate the allocation and monitoring of test machines and resources of any type.
+Competency Definitions 	   
+Employees use this section to familiarize themselves with BEA's "core" and "leadership" competencies, using the links below. Employees will be asked to provide comments on their performance against the applicable competencies in the "Employee Summary Comments" section during the annual review cycle.
+
+Instructions
+
+BEA Core Competencies
+Teamwork, Continuous Process Improvement, Customer Focus, Communication, Problem Solving/Analysis, Self-Management, Adaptability/Flexibility
+
+BEA Leadership Competencies
+Strategic Agility, Managing Vision and Purpose, Drive for Results, Peer Relationships, Building Effective Teams, Hiring and Staffing, Developing Direct Reports
+Technical/Functional Competencies (Optional) 	   
+Employees who are emphasizing the development of specific technical or functional competencies (in addition to the core and/or leadership competencies) should list those technical/functional competencies here.
+
+Instructions
+Technical/Functional Competencies
+- improved presentation skills
+o studied and practiced public speaking at off-site workshop
+o developed and delivered presentations on selenium
+
+- improved technical skills
+o researched network and resource monitoring frameworks, and implemented an SNMP component for use by a RAS background process
+o researched and greatly improved my ability to implement solutions on the Macintosh (for selenium)
+Employee Summary Comments 	   
+Looking back over the performance period, employees provide comments on their success against their objectives. Employees write their results against their objectives and include a description of competencies used which contributed to those achievements. Employees state areas they would like to improve upon over the next year to become even more successful in their job.
+Employee Summary Comments
+My efforts to support and develop selenium had a substantial impact on the viability and success of that project. My work on the RAS has laid the foundation for significant payback in the near term for its users among all of the organizations SETI supports.
+
+Looking ahead to the coming year, I am hoping to continue to support and develop selenium, xpunit, and of course the RAS, in addition to the general firefighting that our group has often performed in the past.
+
+As for my own professional development, I hope to deepen various of my programming skills. In particular, I am very interested in IDE plug-ins, aspect oriented programming (and especially its use within Builder), and the automation of physical and virtual machine provisioning.
+Manager Summary Comments 	   
+Manager Summary Comments
+Nelson is a highly effective contributor. He has taken initiative in many areas and reached out to improve tools and process. To help increase his visibility and establish credibility and recognition, he will be asked to give presentations of technical issues to teams inside and outside of SETI. To help him learn more about the people and projects at the company I will involve him in more projects that are related to areas that he currently works in. This will also help increase his visibility and to open communication channels with more people. Nelson will be tasked with greater involvement in automated test planning and build process improvement.
+
+Nelson was rated a highly effective contributor this cycle. He defined the requirements for and implemented the Resource Allocation Service. This service is a keystone of the SkyNet initiative for greater resource tracking and the potential for eliminating much repetitive work. Nelson also was a key contributor to the Selenium effort and helped make this tool a very useful addition to our strategy. Nelson’s efforts to support and develop selenium had a substantial impact on the viability and success of that project. His work on the RAS has laid the foundation for significant payback in the near term for QA and Sustaining.
+Nelson will be asked to contribute now in a dedicated developer role which will give him the opportunity to deepen various of his programming skills, such as IDE plug-ins, aspect oriented programming, and the automation of machine provisioning (both physical and virtual).
+
+Nelson is passionate about automating our infrastructure and management tools, and working to reduce or eliminate the time spent on repetitive & maintenance tasks. Nelson attempts to prioritize his work based on the overall needs of the business. He is knowledgeable and helpful in many different areas.
+
+Nelson is very passionate about doing a good job. I want Nelson to participate more in discussions and meetings that are more tangential to his day to day tasks. He has good insight to bring to these discussions and can learn much from paying closer attention to those with disparate view points and experiences. To this end I will assign such meetings and collaboration to him from time to time. Near term, I will involve him in the SkyNet test harness planning meetings, Code Coverage tooling meetings, the Release Tool meetings, and Lab management including VMWare and deployment information.
+
+To help Nelson settle in to his new role as a dedicated developer, here is a list of actions that he should work with his manager to accomplish:
+1. Contribute further to the information system needed by the development, qa and release processes.
+2. Contribute to at least 1 information view project - lab pages, dependencies and attributions, release tool.
+3. Contribute to Skynet automation by implementation of the system or by working with teams to utilize it's functionality in their own projects.
+4. Learn about BuildCommon and contribute new Code Coverage functionality to it.
+5. Attend weekly team meetings where he will have an opportunity to teach, learn and exercise presentation skills.
+6. Publish a weekly personal status report
+8. Create a personal development plan with his manager.
+9. Schedule recurring 1:1 meetings with his manager.
+10. Identify 2 training courses to attend during the coming year.
+
+It has been a pleasure working with Nelson over the last year. His upbeat attitude, general good humor and infectious energy benefit all of BID.
+Ratings 	   
+
+Two Dimensional Rating: The employee’s work effort is rated on two dimensions, performance in achievement of objectives and the ability of the employee to demonstrate BEA competencies (and leader competencies if applicable) while achieving objectives. The Performance dimension is dominant. Two dimensional rating information.
+
+Instructions
+Overall Objectives Rating
+Description:
+Manager rates the employee's overall performance against objectives.
+: 	H - Highly Effective Contributor
+ 
+Overall Competencies Rating
+Description:
+Manager's rating of the employee's overall performance against competencies.
+: 	H - Highly Effective Contributor
+ 
+Overall Performance Summary and Additional Comments 	   
+Use this section to summarize the employee's overall performance during the review period.
+
+Instructions
+Overall Form Rating:	
+H - Highly Effective Contributor
+	 
+ 	 	Rating	Weights
+Ratings	 	 	 
+Overall Objectives Rating	 	
+H - Highly Effective Contributor
+	 
+Overall Competencies Rating	 	
+H - Highly Effective Contributor
+	 
+ 
+Signatures 	   
+I have reviewed the contents of this appraisal with my manager. My signature means that I have been advised of my performance status and does not imply that I agree or disagree with the review. Note: the Review will not be officially completed until the employee routes the form into their "Completed" folder.
+
+Instructions
+Manager:	
+ Jeremy Kuhnash
+	
+05/16/2007
+ 	Jeremy Kuhnash	 
+Employee:	
+ Nelson Sproul
+	
+05/17/2007
+ 	Nelson Sproul	 
+Copyright © 2008 SuccessFactors, Inc. All rights reserved. These online services are SuccessFactors confidential and proprietary and for use by authorized SuccessFactors customers only. Usage may be monitored. Release 10 build (b0806.rc22) - 213dc1sfapp03Cluster02-405 - 2008-07-01T17:40:28.362-0400

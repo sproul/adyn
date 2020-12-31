@@ -1,0 +1,19 @@
+# formatted
+@val = (
+{
+'English' => 'violently',
+'French' => 'violemment',
+'German' => 'gewaltt:atig',
+'Italian' => 'violentamente',
+'Spanish' => 'violentamente',
+'id' => 0,
+},
+{
+'English' => 'with the neighbors',
+'French' => 'avec {le voisin>p>}',
+'German' => '{mit der Nachbar>p>}',
+'Italian' => '{con il vicino>p>}',
+'Spanish' => 'con {el vecino>p>}',
+'id' => 1,
+},
+);

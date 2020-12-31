@@ -1,0 +1,235 @@
+Hello Catherine,
+
+I am writing to express my interest in the position listed under the
+heading "SENIOR JAVA/C++ Developer for Well Established Bank."
+
+I have a strong background in Java and C++, and also have done work to
+support equities and options trading and analysis, and so am well
+acquainted with that domain.  My background includes wide exposure to
+network programming, including software interfacing with TCP/IP, UDP,
+HTTP, and FTP.  I have architected several Web applications in Java and also
+the C++ database connectivity of a financial online analytical processing
+application deployed at very large banks.
+
+I will follow up with a phone call later today.
+
+
+
+Nelson Sproul
+
+nelson@adyn.com
+1209 Glen Ave.
+Berkeley, CA 94708
+510.868.0926
+
+Languages:
+Java C++ SQL PL/SQL perl UML XML LISP yacc Bourne Shell Pascal
+
+Software:
+J2EE JDBC ODBC Sybase CT-Lib Network XSLT SOAP
+
+Databases: 
+Oracle SQL Server Sybase 
+ 
+OS: 
+Unix Windows 
+ 
+7/2001--present Principal Consultant for Adynware Corporation, San Francisco
+ 
+   Java/perl Adaptive Learning Educational Software:
+   Designed, implemented and tested Teacher, a Java-based educational tool for
+   students of foreign languages. This application allows students to study categories
+   of vocabulary and/or conjugations in any of several languages. The web site
+   tracks each student's performance across categories of exercises, automatically
+   emphasizing the student's weak areas when selecting new exercises. The product
+   was designed with the UML and written Java, JavaScript and HTML under Windows
+   NT and Windows XP and is available for free online evaluation . Implemented
+   perl software to generate and package over 10,000 exercises. Also wrote complete
+   product documentation and the FAQ, as well as companion grammatical references
+   for French, German, Italian and Spanish. 
+ 
+   perl GUI interface to J2EE Tomcat Manager Admin Facility:
+   Designed and implemented mgr (see screenshot), a perl CGI interface to the Tomcat
+   manager facility, allowing administrators to interactively start, stop, install
+   and remove web applications under Tomcat. Automatically determines the local
+   administrator password by parsing the XML tomcat-users.xml file for maximal
+   convenience during development. 
+ 
+   C++/perl/JavaScript Keyboard Shortcut Facility for Netscape Navigator:
+   Designed, implemented and tested Web Keyboard, a software component which greatly
+   increases the ability of Netscape Navigator users to enjoy efficient keyboard-based
+   navigation of the web. This product was designed with the UML and written in
+   perl, C++, JavaScript and HTML under Windows NT (and tested under Windows 95,
+   98, 2000, NT and XP). This product's download is available for trial evaluation
+   free of charge. Also wrote complete product documentation and the FAQ. 
+ 
+   Java options pricer:
+   Designed, implemented and tested software to compute an efficient price for an
+   option series based on the prices and implied volatilities of a related option
+   series, as interpreted using Black-Scholes.  This software exposes inefficient
+   prices for options which have the same underlying but trade on different 
+   exchanges with different spreads (e.g., QQQ and NDX options).
+ 
+   perl Web Site CGI Credit Card Transaction Support:
+   Designed, implemented and tested CGI software at Adynware Corp.'s web site to
+   support credit card software purchases using Signio's client. Written in perl
+   under Solaris Unix. 
+ 
+ 
+ 
+1/1999--7/2001 Software Engineer for Extensity Corporation, Emeryville, CA
+ 
+   Java Accounting systems integration Designed and implemented Java components
+   integrating Extensity's expense report applications with customer accounting
+   packages and HR Sybase, Oracle, and Microsoft SQL servers. Extensive performance
+   tuning of WebLogic J2EE application servers, Microsoft SQL Server, and Oracle.
+   Middleware customizations were implemented in Java using JDBC, SQL, and PL/SQL
+   under Solaris Unix and Windows NT. WebLogic J2EE application servers deployed
+   and tuned for large-scale use by thousands of users at customers such as AirTouch
+   (now Verizon), Incyte, Ogilvy, and HBO.  
+ 
+   Java Accounting systems migration Designed and implemented perl and Bourne shell
+   scripts under Solaris Unix and Windows NT to manage the migration of customers
+   between major releases. Integrated and debugged Java conversion software to
+   export data to XML and back in the new release. 
+ 
+   Database Management Utilities Designed and implemented Bourne shell, perl and
+   LISP scripts to generate SQL load scripts, to restore and dump Microsoft SQL
+   Server and Oracle databases, and to edit database tables.  
+ 
+ 
+ 
+9/1997--1/1999 Principal Consultant for Adynware Corporation, San Francisco
+ 
+   C++/perl/JavaScript Browser Accelerator:
+   Designed, implemented and tested Browser Spinach, a proxy server which works
+   with any web browser to improve performance over slow connections. This is
+   accomplished by means of caching, prefetching, and other optimizations; this
+   product's main functionality was implemented in Perl and C++ under Windows
+   NT (and tested under Windows 95, 98 and NT), and uses multiple threads to allow
+   executing multiple simultaneous HTTP queries. This product's interface was
+   written in JavaScript and HTML. Also wrote complete product documentation and
+   the FAQ. 
+ 
+   Windows C++ Keyboard Macro Facility:
+   Designed, implemented and tested PC Macro32, a program for automating tasks
+   under Windows. This program can generate keystrokes, spawn programs and do
+   some simple manipulation of windows. This product was written in C++ under
+   Windows NT (and tested under Windows 95, 98, 2000, NT and XP), and its download
+   is available for trial evaluation free of charge. Also wrote complete product
+   documentation and the FAQ. 
+ 
+ 
+ 
+4/1996--9/1997 Software Engineer for Whitelight Systems, Palo Alto CA  
+ 
+   C++ OLAP Server Database Objects:
+   Implemented C++ objects supporting communication with Oracle, Microsoft, Sybase,
+   Teradata and Informix SQL Servers for Whitelight's OLAP product, currently
+   used by Barclay's and J. P. Morgan. These objects allow dynamic SQL and a full
+   set of catalog queries, executed in multiple threads via ODBC and Sybase CT-Lib
+   over connections pooled for performance. Database vendor differences hidden
+   behind an object-oriented interface. Written in C++ under Solaris Unix and
+   Windows NT, and debugged using dbx and the Visual C++ IDE. 
+ 
+ 
+ 
+4/1992--4/1996 Software Engineer 2 for Sybase Corporation, Emeryville, CA 
+ 
+   QA test software:
+   Designed and implemented software to test internal and external Sybase client
+   libraries, verify their conformance to specification, and automatically report
+   discrepancies and bugs. Written in C on all major UNIX platforms and Windows
+   NT. 
+ 
+   Threaded Scripting Language:
+   Conceived and implemented a programming language supporting thread control and
+   synchronization. This language was used for QA scripts exercising the Sybase
+   XA transaction management product, and was written in C under Solaris Unix,
+   using DCE thread primitives.  
+ 
+   Source Code Distribution Shell Script Suite:
+   Designed and implemented a suite of Bourne shell scripts to efficiently distribute
+   the Sybase connectivity codeline (around 5000 files) to a set of host machines
+   for build and test, and keep these distributed codelines in sync through incremental
+   updates. This suite smoothly handles partial network outages and host failures.
+ 
+ 
+ 
+
+7/1990--3/1992 Systems Analyst for TRW Corporation, Berkeley, CA  
+   C: NextFile,
+   a File-Processing, Application-Generating Language:
+   Conceived and implemented a language to operate on structured files. Designed,
+   implemented and tested a code generator nf which from NextFile specifications
+   generates file processing applications in C, including integrity-checkers,
+   file dumpers and filters. nf was writtten in C, its parser with lex and yacc.
+ 
+
+   C: File Distribution Server:
+   Implemented a server process and interface library to distribute new revisions
+   of files over a network. This program was written in C under BSD Unix, and
+   communicates over the network via TCP/IP, and was deployed at the credit receipt
+   processing facilities of American Express. 
+ 
+   C: Swapping hex Editor:
+   Designed and wrote an editor which displays files in both character and hex
+   dump format, and which allows editing arbitrarily large files by paging portions
+   into and out of memory. This program was written in C under BSD Unix. 
+ 
+   C: Image Archiver:
+   Designed, implemented and tested this multi-threaded program under OS/2 in C
+   to archive massive data to hard drives. Simultaneously driving seven hard drives,
+   this program was able to keep pace with the projected voluminous output from
+   IBM mainframe image processing peripherals. 
+ 
+   C: Image Server Processor Integration:
+   Integrated and debugged complex multi-tasking OS/2 program suite, designed to
+   drive mainframe peripherals and process their output. Combined system monitors,
+   programs manipulating the 370-channel APPC (Token Ring), and the SCSI drives
+   into a correctly functioning whole. 
+ 
+ 
+ 
+6/1988--6/1990 Software Development Engineer for Aion Corporation. Palo Alto, CA
+   Pascal: Aion Development System (ADS) Port from OS/2 to MVS:
+   Assisted in porting Aion’s artificial intelligence expert system shell from
+   OS/2 MS Pascal code to MVS VS Pascal, resolving compiler and environmental
+   differences. Debugged with TSO TEST. 
+ 
+   Pascal: SQL Client:
+   Implemented full function SQL clients on OS/2 and AS/400, complete with network
+   interfaces using LU 6.2 (APPC), giving ADS access to SQL Server data. OS/2
+   code was written in Microsoft C interfacing with the IBM Database Manager and
+   Communications Manager, fully integrated into ADS, and debugged using Codeview
+   and SDLC traces. AS/400 code was written in C/400 interfacing with SQL/400
+   and Intersystem Communications Files, and debugged using the OS/400 and EPM
+   debuggers. 
+ 
+ 
+ 
+5/1985--12/1985, 6/1986--8/1986 Systems Programmer for I.B.M. Poughkeepsie, NY
+   PL/1 PRINTF Function:
+   Designed and implemented library function providing mainframe PL/1 programmers
+   automatic message storage allocation, data formatting and output writing, also
+   in PL/1 and debugged using CP Per. I know this sounds primitive, but it was
+   a big improvement over the group's previous methods for putting out messages,
+   which required a lot of programming effort. 
+ 
+   PL/1 370 Architecture Verification Test Programs:
+   Implemented SAK (System Assurance Kernel, an IBM-internal 370 operating system
+   used for testing) programs testing the mainframe 3090 370 resource reconfiguration
+   instruction, taking memory units, CPUs, vector units, etc. on and off line.
+   This software was written in PL/1 under VM and SAK (System Assurance Kernel,
+   an IBM-internal 370 operating system used for testing), and debugged using
+   CP Per. 
+ 
+ 
+ 
+Education:
+University of CA at Berkeley, B.S. Computer Science
+University of CA at Berkeley, B.A. French
+Microsoft University, OS/2 Device Drivers 
+ 
+
+ 

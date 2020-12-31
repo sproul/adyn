@@ -1,0 +1,27 @@
+t.sh calls tx.pl via misnamed Grammar routine:
+
+tx.pl -xlate option calls web to translate a file
+
+        Grammar Spanish $genExercises
+	Grammar French $genExercises
+	Grammar Italian $genExercises
+	Grammar German $genExercises
+	Grammar all $genExercises
+	Grammar
+	
+can/data/verb_excuse:
+{
+'English' => 'She excuses that big insult.',
+'French' => 'Elle excuse {}cette grande insulte{ce grand insulte>s>}.',
+'French_note#cette;;French;;tmp' => 'The feminine singular <a href=French.html#=demonstrative_adjectives target=French>demonstrative adjective</a> <i>cette</i> is appropriate because of the need to agree with the feminine singular noun <i>insulte</i>.',
+'French_note#excuse;;French;;tmp' => 'FormOf("present", "excuser")',
+'French_note#grande;;French;;tmp' => 'The <a href=French.html#=Adjectives target=French>adjective</a> <i>grand</i> becomes <i>grande</i> to agree with the feminine singular noun <i>insulte</i>.',
+'addendKey' => 'things_to_excuse.1',
+'areas' => '|present|',
+'generated' => 1,
+'id' => 1,
+'pronoun' => 's3b',
+'tense' => 'present',
+'z/English/addend' => 'that big insult',
+'z/French/addend' => '{ce grand insulte>s>}',
+},

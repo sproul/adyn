@@ -1,0 +1,642 @@
+@val = (
+{
+'A' => 'AOLserver\'s name from before AOL\'s purchase of Netscape ',
+'Q' => 'NaviServer ',
+'id' => 0,
+},
+{
+'A' => '(OH\'-stir-howt) ',
+'Q' => 'Ousterhout pronunciation ',
+'id' => 1,
+},
+{
+'A' => '[this is good old recursive factorial]<br>proc factorial &#123;number&#125; &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;if &#123; $number == 0 &#125; &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return 1<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125; else &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return [expr $number * [factorial [expr $number - 1]]]<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&#125; ',
+'Q' => 'tcl: recursive factorial ',
+'id' => 2,
+},
+{
+'A' => '[obviously you must have a tcl-enabled Web server (e.g., AOLServer)]<br>&nbsp;1. .tcl pages are Tcl programs that are executed by the webserver (in this case AOLServer). They typically generate character strings that are sent to the client browser with ns_write.<br>2. .adp pages are like ordinary HTML pages, but they contain escapes to Tcl commands that are evaluated by the server. ',
+'Q' => 'Tcl for Web Use: what are the ways to deploy ',
+'id' => 3,
+},
+{
+'A' => 'if &#123; [string compare $first_names ""] == 0 &#125; &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;lappend exception_list "You forgot to type your first name"<br>&#125; ',
+'Q' => 'tcl: compare the string variable $s to the empty string ',
+'id' => 4,
+},
+{
+'A' => '[ see if their email address has the form]<br>[ something at-sign something]<br>if &#123; ![regexp &#123;.+@.+&#125; $email] &#125; &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;lappend exception_list "Your email address doesn\'t look valid."<br>&#125;<br>a ',
+'Q' => 'tcl: apply a regular expression to a string ',
+'id' => 5,
+},
+{
+'A' => 'set last_name_trimmed [string trim $last_name] ',
+'Q' => 'tcl: remove whitespace from end of a string ',
+'id' => 6,
+},
+{
+'A' => 'escape any single quotes with an extra one (since the SQL string literal quoting system uses single quotes):<br>&nbsp;regsub -all \' $last_name_trimmed \'\' last_name_final ',
+'Q' => 'tcl: replace-regexp ',
+'id' => 7,
+},
+{
+'A' => 'first()<br>The simplest way to look for a substring within a string is with the string first command. Some users of photo.net complained that they didn\'t like seeing classified ads that were simply pointers to the eBay auction site. Here\'s a simplified snippet from &lt;<a href=\'http://software.arsdigita.com/www/gc/place-ad-3.tcl&gt\'>http://software.arsdigita.com/www/gc/place-ad-3.tcl&gt</a>;:<br>if &#123; [string first "ebay" [string tolower $full_ad]] != -1 &#125; &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;# return an exception<br>&nbsp;&nbsp;&nbsp;&nbsp;...<br>&#125; ',
+'Q' => 'tcl: xpath contains() ',
+'id' => 8,
+},
+{
+'A' => 'if &#123; [regexp -nocase &#123;ebay&#125; $s] &#125; &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;# return an exception -- no ebay allowed<br>&nbsp;&nbsp;&nbsp;&nbsp;...<br>&#125; ',
+'Q' => 'tcl: string-match ',
+'id' => 9,
+},
+{
+'A' => 'set complete_message "[string range $message 0 1000]... " ',
+'Q' => 'tcl: substring ',
+'id' => 10,
+},
+{
+'A' => 'format "Price: %0.2f" 17 ',
+'Q' => 'tcl: sprintf ',
+'id' => 11,
+},
+{
+'A' => 'scan "A" "%c" the_ascii_value ',
+'Q' => 'tcl: sscanf ',
+'id' => 12,
+},
+{
+'A' => 'append variable_name value1 value2 value3 ... valueN<br>sets the variable defined by variable_name to the concatenation of the old value and all the remaining arguments ',
+'Q' => 'tcl: concat ',
+'id' => 13,
+},
+{
+'A' => 'regexp ?switches? expression string ?matchVar? ?subMatchVar subMatchVar ...?<br>Returns 1 if expression matches string; 0 otherwise. If successful, regexp sets the match variables to the parts of string that matches the corresponding parts of expression.<br>% set fraction "5/6"<br>5/6<br>% <font color=red>regexp &#123;(.*)/(.*)&#125; $fraction match num denom</font><br>% set match<br>5/6<br>% set num<br>% set denom<br><a href=\'http://www.scriptics.com/man/tcl7.5/TclCmd/regexp.n.html\'>http://www.scriptics.com/man/tcl7.5/TclCmd/regexp.n.html</a> ',
+'Q' => 'tcl:<br>($num, $denom) = ($1, $2) if $s =~ m&#123;(.*)/(.*)&#125;;<br>$match = $&; ',
+'id' => 14,
+},
+{
+'A' => 'string last string1 string2<br>-1 if string1 is not within string2, else index of last occurrence.<br>string last abra abracadabra ==&gt; 7 ',
+'Q' => 'tcl: rindex ',
+'id' => 15,
+},
+{
+'A' => 'string match pattern string (but without regexps!)<br>1 if string matches pattern, 0 if not. ',
+'Q' => 'tcl: string-match ',
+'id' => 16,
+},
+{
+'A' => 'string tolower string ',
+'Q' => 'tcl: lc ',
+'id' => 17,
+},
+{
+'A' => 'string toupper string<br>string in upper case. ',
+'Q' => 'tcl: uc ',
+'id' => 18,
+},
+{
+'A' => 'string wordend string index<br>index of the first character after the last character of the word containing index.<br>string wordend "tcl is the greatest" 0 ==&gt;3<br>string wordstart string index<br>index of the first char of the word containing index.<br>&nbsp;string wordstart "tcl is the greatest" 5 ==&gt; 4 ',
+'Q' => 'tcl: routines to find the beginning and end of words in a string ',
+'id' => 19,
+},
+{
+'A' => '% set user_preferences [list] ',
+'Q' => 'tcl: create an empty list ',
+'id' => 20,
+},
+{
+'A' => '% llength $user_preferences ',
+'Q' => 'how many items in the list ',
+'id' => 21,
+},
+{
+'A' => '% lappend user_preferences "hiking"<br>hiking<br>% lappend user_preferences "biking"<br>hiking biking<br>% lappend user_preferences "whale watching"<br>hiking biking &#123;whale watching&#125;<br>% llength $user_preferences ',
+'Q' => 'tcl: push ',
+'id' => 22,
+},
+{
+'A' => 'set addressees_stream [open "~/addressees.txt" r] ',
+'Q' => 'tcl: open a file for reading ',
+'id' => 23,
+},
+{
+'A' => 'set contents_of_file [read $stream] ',
+'Q' => 'tcl: read entire file into a variable ',
+'id' => 24,
+},
+{
+'A' => 'close $addressees_stream ',
+'Q' => 'tcl: close a file ',
+'id' => 25,
+},
+{
+'A' => 'set list_of_lines [split $contents_of_file "&#092;n"] ',
+'Q' => 'tcl: split the contents on newlines ',
+'id' => 26,
+},
+{
+'A' => 'foreach line $list_of_lines &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;if &#123; [regexp &#123;([^ ]*@[^ ]*)&#125; $line one_address] &#125; &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lappend all_addresses $one_address<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&#125; ',
+'Q' => 'tcl: loop through a list ',
+'id' => 27,
+},
+{
+'A' => 'set bcc_line_for_mailer [join $all_addresses ", "] ',
+'Q' => 'tcl: join ',
+'id' => 28,
+},
+{
+'A' => 'lrange list i j<br>Returns the ith through jth elements from list.<br>lrange $foo 1 2 ==&gt; 2 &#123;3 4 5&#125;<br>&nbsp;<a href=\'http://www.scriptics.com/man/tcl7.5/TclCmd/lrange.n.html\'>http://www.scriptics.com/man/tcl7.5/TclCmd/lrange.n.html</a> ',
+'Q' => 'tcl: get some elts of a list ',
+'id' => 29,
+},
+{
+'A' => 'linsert list index arg arg...<br>Insert elements into list before the element at position index. Returns a new list.<br>linsert $foo 0 0 ==&gt; 0 1 2 &#123;3 4 5&#125; &#123;6 7&#125;<br>&nbsp;<a href=\'http://www.scriptics.com/man/tcl7.5/TclCmd/linsert.n.html\'>http://www.scriptics.com/man/tcl7.5/TclCmd/linsert.n.html</a> ',
+'Q' => 'tcl: insert elt ',
+'id' => 30,
+},
+{
+'A' => 'lreplace list i j arg arg...<br>Replace elements i through j of list with the args. Returns a new list and leaves the original list unmodified.<br>lreplace $foo 3 4 3 4 5 6 7 ==&gt; 0 1 2 3 4 5 6 7<br>set foo ==&gt; 1 2 &#123;3 4 5&#125; &#123;6 7&#125;<br>&nbsp;<a href=\'http://www.scriptics.com/man/tcl7.5/TclCmd/lreplace.n.html\'>http://www.scriptics.com/man/tcl7.5/TclCmd/lreplace.n.html</a> ',
+'Q' => 'tcl: splice ',
+'id' => 31,
+},
+{
+'A' => 'lsort switches list<br>Sort elements of the list according to the switches: <font color=red>-ascii, -integer, -real, -increasing, -decreasing, -command</font><br>set my_friends [list "herschel" "schlomo" "mendel"]<br>set my_sorted_friends [lsort -decreasing $my_friends] ==&gt; schlomo mendel herschel<br>&nbsp;<a href=\'http://www.scriptics.com/man/tcl7.5/TclCmd/lsort.n.html\'>http://www.scriptics.com/man/tcl7.5/TclCmd/lsort.n.html</a> ',
+'Q' => 'tcl: sort list ',
+'id' => 32,
+},
+{
+'A' => 'regexp -nocase<br>uppercase characters in the data are bashed down to lower for case-insensitive matching (<font color=red>make sure that your pattern is all lowercase</font>) ',
+'Q' => 'tcl: /lskdj/i ',
+'id' => 33,
+},
+{
+'A' => 'regexp -indices<br>the returned values of the regexp contain the indices delimiting the matched substring, rather than the strings themselves. ',
+'Q' => 'tcl: I want to know the offsets for the matched sub patterns ',
+'id' => 34,
+},
+{
+'A' => '...put a -- flag at the end of your flags ',
+'Q' => 'tcl: if my regexp pattern starts with -... ',
+'id' => 35,
+},
+{
+'A' => 'Tcl\'s regsub command performs substitution based on a pattern:<br>regsub [flags] pattern data replacements var<br>&nbsp;matches the pattern against the data. If the match succeeds, the variable named var is set to data, with various parts modified, as specified by replacements. If the match fails, var is simply set to data. The value returned by regsub is the number of replacements performed.<br>The flag -all specifies that every occurrence of the pattern should be replaced. Otherwise only the first occurrence is replaced. Other flags include -nocase and -- as with regexp<br>&nbsp;Here\'s an example from the banner ideas module of the ArsDigita Community System (see <a href=\'http://photo.net/doc/bannerideas.html\'>http://photo.net/doc/bannerideas.html</a>). The goal is that each banner idea contain a linked thumbnail image. To facilitate cutting and pasting of the image html, we don\'t require that the publisher include uniform subtags within the IMG. However, we use regexp to clean up:<br>&nbsp;[ turn "&lt;img align=right hspace=5" into "&lt;img align=left border=0 hspace=8"]<br>regsub -nocase &#123;align=[^ ]+&#125; $picture_html "" without_align<br>regsub -nocase &#123;hspace=[^ ]+&#125; $without_align "" without_hspace<br>regsub -nocase &#123;&lt;img&#125; $without_hspace &#123;&lt;img align=left border=0 hspace=8&#125; final_photo_html<br>&nbsp;In the example above, &lt;replacements&gt; specified the literal characters \'\'. Other replacement directives include:<br>&nbsp;& inserts the string that matched the pattern<br>The backslashed numbers &#092;1 through &#092;9 inserts the strings that matched the corresponding sub-patterns in the pattern.<br>Here\'s another web example, which parses HTML, and replaces the comments (delineated in HTML by &lt;!-- and --&gt;) by the comment text, enclosed in parentheses.<br>% proc extract_comment_text &#123;html&#125; &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;regsub -all &#123;&lt;!--([^-]*)--&gt;&#125; $html &#123;(&#092;1)&#125; with_exposed_comments<br>&nbsp;&nbsp;&nbsp;&nbsp;return $with_exposed_comments<br>&#125;<br>&nbsp;% extract_comment_text &#123;&lt;!--insert the price below--&gt;<br>We give the same low price to everyone: $219.99<br>&lt;!--make sure to query out discount if this is one of our big customers--&gt;&#125;<br>(insert the price below)<br>We give the same low price to everyone: $219.99<br>(make sure to query out discount if this is one of our big customers)<br>&nbsp;Also see <a href=\'http://www.scriptics.com/man/tcl7.5/TclCmd/regsub.n.html\'>http://www.scriptics.com/man/tcl7.5/TclCmd/regsub.n.html</a> ',
+'Q' => 'tcl: create a string by substitution ',
+'id' => 36,
+},
+{
+'A' => 'curly braces are not respected by the subst command. In order to prevent the single round of substitution, the backslash must be used before special characters like a dollar sign or square brackets.<br>&nbsp;subst command does the single round of substitution ordinarily completed by the interpreter, but without invoking any command. It takes one argument, the string to be substituted into.<br>% set a "foo bar"<br>foo bar<br>&nbsp;% subst &#123;a=$a date=[exec date]&#125;<br>a=foo bar date=Thu Feb 30 1:11:11 EST 1901 ',
+'Q' => 'when do curly braces not prevent internal substitution? ',
+'id' => 37,
+},
+{
+'A' => 'eval ',
+'Q' => 'tcl: eval ',
+'id' => 38,
+},
+{
+'A' => 'are logically equivalent to hash tables:<br>% set numeric_day(Sunday) 0<br>&nbsp;You don\'t have to declare to Tcl that you\'re going to treat a particular variable as an array; just start setting variables with the form "variable_name(key)". <br>&nbsp;I think these arrays consist of a list with an even number of elements. Each odd-numbered element in list is treated as an element name within arrayName, and the following element in list is used as a new value for that array element. ',
+'Q' => 'Tcl arrays ',
+'id' => 39,
+},
+{
+'A' => 'If your index contains spaces, it will confuse the Tcl parser . For example, imagine an array called snappy_response that contains appropriate responses to various insults, which are used as the indices to the array. Suppose you want to store a response for "Have you gained weight?". You can\'t feed this to Tcl as <br>set snappy_response(Have you gained weight?) "Your..."<br>&nbsp;Alternatives that work: <br>Escape all the spaces with backslash: <br>set snappy_response(Have&#092; you&#092; gained&#092; weight?) "Your mama..." <br>Enclose the array name and parenthesized key in curly braces:<br>set &#123;snappy_response(Have you gained weight?)&#125; "Your mama..." <br>Name the index with a variable and then use the variable: <br>set this_insult "Have you gained weight?" <br>set snappy_response($this_insult) "Your mama..." ',
+'Q' => 'tcl: array pitfall ',
+'id' => 40,
+},
+{
+'A' => '[info exists array_variable(index)] ',
+'Q' => 'tcl: array contains() ',
+'id' => 41,
+},
+{
+'A' => '<font color=red>array startsearch arrayName</font><br>This command initializes an element-by-element search through the array given by arrayName, such that invocations of the array nextelement command will return the names of the individual elements in the array. When the search has been completed, the array donesearch command should be invoked. The return value is a search identifier that must be used in array nextelement and array donesearch commands; it allows multiple searches to be underway simultaneously for the same array.<br>&nbsp;<font color=red>array anymore arrayName searchId</font><br>Returns 1 if there are any more elements left to be processed in an array search, 0 if all elements have already been returned. SearchId indicates which search on arrayName to check, and must have been the return value from a previous invocation of array startsearch. This option is particularly useful if an array has an element with an empty name, since the return value from array nextelement won\'t indicate whether the search as been completed.<br>&nbsp;<font color=red>array nextelement arrayName searchId</font><br>Returns the name of the next element in arrayName, or an empty string if all elements of arrayName have already been returned in this search. The searchId argument identifies the search, and must have been the return value of an array startsearch command. Warning: if elements are added to or deleted from the array, then all searches are automatically terminated just as if array donesearch had been invoked; this will cause array nextelement operations to fail for those searches.<br>&nbsp;<font color=red>array donesearch arrayName searchId</font><br>This command terminates an array search and destroys all the state associated with that search. SearchId indicates which search on arrayName to destroy, and must have been the return value from a previous invocation of array startsearch. Returns an empty string. ',
+'Q' => 'tcl: array iterator ',
+'id' => 42,
+},
+{
+'A' => '<font color=red>array get arrayName ?pattern?</font><br>Returns a list containing pairs of elements. The first element in each pair is the name of an element in arrayName and the second element of each pair is the value of the array element. The order of the pairs is undefined. If pattern is not specified, then all of the elements of the array are included in the result. If pattern is specified, then only those elements whose names match pattern (using the <font color=red>glob-style</font> matching rules of string match) are included. If arrayName isn\'t the name of an array variable, or if the array contains no elements, then an empty list is returned.<br>&nbsp;<font color=red>array names arrayName ?pattern?</font><br>Returns a list containing the names of all of the elements in the array that match pattern (using the <font color=red>glob-style</font> matching rules of string match). If pattern is omitted then the command returns all of the element names in the array. If there are no (matching) elements in the array, or if arrayName isn\'t the name of an array variable, then an empty string is returned. ',
+'Q' => 'tcl: array grep ',
+'id' => 43,
+},
+{
+'A' => 'truncates ',
+'Q' => 'tcl: integer division ',
+'id' => 44,
+},
+{
+'A' => '% ',
+'Q' => 'tcl: mod ',
+'id' => 45,
+},
+{
+'A' => 'a zero in front of number means to interpret as octal<br>% expr 017 + 01<br>&nbsp;% # a 0x in front means to interpret as hex<br>% expr 0xA + 1 ',
+'Q' => 'tcl: octal, hex numbers ',
+'id' => 46,
+},
+{
+'A' => '% # they can be treated like strings!<br>% string length 100.34<br>% string range 100.34 0 2 ',
+'Q' => 'great similarity between the treatment of numbers by tcl and perl ',
+'id' => 47,
+},
+{
+'A' => 'if &#123;condition&#125; &#123;<br>body<br>&#125; elseif &#123;other_condition&#125; &#123;<br>alternate_body<br>&#125; else &#123;<br>another_body<br>&#125;<br>&nbsp;Note how the curly braces and keywords are artfully positioned so that the entire if statement is on one line as far as the interpreter is concerned, i.e., all the newlines are grouped within curly braces. An easy way to break your program is to rewrite the above statement as follows:<br>if &#123;condition&#125; &#123;<br>body<br>&#125;<br>elseif &#123;other_condition&#125; &#123;<br>alternate_body<br>&#125; else &#123;<br>another_body<br>&#125; ',
+'Q' => 'tcl if ',
+'id' => 48,
+},
+{
+'A' => 'switch $user_state &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;"authorized" &#123; # just move on &#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;"banned" &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ns_returnredirect "banned-user.tcl?user_id=$user_id"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;default &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ns_log Warning "Problem with registration state machine on user-login.tcl"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ad_return_error "Problem with login" "There was a problem authenticating the account: $user_id. Most likely, the database contains users with no user_state."<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&#125;<br>&nbsp;In this case, we\'re using the standard switch behavior of matching strings exactly. We\'re also provide a "default" keyword at the end that indicates some code to run if nothing else matched.<br>It is possible to use more sophisticated patterns in switch. Here\'s a fragment that sends different email depending on the pattern of the address:<br>&nbsp;switch <font color=red>-glob</font> $email &#123;<br>&nbsp;&nbsp;&nbsp;&#123;*mit.edu&#125; &#123; ns_sendmail $email $from $subject $body &#125;<br>&nbsp;&nbsp;&nbsp;&#123;*cmu.edu&#125; &#123; ns_sendmail $email $from $subject "$body&#092;n&#092;nP.S. Consider applying to MIT. Boston is much nicer than Pittsburgh"&#125;<br>&nbsp;&nbsp;&nbsp;&#123;*harvard.edu&#125; &#123; ns_sendmail $email $from $subject "$body&#092;n&#092;nP.S. Please ask your parents to invest in our tech startup."&#125;<br>&#125;<br>&nbsp;The third behavior for switch is invoked using the "<font color=red>-regexp</font>" flag. ',
+'Q' => 'tcl case statement ',
+'id' => 49,
+},
+{
+'A' => 'break, continue are supported.<br>&nbsp;while &#123; [ns_db getrow $db $selection] &#125; &#123;<br>&nbsp;&nbsp;&nbsp;# set local variables to the SQL column names<br>&nbsp;&nbsp;&nbsp;set_variables_after_query<br>&nbsp;&nbsp;&nbsp;ns_write "<LI>$last_name, $first_names"<br>&#125;<br>&nbsp;foreach variable_name list &#123;<br>&nbsp;&nbsp;body<br>&#125;<br>&nbsp;Here\'s an example from <a href=\'http://software.arsdigita.com/www/monitor.tcl\'>http://software.arsdigita.com/www/monitor.tcl</a>, a page that displays current server activity:<br>[ ask AOLserver to return a list of lists, one for each current connection]<br>set connections [ns_server active]<br>&nbsp;foreach connection $connections &#123;<br>&nbsp;&nbsp;&nbsp;# separate the sublist elements with "" tags<br>&nbsp;&nbsp;&nbsp;ns_write $conn "[join $connection ""]"<br>&#125;<br>&nbsp;&nbsp;for start test next body<br>&nbsp;We use this control structure in the winner picking admin page of the ArsDigita Comunity System\'s contest module: <a href=\'http://software.arsdigita.com/www/admin/contest/pick-winners.tcl.\'>http://software.arsdigita.com/www/admin/contest/pick-winners.tcl.</a> The input to this page specifies a time period, a contest, and how many winners are to be picked. Here the result of executing the for loop is a list of N elements, where N is the number of desired winners:<br>for &#123;set i 1&#125; &#123;$i &lt;= $n_winners&#125; &#123;incr i&#125; &#123;<br>&nbsp;&nbsp;&nbsp;# we\'ll have winner_numbers between 0 and $n_contestants - 1<br>&nbsp;&nbsp;&nbsp;# because randomRange returns a random integer between 0<br>&nbsp;&nbsp;&nbsp;# and its argument<br>&nbsp;&nbsp;&nbsp;lappend winner_numbers [randomRange $n_contestants]<br>&#125; ',
+'Q' => 'tcl loops ',
+'id' => 50,
+},
+{
+'A' => 'throw \'em:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;error "Can\'t divide by zero."<br>&nbsp;Catch \'em:<br>Error-handling command: catch<br>catch script ?variable_name?<br>&nbsp;catch returns 1 if script threw an error, 0 otherwise. If you supply the second argument (variable_name), catch will set that variable to the result of executing script, whether or not the script threw an error.<br>Our classic example always involves ns_httpget. Here\'s one from <a href=\'http://www.webho.com/WealthClock:<br>&nbsp\'>http://www.webho.com/WealthClock:<br>&nbsp</a>;[ define a procedure that computes the entire page]<br>proc wealth_ReturnWholePage &#123;&#125; &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;# do a couple of ns_httpgets and some arithmetic<br>&nbsp;&nbsp;&nbsp;&nbsp;# to produce the user-visible HTML<br>&nbsp;&nbsp;&nbsp;&nbsp;...<br>&#125;<br>&nbsp;[ this is the procedure registered to <a href=\'http://www.webho.com/WealthClock\'>http://www.webho.com/WealthClock</a>]<br>proc wealth_Top &#123;ignore&#125; &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;if [catch &#123;set moby_string [Memoize wealth_ReturnWholePage]&#125; errmsg] &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# something went wrong with our sources<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;... return an apology message to the users<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125; else &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# we computed the result (or Memoize got it from the cache)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ns_return 200 text/html $moby_string<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&#125; ',
+'Q' => 'tcl: exceptions ',
+'id' => 51,
+},
+{
+'A' => 'can cause the return from the caller\'s code also<br>proc ad_maybe_redirect_for_registration &#123;&#125; &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;if &#123; [ad_verify_and_get_user_id] != 0 &#125; &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# user is in fact logged in, return happiness<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125; else &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ns_returnredirect "/register/index.tcl?return_url=[ns_urlencode [ns_conn url]$url_args]"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# blow out of 2 levels<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color=red>return -code return</font><br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&#125; ',
+'Q' => 'tcl return ',
+'id' => 52,
+},
+{
+'A' => 'proc name &#123; list_of_arguments &#125; &#123;<br>&nbsp;&nbsp;&nbsp;body_expressions<br>&#125;<br>&nbsp;This creates a procedure with the name "name." Tcl has a global environment for procedure names, i.e., there can be only one procedure called "foobar" in a Tcl system.<br>The next part of the syntax is the set of arguments, delimited by a set of curly braces. Each argument value is then mapped into the procedure body, which is also delimited by curly braces. As before, each statement of the procedure body can be separated by a semi-colon or a newline (or both). Here\'s an example, taken from the calendar widget component of the ArsDigita Community System:<br>&nbsp;proc calendar_convert_julian_to_ansi &#123; date &#125; &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;set db [ns_db gethandle subquery]<br>&nbsp;&nbsp;&nbsp;&nbsp;# make Oracle do all the real work<br>&nbsp;&nbsp;&nbsp;&nbsp;set output [database_to_tcl_string $db &#092;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"select trunc(to_date(\'$date\', \'J\')) from dual"]<br>&nbsp;&nbsp;&nbsp;&nbsp;ns_db releasehandle $db<br>&nbsp;&nbsp;&nbsp;&nbsp;return $output<br>&#125; ',
+'Q' => 'To define a procedure in Tcl ',
+'id' => 53,
+},
+{
+'A' => 'the ability to read and write variables up the calling stack with uplevel and upvar. ',
+'Q' => 'One of the strangest features of Tcl ',
+'id' => 54,
+},
+{
+'A' => 'Variable number of arguments<br>In addition, Tcl can also provide for a variable number of arguments at the end, using a special last argument called <font color=red>args</font> in any procedure definition. After all of the other (previous) arguments are bound to names, the rest of the arguments are shoved into a list called args which can then be accessed inside the procedure.<br>You could imagine that between optional arguments and extra ones, the interpreter might get confused. It doesn\'t, because it assumes that you aren\'t using extra args at the end without binding all of the optional ones in the middle; that is, it stuffs argument values into the argument names in strict order without regard to options, extras, etc. ',
+'Q' => 'tcl &rest ',
+'id' => 55,
+},
+{
+'A' => 'file atime filename<br>Returns as a decimal number the time that the file was last accessed.<br>set access_time [file atime "index.adp"] ==&gt; 916612934 ',
+'Q' => 'tcl equivalent to perl -A file ',
+'id' => 56,
+},
+{
+'A' => 'file dirname filename<br>Returns the name of the parent directory of the file.<br>set parent_dir [file dirname "~/home/dir/this.adp"] ==&gt; ~/home/dir ',
+'Q' => 'tcl equivalent (buffer-file-name-directory) ',
+'id' => 57,
+},
+{
+'A' => 'file executable filename<br>Returns 1 if the file is executable, 0 otherwise.<br>chmod 1111 billg-wealth.tcl<br>file executable billg-wealth.tcl ==&gt; 1 ',
+'Q' => 'tcl equivalent to perl -x file ',
+'id' => 58,
+},
+{
+'A' => 'file exists filename<br>Returns 1 if the file exists, 0 otherwise.<br>file exists billg-wealth.tc ==&gt; 0<br>file exists billg-wealth.tcl ==&gt; 1 ',
+'Q' => 'tcl: equivalent to perl -e file ',
+'id' => 59,
+},
+{
+'A' => 'file extension filename<br>Returns the file extension of the file (i.e. from the last dot to the end)<br>file extension billg-wealth.tcl ==&gt; .tcl ',
+'Q' => 'tcl: equivalent to (nfn-suffix) ',
+'id' => 60,
+},
+{
+'A' => 'file isdirectory filename<br>Returns 1 if the file is a directory, 0 otherwise.<br>file isdirectory . ==&gt; 1<br>file isdirectory billg-wealth.tcl ==&gt; 0 ',
+'Q' => 'tcl: equivalent to perl -d file ',
+'id' => 61,
+},
+{
+'A' => 'file isfile filename<br>Returns 1 if the file is not a directory, symbolic link, or device, 0 otherwise.<br>file isfile billg-wealth.tcl ==&gt; 1 ',
+'Q' => 'tcl: equivalent to perl -f file ',
+'id' => 62,
+},
+{
+'A' => 'file lstat filename variablename<br>Puts the results of the stat command on linkname into variablename.<br>ln -s billg-wealth.tcl temp.tcl<br>file lstat temp.tcl temp ==&gt; (array holding stat info) ',
+'Q' => 'tcl: stat on a link ',
+'id' => 63,
+},
+{
+'A' => 'file mtime filename<br>Returns the modify time of file as a decimal string.<br>file modify billg-wealth.tcl ==&gt; 915744902 ',
+'Q' => 'tcl: equivalent to perl -M file ',
+'id' => 64,
+},
+{
+'A' => 'file owned filename<br>Returns 1 if the current user owns the file, else 0.<br>file owned billg-wealth.tcl ==&gt; 1 ',
+'Q' => 'tcl: equivalent to perl -o file ',
+'id' => 65,
+},
+{
+'A' => 'file readable filename<br>Returns 1 if the file is readable, else 0.<br>file readable billg-wealth.tcl ==&gt; 1 ',
+'Q' => 'tcl: equivalent to perl -r file ',
+'id' => 66,
+},
+{
+'A' => 'file readlink filename<br>Returns the contents of the symbolic link named filename.<br>ln -s file.txt file1.txt<br>file readlink file1.txt ==&gt; file.txt ',
+'Q' => 'tcl: equivalent to perl -r link ',
+'id' => 67,
+},
+{
+'A' => 'file rootname filename<br>Returns all but the extension and the last . of the filename.<br>file rootname billg-wealth.tcl ==&gt; billg-wealth ',
+'Q' => 'tcl: equivalent to (nfn-prefix) ',
+'id' => 68,
+},
+{
+'A' => 'file size filename<br>Returns the size in bytes of the file.<br>file size billg-wealth.tcl ==&gt; 774 ',
+'Q' => 'tcl: equivalent to perl -s file ',
+'id' => 69,
+},
+{
+'A' => 'file stat filename variablename<br>Returns the stat results about the file into the array named variablename. The elements of the variable array are: atime, ctime, dev, gid, ino, mode, mtime, nlink, size, type, and uid.<br>file stat billg-wealth.tcl billg_info<br>set $billg_info(ctime) ==&gt; 916615489 ',
+'Q' => 'tcl: equivalent to stat ',
+'id' => 70,
+},
+{
+'A' => 'file tail filename<br>Returns all of the characters after the last / in the filename.<br>file tail ~/home/dir/subdir/file.txt ==&gt; file.txt ',
+'Q' => 'tcl: basename ',
+'id' => 71,
+},
+{
+'A' => 'file type filename<br>Returns the type identified of the filename arg, which can be one of the following: file, directory, characterSpecial, blockSpecial, fifo, link, or socket.<br>file type billg-wealth.tcl ==&gt; file ',
+'Q' => 'tcl: what kind of file is this? ',
+'id' => 72,
+},
+{
+'A' => 'file writable filename<br>Returns 1 if the file is writable, 0 otherwise.<br>file writable billg-wealth.tcl ==&gt; 0 ',
+'Q' => 'tcl: equivalent to perl -w file ',
+'id' => 73,
+},
+{
+'A' => 'More: <a href=\'http://www.scriptics.com/man/tcl7.5/TclCmd/file.n.html<br>Input/Output\'>http://www.scriptics.com/man/tcl7.5/TclCmd/file.n.html<br>Input/Output</a> Commands<br>open filename ?access? ?permissions?<br>Returns a stream handle to open the file for the access specified with the permissions specified. Defaut values are read for the access required and the permissions are the same as the default permissions on a file. The access value options are r (read from existing file), r+ (read from and write to existing file), w (write over or create and write to file as necessary), w+ (read from and write to or create file as necessary), a (write to existing file; append data to it), a+ (read from and write to existing file; append data to it).<br>set this_file_stream [open /tmp/file.txt r]<br>&nbsp;More: <a href=\'http://www.scriptics.com/man/tcl7.5/TclCmd/open.n.html\'>http://www.scriptics.com/man/tcl7.5/TclCmd/open.n.html</a> ',
+'Q' => 'tcl: open file ',
+'id' => 74,
+},
+{
+'A' => 'puts ?-nonewline? ?stream? string<br>Write the string to the stream. Default is STDOUT.<br>puts "Hello, world." ==&gt; Hello, world.<br>&nbsp;More: <a href=\'http://www.scriptics.com/man/tcl7.5/TclCmd/puts.n.html\'>http://www.scriptics.com/man/tcl7.5/TclCmd/puts.n.html</a> ',
+'Q' => 'tcl: equivalent to perl print $file ',
+'id' => 75,
+},
+{
+'A' => 'gets stream ?varname?<br>Read a line from the stream. If a variable is specified, put the line into that variable.<br>gets $thisstream line<br>&nbsp;More: <a href=\'http://www.scriptics.com/man/tcl7.5/TclCmd/gets.n.html<br>&nbsp\'>http://www.scriptics.com/man/tcl7.5/TclCmd/gets.n.html<br>&nbsp</a>;&nbsp;read streamname ?numbytes?<br>If numbytes is specified, read that many bytes of the stream. If not, read the whole stream.<br>set first_ten_bytes [read $this_stream 10]<br>&nbsp;More: <a href=\'http://www.scriptics.com/man/tcl7.5/TclCmd/read.n.html<br>&nbsp\'>http://www.scriptics.com/man/tcl7.5/TclCmd/read.n.html<br>&nbsp</a>;&nbsp;read <font color=red>-nonewline</font> streamname<br>Read the whole stream and discard the last newline.<br>set this_file_contents [read -nonewline $this_stream] ',
+'Q' => 'tcl: read from a file ',
+'id' => 76,
+},
+{
+'A' => 'tell streamname<br>Return the "seek offset." (See below for seek.)<br>set seek_offset [tell $this_stream]<br>&nbsp;More: <a href=\'http://www.scriptics.com/man/tcl7.5/TclCmd/tell.n.html<br>&nbsp\'>http://www.scriptics.com/man/tcl7.5/TclCmd/tell.n.html<br>&nbsp</a>;&nbsp;seek streamname offset ?origin?<br>Set the seek offset. Origin is either start, current, or end.<br>seek $this_stream offset end<br>&nbsp;More: <a href=\'http://www.scriptics.com/man/tcl7.5/TclCmd/seek.n.html<br>&nbsp\'>http://www.scriptics.com/man/tcl7.5/TclCmd/seek.n.html<br>&nbsp</a>;&nbsp;eof stream<br>Returns 1 if you have reached the end of the stream; 0 otherwise.<br>if &#123;[eof $this_stream]&#125; &#123;<br>&nbsp;&nbsp;&nbsp;break<br>&#125;<br>&nbsp;More: <a href=\'http://www.scriptics.com/man/tcl7.5/TclCmd/eof.n.html\'>http://www.scriptics.com/man/tcl7.5/TclCmd/eof.n.html</a> ',
+'Q' => 'tcl: where am I in this file ',
+'id' => 77,
+},
+{
+'A' => 'subst ',
+'Q' => 'tcl equivalent of (n-env-expand string) ',
+'id' => 78,
+},
+{
+'A' => 'exec ',
+'Q' => 'tcl: run a program ',
+'id' => 79,
+},
+{
+'A' => 'if &#123; [string length $password] &gt; 20 &#125; &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;lappend exception_list "The password you selected is too long."<br>&#125; ',
+'Q' => 'tcl: what is the length of a string ',
+'id' => 80,
+},
+{
+'A' => 'incr x ',
+'Q' => 'tcl: x++ ',
+'id' => 81,
+},
+{
+'A' => '% lindex $user_preferences 0<br>hiking<br>% lindex $user_preferences 1<br>biking<br>% lindex $user_preferences 2<br>whale watching<br>% lindex $user_preferences 3<br>% lindex $user_preferences 5<br>&nbsp;Indexing is 0-based and lindex will return the empty string rather than an error if you supply an out-of-range index. ',
+'Q' => 'tcl: elt ',
+'id' => 82,
+},
+{
+'A' => 'The command lsearch returns the index of the list element matching a query argument or -1 if unsuccessful:<br>&nbsp;if &#123; [lsearch -exact $user_preferences "hiking"] != -1 &#125; &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;# look for new articles related to hiking<br>&#125; ',
+'Q' => 'tcl: search a list ',
+'id' => 83,
+},
+{
+'A' => 'array size arrayName<br>Returns a decimal string giving the number of elements in the array. If arrayName isn\'t the name of an array then 0 is returned. ',
+'Q' => 'tcl: len of array? ',
+'id' => 84,
+},
+{
+'A' => 'The global namespace is named "<font color=red>::</font>", and it is the root of all namespaces in an interpreter. To avoid confusion, any name can be fully qualified from the global namespace. <font color=red>Fully qualified names start with "::"</font> and list all namespaces in the path leading to the element. For example, the fully qualified name for the num variable in the symbol::counter namespace is:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color=red>::symbol::counter::num</font><br>&nbsp;If the name does not start with "::", it is treated relative to the current namespace context. Lookup starts in the current namespace, then continues through all other namespaces included on the "import" list. When a namespace is added to the import list, it acts as if it were a part of the namespace that imports it. Whenever a name is resolved, the result is cached to keep namespace performance on par with vanilla Tcl.<br>&nbsp;By default, each namespace imports its parent. This allows commands and variables at the global scope to be accessed transparently in child namespaces. Frequently-used libraries can also be added to the import list, but it is a good idea to import namespaces sparingly. If each namespace imported all of the others, there would be very little advantage to using namespaces. ',
+'Q' => 'namespaces ',
+'id' => 85,
+},
+{
+'A' => '...<font color=red>info which</font> command can be used as a check. For example:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;namespace symbol::counter &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;info which -variable num<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;=&gt; ::symbol::counter::num ',
+'Q' => 'if there is any question about what the namespace resolution is doing... ',
+'id' => 86,
+},
+{
+'A' => 'Namespaces include a special enforcement feature that can be activated using the -enforced flag. When enforcement is turned on, command and variable references can be intercepted, and the usual lookup rules can be modified. This supports the construction of "safe" namespaces, which interpret code from an untrusted source and deny access to commands which could damage the system.<br>Whenever a command name is encountered, the namespace facility checks to see if the current namespace context is enforced. If it is not, the usual name resolution rules are carried out. If it is, the namespace facility executes the following command in that context:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;enforce_cmd name<br>&nbsp;If this procedure returns an error, access to that command is denied. If it returns a null string, name resolution continues according to the usual rules. Otherwise, it should return the same string name, or the name of another command to be substituted in its place. This procedure is only invoked the first time a command name is encountered. The results are cached in the name resolution tables, so performance is not adversely affected.<br>Variable references are handled the same way, except that the following command is invoked to resolve the reference:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;enforce_var name<br>&nbsp;Note that enforcement is carried out before any of the usual name resolution rules come into play. Because of this, even absolute references like "::exec" or "::counter::next" can be intercepted and dealt with.<br>Because the enforcement procedures apply to all of the command/variable references in a namespace, it can be difficult to define procedures in an enforced namespace and have them work correctly. If you deny access to the proc command, for example, you will not be able to define any procedures in the namespace. To avoid problems like this, it is usually better to use enforced namespaces as follows. Set up a namespace containing the enforce_cmd and enforce_var procedures, along with any other code needed to enforce the namespace. Within that namespace, include a child namespace that is empty, but has enforcement turned on. Commands can be fed to the child namespace, which will automatically look to its parent for the enforcement procedures and all other commands/variables. Procedures may be referenced from the child, but they will actually execute in the parent namespace, which is not enforced.<br>&nbsp;In the following example, a "safe" namespace is constructed which will interpret any command string, but will guard access to commands like exec and open which are considered harmful. Calls to exec are intercepted and sent to safe_exec for execution. This logs the offending command in a file "security.log" and returns the null string. Calls to open are intercepted and sent to safe_open. This allows read access to ordinary files, but blocks write operations and execution of processes. Note that the interception and redirection of commands happens only when commands are interpreted in the namespace safe::isolated. In procedures like safe_exec and safe_open, which are interpreted in namespace safe, access to exec and open is allowed.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;namespace safe &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;proc interpret &#123;cmds&#125; &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;namespace isolated $cmds<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;proc safe_exec &#123;args&#125; &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set mesg "access denied: $args"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puts stderr $mesg<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;catch &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set fid [open "security.log" a]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puts $fid $mesg<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;close $fid<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;proc safe_open &#123;args&#125; &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set file [lindex $args 0]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if &#123;[string match |* $file]&#125; &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;error "cannot open process: $file"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set access [lindex $args 1]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if &#123;$access == "r"&#125; &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return [eval open $args]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;error "cannot open with write access: [lindex $args 0]"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;proc enforce_cmd &#123;name&#125; &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;global commands<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if &#123;[info exists commands($name)]&#125; &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return $commands($name)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return $name<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set commands(exec) safe_exec<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set commands(::exec) safe_exec<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set commands(open) safe_open<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set commands(::open) safe_open<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;proc enforce_var &#123;name&#125; &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if &#123;[string match *::* $name]&#125; &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;error "variable access denied: $name"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return $name<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;namespace isolated -local -enforced yes<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125; ',
+'Q' => 'what are "Safe Namespaces" ',
+'id' => 87,
+},
+{
+'A' => '[glob *.c]<br>&nbsp;\'ls *.c\' doesn\'t work... What you really want is one of the following:<br>&nbsp;&nbsp;&nbsp;&nbsp;tclsh % eval ls [glob *.c]<br>&nbsp;&nbsp;&nbsp;tclsh % eval exec ls [glob *.c] ;# ok in scripts, too<br>&nbsp;&nbsp;&nbsp;tclsh % exec /bin/sh -c "ls *.c" ;# ok in scripts, too ',
+'Q' => 'how can I expand out *.c ',
+'id' => 88,
+},
+{
+'A' => '<ul><li>\'\' is for string or character quoting, while () groups expressions, often in if-s and while-s.</li><li>"...&#092;[..." when using a range in regular expressions</li><li>double-escape parentheses (and more) when trying for matches in a regular expression.</li><li>variable, quote, command, and backslash substitutions are performed exactly once on a word, and do not affect word boundaries.</li><li>in braces, the backslash char escapes don\'t work: <br><br>regexp &#123;[^&#092;n]+&#125;<br><br>looks for strings not containing backslash or n. This is symptomatic of a whole class of uneasy interactions between regexp and Tcl syntax, which many Tcl-ers cite as the single biggest headeache when writing Tcl: "what to quote?"</li></ul> ',
+'Q' => 'what\'s the difference between "" and &#123;&#125; quoting ',
+'id' => 89,
+},
+{
+'A' => 'Tcl was intended to be used along with C code. Because of this,<br>there are several ways to combine the two. Here is a list of some<br>of them (with man page references for further info):<UL><LI>Adding Commands to Tcl<br>(<a target=win2 href="<a href=\'http://www.sco.com/Technology/tcl/man/tclAPI_man/CrtCommand.3.html">Tcl_CreateCommand</a>\'>http://www.sco.com/Technology/tcl/man/tclAPI_man/CrtCommand.3.html">Tcl_CreateCommand</a></a>)<LI>Command Traces<br>(<a target=win2 href="<a href=\'http://www.sco.com/Technology/tcl/man/tclAPI_man/CrtTrace.3.html">Tcl_CreateTrace</a>\'>http://www.sco.com/Technology/tcl/man/tclAPI_man/CrtTrace.3.html">Tcl_CreateTrace</a></a>)<LI>Variable Traces<br>(<a target=win2 href="<a href=\'http://www.sco.com/Technology/tcl/man/tclAPI_man/TraceVar.3.html">Tcl_TraceVar</a>\'>http://www.sco.com/Technology/tcl/man/tclAPI_man/TraceVar.3.html">Tcl_TraceVar</a></a>)<LI>Getting/Setting Variables<br>(<a target=win2 href="<a href=\'http://www.sco.com/Technology/tcl/man/tclAPI_man/SetVar.3.html">Tcl_GetVar/Tcl_SetVar</a>\'>http://www.sco.com/Technology/tcl/man/tclAPI_man/SetVar.3.html">Tcl_GetVar/Tcl_SetVar</a></a>)<LI>Linking Variables<br>(<a target=win2 href="<a href=\'http://www.sco.com/Technology/tcl/man/tclAPI_man/LinkVar.3.html">Tcl_LinkVar</a>\'>http://www.sco.com/Technology/tcl/man/tclAPI_man/LinkVar.3.html">Tcl_LinkVar</a></a>)<LI>Asynchronous Event Handlers<br>(<a target=win2 href="<a href=\'http://www.sco.com/Technology/tcl/man/tclAPI_man/Async.3.html">Tcl_AsyncCreate</a>\'>http://www.sco.com/Technology/tcl/man/tclAPI_man/Async.3.html">Tcl_AsyncCreate</a></a>)<LI>Adding Functions to <b>expr</b> Command<br>(<a target=win2 href="<a href=\'http://www.sco.com/Technology/tcl/man/tclAPI_man/CrtMathFnc.3.html">Tcl_CreateMathFunc</a>\'>http://www.sco.com/Technology/tcl/man/tclAPI_man/CrtMathFnc.3.html">Tcl_CreateMathFunc</a></a>)<LI>Custom <b>tclAppInit</b> Routine<br>(<a target=win2 href="<a href=\'http://www.sco.com/Technology/tcl/man/tclAPI_man/AppInit.3.html">Tcl_AppInit</a>\'>http://www.sco.com/Technology/tcl/man/tclAPI_man/AppInit.3.html">Tcl_AppInit</a></a>)<LI>Custom <b>main</b> Routine<br>(<a target=win2 href="<a href=\'http://psg.com/~joem/Tcl_Main.html">Tcl_Main</a>\'>http://psg.com/~joem/Tcl_Main.html">Tcl_Main</a></a>)<LI>Via Pipes<br>(<a target=win2 href="<a href=\'http://www.sco.com/Technology/tcl/man/tcl_man/open.n.html">open</a>\'>http://www.sco.com/Technology/tcl/man/tcl_man/open.n.html">open</a></a>)<LI><b>exec</b> Command<br>(<a target=win2 href="<a href=\'http://www.sco.com/Technology/tcl/man/tcl_man/exec.n.html">exec</a>\'>http://www.sco.com/Technology/tcl/man/tcl_man/exec.n.html">exec</a></a>)</UL><P>The last two do not provide nearly the same level of integration<br>as those near the top of the list, but they are necessary if you<br>do not have access to the source code.<br><P>There is plenty of documentation available that explains this in<br>further detail. See the &lt;CITE&gt;TclCommandWriting&lt;/CITE&gt; man page, included<br>with Extended Tcl or available via the WWW at<br><a target=win2 href="<a href=\'http://psg.com/~joem/CmdWrite.html">http://psg.com/~joem/CmdWrite.html</a><P>See\'>http://psg.com/~joem/CmdWrite.html">http://psg.com/~joem/CmdWrite.html</a><P>See</a> also<br><a target=win2 href="<a href=\'http://www.teraform.com/~lvirden/tcl-faq/part2.html">part\'>http://www.teraform.com/~lvirden/tcl-faq/part2.html">part</a> two of Larry\'s Tcl FAQ</a><br>and the<br><a target=win2 href="<a href=\'http://www.teraform.com/~lvirden/tcl-faq/bibliography/part1.html">Tcl\'>http://www.teraform.com/~lvirden/tcl-faq/bibliography/part1.html">Tcl</a> Bibliography</a><br>for other references.<br><P>In addition to all the ways possible with standard Tcl, several<br>extensions add others, notably via pseudo-ttys with<br><a target=win2 href="<a href=\'http://www.cme.nist.gov/pub/expect/index.html">expect</a>\'>http://www.cme.nist.gov/pub/expect/index.html">expect</a></a>,<br>and via X event, file event, timer, and idle callback handlers with<br><a target=win2 href="ftp://mirror.neosoft.com/pub/tcl/mirror/ftp.smli.com/tk4.2.tar.gz">Tk</a>.<P>Also check out &lt;CITE&gt;Embedded Tk&lt;/CITE&gt;, available from<br><a target=win2 href="ftp://ftp.vnet.net/pub/users/drh/">ftp://ftp.vnet.net/pub/users/drh/</a><br>and <a target=win2 href="<a href=\'http://www.cs.utah.edu/~beazley/SWIG">SWIG</a>\'>http://www.cs.utah.edu/~beazley/SWIG">SWIG</a></a>, available from<br><a target=win2 href="ftp://ftp.cs.utah.edu/pub/beazley/SWIG/">ftp://ftp.cs.utah.edu/pub/beazley/SWIG/</a> ',
+'Q' => '<a name="TclandC">Q.A3- How can I combine Tcl and C?</a> ',
+'id' => 90,
+},
+{
+'A' => 'With recent versions of Tcl and extensions that have been updated to work<br>with them, this is not a problem as the extensions can easily be dynamically<br>loaded. This is especially true with Tcl 8.0 which includes a namespace<br>facility to avoid possibly conflicts between extensions.<br><P>The rest of this section discusses the situation with older Tcl<br>versions or extensions that are configured to be loaded dynamically.<br><P>The simple answer is to create a custom Tcl_AppInit function to call<br>the Init procedures for each of the desired extensions. This can<br>be done by copying the tclAppInit.c (tkAppInit.c for Tk apps) file<br>from Tcl source distribution, modifying it, and then linking<br>your Tcl_AppInit function with the Tcl library.<br>For example, the standard Tcl_AppInit looks like this:<PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;int<br>&nbsp;&nbsp;&nbsp;&nbsp;Tcl_AppInit(interp)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tcl_Interp *interp; /* Interpreter for application. */<br>&nbsp;&nbsp;&nbsp;&nbsp;&#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* ... */<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (Tcl_Init(interp) == TCL_ERROR) &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return TCL_ERROR;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* ... */<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br></PRE><br>In order to add the &lt;SAMP&gt;foo&lt;/SAMP&gt; extension, you would add a call<br>to the foo init function, like this:<PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;int<br>&nbsp;&nbsp;&nbsp;&nbsp;Tcl_AppInit(interp)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tcl_Interp *interp; /* Interpreter for application. */<br>&nbsp;&nbsp;&nbsp;&nbsp;&#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* ... */<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (Tcl_Init(interp) == TCL_ERROR) &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return TCL_ERROR;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (Foo_Init(interp) == TCL_ERROR) &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return TCL_ERROR;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* ... */<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br></PRE><P>For more information, see the Tcl_AppInit man page and the<br>tclAppInit.c file.<br><P>The more complete answer is that the simple answer doesn\'t always<br>work. Many extensions require more extensive modifications and the way<br>to combine them depends on the specific extensions involved.<br><P>If you wish to include Extended Tcl, you should start with the<br>Tcl_AppInit function that comes with it. Also make sure when you<br>link the program that you include the Extended Tcl library<br><b>before</b> the standard Tcl library, for example:<PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;cc -o mytclsh mytclXAppInit.c -ltclx -ltcl ...<br></PRE><br><P>or for an interpreter including the Tk extensions:<br><PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;cc -o mywish mytkXAppInit.c -ltkx -ltk -ltclx -ltcl ...<br></PRE><br><P>On the positive side, there are also several packages<br>available that can aid in combining extensions, such as<br><a target=win2 href="ftp://ftp.neosoft.com/pub/tcl/alcatel/code/tcl-my-fancy-2.0.tar.gz">Tcl-my-fancy</a>,<br>or extensions that include configuration<br>files for combining them with other popular extensions.<br>For example, several extensions written by Sven Delmas allow you<br>to specify options to configure to generate a Makefile that<br>will build an interpreter containing the specified extensions.<br>See<br><a target=win2 href="<a href=\'http://www.teraform.com/~lvirden/tcl-faq/part5.html">part\'>http://www.teraform.com/~lvirden/tcl-faq/part5.html">part</a> five of Larry Virden\'s FAQ</a><br>for the location of these and other packages. ',
+'Q' => '<a name="CombiningExtensions">Q.A4- How do I combine several extensions to provide all the features I want?</a> ',
+'id' => 91,
+},
+{
+'A' => 'The "Plus" patches from<br><a target=win2 href="<a href=\'http://www.nici.kun.nl/~nijtmans">Jan\'>http://www.nici.kun.nl/~nijtmans">Jan</a> Nijtmans</a><br>(<a target=win2 href="mailto:nijtmans@nici.kun.nl">nijtmans@nici.kun.nl</a>)<br>include a make target for building a standalone interpreter. See<br><a target=win2 href="<a href=\'http://www.nici.kun.nl/tkpvm/pluspatch.html">http://www.nici.kun.nl/tkpvm/pluspatch.html</a><br><P>Additionally\'>http://www.nici.kun.nl/tkpvm/pluspatch.html">http://www.nici.kun.nl/tkpvm/pluspatch.html</a><br><P>Additionally</a>,<br><a target=win2 href="mailto:lowee@cpsc.ucalgary.ca">Earle Lowe (lowee@cpsc.ucalgary.ca)</a><br>has replied that:<br><pre><P>If you want to create a stand-alone program that will run anywhere<br>regardless of the presence/absence of TCL/Tk, than you need to go<br>through some more work.<br><P>Basically, this involves converting the TCL init files to C strings,<br>and then rather than calling Tcl_Init() and Tk_Init(), you call<br>Tcl_Eval() with the converted C strings as arguments.<br><P>I suggest getting the wish_compiler package by<br><a target=win2 href="mailto:alexei@cis.ufl.edu">Alexei Rodriguez (alexei@cis.ufl.edu)</a><br>from<br><a target=win2 href="ftp://ftp.neosoft.com/pub/tcl/alcatel/code/wish_compiler.shar.gz">ftp://ftp.neosoft.com/pub/tcl/alcatel/code/wish_compiler.shar.gz</a><br><P>This package contains a tcl2c converter, and instructions as to its use.<br><P>With some Makefile magic, you can use TCL/Tk as intended (as an<br>interpreted language using some version of wish) and when the code<br>works, you can create a stand-alone compiled program.<br></pre><br><P>Another option that is available is &quot;Embedded Tk&quot;.<br>You can get it from<br><a target=win2 href="ftp://ftp.vnet.net/pub/users/drh/">ftp://ftp.vnet.net/pub/users/drh/</a> ',
+'Q' => '<a name="Standalone">Q.A5- How do I create a stand alone program in case Tcl isn\'t installed?</a> ',
+'id' => 92,
+},
+{
+'A' => 'There are several tricks you can use, but the most common is to<br>make use of the fact that, in Tcl, the backslash character works as<br>a line continuation indicator, even within comments. So instead<br>of:<PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;#! /usr/local/bin/tclsh<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puts "Hello World"<br></PRE><P>You could use:<PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;#! /bin/sh<br>&nbsp;&nbsp;&nbsp;&nbsp;# The next line is executed by /bin/sh, but not Tcl &#092;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exec tclsh $0 $&#123;1+"$@"&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puts "Hello World"<br></PRE><P>and the script will run regardless of where tclsh is located<br>(as long as it is in one of the directories in the user\'s PATH). ',
+'Q' => '<a name="ExecNoPath">Q.A6- How do I make my script executable regardless of the location of tclsh?</a> ',
+'id' => 93,
+},
+{
+'A' => 'Often people ask why some language extension that they use often<br>(in fact, they may find it indispensible) isn\'t merged into the core<br>language.<br><P>It must be remembered that a lot of people use Tcl on<br>widely differing systems and in vastly different ways. Also, Tcl<br>was originally intended as an embedded language that would provide<br>the minimal programming constructs and framework upon which a<br>programmer could base the scripting language for their application.<br><P>Having said that, the core Tcl language <b>has</b> grown over<br>the years. Some of the added features have come from extensions<br>written by others. When the capabilities provided by extensions<br>are deemed to be of sufficient value to all users of Tcl, John<br>has added them to the base language. Some examples are associative<br>arrays, the file I/O commands (and file handles), and the<br><b>unknown</b> procedure, all of which appeared in<br><a target=win2 href="ftp://ftp.neosoft.com/pub/tcl/tclx-distrib/">Extended Tcl</a><br>before becoming part of standard Tcl.<br>Tk 4.0 and later contain the equivalent functionality of the<br><a target=win2 href="ftp://ftp.neosoft.com/pub/tcl/tclx-distrib/addinput-3.6b.gz">addinput</a><br>and<br><a target=win2 href="ftp://ftp.neosoft.com/pub/tcl/alcatel/extensions/photo-2.4.tar.gz">photo widget</a><br>extensions that were written by others for Tcl 7.3/Tk 3.6.<br>&nbsp;&lt;HR&gt;<br><H2><a name="SectionB">Programming Related Questions and Answers:</a></H2> ',
+'Q' => '<a name="Featuritis">Q.A7- Why isn\'t &lt;some extension&gt; part of the standard distribution?</a> ',
+'id' => 94,
+},
+{
+'A' => 'Use arrays or Extended Tcl keyed lists.<br><P>For example, if you did a:<br><PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;keylset ttyFields ttyName tty1a<br>&nbsp;&nbsp;&nbsp;&nbsp;keylset ttyFields baudRate 57600<br>&nbsp;&nbsp;&nbsp;&nbsp;keylset ttyFields parity strip<br></PRE><br><P>And then an <CODE>echo $ttyFields</CODE>, you\'d get:<br><PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;&#123;ttyName tty1a&#125; &#123;baudRate 57600&#125; &#123;parity strip&#125;<br></PRE><br><P>Or using arrays:<br><PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;set ttyFields(ttyName) tty1a<br>&nbsp;&nbsp;&nbsp;&nbsp;set ttyFields(baudRate) 57600<br>&nbsp;&nbsp;&nbsp;&nbsp;set ttyFields(parity) strip<br></PRE> ',
+'Q' => '<a name="AssociationLists">Q.B1- How can I create/use association lists or property lists?</a> ',
+'id' => 95,
+},
+{
+'A' => 'Tcl 8.0 includes a random number generator<br>as a function in the <CODE>expr</CODE> command (one is also available<br>in Extended Tcl as a standalone command and has been for quite a while).<br><P>For example, to generate a random number between 0 and 9 inclusive:<br><PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;set random_number [expr int(rand()*10)]<br></PRE><br><P>To get a value you can use as a seed (by calling <CODE>srand()</CODE>),<br>you might try one or a combination of these:<PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;[pid]<br>&nbsp;&nbsp;&nbsp;&nbsp;[file atime /dev/kmem] (Unix only)<br>&nbsp;&nbsp;&nbsp;&nbsp;[clock seconds] (Tcl 7.5 or newer)<br>&nbsp;&nbsp;&nbsp;&nbsp;[clock ticks] (Tcl 7.5 or newer)<br></PRE><br>The last of these is used, by default, if you do not specify a seed.<br><P>For older Tcl releases, there are several pseudo-random number generator<br>functions, written in straight Tcl, that have been posted to comp.lang.tcl,<br>see Larry\'s<br><a target=win2 href="<a href=\'http://www.teraform.com/~lvirden/tcl-faq/part4.html">tcl-faq/part4</a><br>for\'>http://www.teraform.com/~lvirden/tcl-faq/part4.html">tcl-faq/part4</a><br>for</a> a list.<br><P>Here is one that is syntax compatible with the one in Extended Tcl,<br>but implemented in standard Tcl. The constants are from Don Libes.<br>Be aware that there is little checking for valid arguments and that<br>the default seed value only works with Tcl 7.5 or newer.<br><PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;proc random &#123;args&#125; &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;global RNG_seed<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set max 259200<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set argcnt [llength $args]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if &#123; $argcnt &lt; 1 || $argcnt &gt; 2 &#125; &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;error "wrong # args: random limit | seed ?seedval?"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ![string compare [lindex $args 0] seed] &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if &#123; $argcnt == 2 &#125; &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set RNG_seed [lindex $args 1]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125; else &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set RNG_seed [expr &#092;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([pid]+[clock ticks])%$max]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if ![info exists RNG_seed] &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set RNG_seed [expr ([pid]+[clock ticks])%$max]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set RNG_seed [expr ($RNG_seed*7141+54773) % $max]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return [expr int(double($RNG_seed)*[lindex $args 0]/$max)]<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br></PRE> ',
+'Q' => '<a name="RandomNumbers">Q.B2- How can I generate a random number in Tcl?</a> ',
+'id' => 96,
+},
+{
+'A' => 'Assuming y requires multiple args and x returns multiple words, use<br>Tcl\'s eval command:<PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;eval y [x]<br></PRE> ',
+'Q' => '<a name="MultiWordArgs">Q.B3- How can I call one proc with the multi parameter value returned by another proc?</a> ',
+'id' => 97,
+},
+{
+'A' => 'Use upvar rather than try to use global variables when possible. If<br>the function is event driven, you are forced to use global variables.<br><PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;# print elements of an array<br>&nbsp;&nbsp;&nbsp;&nbsp;proc show_array arrayName &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;upvar $arrayName myArray<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreach element [array names myArray] &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puts stdout "$&#123;arrayName&#125;($element) = $myArray($element)"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set arval(0) zero<br>&nbsp;&nbsp;&nbsp;&nbsp;set arval(1) one<br>&nbsp;&nbsp;&nbsp;&nbsp;show_array arval<br></PRE><br><P>To return an array from a procedures, just take the array name in as an<br>argument, as above. Any changes you make in the array will be made in<br>the parent\'s array as well.<br><P><br><font color=red>Extended Tcl introduces a concept called keyed lists</font> which are arrays made out of lists of key-value pairs and can be passed by value to routines, over networks, etc. ',
+'Q' => '<a name="PassingArrays">Q.B4- How can I pass an array into a proc?</a> ',
+'id' => 98,
+},
+{
+'A' => 'For example, to grep a pattern out of a range of files, one might do:<br><P><br><a target=win2 href="mailto:karl@neosoft.com">Karl Lehenbauer (karl@NeoSoft.com)</a><br>writes:<br><PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;set files [glob /home/cole/stats/*]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;proc parseInfo &#123; site &#125; &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;global files<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#<br>&nbsp;&nbsp;&nbsp;&nbsp;# site is chosen from a listbox earlier<br>&nbsp;&nbsp;&nbsp;&nbsp;#<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set in [open [concat "|/usr/bin/grep $site $files"] r]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while &#123;[gets $in line]&gt;-1&#125; &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puts stderr $line<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;catch &#123;close $in&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br></PRE><br><P>One thing: the matching strings are <b>not</b> returned in directory order.<br><P>But what if I want to check the return code AND use the output of the command?<br><a target=win2 href="mailto:kennykb@dssv01.crd.ge.com">Kevin B. Kenny (kennykb@dssv01.crd.ge.com)</a><br>writes:<br><PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;if [catch &#123;exec ls&#125; data] &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# The exec got an error, and $errorCode has its termination status<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125; else &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# The exec succeeded<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;# In any case, `data\' contains all the output from the child process.<br></PRE><br><P>Note that<br><a target=win2 href="mailto:karl@neosoft.com">Karl Lehenbauer (karl@NeoSoft.com)</a><br>adds that errorCode<br>will be a list containing three elements, the string "CHILDSTATUS", the<br>process ID of the child, and the exit status of the child. ',
+'Q' => '<a name="CapturingSubprocOutput">Q.B5- How can I run an external command and read its output via a pipe?</a> ',
+'id' => 99,
+},
+{
+'A' => 'Rename the procedure to have no name, for example:<br><PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;rename procedureName ""<br></PRE> ',
+'Q' => '<a name="DeletingProcedures">Q.B6- How can I delete a procedure from within a script?</a> ',
+'id' => 100,
+},
+{
+'A' => 'Set the global variable <i>tcl_precision</i> to a<br>value in the range 1-17. For example:<PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;% expr 4*atan(1)<br>&nbsp;&nbsp;&nbsp;&nbsp;3.14159<br>&nbsp;&nbsp;&nbsp;&nbsp;% set tcl_precision 0<br>&nbsp;&nbsp;&nbsp;&nbsp;can\'t set "tcl_precision": improper value for precision<br>&nbsp;&nbsp;&nbsp;&nbsp;% set tcl_precision 3<br>&nbsp;&nbsp;&nbsp;&nbsp;3<br>&nbsp;&nbsp;&nbsp;&nbsp;% expr 4*atan(1)<br>&nbsp;&nbsp;&nbsp;&nbsp;3.14<br>&nbsp;&nbsp;&nbsp;&nbsp;% set tcl_precision 16<br>&nbsp;&nbsp;&nbsp;&nbsp;16<br>&nbsp;&nbsp;&nbsp;&nbsp;% expr 4*atan(1)<br>&nbsp;&nbsp;&nbsp;&nbsp;3.141592653589793<br>&nbsp;&nbsp;&nbsp;&nbsp;% set tcl_precision 18<br>&nbsp;&nbsp;&nbsp;&nbsp;can\'t set "tcl_precision": improper value for precision<br></PRE><br>In Tcl 8.0 this value defaults to 12, in 7.x, the default is 6. ',
+'Q' => '<a name="IncreasingPrecision">Q.B7- How can I get more digits of double precision?</a> ',
+'id' => 101,
+},
+{
+'A' => 'The procedure &lt;SAMP&gt;unknown&lt;/SAMP&gt; is called automatically with arguments <br>containing the command and its arguments for any command that couldn\'t be <br>found. In fact, Tcl and Extended Tcl use this feature to provide demand<br>loaded commands, and even entire libraries. Also, when using the<br>"tclsh" or "tcl" shells interactively, the &lt;SAMP&gt;unknown&lt;/SAMP&gt; procedure<br>enables the shell to run external programs (i.e. without typing<br>"exec" first).<br><P>So by modifying the unknown procedure you can provide your own extended<br>functionality, or even remove the demand loading capability if you so<br>desire. ',
+'Q' => '<a name="UnknownProcedure">Q.B8- How can I grab the command line when a non-built-in call is made?</a> ',
+'id' => 102,
+},
+{
+'A' => 'By using something like the following.<br><PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;set olddisplay $env(DISPLAY)<br>&nbsp;&nbsp;&nbsp;&nbsp;set env(DISPLAY) unix:0<br></PRE><br><P>Thanks to<br><a target=win2 href="mailto:joel@cs.berkeley.edu">Joel Fine (joel@cs.berkeley.edu)</a><br>for the answer.<br><P>You can also check if an environment variable exists, like this:<br><PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;if [info exists env(VARNAME)] &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# okay, it\'s there, use it<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set value $env(VARNAME)<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125; else &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# the environment var isn\'t set, use a default<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set value "the default value"<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br></PRE> ',
+'Q' => '<a name="EnvironmentVariables">Q.B9- How can I get or set an environment variable?</a> ',
+'id' => 103,
+},
+{
+'A' => 'In Tcl, numbers that start with a zero are interpreted as octal<br>values (or hexadecimal, if the zero is immediately followed by an \'x\').<br>Often, this is a useful feature, but there are some problems:<UL><LI>What if the number has invalid octal (hexadecimal) digits?<P>Prior to Tcl 7.4b3, the interpreter would try to interpret a<br>number such as 08 as a floating point value. Starting with 7.4b3,<br>the interpreter generates an error message when presented with<br>such a value.<LI>What if you want the value interpreted as a decimal number<br>(as if the leading zeros weren\'t there)?<P>You have to strip off the zeros. Here are two possible<br>implementations of a function "stripzeros":<PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;proc stripzeros &#123;value&#125; &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;regsub ^0+(.+) $value &#092;&#092;1 retval<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return $retval<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br></PRE><P>or<PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;proc stripzeros &#123;value&#125; &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set retval [string trimleft $value 0]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if &#123; ![string length $retval] &#125; &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return 0<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return $retval<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br></PRE><P>Then, whenever you are passing a value to a command that requires<br>an integer value, and there is the possibility that the value<br>has a leading zero, just pass it through this function first, i.e.<br>instead of:<PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;set dayofweek [expr $days%7]<br></PRE><P>use:<PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;set dayofweek [expr [stripzeros $days]%7]<br></PRE></UL> ',
+'Q' => '<a name="LeadingZeros">Q.B10- How can I use numbers with leading zeroes?</a> ',
+'id' => 104,
+},
+{
+'A' => 'The program name is assigned to the global variable<br><CODE>argv0</CODE> and any arguments to it are placed in the<br>global variable <CODE>argv</CODE> as a list. The variable<br><CODE>argc</CODE> is set to the number of elements in the list<br><CODE>argv</CODE>. As an example:<PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;#! /usr/local/bin/tclsh<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if &#123; $argc != 2 &#125; &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puts stderr "$argv0: Usage: $argv0 &lt;infile&gt; &lt;outfile&gt;"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exit 1<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set infile [lindex $argv 0]<br>&nbsp;&nbsp;&nbsp;&nbsp;set outfile [lindex $argv 1]<br></PRE> ',
+'Q' => '<a name="CommandLineArgs">Q.B11- How can I find the command line arguments to my application?</a> ',
+'id' => 105,
+},
+{
+'A' => 'Sometimes people find that Tcl behaves differently than they expect<br>(often because of the way some other language acts in a similar<br>situation). They then think this unexpected behavior is a bug.<br>Probably the most common occurance of this is in regard to comments.<br><P>In Tcl, everything passed to the parser must have proper list<br>structure, even comments (and yes comments are passed to the<br>parser, unlike in some languages where they are stripped at an<br>earlier stage). Generally, this means you need to make sure<br>your braces are evenly matched, even though they may be on a line<br>that is commented out.<br><P>So, for example, you have an <CODE>if</CODE> statement that tests a certain<br>condition, but you want to try testing a different condition.<br>You comment out the old condition and type a new <CODE>if</CODE> statement.<br>This code will cause an error that there is a<br>missing close-brace:<br><PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;## WRONG<br>&nbsp;&nbsp;&nbsp;&nbsp;if &#123; $newflag &#125; &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;# if &#123; $oldflag &#125; &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puts hello<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br></PRE><br><P>In this case, you have to balance the braces, for example:<br><PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;## CORRECT<br>&nbsp;&nbsp;&nbsp;&nbsp;if &#123; $newflag &#125; &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;# if &#123; $oldflag &#125; &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puts hello<br>&nbsp;&nbsp;&nbsp;&nbsp;# &#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br></PRE><br><P>Another interesting point about comments in Tcl is that the line<br>continuation mechanism still applies, so:<br><PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;# This is a comment line that ends with a backslash &#092;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and this line is still part of the comment<br></PRE> ',
+'Q' => '<a name="CommentStrangeness">Q.B12- I found a bug in the handling of comments!</a> ',
+'id' => 106,
+},
+{
+'A' => 'In Tcl 8.0, binary I/O is fully supported; just make sure the<br>channel is configured for binary mode (see the fconfigure.n man page).<br><P>In 7.x and older releases, the Tcl interpreter stores nearly everything<br>internally in null-terminated strings. This procludes the possibility of<br>directly storing binary data (or more specifically, anything with embedded<br>nulls).<br><P>However, certain operations can be performed without the data<br>being stored in Tcl variables. For example, file handles can be<br>attached directly to external programs, like this:<br><PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;set infp [open "|compress -dc $fileName"]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exec gzip -c $newFileName &lt;@ $infp<br></PRE><br><P>or in Extended Tcl:<br><PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;set infp [open "|compress -dc $fileName"]<br>&nbsp;&nbsp;&nbsp;&nbsp;set outfp [open "|gzip -c $newFileName" w]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;copyfile $infp $outfp<br></PRE><br><P>In Tcl 7.6, you can copy binary data between open channels using<br>the command <b>unsupported0</b>. However, as is indicated by<br>the name, it is not a method which should be relied on - it will <br>disappear in a future release, although proper support for handling<br>binary data should be added at that time.<br><P>Alternatively, you can in some way convert the data to a form<br>that is usable from Tcl:<UL><LI>Reading from or writing to a pipe that is connected to an<br>external filter, such as atob/btoa, uuencode/uudecode, or even od.<LI>A method of handling binary data one character at a time using<br>standard Tcl can be found in:<br><a target=win2 href="ftp://ftp.neosoft.com/pub/tcl/alcatel/code/binary-io-hack.shar.gz">ftp.neosoft.com:/pub/tcl/alcatel/code/binary-io-hack.shar.gz</a><LI>There are also two different extensions available that<br>enable the handling of binary data:<br><a target=win2 href="ftp://hplyot.obspm.fr/tcl/tclbin.tar.gz">tclbin</a> and<br><a target=win2 href="ftp://ftp.neosoft.com/pub/tcl/alcatel/extensions/BinarIO.tar.gz">BinarIO</a>.<br>The former is better for handling structured data, while the latter<br>works better for binary data streams.</UL><P>Thanks to<br><a target=win2 href="mailto:throop@aur.alcatel.com">Wayne Throop throop@aur.alcatel.com</a><br>for his contribution to this section. ',
+'Q' => '<a name="BinaryData">Q.B13- How can I input and output binary data?</a> ',
+'id' => 107,
+},
+{
+'A' => 'Extended Tcl offers many of these types of functions. For instance,<br>extended Tcl has the &lt;SAMP&gt;signal&lt;/SAMP&gt; command:<br>&nbsp;<pre><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<P>signal action siglist [command]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<P>where action is one of "default", "ignore", "error", "trap", "get",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;plus the POSIX "block" and "unblock" actions (available only on<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;POSIX systems, of course). Siglist is a list of either the symbolic<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or numeric Unix signal (the SIG prefix is optional). Command is your<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;error handler (or a simple &#123;puts stdout "Don\'t press *that* key!"&#125; :-)<br>&nbsp;&lt;SAMP&gt;trap&lt;/SAMP&gt; does what you expect, and I find &lt;SAMP&gt;error&lt;/SAMP&gt; and &lt;SAMP&gt;get&lt;/SAMP&gt; to be<br>extremely useful in interactive programs which demand keyboard traversal.<br><P>Extended Tcl also has things like fork, etc.<br></pre><br><P>Answer by<br><a target=win2 href="mailto:brad@neosoft.com">Brad Morrison (brad@NeoSoft.com)</a>. ',
+'Q' => '<a name="UnixSyscalls">Q.B14- How can I trap signals, and perform other more Unix specific functions?</a> ',
+'id' => 108,
+},
+{
+'A' => 'There is one and only one level of substitution possible<br>with every pass through the interpreter. Also, when doing<br>variable substitution, the interpreter finds the dollar sign and<br>then takes everything following it up until the next invalid<br>character (where invalid is defined as anything other than a letter,<br>digit, or underscore) as the name of the variable - well, that is,<br>unless it finds array notation or the <CODE>$&#123;varname&#125;</CODE> form.<br><P>In the case of <CODE>$$var</CODE>, the character after the first<br>dollar sign is an invalid character (another dollar sign), so there<br>is no variable name and variable substitution is not performed (the<br>dollar sign is left as is) and scanning starts again for any dollar<br>signs and a following variable name. It is immediately found at<br>that second dollar sign, the substitution is performed, and scanning<br>for dollar signs resumes with whatever was after the variable name.<br>Since there isn\'t anything else, substition is done for this pass<br>through the interpreter (remember it\'s only done once).<br><P>The <CODE>eval</CODE> command runs its arguments through<br>the interpreter, so you could use<br><CODE>eval</CODE> to cause a second pass through the interpreter,<br>and thus, have <CODE>$$var</CODE> work:<PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;% set a 5<br>&nbsp;&nbsp;&nbsp;&nbsp;5<br>&nbsp;&nbsp;&nbsp;&nbsp;% set var a<br>&nbsp;&nbsp;&nbsp;&nbsp;a<br>&nbsp;&nbsp;&nbsp;&nbsp;% puts $$var ;# This doesn\'t work<br>&nbsp;&nbsp;&nbsp;&nbsp;$a<br>&nbsp;&nbsp;&nbsp;&nbsp;% eval puts $$var ;# This does - but it\'s dangerous<br>&nbsp;&nbsp;&nbsp;&nbsp;5<br></PRE><P>However, if the contents of <b>var</b> contain any<br><b>special</b> characters (e.g. whitespace, semicolon) you\'ll<br>run into problems.<br><P>A better method is to take advantage of the behaviour of<br>the <CODE>set</CODE> command when given only one argument, and<br>combine command substitution with variable substitution:<PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;% puts [set $var] ;# This works safely<br>&nbsp;&nbsp;&nbsp;&nbsp;5<br></PRE><P>or, in fact, you could use just command substitution<br>(which is performed once for each <b>[ ]</b> pair):<PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;% puts [set [set var]] ;# as does this<br>&nbsp;&nbsp;&nbsp;&nbsp;5<br></PRE><P>Similarly, to print the values of <i>var1</i>, <i>var2</i>,<br>and <i>var3</i>:<PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;set var1 3.14159<br>&nbsp;&nbsp;&nbsp;&nbsp;set var2 hello<br>&nbsp;&nbsp;&nbsp;&nbsp;set var3 13<br>&nbsp;&nbsp;&nbsp;&nbsp;foreach num &#123;1 2 3&#125; &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puts "var$num = [set var$num]"<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br></PRE><P>will output:<PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;var1 = 3.14159<br>&nbsp;&nbsp;&nbsp;&nbsp;var2 = hello<br>&nbsp;&nbsp;&nbsp;&nbsp;var3 = 13<br></PRE><P>The <CODE>upvar</CODE> command can also be used to derefence<br>variables.<br><P>In addition, starting with version 7.4, the interpreter includes<br>the command <CODE>subst</CODE> which can be used to perform<br>substitutions.<br><P>Note that all of the above applies to array variables also. ',
+'Q' => '<a name="DoubleIndirect">Q.B15- How can I do a double indirect? - Why doesn\'t $$var work?</a> ',
+'id' => 109,
+},
+{
+'A' => 'A long article dealing with the issues can be found at<br><a target=win2 href="ftp://ftp.neosoft.com/pub/tcl/alcatel/docs/README.programmer.gz">ftp://ftp.neosoft.com/pub/tcl/alcatel/docs/README.programmer.gz</a><br><P>Here are some short answers:<br><P>Q. I\'m trying to build up a command for later execution but am<br>having trouble with variable values that include whitespace<br>or special characters.<br><P>A. The safest way to build up commands is to use the list command<br>so that you can keep track of the list structure. Avoid using<br>double quotes because you can end up with an extra trip through<br>the evaluator. We\'ll illustrate this with a command to create<br>a button that prints out the label on the button when you click it.<br><pre><P>Wrong answer #1:<PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;button $myname -text $label -command "puts stdout $label"<br></PRE><P>Why? because if $label has whitespace then the puts command will<br>&nbsp;&nbsp;&nbsp;&nbsp;be passed the wrong number of arguments. If $label has $ or [ ]<br>&nbsp;&nbsp;&nbsp;&nbsp;characters, they will be interpreted instead of printed.<P>Good answer #2:<PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;button $myname -text $label -command [list puts stdout $label]<br></PRE><P>Why? because list will properly quote the value of $label<br></pre><br><P>Q. I\'m trying to build up a command for later execution but am<br>having trouble getting some variables to evaluate now, and some<br>to evaluate later when the command is run.<br><P>A. The cleanest way to do this is to define a procedure that hides<br>the use of the variables at run time, and then build up a call to<br>that procedure using the list command as described previously. (You<br>can even define the procedure on the fly. It will have global scope<br>even it if is created within another procedure.)<br><pre><P>Wrong answer #1:<PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;button $myname -text $label -command &#092;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[list puts stdout $ArrayOfDynamicStuff($label)]<br></PRE><P>Why? The array value will be substituted when the button is created,<br>&nbsp;&nbsp;&nbsp;&nbsp;not later on when the button is clicked. Also, note that the<br>&nbsp;&nbsp;&nbsp;&nbsp;command is executed at the global scope, so it is not necessary<br>&nbsp;&nbsp;&nbsp;&nbsp;to include a "global ArrayOfDynamicStuff" in the command.<P>Wrong answer #2 (backquotes and list):<PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;button $myname -text $label -command &#092;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[list puts stdout &#092;$ArrayOfDynamicStuff($label)]<br></PRE><P>Why? Here the list command and the backquote of $ are fighting with<br>&nbsp;&nbsp;&nbsp;&nbsp;each other. The command ends up being something like:<PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;puts stdout &#123;$ArrayOfDynamicStuff(foo)&#125;<br></PRE><P>which prevents the substitution of the value of the array element.<P>Dubious answer #3 (backquotes and double-quotes):<PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;button $myname -text $label -command &#092;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"puts stdout &#092;$ArrayOfDynamicStuff($label)"<br></PRE><P>Why? This only works if the value of $label has no special characters<br>&nbsp;&nbsp;&nbsp;&nbsp;or whitespace.<P>Clean answer #4 (proc):<PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;proc doit &#123; i &#125; &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;global ArrayOfDynamicStuff<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puts stdout $ArrayOfDynamicStuff($i)<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;button $myname -text $label -command [list doit $label]<br></PRE><P>Why? Using little TCL procs for your button commands is a good habit<br>&nbsp;&nbsp;&nbsp;&nbsp;because it eliminates most needs for fancy quoting, and it<br>&nbsp;&nbsp;&nbsp;&nbsp;makes it easier to tweak the button command later on.<br></pre><br><P>Q. I\'m trying to pass along a variable number of args to another procedure<br>but I\'m having trouble getting the $args to expand right.<br><P>A. Avoid using eval and double quotes because that results in<br>an extra trip through the interpreter. The eval command will do<br>a concat of its arguments if there are more than one, so that<br>pretty much eliminates the need to group things with double quotes.<br>Let\'s extend the button example:<br><pre><P>Wrong answer #1:<PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;proc mybutton &#123; myname label args &#125; &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;button $myname -text $label -command [list puts stdout $label] $args<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br></PRE><P>Why? All the extra arguments to mybutton are grouped into one list<br>&nbsp;&nbsp;&nbsp;&nbsp;element that is but into the value of $args. However, the<br>&nbsp;&nbsp;&nbsp;&nbsp;button command expects to see individual arguments, not a sub-list.<br><P>Wrong answer #2:<PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;proc mybutton &#123; myname label args &#125; &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;eval "button $myname -text $label &#092;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-command [list puts stdout $label] $args"<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br></PRE><P>Why? The double quotes allow expansion of $label as well as $args, so if<br>&nbsp;&nbsp;&nbsp;&nbsp;$label has any whitespace, the button command will be malformed<br><P>Good answer #3:<PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;proc mybutton &#123; myname label args &#125; &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set cmd &#123;button $myname -text $label -command [list puts stdout $label]&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;eval $cmd $args<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br></PRE><P>Why? Eval will first concatenate its two arguments and then run the<br>&nbsp;&nbsp;&nbsp;&nbsp;result through the interpreter. Think of this as stripping off the<br>&nbsp;&nbsp;&nbsp;&nbsp;outer curly braces from $cmd and $arg and making a single list<br>&nbsp;&nbsp;&nbsp;&nbsp;with all the elements of both. $label will be evaluated exactly<br>&nbsp;&nbsp;&nbsp;&nbsp;once, so the puts command will remain good, and whatever went into<br>&nbsp;&nbsp;&nbsp;&nbsp;args will also be processed exactly one time.<br></pre><br><P>Q. Why do I get a syntax error in an if/while/for statement?<P>A. You may have written something like<PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;wish: set foo bar<br>&nbsp;&nbsp;&nbsp;&nbsp;wish: if &#123;$foo == bar&#125; &#123;puts stdout bar&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;syntax error in expression "$foo == bar"<br></PRE><br><P>in which bar is interpreted as neither a string nor a variable, since<br>strings as operands in expressions MUST be surrounded by double quotes<br>or braces.<br><P>Change to<PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;wish: if &#123;$foo == "bar"&#125; &#123;puts stdout bar&#125;<br></PRE><P>or<PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;wish: if &#123;$foo == &#123;bar&#125;&#125; &#123;puts stdout bar&#125;<br></PRE><br><P>always in expressions, depending on if you want expansion performed or<br>not.<br><P>Contributed by<br><a target=win2 href="mailto:d9jesper@dtek.chalmers.se">Jesper Blommaskog (d9jesper@dtek.chalmers.se)</a>. ',
+'Q' => '<a name="StringQuoting">Q.B16- How can I get quoted strings to work the way I want?</a> ',
+'id' => 110,
+},
+{
+'A' => 'Rather than sourcing the files explicitly, build a tcl library:<br><P>Step 1. Put the files in a common directory<br><P>Step 2. Build the tclIndex for the "library". I use a Makefile with<br>a convention like:<br><PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;install.index:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(cd $&#123;DESTDIR&#125;/tclscripts/lib; &#092;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo \'source /usr/local/lib/tcl/init.tcl;&#092;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;auto_mkindex . *.tk\' | tcl ; exit 0)<br></PRE><br><P>Step 3. Modify your tcl scripts to reference the library:<br><P>e.g.:<br><PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;# local additions<br>&nbsp;&nbsp;&nbsp;&nbsp;lappend auto_path /usr/local/lib/tcl_local $env(RDS_TCL_SCRIPTS)/lib<br></PRE><br><P>Now, as soon as your script tried to reference a procedure in the library,<br>the "unknown" command autoloads the procedure for you.<br><P>Contributed by<br><a target=win2 href="mailto:vanandel@ncar.ucar.edu">Joe VanAndel (vanandel@ncar.ucar.edu)</a>. ',
+'Q' => '<a name="ProcedureLibraries">Q.B17- How can I share procedures between multiple tcl applications?</a> ',
+'id' => 111,
+},
+{
+'A' => 'A user asked why<br><PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;linsert $list 0 ..<br></PRE><br><P>did not result in .. being inserted into list.<br><P><a target=win2 href="mailto:d9jesper@dtek.chalmers.se">Jesper Blommaskog (d9jesper@dtek.chalmers.se)</a> replied:<br><P>When doing list operations other than &lt;SAMP&gt;lappend&lt;/SAMP&gt;,<br>you must save the returned value. This applies to &lt;SAMP&gt;list&lt;/SAMP&gt;,<br>&lt;SAMP&gt;lindex&lt;/SAMP&gt;, &lt;SAMP&gt;lrange&lt;/SAMP&gt;, and &lt;SAMP&gt;lreplace&lt;/SAMP&gt; at least.<br><P>In this example, you would perhaps want to do something like:<br><PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;set list [ linsert $list 0 .. ]<br></PRE> ',
+'Q' => '<a name="ListInsertion">Q.B18- How can I get items inserted into a list?</a> ',
+'id' => 112,
+},
+{
+'A' => 'From <a target=win2 href="mailto:frank@arraysystems.nstn.ns.ca">Frank Smith (frank@arraysystems.nstn.ns.ca)</a><br>we are told that if you have Extended Tcl, you can<br><PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;read $fileId [fstat $fileId size]<br></PRE><br><P>This will read only the number of bytes currently available on <i>fileId</i><br>and consequently will not block. ',
+'Q' => '<a name="NonBlockingRead">Q.B19- How can I perform a non-blocking read on a file identifier?</a> ',
+'id' => 113,
+},
+{
+'A' => 'The stdio package has an optimization for speed that buffers characters so<br>that you can avoid un-necessary system calls. This isn\'t very good for<br>interactive use, so stdio changes its behaviour if the file is a terminal. When<br>you write to a pipe you are not writing to a terminal and so your output is<br>buffered, similarly when the program at the other end of the pipe writes its<br>response it is also buffered. The end result is the programs at both end of the<br>pipe stall waiting for input. It is possible to force the buffers to be written<br>using &lt;SAMP&gt;flush&lt;/SAMP&gt; in Tcl and fflush() in C, often though, you don\'t<br>have control over the program at the other end of the pipeline and in that case your only solution is to use a pseudo-teletype (pty). Unfortunately this<br>isn\'t all that easy.<br><P>While this isn\'t directly supported in Tcl, the &lt;SAMP&gt;spawn&lt;/SAMP&gt; command in<br><a target=win2 href="<a href=\'http://www.cme.nist.gov/pub/expect/index.html">expect</a><br>opens\'>http://www.cme.nist.gov/pub/expect/index.html">expect</a><br>opens</a> a pty and starts a command. ',
+'Q' => '<a name="BufferedPipes">Q.B20- How can I read and write from a pipe without locking up?</a> ',
+'id' => 114,
+},
+{
+'A' => 'Well, there is no one answer to this. Tcl itself, will tell you its<br>version, if you type:<br><PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;puts $tcl_version<br></PRE><br>or in older versions:<PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;info tclversion<br></PRE><br><P>To get the Tk version, use:<br><PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;puts $tk_version<br></PRE><br><P>Other extensions use other means (for example, Extended Tcl<br>uses <CODE>infox version</CODE> to return its version number).<br><P>Starting with the 7.4 version, the tclsh executable is, by<br>default, installed with the version number appended - making it<br>rather obvious which version you are running. However, if it is<br>not installed like that on your system, you can find out the<br>version from the shell prompt with something like:<br><PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;echo \'puts $tcl_version;exit 0\' | tclsh<br></PRE><P>(the <CODE>;exit 0</CODE> part is only needed for wish and its<br>derivatives, but doesn\'t hurt anything when it isn\'t needed) ',
+'Q' => '<a name="VersionQuery">Q.B21- How can I find what version I am running?</a> ',
+'id' => 115,
+},
+{
+'A' => '<a target=win2 href="mailto:ericbl@paramount.nikhefk.nikhef.nl">Eric Bleeker (ericbl@paramount.nikhefk.nikhef.nl)</a><br>has written:<br><pre><P>You may have written something like:<br><PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;% set foo "bar baz"<br>&nbsp;&nbsp;&nbsp;&nbsp;bar baz<br>&nbsp;&nbsp;&nbsp;&nbsp;% foreach aap $foo &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set $aap(1) "something"<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;can\'t read "aap(1)": variable isn\'t array<br></PRE><br><P>This means Tcl tries to substitute the array element <i>aap(1)</i> which doesn\'t<br>exist. To fix this use:<br><PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;% foreach aap $foo &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set [set aap](1) "something"<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br></PRE><br><P>In this case two arrays <i>bar</i> and <i>baz</i> are created.<br></pre><br><P>An alternative format is:<PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;% foreach aap $foo &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set $&#123;aap&#125;(1) "something"<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br></PRE> ',
+'Q' => '<a name="PointersToArrays">Q.B22- How can I use variables to hold array names?</a> ',
+'id' => 116,
+},
+{
+'A' => 'The <b>static</b> keyword in C is used for different purposes.<br>One of the most common is when you wish to have a variable that retains<br>its value across invocations of the same function (but without making<br>the variable globally available).<br><a target=win2 href="mailto:karl@neosoft.com">Karl Lehenbauer (karl@NeoSoft.com)</a><br>wrote the following procedure to emulate this behaviour:<PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;proc static &#123;args&#125; &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set procName [lindex [info level -1] 0]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;foreach varName $args &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;uplevel 1 "upvar #0 staticvars($procName:$varName) $varName"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br></PRE><br><P>Another common use, is when you want a global variable that is only<br>visible to functions within that particular source file. This is<br>best handled by a namespace facility. Tcl does not yet have a<br>built-in namespace facility, but several extensions are available<br>the provide one. See the software catalog in Larry\'s FAQ for<br>more info. ',
+'Q' => '<a name="StaticVariables">Q.B23- How can I make variables static, like in C?</a> ',
+'id' => 117,
+},
+{
+'A' => 'To get the ASCII value of a character:<PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;proc toASCII &#123; char &#125; &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scan $char %c value<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return $value<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puts "The ASCII value of \'A\' is [toASCII A]"<br></PRE><P>To convert from an ASCII value to a character:<PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;proc toChar &#123; value &#125; &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return [format %c $value]<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puts "The ASCII value 65 corresponds to the character \'[toChar 65]\'"<br></PRE> ',
+'Q' => '<a name="ASCIIValues">Q.B24- How can I convert between a character and its ASCII value?</a> ',
+'id' => 118,
+},
+{
+'A' => 'This error message comes from your shell, not Tcl.<br>The script probably starts with a <b>#!</b> that is followed<br>by a path to the Tcl interpreter that is too long for your system.<br>Many Unix systems are limited to 32 characters (including the<br><b>#!</b>) in this regard. So, something like this will fail:<PRE><br>&nbsp;&nbsp;&nbsp;&nbsp;#! /usr/home/homedir/very/long/path/tclsh<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# rest of script<br></PRE><P>You can either shorten the path by moving the tclsh executable to a<br>different directory or by using symbolic links. Another option is<br>to not specify the path at all. See the question<br><a target=win2 href="#ExecNoPath">"How do I make my script executable<br>regardless of the location of tclsh?"</a><br>for an example of how to do this. ',
+'Q' => '<a name="CommandNotFound">Q.D1- &quot;not found&quot; or &quot;Command not found&quot;</a> ',
+'id' => 119,
+},
+{
+'A' => 'You have probably commented out a line that ends with an open<br>curly brace. See<br><a target=win2 href="#CommentStrangeness">Question B12</a><br>for more info. ',
+'Q' => '<a name="InvalidCommandCloseBrace">Q.D2- invalid command name "&#125;"</a> ',
+'id' => 120,
+},
+{
+'A' => 'Your braces aren\'t balanced. Again, one likely, though perhaps<br>non-obvious, reason is improperly commented lines.<br>See <a target=win2 href="#CommentStrangeness">Question B12</a>. ',
+'Q' => '<a name="MissingCloseBrace">Q.D3- missing close-brace</a> ',
+'id' => 121,
+},
+{
+'A' => 'This error occurs when trying to perform some mathematical<br>operation that requires an integer value, but given a non-integer<br>value. While this is pretty obvious when the value supplied<br>is a floating point value or an alphabetic string, this error<br>can be confusing when the value is something that may look like<br>a valid integer. Specifically numbers that have leading zeros.<br>See the question<br><a target=win2 href="#LeadingZeros">How can I use numbers with leading zeros?</a><br>for an explanation. ',
+'Q' => '<a name="ExpectedInteger">Q.D5- expected integer but got ...</a> ',
+'id' => 122,
+},
+{
+'A' => 'If when linking an application you get an error saying that the<br><CODE>main</CODE> function was not found, it is probably because the<br>application was written for a version of Tcl prior to Tcl 7.4 and<br>you are linking it with version 7.4 (or later).<br><P>Older versions of Tcl included a <CODE>main</CODE><br>function in the library (<CODE>libtcl.a</CODE>).<br>This caused various problems, in particular with C++<br>programs, and it was removed starting with version 7.4b1.<br>The application being linked with the Tcl library must now provide<br>the <CODE>main</CODE> routine itself. ',
+'Q' => '<a name="MainUndefined">Q.D6- &quot;Undefined symbol: main&quot; or similar</a> ',
+'id' => 123,
+},
+{
+'A' => 'For building Tcl 7.4 and newer releases, there is now an on-line<br>database, maintained by Sun, for people to<br>query, if they have problems building the standard distribution.<br>If the software did not build automatically for you, check at<br><a target=win2 href="<a href=\'http://www.sunlabs.com/research/tcl/">http://www.sunlabs.com/research/tcl/</a><br>for\'>http://www.sunlabs.com/research/tcl/">http://www.sunlabs.com/research/tcl/</a><br>for</a> an entry regarding your platform. And please share your<br>experience, if there is no current entry and you were able to<br>get the distribution to build somehow.<br><P>Notes that were previously listed here, but which apply primarily<br>to older releases are now available in a separate document at:<br><a target=win2 href="<a href=\'http://psg.com/~joem/tcl/PlatformNotes.html">http://psg.com/~joem/tcl/PlatformNotes.html</a><br><P>See\'>http://psg.com/~joem/tcl/PlatformNotes.html">http://psg.com/~joem/tcl/PlatformNotes.html</a><br><P>See</a> also<br><a target=win2 href="#GetItWorking">Question A2</a> ',
+'Q' => 'where\'s a good resource for resolving tcl build problems ',
+'id' => 124,
+},
+{
+'A' => 'This problem can occur on SVR4, Solaris 2.x, and similar systems that<br>have both System V and BSD libraries. It happens when the interpreter<br>is compiled with include files that don\'t match the libraries to<br>which it is linked (specifically, readdir returns a different structure<br>than is expected). You need to modify the Makefile to make sure the<br>include files correspond to the libraries. ',
+'Q' => '<a name="GlobErrors">Q.E1- Why does <CODE>glob</CODE> cut off the first two characters of each filename?</a> ',
+'id' => 125,
+},
+{
+'A' => 'For Microsoft specific information see the FAQ maintained by<br><a target=win2 href="<a href=\'http://www.pconline.com/~erc">Eric\'>http://www.pconline.com/~erc">Eric</a> Foster-Johnson</a><br>(<a target=win2 href="mailto:erc@pconline.com">erc@pconline.com</a>). It is<br>available at:<br><a target=win2 href="<a href=\'http://www.pconline.com/~erc/tclwin.htm">http://www.pconline.com/~erc/tclwin.htm</a>\'>http://www.pconline.com/~erc/tclwin.htm">http://www.pconline.com/~erc/tclwin.htm</a></a> ',
+'Q' => '<a name="MSWindows">Q.E2- How do I get Tcl working on MS Windows (3.1, 95, or NT)?</a> ',
+'id' => 126,
+},
+{
+'A' => 'This is now supported for some platforms in the standard distribution.<P>You can also get the "Plus" patches, which include support for<br>additional platforms. For more information, see<br><a target=win2 href="<a href=\'http://www.nici.kun.nl/tkpvm/pluspatch.html">http://www.nici.kun.nl/tkpvm/pluspatch.html</a><P>Additionally\'>http://www.nici.kun.nl/tkpvm/pluspatch.html">http://www.nici.kun.nl/tkpvm/pluspatch.html</a><P>Additionally</a>, <a target=win2 href="<a href=\'http://www.neosoft.com/tcl">Extended\'>http://www.neosoft.com/tcl">Extended</a> Tcl</a><br>includes instructions for building shared libraries on many Unix systems.<br>You may be able to use this information, if your platform is not<br>supported by the plus patches. ',
+'Q' => '<a name="SharedLibs">Q.E3- How can I build the Tcl library as a shared library?</a> ',
+'id' => 127,
+},
+);

@@ -1,0 +1,18 @@
+<html><header><!-- randomSeed=123456;userID=langs;explicitExercise=verb_beXYZ_1/verb_beXYZ_2 -->  <title>Teacher</title></header>
+<body bgcolor=#cccccc><font face='arial'><script language=JavaScript src=../teacher/html/new.js></script><applet codebase=../teacher/html name=teacher code=teacher.class width=1 height=1></applet><script language="JavaScript">
+var adyn_url_offset='../teacher/html/'
+var cookieInitStr='teacherCookie.whichPanel = "simple_choose.htm";teacherCookie.lang_English_checked = "true";teacherCookie.lang_Spanish_checked = "true";teacherCookie.lang_German_checked = "true";teacherCookie.lang_French_checked = "true";teacherCookie.lang_Italian_checked = "true";'
+// exerciseType=undef, chosenTenses=undef, chosenTopics=0, canonizedTest=0, exerciseTargetCnt=15, reviewExerciseTargetCnt=7.5
+<!-- se('verb_beXYZ_1',) -->
+<!-- se('verb_beXYZ_2',) -->
+</script><h3>Sorry, I could not find any exercises matching your criteria</h3>
+
+Click on the <b>Back</b> button to return to the form, where you should modify your request to be less restrictive.
+</body></html>
+Nelson is setting binmode to 0: c:/perl/lib/CGI.pm
+Nelson is setting binmode to 0: c:/perl/lib/CGI.pm
+Nelson is setting binmode to 0: c:/perl/lib/CGI.pm
+Nelson is setting binmode to 0: c:/perl/lib/CGI.pm
+Nelson is setting binmode to 0: c:/perl/lib/CGI.pm
+adyn_cgi_util::MailAdyn(choose.cgi: no exercises matched your criteria, ): would mail adyn if I were on unix
+adyn_cgi_util::MailAdyn(choose.cgi exercises selected langs, ): would mail adyn if I were on unix

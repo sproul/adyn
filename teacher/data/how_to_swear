@@ -1,0 +1,18 @@
+@val = (
+{
+'English' => 'angrily',
+'French' => 'avec col`ere',
+'German' => 'b:ose',
+'Italian' => 'con rabbia',
+'Spanish' => 'enojadamente',
+'id' => 0,
+},
+{
+'English' => 'with sorrow',
+'French' => 'avec chagrin',
+'German' => '{mit Kummer>s>}',
+'Italian' => '{con il dolore>s>}',
+'Spanish' => 'con pena',
+'id' => 1,
+},
+);

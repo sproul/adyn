@@ -1,0 +1,48 @@
+<!--Copyright 2001 Adynware Corp., all rights reserved-->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"><!doctype html>
+<head>
+    <link rel="icon" type="image/gif" href="/favicon.GIF" />
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <title>current cookie values</title>
+</head>
+<body bgcolor=#cccccc><font face='arial'>
+<script language=JavaScript src=forms.js></script>
+<script src="jquery-1.9.0.js"></script>
+<script src="jquery-migrate-1.2.1.js"></script>
+<script src="jquery-cookie-1.4.0/jquery.cookie.js"></script><!-- https://github.com/carhartl/jquery-cookie/blob/master/jquery.cookie.js, https://raw.github.com/carhartl/jquery-cookie/master/jquery.cookie.js -->
+<script src="cookie_field.js"></script>
+
+<script type="text/javascript">
+function cookie_row(name, raw_mode)
+{
+    var val = __get_cookie(name,               raw_mode)
+    var dft = __get_cookie(name + "__default", raw_mode)
+    document.write("<tr><td>" + name + "</td><td>&nbsp;" + val + "</td><td>&nbsp;" + dft + "</td></tr>\n")
+}
+
+document.write("<table border=1> <tr><td>name </td><td>val</td><td> dft</td></tr>\n")
+
+cookie_row("userID", true)
+cookie_row("lang_French")
+cookie_row("lang_German")
+cookie_row("lang_Italian")
+cookie_row("lang_Spanish")
+cookie_row("exerciseType")
+cookie_row("reviewPercentage")
+cookie_row("tense__all")
+cookie_row("tense__present")
+cookie_row("tense__preterite")
+cookie_row("tense__past")
+cookie_row("tense__imperfect")
+cookie_row("tense__future")
+cookie_row("tense__conditional")
+cookie_row("tense__past_conditional")
+cookie_row("tense__future_perfect")
+cookie_row("tense__pluperfect")
+cookie_row("tense__subjunctive")
+cookie_row("tense__past_subjunctive")
+cookie_row("tense__imperative")
+
+document.write("</table>\n")
+
+</script>

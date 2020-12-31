@@ -1,0 +1,28 @@
+# formatted
+@val = (
+{
+'English' => 'the river',
+'French' => '{le rivi`ere>s>}',
+'German' => '{der Fluss>s>}',
+'Italian' => '{il fiume>s>}',
+'Spanish' => '{el r/io>s>}',
+'id' => 0,
+'suppress_Spanish_note#r/io;;Spanish' => 1,
+},
+{
+'English' => 'the waterfall',
+'French' => '{le cascade>s>}',
+'German' => '{der Wasserfall>s>}',
+'Italian' => '{il cascata>s>}',
+'Spanish' => '{el cascada>s>}',
+'id' => 1,
+},
+{
+'English' => 'the leak',
+'French' => '{le fuite>s>}',
+'German' => '{der Leck>s>}',
+'Italian' => '{il perdita>s>}',
+'Spanish' => '{el escape>s>}',
+'id' => 2,
+},
+);

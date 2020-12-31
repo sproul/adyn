@@ -1,0 +1,922 @@
+@val = (
+{
+'A' => 'JavaBean in a visual Bean development environment ',
+'Q' => 'Rowset can be used as a... ',
+'id' => 0,
+},
+{
+'A' => 'javax.sql ',
+'Q' => 'where does the jdbc2 code live ',
+'id' => 1,
+},
+{
+'A' => 'Yes, and so SQLException objects are chained: call<br>SQLException.getNextException() ',
+'Q' => 'can there be multiple exceptions in a single<br>database call? ',
+'id' => 2,
+},
+{
+'A' => 'type 1: jdbc-ODBC bridge<br>&nbsp;type 2: jdbc-native_client<br>&nbsp;type 3: jdbc-middleware_listener-native_client<br>&nbsp;type 4: jdbc speaks in the native tongue (e.g., ct-lib) directly ',
+'Q' => 'jdbc driver types ',
+'id' => 3,
+},
+{
+'A' => '<font size=-1>DriverManager</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> public static java.io.PrintStream </td><td>!getLogStream()</td></tr><tr><td width=20%> public static synchronized void </td><td>!setLogStream(java.io.PrintStream out)</td></tr><tr><td width=20%> private </td><td>DriverManager()</td></tr><tr><td width=20%> new </td><td>SQLPermission("setLog")</td></tr><tr><td width=20%> public static synchronized void </td><td>deregisterDriver(Driver driver)</td></tr><tr><td width=20%> private static Class </td><td>getCallerClass(ClassLoader callerClassLoader, String driverClassName)</td></tr><tr><td width=20%> private static native ClassLoader </td><td>getCallerClassLoader()</td></tr><tr><td width=20%> private static synchronized Connection </td><td>getConnection( String url, java.util.Properties info, ClassLoader callerCL) throws SQLException</td></tr><tr><td width=20%> public static synchronized Connection </td><td>getConnection(String url)</td></tr><tr><td width=20%> public static synchronized Connection </td><td>getConnection(String url, String user, String password) throws SQLException</td></tr><tr><td width=20%> public static synchronized Connection </td><td>getConnection(String url, java.util.Properties info) throws SQLException</td></tr><tr><td width=20%> public static synchronized Driver </td><td>getDriver(String url)</td></tr><tr><td width=20%> public static synchronized java.util.Enumeration </td><td>getDrivers()</td></tr><tr><td width=20%> public static java.io.PrintWriter </td><td>getLogWriter()</td></tr><tr><td width=20%> public static int </td><td>getLoginTimeout()</td></tr><tr><td width=20%> static void </td><td>initialize()</td></tr><tr><td width=20%> private static void </td><td>loadInitialDrivers()</td></tr><tr><td width=20%> public static void </td><td>println(String message)</td></tr><tr><td width=20%> public static synchronized void </td><td>registerDriver(java.sql.Driver driver)</td></tr><tr><td width=20%> public static void </td><td>setLogWriter(java.io.PrintWriter out)</td></tr><tr><td width=20%> public static void </td><td>setLoginTimeout(int seconds)</td></tr></table> ',
+'Q' => 'describe the DriverManager class ',
+'id' => 4,
+},
+{
+'A' => '<font size=-1>Connection</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> void </td><td>clearWarnings() throws SQLException</td></tr><tr><td width=20%> void </td><td>close() throws SQLException</td></tr><tr><td width=20%> void </td><td>commit() throws SQLException</td></tr><tr><td width=20%> Statement </td><td>createStatement() throws SQLException</td></tr><tr><td width=20%> Statement </td><td>createStatement(int resultSetType, int resultSetConcurrency)</td></tr><tr><td width=20%> Statement </td><td>createStatement(int resultSetType, int resultSetConcurrency, int resultSetHoldability) throws SQLException</td></tr><tr><td width=20%> boolean </td><td>getAutoCommit() throws SQLException</td></tr><tr><td width=20%> String </td><td>getCatalog() throws SQLException</td></tr><tr><td width=20%> int </td><td>getHoldability() throws SQLException</td></tr><tr><td width=20%> DatabaseMetaData </td><td>getMetaData() throws SQLException</td></tr><tr><td width=20%> int </td><td>getTransactionIsolation() throws SQLException</td></tr><tr><td width=20%> java.util.Map </td><td>getTypeMap() throws SQLException</td></tr><tr><td width=20%> SQLWarning </td><td>getWarnings() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>isClosed() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>isReadOnly() throws SQLException</td></tr><tr><td width=20%> String </td><td>nativeSQL(String sql) throws SQLException</td></tr><tr><td width=20%> CallableStatement </td><td>prepareCall(String sql) throws SQLException</td></tr><tr><td width=20%> CallableStatement </td><td>prepareCall(String sql, int resultSetType, int resultSetConcurrency) throws SQLException</td></tr><tr><td width=20%> CallableStatement </td><td>prepareCall(String sql, int resultSetType, int resultSetConcurrency, int resultSetHoldability) throws SQLException</td></tr><tr><td width=20%> PreparedStatement </td><td>prepareStatement(String sql)</td></tr><tr><td width=20%> PreparedStatement </td><td>prepareStatement(String sql, String columnNames[])</td></tr><tr><td width=20%> PreparedStatement </td><td>prepareStatement(String sql, int autoGeneratedKeys)</td></tr><tr><td width=20%> PreparedStatement </td><td>prepareStatement(String sql, int columnIndexes[])</td></tr><tr><td width=20%> PreparedStatement </td><td>prepareStatement(String sql, int resultSetType, int resultSetConcurrency)</td></tr><tr><td width=20%> PreparedStatement </td><td>prepareStatement(String sql, int resultSetType, int resultSetConcurrency, int resultSetHoldability)</td></tr><tr><td width=20%> void </td><td>releaseSavepoint(Savepoint savepoint) throws SQLException</td></tr><tr><td width=20%> void </td><td>rollback() throws SQLException</td></tr><tr><td width=20%> void </td><td>rollback(Savepoint savepoint) throws SQLException</td></tr><tr><td width=20%> void </td><td>setAutoCommit(boolean autoCommit) throws SQLException</td></tr><tr><td width=20%> void </td><td>setCatalog(String catalog) throws SQLException</td></tr><tr><td width=20%> void </td><td>setHoldability(int holdability) throws SQLException</td></tr><tr><td width=20%> void </td><td>setReadOnly(boolean readOnly) throws SQLException</td></tr><tr><td width=20%> Savepoint </td><td>setSavepoint() throws SQLException</td></tr><tr><td width=20%> Savepoint </td><td>setSavepoint(String name) throws SQLException</td></tr><tr><td width=20%> void </td><td>setTransactionIsolation(int level) throws SQLException</td></tr><tr><td width=20%> void </td><td>setTypeMap(java.util.Map map) throws SQLException</td></tr></table> ',
+'Q' => 'describe the Connection class ',
+'id' => 5,
+},
+{
+'A' => 'join between tables that don\'t have a field to cross-reference ',
+'Q' => 'outer join ',
+'id' => 6,
+},
+{
+'A' => '<font size=-1>Statement</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> void </td><td>addBatch( String sql ) throws SQLException</td></tr><tr><td width=20%> void </td><td>cancel() throws SQLException</td></tr><tr><td width=20%> void </td><td>clearBatch() throws SQLException</td></tr><tr><td width=20%> void </td><td>clearWarnings() throws SQLException</td></tr><tr><td width=20%> void </td><td>close() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>execute(String sql) throws SQLException</td></tr><tr><td width=20%> boolean </td><td>execute(String sql, String columnNames[]) throws SQLException</td></tr><tr><td width=20%> boolean </td><td>execute(String sql, int autoGeneratedKeys) throws SQLException</td></tr><tr><td width=20%> boolean </td><td>execute(String sql, int columnIndexes[]) throws SQLException</td></tr><tr><td width=20%> int[] </td><td>executeBatch() throws SQLException</td></tr><tr><td width=20%> ResultSet </td><td>executeQuery(String sql) throws SQLException</td></tr><tr><td width=20%> int </td><td>executeUpdate(String sql) throws SQLException</td></tr><tr><td width=20%> int </td><td>executeUpdate(String sql, String columnNames[]) throws SQLException</td></tr><tr><td width=20%> int </td><td>executeUpdate(String sql, int autoGeneratedKeys) throws SQLException</td></tr><tr><td width=20%> int </td><td>executeUpdate(String sql, int columnIndexes[]) throws SQLException</td></tr><tr><td width=20%> Connection </td><td>getConnection() throws SQLException</td></tr><tr><td width=20%> int </td><td>getFetchDirection() throws SQLException</td></tr><tr><td width=20%> int </td><td>getFetchSize() throws SQLException</td></tr><tr><td width=20%> ResultSet </td><td>getGeneratedKeys() throws SQLException</td></tr><tr><td width=20%> int </td><td>getMaxFieldSize() throws SQLException</td></tr><tr><td width=20%> int </td><td>getMaxRows() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>getMoreResults() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>getMoreResults(int current) throws SQLException</td></tr><tr><td width=20%> int </td><td>getQueryTimeout() throws SQLException</td></tr><tr><td width=20%> ResultSet </td><td>getResultSet() throws SQLException</td></tr><tr><td width=20%> int </td><td>getResultSetConcurrency() throws SQLException</td></tr><tr><td width=20%> int </td><td>getResultSetHoldability() throws SQLException</td></tr><tr><td width=20%> int </td><td>getResultSetType() throws SQLException</td></tr><tr><td width=20%> int </td><td>getUpdateCount() throws SQLException</td></tr><tr><td width=20%> SQLWarning </td><td>getWarnings() throws SQLException</td></tr><tr><td width=20%> void </td><td>setCursorName(String name) throws SQLException</td></tr><tr><td width=20%> void </td><td>setEscapeProcessing(boolean enable) throws SQLException</td></tr><tr><td width=20%> void </td><td>setFetchDirection(int direction) throws SQLException</td></tr><tr><td width=20%> void </td><td>setFetchSize(int rows) throws SQLException</td></tr><tr><td width=20%> void </td><td>setMaxFieldSize(int max) throws SQLException</td></tr><tr><td width=20%> void </td><td>setMaxRows(int max) throws SQLException</td></tr><tr><td width=20%> void </td><td>setQueryTimeout(int seconds) throws SQLException</td></tr></table><br>&nbsp;&nbsp;<font size=-1>PreparedStatement</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> void </td><td>!setUnicodeStream(int parameterIndex, java.io.InputStream x, int length) throws SQLException</td></tr><tr><td width=20%> void </td><td>addBatch() throws SQLException</td></tr><tr><td width=20%> void </td><td>clearParameters() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>execute() throws SQLException</td></tr><tr><td width=20%> ResultSet </td><td>executeQuery() throws SQLException</td></tr><tr><td width=20%> int </td><td>executeUpdate() throws SQLException</td></tr><tr><td width=20%> ResultSetMetaData </td><td>getMetaData() throws SQLException</td></tr><tr><td width=20%> ParameterMetaData </td><td>getParameterMetaData() throws SQLException</td></tr><tr><td width=20%> void </td><td>setArray(int i, Array x) throws SQLException</td></tr><tr><td width=20%> void </td><td>setAsciiStream(int parameterIndex, java.io.InputStream x, int length)</td></tr><tr><td width=20%> void </td><td>setBigDecimal(int parameterIndex, BigDecimal x) throws SQLException</td></tr><tr><td width=20%> void </td><td>setBinaryStream(int parameterIndex, java.io.InputStream x, int length) throws SQLException</td></tr><tr><td width=20%> void </td><td>setBlob(int i, Blob x) throws SQLException</td></tr><tr><td width=20%> void </td><td>setBoolean(int parameterIndex, boolean x) throws SQLException</td></tr><tr><td width=20%> void </td><td>setXXX(int parameterIndex, XXX x) throws SQLException</td></tr> ...<tr><td width=20%> void </td><td>setTimestamp(int parameterIndex, java.sql.Timestamp x, Calendar cal)</td></tr><tr><td width=20%> void </td><td>setURL(int parameterIndex, java.net.URL x) throws SQLException</td></tr></table><br>&nbsp;&nbsp;&nbsp;&nbsp;<font size=-1>CallableStatement</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> BigDecimal </td><td>!getBigDecimal(int parameterIndex, int scale)</td></tr><tr><td width=20%> Array </td><td>getArray(String parameterName) throws SQLException</td></tr><tr><td width=20%> Array </td><td>getArray(int i) throws SQLException</td></tr><tr><td width=20%> BigDecimal </td><td>getBigDecimal(String parameterName) throws SQLException</td></tr><tr><td width=20%> BigDecimal </td><td>getBigDecimal(int parameterIndex) throws SQLException</td></tr><tr><td width=20%> Blob </td><td>getBlob(String parameterName) throws SQLException</td></tr><tr><td width=20%> Blob </td><td>getBlob(int i) throws SQLException</td></tr><tr><td width=20%> XXX </td><td>getXXX(String parameterName) throws SQLException</td></tr> ...<tr><td width=20%> Object </td><td>getObject(int i, java.util.Map map) throws SQLException</td></tr><tr><td width=20%> Object </td><td>getObject(int parameterIndex) throws SQLException</td></tr><tr><td width=20%> Ref </td><td>getRef(String parameterName) throws SQLException</td></tr><tr><td width=20%> Ref </td><td>getRef(int i) throws SQLException</td></tr><tr><td width=20%> java.net.URL </td><td>getURL(String parameterName) throws SQLException</td></tr><tr><td width=20%> java.net.URL </td><td>getURL(int parameterIndex) throws SQLException</td></tr><tr><td width=20%> void </td><td>registerOutParameter(String parameterName, int sqlType)</td></tr><tr><td width=20%> void </td><td>registerOutParameter(String parameterName, int sqlType, String typeName)</td></tr><tr><td width=20%> void </td><td>registerOutParameter(String parameterName, int sqlType, int scale)</td></tr><tr><td width=20%> void </td><td>registerOutParameter(int paramIndex, int sqlType, String typeName)</td></tr><tr><td width=20%> void </td><td>registerOutParameter(int parameterIndex, int sqlType)</td></tr><tr><td width=20%> void </td><td>registerOutParameter(int parameterIndex, int sqlType, int scale)</td></tr><tr><td width=20%> void </td><td>setAsciiStream(String parameterName, java.io.InputStream x, int length)</td></tr><tr><td width=20%> void </td><td>setBigDecimal(String parameterName, BigDecimal x) throws SQLException</td></tr><tr><td width=20%> void </td><td>setBinaryStream(String parameterName, java.io.InputStream x, int length) throws SQLException</td></tr><tr><td width=20%> void </td><td>setBoolean(String parameterName, boolean x) throws SQLException</td></tr><tr><td width=20%> void </td><td>setXXX(String parameterName, XXX x) throws SQLException</td></tr> ...<tr><td width=20%> void </td><td>setURL(String parameterName, java.net.URL val) throws SQLException</td></tr><tr><td width=20%> boolean </td><td>wasNull() throws SQLException</td></tr></table> ',
+'Q' => 'describe the Statement class ',
+'id' => 7,
+},
+{
+'A' => 'ResultSet-------------------------<br>-move around: relative(int x), absolute(int x), next(), previous(), last(), first()<br>-where am I? isFirst(), isLast()<br>-get a value: XXX getXXX(int columnIndex), getXXX(String columnName),<br>RowSet-------------------------<br>-listeners: addRowSetListener(RowSetListener listener), removeRowSetListener(RowSetListener listener)<br>-directly update database: setXXX(int parameterIndex, XXX x) throws SQLException<br>&nbsp;<font size=-1>ResultSet</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> BigDecimal </td><td>!getBigDecimal(String columnName, int scale) throws SQLException</td></tr><tr><td width=20%> BigDecimal </td><td>!getBigDecimal(int columnIndex, int scale) throws SQLException</td></tr><tr><td width=20%> java.io.InputStream </td><td>!getUnicodeStream(String columnName) throws SQLException</td></tr><tr><td width=20%> java.io.InputStream </td><td>!getUnicodeStream(int columnIndex) throws SQLException</td></tr><tr><td width=20%> boolean </td><td>absolute( int row ) throws SQLException</td></tr><tr><td width=20%> void </td><td>afterLast() throws SQLException</td></tr><tr><td width=20%> void </td><td>beforeFirst() throws SQLException</td></tr><tr><td width=20%> void </td><td>cancelRowUpdates() throws SQLException</td></tr><tr><td width=20%> void </td><td>clearWarnings() throws SQLException</td></tr><tr><td width=20%> void </td><td>close() throws SQLException</td></tr><tr><td width=20%> void </td><td>deleteRow() throws SQLException</td></tr><tr><td width=20%> int </td><td>findColumn(String columnName) throws SQLException</td></tr><tr><td width=20%> boolean </td><td>first() throws SQLException</td></tr><tr><td width=20%> Array </td><td>getArray(String colName) throws SQLException</td></tr><tr><td width=20%> Array </td><td>getArray(int i) throws SQLException</td></tr><tr><td width=20%> java.io.InputStream </td><td>getAsciiStream(String columnName) throws SQLException</td></tr><tr><td width=20%> java.io.InputStream </td><td>getAsciiStream(int columnIndex) throws SQLException</td></tr><tr><td width=20%> BigDecimal </td><td>getBigDecimal(String columnName) throws SQLException</td></tr><tr><td width=20%> BigDecimal </td><td>getBigDecimal(int columnIndex) throws SQLException</td></tr><tr><td width=20%> java.io.InputStream </td><td>getBinaryStream(String columnName)</td></tr><tr><td width=20%> java.io.InputStream </td><td>getBinaryStream(int columnIndex)</td></tr><tr><td width=20%> Blob </td><td>getBlob(String colName) throws SQLException</td></tr><tr><td width=20%> Blob </td><td>getBlob(int i) throws SQLException</td></tr><tr><td width=20%> XXX </td><td>getXXX(String columnName) throws SQLException</td></tr> ...<tr><td width=20%> int </td><td>getType() throws SQLException</td></tr><tr><td width=20%> java.net.URL </td><td>getURL(String columnName) throws SQLException</td></tr><tr><td width=20%> java.net.URL </td><td>getURL(int columnIndex) throws SQLException</td></tr><tr><td width=20%> SQLWarning </td><td>getWarnings() throws SQLException</td></tr><tr><td width=20%> void </td><td>insertRow() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>isAfterLast() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>isBeforeFirst() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>isFirst() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>isLast() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>last() throws SQLException</td></tr><tr><td width=20%> void </td><td>moveToCurrentRow() throws SQLException</td></tr><tr><td width=20%> void </td><td>moveToInsertRow() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>next() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>previous() throws SQLException</td></tr><tr><td width=20%> void </td><td>refreshRow() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>relative( int rows ) throws SQLException</td></tr><tr><td width=20%> boolean </td><td>rowDeleted() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>rowInserted() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>rowUpdated() throws SQLException</td></tr><tr><td width=20%> void </td><td>setFetchDirection(int direction) throws SQLException</td></tr><tr><td width=20%> void </td><td>setFetchSize(int rows) throws SQLException</td></tr><tr><td width=20%> void </td><td>updateArray(String columnName, java.sql.Array x) throws SQLException</td></tr><tr><td width=20%> void </td><td>updateArray(int columnIndex, java.sql.Array x) throws SQLException</td></tr><tr><td width=20%> void </td><td>updateAsciiStream(String columnName, java.io.InputStream x, int length) throws SQLException</td></tr><tr><td width=20%> void </td><td>updateAsciiStream(int columnIndex, java.io.InputStream x, int length) throws SQLException</td></tr><tr><td width=20%> void </td><td>updateBigDecimal(String columnName, BigDecimal x) throws SQLException</td></tr><tr><td width=20%> void </td><td>updateBigDecimal(int columnIndex, BigDecimal x) throws SQLException</td></tr><tr><td width=20%> void </td><td>updateBinaryStream(String columnName, java.io.InputStream x, int length) throws SQLException</td></tr><tr><td width=20%> void </td><td>updateBinaryStream(int columnIndex, java.io.InputStream x, int length) throws SQLException</td></tr><tr><td width=20%> void </td><td>updateBlob(String columnName, java.sql.Blob x) throws SQLException</td></tr><tr><td width=20%> void </td><td>updateBlob(int columnIndex, java.sql.Blob x) throws SQLException</td></tr><tr><td width=20%> void </td><td>updateBoolean(String columnName, boolean x) throws SQLException</td></tr><tr><td width=20%> void </td><td>updateBoolean(int columnIndex, boolean x) throws SQLException</td></tr><tr><td width=20%> void </td><td>updateXXX(String columnName, XXX x) throws SQLException</td></tr> ...<tr><td width=20%> void </td><td>updateNull(String columnName) throws SQLException</td></tr><tr><td width=20%> void </td><td>updateNull(int columnIndex) throws SQLException</td></tr><tr><td width=20%> void </td><td>updateObject(String columnName, Object x) throws SQLException</td></tr><tr><td width=20%> void </td><td>updateObject(String columnName, Object x, int scale)</td></tr><tr><td width=20%> void </td><td>updateObject(int columnIndex, Object x) throws SQLException</td></tr><tr><td width=20%> void </td><td>updateObject(int columnIndex, Object x, int scale)</td></tr><tr><td width=20%> void </td><td>updateRef(String columnName, java.sql.Ref x) throws SQLException</td></tr><tr><td width=20%> void </td><td>updateRef(int columnIndex, java.sql.Ref x) throws SQLException</td></tr><tr><td width=20%> void </td><td>updateRow() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>wasNull() throws SQLException</td></tr></table><br>&nbsp;&nbsp;&nbsp;<font size=-1>RowSet</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> void </td><td>addRowSetListener(RowSetListener listener)</td></tr><tr><td width=20%> void </td><td>clearParameters() throws SQLException</td></tr><tr><td width=20%> void </td><td>execute() throws SQLException</td></tr><tr><td width=20%> void </td><td>removeRowSetListener(RowSetListener listener)</td></tr><tr><td width=20%> void </td><td>setArray(int i, Array x) throws SQLException</td></tr><tr><td width=20%> void </td><td>setBinaryStream(int parameterIndex, java.io.InputStream x, int length) throws SQLException</td></tr><tr><td width=20%> void </td><td>setBlob(int i, Blob x) throws SQLException</td></tr><tr><td width=20%> void </td><td>setCharacterStream(int parameterIndex, Reader reader, int length) throws SQLException</td></tr><tr><td width=20%> void </td><td>setClob(int i, Clob x) throws SQLException</td></tr><tr><td width=20%> void </td><td>setDate(int parameterIndex, java.sql.Date x, Calendar cal)</td></tr><tr><td width=20%> void </td><td>setObject(int parameterIndex, Object x) throws SQLException</td></tr><tr><td width=20%> void </td><td>setObject(int parameterIndex, Object x, int targetSqlType) throws SQLException</td></tr><tr><td width=20%> void </td><td>setObject(int parameterIndex, Object x, int targetSqlType, int scale)</td></tr><tr><td width=20%> void </td><td>setRef(int i, Ref x) throws SQLException</td></tr><tr><td width=20%> void </td><td>setTime(int parameterIndex, java.sql.Time x, Calendar cal)</td></tr><tr><td width=20%> void </td><td>setTimestamp(int parameterIndex, java.sql.Timestamp x, Calendar cal)</td></tr></table> ',
+'Q' => 'describe ResultSet ',
+'id' => 8,
+},
+{
+'A' => 'ResultSet:<br>int TYPE_FORWARD_ONLY: can only advance through the result set<br>int TYPE_SCROLL_INSENSITIVE: can move randomly, but db updates invisible<br>int TYPE_SCROLL_SENSITIVE: random movement, database updates visible<br>&nbsp;int CONCUR_READ_ONLY: lock the data during ResultSet\'s life<br>int CONCUR_UPDATABLE: allow updates<br>&nbsp;connection.createStatement(scrollType, ResultSet.CONCUR_READ_ONLY) ',
+'Q' => 'types of result sets ',
+'id' => 9,
+},
+{
+'A' => 'do a batch update:<br>statement.addBatch(sqlString);<br>statement.addBatch(sqlString);<br>statement.addBatch(sqlString);<br>statement.addBatch(sqlString); ',
+'Q' => 'efficient inserts ',
+'id' => 10,
+},
+{
+'A' => 'jdbc2: java.sql.Struct ',
+'Q' => 'data structure in SQL ',
+'id' => 11,
+},
+{
+'A' => '<font size=-1>Struct</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> Object[] </td><td>getAttributes() throws SQLException</td></tr><tr><td width=20%> Object[] </td><td>getAttributes(java.util.Map map) throws SQLException</td></tr><tr><td width=20%> String </td><td>getSQLTypeName() throws SQLException</td></tr></table> ',
+'Q' => 'describe the Struct class ',
+'id' => 12,
+},
+{
+'A' => 'execute SQL: "&#123; ? = call sp_whatever (?,?,....,?) &#125;"<br>callableStatement.registerOutParameter(1, Types.INTEGER);<br>preparedStatement.setXXX(int parameterIndex, XXX value); ',
+'Q' => 'call a stored procedure ',
+'id' => 13,
+},
+{
+'A' => 'XADataSource,<br>XAConnection, etc. ',
+'Q' => 'distributed transaction support ',
+'id' => 14,
+},
+{
+'A' => '<font size=-1>DatabaseMetaData</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> boolean </td><td>allProceduresAreCallable() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>allTablesAreSelectable() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>dataDefinitionCausesTransactionCommit()</td></tr><tr><td width=20%> boolean </td><td>dataDefinitionIgnoredInTransactions()</td></tr><tr><td width=20%> boolean </td><td>deletesAreDetected(int type) throws SQLException</td></tr><tr><td width=20%> boolean </td><td>doesMaxRowSizeIncludeBlobs() throws SQLException</td></tr><tr><td width=20%> ResultSet </td><td>getAttributes(String catalog, String schemaPattern, String typeNamePattern, String attributeNamePattern)</td></tr><tr><td width=20%> ResultSet </td><td>getBestRowIdentifier(String catalog, String schema, String table, int scope, boolean nullable) throws SQLException</td></tr><tr><td width=20%> String </td><td>getCatalogSeparator() throws SQLException</td></tr><tr><td width=20%> String </td><td>getCatalogTerm() throws SQLException</td></tr><tr><td width=20%> ResultSet </td><td>getCatalogs() throws SQLException</td></tr><tr><td width=20%> ResultSet </td><td>getColumnPrivileges(String catalog, String schema, String table, String columnNamePattern) throws SQLException</td></tr><tr><td width=20%> ResultSet </td><td>getColumns(String catalog, String schemaPattern, String tableNamePattern, String columnNamePattern)</td></tr><tr><td width=20%> Connection </td><td>getConnection() throws SQLException</td></tr><tr><td width=20%> ResultSet </td><td>getCrossReference( String primaryCatalog, String primarySchema, String primaryTable, String foreignCatalog, String foreignSchema, String foreignTable ) throws SQLException</td></tr><tr><td width=20%> int </td><td>getDatabaseMajorVersion() throws SQLException</td></tr><tr><td width=20%> int </td><td>getDatabaseMinorVersion() throws SQLException</td></tr><tr><td width=20%> String </td><td>getDatabaseProductName() throws SQLException</td></tr><tr><td width=20%> String </td><td>getDatabaseProductVersion() throws SQLException</td></tr><tr><td width=20%> int </td><td>getDefaultTransactionIsolation() throws SQLException</td></tr><tr><td width=20%> int </td><td>getDriverMajorVersion()</td></tr><tr><td width=20%> int </td><td>getDriverMinorVersion()</td></tr><tr><td width=20%> String </td><td>getDriverName() throws SQLException</td></tr><tr><td width=20%> String </td><td>getDriverVersion() throws SQLException</td></tr><tr><td width=20%> ResultSet </td><td>getExportedKeys(String catalog, String schema, String table) throws SQLException</td></tr><tr><td width=20%> String </td><td>getExtraNameCharacters() throws SQLException</td></tr><tr><td width=20%> String </td><td>getIdentifierQuoteString() throws SQLException</td></tr><tr><td width=20%> ResultSet </td><td>getImportedKeys(String catalog, String schema, String table) throws SQLException</td></tr><tr><td width=20%> ResultSet </td><td>getIndexInfo(String catalog, String schema, String table, boolean unique, boolean approximate)</td></tr><tr><td width=20%> int </td><td>getJDBCMajorVersion() throws SQLException</td></tr><tr><td width=20%> int </td><td>getJDBCMinorVersion() throws SQLException</td></tr><tr><td width=20%> int </td><td>getMaxBinaryLiteralLength() throws SQLException</td></tr><tr><td width=20%> int </td><td>getMaxCatalogNameLength() throws SQLException</td></tr><tr><td width=20%> int </td><td>getMaxCharLiteralLength() throws SQLException</td></tr><tr><td width=20%> int </td><td>getMaxColumnNameLength() throws SQLException</td></tr><tr><td width=20%> int </td><td>getMaxColumnsInGroupBy() throws SQLException</td></tr><tr><td width=20%> int </td><td>getMaxColumnsInIndex() throws SQLException</td></tr><tr><td width=20%> int </td><td>getMaxColumnsInOrderBy() throws SQLException</td></tr><tr><td width=20%> int </td><td>getMaxColumnsInSelect() throws SQLException</td></tr><tr><td width=20%> int </td><td>getMaxColumnsInTable() throws SQLException</td></tr><tr><td width=20%> int </td><td>getMaxConnections() throws SQLException</td></tr><tr><td width=20%> int </td><td>getMaxCursorNameLength() throws SQLException</td></tr><tr><td width=20%> int </td><td>getMaxIndexLength() throws SQLException</td></tr><tr><td width=20%> int </td><td>getMaxProcedureNameLength() throws SQLException</td></tr><tr><td width=20%> int </td><td>getMaxRowSize() throws SQLException</td></tr><tr><td width=20%> int </td><td>getMaxSchemaNameLength() throws SQLException</td></tr><tr><td width=20%> int </td><td>getMaxStatementLength() throws SQLException</td></tr><tr><td width=20%> int </td><td>getMaxStatements() throws SQLException</td></tr><tr><td width=20%> int </td><td>getMaxTableNameLength() throws SQLException</td></tr><tr><td width=20%> int </td><td>getMaxTablesInSelect() throws SQLException</td></tr><tr><td width=20%> int </td><td>getMaxUserNameLength() throws SQLException</td></tr><tr><td width=20%> String </td><td>getNumericFunctions() throws SQLException</td></tr><tr><td width=20%> ResultSet </td><td>getPrimaryKeys(String catalog, String schema, String table) throws SQLException</td></tr><tr><td width=20%> ResultSet </td><td>getProcedureColumns(String catalog, String schemaPattern, String procedureNamePattern, String columnNamePattern) throws SQLException</td></tr><tr><td width=20%> String </td><td>getProcedureTerm() throws SQLException</td></tr><tr><td width=20%> ResultSet </td><td>getProcedures(String catalog, String schemaPattern, String procedureNamePattern) throws SQLException</td></tr><tr><td width=20%> int </td><td>getResultSetHoldability() throws SQLException</td></tr><tr><td width=20%> String </td><td>getSQLKeywords() throws SQLException</td></tr><tr><td width=20%> int </td><td>getSQLStateType() throws SQLException</td></tr><tr><td width=20%> String </td><td>getSchemaTerm() throws SQLException</td></tr><tr><td width=20%> ResultSet </td><td>getSchemas() throws SQLException</td></tr><tr><td width=20%> String </td><td>getSearchStringEscape() throws SQLException</td></tr><tr><td width=20%> String </td><td>getStringFunctions() throws SQLException</td></tr><tr><td width=20%> ResultSet </td><td>getSuperTables(String catalog, String schemaPattern, String tableNamePattern) throws SQLException</td></tr><tr><td width=20%> ResultSet </td><td>getSuperTypes(String catalog, String schemaPattern, String typeNamePattern) throws SQLException</td></tr><tr><td width=20%> String </td><td>getSystemFunctions() throws SQLException</td></tr><tr><td width=20%> ResultSet </td><td>getTablePrivileges(String catalog, String schemaPattern, String tableNamePattern) throws SQLException</td></tr><tr><td width=20%> ResultSet </td><td>getTableTypes() throws SQLException</td></tr><tr><td width=20%> ResultSet </td><td>getTables(String catalog, String schemaPattern, String tableNamePattern, String types[]) throws SQLException</td></tr><tr><td width=20%> String </td><td>getTimeDateFunctions() throws SQLException</td></tr><tr><td width=20%> ResultSet </td><td>getTypeInfo() throws SQLException</td></tr><tr><td width=20%> ResultSet </td><td>getUDTs(String catalog, String schemaPattern, String typeNamePattern, int[] types)</td></tr><tr><td width=20%> String </td><td>getURL() throws SQLException</td></tr><tr><td width=20%> String </td><td>getUserName() throws SQLException</td></tr><tr><td width=20%> ResultSet </td><td>getVersionColumns(String catalog, String schema, String table) throws SQLException</td></tr><tr><td width=20%> boolean </td><td>insertsAreDetected(int type) throws SQLException</td></tr><tr><td width=20%> boolean </td><td>isCatalogAtStart() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>isReadOnly() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>locatorsUpdateCopy() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>nullPlusNonNullIsNull() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>nullsAreSortedAtEnd() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>nullsAreSortedAtStart() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>nullsAreSortedHigh() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>nullsAreSortedLow() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>othersDeletesAreVisible(int type) throws SQLException</td></tr><tr><td width=20%> boolean </td><td>othersInsertsAreVisible(int type) throws SQLException</td></tr><tr><td width=20%> boolean </td><td>othersUpdatesAreVisible(int type) throws SQLException</td></tr><tr><td width=20%> boolean </td><td>ownDeletesAreVisible(int type) throws SQLException</td></tr><tr><td width=20%> boolean </td><td>ownInsertsAreVisible(int type) throws SQLException</td></tr><tr><td width=20%> boolean </td><td>ownUpdatesAreVisible(int type) throws SQLException</td></tr><tr><td width=20%> boolean </td><td>storesLowerCaseIdentifiers() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>storesLowerCaseQuotedIdentifiers() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>storesMixedCaseIdentifiers() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>storesMixedCaseQuotedIdentifiers() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>storesUpperCaseIdentifiers() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>storesUpperCaseQuotedIdentifiers() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsANSI92EntryLevelSQL() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsANSI92FullSQL() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsANSI92IntermediateSQL() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsAlterTableWithAddColumn() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsAlterTableWithDropColumn() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsBatchUpdates() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsCatalogsInDataManipulation() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsCatalogsInIndexDefinitions() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsCatalogsInPrivilegeDefinitions() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsCatalogsInProcedureCalls() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsCatalogsInTableDefinitions() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsColumnAliasing() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsConvert() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsConvert(int fromType, int toType) throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsCoreSQLGrammar() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsCorrelatedSubqueries() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsDataDefinitionAndDataManipulationTransactions()</td></tr><tr><td width=20%> boolean </td><td>supportsDataManipulationTransactionsOnly()</td></tr><tr><td width=20%> boolean </td><td>supportsDifferentTableCorrelationNames() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsExpressionsInOrderBy() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsExtendedSQLGrammar() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsFullOuterJoins() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsGetGeneratedKeys() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsGroupBy() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsGroupByBeyondSelect() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsGroupByUnrelated() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsIntegrityEnhancementFacility() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsLikeEscapeClause() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsLimitedOuterJoins() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsMinimumSQLGrammar() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsMixedCaseIdentifiers() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsMixedCaseQuotedIdentifiers() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsMultipleOpenResults() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsMultipleResultSets() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsMultipleTransactions() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsNamedParameters() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsNonNullableColumns() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsOpenCursorsAcrossCommit() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsOpenCursorsAcrossRollback() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsOpenStatementsAcrossCommit() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsOpenStatementsAcrossRollback() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsOrderByUnrelated() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsOuterJoins() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsPositionedDelete() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsPositionedUpdate() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsResultSetConcurrency(int type, int concurrency)</td></tr><tr><td width=20%> boolean </td><td>supportsResultSetHoldability(int holdability) throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsResultSetType(int type) throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsSavepoints() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsSchemasInDataManipulation() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsSchemasInIndexDefinitions() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsSchemasInPrivilegeDefinitions() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsSchemasInProcedureCalls() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsSchemasInTableDefinitions() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsSelectForUpdate() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsStatementPooling() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsStoredProcedures() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsSubqueriesInComparisons() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsSubqueriesInExists() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsSubqueriesInIns() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsSubqueriesInQuantifieds() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsTableCorrelationNames() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsTransactionIsolationLevel(int level)</td></tr><tr><td width=20%> boolean </td><td>supportsTransactions() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsUnion() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>supportsUnionAll() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>updatesAreDetected(int type) throws SQLException</td></tr><tr><td width=20%> boolean </td><td>usesLocalFilePerTable() throws SQLException</td></tr><tr><td width=20%> boolean </td><td>usesLocalFiles() throws SQLException</td></tr></table> ',
+'Q' => 'DatabaseMetaData ',
+'id' => 15,
+},
+{
+'A' => 'ignore: &lt;%-- ... --%&gt;<br>comment which will go to the client: &lt;!-- ... --&gt; ',
+'Q' => 'jsp cmt ',
+'id' => 16,
+},
+{
+'A' => '&lt;%@ ... %&gt;<br>&nbsp;&lt;%@ include file="..." %&gt;<br>&nbsp;tells container the nature and characteristics of a JSP:<br>&nbsp;page directives<br>e.g.,<br>&lt;%@ page import="java.util.Date" %&gt;<br>&lt;%@ page isThreadSafe=false %&gt; (default is true)<br>&lt;%@ page session=false %&gt; uses a session? (Default is<br>true) ',
+'Q' => 'jsp compilation directives ',
+'id' => 17,
+},
+{
+'A' => 'there is an XML syntax used by XML-oriented tools which generate jsp<br>&nbsp;&lt;jsp:directive.include file="..."/&gt; ',
+'Q' => 'alternate form for jsp ',
+'id' => 18,
+},
+{
+'A' => '&lt;%@ taglib uri="http://www.beeshirts.com/tags" prefix="beeshirts" %&gt; ',
+'Q' => 'establish a tag library ',
+'id' => 19,
+},
+{
+'A' => '&lt;%@ include file="whatever.jsp" %&gt; ',
+'Q' => 'insert some jsp code ',
+'id' => 20,
+},
+{
+'A' => '3<br>declarations: &lt;%! /* Java declarations */ %&gt;<br>expressions: &lt;%= /* (String)(Java expression) */ %&gt;<br>scriptlets: &lt;% /* Java */ %&gt; ',
+'Q' => 'jsp scripting elements ',
+'id' => 21,
+},
+{
+'A' => 'page: javax.servlet.jsp.PageContext .getAttribute()<br>request: javax.servlet.ServletRequest.getAttribute()<br>session: javax.servlet.http.HttpSession.getValue()<br>application: javax.servlet.ServletContext.getAttribute() ',
+'Q' => 'match the possible scopes with the corresponding data structures which serve as repositories ',
+'id' => 22,
+},
+{
+'A' => 'JspFactory jspFactory = JspFactory.getDefaultFactory();<br>PageContext pC = jspFactory.getPageContext(Servlet, ServletRequest, ServletResponse, String errorPageURL, boolean needsSession, int buffer, boolean autoflush)<br>jspFactory.releasePageContext(pC) ',
+'Q' => 'how do you get a PageContext ',
+'id' => 23,
+},
+{
+'A' => '<font size=-1>PageContext</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> public Object </td><td>-findAttribute(String name)</td></tr><tr><td width=20%> public void </td><td>-forward(String relativeUrlPath) throws ServletException, IOException</td></tr><tr><td width=20%> public Object </td><td>-getAttribute(String name)</td></tr><tr><td width=20%> public Object </td><td>-getAttribute(String name, int scope)</td></tr><tr><td width=20%> public Enumeration </td><td>-getAttributeNamesInScope(int scope)</td></tr><tr><td width=20%> public int </td><td>-getAttributesScope(String name)</td></tr><tr><td width=20%> public Exception </td><td>-getException()</td></tr><tr><td width=20%> public JspWriter </td><td>-getOut()</td></tr><tr><td width=20%> public Object </td><td>-getPage()</td></tr><tr><td width=20%> public ServletRequest </td><td>-getRequest()</td></tr><tr><td width=20%> public ServletResponse </td><td>-getResponse()</td></tr><tr><td width=20%> public ServletConfig </td><td>-getServletConfig()</td></tr><tr><td width=20%> public ServletContext </td><td>-getServletContext()</td></tr><tr><td width=20%> public HttpSession </td><td>-getSession()</td></tr><tr><td width=20%> public void </td><td>-handlePageException(Exception e) throws ServletException, IOException</td></tr><tr><td width=20%> public void </td><td>-handlePageException(Throwable t) throws ServletException, IOException</td></tr><tr><td width=20%> public void </td><td>-include(String relativeUrlPath) throws ServletException, IOException</td></tr><tr><td width=20%> public void </td><td>-initialize(Servlet servlet, ServletRequest request, ServletResponse response, String errorPageURL, boolean needsSession, int bufferSize, boolean autoFlush) throws IOException, IllegalStateException, IllegalArgumentException</td></tr><tr><td width=20%> public void </td><td>-release()</td></tr><tr><td width=20%> public void </td><td>-removeAttribute(String name)</td></tr><tr><td width=20%> public void </td><td>-removeAttribute(String name, int scope)</td></tr><tr><td width=20%> public void </td><td>-setAttribute(String name, Object attribute)</td></tr><tr><td width=20%> public void </td><td>-setAttribute(String name, Object o, int scope)</td></tr><tr><td width=20%> public JspWriter </td><td>popBody()</td></tr><tr><td width=20%> public BodyContent </td><td>pushBody()</td></tr></table> ',
+'Q' => 'describe the PageContext class ',
+'id' => 24,
+},
+{
+'A' => '<font size=-1>HttpSession</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> public HttpSessionContext </td><td>!getSessionContext()</td></tr><tr><td width=20%> public Object </td><td>!getValue(String name)</td></tr><tr><td width=20%> public String[] </td><td>!getValueNames()</td></tr><tr><td width=20%> public void </td><td>!putValue(String name, Object value)</td></tr><tr><td width=20%> public void </td><td>!removeValue(String name)</td></tr><tr><td width=20%> public Object </td><td>getAttribute(String name)</td></tr><tr><td width=20%> public Enumeration </td><td>getAttributeNames()</td></tr><tr><td width=20%> public long </td><td>getCreationTime()</td></tr><tr><td width=20%> public String </td><td>getId()</td></tr><tr><td width=20%> public long </td><td>getLastAccessedTime()</td></tr><tr><td width=20%> public int </td><td>getMaxInactiveInterval()</td></tr><tr><td width=20%> public ServletContext </td><td>getServletContext()</td></tr><tr><td width=20%> public void </td><td>invalidate()</td></tr><tr><td width=20%> public boolean </td><td>isNew()</td></tr><tr><td width=20%> public void </td><td>removeAttribute(String name)</td></tr><tr><td width=20%> public void </td><td>setAttribute(String name, Object value)</td></tr><tr><td width=20%> public void </td><td>setMaxInactiveInterval(int interval)</td></tr></table> ',
+'Q' => 'describe the HttpSession class ',
+'id' => 25,
+},
+{
+'A' => '<font size=-1>ServletContext</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> public Servlet </td><td>!getServlet(String name) throws ServletException</td></tr><tr><td width=20%> public Enumeration </td><td>!getServletNames()</td></tr><tr><td width=20%> public Enumeration </td><td>!getServlets()</td></tr><tr><td width=20%> public void </td><td>!log(Exception exception, String msg)</td></tr><tr><td width=20%> public Object </td><td>getAttribute(String name)</td></tr><tr><td width=20%> public Enumeration </td><td>getAttributeNames()</td></tr><tr><td width=20%> public ServletContext </td><td>getContext(String uripath)</td></tr><tr><td width=20%> public String </td><td>getInitParameter(String name)</td></tr><tr><td width=20%> public Enumeration </td><td>getInitParameterNames()</td></tr><tr><td width=20%> public int </td><td>getMajorVersion()</td></tr><tr><td width=20%> public String </td><td>getMimeType(String file)</td></tr><tr><td width=20%> public int </td><td>getMinorVersion()</td></tr><tr><td width=20%> public RequestDispatcher </td><td>getNamedDispatcher(String name)</td></tr><tr><td width=20%> public String </td><td>getRealPath(String path)</td></tr><tr><td width=20%> public RequestDispatcher </td><td>getRequestDispatcher(String path)</td></tr><tr><td width=20%> public URL </td><td>getResource(String path) throws MalformedURLException</td></tr><tr><td width=20%> public InputStream </td><td>getResourceAsStream(String path)</td></tr><tr><td width=20%> public Set </td><td>getResourcePaths(String path)</td></tr><tr><td width=20%> public String </td><td>getServerInfo()</td></tr><tr><td width=20%> public String </td><td>getServletContextName()</td></tr><tr><td width=20%> public void </td><td>log(String message, Throwable throwable)</td></tr><tr><td width=20%> public void </td><td>log(String msg)</td></tr><tr><td width=20%> public void </td><td>removeAttribute(String name)</td></tr><tr><td width=20%> public void </td><td>setAttribute(String name, Object object)</td></tr></table> ',
+'Q' => 'describe the ServletContext class ',
+'id' => 26,
+},
+{
+'A' => '<font size=-1>ServletConfig</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> public String </td><td>getInitParameter(String name)</td></tr><tr><td width=20%> public Enumeration </td><td>getInitParameterNames()</td></tr><tr><td width=20%> public ServletContext </td><td>getServletContext()</td></tr><tr><td width=20%> public String </td><td>getServletName()</td></tr></table> ',
+'Q' => 'describe the ServletConfig class ',
+'id' => 27,
+},
+{
+'A' => '<font size=-1>ServletResponse</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> public void </td><td>flushBuffer() throws IOException</td></tr><tr><td width=20%> public int </td><td>getBufferSize()</td></tr><tr><td width=20%> public String </td><td>getCharacterEncoding()</td></tr><tr><td width=20%> public Locale </td><td>getLocale()</td></tr><tr><td width=20%> public ServletOutputStream </td><td>getOutputStream() throws IOException</td></tr><tr><td width=20%> public PrintWriter </td><td>getWriter() throws IOException</td></tr><tr><td width=20%> public boolean </td><td>isCommitted()</td></tr><tr><td width=20%> public void </td><td>reset()</td></tr><tr><td width=20%> public void </td><td>resetBuffer()</td></tr><tr><td width=20%> public void </td><td>setBufferSize(int size)</td></tr><tr><td width=20%> public void </td><td>setContentLength(int len)</td></tr><tr><td width=20%> public void </td><td>setContentType(String type)</td></tr><tr><td width=20%> public void </td><td>setLocale(Locale loc)</td></tr></table><br>&nbsp;&nbsp;<font size=-1>HttpServletResponse</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> public String </td><td>!encodeRedirectUrl(String url)</td></tr><tr><td width=20%> public String </td><td>!encodeUrl(String url)</td></tr><tr><td width=20%> public void </td><td>!setStatus(int sc, String sm)</td></tr><tr><td width=20%> public void </td><td>addCookie(Cookie cookie)</td></tr><tr><td width=20%> public void </td><td>addDateHeader(String name, long date)</td></tr><tr><td width=20%> public void </td><td>addHeader(String name, String value)</td></tr><tr><td width=20%> public void </td><td>addIntHeader(String name, int value)</td></tr><tr><td width=20%> public boolean </td><td>containsHeader(String name)</td></tr><tr><td width=20%> public String </td><td>encodeRedirectURL(String url)</td></tr><tr><td width=20%> public String </td><td>encodeURL(String url)</td></tr><tr><td width=20%> public void </td><td>sendError(int sc) throws IOException</td></tr><tr><td width=20%> public void </td><td>sendError(int sc, String msg) throws IOException</td></tr><tr><td width=20%> public void </td><td>sendRedirect(String location) throws IOException</td></tr><tr><td width=20%> public void </td><td>setDateHeader(String name, long date)</td></tr><tr><td width=20%> public void </td><td>setHeader(String name, String value)</td></tr><tr><td width=20%> public void </td><td>setIntHeader(String name, int value)</td></tr><tr><td width=20%> public void </td><td>setStatus(int sc)</td></tr></table> ',
+'Q' => 'describe the ServletResponse class ',
+'id' => 28,
+},
+{
+'A' => '<font size=-1>ServletRequest</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> public String </td><td>!getRealPath(String path)</td></tr><tr><td width=20%> public Object </td><td>getAttribute(String name)</td></tr><tr><td width=20%> public Enumeration </td><td>getAttributeNames()</td></tr><tr><td width=20%> public String </td><td>getCharacterEncoding()</td></tr><tr><td width=20%> public int </td><td>getContentLength()</td></tr><tr><td width=20%> public String </td><td>getContentType()</td></tr><tr><td width=20%> public ServletInputStream </td><td>getInputStream() throws IOException</td></tr><tr><td width=20%> public Locale </td><td>getLocale()</td></tr><tr><td width=20%> public Enumeration </td><td>getLocales()</td></tr><tr><td width=20%> public String </td><td>getParameter(String name)</td></tr><tr><td width=20%> public Map </td><td>getParameterMap()</td></tr><tr><td width=20%> public Enumeration </td><td>getParameterNames()</td></tr><tr><td width=20%> public String[] </td><td>getParameterValues(String name)</td></tr><tr><td width=20%> public String </td><td>getProtocol()</td></tr><tr><td width=20%> public BufferedReader </td><td>getReader() throws IOException</td></tr><tr><td width=20%> public String </td><td>getRemoteAddr()</td></tr><tr><td width=20%> public String </td><td>getRemoteHost()</td></tr><tr><td width=20%> public RequestDispatcher </td><td>getRequestDispatcher(String path)</td></tr><tr><td width=20%> public String </td><td>getScheme()</td></tr><tr><td width=20%> public String </td><td>getServerName()</td></tr><tr><td width=20%> public int </td><td>getServerPort()</td></tr><tr><td width=20%> public boolean </td><td>isSecure()</td></tr><tr><td width=20%> public void </td><td>removeAttribute(String name)</td></tr><tr><td width=20%> public void </td><td>setAttribute(String name, Object o)</td></tr><tr><td width=20%> public void </td><td>setCharacterEncoding(String env) throws java.io.UnsupportedEncodingException</td></tr></table><br>&nbsp;&nbsp;<font size=-1>HttpServletRequest</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> public boolean </td><td>!isRequestedSessionIdFromUrl()</td></tr><tr><td width=20%> public String </td><td>getAuthType()</td></tr><tr><td width=20%> public String </td><td>getContextPath()</td></tr><tr><td width=20%> public Cookie[] </td><td>getCookies()</td></tr><tr><td width=20%> public long </td><td>getDateHeader(String name)</td></tr><tr><td width=20%> public String </td><td>getHeader(String name)</td></tr><tr><td width=20%> public Enumeration </td><td>getHeaderNames()</td></tr><tr><td width=20%> public Enumeration </td><td>getHeaders(String name)</td></tr><tr><td width=20%> public int </td><td>getIntHeader(String name)</td></tr><tr><td width=20%> public String </td><td>getMethod()</td></tr><tr><td width=20%> public String </td><td>getPathInfo()</td></tr><tr><td width=20%> public String </td><td>getPathTranslated()</td></tr><tr><td width=20%> public String </td><td>getQueryString()</td></tr><tr><td width=20%> public String </td><td>getRemoteUser()</td></tr><tr><td width=20%> public String </td><td>getRequestURI()</td></tr><tr><td width=20%> public StringBuffer </td><td>getRequestURL()</td></tr><tr><td width=20%> public String </td><td>getRequestedSessionId()</td></tr><tr><td width=20%> public String </td><td>getServletPath()</td></tr><tr><td width=20%> public HttpSession </td><td>getSession()</td></tr><tr><td width=20%> public HttpSession </td><td>getSession(boolean create)</td></tr><tr><td width=20%> public java.security.Principal </td><td>getUserPrincipal()</td></tr><tr><td width=20%> public boolean </td><td>isRequestedSessionIdFromCookie()</td></tr><tr><td width=20%> public boolean </td><td>isRequestedSessionIdFromURL()</td></tr><tr><td width=20%> public boolean </td><td>isRequestedSessionIdValid()</td></tr><tr><td width=20%> public boolean </td><td>isUserInRole(String role)</td></tr></table> ',
+'Q' => 'describe the ServletRequest class ',
+'id' => 29,
+},
+{
+'A' => '9<br>object name/PageContext ID/type<br>&nbsp;request/REQUEST: javax.servlet.ServletRequest<br>response/RESPONSE: javax.servlet.ServletResponse<br>out/OUT: javax.servlet.http.JspWriter (much like a PrintWriter)<br>session/SESSION: javax.servlet.http.HttpSession<br>pageContext/PAGECONTEXT: javax.servlet.jsp.PageContext<br>page/PAGE: java.lang.Object (or "this" within Java code)<br>config/CONFIG: javax.servlet.jsp.ServletConfig<br>application/APPLICATION: javax.servlet.ServletContext<br>exception/EXCEPTION: java.lang.Throwable ',
+'Q' => 'PageContext defines some string names which<br>facilitate lookups of some common objects ',
+'id' => 30,
+},
+{
+'A' => '&lt;jsp:useBean id="identifierName"<br>scope="page|request|application|session"<br>[ class="val"|<br>type="val" |<br>class="val" type="val" |<br>beanName="bean name|&lt;%= expression %&gt;" type="specialClass"] &gt;<br>&nbsp;if an existing JavaBean matching the criteria cannot be found, a new<br>one is created using java.beans.Beans.instantiate()<br>&nbsp;specialClass: lets you choose which type from the object\'s class<br>hierarchy will be used ',
+'Q' => 'jsp: associate a JavaBean with an identifier ',
+'id' => 31,
+},
+{
+'A' => '&lt;jsp:setProperty<br>&lt;jsp:getProperty ',
+'Q' => 'jsp: set/get a field in a JavaBean ',
+'id' => 32,
+},
+{
+'A' => '&lt;jsp:plugin ',
+'Q' => 'embed a JavaBean or Java applet within<br>a response page ',
+'id' => 33,
+},
+{
+'A' => '&lt;jsp:taglib<br>point at Java classes which are referred to as tag handlers, and are<br>simple non visible JavaBean components that implement a special tag<br>handling interface contract<br>&nbsp;extend classes in javax.servlet.jsp.tagext<br>&nbsp;&nbsp;configure using a tag library descriptor (TLD), whose location is<br>defined by the &lt;taglib&gt; element within the web.xml file ',
+'Q' => 'define custom tags ',
+'id' => 34,
+},
+{
+'A' => 'TP monitors are middle tier servers that sit between a distributed<br>transaction application client and resources (e.g., databases),<br>providing the following services:<br>&nbsp;naming service support<br>Connection handling<br>resource handling<br>availability assurance: infrastructure can provide for failover and<br>load balancing across servers ',
+'Q' => 's/w to support transactions ',
+'id' => 35,
+},
+{
+'A' => '1. largely proprietary<br>&nbsp;2. remote procedure-oriented<br>&nbsp;3. not very well suited to object-oriented or component-based system<br>development paradigms<br>&nbsp;and so OTMs (object transaction monitors) came into being<br>like Inprise ITS, and Iona OrbixOTM.<br>&nbsp;both of those are built on top of an ORB.<br>&nbsp;OTMs evolved into application servers<br>&nbsp;Inprise makes "Visibroker for Java ORB" ',
+'Q' => 'what\'s wrong with tp monitors? ',
+'id' => 36,
+},
+{
+'A' => 'Distributed Network Architecture<br>tightly integrated with Windows, of course ',
+'Q' => 'Microsoft\'s enterprise application framework ',
+'id' => 37,
+},
+{
+'A' => 'enterprise resource planning (erp) software<br>sap, j d Edwards, peoplesoft ',
+'Q' => 'nonstandardized application-specific frameworks ',
+'id' => 38,
+},
+{
+'A' => 'jtapi -- Java telephony API ',
+'Q' => 'Java-based means for supporting telephony ',
+'id' => 39,
+},
+{
+'A' => 'one or more Web and EJB modules represented by WAR and EJB JAR files<br>packaged into an EAR file along with an XML j2ee deployment<br>descriptor ',
+'Q' => 'how is a j2ee enterprise application composed? ',
+'id' => 40,
+},
+{
+'A' => 'is theoretically not the same as a container. But since there are no<br>standardized interfaces between these two entities, they tend to be<br>bound together by proprietary means, and so considered a unit in the<br>literature. ',
+'Q' => 'application server v. container ',
+'id' => 41,
+},
+{
+'A' => 'deployment descriptor ',
+'Q' => 'j2ee application dd ',
+'id' => 42,
+},
+{
+'A' => 'org.omg.CORBA.ORBInitialHost system property needs to be set to the<br>host name for the name service<br>&nbsp;java.naming.factory.initialValue system property defines the initial<br>jndi context factory class<br>&nbsp;[different settings required for BEA, etc.] ',
+'Q' => 'stand-alone client running under the j2ee<br>reference implementation startup args ',
+'id' => 43,
+},
+{
+'A' => 'Context context = new InitialContext();<br>&nbsp;// Look up server reference using raw JNDI name<br>Object object = context.lookup("CreditManagerHome");<br>&nbsp;CreditManagerSessionHome creditManagerHome =<br>(CreditManagerSessionHome)<br>PortableRemoteObject.narrow(object,<br>ejava.ejbch35.creditmgr.CreditManagerSessionHome.class); ',
+'Q' => 'lookup code (using jndi) ',
+'id' => 44,
+},
+{
+'A' => '<ul><li>JavaBeans model defines a means for building Java-based components for use in containers that<ul><li>have a nondistributed nature</li><li>are amenable to use in client side GUIs (e.g., hooking objects by events)</li></ul></li><li>enterprise JavaBeans model<ul><li>provides a structure for defining components within a container supporting distributed access</li><li>are predominantly server side</li><li>defined standard methods to enable lifecycle management by the container</li><li>provides a standard way to encapsulate a data source</li><li>provides a standard to define the configuration and deployment characteristics of a component (via deployment descriptors) regardless of its implementation</li><li>provides a way to define the security characteristics</li><li>provides a way to define the transaction characteristics</li></ul> ',
+'Q' => 'JavaBeans vs. enterprise JavaBeans ',
+'id' => 45,
+},
+{
+'A' => 'javax.ejb.deployment package had support in ejb v1; deprecated in ejb<br>v1.1 ',
+'Q' => 'predecessor for DDs ',
+'id' => 46,
+},
+{
+'A' => '1. session beans: perform some action and possibly return results to<br>the client: these are "Verbs"<br>&nbsp;a stateless<br>b stateful<br>&nbsp;2. entity beans: encapsulate data<br>&nbsp;a Bean-Managed Persistence<br>a Container-Managed Persistence ',
+'Q' => '</li></ul></li></ul>ejb types ',
+'id' => 47,
+},
+{
+'A' => 'EJBs are packaged into EJB JARs<br>sometimes EJB JARs are packaged into a J2EE EAR application<br>["packager" is a tool which can be used to accomplish this step] ',
+'Q' => 'interesting server side enterprise JavaBean development file types ',
+'id' => 48,
+},
+{
+'A' => 'c:/Program Files/sams_book_on_j2ee/examples/src/ejava/ejbch37/transactions/ejb-jar.xml<br>7<br>description<br>name<br>icons<br>enterprise-beans<br>security-role<br>method-permission<br>assembly-descriptor -&gt; container-transaction ',
+'Q' => 'ejb deployment descriptor root children ',
+'id' => 49,
+},
+{
+'A' => '%JAVA_HOME%&#092;bin&#092;java -Dorg.omg.CORBA.ORBInitialHost=localhost<br>-Djava.naming.factory.initialValue=com.sun.enterprise.naming.SerialInitCon<br>textFactory ejava.ejbch36.customer.TestClient ',
+'Q' => 'Java invocation for stand-alone client<br>running with the reference implementation from<br>c:/Program Files/sams_book_on_j2ee/examples/src/ejava/ejbch36/runJ2EEClient.bat ',
+'id' => 50,
+},
+{
+'A' => '%JAVA_HOME%&#092;bin&#092;java<br>-Djava.naming.factory.initial=weblogic.jndi.WLInitialContextFactory<br>-Djava.naming.provider.url=t3://localhost:7001/ -classpath %CLASSPATH%<br>ejava.ejbch36.browse.TestClient ',
+'Q' => 'Web logic startup from<br>c:/Program Files/sams_book_on_j2ee/examples/src/ejava/ejbch36/browse/runWebLogicClient.bat ',
+'id' => 51,
+},
+{
+'A' => 'may well be maintained in a pool by the container, and handed out to<br>clients with no attempt to maintain a correspondence between client<br>and bean ',
+'Q' => 'stateless session beans ',
+'id' => 52,
+},
+{
+'A' => '<font size=-1>java.io.Serializable</font><br>&nbsp;<font size=-1>EnterpriseBean</font><br>&nbsp;&nbsp;&nbsp;<font size=-1>EntityBean</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> public void </td><td>ejbActivate() throws EJBException, RemoteException</td></tr><tr><td width=20%> public void </td><td>ejbLoad() throws EJBException, RemoteException</td></tr><tr><td width=20%> public void </td><td>ejbPassivate() throws EJBException, RemoteException</td></tr><tr><td width=20%> public void </td><td>ejbRemove() throws RemoveException, EJBException,</td></tr><tr><td width=20%> public void </td><td>ejbStore() throws EJBException, RemoteException</td></tr><tr><td width=20%> public void </td><td>setEntityContext(EntityContext ctx) throws EJBException,</td></tr><tr><td width=20%> public void </td><td>unsetEntityContext() throws EJBException, RemoteException</td></tr></table><br>&nbsp;&nbsp;&nbsp;<font size=-1>MessageDrivenBean</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> void </td><td>ejbRemove() throws EJBException</td></tr><tr><td width=20%> void </td><td>setMessageDrivenContext(MessageDrivenContext ctx) throws EJBException</td></tr></table><br>&nbsp;&nbsp;&nbsp;<font size=-1>SessionBean</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> void </td><td>ejbActivate() throws EJBException, RemoteException</td></tr><tr><td width=20%> void </td><td>ejbPassivate() throws EJBException, RemoteException</td></tr><tr><td width=20%> void </td><td>ejbRemove() throws EJBException, RemoteException</td></tr><tr><td width=20%> void </td><td>setSessionContext(SessionContext ctx) throws EJBException,</td></tr></table> ',
+'Q' => 'EnterpriseBean hierarchy ',
+'id' => 53,
+},
+{
+'A' => 'are "marker" interfaces; they send a message as to purpose of the<br>object ',
+'Q' => 'empty interfaces ',
+'id' => 54,
+},
+{
+'A' => 'No. since there is no state, the bean can be just handed off to the<br>next client who needs one, or returned to the pool ',
+'Q' => 'if a client is done with a stateless<br>session bean, must the container call<br>ejbRemove? ',
+'id' => 55,
+},
+{
+'A' => '1. instantiate ejb<br>2. ejb.setSessionContext(SessionContext)<br>3. ejb.ejbCreate<br>4. add ejb to the pool<br>5. delegate client calls<br>6. ejb.ejbRemove when the resources must be freed ',
+'Q' => 'lifecycle of a stateless session bean ',
+'id' => 56,
+},
+{
+'A' => '<font size=-1>EJBContext</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> Identity </td><td>!getCallerIdentity()</td></tr><tr><td width=20%> Properties </td><td>!getEnvironment()</td></tr><tr><td width=20%> boolean </td><td>!isCallerInRole(Identity role)</td></tr><tr><td width=20%> Principal </td><td>getCallerPrincipal()</td></tr><tr><td width=20%> EJBHome </td><td>getEJBHome()</td></tr><tr><td width=20%> EJBLocalHome </td><td>getEJBLocalHome()</td></tr><tr><td width=20%> boolean </td><td>getRollbackOnly() throws IllegalStateException</td></tr><tr><td width=20%> UserTransaction </td><td>getUserTransaction() throws IllegalStateException</td></tr><tr><td width=20%> boolean </td><td>isCallerInRole(String roleName)</td></tr><tr><td width=20%> void </td><td>setRollbackOnly() throws IllegalStateException</td></tr></table><br>&nbsp;&nbsp;<font size=-1>EntityContext</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> EJBLocalObject </td><td>getEJBLocalObject() throws IllegalStateException</td></tr><tr><td width=20%> EJBObject </td><td>getEJBObject() throws IllegalStateException</td></tr><tr><td width=20%> Object </td><td>getPrimaryKey() throws IllegalStateException</td></tr></table><br>&nbsp;&nbsp;<font size=-1>MessageDrivenContext</font><br>&nbsp;&nbsp;<font size=-1>SessionContext</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> EJBLocalObject </td><td>getEJBLocalObject() throws IllegalStateException</td></tr><tr><td width=20%> EJBObject </td><td>getEJBObject() throws IllegalStateException</td></tr></table> ',
+'Q' => 'SessionContext hierarchy ',
+'id' => 57,
+},
+{
+'A' => '<font size=-1>Principal</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> public boolean </td><td>equals(Object another)</td></tr><tr><td width=20%> public String </td><td>getName()</td></tr><tr><td width=20%> public int </td><td>hashCode()</td></tr><tr><td width=20%> public String </td><td>toString()</td></tr></table><br>&nbsp;&nbsp;<font size=-1>Group</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> public </td><td>Group(String name)</td></tr><tr><td width=20%> public boolean </td><td>equals(Object other)</td></tr></table><br>&nbsp;&nbsp;<font size=-1>User</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> Object </td><td>getAttribute(String name)</td></tr><tr><td width=20%> Enumeration </td><td>getAttributeNames()</td></tr><tr><td width=20%> Realm </td><td>getRealm()</td></tr></table> ',
+'Q' => 'Principal: use This interface to represent any entity, e.g., an individual, a corporation, a login id ',
+'id' => 58,
+},
+{
+'A' => 'as do ejb home and remote interfaces. However, in j2ee v1.1, this<br>behavior is deprecated for ejb\'s. I think the thinking is that since<br>these are server side objects, they are not going to be throwing this<br>object. Instead they should throw the new <font color=red>javax.ejb.EJBException</font> ',
+'Q' => 'ejb implementations throw java.rmi.RemoteException ',
+'id' => 59,
+},
+{
+'A' => 'serialize them (also known as passivate them) to disk, calling<br>ejbPassivate. As resources become available or upon client request,<br>they can be restored (by calling ejbActivate) ',
+'Q' => 'what can a container do about state full<br>session beans in the event of a resource<br>shortage? ',
+'id' => 60,
+},
+{
+'A' => 'no, it might not be in the event of server failure. Therefore,<br>resource allocations --which would survive rebooting--should be<br>periodically cleaned up ',
+'Q' => 'is it guaranteed that ejbRemove will<br>eventually be called? ',
+'id' => 61,
+},
+{
+'A' => '1. look up the home interface<br>2. use the home interface to create the remote object ',
+'Q' => 'how does a client create a remote object? ',
+'id' => 62,
+},
+{
+'A' => '<font size=-1>Remote</font><br>&nbsp;<font size=-1>EJBHome</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> EJBMetaData </td><td>getEJBMetaData() throws RemoteException</td></tr><tr><td width=20%> HomeHandle </td><td>getHomeHandle() throws RemoteException</td></tr><tr><td width=20%> void </td><td>remove(Handle handle) throws RemoteException, RemoveException</td></tr><tr><td width=20%> void </td><td>remove(Object primaryKey) throws RemoteException, RemoveException</td></tr></table><br>&nbsp;&nbsp;&nbsp;<font size=-1>CreditManagerSessionHome</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> CreditManagerSession </td><td>create()</td></tr></table><br>&nbsp;&nbsp;&nbsp;<font size=-1>BrowseSessionHome</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> BrowseSession </td><td>create() throws CreateException, RemoteException</td></tr></table><br>&nbsp;&nbsp;&nbsp;<font size=-1>CreditHome</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> public Credit </td><td>create(Hashtable creditInformation)</td></tr><tr><td width=20%> public Collection </td><td>findByCustomerID(int customerID)</td></tr><tr><td width=20%> public Collection </td><td>findByCustomerIDAndOrderID(int customerID, int orderID)</td></tr><tr><td width=20%> public Credit </td><td>findByPrimaryKey(CreditPrimaryKey primaryKey)</td></tr></table><br><font size=-1>Remote</font><br>&nbsp;<font size=-1>EJBObject</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> public EJBHome </td><td>getEJBHome() throws RemoteException</td></tr><tr><td width=20%> public Handle </td><td>getHandle() throws RemoteException</td></tr><tr><td width=20%> public Object </td><td>getPrimaryKey() throws RemoteException</td></tr><tr><td width=20%> boolean </td><td>isIdentical(EJBObject obj) throws RemoteException</td></tr><tr><td width=20%> public void </td><td>remove() throws RemoteException, RemoveException</td></tr></table><br>&nbsp;&nbsp;&nbsp;<font size=-1>CreditManagerSession</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> public void </td><td>createCreditRecord(int customerID, String cardType, String cardName, String cardNumber, java.util.Date expirationDate, String defaultConfirmationNumber)</td></tr></table><br>&nbsp;&nbsp;&nbsp;<font size=-1>BrowseSession</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> public Vector </td><td>queryShirts(String size, String color)</td></tr></table> ',
+'Q' => 'remote object hierarchy ',
+'id' => 63,
+},
+{
+'A' => 'once you have a Handle, you can serialize it<br>&nbsp;handle.getEJBObject() gets you back ',
+'Q' => 'what\'s the point of EJBObject.getHandle()? ',
+'id' => 64,
+},
+{
+'A' => 'it tells the container to do the things needed to prepare the<br>environment to correctly support the server side bean<br>&nbsp;this is in contrast to jndi, which would just allocate the object<br>without taking care to respect the server environment (e.g., by<br>making sure that non-reentrant beans are not shared by multiple<br>threads) ',
+'Q' => 'what\'s the point of the home interface ',
+'id' => 65,
+},
+{
+'A' => 'should match an &lt;ejb-ref-name&gt; element in the client\'s XML-based<br>deployment descriptor (ejb-jar.xml)<br>&nbsp;remember to prefix "java:comp/env/" to the name ',
+'Q' => 'the name used for the home interface lookup ',
+'id' => 66,
+},
+{
+'A' => 'containers using rmi/iiop require that returned objects be narrowed<br>instead:<br>&nbsp;(TypeWanted)javax.rmi.PortableRemoteObject.narrow(object,<br>TypeWanted.class) ',
+'Q' => 'when is casting not acceptable for<br>looked up objects? ',
+'id' => 67,
+},
+{
+'A' => 'home.getEJBMetaData() ',
+'Q' => 'what kind of bean is this? ',
+'id' => 68,
+},
+{
+'A' => '<font size=-1>EJBMetaData</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> EJBHome </td><td>getEJBHome()</td></tr><tr><td width=20%> Class </td><td>getHomeInterfaceClass()</td></tr><tr><td width=20%> Class </td><td>getPrimaryKeyClass()</td></tr><tr><td width=20%> Class </td><td>getRemoteInterfaceClass()</td></tr><tr><td width=20%> boolean </td><td>isSession()</td></tr><tr><td width=20%> boolean </td><td>isStatelessSession()</td></tr></table> ',
+'Q' => 'describe the EJBMetaData class ',
+'id' => 69,
+},
+{
+'A' => 'EJBContext ',
+'Q' => 'from the server side object, how do you<br>figure out transaction and security stuff? ',
+'id' => 70,
+},
+{
+'A' => '<font size=-1>EJBContext</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> Identity </td><td>!getCallerIdentity()</td></tr><tr><td width=20%> Properties </td><td>!getEnvironment()</td></tr><tr><td width=20%> boolean </td><td>!isCallerInRole(Identity role)</td></tr><tr><td width=20%> Principal </td><td>getCallerPrincipal()</td></tr><tr><td width=20%> EJBHome </td><td>getEJBHome()</td></tr><tr><td width=20%> EJBLocalHome </td><td>getEJBLocalHome()</td></tr><tr><td width=20%> boolean </td><td>getRollbackOnly() throws IllegalStateException</td></tr><tr><td width=20%> UserTransaction </td><td>getUserTransaction() throws IllegalStateException</td></tr><tr><td width=20%> boolean </td><td>isCallerInRole(String roleName)</td></tr><tr><td width=20%> void </td><td>setRollbackOnly() throws IllegalStateException</td></tr></table><br>&nbsp;&nbsp;<font size=-1>EntityContext</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> EJBLocalObject </td><td>getEJBLocalObject() throws IllegalStateException</td></tr><tr><td width=20%> EJBObject </td><td>getEJBObject() throws IllegalStateException</td></tr><tr><td width=20%> Object </td><td>getPrimaryKey() throws IllegalStateException</td></tr></table><br>&nbsp;&nbsp;<font size=-1>MessageDrivenContext</font><br>&nbsp;&nbsp;<font size=-1>SessionContext</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> EJBLocalObject </td><td>getEJBLocalObject() throws IllegalStateException</td></tr><tr><td width=20%> EJBObject </td><td>getEJBObject() throws IllegalStateException</td></tr></table> ',
+'Q' => 'describe the EJBContext class ',
+'id' => 71,
+},
+{
+'A' => 'yes: home.getHomeHandle(): HomeHandle<br>to come back: homeHandle.getEJBHome() ',
+'Q' => 'can you serialize a home object? ',
+'id' => 72,
+},
+{
+'A' => 'not necessarily-- if create() [i.e., with no arguments] is called for<br>a stateless bean, then if unused stateless beans of the correct type<br>are sitting around in the container pool, one of them may be plucked<br>for use without ejbCreate() being called ',
+'Q' => 'does calling home.create(...) on the client<br>necessarily cause a call to ejb.create(...)<br>on the server? ',
+'id' => 73,
+},
+{
+'A' => 'it means to destroy the entity bean corresponding to the primary key,<br>and delete the corresponding data (probably a row) in the data<br>source. It is not valid to call this method for a session bean. ',
+'Q' => 'what does home.remove(Object primaryKey)<br>mean? ',
+'id' => 74,
+},
+{
+'A' => 'c:/Program Files/sams_book_on_j2ee/examples/src/ejava/ejbch36/creditmgr/ejb-jar.xml<br>&lt;ejb-jar&gt;<br>&nbsp;&nbsp;&lt;enterprise-beans&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;session&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;description&gt;Credit Manager EJB&lt;/description&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;display-name&gt;CreditManagerEJB&lt;/display-name&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ejb-name&gt;CreditManagerEJB&lt;/ejb-name&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;home&gt;ejava.ejbch35.creditmgr.CreditManagerSessionHome&lt;/home&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;remote&gt;ejava.ejbch35.creditmgr.CreditManagerSession&lt;/remote&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ejb-class&gt;ejava.ejbch35.creditmgr.CreditManagerSessionEJBean&lt;/ejb-class&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;session-type&gt;Stateless&lt;/session-type&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;transaction-type&gt;Container&lt;/transaction-type&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;env-entry&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;env-entry-name&gt;Handler&lt;/env-entry-name&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;env-entry-type&gt;java.lang.Boolean&lt;/env-entry-type&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;env-entry-value&gt;true&lt;/env-entry-value&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/env-entry&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ejb-ref&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;description&gt;A description of EjbRefName&lt;/description&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ejb-ref-name&gt;ejb/credit&lt;/ejb-ref-name&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ejb-ref-type&gt;Entity&lt;/ejb-ref-type&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;home&gt;ejava.ejbch36.credit.CreditHome&lt;/home&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;remote&gt;ejava.ejbch36.credit.Credit&lt;/remote&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ejb-ref&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/session&gt;<br>...<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/enterprise-beans&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;assembly-descriptor&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;container-transaction&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;method&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ejb-name&gt;CreditManagerEJB&lt;/ejb-name&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;method-intf&gt;Remote&lt;/method-intf&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;method-name&gt;*&lt;/method-name&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/method&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;trans-attribute&gt;Required&lt;/trans-attribute&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/container-transaction&gt;<br>&nbsp;&nbsp;&lt;/assembly-descriptor&gt;<br>&lt;/ejb-jar&gt; ',
+'Q' => 'session bean config: &lt;enterprise-beans&gt; ',
+'id' => 75,
+},
+{
+'A' => 'SQLJ, embedded SQL, definitely supported for Oracle ',
+'Q' => 'what is an alternative interface to databases<br>besides JDBC? ',
+'id' => 76,
+},
+{
+'A' => '&lt;resource-ref&gt; element(s) does it for individual beans, servlets,<br>j2ee application clients<br>&nbsp;hardcoded references to these names in the Java source must have the<br>prefix "java:comp/env/" ',
+'Q' => 'xml: define the JDBC driver configuration and data source identification ',
+'id' => 77,
+},
+{
+'A' => 'package ejava.ejbch36.credit;<br>&nbsp;import java.io.Serializable;<br>&nbsp;public class CreditPrimaryKey implements Serializable<br>&#123;<br>&nbsp;&nbsp;public int customerID;<br>&nbsp;&nbsp;public int orderID;<br>&nbsp;&nbsp;public String cardNumber;<br>&nbsp;&nbsp;&nbsp;public int hashCode() &#123; return super.hashCode(); &#125;<br>&nbsp;&nbsp;&nbsp;public boolean equals(Object object)<br>&nbsp;&nbsp;&#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;if(object instanceof CreditPrimaryKey)&#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CreditPrimaryKey otherKey = (CreditPrimaryKey)object;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if( otherKey.orderID == orderID<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&& otherKey.customerID == customerID<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&& otherKey.cardNumber.equals(cardNumber))&#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return true;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return false;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;else &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return false;<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&#125;<br>&#125; ',
+'Q' => 'example primary key ',
+'id' => 78,
+},
+{
+'A' => 'ejbPostCreate(...) ',
+'Q' => 'what method can be used as a hook to grab control each time ejbCreate(...) executes ',
+'id' => 79,
+},
+{
+'A' => 'ejbRemove() delete [n.b.: for session beans, the bean alone is<br>deleted]<br>ejbStore() update<br>ejbLoad() select<br>ejbCreate() insert ',
+'Q' => 'map EntityBean calls to SQL ',
+'id' => 80,
+},
+{
+'A' => '1. instantiate ejb<br>&nbsp;2. ejb.setEntityContext()<br>&nbsp;3. add ejb to the pool<br>&nbsp;4. container delegates ejbFindXXX(...) calls to bean to retrieve<br>primary keys from the data source<br>&nbsp;5. container calls ejbCreateXXX(...) call, then ejbPostCreate(...) to<br>bean to insert data into the data source<br>&nbsp;6. container calls ejbActivate() to prepare non-db-related state<br>before becoming active<br>&nbsp;7. container calls ejbLoad() to load db-related state before becoming<br>active<br>&nbsp;8. container delegates business-specific client calls to the bean<br>&nbsp;9. container calls ejbStore() to save db-related state before<br>returning the bean to the pool of unused beans<br>&nbsp;10. container calls ejbPassivate() to perform non-db-related cleanup<br>before returning the bean to the pool of unused beans<br>&nbsp;11. container calls ejbRemove() when the client induces the deletion<br>of the associated database entry. THIS does NOT REMOVE THE BEAN FROM<br>THE POOL, HOWEVER.<br>&nbsp;12. container calls unsetEntityContext() when the bean instance is<br>about to be removed from the pool ',
+'Q' => 'BMP lifecycle for an entity bean ',
+'id' => 81,
+},
+{
+'A' => 'returns either null or a void value for the primary key, since it is<br>really the container who will handle the creation of a primary key ',
+'Q' => 'CMP ejbCreate(...) ',
+'id' => 82,
+},
+{
+'A' => 'it provides standard interfaces for enabling a j2ee ejb container<br>to implement object-relational mapping for an ejb and for providing<br>the underlying database connectivity solution ',
+'Q' => 'tell me, what does CMP std do? ',
+'id' => 83,
+},
+{
+'A' => 'field names are all caps, indicating that since they are managed by<br>the container, they are not to be changed by the developer\'s code --<br>i.e., they are constant from the programmer\'s point of view ',
+'Q' => 'CMP coding convention ',
+'id' => 84,
+},
+{
+'A' => 'they provide a means for querying for data source entries with<br>results returned in an object-oriented fashion ',
+'Q' => 'what do interfaces for finding entity beans<br>provide? ',
+'id' => 85,
+},
+{
+'A' => 'always -- whether in or outside of a container ',
+'Q' => 'when is jndi used to look up home interfaces? ',
+'id' => 86,
+},
+{
+'A' => 'findByPrimaryKey() method -- since all entity beans define<br>ejbfindByPrimaryKey() ',
+'Q' => 'all entity bean home interfaces must provide ',
+'id' => 87,
+},
+{
+'A' => 'On server side, EnterpriseBean.ejbFindXXX() routines return collections of<br>primary key objects, whereas on the client side, the EJBObject.findXXX(...)<br>methods return collections of entity bean remote objects ',
+'Q' => 'what\'s the difference between find<br>routines on the server vs. the client sides? ',
+'id' => 88,
+},
+{
+'A' => 'entityBean.getEJBHome().getEJBMetaData().isStatelessSession()<br>&nbsp;this will always return calls for entity beans ',
+'Q' => 'how do you figure out if a bean is stateless? ',
+'id' => 89,
+},
+{
+'A' => 'apparently yes, if one is to judge from the EJBMetaData interface ',
+'Q' => 'does an entity bean have to have state? ',
+'id' => 90,
+},
+{
+'A' => '&lt;cmp-field&gt;, &lt;primkey-field&gt; in ejb-jar.xml<br>&nbsp;sql to update database in sun-j2ee-ri.xml ',
+'Q' => 'CMP configuration ',
+'id' => 91,
+},
+{
+'A' => 'c:/Program Files/sams_book_on_j2ee/examples/src/ejava/ejbch36/tshirt/sun-j2ee-ri.xml:<br>&nbsp;&lt;?xml version="1.0" encoding="UTF-8"?&gt;<br>&nbsp;&lt;j2ee-ri-specific-information&gt;<br>&nbsp;&nbsp;&lt;enterprise-beans&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;ejb&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ejb-name&gt;TShirtEJB&lt;/ejb-name&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;jndi-name&gt;TShirtHome&lt;/jndi-name&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;cmp&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ds-jndi-name&gt;jdbc/Cloudscape&lt;/ds-jndi-name&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;default-resource-principal&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;name&gt;TSHIRTS&lt;/name&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;password&gt;TSHIRTS&lt;/password&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/default-resource-principal&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;sql-statement&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;method&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ejb-name&gt;TShirtEJB&lt;/ejb-name&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;method-intf&gt;Bean&lt;/method-intf&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;method-name&gt;ejbCreate&lt;/method-name&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/method&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;sql&gt;INSERT INTO "TSHIRT" ( "COLOR" , "DESIGN_BACK" , "DESIGN_FRONT" , "ITEM_ID_FK" , "PICTURE_BACK" ,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"PICTURE_FRONT" , "SHIRT_ID" , "SHIRT_SIZE" , "UNIT_PRICE" ) VALUES ( ? , ? , ? , ? , ? , ? , ? ,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;? , ? )&lt;/sql&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/sql-statement&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;sql-statement&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;method&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ejb-name&gt;TShirtEJB&lt;/ejb-name&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;method-intf&gt;Home&lt;/method-intf&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;method-name&gt;findByItemID&lt;/method-name&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;method-params&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;method-param&gt;java.lang.Integer&lt;/method-param&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/method-params&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/method&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;sql&gt;SELECT "SHIRT_ID" FROM "TSHIRT" WHERE "ITEM_ID_FK" = ?1 &lt;/sql&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/sql-statement&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;sql-statement&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;method&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ejb-name&gt;TShirtEJB&lt;/ejb-name&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;method-intf&gt;Bean&lt;/method-intf&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;method-name&gt;ejbRemove&lt;/method-name&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;method-params /&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/method&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;sql&gt;DELETE FROM "TSHIRT" WHERE "SHIRT_ID" = ? &lt;/sql&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/sql-statement&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;sql-statement&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;method&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ejb-name&gt;TShirtEJB&lt;/ejb-name&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;method-intf&gt;Bean&lt;/method-intf&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;method-name&gt;ejbStore&lt;/method-name&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;method-params /&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/method&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;sql&gt;UPDATE "TSHIRT" SET "COLOR" = ? , "DESIGN_BACK" = ? , "DESIGN_FRONT" = ? , "ITEM_ID_FK" = ? ,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"PICTURE_BACK" = ? , "PICTURE_FRONT" = ? , "SHIRT_SIZE" = ? , "UNIT_PRICE" = ? WHERE "SHIRT_ID" = ? &lt;/sql&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/sql-statement&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;table-create-sql&gt;CREATE TABLE "TSHIRT" ("COLOR" VARCHAR(255) , "DESIGN_BACK" VARCHAR(255) , "DESIGN_FRONT"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VARCHAR(255) , "ITEM_ID_FK" INTEGER , "PICTURE_BACK" VARCHAR(255) , "PICTURE_FRONT" VARCHAR(255) , "SHIRT_ID"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INTEGER , "SHIRT_SIZE" VARCHAR(255) , "UNIT_PRICE" DOUBLE PRECISION NOT NULL, CONSTRAINT "pk_TShirtEJBeanTable"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRIMARY KEY ("SHIRT_ID") )&lt;/table-create-sql&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;table-remove-sql&gt;DROP TABLE "TSHIRT" &lt;/table-remove-sql&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;create-table-deploy&gt;false&lt;/create-table-deploy&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;delete-table-undeploy&gt;false&lt;/delete-table-undeploy&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/cmp&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ejb&gt;<br>&nbsp;&nbsp;&lt;/enterprise-beans&gt;<br>&lt;/j2ee-ri-specific-information&gt; ',
+'Q' => 'reference-implementation-specific XML to configure cmp ',
+'id' => 92,
+},
+{
+'A' => 'c:/Program Files/sams_book_on_j2ee/examples/src/ejava/ejbch36/tshirt/ejb-jar.xml<br>&lt;?xml version="1.0" encoding="UTF-8"?&gt;<br>&nbsp;&lt;!DOCTYPE ejb-jar PUBLIC \'-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 1.1//EN\'<br>\'http://java.sun.com/j2ee/dtds/ejb-jar_1_1.dtd\'&gt;<br>&lt;ejb-jar&gt;<br>&nbsp;&nbsp;&lt;description&gt;no description&lt;/description&gt;<br>&nbsp;&nbsp;&lt;display-name&gt;TSHIRT&lt;/display-name&gt;<br>&nbsp;&nbsp;&nbsp;&lt;enterprise-beans&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;entity&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;description/&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;display-name&gt;TShirtEJB&lt;/display-name&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ejb-name&gt;TShirtEJB&lt;/ejb-name&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;home&gt;ejava.ejbch36.tshirt.TShirtHome&lt;/home&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;remote&gt;ejava.ejbch36.tshirt.TShirt&lt;/remote&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ejb-class&gt;ejava.ejbch36.tshirt.TShirtEJBean&lt;/ejb-class&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;persistence-type&gt;Container&lt;/persistence-type&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;prim-key-class&gt;java.lang.Integer&lt;/prim-key-class&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;reentrant&gt;False&lt;/reentrant&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;cmp-field&gt;&lt;field-name&gt;SHIRT_ID&lt;/field-name&gt;&lt;/cmp-field&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;cmp-field&gt;&lt;field-name&gt;SHIRT_SIZE&lt;/field-name&gt;&lt;/cmp-field&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;cmp-field&gt;&lt;field-name&gt;COLOR&lt;/field-name&gt;&lt;/cmp-field&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;cmp-field&gt;&lt;field-name&gt;DESIGN_FRONT&lt;/field-name&gt;&lt;/cmp-field&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;cmp-field&gt;&lt;field-name&gt;DESIGN_BACK&lt;/field-name&gt;&lt;/cmp-field&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;cmp-field&gt;&lt;field-name&gt;PICTURE_FRONT&lt;/field-name&gt;&lt;/cmp-field&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;cmp-field&gt;&lt;field-name&gt;PICTURE_BACK&lt;/field-name&gt;&lt;/cmp-field&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;cmp-field&gt;&lt;field-name&gt;ITEM_ID_FK&lt;/field-name&gt;&lt;/cmp-field&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;cmp-field&gt;&lt;field-name&gt;UNIT_PRICE&lt;/field-name&gt;&lt;/cmp-field&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;primkey-field&gt;SHIRT_ID&lt;/primkey-field&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/entity&gt;<br>&nbsp;&nbsp;&lt;/enterprise-beans&gt;<br>&nbsp;&nbsp;&nbsp;&lt;assembly-descriptor&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;container-transaction&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;method&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ejb-name&gt;TShirtEJB&lt;/ejb-name&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;method-intf&gt;Remote&lt;/method-intf&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;method-name&gt;*&lt;/method-name&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/method&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;trans-attribute&gt;Required&lt;/trans-attribute&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/container-transaction&gt;<br>&nbsp;&nbsp;&lt;/assembly-descriptor&gt;<br>&lt;/ejb-jar&gt; ',
+'Q' => 'std cmp XML ',
+'id' => 93,
+},
+{
+'A' => 'deploytool ',
+'Q' => 'how does a developer manage and<br>create these deployment descriptors? ',
+'id' => 94,
+},
+{
+'A' => 'they define something they call the Web logic query language, which<br>is specified in a bea-specific deployment descriptor called<br>weblogic-cmp-rdbms-jar.xml ',
+'Q' => 'Web logic twist to the SQL configuration ',
+'id' => 95,
+},
+{
+'A' => 'no, only state full beans can do that ',
+'Q' => 'can a stateless bean keep a<br>transaction uncompleted across multiple calls? ',
+'id' => 96,
+},
+{
+'A' => 'this is determined by the transaction isolation level, which is set<br>using java.sql.Connection.[gs]etTransactionIsolation() ',
+'Q' => 'in the middle of a transaction, can other<br>objects see the updates? ',
+'id' => 97,
+},
+{
+'A' => 'bean-managed or container-managed<br>entity beans must use the latter, configured by 0 or more<br>&lt;container-transaction&gt; elements within an &lt;assembly-descriptor&gt;<br>within &lt;ejb-jar&gt; ',
+'Q' => 'transaction options ',
+'id' => 98,
+},
+{
+'A' => '(This is because each Web application must also have their own copy<br>of the Struts classes, and the container will become confused if it<br>is on the environment path as well.) ',
+'Q' => 'if you are using a servlet container on<br>your development machine to test your<br>application, the "struts.jar" must not be<br>on your CLASSPATH environment variable<br>when running the container. ',
+'id' => 99,
+},
+{
+'A' => 'no. statics aren\'t allowed there ',
+'Q' => 'jsp: declare a static variable inside a<br>scriptlet? ',
+'id' => 100,
+},
+{
+'A' => 'Refactoring is the process of changing a software system in such a<br>way that it does not alter the external behavior of the code yet<br>improves its internal... ',
+'Q' => 'What is refactoring ? ',
+'id' => 101,
+},
+{
+'A' => '$CATALINA_HOME/shared/lib - JAR files placed here are visible to all<br>web applications, but not to internal Tomcat code<br>&nbsp;$CATALINA_HOME/common/lib can be seen by Tomcat code also<br>&nbsp;containers are NOT required to accept an<br>unpacked directory structure (as Tomcat does) ',
+'Q' => 'JAR files placed here are visible both to<br>web applications and internal Tomcat code ',
+'id' => 102,
+},
+{
+'A' => 'end of C:&#092;jwsdp-1_0_01&#092;docs&#092;tomcat&#092;manager-howto.html ',
+'Q' => 'Executing Manager Commands With Ant ',
+'id' => 103,
+},
+{
+'A' => 'edit $CATALINA_HOME/conf/catalina.policy file, which replaces the<br>java.policy file present in your JDK system directories<br>OR<br>policytool<br>&nbsp;<a href=\'http://java.sun.com/products/jdk/1.2/docs/tooldocs/solaris/policytool.html\'>http://java.sun.com/products/jdk/1.2/docs/tooldocs/solaris/policytool.html</a> ',
+'Q' => 'Configuring Tomcat With A SecurityManager ',
+'id' => 104,
+},
+{
+'A' => 'turn on debug output of all security decisions that are made during<br>execution. This is done by setting a system property before starting<br>Tomcat. The easiest way to do this is via the CATALINA_OPTS<br>environment variable. Execute this command:<br>&nbsp;export CATALINA_OPTS=-Djava.security.debug=all (Unix)<br>set CATALINA_OPTS=-Djava.security.debug=all (Windows)<br>&nbsp;before starting Tomcat.<br>&nbsp;WARNING - This will generate many megabytes of output! However, it<br>can help you track down problems by searching for the word "FAILED"<br>and determining which permission was being checked for. See the Java<br>security documentation for more options that you can specify here as<br>well. ',
+'Q' => 'how to debug permissions on tomcat ',
+'id' => 105,
+},
+{
+'A' => 'C:&#092;jwsdp-1_0_01&#092;docs&#092;tomcat&#092;BUILDING.txt ',
+'Q' => 'building tomcat from source ',
+'id' => 106,
+},
+{
+'A' => 'C:&#092;jwsdp-1_0_01&#092;docs&#092;tomcat&#092;proxy-howto.html<br>Apache 1.3 supports an optional module (mod_proxy) that configures<br>the web server to act as a proxy server. This can be used to forward<br>requests for a particular web application to a Tomcat 4 instance,<br>without having to configure a web connector such as mod_webapp. To<br>accomplish this, you need to perform the following tasks:<br>&nbsp;Configure your copy of Apache so that it includes the mod_proxy<br>module. If you are building from source, the easiest way to do this<br>is to include the --enable-module=proxy directive on the ./configure<br>command line.<br>If not already added for you, make sure that you are loading the<br>mod_proxy module at Apache startup time, by using the following<br>directives in your httpd.conf file:<br>&nbsp;LoadModule proxy_module &#123;path-to-modules&#125;/mod_proxy.so<br>AddModule mod_proxy.c<br>&nbsp;&nbsp;&nbsp;&nbsp;Include two directives in your httpd.conf file for each web<br>application that you wish to forward to Tomcat 4. For example, to<br>forward an application at context path /myapp:<br>&nbsp;ProxyPass /myapp <a href=\'http://localhost:8081/myapp<br>ProxyPassReverse\'>http://localhost:8081/myapp<br>ProxyPassReverse</a> /myapp <a href=\'http://localhost:8081/myapp<br>&nbsp\'>http://localhost:8081/myapp<br>&nbsp</a>;&nbsp;&nbsp;&nbsp;which tells Apache to forward URLs of the form<br><a href=\'http://localhost/myapp/*\'>http://localhost/myapp/*</a> to the Tomcat 4 connector listening on port<br>8081.<br>Configure your copy of Tomcat 4 to include a special &lt;Connector&gt;<br>element, with appropriate proxy settings, for example:<br>&nbsp;&lt;Connector<br>className="org.apache.catalina.connector.http.HttpConnector"<br>port="8081" ...<br>proxyName="www.mycompany.com"<br>proxyPort="80"/&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;which will cause servlets inside this web application to think that<br>all proxied requests were directed to www.mycompany.com on port 80.<br>It is legal to omit the proxyName attribute from the &lt;Connector&gt;<br>element. If you do so, the value returned by request.getServerName()<br>will by the host name on which Tomcat is running. In the example<br>above, it would be localhost.<br>If you also have a &lt;Connector&gt; listening on port 8080 (nested within<br>the same Service element), the requests to either port will share the<br>same set of virtual hosts and web applications.<br>You might wish to use the IP filtering features of your operating<br>system to restrict connections to port 8081 (in this example) to be<br>allowed only from the server that is running Apache.<br>Alternatively, you can set up a series of web applications that are<br>only available via proxying, as follows:<br>Configure another &lt;Service&gt; that contains only a &lt;Connector&gt; for the<br>proxy port.<br>Configure appropriate Engine, Host, and Context elements for the<br>virtual hosts and web applications accessible via proxying.<br>Optionally, protect port 8081 with IP filters as described earlier.<br>When requests are proxied by Apache, the web server will be recording<br>these requests in its access log. Therefore, you will generally want<br>to disable any access logging performed by Tomcat itself.<br>When requests are proxied in this manner, all requests for the<br>configured web applications will be processed by Tomcat (including<br>requests for static content). You will often be able to improve<br>performance by using the mod_webapp web connector instead, which<br>automatically configures itself to have Apache handle static content<br>that is not processed by filters or security constraints defined<br>within the web application\'s deployment descriptor<br>(/WEB-INF/web.xml). ',
+'Q' => 'integrate tomcat with Apache ',
+'id' => 107,
+},
+{
+'A' => 'Catalina is the reference implementation of the Servlet API<br>specification. It is packaged in Tomcat along with Jasper (the<br>reference implementation of the JavaServer Pages (JSP) specification. ',
+'Q' => 'What is Catalina? ',
+'id' => 108,
+},
+{
+'A' => '...If you are going to be hosting multiple Struts based applications<br>on the same servlet container,<br>...Be advised that this will like cause you to encounter<br>ClassNotFoundException problems unless all of your application<br>classes are stored in the shared repository. ',
+'Q' => 'struts: you will be tempted to place the<br>struts.jar file into the shared repository<br>supported by your container ',
+'id' => 109,
+},
+{
+'A' => 'override javax.servlet.jsp.JspPage.jspInit() or Servlet.init() ',
+'Q' => 'a JSP page\'s init ',
+'id' => 110,
+},
+{
+'A' => 'CloudScape SQL server ',
+'Q' => 'J2EE ships sql ',
+'id' => 111,
+},
+{
+'A' => 'built-in ',
+'Q' => 'jboss sql ',
+'id' => 112,
+},
+{
+'A' => 'just copy ejb JAR file into the deployment directory; If already<br>loaded, JBoss automatically unloads it... ',
+'Q' => 'JBoss `hot\' deployment ',
+'id' => 113,
+},
+{
+'A' => 'Jetty: and just like tomcat, it includes Jasper from apache for JSPs ',
+'Q' => 'jboss servlet container ',
+'id' => 114,
+},
+{
+'A' => 'JMX supported ',
+'Q' => 'jetty management ',
+'id' => 115,
+},
+{
+'A' => 'project is the JBoss application server implementation for the Java<br>Management Extensions technology and the core of the JBoss<br>microkernel architecture ',
+'Q' => 'JBossMX ',
+'id' => 116,
+},
+{
+'A' => '(originally spyderMQ) first free<br>implementation of the Java Messaging Service ',
+'Q' => 'JBossMQ ',
+'id' => 117,
+},
+{
+'A' => 'no, use jar xvf (to maintain mixed case file names) ',
+'Q' => 'use unzip JBoss-2.4.7_Jetty-4.0.4.zip? ',
+'id' => 118,
+},
+{
+'A' => 'client side jndi.properties file tells your client where to initially<br>find the JNDI naming service ',
+'Q' => 'where jboss client gets jndi info ',
+'id' => 119,
+},
+{
+'A' => 'file is common to all EJB servers, and precisely defined by a DTD you<br>can get from Sun, it doesn\'t specify everything necessary for a<br>particular EJB server. Specifically it does not indicate how to map<br>ejb-name to deployment JNDI name such as "[application name]/[bean name]". ',
+'Q' => 'what\'s missing in ejb-jar.xml? ',
+'id' => 120,
+},
+{
+'A' => 'by dft, just uses same as ejb-name value from ejb-jar.xml. But to<br>override, you can use jboss.xml:<br>&lt;?xml version="1.0" encoding="UTF-8"?&gt;<br>&lt;jboss&gt;<br>&nbsp;&nbsp;&lt;enterprise-beans&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;session&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ejb-name&gt;Interest&lt;/ejb-name&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;jndi-name&gt;interest/Interest&lt;/jndi-name&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/session&gt;<br>&nbsp;&nbsp;&lt;/enterprise-beans&gt;<br>&lt;/jboss&gt; ',
+'Q' => 'jboss soln to lack of a std for mapping<br>ejb-name to deployment JNDI name ',
+'id' => 121,
+},
+{
+'A' => 'BMP code generating tool such as "cocobase" ',
+'Q' => '"fake CMP" ',
+'id' => 122,
+},
+{
+'A' => '...that persists even w/ no clients; it should persist even<br>if the server is restarted ',
+'Q' => 'entity EJBs contain info... ',
+'id' => 123,
+},
+{
+'A' => '...about this interface is that it specifies methods that don\'t need<br>to be implemented ',
+'Q' => 'cmp: home interface: the important thing<br>to note... ',
+'id' => 124,
+},
+{
+'A' => 'null: meaning that the container should take care of initializing the<br>instance in the server\'s process space ',
+'Q' => 'cmp: ejbCreate method returns ',
+'id' => 125,
+},
+{
+'A' => 'add a listener element to the Web application dd<br>&lt;listener&gt;<br>&lt;listener-class&gt;listeners.ContextListener&lt;/listener-class&gt;<br>&lt;/listener&gt; ',
+'Q' => 'xml: specify an event listener class ',
+'id' => 126,
+},
+{
+'A' => '&lt;error-page&gt;<br>&lt;exception-type&gt;<br>exception.BookNotFoundException<br>&lt;/exception-type&gt;<br>&lt;location&gt;/errorpage.html&lt;/location&gt;<br>&lt;/error-page&gt; ',
+'Q' => 'xml: specify error handling page ',
+'id' => 127,
+},
+{
+'A' => '(i.e., encounters a fatal error in its init() call)<br>should throw UnavailableException. ',
+'Q' => 'A servlet that cannot complete its<br>initialization process ',
+'id' => 128,
+},
+{
+'A' => 'is a service method ',
+'Q' => 'any method in a servlet providing<br>&nbsp;a service to a client. ',
+'id' => 129,
+},
+{
+'A' => 'http://[host]:[port][request path]?[query string]<br>&nbsp;the request path is made of:<br>1. Context path: A concatenation of a forward slash / with the context<br>root<br>of the servlets Web application.<br>&nbsp;2. Servlet path: The path section that corresponds to the component alias<br>that activated this request. This path starts with a forward slash /<br>&nbsp;3. Path info: The rest ',
+'Q' => 'HTTP request URL contains the following parts: ',
+'id' => 130,
+},
+{
+'A' => 'Servlet Path Path Info<br>------------ ---------<br>/lawn /index.html<br>/help/feedback.jsp null ',
+'Q' => 'so given the following set of aliases:<br>&nbsp;Pattern Servlet<br>------- -------<br>/lawn/* LawnServlet<br>/*.jsp JSPServlet<br>&nbsp;break down the following requests:<br>&nbsp;/catalog/lawn/index.html<br>/catalog/help/feedback.jsp ',
+'id' => 131,
+},
+{
+'A' => 'javax.servlet.ServletContext Init + destruction<br>javax.servlet.ServletContext Attribute added, removed, replaced<br>javax.servlet.http.HttpSession create, invalidated, timeout<br>javax.servlet.http.HttpSession Attribute added, removed, replaced<br>javax.servlet.http.HttpSession obj added or rm\'d<br>javax.servlet.http.HttpSession passivated or activated ',
+'Q' => 'servlets: u can set up Event Listeners for ',
+'id' => 132,
+},
+{
+'A' => 'this means being serialized as if for persistent storage, so<br>it will be passivated and activated. ',
+'Q' => 'if a session is moved between JVMs ',
+'id' => 133,
+},
+{
+'A' => '1. fill in the response headers,<br>2. retrieve an output stream from the response, and write any body<br>content<br>Response headers must always be set first. ',
+'Q' => 'servlet sequence of duties ',
+'id' => 134,
+},
+{
+'A' => 'ftp://ftp.isi.edu/in-notes/iana/assignments/media-types ',
+'Q' => 'registry of content type names<br>&nbsp;(for example, text/html) ',
+'id' => 135,
+},
+{
+'A' => 'allows content to be written before anything is actually sent back to<br>the client, thus providing the servlet with more time to set<br>appropriate status codes and headers or forward to another Web<br>resource. ',
+'Q' => 'Buffering ',
+'id' => 136,
+},
+{
+'A' => 'RequestDispatcher dispatcher =<br>getServletContext().getRequestDispatcher("/banner");<br>if (dispatcher != null)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dispatcher.include(request, response);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Forwards a request from a servlet to another resource (servlet, JSP<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file, or HTML file) on the server. This method allows one servlet to<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;do preliminary processing of a request and another resource to<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;generate the response ',
+'Q' => 'get banner ',
+'id' => 137,
+},
+{
+'A' => 'w /Filter.java<br>/javax/servlet/Filter.java<br>/java/util/logging/Filter.java<br>/org/apache/xalan/xsltc/dom/Filter.java<br>/org/apache/tools/ant/taskdefs/Filter.java<br>&nbsp;** 1) Authentication Filters<br>** 2) Logging and Auditing Filters<br>** 3) Image conversion Filters<br>** 4) Data compression Filters<br>** 5) Encryption Filters<br>** 6) Tokenizing Filters<br>** 7) Filters that trigger resource access events<br>** 8) XSL/T filters<br>** 9) Mime-type chain Filter ',
+'Q' => 'main tasks a Filter can do ',
+'id' => 138,
+},
+{
+'A' => '&lt;filter&gt;<br>&lt;filter-name&gt;OrderFilter&lt;/filter-name&gt;<br>&lt;filter-class&gt;filters.OrderFilter&lt;/filter-class&gt;<br>&lt;/filter&gt;<br>&nbsp;&nbsp;&lt;filter-mapping&gt;<br>&lt;filter-name&gt;OrderFilter&lt;/filter-name&gt;<br>&lt;url-pattern&gt;/receipt&lt;/url-pattern&gt;<br>&lt;/filter-mapping&gt; ',
+'Q' => 'define a filter ',
+'id' => 139,
+},
+{
+'A' => 'map the hit counter filter to the URL pattern /*. ',
+'Q' => 'match every request to a Web application ',
+'id' => 140,
+},
+{
+'A' => 'RequestDispatcher.include or forward ',
+'Q' => 'servlet: directly invoke another resource ',
+'id' => 141,
+},
+{
+'A' => 'to the request object, but it is limited<br>in what it can do with the response object:<br>&nbsp;* It can write to the body of the response and commit a response.<br>&nbsp;* It cannot set headers or call any method (for example, setCookie)<br>that affects the headers of the response. ',
+'Q' => 'An included web component has access ',
+'id' => 142,
+},
+{
+'A' => 'is set to the path of the forwarded page.<br>If the original URL is required for any processing:<br>request.setAttribute("selectedScreen", request.getServletPath()); ',
+'Q' => 'When a request is forwarded, the request URL ',
+'id' => 143,
+},
+{
+'A' => 'javax.servlet.ServletRequest.getSession<br>&nbsp;if the request does not have a session, creates one.<br>Since getSession may modify the response header (if cookies are the<br>session tracking mechanism), it needs to be called before you<br>retrieve a PrintWriter or ServletOutputStream. ',
+'Q' => 'access a session w/ ',
+'id' => 144,
+},
+{
+'A' => 'javax.servlet.http.HttpSession.[get|set]MaxInactiveInterval<br>&nbsp;periodically accessing the session via service methods resets time-to-live ',
+'Q' => 'session timeout period ',
+'id' => 145,
+},
+{
+'A' => 'javax.servlet.http.HttpSession.invalidate ',
+'Q' => 'tell world no need for session now ',
+'id' => 146,
+},
+{
+'A' => 'you must ensure that session tracking is enabled by having the<br>application rewrite URLs whenever the client turns off cookies, by<br>calling response.encodeURL(URL) on all URLs returned (in HTML) by servlet.<br>&nbsp;(This method includes the session ID in the URL only if cookies are<br>disabled; otherwise, it returns the URL unchanged.) ',
+'Q' => 'If your application uses session objects ',
+'id' => 147,
+},
+{
+'A' => 'update session state to alert all longrunning service methods that<br>they should abort ',
+'Q' => 'if Servlet.destroy() is called ',
+'id' => 148,
+},
+{
+'A' => 'text-based document w/<br>1. static template data, (HTML, SVG, WML, and XML)<br>2. JSP elements, which construct dynamic content. ',
+'Q' => 'JSP page ',
+'id' => 149,
+},
+{
+'A' => '&lt;select name=locale&gt;<br>&lt;%<br>String selectedLocale = request.getParameter("locale");<br>Iterator i = locales.getLocaleNames().iterator();<br>while (i.hasNext()) &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String locale = (String)i.next();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (selectedLocale != null && selectedLocale.equals(locale)) &#123;<br>%&gt;<br>&lt;option selected&gt;&lt;%=locale%&gt;&lt;/option&gt;<br>&lt;%<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125; else &#123;<br>%&gt;<br>&lt;option&gt;&lt;%=locale%&gt;&lt;/option&gt;<br>&lt;%<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&#125;<br>%&gt;<br>&lt;/select&gt; ',
+'Q' => 'init html &lt;input select in a jsp ',
+'id' => 150,
+},
+{
+'A' => 'it is handled by a special servlet that first checks whether the JSP<br>page\'s servlet is older than the JSP page; builds servlet if needed ',
+'Q' => 'request mapped to a JSP page ',
+'id' => 151,
+},
+{
+'A' => '&lt;JWSDP_HOME&gt;/work/Standard Engine/localhost/context_root/pageName$jsp.java ',
+'Q' => 'For a JSP page named pageName, the gen\'d<br>source goes ',
+'id' => 152,
+},
+{
+'A' => 'by value, not by reference ',
+'Q' => 'Java passes all arguments ',
+'id' => 153,
+},
+{
+'A' => 'Current implementations of Java use a mark and sweep garbage<br>collector. Reference counting is not used. Thus circular linked lists<br>do not lead to memory leaks ',
+'Q' => 'How does garbage collection work? ',
+'id' => 154,
+},
+{
+'A' => 'There are a number of ways<br>f = FileInputStream(fn)<br>d = new DataInputStream(f)<br>&nbsp;DataInputStream gives you a readLine() ',
+'Q' => 'How do I read data from a file in Java? ',
+'id' => 155,
+},
+{
+'A' => 'public FileOutputStream(String name, boolean append) ',
+'Q' => 'how do I append to a file w/ FileOutputStream ',
+'id' => 156,
+},
+{
+'A' => 'URL w/ no protocol//host:port ',
+'Q' => 'URI ',
+'id' => 157,
+},
+{
+'A' => 'ServletRequest.getScheme() =&gt; http<br>ServletRequest.getProtocol() =&gt; HTTP/1.1 ',
+'Q' => 'get the name of the protocol (http? etc) ',
+'id' => 158,
+},
+{
+'A' => 'httpServletRequest.getSession().getServletContext()<br>servlet.getServletContext().getRequestDispatcher(String path)<br>servlet.getServletConfig()<br>httpServletRequest.getRequestDispatcher(String path) ',
+'Q' => 'chain servlet objex ',
+'id' => 159,
+},
+{
+'A' => 'user-defined type<br>&nbsp;&nbsp;DatabaseMetaData.getSuperTypes(String catalog, String schemaPattern, String typeNamePattern)<br>DatabaseMetaData.getSuperTables(String catalog, String schemaPattern, String tableNamePattern) ',
+'Q' => 'db: UDT hierarchies ',
+'id' => 160,
+},
+{
+'A' => 'non-http, http: GenericServlet implements Servlet, ServletConfig:<br><font size=-1>GenericServlet</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> public </td><td>GenericServlet()</td></tr><tr><td width=20%> public void </td><td>destroy()</td></tr><tr><td width=20%> public String </td><td>getInitParameter(String name)</td></tr><tr><td width=20%> public Enumeration </td><td>getInitParameterNames()</td></tr><tr><td width=20%> public ServletConfig </td><td>getServletConfig()</td></tr><tr><td width=20%> public ServletContext </td><td>getServletContext()</td></tr><tr><td width=20%> public String </td><td>getServletInfo()</td></tr><tr><td width=20%> public String </td><td>getServletName()</td></tr><tr><td width=20%> public void </td><td>init() throws ServletException</td></tr><tr><td width=20%> public void </td><td>init(ServletConfig config) throws ServletException</td></tr><tr><td width=20%> public void </td><td>log(String message, Throwable t)</td></tr><tr><td width=20%> public void </td><td>log(String msg)</td></tr><tr><td width=20%> public abstract void </td><td>service(ServletRequest req, ServletResponse res)</td></tr></table><br>&nbsp;&nbsp;<font size=-1>HttpServlet</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> public </td><td>HttpServlet()</td></tr><tr><td width=20%> protected void </td><td>doDelete(HttpServletRequest req, HttpServletResponse resp)</td></tr><tr><td width=20%> protected void </td><td>doGet(HttpServletRequest req, HttpServletResponse resp)</td></tr><tr><td width=20%> protected void </td><td>doHead(HttpServletRequest req, HttpServletResponse resp)</td></tr><tr><td width=20%> protected void </td><td>doOptions(HttpServletRequest req, HttpServletResponse resp)</td></tr><tr><td width=20%> protected void </td><td>doPost(HttpServletRequest req, HttpServletResponse resp)</td></tr><tr><td width=20%> protected void </td><td>doPut(HttpServletRequest req, HttpServletResponse resp)</td></tr><tr><td width=20%> protected void </td><td>doTrace(HttpServletRequest req, HttpServletResponse resp)</td></tr><tr><td width=20%> private Method[] </td><td>getAllDeclaredMethods(Class c)</td></tr><tr><td width=20%> protected long </td><td>getLastModified(HttpServletRequest req)</td></tr><tr><td width=20%> private void </td><td>maybeSetLastModified(HttpServletResponse resp, long lastModified)</td></tr><tr><td width=20%> protected void </td><td>service(HttpServletRequest req, HttpServletResponse resp)</td></tr><tr><td width=20%> public void </td><td>service(ServletRequest req, ServletResponse res)</td></tr></table><br>&nbsp;&nbsp;&nbsp;&nbsp;<font size=-1>CGIServlet</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> protected </td><td>CGIEnvironment(HttpServletRequest req, ServletContext context)</td></tr><tr><td width=20%> protected </td><td>CGIRunner(String command, Hashtable env, File wd, Hashtable params)</td></tr><tr><td width=20%> protected String </td><td>blanksToString(String couldBeBlank, String subForBlanks)</td></tr><tr><td width=20%> protected void </td><td>doGet(HttpServletRequest req, HttpServletResponse res)</td></tr><tr><td width=20%> protected void </td><td>doPost(HttpServletRequest req, HttpServletResponse res)</td></tr><tr><td width=20%> protected String[] </td><td>findCGI(String pathInfo, String webAppRootDir, String contextPath, String servletPath, String cgiPathPrefix)</td></tr><tr><td width=20%> protected String </td><td>getCommand()</td></tr><tr><td width=20%> protected Hashtable </td><td>getEnvironment()</td></tr><tr><td width=20%> protected Hashtable </td><td>getParameters()</td></tr><tr><td width=20%> protected String </td><td>getPostInput(Hashtable params)</td></tr><tr><td width=20%> protected File </td><td>getWorkingDirectory()</td></tr><tr><td width=20%> protected String[] </td><td>hashToStringArray(Hashtable h)</td></tr><tr><td width=20%> public void </td><td>init(ServletConfig config) throws ServletException</td></tr><tr><td width=20%> protected boolean </td><td>isReady()</td></tr><tr><td width=20%> protected boolean </td><td>isValid()</td></tr><tr><td width=20%> public static void </td><td>main(String[] args)</td></tr><tr><td width=20%> protected String </td><td>nullsToBlanks(String s)</td></tr><tr><td width=20%> protected String </td><td>nullsToString(String couldBeNull, String subForNulls)</td></tr><tr><td width=20%> protected void </td><td>printServletEnvironment(ServletOutputStream out, HttpServletRequest req, HttpServletResponse res) throws IOException</td></tr><tr><td width=20%> protected void </td><td>run() throws IOException</td></tr><tr><td width=20%> protected boolean </td><td>setCGIEnvironment(HttpServletRequest req)</td></tr><tr><td width=20%> protected void </td><td>setInput(InputStream stdin)</td></tr><tr><td width=20%> protected void </td><td>setResponse(HttpServletResponse response)</td></tr><tr><td width=20%> protected void </td><td>setupFromContext(ServletContext context)</td></tr><tr><td width=20%> protected void </td><td>setupFromRequest(HttpServletRequest req)</td></tr><tr><td width=20%> public String </td><td>toString()</td></tr><tr><td width=20%> protected void </td><td>updateReadyStatus()</td></tr></table><br>&nbsp;&nbsp;&nbsp;&nbsp;<font size=-1>SendMailServlet</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> public void </td><td>doPost(HttpServletRequest request, HttpServletResponse response)</td></tr></table><br>&nbsp;&nbsp;&nbsp;&nbsp;<font size=-1>TroubleShooter</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> public void </td><td>doGet(HttpServletRequest request, HttpServletResponse response)</td></tr><tr><td width=20%> public void </td><td>doPost(HttpServletRequest request, HttpServletResponse response)</td></tr><tr><td width=20%> public void </td><td>printHeader(PrintWriter out, String header)</td></tr><tr><td width=20%> public void </td><td>printValue(PrintWriter out, String key, String val)</td></tr><tr><td width=20%> public void </td><td>printVoid(PrintWriter out)</td></tr></table> ',
+'Q' => 'what class do you extend to define a Servlet ',
+'id' => 161,
+},
+{
+'A' => '443 ',
+'Q' => 'https default port ',
+'id' => 162,
+},
+{
+'A' => '(when forwarding the request via RequestDispatcher)<br>to encode information needed for processing the request ',
+'Q' => 'when would one set an attribute on<br>a javax.servlet.ServletRequest? ',
+'id' => 163,
+},
+{
+'A' => 'Mark the current transaction for rollback. The transaction will<br>become permanently marked for rollback. A transaction marked for<br>rollback can never commit.<br>&nbsp;Only enterprise beans with container-managed transactions are allowed<br>to use this method.<br>&nbsp;EJBContext.setRollbackOnly() ',
+'Q' => 'CMP: rollback ',
+'id' => 164,
+},
+{
+'A' => 'GenericServlet.init(ServletConfig config), which is saved away for<br>GenericServlet.getServletConfig() ',
+'Q' => 'how does a Servlet find the ServletConfig ',
+'id' => 165,
+},
+{
+'A' => 'if you give a relative path to the former, it will form an absolute<br>path based on getServletPath(); the latter assumes an absolute path<br>(i.e., starting with/), interpreted relative to the context root ',
+'Q' => 'what\'s the difference between<br>request.getRequestDispatcher() and<br>request.getSession().getRequestDispatcher(path) ',
+'id' => 166,
+},
+{
+'A' => 'not sure -- their implementations are the same ',
+'Q' => 'what\'s the difference between<br>encodeURL(String url) and<br>encodeRedirectURL(String url) ',
+'id' => 167,
+},
+{
+'A' => 'dump them out w/<br>tomcat/jakarta-tomcat-4.0/webapps/examples/WEB-INF/classes/TroubleShooter.java ',
+'Q' => 'what parms + settings are going to<br>a servlet? ',
+'id' => 168,
+},
+{
+'A' => 'CGIServlet gives an example, forwarding calls to cgi scripts.<br>suggestion: House all your CGI scripts under<br><code>&lt;webapp&gt;/WEB-INF/cgi</code>. This will ensure that you<br>do not accidentally expose your cgi scripts\' code to the outside<br>world and that your cgis will be cleanly ensconced underneath the<br>WEB-INF (i.e., non-content) area. ',
+'Q' => 'Servlet working with cgi? ',
+'id' => 169,
+},
+{
+'A' => 'java/beans/Statement.java<br>java/sql/Statement.java ',
+'Q' => 'w Statement.java ',
+'id' => 170,
+},
+{
+'A' => '<font size=-1>UserTransaction</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> void </td><td>begin() throws NotSupportedException, SystemException</td></tr><tr><td width=20%> void </td><td>commit() throws RollbackException,</td></tr><tr><td width=20%> int </td><td>getStatus() throws SystemException</td></tr><tr><td width=20%> void </td><td>rollback() throws IllegalStateException, SecurityException,</td></tr><tr><td width=20%> void </td><td>setRollbackOnly() throws IllegalStateException, SystemException</td></tr><tr><td width=20%> void </td><td>setTransactionTimeout(int seconds) throws SystemException</td></tr></table> ',
+'Q' => 'describe the UserTransaction class ',
+'id' => 171,
+},
+{
+'A' => '&lt;%@ page buffer="none|xxxkb" %&gt; ',
+'Q' => 'jsp buffering ',
+'id' => 172,
+},
+{
+'A' => 'JavaCC: <a href=\'http://www.webgain.com/products/java_cc/documentation.html<br>&nbsp\'>http://www.webgain.com/products/java_cc/documentation.html<br>&nbsp</a>;used in apache code for jpath:<br>c:/downloads/java/jstl1.0fcs-scsl/standard/src/org/apache/taglibs/standard/lang/jpath/expression/Expression.jjt<br>&nbsp;c:/downloads/java/jstl1.0fcs-scsl/standard/src/org/apache/taglibs/standard/lang/jpath/expression/MethodCalls.jjt<br>&nbsp;&nbsp;JJTree is a preprocessor for JavaCC that inserts parse tree building<br>actions at various places in the JavaCC source. The output of JJTree<br>is run through JavaCC to create the parser<br>&nbsp;JJDoc takes a JavaCC parser specification and produces documentation for the BNF grammar. ',
+'Q' => 'Java yacc ',
+'id' => 173,
+},
+{
+'A' => 's/w to allow Java Beans to be viewed as a DOM tree such that Xalan can be used to evaluate XPath expressions, XSLT patterns or even perform XSLT on Java Beans;<br>&nbsp;serves as a tool for integrating XPath expression languages into JSP tag libraries ',
+'Q' => 'what is jpath ',
+'id' => 174,
+},
+{
+'A' => 'Scalable Vector Graphics (SVG) is a new graphics file format and Web<br>development language based on XML. SVG enables Web developers and<br>designers to create dynamically generated, high-quality graphics from<br>real-time data with precise structural and visual control<br>&nbsp;<a href=\'http://www.adobe.com/svg/overview/svg.html\'>http://www.adobe.com/svg/overview/svg.html</a> ',
+'Q' => 'What is SVG? ',
+'id' => 175,
+},
+{
+'A' => 'JJTree is a preprocessor for JavaCC that inserts parse tree building actions at various places in the JavaCC source. The output of JJTree is run through JavaCC to create the parser<br>&nbsp;<a href=\'http://www.webgain.com/products/java_cc/jjtree.html\'>http://www.webgain.com/products/java_cc/jjtree.html</a> ',
+'Q' => 'JJTree ',
+'id' => 176,
+},
+{
+'A' => 'no; ResultSet.updateRow() or ResultSet.insertRow() must be called<br>&nbsp;RowSet.setXXX() does update db, btw. ',
+'Q' => 'does ResultSet.updateXXX() update the underlying database? ',
+'id' => 177,
+},
+{
+'A' => 'Address address = (Address)JXPathContext.newContext(vendor).getValue("locations[address/zipCode=\'90210\']/address");<br><a href=\'http://jakarta.apache.org/commons/jxpath/\'>http://jakarta.apache.org/commons/jxpath/</a> ',
+'Q' => 'Address address = null;<br>Collection locations = vendor.getLocations();<br>Iterator it = locations.iterator();<br>while (it.hasNext())&#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;Location location = (Location)it.next();<br>&nbsp;&nbsp;&nbsp;&nbsp;String zipCode = location.getAddress().getZipCode();<br>&nbsp;&nbsp;&nbsp;&nbsp;if (zipCode.equals("90210"))&#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;address = location.getAddress();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&#125;<br>equvalent JXPath: ',
+'id' => 178,
+},
+{
+'A' => 'JXPathContext context = JXPathContext.newContext(emp);<br>String sNumber = (String)context.getValue("homeAddress/streetNumber");<br><a href=\'http://jakarta.apache.org/commons/jxpath/\'>http://jakarta.apache.org/commons/jxpath/</a> ',
+'Q' => 'public class Employee &#123;<br>&nbsp;&nbsp;public Address getHomeAddress()&#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;...<br>&nbsp;&nbsp;&#125;<br>&#125;<br>public class Address &#123;<br>&nbsp;&nbsp;public String getStreetNumber()&#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;...<br>&nbsp;&nbsp;&#125;<br>&#125;<br>Employee emp = new Employee();<br>emp.getHomeAddress().getStreetNumber(); // what\'s equivalent JXPath? ',
+'id' => 179,
+},
+{
+'A' => 'BlueJ: an intgeractive command loop and stop-and-fix debugging. Lisp<br>environments are still ahead, but that probably won\'t last long. You<br>can recompile a method into a running program, and you can type in an<br>expression and have it evaluated immediately. It is intended for<br>teaching purposes ',
+'Q' => 'a Java Interactive Environment ',
+'id' => 180,
+},
+{
+'A' => 'C++ Standard Template Library ',
+'Q' => 'C++ STL ',
+'id' => 181,
+},
+{
+'A' => 'X is accessible only inside its package ',
+'Q' => 'what is the accessibility of a public method or field X inside a non-public class or interface ',
+'id' => 182,
+},
+{
+'A' => 'class file disassembler that came with jdk 1.1<br>displays the class file in terms of JVM instruction set by codes ',
+'Q' => 'javap ',
+'id' => 183,
+},
+);

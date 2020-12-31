@@ -1,0 +1,334 @@
+<html>
+<head>
+<title>[18] Const correctness, C++ FAQ Lite, Marshall Cline</title>
+<link rev=made href="mailto:cline@parashift.com">
+</head>
+<body vlink="#551a8b" text="#000000" bgcolor="#c1c1c1" alink="#ff0000" link="#0000ee">
+<a name="top"></a>
+<h1>[18] Const correctness<br>
+<small><small>(Part of <a href="index.html"><em>C++ FAQ Lite</em></a>, <a href="copy-permissions.html#[1.2]">Copyright&nbsp;&copy; 1991-96</a>, <a href="http://www.cerfnet.com/~mpcline/">Marshall Cline</a>, <a href="mailto:cline@parashift.com">cline@parashift.com</a>)</small></small></h1>
+<hr width="100%" >
+<h3>FAQs in section [18]:</h3>
+<ul>
+<li><a href="const-correctness.html#[18.1]">[18.1] What is &quot;<tt>const</tt> correctness&quot;?</a> <img src="updated.gif" alt="UPDATED!" border=0></li>
+<li><a href="const-correctness.html#[18.2]">[18.2] How is &quot;<tt>const</tt> correctness&quot; related to ordinary
+type safety?</a></li>
+<li><a href="const-correctness.html#[18.3]">[18.3] Should I try to get things <tt>const</tt> correct &quot;sooner&quot; or
+&quot;later&quot;?</a></li>
+<li><a href="const-correctness.html#[18.4]">[18.4] What does &quot;<tt>const&nbsp;Fred*&nbsp;p</tt>&quot; mean?</a></li>
+<li><a href="const-correctness.html#[18.5]">[18.5] What's the difference between &quot;<tt>const&nbsp;Fred*&nbsp;p</tt>&quot;, &quot;<tt>Fred*&nbsp;const&nbsp;p</tt>&quot; and &quot;<tt>const&nbsp;Fred*&nbsp;const&nbsp;p</tt>&quot;?</a></li>
+<li><a href="const-correctness.html#[18.6]">[18.6] What does &quot;<tt>const&nbsp;Fred&amp;&nbsp;x</tt>&quot; mean?</a></li>
+<li><a href="const-correctness.html#[18.7]">[18.7] Does &quot;<tt>Fred&amp;&nbsp;const&nbsp;x</tt>&quot; make any sense?</a></li>
+<li><a href="const-correctness.html#[18.8]">[18.8] What does &quot;<tt>Fred&nbsp;const&amp;&nbsp;x</tt>&quot; mean?</a></li>
+<li><a href="const-correctness.html#[18.9]">[18.9] What is a &quot;<tt>const</tt> member function&quot;?</a></li>
+<li><a href="const-correctness.html#[18.10]">[18.10] What do I do if I want to update an &quot;invisible&quot; data
+member inside a <tt>const</tt> member function?</a></li>
+<li><a href="const-correctness.html#[18.11]">[18.11] Does <tt>const_cast</tt> mean lost optimization
+opportunities?</a></li>
+<li><a href="const-correctness.html#[18.12]">[18.12] Why does the compiler allow me to change an <tt>int</tt> after
+I've pointed at it with a <tt>const&nbsp;int*</tt>?</a></li>
+<li><a href="const-correctness.html#[18.13]">[18.13] Does &quot;<tt>const&nbsp;Fred*&nbsp;p</tt>&quot; mean that <tt>*p</tt>
+can't change?</a></li>
+</ul>
+<p><hr width="100%" >
+<p><a name="[18.1]"></a>
+<h3>[18.1] What is &quot;<tt>const</tt> correctness&quot;? <img src="updated.gif" alt="UPDATED!" border=0></h3>
+<small><em>[Recently rewrote because of helpful feedback from <a href="mailto:jaidi@ubd.edu.bn">Nor Jaidi</a> (on 1/97).  <a href="proper-inheritance.html#[21.6]">Click here to go to the next FAQ in the &quot;chain&quot; of recent changes<!--rawtext:[21.6]:rawtext--></a>.]</em></small>
+<p>A good thing.  It means using the keyword <tt>const</tt> to prevent <tt>const</tt> objects
+from getting mutated.
+<p>For example, if you wanted to create a function <tt>f()</tt> that accepted a <tt>String</tt>,
+plus you want to promise callers not to change the caller's <tt>String</tt> that gets
+passed to <tt>f()</tt>, you can have <tt>f()</tt> receive its <tt>String</tt> parameter . . .
+<ul>
+<li><tt>void&nbsp;f1(const&nbsp;String&amp;&nbsp;s);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>
+<em>// Pass by reference-to-<tt>const</tt></em></li>
+<li><tt>void&nbsp;f2(const&nbsp;String*&nbsp;sptr);&nbsp;&nbsp;</tt>
+<em>// Pass by pointer-to-<tt>const</tt></em></li>
+<li><tt>void&nbsp;f3(String&nbsp;s);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>
+<em>// Pass by value</em></li>
+</ul>
+<p>In the <em>pass by reference-to-<tt>const</tt></em> and <em>pass by
+pointer-to-<tt>const</tt></em> cases, any attempts to change to the caller's <tt>String</tt>
+within the <tt>f()</tt> functions would be flagged by the compiler as an error at
+compile-time.  This check is done entirely at compile-time: there is no
+run-time space or speed cost for the <tt>const</tt>.  In the <em>pass by value</em>
+case (<tt>f3()</tt>), the called function gets a copy of the caller's <tt>String</tt>.  This
+means that <tt>f3()</tt> can change its local copy, but the copy is destroyed when
+<tt>f3()</tt> returns.  In particular <tt>f3()</tt> cannot change the caller's <tt>String</tt>
+object.
+<p>As an opposite example, if you wanted to create a function <tt>g()</tt> that accepted
+a <tt>String</tt>, but you want to let callers know that <tt>g()</tt> might change the
+caller's <tt>String</tt> object.  In this case you can have <tt>g()</tt> receive its <tt>String</tt>
+parameter . . .
+<ul>
+<li><tt>void&nbsp;g1(String&amp;&nbsp;s);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt>
+<em>// Pass by reference-to-non-<tt>const</tt></em></li>
+<li><tt>void&nbsp;g2(String*&nbsp;sptr);&nbsp;&nbsp;</tt>
+<em>// Pass by pointer-to-non-<tt>const</tt></em></li>
+</ul>
+<p>The lack of <tt>const</tt> in these functions tells the compiler that they are allowed
+to (but are not required to) change the caller's <tt>String</tt> object.  Thus they
+can pass their <tt>String</tt> to any of the <tt>f()</tt> functions, but only <tt>f3()</tt> (the one
+that receives its parameter &quot;by value&quot;) can pass its <tt>String</tt> to <tt>g1()</tt> or
+<tt>g2()</tt>.  If <tt>f1()</tt> or <tt>f2()</tt> need to call either <tt>g()</tt> function, a local copy
+of the <tt>String</tt> object must be passed to the <tt>g()</tt> function; the parameter to
+<tt>f1()</tt> or <tt>f2()</tt> cannot be directly passed to either <tt>g()</tt> function.  E.g.,
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;g1(String&amp;&nbsp;s);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;f1(const&nbsp;String&amp;&nbsp;s)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;g1(s);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Compile-time&nbsp;Error&nbsp;since&nbsp;<tt>s</tt>&nbsp;is&nbsp;<tt>const</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;localCopy&nbsp;=&nbsp;s;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;g1(localCopy);&nbsp;&nbsp;</tt><em>//&nbsp;OK&nbsp;since&nbsp;<tt>localCopy</tt>&nbsp;is&nbsp;not&nbsp;<tt>const</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p>Naturally in the above case, any changes that <tt>g1()</tt> makes are made to the
+<tt>localCopy</tt> object that is local to <tt>f1()</tt>.  In particular, no changes
+will be made to the <tt>const</tt> parameter that was passed by reference to <tt>f1()</tt>.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="exceptions.html">Previous&nbsp;section</a> |&nbsp;<a href="basics-of-inheritance.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[18.2]"></a>
+<h3>[18.2] How is &quot;<tt>const</tt> correctness&quot; related to ordinary
+type safety?</h3>
+<p>Declaring the <tt>const</tt>-ness of a parameter is just another form of type safety.
+It is almost as if a <tt>const</tt> <tt>String</tt>, for example, is a different class than
+an ordinary <tt>String</tt>, since the <tt>const</tt> variant is missing the various mutative
+operations in the non-<tt>const</tt> variant (e.g., you can imagine that a <tt>const</tt>
+<tt>String</tt> simply doesn't have an assignment operator).
+<p>If you find ordinary type safety helps you get systems correct (it does;
+especially in large systems), you'll find <tt>const</tt> correctness helps also.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="exceptions.html">Previous&nbsp;section</a> |&nbsp;<a href="basics-of-inheritance.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[18.3]"></a>
+<h3>[18.3] Should I try to get things <tt>const</tt> correct &quot;sooner&quot; or
+&quot;later&quot;?</h3>
+<p>At the very, very, <em>very</em> beginning.
+<p>Back-patching <tt>const</tt> correctness results in a snowball effect: every <tt>const</tt>
+you add &quot;over here&quot; requires four more to be added &quot;over there.&quot;
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="exceptions.html">Previous&nbsp;section</a> |&nbsp;<a href="basics-of-inheritance.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[18.4]"></a>
+<h3>[18.4] What does &quot;<tt>const&nbsp;Fred*&nbsp;p</tt>&quot; mean?</h3>
+<p>It means <tt>p</tt> points to an object of class <tt>Fred</tt>, but <tt>p</tt> can't be used to
+change that <tt>Fred</tt> object (naturally <tt>p</tt> could also be <tt>NULL</tt>).
+<p>For example, if class <tt>Fred</tt> has a <a href="const-correctness.html#[18.9]"><tt>const</tt> member
+function<!--rawtext:[18.9]:rawtext--></a> called <tt>inspect()</tt>, saying <tt>p-&gt;inspect()</tt> is OK.
+But if class <tt>Fred</tt> has a <a href="const-correctness.html#[18.9]">non-<tt>const</tt> member
+function<!--rawtext:[18.9]:rawtext--></a> called <tt>mutate()</tt>, saying <tt>p-&gt;mutate()</tt> is an error
+(the error is caught by the compiler; no run-time tests are done, which means
+<tt>const</tt> doesn't slow your program down).
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="exceptions.html">Previous&nbsp;section</a> |&nbsp;<a href="basics-of-inheritance.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[18.5]"></a>
+<h3>[18.5] What's the difference between &quot;<tt>const&nbsp;Fred*&nbsp;p</tt>&quot;, &quot;<tt>Fred*&nbsp;const&nbsp;p</tt>&quot; and &quot;<tt>const&nbsp;Fred*&nbsp;const&nbsp;p</tt>&quot;?</h3>
+<p>You have to read pointer declarations right-to-left.
+<ul>
+<li><tt>const&nbsp;Fred*&nbsp;p</tt> means &quot;<tt>p</tt> points to a <tt>Fred</tt> that is <tt>const</tt>&quot;
+&#151; that is, the <tt>Fred</tt> object can't be changed <a href="const-correctness.html#[18.13]">via
+<tt>p</tt><!--rawtext:[18.13]:rawtext--></a>.</li>
+<li><tt>Fred*&nbsp;const&nbsp;p</tt> means &quot;<tt>p</tt> is a <tt>const</tt> pointer to a <tt>Fred</tt>&quot;
+&#151; that is, you can change the <tt>Fred</tt> object <a href="const-correctness.html#[18.13]">via
+<tt>p</tt><!--rawtext:[18.13]:rawtext--></a>, but you can't change the pointer <tt>p</tt> itself.</li>
+<li><tt>const&nbsp;Fred*&nbsp;const&nbsp;p</tt> means &quot;<tt>p</tt> is a <tt>const</tt> pointer to a
+<tt>const</tt> <tt>Fred</tt>&quot; &#151; that is, you can't change the pointer <tt>p</tt> itself, nor can
+you change the <tt>Fred</tt> object <a href="const-correctness.html#[18.13]">via
+<tt>p</tt><!--rawtext:[18.13]:rawtext--></a>.</li>
+</ul>
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="exceptions.html">Previous&nbsp;section</a> |&nbsp;<a href="basics-of-inheritance.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[18.6]"></a>
+<h3>[18.6] What does &quot;<tt>const&nbsp;Fred&amp;&nbsp;x</tt>&quot; mean?</h3>
+<p>It means <tt>x</tt> aliases a <tt>Fred</tt> object, but <tt>x</tt> can't be used to change that
+<tt>Fred</tt> object.
+<p>For example, if class <tt>Fred</tt> has a <a href="const-correctness.html#[18.9]"><tt>const</tt> member
+function<!--rawtext:[18.9]:rawtext--></a> called <tt>inspect()</tt>, saying <tt>x.inspect()</tt> is OK.  But
+if class <tt>Fred</tt> has a <a href="const-correctness.html#[18.9]">non-<tt>const</tt> member function<!--rawtext:[18.9]:rawtext--></a>
+called <tt>mutate()</tt>, saying <tt>x.mutate()</tt> is an error (the error is
+caught by the compiler; no run-time tests are done, which means <tt>const</tt> doesn't
+slow your program down).
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="exceptions.html">Previous&nbsp;section</a> |&nbsp;<a href="basics-of-inheritance.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[18.7]"></a>
+<h3>[18.7] Does &quot;<tt>Fred&amp;&nbsp;const&nbsp;x</tt>&quot; make any sense?</h3>
+<p>No, it is nonsense.
+<p>To find out what the above declaration means, <a href="const-correctness.html#[18.5]">you
+have to read it right-to-left<!--rawtext:[18.5]:rawtext--></a>.  Thus &quot;<tt>Fred&amp;&nbsp;const&nbsp;x</tt>&quot; means &quot;<tt>x</tt> is
+a <tt>const</tt> reference to a <tt>Fred</tt>&quot;.  But that is redundant, since references are
+always <tt>const</tt>.  <a href="references.html#[8.4]">You can't reseat a reference<!--rawtext:[8.4]:rawtext--></a>.
+Never.  With or without the <tt>const</tt>.
+<p>In other words, &quot;<tt>Fred&amp;&nbsp;const&nbsp;x</tt>&quot; is functionally equivalent to
+&quot;<tt>Fred&amp;&nbsp;x</tt>&quot;.  Since you're gaining nothing by adding the <tt>const</tt> after
+the <tt>&amp;</tt>, you shouldn't add it since it will confuse people.  I.e., the
+<tt>const</tt> will make some people think that the <tt>Fred</tt> is <tt>const</tt>, as if you had
+said &quot;<tt>const&nbsp;Fred&amp;&nbsp;x</tt>&quot;.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="exceptions.html">Previous&nbsp;section</a> |&nbsp;<a href="basics-of-inheritance.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[18.8]"></a>
+<h3>[18.8] What does &quot;<tt>Fred&nbsp;const&amp;&nbsp;x</tt>&quot; mean?</h3>
+<p>&quot;<tt>Fred&nbsp;const&amp;&nbsp;x</tt>&quot; is functionally equivalent to <a href="const-correctness.html#[18.6]">&quot;<tt>const&nbsp;Fred&amp;&nbsp;x</tt>&quot;<!--rawtext:[18.6]:rawtext--></a>.
+<p>The problem with using &quot;<tt>Fred&nbsp;const&amp;&nbsp;x</tt>&quot; (with the <tt>const</tt> before the
+<tt>&amp;</tt>) is that it could easily be mis-typed as <a href="const-correctness.html#[18.7]">the
+nonsensical &quot;<tt>Fred&nbsp;&amp;const&nbsp;x</tt>&quot;<!--rawtext:[18.7]:rawtext--></a> (with the <tt>const</tt> after the
+<tt>&amp;</tt>).
+<p>Better to simply use <tt>const&nbsp;Fred&amp;&nbsp;x</tt>.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="exceptions.html">Previous&nbsp;section</a> |&nbsp;<a href="basics-of-inheritance.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[18.9]"></a>
+<h3>[18.9] What is a &quot;<tt>const</tt> member function&quot;?</h3>
+<p>A member function that inspects (rather than mutates) its object.
+<p>A <tt>const</tt> member function is indicated by a <tt>const</tt> suffix just after the
+member function's parameter list.  Member functions with a <tt>const</tt> suffix are
+called &quot;<tt>const</tt> member functions&quot; or &quot;inspectors.&quot; Member functions without a
+<tt>const</tt> suffix are called &quot;non-<tt>const</tt> member functions&quot; or &quot;mutators.&quot;
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;Fred&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;inspect()&nbsp;const;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;This&nbsp;member&nbsp;promises&nbsp;NOT&nbsp;to&nbsp;change&nbsp;<tt>*this</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;mutate();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;This&nbsp;member&nbsp;function&nbsp;might&nbsp;change&nbsp;<tt>*this</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;userCode(Fred&amp;&nbsp;changeable,&nbsp;const&nbsp;Fred&amp;&nbsp;unchangeable)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;changeable.inspect();&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;OK:&nbsp;doesn't&nbsp;change&nbsp;a&nbsp;changeable&nbsp;object</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;changeable.mutate();&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;OK:&nbsp;changes&nbsp;a&nbsp;changeable&nbsp;object</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unchangeable.inspect();&nbsp;</tt><em>//&nbsp;OK:&nbsp;doesn't&nbsp;change&nbsp;an&nbsp;unchangeable&nbsp;object</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unchangeable.mutate();&nbsp;&nbsp;</tt><em>//&nbsp;ERROR:&nbsp;attempt&nbsp;to&nbsp;change&nbsp;unchangeable&nbsp;object</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p>The error in <tt>unchangeable.mutate()</tt> is caught at compile time.  There is
+no runtime space or speed penalty for <tt>const</tt>.
+<p>The trailing <tt>const</tt> on <tt>inspect()</tt> member function means that the
+<em>abstract</em> (client-visible) state of the object isn't going to change.
+This is slightly different from promising that the &quot;raw bits&quot; of the object's
+<tt>struct</tt> aren't going to change.  C++ compilers aren't allowed to take the
+&quot;bitwise&quot; interpretation unless they can solve the aliasing problem, which
+normally can't be solved (i.e., a non-<tt>const</tt> alias could exist which could
+modify the state of the object).  Another (important) insight from this
+aliasing issue: pointing at an object with a <tt>const</tt> pointer doesn't guarantee
+that the object won't change; it promises only that the object won't change
+<em>via that pointer</em>).
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="exceptions.html">Previous&nbsp;section</a> |&nbsp;<a href="basics-of-inheritance.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[18.10]"></a>
+<h3>[18.10] What do I do if I want to update an &quot;invisible&quot; data
+member inside a <tt>const</tt> member function?</h3>
+<p>Use <tt>mutable</tt>, or use <tt>const_cast</tt>.
+<p>A small percentage of inspectors need to make innocuous changes to data members
+(e.g., a <tt>Set</tt> object might want to cache its last lookup in hopes of improving
+the performance of its next lookup).  By saying the changes are &quot;innocuous,&quot; I
+mean that the changes wouldn't be visible from outside the object's interface
+(otherwise the member function would be a mutator rather than an inspector).
+<p>When this happens, the data member which will be modified should be marked as
+<tt>mutable</tt> (put the <tt>mutable</tt> keyword just before the data member's declaration;
+i.e., in the same place where you could put <tt>const</tt>).  This tells the compiler
+that the data member is allowed to change during a <tt>const</tt> member function.  If
+your compiler doesn't support the <tt>mutable</tt> keyword, you can cast away the
+<tt>const</tt>'ness of <tt>this</tt> via the <tt>const_cast</tt> keyword.  E.g., in
+<tt>Set::lookup()&nbsp;const</tt>, you might say,
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;Set*&nbsp;self&nbsp;=&nbsp;const_cast&lt;Set*&gt;(this);
+</code>
+<p>After this line, <tt>self</tt> will have the same bits as <tt>this</tt> (e.g., <tt>self&nbsp;==&nbsp;this</tt>), but <tt>self</tt> is a <tt>Set*</tt> rather than a <tt>const&nbsp;Set*</tt>.
+Therefore you can use <tt>self</tt> to modify the object pointed to by <tt>this</tt>.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="exceptions.html">Previous&nbsp;section</a> |&nbsp;<a href="basics-of-inheritance.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[18.11]"></a>
+<h3>[18.11] Does <tt>const_cast</tt> mean lost optimization
+opportunities?</h3>
+<p>In theory, yes; in practice, no.
+<p>Even if the language outlawed <tt>const_cast</tt>, the only way to avoid flushing the
+register cache across a <tt>const</tt> member function call would be to solve the
+aliasing problem (i.e., to prove that there are no non-<tt>const</tt> pointers that
+point to the object).  This can happen only in rare cases (when the object is
+constructed in the scope of the <tt>const</tt> member function invocation, and when
+all the non-<tt>const</tt> member function invocations between the object's
+construction and the <tt>const</tt> member function invocation are statically bound,
+and when every one of these invocations is also <tt>inline</tt>d, and when the
+constructor itself is <tt>inline</tt>d, and when any member functions the constructor
+calls are <tt>inline</tt>).
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="exceptions.html">Previous&nbsp;section</a> |&nbsp;<a href="basics-of-inheritance.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[18.12]"></a>
+<h3>[18.12] Why does the compiler allow me to change an <tt>int</tt> after
+I've pointed at it with a <tt>const&nbsp;int*</tt>?</h3>
+<p>Because &quot;<tt>const&nbsp;int*&nbsp;p</tt>&quot; means &quot;<tt>p</tt> promises not to change the <tt>*p</tt>,&quot;
+<em>not</em> &quot;<tt>*p</tt> promises not to change.&quot;
+<p>Causing a <tt>const&nbsp;int*</tt> to point to an <tt>int</tt> doesn't <tt>const</tt>-ify the <tt>int</tt>.  The
+<tt>int</tt> can't be changed via the <tt>const&nbsp;int*</tt>, but if someone else has a <tt>int*</tt>
+(note: no <tt>const</tt>) that points to (&quot;aliases&quot;) the same <tt>int</tt>, then that <tt>int*</tt>
+can be used to change the <tt>int</tt>.  For example:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;f(const&nbsp;int*&nbsp;p1,&nbsp;int*&nbsp;p2)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;i&nbsp;=&nbsp;*p1;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Get&nbsp;the&nbsp;(original)&nbsp;value&nbsp;of&nbsp;<tt>*p1</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*p2&nbsp;=&nbsp;7;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;If&nbsp;<tt>p1&nbsp;==&nbsp;p2</tt>,&nbsp;this&nbsp;will&nbsp;also&nbsp;change&nbsp;<tt>*p1</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;j&nbsp;=&nbsp;*p1;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Get&nbsp;the&nbsp;(possibly&nbsp;new)&nbsp;value&nbsp;of&nbsp;<tt>*p1</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(i&nbsp;!=&nbsp;j)&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;"*p1&nbsp;changed,&nbsp;but&nbsp;it&nbsp;didn't&nbsp;change&nbsp;via&nbsp;pointer&nbsp;p1!\n";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;assert(p1&nbsp;==&nbsp;p2);&nbsp;&nbsp;</tt><em>//&nbsp;This&nbsp;is&nbsp;the&nbsp;only&nbsp;way&nbsp;<tt>*p1</tt>&nbsp;could&nbsp;be&nbsp;different</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;main()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;x;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f(&amp;x,&nbsp;&amp;x);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;This&nbsp;is&nbsp;perfectly&nbsp;legal&nbsp;(and&nbsp;even&nbsp;moral!)</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p>Note that <tt>main()</tt> and <tt>f(const&nbsp;int*,int*)</tt> could be in different
+compilation units that are compiled on different days of the week.  In that
+case there is no way the compiler can possibly detect the aliasing at compile
+time.  Therefore there is no way we could make a language rule that prohibits
+this sort of thing.  In fact, we wouldn't even want to make such a rule, since
+in general it's considered a feature that you can have many pointers pointing
+to the same thing.  The fact that one of those pointers promises not to change
+the underlying &quot;thing&quot; is just a promise made by the <em>pointer;</em> it's
+<em>not</em> a promise made by the &quot;thing&quot;.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="exceptions.html">Previous&nbsp;section</a> |&nbsp;<a href="basics-of-inheritance.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[18.13]"></a>
+<h3>[18.13] Does &quot;<tt>const&nbsp;Fred*&nbsp;p</tt>&quot; mean that <tt>*p</tt>
+can't change?</h3>
+<p>No!  (This is related to <a href="const-correctness.html#[18.12]">the FAQ about aliasing of
+<tt>int</tt> pointers<!--rawtext:[18.12]:rawtext--></a>.)
+<p>&quot;<tt>const&nbsp;Fred*&nbsp;p</tt>&quot; means that the <tt>Fred</tt> can't be changed via pointer <tt>p</tt>,
+but any aliasing pointers that aren't <tt>const</tt> can be used to change the <tt>Fred</tt>
+object.  For example, if you have two pointers &quot;<tt>const&nbsp;Fred*&nbsp;p</tt>&quot; and
+&quot;<tt>Fred*&nbsp;q</tt>&quot; that point to the same <tt>Fred</tt> object (aliasing), pointer <tt>q</tt>
+can be used to change the <tt>Fred</tt> object but pointer <tt>p</tt> cannot.
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;Fred&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;inspect()&nbsp;const;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;<a href="const-correctness.html#[18.9]">A&nbsp;<tt>const</tt>&nbsp;member&nbsp;function<!--rawtext:[18.9]:rawtext--></a></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;mutate();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;<a href="const-correctness.html#[18.9]">A&nbsp;non-<tt>const</tt>&nbsp;member&nbsp;function<!--rawtext:[18.9]:rawtext--></a></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;main()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fred&nbsp;f;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;Fred*&nbsp;p&nbsp;=&nbsp;&amp;f;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fred*&nbsp;q&nbsp;=&nbsp;&amp;f;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p-&gt;insepct();&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;OK:&nbsp;No&nbsp;change&nbsp;to&nbsp;<tt>*p</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p-&gt;mutate();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Error:&nbsp;Can't&nbsp;change&nbsp;<tt>*p</tt>&nbsp;via&nbsp;<tt>p</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;q-&gt;inspect();&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;OK:&nbsp;<tt>q</tt>&nbsp;is&nbsp;allowed&nbsp;to&nbsp;inspect&nbsp;the&nbsp;object</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;q-&gt;mutate();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;OK:&nbsp;<tt>q</tt>&nbsp;is&nbsp;allowed&nbsp;to&nbsp;mutate&nbsp;the&nbsp;object</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="exceptions.html">Previous&nbsp;section</a> |&nbsp;<a href="basics-of-inheritance.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<a name="bottom"></a>
+<a href="mailto:cline@parashift.com"><img src="mbox.gif" border=2 height=26 width=89>&nbsp;E-mail the author</a><br>
+[&nbsp;<a href="index.html"><em>C++ FAQ Lite</em></a>
+|&nbsp;<a href="index.html#table-of-contents">Table&nbsp;of&nbsp;contents</a>
+|&nbsp;<a href="subject-index.html">Subject&nbsp;index</a>
+|&nbsp;<a href="copy-permissions.html#[1.1]">About&nbsp;the&nbsp;author</a>
+|&nbsp;<a href="copy-permissions.html#[1.2]">&copy;</a>
+|&nbsp;<a href="on-line-availability.html#[2.2]">Download&nbsp;your&nbsp;own&nbsp;copy</a>&nbsp;]<br>
+<small>Revised Sep 8, 1997</small>
+</body>
+</html>

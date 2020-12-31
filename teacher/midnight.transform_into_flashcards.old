@@ -1,0 +1,20 @@
+sh -x ./transform_into_flashcards.sh
+
++ :
+++ ls.topics
++ for topic in '`ls.topics`'
++ '[' simple_arithmetic '!=' langs ']'
++ sh /cygdrive/c/users/nsproul/work/adyn.com/httpdocs/teacher/transform1_into_flashcards.sh simple_arithmetic
+teacher::Init()
+Settings::load could not load teacher.ini
+Settings::load could not load teacher.old
+leaving teacher::Init()
+ndb_sql::PropagatePerlToSql_init(c:/users/nsproul/tmp/sql, 0)
+,dumpedPerl::load(): ! -f grammar/Q.dp
+dumpedPerl::load(): ! -f grammar/A.dp
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,ndb_sql_load::GetFile(all) >> c:/users/nsproul/tmp/sql/all.dat
+
+teacher::GenHtmlDb(for simple_arithmetic) done
+sh ex_isql < c:/users/nsproul/tmp/sql/load.sql
++ exit 0
+22:20:35 o7 104$ 

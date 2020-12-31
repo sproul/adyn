@@ -1,0 +1,12 @@
+@val = (
+{
+'English' => 'the cat',
+'English_note#cat2;;English' => 'vocab_animals',
+'French' => '{}le chat{le chat>s>}',
+'German' => '{}die Katze{der Katze>s>}',
+'Italian' => '{}il gatto{il gatto>s>}',
+'Spanish' => '{}el gato{el gato>s>}',
+'id' => 0,
+},
+
+);

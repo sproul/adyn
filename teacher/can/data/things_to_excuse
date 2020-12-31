@@ -1,0 +1,19 @@
+# formatted
+@val = (
+{
+'English' => 'such rude behavior',
+'French' => '{un tel comportement>s>}',
+'German' => '{solcher schlect Benehmen>s>}',
+'Italian' => '{tale comportamento>s> scadente}',
+'Spanish' => 'tal {conducta>s> grosero}',
+'id' => 0,
+},
+{
+'English' => 'that big insult',
+'French' => '{ce grand insulte>s>}',
+'German' => '{jener groBB Beleidigung>s>}',
+'Italian' => '{quel insulto>s> grande}',
+'Spanish' => '{ese insulto>s> grande}',
+'id' => 1,
+},
+);

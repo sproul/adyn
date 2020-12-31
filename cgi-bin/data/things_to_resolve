@@ -1,0 +1,19 @@
+# formatted
+@val = (
+{
+'English' => 'the problem',
+'French' => '{le probl`eme>s>}',
+'German' => '{der Problem>s>}',
+'Italian' => '{il problema>s>}',
+'Spanish' => '{el problema>s>}',
+'id' => 0,
+},
+{
+'English' => 'problems',
+'French' => '{un probl`eme>p>}',
+'German' => '{Problem>p>}',
+'Italian' => '{un problema>p>}',
+'Spanish' => '{problema>p>}',
+'id' => 1,
+},
+);

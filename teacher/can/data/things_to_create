@@ -1,0 +1,11 @@
+@val = (
+{
+'English' => 'works of art',
+'French' => '{un oeuvre>p>} {de art>s>}',
+'German' => '{Kunstwerk>p>}',
+'suppress_Italian_note#lavori;;Italian' => 1,
+'Italian' => '{un lavoro>p>} di arte',
+'Spanish' => '{obra>p>} {de arte>s>}',
+'id' => 0,
+},
+);

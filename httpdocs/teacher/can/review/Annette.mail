@@ -1,0 +1,38 @@
+hi Annette,
+
+You changed
+verb_complain.0/vocab_family.11: Ihre Tochter hat geklagt.
+to
+verb_complain.0/vocab_family.11: Ihre Tochter hat sich geklagt.
+
+You left
+verb_complain.2/vocab_family.0: Mein Onkel hat geklagt.
+the same.
+
+So you changed one instance of klagen to sich klagen, but not others.  Can you tell me when I should use one and not the other?
+
+Could you explain to me when "erbauen" is appropriate, and when "errichten" is?
+
+And what is the difference between "erbauen" and "bauen"?
+
+You changed
+verb_construct.24/things_to_construct.14: Sie w:urden die Br:ucken gebaut haben.
+to
+verb_construct.24/things_to_construct.14: Sie h:atten die Br:ucken gebaut.
+
+Could you explain this change to me?
+
+You wrote
+verb_crawl.3/ways_to_crawl.3: Wir sind zu der Grenze gekrochen.
+Shouldn't the "zu" and the "der" become "zur"?  Or is this not obligatory?
+
+You changed
+verb_die.0/vocab_family.7: Mein Neffe w:urde gestorben sein.
+to
+verb_die.0/vocab_family.7: Mein Neffe w:are gestorben.
+
+I'm sorry -- this is beyond my knowledge of German.  Could you explain this change?
+
+thanks again,
+
+Nelson

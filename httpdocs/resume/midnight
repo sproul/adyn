@@ -1,0 +1,18 @@
+sh java2_make.sh
+.;c:/IBJts/Java;c:/users/nsproul/work/include;c:/j2sdk1.4.0_01/jre/lib/rt.jar;c:/j2sdk1.4.0_01/lib/dt.jar
+make apply_xsl.class
+`apply_xsl.class' is up to date
+java apply_xsl list_projects.xsl list_projects.xml list_projects.pm
+apply_xsl applying list_projects.xsl to list_projects.xml => list_projects.pm
+head.exe list_projects.pm
+<?xml version="1.0" encoding="UTF-8"?>
+
+sub getProject
+{
+return (
+      
+	[
+          "",
+          0
+          "&lt;b&gt;Photos&lt;/b&gt;:  Took some &lt;a href='../pix/'&gt;pictures&lt;/a&gt; from various vacations. "
+$ 

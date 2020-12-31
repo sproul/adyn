@@ -1,0 +1,4 @@
+# BUG: choose.cgi selecting verb_try_6 even though it has a negative weight
+userID=TEST_reject_mastered_exercise
+exerciseSetTargetSize=1
+randomSeed=3444

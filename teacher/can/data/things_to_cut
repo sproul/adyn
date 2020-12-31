@@ -1,0 +1,32 @@
+# formatted
+@val = (
+{
+'English' => 'the tree branch',
+'French' => '{le branche>s>} {de arbre>s>}',
+'German' => '{der Baumzweig>s>}',
+'Italian' => '{il ramo>s>} {da albero>s>}',
+'Spanish' => '{el rama>s>} de /arbol',
+'id' => 0,
+},
+{
+'English_note#arm;;English' => 'vocab_body',
+'English' => 'her arm',
+'French_note#bras;;French' => 'vocab_body',
+'French' => '{son bras>s>}',
+'German_note#Arm;;German' => 'vocab_body',
+'German' => '{ihr Arm>s>}',
+'Italian_note#braccio;;Italian' => 'vocab_body',
+'Italian' => '{il suo braccio>s>}',
+'Spanish_note#brazo;;Spanish' => 'vocab_body',
+'Spanish' => '{el brazo>s>}',
+'id' => 1,
+},
+{
+'English' => 'tree branches',
+'French' => '{un branche>p>} {de arbre>s>}',
+'German' => '{Baumzweig>p>}',
+'Italian' => '{un ramo>p>} {da albero>p>}',
+'Spanish' => '{rama>p>} de /arbol',
+'id' => 2,
+},
+);

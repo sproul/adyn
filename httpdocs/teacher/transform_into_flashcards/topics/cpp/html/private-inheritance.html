@@ -1,0 +1,206 @@
+<html>
+<head>
+<title>[24] Inheritance private and protected inheritance, C++ FAQ Lite, Marshall Cline</title>
+<link rev=made href="mailto:cline@parashift.com">
+</head>
+<body vlink="#551a8b" text="#000000" bgcolor="#c1c1c1" alink="#ff0000" link="#0000ee">
+<a name="top"></a>
+<h1>[24] Inheritance &#151; <tt>private</tt> and <tt>protected</tt> inheritance<br>
+<small><small>(Part of <a href="index.html"><em>C++ FAQ Lite</em></a>, <a href="copy-permissions.html#[1.2]">Copyright&nbsp;&copy; 1991-96</a>, <a href="http://www.cerfnet.com/~mpcline/">Marshall Cline</a>, <a href="mailto:cline@parashift.com">cline@parashift.com</a>)</small></small></h1>
+<hr width="100%" >
+<h3>FAQs in section [24]:</h3>
+<ul>
+<li><a href="private-inheritance.html#[24.1]">[24.1] How do you express &quot;<tt>private</tt> inheritance&quot;?</a></li>
+<li><a href="private-inheritance.html#[24.2]">[24.2] How are &quot;<tt>private</tt> inheritance&quot; and &quot;composition&quot;
+similar?</a></li>
+<li><a href="private-inheritance.html#[24.3]">[24.3] Which should I prefer: composition or private
+inheritance?</a></li>
+<li><a href="private-inheritance.html#[24.4]">[24.4] Should I pointer-cast from a <tt>private</tt>
+derived class to its base class?</a></li>
+<li><a href="private-inheritance.html#[24.5]">[24.5] How is <tt>protected</tt> inheritance related to <tt>private</tt>
+inheritance?</a></li>
+<li><a href="private-inheritance.html#[24.6]">[24.6] What are the access rules with <tt>private</tt>
+and <tt>protected</tt> inheritance?</a></li>
+</ul>
+<p><hr width="100%" >
+<p><a name="[24.1]"></a>
+<h3>[24.1] How do you express &quot;<tt>private</tt> inheritance&quot;?</h3>
+<p>When you use <tt>:&nbsp;private</tt> instead of <tt>:&nbsp;public</tt>.  E.g.,
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;Foo&nbsp;:&nbsp;private&nbsp;Bar&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;};
+</code>
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="strange-inheritance.html">Previous&nbsp;section</a> |&nbsp;<a href="coding-standards.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[24.2]"></a>
+<h3>[24.2] How are &quot;<tt>private</tt> inheritance&quot; and &quot;composition&quot;
+similar?</h3>
+<p><tt>private</tt> inheritance is a syntactic variant of composition (has-a).
+<p>E.g., the &quot;<tt>Car</tt> has-a <tt>Engine</tt>&quot; relationship can be expressed using
+composition:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;Engine&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Engine(int&nbsp;numCylinders);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;start();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Starts&nbsp;this&nbsp;<tt>Engine</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;Car&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Car()&nbsp;:&nbsp;e_(8)&nbsp;{&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Initializes&nbsp;this&nbsp;<tt>Car</tt>&nbsp;with&nbsp;8&nbsp;cylinders</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;start()&nbsp;{&nbsp;e_.start();&nbsp;}&nbsp;&nbsp;</tt><em>//&nbsp;Start&nbsp;this&nbsp;<tt>Car</tt>&nbsp;by&nbsp;starting&nbsp;its&nbsp;<tt>Engine</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;private:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Engine&nbsp;e_;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;<tt>Car</tt>&nbsp;has-a&nbsp;<tt>Engine</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;};
+</code>
+<p>The same &quot;has-a&quot; relationship can also be expressed using private inheritance:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;Car&nbsp;:&nbsp;private&nbsp;Engine&nbsp;{&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;<tt>Car</tt>&nbsp;has-a&nbsp;<tt>Engine</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Car()&nbsp;:&nbsp;Engine(8)&nbsp;{&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Initializes&nbsp;this&nbsp;<tt>Car</tt>&nbsp;with&nbsp;8&nbsp;cylinders</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Engine::start;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Start&nbsp;this&nbsp;<tt>Car</tt>&nbsp;by&nbsp;starting&nbsp;its&nbsp;<tt>Engine</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;};
+</code>
+<p>There are several similarities between these two forms of composition:
+<ul>
+<li>In both cases there is exactly one <tt>Engine</tt> member object contained
+in a <tt>Car</tt></li>
+<li>In neither case can users (outsiders) convert a <tt>Car*</tt> to an
+<tt>Engine*</tt></li>
+</ul>
+<p>There are also several distinctions:
+<ul>
+<li>The first form is needed if you want to contain several <tt>Engine</tt>s
+per <tt>Car</tt></li>
+<li>The second form can introduce unnecessary multiple
+inheritance</li>
+<li>The second form allows members of <tt>Car</tt> to convert a <tt>Car*</tt> to an
+<tt>Engine*</tt></li>
+<li>The second form allows access to the <tt>protected</tt> members of the base
+class</li>
+<li>The second form allows <tt>Car</tt> to override <tt>Engine</tt>'s
+<a href="virtual-functions.html"><tt>virtual</tt><!--rawtext:[20]:rawtext--></a> functions</li>
+</ul>
+<p>Note that <tt>private</tt> inheritance is usually used to gain access into the
+<tt>protected:</tt> members of the base class, but this is usually a short-term
+solution (translation: a <a href="private-inheritance.html#[24.3]">band-aid<!--rawtext:[24.3]:rawtext--></a>).
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="strange-inheritance.html">Previous&nbsp;section</a> |&nbsp;<a href="coding-standards.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[24.3]"></a>
+<h3>[24.3] Which should I prefer: composition or private
+inheritance?</h3>
+<p>Use composition when you can, <tt>private</tt> inheritance when you have to.
+<p>Normally you don't <em>want</em> to have access to the internals of too many
+other classes, and <tt>private</tt> inheritance gives you some of this extra power
+(and responsibility).  But <tt>private</tt> inheritance isn't evil; it's just more
+expensive to maintain, since it increases the probability that someone will
+change something that will break your code.
+<p>A legitimate, long-term use for <tt>private</tt> inheritance is when you want to build
+a <tt>class</tt> <tt>Fred</tt> that uses code in a <tt>class</tt> <tt>Wilma</tt>, and the code from <tt>class</tt>
+<tt>Wilma</tt> needs to invoke member functions from your new <tt>class</tt>, <tt>Fred</tt>.  In
+this case, <tt>Fred</tt> calls non-<tt>virtual</tt>s in <tt>Wilma</tt>, and <tt>Wilma</tt> calls (usually
+<a href="abcs.html#[22.4]">pure virtuals<!--rawtext:[22.4]:rawtext--></a>) in itself, which are overridden
+by <tt>Fred</tt>.  This would be much harder to do with composition.
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;Wilma&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;protected:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;fredCallsWilma()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;"Wilma::fredCallsWilma()\n";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wilmaCallsFred();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;virtual&nbsp;void&nbsp;wilmaCallsFred()&nbsp;=&nbsp;0;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;<a href="abcs.html#[22.4]">A&nbsp;pure&nbsp;virtual&nbsp;function<!--rawtext:[22.4]:rawtext--></a></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;Fred&nbsp;:&nbsp;private&nbsp;Wilma&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;barney()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;"Fred::barney()\n";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Wilma::fredCallsWilma();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;protected:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;virtual&nbsp;void&nbsp;wilmaCallsFred()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;"Fred::wilmaCallsFred()\n";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};
+</code>
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="strange-inheritance.html">Previous&nbsp;section</a> |&nbsp;<a href="coding-standards.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[24.4]"></a>
+<h3>[24.4] Should I pointer-cast from a <tt>private</tt>
+derived class to its base class?</h3>
+<p>Generally, No.
+<p>From a member function or <a href="friends.html">friend<!--rawtext:[14]:rawtext--></a> of a privately derived
+class, the relationship to the base class is known, and the upward conversion
+from <tt>PrivatelyDer*</tt> to <tt>Base*</tt> (or <tt>PrivatelyDer&amp;</tt> to <tt>Base&amp;</tt>) is safe; no
+cast is needed or recommended.
+<p>However users of <tt>PrivateDer</tt> should avoid this unsafe conversion, since it is
+based on a <tt>private</tt> decision of <tt>PrivateDer</tt>, and is subject to change without
+notice.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="strange-inheritance.html">Previous&nbsp;section</a> |&nbsp;<a href="coding-standards.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[24.5]"></a>
+<h3>[24.5] How is <tt>protected</tt> inheritance related to <tt>private</tt>
+inheritance?</h3>
+<p>Similarities: both allow overriding <a href="virtual-functions.html"><tt>virtual</tt><!--rawtext:[20]:rawtext--></a>
+functions in the <tt>private</tt>/<tt>protected</tt> base class, neither claims the derived
+is a kind-of its base.
+<p>Dissimilarities: <tt>protected</tt> inheritance allows derived classes of derived
+classes to know about the inheritance relationship.  Thus your grand kids are
+effectively exposed to your implementation details.  This has both benefits (it
+allows subclasses of the <tt>protected</tt> derived class to exploit the
+relationship to the <tt>protected</tt> base class) and costs (the <tt>protected</tt>
+derived class can't change the relationship without potentially breaking
+further derived classes).
+<p>Protected inheritance uses the <tt>:&nbsp;protected</tt> syntax:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;Car&nbsp;:&nbsp;protected&nbsp;Engine&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;};
+</code>
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="strange-inheritance.html">Previous&nbsp;section</a> |&nbsp;<a href="coding-standards.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[24.6]"></a>
+<h3>[24.6] What are the access rules with <tt>private</tt>
+and <tt>protected</tt> inheritance?</h3>
+<p>Take these classes as examples:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;B&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;</tt><em>/*...*/</em><tt>&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;D_priv&nbsp;:&nbsp;private&nbsp;&nbsp;&nbsp;B&nbsp;{&nbsp;</tt><em>/*...*/</em><tt>&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;D_prot&nbsp;:&nbsp;protected&nbsp;B&nbsp;{&nbsp;</tt><em>/*...*/</em><tt>&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;D_publ&nbsp;:&nbsp;public&nbsp;&nbsp;&nbsp;&nbsp;B&nbsp;{&nbsp;</tt><em>/*...*/</em><tt>&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;UserClass&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;B&nbsp;b;&nbsp;</tt><em>/*...*/</em><tt>&nbsp;};
+</code>
+<p>None of the subclasses can access anything that is <tt>private</tt> in <tt>B</tt>.  In
+<tt>D_priv</tt>, the <tt>public</tt> and <tt>protected</tt> parts of <tt>B</tt> are <tt>private</tt>.  In
+<tt>D_prot</tt>, the <tt>public</tt> and <tt>protected</tt> parts of <tt>B</tt> are <tt>protected</tt>.  In
+<tt>D_publ</tt>, the <tt>public</tt> parts of <tt>B</tt> are <tt>public</tt> and the <tt>protected</tt> parts of
+<tt>B</tt> are <tt>protected</tt> (<tt>D_publ</tt> is-a-kind-of-a <tt>B</tt>).  <tt>class</tt> <tt>UserClass</tt> can
+access only the <tt>public</tt> parts of <tt>B</tt>, which &quot;seals off&quot; <tt>UserClass</tt> from <tt>B</tt>.
+<p>To make a <tt>public</tt> member of <tt>B</tt> so it is <tt>public</tt> in <tt>D_priv</tt> or <tt>D_prot</tt>,
+state the name of the member with a <tt>B::</tt> prefix.  E.g., to make member
+<tt>B::f(int,float)</tt> <tt>public</tt> in <tt>D_prot</tt>, you would say:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;D_prot&nbsp;:&nbsp;protected&nbsp;B&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;B::f;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Note:&nbsp;Not&nbsp;<tt>B::f(int,float)</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;};
+</code>
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="strange-inheritance.html">Previous&nbsp;section</a> |&nbsp;<a href="coding-standards.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<a name="bottom"></a>
+<a href="mailto:cline@parashift.com"><img src="mbox.gif" border=2 height=26 width=89>&nbsp;E-mail the author</a><br>
+[&nbsp;<a href="index.html"><em>C++ FAQ Lite</em></a>
+|&nbsp;<a href="index.html#table-of-contents">Table&nbsp;of&nbsp;contents</a>
+|&nbsp;<a href="subject-index.html">Subject&nbsp;index</a>
+|&nbsp;<a href="copy-permissions.html#[1.1]">About&nbsp;the&nbsp;author</a>
+|&nbsp;<a href="copy-permissions.html#[1.2]">&copy;</a>
+|&nbsp;<a href="on-line-availability.html#[2.2]">Download&nbsp;your&nbsp;own&nbsp;copy</a>&nbsp;]<br>
+<small>Revised Sep 8, 1997</small>
+</body>
+</html>

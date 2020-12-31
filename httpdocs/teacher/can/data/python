@@ -1,0 +1,272 @@
+@val = (
+{
+'A' => 'shortcut for map: shortcut for the common task of creating a list by applying a specific function to each element of an existing list. For example, in Jython you can write:<br>&nbsp;newList = [function(i) for i in oldList] ',
+'Q' => 'list comprehensions ',
+'id' => 0,
+},
+{
+'A' => 'If we make the string literal a ``raw\'\' string, however, the &#092;n<br>sequences are not converted to newlines, but the backslash at the end<br>of the line, and the newline character in the source, are both<br>included in the string as data. Thus, the example:<br>&nbsp;&nbsp;hello = <font color=red>r"</font>This is a rather long string containing&#092;n&#092;<br>several lines of text much as you would do in C."<br>&nbsp;print hello<br>&nbsp;would print:<br>&nbsp;&nbsp;This is a rather long string containing&#092;n&#092;<br>several lines of text much as you would do in C. ',
+'Q' => 'stop translation of &#092;n into new line ',
+'id' => 1,
+},
+{
+'A' => 'strings can be surrounded in a pair of matching triple-quotes: """ or \'\'\'. End of lines do not need to be escaped when using triple-quotes, but they will be included in the string.<br>&nbsp;&nbsp;print """<br>Usage: thingy [OPTIONS]<br>-h Display this usage message<br>-H hostname Hostname to connect to<br>"""<br>&nbsp;produces the following output:<br>&nbsp;&nbsp;Usage: thingy [OPTIONS]<br>-h Display this usage message<br>-H hostname Hostname to connect to ',
+'Q' => 'do a \'here\' file ',
+'id' => 2,
+},
+{
+'A' => 'no -- just one-character strings ',
+'Q' => 'character type? ',
+'id' => 3,
+},
+{
+'A' => 'Strings can be subscripted (indexed); like in C, the first character<br>of a string has subscript (index) 0. There is no separate character<br>type; a character is simply a string of size one. Like in Icon,<br>substrings can be specified with the slice notation: two indices<br>separated by a colon.<br>&nbsp;&nbsp;&gt;&gt;&gt; word[4]<br>\'A\'<br>&gt;&gt;&gt; word[0:2]<br>\'He\'<br>&gt;&gt;&gt; word[2:4]<br>\'lp\'<br>&nbsp;Here\'s a useful invariant of slice operations: s[:i] + s[i:] equals s. ',
+'Q' => 'sub strings ',
+'id' => 4,
+},
+{
+'A' => 'are truncated. ',
+'Q' => 'Out-of-range negative slice indices ',
+'id' => 5,
+},
+{
+'A' => 'The small "u" in front of the quote indicates that an Unicode string<br>is supposed to be created. If you want to include special characters<br>in the string, you can do so by using the Python Unicode-Escape<br>encoding. The following example shows how:<br>&nbsp;&nbsp;&gt;&gt;&gt; u\'Hello&#092;u0020World !\'<br>u\'Hello World !\'<br>&nbsp;The escape sequence &#092;u0020 indicates to insert the Unicode character<br>with the ordinal value 0x0020 (the space character) at the given<br>position. ',
+'Q' => 'international string ',
+'id' => 6,
+},
+{
+'A' => 'The built-in function len() also applies to lists and strings. ',
+'Q' => 'how long as a list? How long as a string? ',
+'id' => 7,
+},
+{
+'A' => 'A trailing comma does it:<br>&nbsp;&nbsp;&gt;&gt;&gt; a, b = 0, 1<br>&gt;&gt;&gt; while b &lt; 1000:<br>... print b, ',
+'Q' => 'stop the newline after the output: ',
+'id' => 8,
+},
+{
+'A' => 'No. iterate over a copy. The slice notation makes this particularly<br>convenient:<br>&nbsp;&nbsp;&gt;&gt;&gt; for x in a[:]: # make a slice copy of the entire list<br>... if len(x) &gt; 6: a.insert(0, x) ',
+'Q' => 'can you modify a sequence being iterated over? ',
+'id' => 9,
+},
+{
+'A' => '&gt;&gt;&gt; range(10)<br>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]<br>&nbsp;&gt;&gt;&gt; range(5, 10)<br>[5, 6, 7, 8, 9] ',
+'Q' => 'get a list of ascending integers ',
+'id' => 10,
+},
+{
+'A' => 'Loop statements may have an else clause; it is executed when the loop<br>terminates through exhaustion of the list (with for) or when the<br>condition becomes false (with while), but not when the loop is<br>terminated by a break statement. This is exemplified by the following<br>loop, which searches for prime numbers:<br>&nbsp;&nbsp;&gt;&gt;&gt; for n in range(2, 10):<br>... for x in range(2, n):<br>... if n % x == 0:<br>... print n, \'equals\', x, \'*\', n/x<br>... break<br>... else:<br>... # loop fell through without finding a factor<br>... print n, \'is a prime number\'<br>... ',
+'Q' => 'execute some code after a loop, unless the loop exited via a break ',
+'id' => 11,
+},
+{
+'A' => 'The pass statement does nothing. ',
+'Q' => 'no-op ',
+'id' => 12,
+},
+{
+'A' => 'one way this can be achieved: specify a default value for one or more<br>arguments. This creates a function that can be called with fewer<br>arguments than it is defined<br>&nbsp;&nbsp;def ask_ok(prompt, retries=4, complaint=\'Yes or no, please!\'):<br>&nbsp;Important warning: The <font color=red>default value is evaluated only once in the lifetime of the program</font>. This makes a difference when the default is a mutable object such as a list or dictionary. For example, the following function accumulates the arguments passed to it on subsequent calls:<br>&nbsp;&nbsp;def f(a, L=[]):<br>L.append(a)<br>return L<br>&nbsp;print f(1)<br>print f(2)<br>print f(3)<br>&nbsp;This will print<br>&nbsp;&nbsp;[1]<br>[1, 2]<br>[1, 2, 3]<br>&nbsp;If you don\'t want the default to be shared between subsequent calls, you can write the function like this instead:<br>&nbsp;&nbsp;def f(a, L=None):<br>if L is None:<br>L = []<br>L.append(a)<br>return L ',
+'Q' => 'subroutine which can accept variable members of arguments ',
+'id' => 13,
+},
+{
+'A' => '"filter(function, sequence)" returns a sequence (of the same type, if<br>possible) consisting of those items from the sequence for which<br>function(item) is true. For example, to compute some primes:<br>&nbsp;&nbsp;&gt;&gt;&gt; def f(x): return x % 2 != 0 and x % 3 != 0<br>...<br>&gt;&gt;&gt; filter(f, range(2, 25))<br>[5, 7, 11, 13, 17, 19, 23] ',
+'Q' => 'grep ',
+'id' => 14,
+},
+{
+'A' => '"map(function, sequence)" calls function(item) for each of the<br>sequence\'s items and returns a list of the return values. For<br>example, to compute some cubes:<br>&nbsp;&nbsp;&gt;&gt;&gt; def cube(x): return x*x*x<br>...<br>&gt;&gt;&gt; map(cube, range(1, 11))<br>[1, 8, 27, 64, 125, 216, 343, 512, 729, 1000]<br>&nbsp;More than one sequence may be passed; the function must then have as<br>many arguments as there are sequences and is called with the<br>corresponding item from each sequence (or None if some sequence is<br>shorter than another). If None is passed for the function, a function<br>returning its argument(s) is substituted.<br>&nbsp;Combining these two special cases, we see that "map(None, list1,<br>list2)" is a convenient way of turning a pair of lists into a list of<br>pairs. For example:<br>&nbsp;&nbsp;&gt;&gt;&gt; seq = range(8)<br>&gt;&gt;&gt; def square(x): return x*x<br>...<br>&gt;&gt;&gt; map(None, seq, map(square, seq))<br>[(0, 0), (1, 1), (2, 4), (3, 9), (4, 16), (5, 25), (6, 36), (7, 49)] ',
+'Q' => 'apply ',
+'id' => 15,
+},
+{
+'A' => '"reduce(func, sequence)" returns a single value constructed by<br>calling the binary function func on the first two items of the<br>sequence, then on the result and the next item, and so on. For<br>example, to compute the sum of the numbers 1 through 10:<br>&nbsp;&nbsp;&gt;&gt;&gt; def add(x,y): return x+y<br>...<br>&gt;&gt;&gt; reduce(add, range(1, 11)) ',
+'Q' => 'repeated eval ',
+'id' => 16,
+},
+{
+'A' => 'provide a concise way to create lists without resorting to use of<br>map(), filter() and/or lambda.<br>&nbsp;&gt;&gt;&gt; freshfruit = [\' banana\', \' loganberry \', \'passion fruit \']<br>&gt;&gt;&gt; [weapon.strip() for weapon in freshfruit]<br>[\'banana\', \'loganberry\', \'passion fruit\']<br>&gt;&gt;&gt; vec = [2, 4, 6]<br>&gt;&gt;&gt; [3*x for x in vec]<br>[6, 12, 18]<br>&gt;&gt;&gt; [3*x for x in vec if x &gt; 3]<br>[12, 18]<br>&gt;&gt;&gt; [3*x for x in vec if x &lt; 2]<br>[] ',
+'Q' => 'List comprehensions ',
+'id' => 17,
+},
+{
+'A' => 'are immutable ',
+'Q' => 't = 12345, 54321, \'hello!\'<br>Tuples, like strings ',
+'id' => 18,
+},
+{
+'A' => 'the syntax has some extra quirks to accommodate these. Empty tuples<br>are constructed by an empty pair of parentheses; a tuple with one<br>item is constructed by following a value with a comma (it is not<br>sufficient to enclose a single value in parentheses). Ugly, but<br>effective. For example:<br>&nbsp;&nbsp;&gt;&gt;&gt; empty = ()<br>&gt;&gt;&gt; singleton = \'hello\', # &lt;-- note trailing comma ',
+'Q' => 'A special problem is the construction of<br>tuples containing 0 or 1 items ',
+'id' => 19,
+},
+{
+'A' => 'is an example of <font color=red>tuple packing</font>: the values 12345, 54321 and \'hello!\'<br>are packed together in a tuple. The reverse operation is also<br>possible:<br>&nbsp;&gt;&gt;&gt; x, y, z = t<br>&nbsp;&nbsp;This is called, appropriately enough, <font color=red>sequence unpacking</font>. Sequence unpacking requires that the list of variables on the left have the same number of elements as the length of the sequence. Note that multiple assignment is really just a combination of tuple packing and sequence unpacking! ',
+'Q' => 'The statement t = 12345, 54321, \'hello!\' ',
+'id' => 20,
+},
+{
+'A' => 'packing multiple values always creates a tuple, and unpacking works<br>for any sequence. ',
+'Q' => 'tuple packing and sequence unpacking: a bit of asymmetry: ',
+'id' => 21,
+},
+{
+'A' => 'dictionary:<br>&nbsp;&gt;&gt;&gt; tel = &#123;\'jack\': 4098, \'sape\': 4139&#125;<br>&gt;&gt;&gt; tel[\'guido\'] = 4127<br>&gt;&gt;&gt; tel<br>&#123;\'sape\': 4139, \'guido\': 4127, \'jack\': 4098&#125;<br>&gt;&gt;&gt; tel[\'jack\']<br>&gt;&gt;&gt; del tel[\'sape\']<br>&gt;&gt;&gt; tel[\'irv\'] = 4127<br>&gt;&gt;&gt; tel<br>&#123;\'guido\': 4127, \'irv\': 4127, \'jack\': 4098&#125;<br>&gt;&gt;&gt; tel.keys()<br>[\'guido\', \'irv\', \'jack\']<br>&gt;&gt;&gt; tel.has_key(\'guido\') ',
+'Q' => 'hash ',
+'id' => 22,
+},
+{
+'A' => 'For example,<br>&nbsp;a &lt; b == c<br>&nbsp;tests whether a is less than b and moreover b equals c. ',
+'Q' => 'Comparisons can be chained. ',
+'id' => 23,
+},
+{
+'A' => 'Within a module, it is available as the value of the global variable __name__. ',
+'Q' => '__PACKAGE__ ',
+'id' => 24,
+},
+{
+'A' => 'sys.path which is initialized from the directory containing the input<br>script (or the current directory), PYTHONPATH and the<br>installation-dependent default ',
+'Q' => '@INC ',
+'id' => 25,
+},
+{
+'A' => 'which names a module defines ',
+'Q' => 'dir() is used to find out ',
+'id' => 26,
+},
+{
+'A' => 'If you want a list of those, they are defined in the standard module<br>__builtin__ :<br>&nbsp;&gt;&gt;&gt; import __builtin__<br>&gt;&gt;&gt; dir(__builtin__)<br>[\'ArithmeticError\', \'AssertionError\', \'AttributeError\',... ',
+'Q' => 'built-in functions and variables. ',
+'id' => 27,
+},
+{
+'A' => 'if the package\'s __init__.py code defines a list named __all__, it is taken to be the list of module names that should be imported when from package import * is encountered. ',
+'Q' => 'how are the dependencies of a package expressed ',
+'id' => 28,
+},
+{
+'A' => 'to return representations of values which are fairly human-readable,<br>while repr() is meant to generate representations which can be read<br>by the interpreter (or will force a SyntaxError if there is not<br>equivalent syntax). ',
+'Q' => 'str() function is meant ',
+'id' => 29,
+},
+{
+'A' => '\'%2d %3d %4d\' % (x, x*x, x*x*x) ',
+'Q' => 'python sprintf ',
+'id' => 30,
+},
+{
+'A' => 'f=open(\'/tmp/workfile\', \'w\')<br>f.read(n)<br>f.read() # goes for entire file<br>f.readline()<br>f.readlines() ',
+'Q' => 'read file ',
+'id' => 31,
+},
+{
+'A' => 'pickling, unpickling:<br>&nbsp;pickle.dump(x, f)<br>&nbsp;To unpickle the object again, if f is a file object which has been<br>opened for reading:<br>&nbsp;&nbsp;x = pickle.load(f) ',
+'Q' => 'serialization ',
+'id' => 32,
+},
+{
+'A' => 'try:<br>... x = int(raw_input("Please enter a number: "))<br>... break<br>... except ValueError:<br>... print "Oops! That was no valid number. Try again..."<br>... except: # catch all<br>raise # like throw<br>...<br>&nbsp;&nbsp;raise ValueError, \'lakgjf\' # also like throw<br>;; ',
+'Q' => 'try: ',
+'id' => 33,
+},
+{
+'A' => 'are public, and all member functions are virtual ',
+'Q' => 'all class members (including the data members) ',
+'id' => 34,
+},
+{
+'A' => 'they always go into the innermost scope. Assignments do not copy data --<br>they just bind names to objects ',
+'Q' => 'A special quirk of Python for assignments: ',
+'id' => 35,
+},
+{
+'A' => 'newObjOfTypeMyClass.__init__(a,b,c) will be called, if it exists ',
+'Q' => 'x = MyClass(a,b,c) implies ',
+'id' => 36,
+},
+{
+'A' => 'method attributes with the same name ',
+'Q' => 'Data attributes override ',
+'id' => 37,
+},
+{
+'A' => 'class DerivedClassName(BaseClassName):<br>class DerivedClassName(Base1, Base2, Base3): ',
+'Q' => 'express class inheritance ',
+'id' => 38,
+},
+{
+'A' => '(at least two leading underscores, at most one trailing underscore)<br>is now textually replaced with _classname__X<br>&nbsp;&nbsp;__X can be used to store instance variables<br>private to this class on instances of other classes ',
+'Q' => 'Any identifier of the form __X ',
+'id' => 39,
+},
+{
+'A' => 'can often be passed a class that emulates the methods of that data type instead ',
+'Q' => 'A piece of Python code that expects a particular abstract data type ',
+'id' => 40,
+},
+{
+'A' => 'm.im_self is the object of which the method is an instance, and<br>m.im_func is the function object corresponding to the method. ',
+'Q' => 'Instance method objects have attributes, too: ',
+'id' => 41,
+},
+{
+'A' => '...other objects with the same sequence type. ',
+'Q' => 'Sequence objects may be compared to... ',
+'id' => 42,
+},
+{
+'A' => 'to make Python treat the directories as containing packages ',
+'Q' => '__init__.py files are required ',
+'id' => 43,
+},
+{
+'A' => 'repr(X) ',
+'Q' => '`X` is equivalent to... ',
+'id' => 44,
+},
+{
+'A' => 'append(x) ',
+'Q' => 'a[len(a):] = [x] ',
+'id' => 45,
+},
+{
+'A' => 'a.append(x). ',
+'Q' => 'a.insert(len(a), x) ',
+'id' => 46,
+},
+{
+'A' => 'z.insert(i, x) ',
+'Q' => 'insert an element i into a list z at position x ',
+'id' => 47,
+},
+{
+'A' => 'z.remove(x) ',
+'Q' => 'delete element x from list z ',
+'id' => 48,
+},
+{
+'A' => 'pop() ',
+'Q' => 'get (and remove) the last item from a list ',
+'id' => 49,
+},
+{
+'A' => 'z.index(x) [It is an error if there is no such item] ',
+'Q' => 'find element x in a list z ',
+'id' => 50,
+},
+{
+'A' => 'z.count(x) ',
+'Q' => 'Return the number of times x appears in the list z ',
+'id' => 51,
+},
+{
+'A' => 'sort() ',
+'Q' => 'sort a list ',
+'id' => 52,
+},
+{
+'A' => 'reverse() ',
+'Q' => 'reverse the order of a list ',
+'id' => 53,
+},
+);

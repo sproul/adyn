@@ -1,0 +1,1692 @@
+@val = (
+{
+'A' => 'A modern, self-hosted server monitoring system with system monitoring, process monitoring and notifications<br><a href=\'https://github.com/martinrusev/amonone\'>https://github.com/martinrusev/amonone</a> ',
+'Q' => 'AmonOne ',
+'id' => 0,
+},
+{
+'A' => 'AmonOne<br><a href=\'https://github.com/martinrusev/amonone\'>https://github.com/martinrusev/amonone</a> ',
+'Q' => 'A modern, self-hosted server monitoring system with system monitoring, process monitoring and notifications ',
+'id' => 1,
+},
+{
+'A' => 'A versatile orchestration engine that can automate systems and apps. Instead of a custom scripting language or code, it is very simple and shell based. It is also agent-less, so you can just start using it right away and get things done<br><a href=\'http://www.ansibleworks.com\'>http://www.ansibleworks.com</a> ',
+'Q' => 'Ansible ',
+'id' => 2,
+},
+{
+'A' => 'Ansible<br><a href=\'http://www.ansibleworks.com\'>http://www.ansibleworks.com</a> ',
+'Q' => 'A versatile orchestration engine that can automate systems and apps. Instead of a custom scripting language or code, it is very simple and shell based. It is also agent-less, so you can just start using it right away and get things done ',
+'id' => 3,
+},
+{
+'A' => 'Tracks and manages all events that can have business and/or operational impact (deploys, manual changes, outages, press releases, etc) and provides metrics and reports<br><a href=\'https://github.com/Dieterbe/anthracite\'>https://github.com/Dieterbe/anthracite</a> ',
+'Q' => 'Anthracite ',
+'id' => 4,
+},
+{
+'A' => 'Anthracite<br><a href=\'https://github.com/Dieterbe/anthracite\'>https://github.com/Dieterbe/anthracite</a> ',
+'Q' => 'Tracks and manages all events that can have business and/or operational impact (deploys, manual changes, outages, press releases, etc) and provides metrics and reports ',
+'id' => 5,
+},
+{
+'A' => 'A centralized tool for managing Virtual machines and instances, such as creating, booting, migrating, snapshots, packaging, networking, monitoring, VNC client and much more! Allows you to control virtual machines through web based UI or an IRC bot<br><a href=\'http://archipelproject.org\'>http://archipelproject.org</a> ',
+'Q' => 'Archipel ',
+'id' => 6,
+},
+{
+'A' => 'Archipel<br><a href=\'http://archipelproject.org\'>http://archipelproject.org</a> ',
+'Q' => 'A centralized tool for managing Virtual machines and instances, such as creating, booting, migrating, snapshots, packaging, networking, monitoring, VNC client and much more! Allows you to control virtual machines through web based UI or an IRC bot ',
+'id' => 7,
+},
+{
+'A' => 'DIY Platform-as-a-Service tool specialized for NodeJS projects with AWS as the backend, and created by Mozilla<br><a href=\'https://github.com/mozilla/awsbox\'>https://github.com/mozilla/awsbox</a> ',
+'Q' => 'AWSBox ',
+'id' => 8,
+},
+{
+'A' => 'AWSBox<br><a href=\'https://github.com/mozilla/awsbox\'>https://github.com/mozilla/awsbox</a> ',
+'Q' => 'DIY Platform-as-a-Service tool specialized for NodeJS projects with AWS as the backend, and created by Mozilla ',
+'id' => 9,
+},
+{
+'A' => 'A simple, friendly and self-hosted code review tool for git projects, which is focused purely on code reviewing. Can support both pre and post-commit workflows.<br><a href=\'http://getbarkeep.org\'>http://getbarkeep.org</a> ',
+'Q' => 'Barkeep ',
+'id' => 10,
+},
+{
+'A' => 'Barkeep<br><a href=\'http://getbarkeep.org\'>http://getbarkeep.org</a> ',
+'Q' => 'A simple, friendly and self-hosted code review tool for git projects, which is focused purely on code reviewing. Can support both pre and post-commit workflows. ',
+'id' => 11,
+},
+{
+'A' => 'A comprehensive set of Packer definitions. It has quite a collection of 64 bit and 32 bit images for Vagrant VirtualBox and VMWare. A good place to learn Packer definitions.<br><a href=\'https://github.com/misheska/basebox-packer\'>https://github.com/misheska/basebox-packer</a> ',
+'Q' => 'Basebox-Packer ',
+'id' => 12,
+},
+{
+'A' => 'Basebox-Packer<br><a href=\'https://github.com/misheska/basebox-packer\'>https://github.com/misheska/basebox-packer</a> ',
+'Q' => 'A comprehensive set of Packer definitions. It has quite a collection of 64 bit and 32 bit images for Vagrant VirtualBox and VMWare. A good place to learn Packer definitions. ',
+'id' => 13,
+},
+{
+'A' => 'Batou makes it easy to perform automated deployments. It combines Fabric\'s simplicty and SSH automation, with Puppet\'s declarative syntax and idempotence<br><a href=\'http://batou.readthedocs.org\'>http://batou.readthedocs.org</a> ',
+'Q' => 'Batou ',
+'id' => 14,
+},
+{
+'A' => 'Batou<br><a href=\'http://batou.readthedocs.org\'>http://batou.readthedocs.org</a> ',
+'Q' => '? makes it easy to perform automated deployments. It combines Fabric\'s simplicty and SSH automation, with Puppet\'s declarative syntax and idempotence ',
+'id' => 15,
+},
+{
+'A' => 'bee-config (Bcfg) 2 is a centralized configuration management server to configure large number of systems, built to be cross platform. Bcfg2 uses a simple XML based configuration model with intuitive items like packages, services, config files, dependencies, etc. This model is easily validatable and can be used to audit and reconcile remote systems.<br><a href=\'http://bcfg2.org\'>http://bcfg2.org</a> ',
+'Q' => 'Bcfg2 ',
+'id' => 16,
+},
+{
+'A' => 'Bcfg2<br><a href=\'http://bcfg2.org\'>http://bcfg2.org</a> ',
+'Q' => '? is a centralized configuration management server to configure large number of systems, built to be cross platform. ? uses a simple XML based configuration model with intuitive items like packages, services, config files, dependencies, etc. This model is easily validatable and can be used to audit and reconcile remote systems. ',
+'id' => 17,
+},
+{
+'A' => 'A modularized collection of Packer definitions for building machine images. A good place to start with Packer.<br><a href=\'https://github.com/opscode/bento\'>https://github.com/opscode/bento</a> ',
+'Q' => 'Bento ',
+'id' => 18,
+},
+{
+'A' => 'Bento<br><a href=\'https://github.com/opscode/bento\'>https://github.com/opscode/bento</a> ',
+'Q' => 'A modularized collection of Packer definitions for building machine images. A good place to start with Packer. ',
+'id' => 19,
+},
+{
+'A' => 'A cookbook source structure manager for Chef, similar to Bundler for Ruby. Each Chef cookbook can be structured as an individual entity and can be pulled into your main Chef workflows.<br><a href=\'http://berkshelf.com\'>http://berkshelf.com</a> ',
+'Q' => 'Berkshelf ',
+'id' => 20,
+},
+{
+'A' => 'Berkshelf<br><a href=\'http://berkshelf.com\'>http://berkshelf.com</a> ',
+'Q' => 'A cookbook source structure manager for Chef, similar to Bundler for Ruby. Each Chef cookbook can be structured as an individual entity and can be pulled into your main Chef workflows. ',
+'id' => 21,
+},
+{
+'A' => 'Automate your iOS development: Bitrise helps you automate your daily mobile app development tasks from building through testing to deployment. With Bitrise you can configure these tasks with a unique, visual workflow editor, where all of the steps are open source. If the step you need is not in our collection you can create your own and share it with others.<br><a href=\'https://www.bitrise.io\'>https://www.bitrise.io</a> ',
+'Q' => 'Bitrise ',
+'id' => 22,
+},
+{
+'A' => 'Bitrise<br><a href=\'https://www.bitrise.io\'>https://www.bitrise.io</a> ',
+'Q' => 'Automate your iOS development: ? helps you automate your daily mobile app development tasks from building through testing to deployment. With ? you can configure these tasks with a unique, visual workflow editor, where all of the steps are open source. If the step you need is not in our collection you can create your own and share it with others. ',
+'id' => 23,
+},
+{
+'A' => 'boot2docker is a lightweight Linux distribution based on Tiny Core Linux made specifically to run Docker containers. It runs completely from RAM, weighs ~24MB and boots in a couple of seconds. Can be used as a base OS when running your own PaaS with Docker, or other kind of deployments.<br><a href=\'https://github.com/steeve/boot2docker\'>https://github.com/steeve/boot2docker</a> ',
+'Q' => 'boot2docker ',
+'id' => 24,
+},
+{
+'A' => 'boot2docker<br><a href=\'https://github.com/steeve/boot2docker\'>https://github.com/steeve/boot2docker</a> ',
+'Q' => 'lightweight Linux distribution based on Tiny Core Linux made specifically to run Docker containers. It runs completely from RAM, weighs ~24MB and boots in a couple of seconds. Can be used as a base OS when running your own PaaS with Docker, or other kind of deployments. ',
+'id' => 25,
+},
+{
+'A' => 'Bounces HTTP requests around for load balancing, or act as a HTTP host router<br><a href=\'https://github.com/substack/bouncy\'>https://github.com/substack/bouncy</a> ',
+'Q' => 'Bouncy ',
+'id' => 26,
+},
+{
+'A' => 'Bouncy<br><a href=\'https://github.com/substack/bouncy\'>https://github.com/substack/bouncy</a> ',
+'Q' => 'Bounces HTTP requests around for load balancing, or act as a HTTP host router ',
+'id' => 27,
+},
+{
+'A' => 'Boxen automates the entire process of setting up a Mac development environment. It can clone your project, install toolchains, apply security policies, clone your dotfiles and much more.<br><a href=\'http://boxen.github.com\'>http://boxen.github.com</a> ',
+'Q' => 'Boxen ',
+'id' => 28,
+},
+{
+'A' => 'Boxen<br><a href=\'http://boxen.github.com\'>http://boxen.github.com</a> ',
+'Q' => '? automates the entire process of setting up a Mac development environment. It can clone your project, install toolchains, apply security policies, clone your dotfiles and much more. ',
+'id' => 29,
+},
+{
+'A' => 'Repeatable, reboot resilient windows environment installations made easy using Chocolatey packages. When its time to repave either bare metal or virtualized instances, locally or on a remote machine, Boxstarter can automate both trivial and highly complex installations. Compatible with all Windows versions from Windows 7/2008 R2 forward.<br><a href=\'http://boxstarter.org/\'>http://boxstarter.org/</a> ',
+'Q' => 'Boxstarter ',
+'id' => 30,
+},
+{
+'A' => 'Boxstarter<br><a href=\'http://boxstarter.org/\'>http://boxstarter.org/</a> ',
+'Q' => 'Repeatable, reboot resilient windows environment installations made easy using Chocolatey packages. When its time to repave either bare metal or virtualized instances, locally or on a remote machine, ? can automate both trivial and highly complex installations. Compatible with all Windows versions from Windows 7/2008 R2 forward. ',
+'id' => 31,
+},
+{
+'A' => 'A Deployment framework written in PHP. Can deploy to multiple servers using Gearman.<br><a href=\'https://github.com/ign/brood\'>https://github.com/ign/brood</a> ',
+'Q' => 'Brood ',
+'id' => 32,
+},
+{
+'A' => 'Brood<br><a href=\'https://github.com/ign/brood\'>https://github.com/ign/brood</a> ',
+'Q' => 'A Deployment framework written in PHP. Can deploy to multiple servers using Gearman. ',
+'id' => 33,
+},
+{
+'A' => 'A Java based deployment tool, focused on both deployment as well as post-deploy lifecycle management. It is aware of network topologies, integrates with many cloud and PaaS APIs, and is designed to handle the entire roll-out<br><a href=\'http://brooklyncentral.github.io\'>http://brooklyncentral.github.io</a> ',
+'Q' => 'Brooklyn ',
+'id' => 34,
+},
+{
+'A' => 'Brooklyn<br><a href=\'http://brooklyncentral.github.io\'>http://brooklyncentral.github.io</a> ',
+'Q' => 'A Java based deployment tool, focused on both deployment as well as post-deploy lifecycle management. It is aware of network topologies, integrates with many cloud and PaaS APIs, and is designed to handle the entire roll-out ',
+'id' => 35,
+},
+{
+'A' => 'Buildbot is an open-source framework for automating software build, test, and release processes. It differs from other CI tools in that it is more of a betteries included Framework, rather than a tool, and can hence be grown to meet your own needs. One of the reasons it is used in many high profile open source projects like Chromium, Firefox, Webkit, Python, etc.<br><a href=\'http://buildbot.net/\'>http://buildbot.net/</a> ',
+'Q' => 'Buildbot ',
+'id' => 36,
+},
+{
+'A' => 'Buildbot<br><a href=\'http://buildbot.net/\'>http://buildbot.net/</a> ',
+'Q' => '? is an open-source framework for automating software build, test, and release processes. It differs from other CI tools in that it is more of a betteries included Framework, rather than a tool, and can hence be grown to meet your own needs. One of the reasons it is used in many high profile open source projects like Chromium, Firefox, Webkit, Python, etc. ',
+'id' => 37,
+},
+{
+'A' => 'Buildstep uses Docker and small buildpack scripts to build applications like Heroku. It was used by Dokku to create a 100-line Heroku clone. There are many open source Buildpack scripts for various languages like Java, Ruby, Erlang, PHP, etc.<br><a href=\'https://github.com/progrium/buildstep\'>https://github.com/progrium/buildstep</a> ',
+'Q' => 'Buildstep ',
+'id' => 38,
+},
+{
+'A' => 'Buildstep<br><a href=\'https://github.com/progrium/buildstep\'>https://github.com/progrium/buildstep</a> ',
+'Q' => '? uses Docker and small buildpack scripts to build applications like Heroku. It was used by Dokku to create a 100-line Heroku clone. There are many open source Buildpack scripts for various languages like Java, Ruby, Erlang, PHP, etc. ',
+'id' => 39,
+},
+{
+'A' => 'Cabot is an open source, self hosted infrastructure monitoring tool. It can monitor your services and send telephone, SMS, email or chat alerts to your team whenever anything goes down, all without writing a single line of code.<br><a href=\'http://cabotapp.com/\'>http://cabotapp.com/</a> ',
+'Q' => 'Cabot ',
+'id' => 40,
+},
+{
+'A' => 'Cabot<br><a href=\'http://cabotapp.com/\'>http://cabotapp.com/</a> ',
+'Q' => '? is an open source, self hosted infrastructure monitoring tool. It can monitor your services and send telephone, SMS, email or chat alerts to your team whenever anything goes down, all without writing a single line of code. ',
+'id' => 41,
+},
+{
+'A' => 'The Ruby equivalent of Fabric, Capistrano is a Ruby framework to configure and run deployment or system administration tasks on local or remote machines. It extends the Rake DSL to define tasks, and can group tasks by Roles.<br><a href=\'http://capistranorb.com\'>http://capistranorb.com</a> ',
+'Q' => 'Capistrano ',
+'id' => 42,
+},
+{
+'A' => 'Capistrano<br><a href=\'http://capistranorb.com\'>http://capistranorb.com</a> ',
+'Q' => 'The Ruby equivalent of Fabric, Ruby framework to configure and run deployment or system administration tasks on local or remote machines. It extends the Rake DSL to define tasks, and can group tasks by Roles. ',
+'id' => 43,
+},
+{
+'A' => 'An open source configuration management system whose primary function is to provide stable and resilient automated configuration and maintenance of large-scale computer systems, including the unified management of servers, desktops, embedded networked devices, mobile smartphones, and tablet computers. It is an agent based system that is fully distributed and autonomous. It is very lightweight, fast, portable, and flexible with a strong security track record.<br><a href=\'http://cfengine.com\'>http://cfengine.com</a> ',
+'Q' => 'CFEgine ',
+'id' => 44,
+},
+{
+'A' => 'CFEgine<br><a href=\'http://cfengine.com\'>http://cfengine.com</a> ',
+'Q' => 'An open source configuration management system whose primary function is to provide stable and resilient automated configuration and maintenance of large-scale computer systems, including the unified management of servers, desktops, embedded networked devices, mobile smartphones, and tablet computers. It is an agent based system that is fully distributed and autonomous. It is very lightweight, fast, portable, and flexible with a strong security track record. ',
+'id' => 45,
+},
+{
+'A' => 'Cft watches as you make changes to your server, and then creates puppet manifests for the resulting actions. Simplifies creating puppet configuration.<br><a href=\'https://gitorious.org/cft/cft\'>https://gitorious.org/cft/cft</a> ',
+'Q' => 'Cft ',
+'id' => 46,
+},
+{
+'A' => 'Cft<br><a href=\'https://gitorious.org/cft/cft\'>https://gitorious.org/cft/cft</a> ',
+'Q' => '? watches as you make changes to your server, and then creates puppet manifests for the resulting actions. Simplifies creating puppet configuration. ',
+'id' => 47,
+},
+{
+'A' => 'Configuration management tool which uses a pure-Ruby, domain-specific language (DSL) for writing system configuration recipes. Supports Linux, UNIX, Windows, and AIX as first-class citizens for management.<br><a href=\'http://www.getchef.com\'>http://www.getchef.com</a> ',
+'Q' => 'Chef ',
+'id' => 48,
+},
+{
+'A' => 'Chef<br><a href=\'http://www.getchef.com\'>http://www.getchef.com</a> ',
+'Q' => 'Configuration management tool which uses a pure-Ruby, domain-specific language (DSL) for writing system configuration recipes. Supports Linux, UNIX, Windows, and AIX as first-class citizens for management. ',
+'id' => 49,
+},
+{
+'A' => 'Chocolatey is like apt-get for Windows. It can install packages and dependencies over the command line.<br><a href=\'http://chocolatey.org/\'>http://chocolatey.org/</a> ',
+'Q' => 'Chocolatey ',
+'id' => 50,
+},
+{
+'A' => 'Chocolatey<br><a href=\'http://chocolatey.org/\'>http://chocolatey.org/</a> ',
+'Q' => '? is like apt-get for Windows. It can install packages and dependencies over the command line. ',
+'id' => 51,
+},
+{
+'A' => 'A notification service (like Amazon SQS and SNS), allows notifications to be published across many channels like Email, VoIP, SMS, etc<br><a href=\'https://github.com/Comcast/cmb\'>https://github.com/Comcast/cmb</a> ',
+'Q' => 'CMB (Cloud Message Bus) ',
+'id' => 52,
+},
+{
+'A' => 'CMB (Cloud Message Bus)<br><a href=\'https://github.com/Comcast/cmb\'>https://github.com/Comcast/cmb</a> ',
+'Q' => 'A notification service (like Amazon SQS and SNS), allows notifications to be published across many channels like Email, VoIP, SMS, etc ',
+'id' => 53,
+},
+{
+'A' => 'Cobbler is a Linux installation server that allows for rapid setup of network installation environments. It glues together and automates many associated Linux tasks so you do not have to hop between many various commands and applications when deploying new systems, and, in some cases, changing existing ones. Cobbler can help with provisioning, managing DNS and DHCP, package updates, power management, configuration management orchestration, and much more. <br><a href=\'http://www.cobblerd.org/\'>http://www.cobblerd.org/</a> ',
+'Q' => 'COBBLER ',
+'id' => 54,
+},
+{
+'A' => 'COBBLER<br><a href=\'http://www.cobblerd.org/\'>http://www.cobblerd.org/</a> ',
+'Q' => 'Cobbler is a Linux installation server that allows for rapid setup of network installation environments. It glues together and automates many associated Linux tasks so you do not have to hop between many various commands and applications when deploying new systems, and, in some cases, changing existing ones. Cobbler can help with provisioning, managing DNS and DHCP, package updates, power management, configuration management orchestration, and much more. ',
+'id' => 55,
+},
+{
+'A' => 'Codeine is a continuous deployment tool that makes product deployment faster and safer through automation and monitoring.<br><a href=\'https://github.com/codeine-cd/codeine\'>https://github.com/codeine-cd/codeine</a> ',
+'Q' => 'Codeine ',
+'id' => 56,
+},
+{
+'A' => 'Codeine<br><a href=\'https://github.com/codeine-cd/codeine\'>https://github.com/codeine-cd/codeine</a> ',
+'Q' => 'continuous deployment tool that makes product deployment faster and safer through automation and monitoring. ',
+'id' => 57,
+},
+{
+'A' => 'A daemon that collects system performance statistics periodically, and provides tons of plugins to store and analyze these values<br><a href=\'http://collectd.org/\'>http://collectd.org/</a> ',
+'Q' => 'collectd ',
+'id' => 58,
+},
+{
+'A' => 'collectd<br><a href=\'http://collectd.org/\'>http://collectd.org/</a> ',
+'Q' => 'A daemon that collects system performance statistics periodically, and provides tons of plugins to store and analyze these values ',
+'id' => 59,
+},
+{
+'A' => 'collectd + d3js = Beautiful D3JS visualizations of system performance statistics collected using collectd<br><a href=\'https://github.com/StackStorm/collectd3\'>https://github.com/StackStorm/collectd3</a> ',
+'Q' => 'collectd3 ',
+'id' => 60,
+},
+{
+'A' => 'collectd3<br><a href=\'https://github.com/StackStorm/collectd3\'>https://github.com/StackStorm/collectd3</a> ',
+'Q' => 'collectd + d3js = Beautiful D3JS visualizations of system performance statistics collected using collectd ',
+'id' => 61,
+},
+{
+'A' => 'ConDep is a open source infrastructure configuration and deployment DSL (Domain Specific Language) specifically targeted to (but not limited to) the Windows Server platform. If your familiar with tools like Chef and Puppet, ConDep does very much the same, but with native support for Windows.<br><a href=\'http://www.con-dep.net\'>http://www.con-dep.net</a> ',
+'Q' => 'ConDep ',
+'id' => 62,
+},
+{
+'A' => 'ConDep<br><a href=\'http://www.con-dep.net\'>http://www.con-dep.net</a> ',
+'Q' => 'open source infrastructure configuration and deployment DSL (Domain Specific Language) specifically targeted to (but not limited to) the Windows Server platform. If your familiar with tools like Chef and Puppet, ? does very much the same, but with native support for Windows. ',
+'id' => 63,
+},
+{
+'A' => 'Consul makes it simple for services to register themselves and to discover other services via a DNS or HTTP interface. Register external services such as SaaS providers as well<br><a href=\'https://consul.io/\'>https://consul.io/</a> ',
+'Q' => 'Consul ',
+'id' => 64,
+},
+{
+'A' => 'Consul<br><a href=\'https://consul.io/\'>https://consul.io/</a> ',
+'Q' => '? makes it simple for services to register themselves and to discover other services via a DNS or HTTP interface. Register external services such as SaaS providers as well ',
+'id' => 65,
+},
+{
+'A' => 'CoreOS is an extremely lightweight base OS for Docker. It installs just a kernel, systemd and docker, and then you use Docker to pull in any service that you want. Can be used as a base OS when running your own PaaS with Docker, or other kind of deployments.<br><a href=\'http://coreos.com\'>http://coreos.com</a> ',
+'Q' => 'CoreOS ',
+'id' => 66,
+},
+{
+'A' => 'CoreOS<br><a href=\'http://coreos.com\'>http://coreos.com</a> ',
+'Q' => '? is an extremely lightweight base OS for Docker. It installs just a kernel, systemd and docker, and then you use Docker to pull in any service that you want. Can be used as a base OS when running your own PaaS with Docker, or other kind of deployments. ',
+'id' => 67,
+},
+{
+'A' => 'Securely manages privileged account credentials, such as root passwords, using Shamir secret sharing. Its like 1Password for DevOps.<br><a href=\'https://github.com/treyka/credmgr\'>https://github.com/treyka/credmgr</a> ',
+'Q' => 'credmgr ',
+'id' => 68,
+},
+{
+'A' => 'credmgr<br><a href=\'https://github.com/treyka/credmgr\'>https://github.com/treyka/credmgr</a> ',
+'Q' => 'Securely manages privileged account credentials, such as root passwords, using Shamir secret sharing. Its like 1Password for DevOps. ',
+'id' => 69,
+},
+{
+'A' => 'Monitor cron jobs, daemons and almost anything else. No more silent failures.<br><a href=\'https://cronitor.io\'>https://cronitor.io</a> ',
+'Q' => 'Cronitor ',
+'id' => 70,
+},
+{
+'A' => 'Cronitor<br><a href=\'https://cronitor.io\'>https://cronitor.io</a> ',
+'Q' => 'Monitor cron jobs, daemons and almost anything else. No more silent failures. ',
+'id' => 71,
+},
+{
+'A' => 'A CI server made in .Net, mostly targeting Windows/.net platforms but can support other languages too. It was developed as a language fork of the original CruiseControl CI project developed by ThoughtWorks<br><a href=\'http://www.cruisecontrolnet.org/projects/ccnet/wiki/About\'>http://www.cruisecontrolnet.org/projects/ccnet/wiki/About</a> ',
+'Q' => 'CruiseControl.NET ',
+'id' => 72,
+},
+{
+'A' => 'CruiseControl.NET<br><a href=\'http://www.cruisecontrolnet.org/projects/ccnet/wiki/About\'>http://www.cruisecontrolnet.org/projects/ccnet/wiki/About</a> ',
+'Q' => 'A CI server made in .Net, mostly targeting Windows/.net platforms but can support other languages too. It was developed as a language fork of the original CruiseControl CI project developed by ThoughtWorks ',
+'id' => 73,
+},
+{
+'A' => 'CI server written in Ruby with a focus on simplicity and being easy to hack, open sourced by ThoughtWorks<br><a href=\'https://github.com/thoughtworks/cruisecontrol.rb\'>https://github.com/thoughtworks/cruisecontrol.rb</a> ',
+'Q' => 'CruiseControl.rb ',
+'id' => 74,
+},
+{
+'A' => 'CruiseControl.rb<br><a href=\'https://github.com/thoughtworks/cruisecontrol.rb\'>https://github.com/thoughtworks/cruisecontrol.rb</a> ',
+'Q' => 'CI server written in Ruby with a focus on simplicity and being easy to hack, open sourced by ThoughtWorks ',
+'id' => 75,
+},
+{
+'A' => 'Visualizes PostgreSQL query performance using pg_stat_statements<br><a href=\'https://github.com/will/datascope\'>https://github.com/will/datascope</a> ',
+'Q' => 'Datascope ',
+'id' => 76,
+},
+{
+'A' => 'Datascope<br><a href=\'https://github.com/will/datascope\'>https://github.com/will/datascope</a> ',
+'Q' => 'Visualizes PostgreSQL query performance using pg_stat_statements ',
+'id' => 77,
+},
+{
+'A' => 'A cron job monitoring tool that keeps an eye on your crontab and notifies you when something doesnΓÇÖt happen.<br><a href=\'https://deadmanssnitch.com/\'>https://deadmanssnitch.com/</a> ',
+'Q' => 'Dead ManΓÇÖs Snitch ',
+'id' => 78,
+},
+{
+'A' => 'Dead ManΓÇÖs Snitch<br><a href=\'https://deadmanssnitch.com/\'>https://deadmanssnitch.com/</a> ',
+'Q' => 'A cron job monitoring tool that keeps an eye on your crontab and notifies you when something doesnΓÇÖt happen. ',
+'id' => 79,
+},
+{
+'A' => 'Deis (pronounced DAY-iss) is an open source PaaS that makes it easy to deploy and manage applications on your own servers. Deis builds upon Docker and CoreOS to provide a lightweight PaaS with a Heroku-inspired workflow.<br><a href=\'https://deis.io\'>https://deis.io</a> ',
+'Q' => 'Deis ',
+'id' => 80,
+},
+{
+'A' => 'Deis<br><a href=\'https://deis.io\'>https://deis.io</a> ',
+'Q' => '? (pronounced DAY-iss) is an open source PaaS that makes it easy to deploy and manage applications on your own servers. ? builds upon Docker and CoreOS to provide a lightweight PaaS with a Heroku-inspired workflow. ',
+'id' => 81,
+},
+{
+'A' => 'A pure bash-based deployment tool with virtually no dependencies except the shell.<br><a href=\'https://github.com/gerhard/deliver\'>https://github.com/gerhard/deliver</a> ',
+'Q' => 'Deliver ',
+'id' => 82,
+},
+{
+'A' => 'Deliver<br><a href=\'https://github.com/gerhard/deliver\'>https://github.com/gerhard/deliver</a> ',
+'Q' => 'A pure bash-based deployment tool with virtually no dependencies except the shell. ',
+'id' => 83,
+},
+{
+'A' => 'A Ruby API to interact with various cloud platforms<br><a href=\'http://deltacloud.apache.org\'>http://deltacloud.apache.org</a> ',
+'Q' => 'DeltaCloud ',
+'id' => 84,
+},
+{
+'A' => 'DeltaCloud<br><a href=\'http://deltacloud.apache.org\'>http://deltacloud.apache.org</a> ',
+'Q' => 'A Ruby API to interact with various cloud platforms ',
+'id' => 85,
+},
+{
+'A' => 'A simple, rack-based deployment framework<br><a href=\'https://github.com/etsy/deployinator\'>https://github.com/etsy/deployinator</a> ',
+'Q' => 'Deployinator ',
+'id' => 86,
+},
+{
+'A' => 'Deployinator<br><a href=\'https://github.com/etsy/deployinator\'>https://github.com/etsy/deployinator</a> ',
+'Q' => 'A simple, rack-based deployment framework ',
+'id' => 87,
+},
+{
+'A' => 'A generic integration tool built on a Message Queue, to make it easy to communicate events and triggers across various parts parts of the infrastructure. Created to ease the pain of configuring many disparate events in a CI<br><a href=\'https://github.com/FuturePublishing/future-deploykit\'>https://github.com/FuturePublishing/future-deploykit</a> ',
+'Q' => 'DeployKit ',
+'id' => 88,
+},
+{
+'A' => 'DeployKit<br><a href=\'https://github.com/FuturePublishing/future-deploykit\'>https://github.com/FuturePublishing/future-deploykit</a> ',
+'Q' => 'A generic integration tool built on a Message Queue, to make it easy to communicate events and triggers across various parts parts of the infrastructure. Created to ease the pain of configuring many disparate events in a CI ',
+'id' => 89,
+},
+{
+'A' => 'A python daemon that collects system statistics and sends it to Graphite<br><a href=\'https://github.com/BrightcoveOS/Diamond\'>https://github.com/BrightcoveOS/Diamond</a> ',
+'Q' => 'Diamond ',
+'id' => 90,
+},
+{
+'A' => 'Diamond<br><a href=\'https://github.com/BrightcoveOS/Diamond\'>https://github.com/BrightcoveOS/Diamond</a> ',
+'Q' => 'A python daemon that collects system statistics and sends it to Graphite ',
+'id' => 91,
+},
+{
+'A' => 'An open source cloud hosting service for Python/Django web applications. Its like an open source Heroku for python/django<br><a href=\'https://github.com/dpaola2/djangy\'>https://github.com/dpaola2/djangy</a> ',
+'Q' => 'Djangy ',
+'id' => 92,
+},
+{
+'A' => 'Djangy<br><a href=\'https://github.com/dpaola2/djangy\'>https://github.com/dpaola2/djangy</a> ',
+'Q' => 'An open source cloud hosting service for Python/Django web applications. Its like an open source Heroku for python/django ',
+'id' => 93,
+},
+{
+'A' => 'Docker uses LXC to create and manage native, sandboxed virtual containers. LXC containers acts like a separate OSes, can install their own packages without affecting anything else, and overall have almost the same flexibility of VMs but without any of the virtualization overhead! Docker adds a ton of features, like an elegant configuration file that automates many things (like port forwarding, disk/directory mounting, networking, etc), a way to create and share readymade images that can be distributed as appliances, etc.<br><a href=\'http://www.docker.io\'>http://www.docker.io</a> ',
+'Q' => 'Docker ',
+'id' => 94,
+},
+{
+'A' => 'Docker<br><a href=\'http://www.docker.io\'>http://www.docker.io</a> ',
+'Q' => '? uses LXC to create and manage native, sandboxed virtual containers. LXC containers acts like a separate OSes, can install their own packages without affecting anything else, and overall have almost the same flexibility of VMs but without any of the virtualization overhead! ? adds a ton of features, like an elegant configuration file that automates many things (like port forwarding, disk/directory mounting, networking, etc), a way to create and share readymade images that can be distributed as appliances, etc. ',
+'id' => 95,
+},
+{
+'A' => 'Dokku on Steroids. The smallest PaaS implementation you\'ve ever seen. It\'s fork of original dokku. The idea behind this fork is to provide complete solution with plugins covering most of use-cases which are stable and well tested.<br><a href=\'https://github.com/dokku-alt/dokku-alt\'>https://github.com/dokku-alt/dokku-alt</a> ',
+'Q' => 'Dokku Alt ',
+'id' => 96,
+},
+{
+'A' => 'Dokku Alt<br><a href=\'https://github.com/dokku-alt/dokku-alt\'>https://github.com/dokku-alt/dokku-alt</a> ',
+'Q' => 'Dokku on Steroids. The smallest PaaS implementation you\'ve ever seen. It\'s fork of original dokku. The idea behind this fork is to provide complete solution with plugins covering most of use-cases which are stable and well tested. ',
+'id' => 97,
+},
+{
+'A' => 'It uses docker, git-receive and a few other lightweight and clever libraries to build a quick PaaS, all around just 100 lines of code! An excellent small tool to get started with PaaS systems. The same developer is creating a larger scale, production quality system called Flynn.<br><a href=\'https://github.com/progrium/dokku\'>https://github.com/progrium/dokku</a> ',
+'Q' => 'Dokku ',
+'id' => 98,
+},
+{
+'A' => 'Dokku<br><a href=\'https://github.com/progrium/dokku\'>https://github.com/progrium/dokku</a> ',
+'Q' => 'It uses docker, git-receive and a few other lightweight and clever libraries to build a quick PaaS, all around just 100 lines of code! An excellent small tool to get started with PaaS systems. The same developer is creating a larger scale, production quality system called Flynn. ',
+'id' => 99,
+},
+{
+'A' => 'Drone is a Continuous Integration platform built on Docker, written in Go<br><a href=\'https://github.com/drone/drone\'>https://github.com/drone/drone</a> ',
+'Q' => 'Drone ',
+'id' => 100,
+},
+{
+'A' => 'Drone<br><a href=\'https://github.com/drone/drone\'>https://github.com/drone/drone</a> ',
+'Q' => 'Continuous Integration platform built on Docker, written in Go ',
+'id' => 101,
+},
+{
+'A' => 'ElasticBox is an enterprise DevOps platform for IT teams to deliver applications frequently at low costs and with fewer failures. Applications are much easier to automate, orchestrate, deploy, and manage on private, public or hybrid clouds. IT teams can use the platform to align with business needs in an agile, transparent, and collaborative way.<br><a href=\'https://elasticbox.com/\'>https://elasticbox.com/</a> ',
+'Q' => 'ElasticBox ',
+'id' => 102,
+},
+{
+'A' => 'ElasticBox<br><a href=\'https://elasticbox.com/\'>https://elasticbox.com/</a> ',
+'Q' => '? is an enterprise DevOps platform for IT teams to deliver applications frequently at low costs and with fewer failures. Applications are much easier to automate, orchestrate, deploy, and manage on private, public or hybrid clouds. IT teams can use the platform to align with business needs in an agile, transparent, and collaborative way. ',
+'id' => 103,
+},
+{
+'A' => 'Deployment system & automation framework<br><a href=\'https://bitbucket.org/scorebig/elita\'>https://bitbucket.org/scorebig/elita</a> ',
+'Q' => 'Elita ',
+'id' => 104,
+},
+{
+'A' => 'Elita<br><a href=\'https://bitbucket.org/scorebig/elita\'>https://bitbucket.org/scorebig/elita</a> ',
+'Q' => 'Deployment system & automation framework ',
+'id' => 105,
+},
+{
+'A' => 'An open source, self-hosted error catching tool, which can collect and manage errors from other applications. It is compatible with the Airbrake API and can be used as a drop-in replacement.<br><a href=\'https://github.com/errbit/errbit\'>https://github.com/errbit/errbit</a> ',
+'Q' => 'Errbit ',
+'id' => 106,
+},
+{
+'A' => 'Errbit<br><a href=\'https://github.com/errbit/errbit\'>https://github.com/errbit/errbit</a> ',
+'Q' => 'An open source, self-hosted error catching tool, which can collect and manage errors from other applications. It is compatible with the Airbrake API and can be used as a drop-in replacement. ',
+'id' => 107,
+},
+{
+'A' => 'A highly-available key value store for shared configuration and service discovery.<br><a href=\'https://coreos.com/using-coreos/etcd/\'>https://coreos.com/using-coreos/etcd/</a> ',
+'Q' => 'etcd ',
+'id' => 108,
+},
+{
+'A' => 'etcd<br><a href=\'https://coreos.com/using-coreos/etcd/\'>https://coreos.com/using-coreos/etcd/</a> ',
+'Q' => 'A highly-available key value store for shared configuration and service discovery. ',
+'id' => 109,
+},
+{
+'A' => 'An open source software for building Amazon EC2-compatible private and hybrid cloud platforms<br><a href=\'https://github.com/eucalyptus/eucalyptus\'>https://github.com/eucalyptus/eucalyptus</a> ',
+'Q' => 'Eucalyptus ',
+'id' => 110,
+},
+{
+'A' => 'Eucalyptus<br><a href=\'https://github.com/eucalyptus/eucalyptus\'>https://github.com/eucalyptus/eucalyptus</a> ',
+'Q' => 'An open source software for building Amazon EC2-compatible private and hybrid cloud platforms ',
+'id' => 111,
+},
+{
+'A' => 'Fabric is a python framework to configure deployment or system administration tasks, and then run those tasks on local or remote systems. It uses SSH heavily for interacting with remote systems, and uses Roles to group tasks<br><a href=\'http://docs.fabfile.org/\'>http://docs.fabfile.org/</a> ',
+'Q' => 'Fabric ',
+'id' => 112,
+},
+{
+'A' => 'Fabric<br><a href=\'http://docs.fabfile.org/\'>http://docs.fabfile.org/</a> ',
+'Q' => 'python framework to configure deployment or system administration tasks, and then run those tasks on local or remote systems. It uses SSH heavily for interacting with remote systems, and uses Roles to group tasks ',
+'id' => 113,
+},
+{
+'A' => 'Fully Automatic Installation (FAI) is a tool for mass unattended deployment of Linux. You can take one or more virgin PCs, turn on the power, and after a few minutes, the systems are installed and completely configured.<br><a href=\'http://fai-project.org\'>http://fai-project.org</a> ',
+'Q' => 'FAI ',
+'id' => 114,
+},
+{
+'A' => 'FAI<br><a href=\'http://fai-project.org\'>http://fai-project.org</a> ',
+'Q' => 'Fully Automatic Installation (?) is a tool for mass unattended deployment of Linux. You can take one or more virgin PCs, turn on the power, and after a few minutes, the systems are installed and completely configured. ',
+'id' => 115,
+},
+{
+'A' => 'Flexible operating-system event and metric forwarding agent. Receives input and forwards output using plugins.<br><a href=\'https://github.com/spotify/ffwd\'>https://github.com/spotify/ffwd</a> ',
+'Q' => 'FastForward ',
+'id' => 116,
+},
+{
+'A' => 'FastForward<br><a href=\'https://github.com/spotify/ffwd\'>https://github.com/spotify/ffwd</a> ',
+'Q' => 'Flexible operating-system event and metric forwarding agent. Receives input and forwards output using plugins. ',
+'id' => 117,
+},
+{
+'A' => 'A package management tool, similar to Ivy/APT, but language agnostic, faster and works well with both executables and libraries.<br><a href=\'https://github.com/mfoemmel/fig\'>https://github.com/mfoemmel/fig</a> ',
+'Q' => 'Fig ',
+'id' => 118,
+},
+{
+'A' => 'Fig<br><a href=\'https://github.com/mfoemmel/fig\'>https://github.com/mfoemmel/fig</a> ',
+'Q' => 'A package management tool, similar to Ivy/APT, but language agnostic, faster and works well with both executables and libraries. ',
+'id' => 119,
+},
+{
+'A' => 'From the creator of Dokku, Flynn is a full fledged, open source PaaS platform built on top of Docker. You just push code with a Procfile, and thatΓÇÖs it, Flynn immediately picks it up, provisions a Docker container and deploys the latest code! Its tagged as ΓÇ£the product that ops gives to developersΓÇ¥<br><a href=\'https://flynn.io\'>https://flynn.io</a> ',
+'Q' => 'Flynn ',
+'id' => 120,
+},
+{
+'A' => 'Flynn<br><a href=\'https://flynn.io\'>https://flynn.io</a> ',
+'Q' => 'From the creator of Dokku, full fledged, open source PaaS platform built on top of Docker. You just push code with a Procfile, and thatΓÇÖs it, ? immediately picks it up, provisions a Docker container and deploys the latest code! Its tagged as ΓÇ£the product that ops gives to developersΓÇ¥ ',
+'id' => 121,
+},
+{
+'A' => 'A HTML5/Javascript API for collecting and visualizing time series data<br><a href=\'http://fnordmetric.io\'>http://fnordmetric.io</a> ',
+'Q' => 'FnordMetric ',
+'id' => 122,
+},
+{
+'A' => 'FnordMetric<br><a href=\'http://fnordmetric.io\'>http://fnordmetric.io</a> ',
+'Q' => 'A HTML5/Javascript API for collecting and visualizing time series data ',
+'id' => 123,
+},
+{
+'A' => 'The Ruby Cloud API library. Provides a Ruby API for interacting and managing many cloud providers, such as spinning up new instances, terminating old ones, attaching storage, etc. Currently supports more than 20 providers, including EC2, Rackspace, Brightbox, etc.<br><a href=\'http://fog.io/\'>http://fog.io/</a> ',
+'Q' => 'Fog ',
+'id' => 124,
+},
+{
+'A' => 'Fog<br><a href=\'http://fog.io/\'>http://fog.io/</a> ',
+'Q' => 'The Ruby Cloud API library. Provides a Ruby API for interacting and managing many cloud providers, such as spinning up new instances, terminating old ones, attaching storage, etc. Currently supports more than 20 providers, including EC2, Rackspace, Brightbox, etc. ',
+'id' => 125,
+},
+{
+'A' => 'Captures Erlang events and metrics<br><a href=\'https://github.com/boundary/folsom\'>https://github.com/boundary/folsom</a> ',
+'Q' => 'Folsom ',
+'id' => 126,
+},
+{
+'A' => 'Folsom<br><a href=\'https://github.com/boundary/folsom\'>https://github.com/boundary/folsom</a> ',
+'Q' => 'Captures Erlang events and metrics ',
+'id' => 127,
+},
+{
+'A' => 'A complete lifecycle management tool for servers, both self-hosted and in the cloud. It allows you to create and manage instances, build and deploy images, view and audit hosts, and much more! It works with Puppet or Chef, and has multiple interaction facilities like a web frontend, CLI and a RESTful API.<br><a href=\'http://theforeman.org/\'>http://theforeman.org/</a> ',
+'Q' => 'Foreman ',
+'id' => 128,
+},
+{
+'A' => 'Foreman<br><a href=\'http://theforeman.org/\'>http://theforeman.org/</a> ',
+'Q' => 'A complete lifecycle management tool for servers, both self-hosted and in the cloud. It allows you to create and manage instances, build and deploy images, view and audit hosts, and much more! It works with Puppet or Chef, and has multiple interaction facilities like a web frontend, CLI and a RESTful API. ',
+'id' => 129,
+},
+{
+'A' => 'Effing Package Managers (FPM) is a single tool that can generate rpm, deb, solaris, osx (pkg) and many other packages. It supports multiple inputs (directory, gem, egg, deb, etc) and can produce multiple outputs (rpm, deb, solaris, etc). It relieves the pain out of creating various kinds of packages.<br><a href=\'https://github.com/jordansissel/fpm\'>https://github.com/jordansissel/fpm</a> ',
+'Q' => 'FPM ',
+'id' => 130,
+},
+{
+'A' => 'FPM<br><a href=\'https://github.com/jordansissel/fpm\'>https://github.com/jordansissel/fpm</a> ',
+'Q' => 'Effing Package Managers (?) is a single tool that can generate rpm, deb, solaris, osx (pkg) and many other packages. It supports multiple inputs (directory, gem, egg, deb, etc) and can produce multiple outputs (rpm, deb, solaris, etc). It relieves the pain out of creating various kinds of packages. ',
+'id' => 131,
+},
+{
+'A' => 'Ganglia is a distributed monitoring system for high performance computing systems such as clusters and grids. It is optimized for low overhead and high concurency.<br><a href=\'http://ganglia.sourceforge.net\'>http://ganglia.sourceforge.net</a> ',
+'Q' => 'Ganglia ',
+'id' => 132,
+},
+{
+'A' => 'Ganglia<br><a href=\'http://ganglia.sourceforge.net\'>http://ganglia.sourceforge.net</a> ',
+'Q' => 'distributed monitoring system for high performance computing systems such as clusters and grids. It is optimized for low overhead and high concurency. ',
+'id' => 133,
+},
+{
+'A' => 'Gauntlt provides hooks to a variety of security tools and puts them within reach of security, dev and ops teams to collaborate to build rugged software. It is built to facilitate testing and communication between groups and create actionable tests that can be hooked into your deploy and testing processes.<br><a href=\'http://gauntlt.org/\'>http://gauntlt.org/</a> ',
+'Q' => 'Gauntlt ',
+'id' => 134,
+},
+{
+'A' => 'Gauntlt<br><a href=\'http://gauntlt.org/\'>http://gauntlt.org/</a> ',
+'Q' => '? provides hooks to a variety of security tools and puts them within reach of security, dev and ops teams to collaborate to build rugged software. It is built to facilitate testing and communication between groups and create actionable tests that can be hooked into your deploy and testing processes. ',
+'id' => 135,
+},
+{
+'A' => 'A generic application framework to farm out work to other machines or processes, and allows parallel processing and load balancing<br><a href=\'http://gearman.org\'>http://gearman.org</a> ',
+'Q' => 'gearman ',
+'id' => 136,
+},
+{
+'A' => 'gearman<br><a href=\'http://gearman.org\'>http://gearman.org</a> ',
+'Q' => 'A generic application framework to farm out work to other machines or processes, and allows parallel processing and load balancing ',
+'id' => 137,
+},
+{
+'A' => 'A Web based code review and project management system for Git projects<br><a href=\'https://code.google.com/p/gerrit/\'>https://code.google.com/p/gerrit/</a> ',
+'Q' => 'Gerrit ',
+'id' => 138,
+},
+{
+'A' => 'Gerrit<br><a href=\'https://code.google.com/p/gerrit/\'>https://code.google.com/p/gerrit/</a> ',
+'Q' => 'A Web based code review and project management system for Git projects ',
+'id' => 139,
+},
+{
+'A' => 'GitLab CI integrates with GitLab and runs continuous integration builds whenever you check in code to any of your projects.<br><a href=\'http://gitlab.org/gitlab-ci\'>http://gitlab.org/gitlab-ci</a> ',
+'Q' => 'GitLab CI ',
+'id' => 140,
+},
+{
+'A' => 'GitLab CI<br><a href=\'http://gitlab.org/gitlab-ci\'>http://gitlab.org/gitlab-ci</a> ',
+'Q' => '? integrates with GitLab and runs continuous integration builds whenever you check in code to any of your projects. ',
+'id' => 141,
+},
+{
+'A' => 'GitLab is an open-source, fully featured git web frontend developed using Ruby on Rails. You can host this in your own server, create projects, repositories and teams, manage fine grained access permissions, add wikis, collaborate, raise and merge pull requests, and do much more through the web!<br><a href=\'http://gitlab.org\'>http://gitlab.org</a> ',
+'Q' => 'GitLab ',
+'id' => 142,
+},
+{
+'A' => 'GitLab<br><a href=\'http://gitlab.org\'>http://gitlab.org</a> ',
+'Q' => '? is an open-source, fully featured git web frontend developed using Ruby on Rails. You can host this in your own server, create projects, repositories and teams, manage fine grained access permissions, add wikis, collaborate, raise and merge pull requests, and do much more through the web! ',
+'id' => 143,
+},
+{
+'A' => 'Gitorious is a free, fully featured git web frontend. It comes in various formats, including a VMDK appliance that can be booted up directly. You can run this on your own server, create projects, repositories, fork, merge pull requests, collaborate with teams, add wikis and much more! There is also an enterprise edition with professional support.<br><a href=\'http://getgitorious.com\'>http://getgitorious.com</a> ',
+'Q' => 'Gitorious ',
+'id' => 144,
+},
+{
+'A' => 'Gitorious<br><a href=\'http://getgitorious.com\'>http://getgitorious.com</a> ',
+'Q' => 'free, fully featured git web frontend. It comes in various formats, including a VMDK appliance that can be booted up directly. You can run this on your own server, create projects, repositories, fork, merge pull requests, collaborate with teams, add wikis and much more! There is also an enterprise edition with professional support. ',
+'id' => 145,
+},
+{
+'A' => 'A cross-platform, curses-based monitoring tool written in Python<br><a href=\'http://nicolargo.github.io/glances/\'>http://nicolargo.github.io/glances/</a> ',
+'Q' => 'Glances ',
+'id' => 146,
+},
+{
+'A' => 'Glances<br><a href=\'http://nicolargo.github.io/glances/\'>http://nicolargo.github.io/glances/</a> ',
+'Q' => 'A cross-platform, curses-based monitoring tool written in Python ',
+'id' => 147,
+},
+{
+'A' => 'Go is a continuous delivery and release management tool, built from the ground up with pipelines in mind, and makes it easy to model complex build and deploy workflows<br><a href=\'http://go.cd\'>http://go.cd</a> ',
+'Q' => 'GoCD ',
+'id' => 148,
+},
+{
+'A' => 'GoCD<br><a href=\'http://go.cd\'>http://go.cd</a> ',
+'Q' => 'Go is a continuous delivery and release management tool, built from the ground up with pipelines in mind, and makes it easy to model complex build and deploy workflows ',
+'id' => 149,
+},
+{
+'A' => 'God is a process management framework written in Ruby. It has a simple configuration and can manage single or group of processes, keep them alive, manage PIDs, monitor if any process fails, notify administrators and much more.<br><a href=\'http://godrb.com/\'>http://godrb.com/</a> ',
+'Q' => 'God ',
+'id' => 150,
+},
+{
+'A' => 'God<br><a href=\'http://godrb.com/\'>http://godrb.com/</a> ',
+'Q' => 'process management framework written in Ruby. It has a simple configuration and can manage single or group of processes, keep them alive, manage PIDs, monitor if any process fails, notify administrators and much more. ',
+'id' => 151,
+},
+{
+'A' => 'Graphite and InfluxDB dashboard and graph composer<br><a href=\'http://grafana.org/\'>http://grafana.org/</a> ',
+'Q' => 'Grafana ',
+'id' => 152,
+},
+{
+'A' => 'Grafana<br><a href=\'http://grafana.org/\'>http://grafana.org/</a> ',
+'Q' => 'Graphite and InfluxDB dashboard and graph composer ',
+'id' => 153,
+},
+{
+'A' => 'Graphite is a visualization tool for statistics configured from various sources. You can create customizable reports and dashboards, and it is one of the preferred backends for Statsd<br><a href=\'http://graphite.readthedocs.org/\'>http://graphite.readthedocs.org/</a> ',
+'Q' => 'Graphite ',
+'id' => 154,
+},
+{
+'A' => 'Graphite<br><a href=\'http://graphite.readthedocs.org/\'>http://graphite.readthedocs.org/</a> ',
+'Q' => 'visualization tool for statistics configured from various sources. You can create customizable reports and dashboards, and it is one of the preferred backends for Statsd ',
+'id' => 155,
+},
+{
+'A' => 'An open source data analytics and reporting system, built on top of Java, Scala and ElasticSearch<br><a href=\'http://www.graylog2.org\'>http://www.graylog2.org</a> ',
+'Q' => 'Graylog 2 ',
+'id' => 156,
+},
+{
+'A' => 'Graylog 2<br><a href=\'http://www.graylog2.org\'>http://www.graylog2.org</a> ',
+'Q' => 'An open source data analytics and reporting system, built on top of Java, Scala and ElasticSearch ',
+'id' => 157,
+},
+{
+'A' => 'A bittorrent based file distribution system based on TwitterΓÇÖs Murder. It uses BitTorrent to push artifacts and code very fast across thousands of servers.<br><a href=\'https://github.com/russss/Herd\'>https://github.com/russss/Herd</a> ',
+'Q' => 'Herd ',
+'id' => 158,
+},
+{
+'A' => 'Herd<br><a href=\'https://github.com/russss/Herd\'>https://github.com/russss/Herd</a> ',
+'Q' => 'A bittorrent based file distribution system based on TwitterΓÇÖs Murder. It uses BitTorrent to push artifacts and code very fast across thousands of servers. ',
+'id' => 159,
+},
+{
+'A' => 'Honeybadger is a hosted monitoring service that tracks errors happening in your applications, aggregates them, and notifies you about them based on rules you define. Honeybadger gives you the insight you need to diagnose and fix application errors, faster.<br><a href=\'https://www.honeybadger.io\'>https://www.honeybadger.io</a> ',
+'Q' => 'Honeybadger ',
+'id' => 160,
+},
+{
+'A' => 'Honeybadger<br><a href=\'https://www.honeybadger.io\'>https://www.honeybadger.io</a> ',
+'Q' => 'hosted monitoring service that tracks errors happening in your applications, aggregates them, and notifies you about them based on rules you define. ? gives you the insight you need to diagnose and fix application errors, faster. ',
+'id' => 161,
+},
+{
+'A' => 'Hubot is a chat bot that can be configured to do a variety of tasks. Apart from usual CI stuff like deploying, it can be interestingly configured to do different workflows like posting images, translating languages and integrating with Google Maps, and being a bot, it can be configured to ask questions like what is the current deployed version, etc.<br><a href=\'http://hubot.github.com/\'>http://hubot.github.com/</a> ',
+'Q' => 'Hubot ',
+'id' => 162,
+},
+{
+'A' => 'Hubot<br><a href=\'http://hubot.github.com/\'>http://hubot.github.com/</a> ',
+'Q' => 'chat bot that can be configured to do a variety of tasks. Apart from usual CI stuff like deploying, it can be interestingly configured to do different workflows like posting images, translating languages and integrating with Google Maps, and being a bot, it can be configured to ask questions like what is the current deployed version, etc. ',
+'id' => 163,
+},
+{
+'A' => 'The original lightweight CI tool written in Java. Initially part of Sun, then acquired by Oracle, and now maintained to the Eclipse Foundation<br><a href=\'http://hudson-ci.org/\'>http://hudson-ci.org/</a> ',
+'Q' => 'Hudson ',
+'id' => 164,
+},
+{
+'A' => 'Hudson<br><a href=\'http://hudson-ci.org/\'>http://hudson-ci.org/</a> ',
+'Q' => 'The original lightweight CI tool written in Java. Initially part of Sun, then acquired by Oracle, and now maintained to the Eclipse Foundation ',
+'id' => 165,
+},
+{
+'A' => 'Icinga is an enterprise-grade monitoring system. It was forked from Nagios and has added many often new features and patches, including a HTML5 UI, REST interface, dynamic tables, etc. It is also backwards compatible with Nagios, so all the existing plugins can be reused.<br><a href=\'https://www.icinga.org\'>https://www.icinga.org</a> ',
+'Q' => 'Icinga ',
+'id' => 166,
+},
+{
+'A' => 'Icinga<br><a href=\'https://www.icinga.org\'>https://www.icinga.org</a> ',
+'Q' => '? is an enterprise-grade monitoring system. It was forked from Nagios and has added many often new features and patches, including a HTML5 UI, REST interface, dynamic tables, etc. It is also backwards compatible with Nagios, so all the existing plugins can be reused. ',
+'id' => 167,
+},
+{
+'A' => 'A Java Library for controlling cloud resources, with various plugins for many popular cloud providers.<br><a href=\'http://jclouds.apache.org\'>http://jclouds.apache.org</a> ',
+'Q' => 'jclouds ',
+'id' => 168,
+},
+{
+'A' => 'jclouds<br><a href=\'http://jclouds.apache.org\'>http://jclouds.apache.org</a> ',
+'Q' => 'A Java Library for controlling cloud resources, with various plugins for many popular cloud providers. ',
+'id' => 169,
+},
+{
+'A' => 'Jenkins is an open source, lightweight CI tool written in Java, with high extensibility and a fast release cycle. It was forked from Hudson after Oracle acquired it, and has since added significantly more features than the original<br><a href=\'http://jenkins-ci.org/\'>http://jenkins-ci.org/</a> ',
+'Q' => 'Jenkins ',
+'id' => 170,
+},
+{
+'A' => 'Jenkins<br><a href=\'http://jenkins-ci.org/\'>http://jenkins-ci.org/</a> ',
+'Q' => '? is an open source, lightweight CI tool written in Java, with high extensibility and a fast release cycle. It was forked from Hudson after Oracle acquired it, and has since added significantly more features than the original ',
+'id' => 171,
+},
+{
+'A' => 'Streamline your web projects from development from production. Jeto is a web interface for several ReST APIs (nginx-api, vagrant-worker and htpasswd-api). With Jeto you add and manage (start/stop/provision) vagrant projects on the fly via a nice and easy to use web interface.<br><a href=\'http://jeto.io\'>http://jeto.io</a> ',
+'Q' => 'Jeto ',
+'id' => 172,
+},
+{
+'A' => 'Jeto<br><a href=\'http://jeto.io\'>http://jeto.io</a> ',
+'Q' => 'Streamline your web projects from development from production. ? is a web interface for several ReST APIs (nginx-api, vagrant-worker and htpasswd-api). With ? you add and manage (start/stop/provision) vagrant projects on the fly via a nice and easy to use web interface. ',
+'id' => 173,
+},
+{
+'A' => 'Plugs Java VM statistics via JMX to various backend monitoring tools<br><a href=\'https://github.com/jmxtrans/jmxtrans\'>https://github.com/jmxtrans/jmxtrans</a> ',
+'Q' => 'jmxtrans ',
+'id' => 174,
+},
+{
+'A' => 'jmxtrans<br><a href=\'https://github.com/jmxtrans/jmxtrans\'>https://github.com/jmxtrans/jmxtrans</a> ',
+'Q' => 'Plugs Java VM statistics via JMX to various backend monitoring tools ',
+'id' => 175,
+},
+{
+'A' => 'KairosDB is a fast distributed scalable time series database written on top of Cassandra. RESTful JSON-based query/results. Includes flot-based visualization.<br><a href=\'https://github.com/kairosdb/kairosdb\'>https://github.com/kairosdb/kairosdb</a> ',
+'Q' => 'KairosDB ',
+'id' => 176,
+},
+{
+'A' => 'KairosDB<br><a href=\'https://github.com/kairosdb/kairosdb\'>https://github.com/kairosdb/kairosdb</a> ',
+'Q' => 'fast distributed scalable time series database written on top of Cassandra. RESTful JSON-based query/results. Includes flot-based visualization. ',
+'id' => 177,
+},
+{
+'A' => 'Kibana is a modern, beautiful visualization tool that works seamlessly with Logstash and ElasticSearch. It features a no-code setup, realtime analytics, and much more.<br><a href=\'http://www.elasticsearch.org/overview/kibana/\'>http://www.elasticsearch.org/overview/kibana/</a> ',
+'Q' => 'Kibana ',
+'id' => 178,
+},
+{
+'A' => 'Kibana<br><a href=\'http://www.elasticsearch.org/overview/kibana/\'>http://www.elasticsearch.org/overview/kibana/</a> ',
+'Q' => 'modern, beautiful visualization tool that works seamlessly with Logstash and ElasticSearch. It features a no-code setup, realtime analytics, and much more. ',
+'id' => 179,
+},
+{
+'A' => 'A Bash provisioning tool with no extra dependency on the target host or the client. It comes with a set of helper functions that abstract some diferences like package management and brings indepotency to some commands.<br><a href=\'https://github.com/bltavares/kickstart\'>https://github.com/bltavares/kickstart</a> ',
+'Q' => 'Kickstart ',
+'id' => 180,
+},
+{
+'A' => 'Kickstart<br><a href=\'https://github.com/bltavares/kickstart\'>https://github.com/bltavares/kickstart</a> ',
+'Q' => 'A Bash provisioning tool with no extra dependency on the target host or the client. It comes with a set of helper functions that abstract some diferences like package management and brings indepotency to some commands. ',
+'id' => 181,
+},
+{
+'A' => 'Kubernetes is a system for managing containerized applications across multiple hosts, providing basic mechanisms for deployment, maintenance, and scaling of applications<br><a href=\'https://github.com/googlecloudplatform/kubernetes\'>https://github.com/googlecloudplatform/kubernetes</a> ',
+'Q' => 'Kubernetes ',
+'id' => 182,
+},
+{
+'A' => 'Kubernetes<br><a href=\'https://github.com/googlecloudplatform/kubernetes\'>https://github.com/googlecloudplatform/kubernetes</a> ',
+'Q' => 'system for managing containerized applications across multiple hosts, providing basic mechanisms for deployment, maintenance, and scaling of applications ',
+'id' => 183,
+},
+{
+'A' => 'Python library for interacting with many of the popular cloud service providers using a unified API.<br><a href=\'https://libcloud.apache.org/\'>https://libcloud.apache.org/</a> ',
+'Q' => 'Apache Libcloud ',
+'id' => 184,
+},
+{
+'A' => 'Apache Libcloud<br><a href=\'https://libcloud.apache.org/\'>https://libcloud.apache.org/</a> ',
+'Q' => 'Python library for interacting with many of the popular cloud service providers using a unified API. ',
+'id' => 185,
+},
+{
+'A' => 'A cookbook manager, or bundler equivalent, for Chef cookbooks. It allows to separately store, manage and reuse your Chef cookbooks<br><a href=\'https://github.com/applicationsonline/librarian-chef\'>https://github.com/applicationsonline/librarian-chef</a> ',
+'Q' => 'Librarian-chef ',
+'id' => 186,
+},
+{
+'A' => 'Librarian-chef<br><a href=\'https://github.com/applicationsonline/librarian-chef\'>https://github.com/applicationsonline/librarian-chef</a> ',
+'Q' => 'A cookbook manager, or bundler equivalent, for Chef cookbooks. It allows to separately store, manage and reuse your Chef cookbooks ',
+'id' => 187,
+},
+{
+'A' => 'Librarian-Puppet is a source structure and dependency manager for Puppet modules, similar to bundler for Ruby. Each Puppet module can be managed as a separate source repository with individual versioning, and can then be pulled into your Puppetfile.<br><a href=\'https://github.com/rodjek/librarian-puppet\'>https://github.com/rodjek/librarian-puppet</a> ',
+'Q' => 'Librarian-Puppet ',
+'id' => 188,
+},
+{
+'A' => 'Librarian-Puppet<br><a href=\'https://github.com/rodjek/librarian-puppet\'>https://github.com/rodjek/librarian-puppet</a> ',
+'Q' => 'source structure and dependency manager for Puppet modules, similar to bundler for Ruby. Each Puppet module can be managed as a separate source repository with individual versioning, and can then be pulled into your Puppetfile. ',
+'id' => 189,
+},
+{
+'A' => 'Realtime log monitoring directly in the browser, without any persistence layer in the middle!<br><a href=\'http://logio.org\'>http://logio.org</a> ',
+'Q' => 'log.io ',
+'id' => 190,
+},
+{
+'A' => 'log.io<br><a href=\'http://logio.org\'>http://logio.org</a> ',
+'Q' => 'Realtime log monitoring directly in the browser, without any persistence layer in the middle! ',
+'id' => 191,
+},
+{
+'A' => 'A modern tool for managing events and logs, with an ElasticSearch backend which allows a high degree of searching and filtering. It includes a shipper in remote systems, indexer in the aggregator machine, and a Web UI.<br><a href=\'http://logstash.net\'>http://logstash.net</a> ',
+'Q' => 'Logstash ',
+'id' => 192,
+},
+{
+'A' => 'Logstash<br><a href=\'http://logstash.net\'>http://logstash.net</a> ',
+'Q' => 'A modern tool for managing events and logs, with an ElasticSearch backend which allows a high degree of searching and filtering. It includes a shipper in remote systems, indexer in the aggregator machine, and a Web UI. ',
+'id' => 193,
+},
+{
+'A' => 'Reads log files and generates metrics in Graphite, Ganglia or Amazon CloudWatch<br><a href=\'https://github.com/etsy/logster\'>https://github.com/etsy/logster</a> ',
+'Q' => 'Logster ',
+'id' => 194,
+},
+{
+'A' => 'Logster<br><a href=\'https://github.com/etsy/logster\'>https://github.com/etsy/logster</a> ',
+'Q' => 'Reads log files and generates metrics in Graphite, Ganglia or Amazon CloudWatch ',
+'id' => 195,
+},
+{
+'A' => 'Built on top of Fabric and Puppet, it does the stuff that Puppet doesnΓÇÖt do, which is bootstrapping fresh machines, assigning them roles, deploying Puppet, and installing Puppet modules. It automates stuff that has to be done before Puppet can begin its work<br><a href=\'https://github.com/bfirsh/loom\'>https://github.com/bfirsh/loom</a> ',
+'Q' => 'Loom ',
+'id' => 196,
+},
+{
+'A' => 'Loom<br><a href=\'https://github.com/bfirsh/loom\'>https://github.com/bfirsh/loom</a> ',
+'Q' => 'Built on top of Fabric and Puppet, it does the stuff that Puppet doesnΓÇÖt do, which is bootstrapping fresh machines, assigning them roles, deploying Puppet, and installing Puppet modules. It automates stuff that has to be done before Puppet can begin its work ',
+'id' => 197,
+},
+{
+'A' => 'Marionette Collective (MCollective) is an orchestration framework built on top of Puppet. It can interact with a large number of servers (using a pub-sub middleware) and can execute jobs in parallel<br><a href=\'http://docs.puppetlabs.com/mcollective/\'>http://docs.puppetlabs.com/mcollective/</a> ',
+'Q' => 'MCollective ',
+'id' => 198,
+},
+{
+'A' => 'MCollective<br><a href=\'http://docs.puppetlabs.com/mcollective/\'>http://docs.puppetlabs.com/mcollective/</a> ',
+'Q' => 'Marionette Collective (?) is an orchestration framework built on top of Puppet. It can interact with a large number of servers (using a pub-sub middleware) and can execute jobs in parallel ',
+'id' => 199,
+},
+{
+'A' => 'Captures JVM and application-level metrics for Java<br><a href=\'https://github.com/codahale/metrics/\'>https://github.com/codahale/metrics/</a> ',
+'Q' => 'Metrics ',
+'id' => 200,
+},
+{
+'A' => 'Metrics<br><a href=\'https://github.com/codahale/metrics/\'>https://github.com/codahale/metrics/</a> ',
+'Q' => 'Captures JVM and application-level metrics for Java ',
+'id' => 201,
+},
+{
+'A' => 'A Ruby Rake-like DSL for fast deployment and automation, similar to Capistrano but faster and lesser overhead, since it creates only a single SSH connection for a deploy<br><a href=\'http://nadarei.co/mina/\'>http://nadarei.co/mina/</a> ',
+'Q' => 'Mina ',
+'id' => 202,
+},
+{
+'A' => 'Mina<br><a href=\'http://nadarei.co/mina/\'>http://nadarei.co/mina/</a> ',
+'Q' => 'A Ruby Rake-like DSL for fast deployment and automation, similar to Capistrano but faster and lesser overhead, since it creates only a single SSH connection for a deploy ',
+'id' => 203,
+},
+{
+'A' => 'A collection of Chef recipes to install various monitoring tools (such as sensu, statsd, etc). Makes it a breeze to get a monitoring infrastructure up and running<br><a href=\'https://github.com/monigusto\'>https://github.com/monigusto</a> ',
+'Q' => 'Monigusto ',
+'id' => 204,
+},
+{
+'A' => 'Monigusto<br><a href=\'https://github.com/monigusto\'>https://github.com/monigusto</a> ',
+'Q' => 'A collection of Chef recipes to install various monitoring tools (such as sensu, statsd, etc). Makes it a breeze to get a monitoring infrastructure up and running ',
+'id' => 205,
+},
+{
+'A' => 'An open source utility for managing and monitoring processes, programs, files, directories and filesystems<br><a href=\'http://mmonit.com/monit/\'>http://mmonit.com/monit/</a> ',
+'Q' => 'Monit ',
+'id' => 206,
+},
+{
+'A' => 'Monit<br><a href=\'http://mmonit.com/monit/\'>http://mmonit.com/monit/</a> ',
+'Q' => 'An open source utility for managing and monitoring processes, programs, files, directories and filesystems ',
+'id' => 207,
+},
+{
+'A' => 'Node-Bell is a real-time anomalies detection system for periodic time series, built to be able to monitor a large quantity of metrics. It collects metrics from clients like statsd, analyzes them with the 3-sigma rule and visualizes results on the web. Once enough anomalies were found in a short time, it alerts you via alerters like hipchat.<br><a href=\'https://github.com/eleme/node-bell\'>https://github.com/eleme/node-bell</a> ',
+'Q' => 'Node-Bell ',
+'id' => 208,
+},
+{
+'A' => 'Node-Bell<br><a href=\'https://github.com/eleme/node-bell\'>https://github.com/eleme/node-bell</a> ',
+'Q' => 'real-time anomalies detection system for periodic time series, built to be able to monitor a large quantity of metrics. It collects metrics from clients like statsd, analyzes them with the 3-sigma rule and visualizes results on the web. Once enough anomalies were found in a short time, it alerts you via alerters like hipchat. ',
+'id' => 209,
+},
+{
+'A' => 'An open source, massively scalable cloud operating system used for building private and public clouds<br><a href=\'http://www.openstack.org\'>http://www.openstack.org</a> ',
+'Q' => 'OpenStack ',
+'id' => 210,
+},
+{
+'A' => 'OpenStack<br><a href=\'http://www.openstack.org\'>http://www.openstack.org</a> ',
+'Q' => 'An open source, massively scalable cloud operating system used for building private and public clouds ',
+'id' => 211,
+},
+{
+'A' => 'A pluggable, configurable bot for improving communication in operations<br><a href=\'https://github.com/alcy/OpsBot\'>https://github.com/alcy/OpsBot</a> ',
+'Q' => 'OpsBot ',
+'id' => 212,
+},
+{
+'A' => 'OpsBot<br><a href=\'https://github.com/alcy/OpsBot\'>https://github.com/alcy/OpsBot</a> ',
+'Q' => 'A pluggable, configurable bot for improving communication in operations ',
+'id' => 213,
+},
+{
+'A' => 'Bootstrap a DevOps infrastructure with some opinionated defaults (vagrant, puppet, librarian-puppet, git, etc), standard development guidelines, etc. Makes it very quick to get a DevOps team up and running<br><a href=\'https://github.com/narkisr/opskeleton\'>https://github.com/narkisr/opskeleton</a> ',
+'Q' => 'Opskeleton ',
+'id' => 214,
+},
+{
+'A' => 'Opskeleton<br><a href=\'https://github.com/narkisr/opskeleton\'>https://github.com/narkisr/opskeleton</a> ',
+'Q' => 'Bootstrap a DevOps infrastructure with some opinionated defaults (vagrant, puppet, librarian-puppet, git, etc), standard development guidelines, etc. Makes it very quick to get a DevOps team up and running ',
+'id' => 215,
+},
+{
+'A' => 'A model driven orchestration tool for deployment of application clusters<br><a href=\'https://github.com/youdevise/orc/\'>https://github.com/youdevise/orc/</a> ',
+'Q' => 'Orc ',
+'id' => 216,
+},
+{
+'A' => 'Orc<br><a href=\'https://github.com/youdevise/orc/\'>https://github.com/youdevise/orc/</a> ',
+'Q' => 'A model driven orchestration tool for deployment of application clusters ',
+'id' => 217,
+},
+{
+'A' => 'An operating system for lightweight virtual machines, designed from ground-up to run a single application, similar to CoreOS<br><a href=\'http://osv.io/\'>http://osv.io/</a> ',
+'Q' => 'OSV ',
+'id' => 218,
+},
+{
+'A' => 'OSV<br><a href=\'http://osv.io/\'>http://osv.io/</a> ',
+'Q' => 'An operating system for lightweight virtual machines, designed from ground-up to run a single application, similar to CoreOS ',
+'id' => 219,
+},
+{
+'A' => 'A simple command line program designed to make it easy to spin up, configure, and interact with any number of machines over SSH. Supported providers include AWS, DigitalOcean, Linode and Virtualbox.<br><a href=\'http://andrewchilds.github.io/overcast/\'>http://andrewchilds.github.io/overcast/</a> ',
+'Q' => 'Overcast ',
+'id' => 220,
+},
+{
+'A' => 'Overcast<br><a href=\'http://andrewchilds.github.io/overcast/\'>http://andrewchilds.github.io/overcast/</a> ',
+'Q' => 'A simple command line program designed to make it easy to spin up, configure, and interact with any number of machines over SSH. Supported providers include AWS, DigitalOcean, Linode and Virtualbox. ',
+'id' => 221,
+},
+{
+'A' => 'A penetration testing tool for finding vulnerabilities in web applications, from OWASP<br><a href=\'https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project\'>https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project</a> ',
+'Q' => 'Zed Attack Project ',
+'id' => 222,
+},
+{
+'A' => 'Zed Attack Project<br><a href=\'https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project\'>https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project</a> ',
+'Q' => 'A penetration testing tool for finding vulnerabilities in web applications, from OWASP ',
+'id' => 223,
+},
+{
+'A' => 'A self-hosted personal cloud/social platform with contacts, calendars, file sharing, tasks, etc.<br><a href=\'http://owncloud.org/six/\'>http://owncloud.org/six/</a> ',
+'Q' => 'ownCloud ',
+'id' => 224,
+},
+{
+'A' => 'ownCloud<br><a href=\'http://owncloud.org/six/\'>http://owncloud.org/six/</a> ',
+'Q' => 'A self-hosted personal cloud/social platform with contacts, calendars, file sharing, tasks, etc. ',
+'id' => 225,
+},
+{
+'A' => 'A hosted platform for managing software package repositories. Apt, yum, and rubygems repositories without the headaches.<br><a href=\'http://www.packagecloud.io\'>http://www.packagecloud.io</a> ',
+'Q' => 'packagecloud ',
+'id' => 226,
+},
+{
+'A' => 'packagecloud<br><a href=\'http://www.packagecloud.io\'>http://www.packagecloud.io</a> ',
+'Q' => 'A hosted platform for managing software package repositories. Apt, yum, and rubygems repositories without the headaches. ',
+'id' => 227,
+},
+{
+'A' => 'Packer is a tool for creating identical machine images for multiple platforms (like VirtualBox, VMWare, EC2, DigitalOcean, etc) from a single configuration file.<br><a href=\'http://www.packer.io/\'>http://www.packer.io/</a> ',
+'Q' => 'Packer ',
+'id' => 228,
+},
+{
+'A' => 'Packer<br><a href=\'http://www.packer.io/\'>http://www.packer.io/</a> ',
+'Q' => 'tool for creating identical machine images for multiple platforms (like VirtualBox, VMWare, EC2, DigitalOcean, etc) from a single configuration file. ',
+'id' => 229,
+},
+{
+'A' => 'Packetbeat is an application performance management (APM) system that focuses on giving you visibility into the communication between microservices<br><a href=\'http://packetbeat.com\'>http://packetbeat.com</a> ',
+'Q' => 'Packetbeat ',
+'id' => 230,
+},
+{
+'A' => 'Packetbeat<br><a href=\'http://packetbeat.com\'>http://packetbeat.com</a> ',
+'Q' => '? is an application performance management (APM) system that focuses on giving you visibility into the communication between microservices ',
+'id' => 231,
+},
+{
+'A' => 'A tool to provision and maintain servers across various cloud platforms as well as virtual machine platforms, without any dependencies. Provides cloud and operating system independence.<br><a href=\'http://palletops.com/\'>http://palletops.com/</a> ',
+'Q' => 'Pallet ',
+'id' => 232,
+},
+{
+'A' => 'Pallet<br><a href=\'http://palletops.com/\'>http://palletops.com/</a> ',
+'Q' => 'A tool to provision and maintain servers across various cloud platforms as well as virtual machine platforms, without any dependencies. Provides cloud and operating system independence. ',
+'id' => 233,
+},
+{
+'A' => 'Phabricator is an open source collection of development and code management, including code reviews and audits, browsing repositories, tracking bugs, etc<br><a href=\'http://phabricator.org\'>http://phabricator.org</a> ',
+'Q' => 'Phabricator ',
+'id' => 234,
+},
+{
+'A' => 'Phabricator<br><a href=\'http://phabricator.org\'>http://phabricator.org</a> ',
+'Q' => '? is an open source collection of development and code management, including code reviews and audits, browsing repositories, tracking bugs, etc ',
+'id' => 235,
+},
+{
+'A' => 'Free and open source continuous integration specifically designed for PHP.<br><a href=\'https://www.phptesting.org/\'>https://www.phptesting.org/</a> ',
+'Q' => 'PHPCI ',
+'id' => 236,
+},
+{
+'A' => 'PHPCI<br><a href=\'https://www.phptesting.org/\'>https://www.phptesting.org/</a> ',
+'Q' => 'Free and open source continuous integration specifically designed for PHP. ',
+'id' => 237,
+},
+{
+'A' => 'A system management and provisioning tool, with centralized configuration management<br><a href=\'http://melor.github.io/poni/\'>http://melor.github.io/poni/</a> ',
+'Q' => 'Poni ',
+'id' => 238,
+},
+{
+'A' => 'Poni<br><a href=\'http://melor.github.io/poni/\'>http://melor.github.io/poni/</a> ',
+'Q' => 'A system management and provisioning tool, with centralized configuration management ',
+'id' => 239,
+},
+{
+'A' => 'A platform for managing software package repositories<br><a href=\'http://www.pulpproject.org\'>http://www.pulpproject.org</a> ',
+'Q' => 'Pulp ',
+'id' => 240,
+},
+{
+'A' => 'Pulp<br><a href=\'http://www.pulpproject.org\'>http://www.pulpproject.org</a> ',
+'Q' => 'A platform for managing software package repositories ',
+'id' => 241,
+},
+{
+'A' => 'A web interface for Puppet. It can view and analyze Puppet reports, assign Puppet classes and parameters to nodes, view inventory data and backed-up file contents, etc.<br><a href=\'https://github.com/sodabrew/puppet-dashboard\'>https://github.com/sodabrew/puppet-dashboard</a> ',
+'Q' => 'Puppet Dashboard ',
+'id' => 242,
+},
+{
+'A' => 'Puppet Dashboard<br><a href=\'https://github.com/sodabrew/puppet-dashboard\'>https://github.com/sodabrew/puppet-dashboard</a> ',
+'Q' => 'A web interface for Puppet. It can view and analyze Puppet reports, assign Puppet classes and parameters to nodes, view inventory data and backed-up file contents, etc. ',
+'id' => 243,
+},
+{
+'A' => 'Find out whatΓÇÖs making your Puppet run so bloody slow<br><a href=\'https://github.com/rodjek/puppet-profiler\'>https://github.com/rodjek/puppet-profiler</a> ',
+'Q' => 'Puppet-profiler ',
+'id' => 244,
+},
+{
+'A' => 'Puppet-profiler<br><a href=\'https://github.com/rodjek/puppet-profiler\'>https://github.com/rodjek/puppet-profiler</a> ',
+'Q' => 'Find out whatΓÇÖs making your Puppet run so bloody slow ',
+'id' => 245,
+},
+{
+'A' => 'Puppet is a tool designed to manage the configuration of Unix-like and Microsoft Windows systems declaratively.<br><a href=\'http://www.puppetlabs.com\'>http://www.puppetlabs.com</a> ',
+'Q' => 'Puppet ',
+'id' => 246,
+},
+{
+'A' => 'Puppet<br><a href=\'http://www.puppetlabs.com\'>http://www.puppetlabs.com</a> ',
+'Q' => 'tool designed to manage the configuration of Unix-like and Microsoft Windows systems declaratively. ',
+'id' => 247,
+},
+{
+'A' => 'r10k provides a general purpose toolset for deploying Puppet environments and modules. It implements the Puppetfile format and provides a native implementation of Puppet dynamic environments.<br><a href=\'https://github.com/puppetlabs/r10k\'>https://github.com/puppetlabs/r10k</a> ',
+'Q' => 'r10k ',
+'id' => 248,
+},
+{
+'A' => 'r10k<br><a href=\'https://github.com/puppetlabs/r10k\'>https://github.com/puppetlabs/r10k</a> ',
+'Q' => '? provides a general purpose toolset for deploying Puppet environments and modules. It implements the Puppetfile format and provides a native implementation of Puppet dynamic environments. ',
+'id' => 249,
+},
+{
+'A' => 'Razor is next generation provisioning software that handles bare metal hardware and virtual server provisioning<br><a href=\'https://github.com/puppetlabs/razor-server\'>https://github.com/puppetlabs/razor-server</a> ',
+'Q' => 'Razor ',
+'id' => 250,
+},
+{
+'A' => 'Razor<br><a href=\'https://github.com/puppetlabs/razor-server\'>https://github.com/puppetlabs/razor-server</a> ',
+'Q' => '? is next generation provisioning software that handles bare metal hardware and virtual server provisioning ',
+'id' => 251,
+},
+{
+'A' => 'Review Board is a feature packed code review tool for multiple SCM systems (like git, bzr, cvs, subversion, etc).<br><a href=\'http://www.reviewboard.org/\'>http://www.reviewboard.org/</a> ',
+'Q' => 'Review Board ',
+'id' => 252,
+},
+{
+'A' => 'Review Board<br><a href=\'http://www.reviewboard.org/\'>http://www.reviewboard.org/</a> ',
+'Q' => 'feature packed code review tool for multiple SCM systems (like git, bzr, cvs, subversion, etc). ',
+'id' => 253,
+},
+{
+'A' => 'A agent-less server orchestration tool built on Perl<br><a href=\'http://www.rexify.org\'>http://www.rexify.org</a> ',
+'Q' => 'Rex ',
+'id' => 254,
+},
+{
+'A' => 'Rex<br><a href=\'http://www.rexify.org\'>http://www.rexify.org</a> ',
+'Q' => 'A agent-less server orchestration tool built on Perl ',
+'id' => 255,
+},
+{
+'A' => 'Riemann aggregates events from servers and applications, notifies exceptions, tracks latency, collects system statistics and more, all with a powerful stream processing language<br><a href=\'http://riemann.io\'>http://riemann.io</a> ',
+'Q' => 'Riemann ',
+'id' => 256,
+},
+{
+'A' => 'Riemann<br><a href=\'http://riemann.io\'>http://riemann.io</a> ',
+'Q' => '? aggregates events from servers and applications, notifies exceptions, tracks latency, collects system statistics and more, all with a powerful stream processing language ',
+'id' => 257,
+},
+{
+'A' => 'Turns your operational procedures into self-service portal. Define common operational tasks in the Rundeck web portal, and safely hand it over to the rest of the team so that they can perform these tasks without you being around.<br><a href=\'http://rundeck.org\'>http://rundeck.org</a> ',
+'Q' => 'Rundeck ',
+'id' => 258,
+},
+{
+'A' => 'Rundeck<br><a href=\'http://rundeck.org\'>http://rundeck.org</a> ',
+'Q' => 'Turns your operational procedures into self-service portal. Define common operational tasks in the ? web portal, and safely hand it over to the rest of the team so that they can perform these tasks without you being around. ',
+'id' => 259,
+},
+{
+'A' => 'Salt is a powerful and different approach to infrastructure management, by focusing on high speed communications between large number of systems, and can perform orchestration, remote code execution and much more.<br><a href=\'http://www.saltstack.com/community/\'>http://www.saltstack.com/community/</a> ',
+'Q' => 'SaltStack ',
+'id' => 260,
+},
+{
+'A' => 'SaltStack<br><a href=\'http://www.saltstack.com/community/\'>http://www.saltstack.com/community/</a> ',
+'Q' => 'Salt is a powerful and different approach to infrastructure management, by focusing on high speed communications between large number of systems, and can perform orchestration, remote code execution and much more. ',
+'id' => 261,
+},
+{
+'A' => 'Metrics for Python, tracks python state and statistics. Inspired by the Metrics library for Java<br><a href=\'https://github.com/Cue/scales\'>https://github.com/Cue/scales</a> ',
+'Q' => 'Scales ',
+'id' => 262,
+},
+{
+'A' => 'Scales<br><a href=\'https://github.com/Cue/scales\'>https://github.com/Cue/scales</a> ',
+'Q' => 'Metrics for Python, tracks python state and statistics. Inspired by the Metrics library for Java ',
+'id' => 263,
+},
+{
+'A' => 'Semaphore is a hosted continuous integration and deployment service for open source and private projects. Its cloud solution helps developers find bugs before they reach users and deliver new features faster.<br><a href=\'https://semaphoreapp.com/\'>https://semaphoreapp.com/</a> ',
+'Q' => 'Semaphore ',
+'id' => 264,
+},
+{
+'A' => 'Semaphore<br><a href=\'https://semaphoreapp.com/\'>https://semaphoreapp.com/</a> ',
+'Q' => 'hosted continuous integration and deployment service for open source and private projects. Its cloud solution helps developers find bugs before they reach users and deliver new features faster. ',
+'id' => 265,
+},
+{
+'A' => 'Sensu is a simple, malleable and scalable monitoring framework which is highly composable<br><a href=\'http://sensuapp.org\'>http://sensuapp.org</a> ',
+'Q' => 'Sensu ',
+'id' => 266,
+},
+{
+'A' => 'Sensu<br><a href=\'http://sensuapp.org\'>http://sensuapp.org</a> ',
+'Q' => 'simple, malleable and scalable monitoring framework which is highly composable ',
+'id' => 267,
+},
+{
+'A' => 'Sequencer can ping, power on and power off clusters of machines in your datacenter<br><a href=\'http://pv-bull.github.io/sequencer/\'>http://pv-bull.github.io/sequencer/</a> ',
+'Q' => 'Sequencer ',
+'id' => 268,
+},
+{
+'A' => 'Sequencer<br><a href=\'http://pv-bull.github.io/sequencer/\'>http://pv-bull.github.io/sequencer/</a> ',
+'Q' => '? can ping, power on and power off clusters of machines in your datacenter ',
+'id' => 269,
+},
+{
+'A' => 'Serf is a service discovery and orchestration tool which is highly decentralized, highly available, fault tolerant, cross platform and extremely lightweight.<br><a href=\'http://www.serfdom.io/\'>http://www.serfdom.io/</a> ',
+'Q' => 'Serf ',
+'id' => 270,
+},
+{
+'A' => 'Serf<br><a href=\'http://www.serfdom.io/\'>http://www.serfdom.io/</a> ',
+'Q' => 'service discovery and orchestration tool which is highly decentralized, highly available, fault tolerant, cross platform and extremely lightweight. ',
+'id' => 271,
+},
+{
+'A' => 'SaaS server and availability monitoring providing alerting, historical graphing, dashboards and log search.<br><a href=\'https://www.serverdensity.com\'>https://www.serverdensity.com</a> ',
+'Q' => 'Server Density ',
+'id' => 272,
+},
+{
+'A' => 'Server Density<br><a href=\'https://www.serverdensity.com\'>https://www.serverdensity.com</a> ',
+'Q' => 'SaaS server and availability monitoring providing alerting, historical graphing, dashboards and log search. ',
+'id' => 273,
+},
+{
+'A' => 'A tool for testing and promoting infrastructure tolerance and high availability. It randomly shuts down servers, or blocks network connections, and makes sure you design your systems to survive these events.<br><a href=\'https://github.com/Netflix/SimianArmy\'>https://github.com/Netflix/SimianArmy</a> ',
+'Q' => 'Simian Army ',
+'id' => 274,
+},
+{
+'A' => 'Simian Army<br><a href=\'https://github.com/Netflix/SimianArmy\'>https://github.com/Netflix/SimianArmy</a> ',
+'Q' => 'A tool for testing and promoting infrastructure tolerance and high availability. It randomly shuts down servers, or blocks network connections, and makes sure you design your systems to survive these events. ',
+'id' => 275,
+},
+{
+'A' => 'Skyline is a real-time* anomaly detection* system*, built to enable passive monitoring of hundreds of thousands of metrics, without the need to configure a model/thresholds for each one, as you might do with Nagios. It is designed to be used wherever there are a large quantity of high-resolution timeseries which need constant monitoring.<br><a href=\'https://github.com/etsy/skyline\'>https://github.com/etsy/skyline</a> ',
+'Q' => 'Skyline ',
+'id' => 276,
+},
+{
+'A' => 'Skyline<br><a href=\'https://github.com/etsy/skyline\'>https://github.com/etsy/skyline</a> ',
+'Q' => 'real-time* anomaly detection* system*, built to enable passive monitoring of hundreds of thousands of metrics, without the need to configure a model/thresholds for each one, as you might do with Nagios. It is designed to be used wherever there are a large quantity of high-resolution timeseries which need constant monitoring. ',
+'id' => 277,
+},
+{
+'A' => 'A Perl tool for automating configuration, maintenance and management of large number of systems. Allows policies to be written in a central server and implement specific policies in various servers<br><a href=\'https://github.com/skx/slaughter\'>https://github.com/skx/slaughter</a> ',
+'Q' => 'Slaughter ',
+'id' => 278,
+},
+{
+'A' => 'Slaughter<br><a href=\'https://github.com/skx/slaughter\'>https://github.com/skx/slaughter</a> ',
+'Q' => 'A Perl tool for automating configuration, maintenance and management of large number of systems. Allows policies to be written in a central server and implement specific policies in various servers ',
+'id' => 279,
+},
+{
+'A' => 'Snap CI is a hosted CI/CD service from ThoughtWorks. Supports pipelines and stages, artifact management, debugging shells and integrates out-of-the-box with deployment platforms like Heroku. Provides free builds for open source projects.<br><a href=\'http://snap-ci.com\'>http://snap-ci.com</a> ',
+'Q' => 'Snap-CI ',
+'id' => 280,
+},
+{
+'A' => 'Snap-CI<br><a href=\'http://snap-ci.com\'>http://snap-ci.com</a> ',
+'Q' => 'Snap CI is a hosted CI/CD service from ThoughtWorks. Supports pipelines and stages, artifact management, debugging shells and integrates out-of-the-box with deployment platforms like Heroku. Provides free builds for open source projects. ',
+'id' => 281,
+},
+{
+'A' => 'SaaS SSL monitoring and alerting. Snitch audits for revocation, expiration, changes to the certificate, known security vulnerabilities, and best practices. Snitch worries about your SSL/TLS certificate so you don\'t have to<br><a href=\'https://snitch.io\'>https://snitch.io</a> ',
+'Q' => 'Snitch ',
+'id' => 282,
+},
+{
+'A' => 'Snitch<br><a href=\'https://snitch.io\'>https://snitch.io</a> ',
+'Q' => 'SaaS SSL monitoring and alerting. ? audits for revocation, expiration, changes to the certificate, known security vulnerabilities, and best practices. ? worries about your SSL/TLS certificate so you don\'t have to ',
+'id' => 283,
+},
+{
+'A' => 'Soloist lets you quickly and easily converge Chef recipes using chef-solo.<br><a href=\'https://github.com/mkocher/soloist\'>https://github.com/mkocher/soloist</a> ',
+'Q' => 'Soloist ',
+'id' => 284,
+},
+{
+'A' => 'Soloist<br><a href=\'https://github.com/mkocher/soloist\'>https://github.com/mkocher/soloist</a> ',
+'Q' => '? lets you quickly and easily converge Chef recipes using chef-solo. ',
+'id' => 285,
+},
+{
+'A' => 'A set of Ansible playbooks to configure and maintain your own personal cloud, including email, calendars, file storage, vpn, irc, etc. A nice collection of utilities as well as a good showcase of Ansible\'s features<br><a href=\'https://github.com/al3x/sovereign\'>https://github.com/al3x/sovereign</a> ',
+'Q' => 'Sovereign ',
+'id' => 286,
+},
+{
+'A' => 'Sovereign<br><a href=\'https://github.com/al3x/sovereign\'>https://github.com/al3x/sovereign</a> ',
+'Q' => 'A set of Ansible playbooks to configure and maintain your own personal cloud, including email, calendars, file storage, vpn, irc, etc. A nice collection of utilities as well as a good showcase of Ansible\'s features ',
+'id' => 287,
+},
+{
+'A' => 'A specialized, cluster computing toolkit for EC2, designed to summon and manage clusters of virtual machines in EC2.<br><a href=\'http://star.mit.edu/cluster/\'>http://star.mit.edu/cluster/</a> ',
+'Q' => 'StarCluster ',
+'id' => 288,
+},
+{
+'A' => 'StarCluster<br><a href=\'http://star.mit.edu/cluster/\'>http://star.mit.edu/cluster/</a> ',
+'Q' => 'A specialized, cluster computing toolkit for EC2, designed to summon and manage clusters of virtual machines in EC2. ',
+'id' => 289,
+},
+{
+'A' => 'Statman makes it possible to instrument and collect statistics from your high-traffic production Erlang systems with very low overhead. The collected data points are aggregated in the VM and can be sent to services like Graphite, Munin, New Relic, etc.<br><a href=\'https://github.com/knutin/statman\'>https://github.com/knutin/statman</a> ',
+'Q' => 'Statman ',
+'id' => 290,
+},
+{
+'A' => 'Statman<br><a href=\'https://github.com/knutin/statman\'>https://github.com/knutin/statman</a> ',
+'Q' => '? makes it possible to instrument and collect statistics from your high-traffic production Erlang systems with very low overhead. The collected data points are aggregated in the VM and can be sent to services like Graphite, Munin, New Relic, etc. ',
+'id' => 291,
+},
+{
+'A' => 'A network daemon that listens and collects statistics and sends aggregates to many pluggable backend services<br><a href=\'https://github.com/etsy/statsd/\'>https://github.com/etsy/statsd/</a> ',
+'Q' => 'Statsd ',
+'id' => 292,
+},
+{
+'A' => 'Statsd<br><a href=\'https://github.com/etsy/statsd/\'>https://github.com/etsy/statsd/</a> ',
+'Q' => 'A network daemon that listens and collects statistics and sends aggregates to many pluggable backend services ',
+'id' => 293,
+},
+{
+'A' => 'A shell-based pure provisioning tool which doesnΓÇÖt try to do anything else. Has no dependencies other than the shell<br><a href=\'https://github.com/kenn/sunzi\'>https://github.com/kenn/sunzi</a> ',
+'Q' => 'Sunzi ',
+'id' => 294,
+},
+{
+'A' => 'Sunzi<br><a href=\'https://github.com/kenn/sunzi\'>https://github.com/kenn/sunzi</a> ',
+'Q' => 'A shell-based pure provisioning tool which doesnΓÇÖt try to do anything else. Has no dependencies other than the shell ',
+'id' => 295,
+},
+{
+'A' => 'Supervisord Monitor is multi server monitoring tool for supervisor - watch, start and stop all your supervisord instances and servvices from one place.<br><a href=\'https://github.com/mlazarov/supervisord-monitor\'>https://github.com/mlazarov/supervisord-monitor</a> ',
+'Q' => 'Supervisord Monitor ',
+'id' => 296,
+},
+{
+'A' => 'Supervisord Monitor<br><a href=\'https://github.com/mlazarov/supervisord-monitor\'>https://github.com/mlazarov/supervisord-monitor</a> ',
+'Q' => '? is multi server monitoring tool for supervisor - watch, start and stop all your supervisord instances and servvices from one place. ',
+'id' => 297,
+},
+{
+'A' => 'Supervisor can manage application processes. It can start and stop a group of processes, restart processes if any of them terminate (keep-alive), start multiple instances of the same process (process pooling), automatically manage PID files, and much more! Very useful if you need to manage multiple processes for your application.<br><a href=\'http://supervisord.org/\'>http://supervisord.org/</a> ',
+'Q' => 'Supervisor ',
+'id' => 298,
+},
+{
+'A' => 'Supervisor<br><a href=\'http://supervisord.org/\'>http://supervisord.org/</a> ',
+'Q' => '? can manage application processes. It can start and stop a group of processes, restart processes if any of them terminate (keep-alive), start multiple instances of the same process (process pooling), automatically manage PID files, and much more! Very useful if you need to manage multiple processes for your application. ',
+'id' => 299,
+},
+{
+'A' => 'From JetBrains (makers of IntelliJ), TeamCity is a feature packed CI tool with out-of-the-box support for Java, .Net, Ruby and many other languages. It has deep language-aware integration, like maven, RVM, rake, popular testing frameworks, code coverage, etc, and consequently it occupies more resources. It has a liberal free usage license.<br><a href=\'http://www.jetbrains.com/teamcity/\'>http://www.jetbrains.com/teamcity/</a> ',
+'Q' => 'TeamCity ',
+'id' => 300,
+},
+{
+'A' => 'TeamCity<br><a href=\'http://www.jetbrains.com/teamcity/\'>http://www.jetbrains.com/teamcity/</a> ',
+'Q' => 'From JetBrains (makers of IntelliJ), feature packed CI tool with out-of-the-box support for Java, .Net, Ruby and many other languages. It has deep language-aware integration, like maven, RVM, rake, popular testing frameworks, code coverage, etc, and consequently it occupies more resources. It has a liberal free usage license. ',
+'id' => 301,
+},
+{
+'A' => 'Terraform provides a common configuration to launch infrastructure from different providers (AWS, Digital Ocean, Heroku, etc.). It provides dependency resolution to make sure that your infrastructure is created in the right order<br><a href=\'https://www.terraform.io/\'>https://www.terraform.io/</a> ',
+'Q' => 'Terraform ',
+'id' => 302,
+},
+{
+'A' => 'Terraform<br><a href=\'https://www.terraform.io/\'>https://www.terraform.io/</a> ',
+'Q' => '? provides a common configuration to launch infrastructure from different providers (AWS, Digital Ocean, Heroku, etc.). It provides dependency resolution to make sure that your infrastructure is created in the right order ',
+'id' => 303,
+},
+{
+'A' => 'Thorough web application security testing, with an extensive API, easy to hook into CI and issue tracking tools.<br><a href=\'https://www.tinfoilsecurity.com\'>https://www.tinfoilsecurity.com</a> ',
+'Q' => 'Tinfoil Security ',
+'id' => 304,
+},
+{
+'A' => 'Tinfoil Security<br><a href=\'https://www.tinfoilsecurity.com\'>https://www.tinfoilsecurity.com</a> ',
+'Q' => 'Thorough web application security testing, with an extensive API, easy to hook into CI and issue tracking tools. ',
+'id' => 305,
+},
+{
+'A' => 'Find and be alerted to abnormal patterns and lines in your logs. topLog not only lets you aggregate your logs, whether they are system or application, into one place and then gives you pro-active insights and alarms. Know when your logs are telling you things are going wrong before they actually do.<br><a href=\'http://toplog.io\'>http://toplog.io</a> ',
+'Q' => 'topLog ',
+'id' => 306,
+},
+{
+'A' => 'topLog<br><a href=\'http://toplog.io\'>http://toplog.io</a> ',
+'Q' => 'Find and be alerted to abnormal patterns and lines in your logs. ? not only lets you aggregate your logs, whether they are system or application, into one place and then gives you pro-active insights and alarms. Know when your logs are telling you things are going wrong before they actually do. ',
+'id' => 307,
+},
+{
+'A' => 'Travis CI is a hosted CI service free for open source communities. It directly integrates with GitHub, BitBucket and many other version control systems, and offers deep support for a variety of languages. Travis also has an Enterprise version that can be installed on your own servers.<br><a href=\'https://travis-ci.org/\'>https://travis-ci.org/</a> ',
+'Q' => 'Travis-CI ',
+'id' => 308,
+},
+{
+'A' => 'Travis-CI<br><a href=\'https://travis-ci.org/\'>https://travis-ci.org/</a> ',
+'Q' => 'Travis CI is a hosted CI service free for open source communities. It directly integrates with GitHub, BitBucket and many other version control systems, and offers deep support for a variety of languages. Travis also has an Enterprise version that can be installed on your own servers. ',
+'id' => 309,
+},
+{
+'A' => 'tsuru is an extensible and open source Platform as a Service (PaaS) that makes application deployments faster and easier. Its built upon Docker and allows you easily manage and scale your applications.<br><a href=\'https://tsuru.io\'>https://tsuru.io</a> ',
+'Q' => 'tsuru ',
+'id' => 310,
+},
+{
+'A' => 'tsuru<br><a href=\'https://tsuru.io\'>https://tsuru.io</a> ',
+'Q' => '? is an extensible and open source Platform as a Service (PaaS) that makes application deployments faster and easier. Its built upon Docker and allows you easily manage and scale your applications. ',
+'id' => 311,
+},
+{
+'A' => 'An externally deployable application that keeps pinging and monitoring the uptime and availability of your real applications and services. It helps you track these metrics from the outside without affecting any of your servers.<br><a href=\'https://github.com/fzaninotto/uptime\'>https://github.com/fzaninotto/uptime</a> ',
+'Q' => 'Uptime ',
+'id' => 312,
+},
+{
+'A' => 'Uptime<br><a href=\'https://github.com/fzaninotto/uptime\'>https://github.com/fzaninotto/uptime</a> ',
+'Q' => 'An externally deployable application that keeps pinging and monitoring the uptime and availability of your real applications and services. It helps you track these metrics from the outside without affecting any of your servers. ',
+'id' => 313,
+},
+{
+'A' => 'Builds local nodes for Chef using LXC (Linux Containers) which are lightweight virtual machines, thus making performance a lot faster<br><a href=\'https://github.com/chrisroberts/vagabond\'>https://github.com/chrisroberts/vagabond</a> ',
+'Q' => 'Vagabond ',
+'id' => 314,
+},
+{
+'A' => 'Vagabond<br><a href=\'https://github.com/chrisroberts/vagabond\'>https://github.com/chrisroberts/vagabond</a> ',
+'Q' => 'Builds local nodes for Chef using LXC (Linux Containers) which are lightweight virtual machines, thus making performance a lot faster ',
+'id' => 315,
+},
+{
+'A' => 'A Vagrant plugin that helps you reduce the amount of coffee you drink while waiting for boxes to be provisioned by sharing a common package cache among similiar VM instances.<br><a href=\'http://fgrehm.viewdocs.io/vagrant-cachier\'>http://fgrehm.viewdocs.io/vagrant-cachier</a> ',
+'Q' => 'Vagrant Cachier ',
+'id' => 316,
+},
+{
+'A' => 'Vagrant Cachier<br><a href=\'http://fgrehm.viewdocs.io/vagrant-cachier\'>http://fgrehm.viewdocs.io/vagrant-cachier</a> ',
+'Q' => 'A Vagrant plugin that helps you reduce the amount of coffee you drink while waiting for boxes to be provisioned by sharing a common package cache among similiar VM instances. ',
+'id' => 317,
+},
+{
+'A' => 'Vagrant is a cross platform tool to create, boot, configure and destroy development environments. It provides a simple configuration-based approach to take a base image, boot it up, provision it (using any other provisioners), SSH, port forward, and much more. It automates the process of booting up and configuring virtual machines. It supports various providers like VirtualBox, VMWare, AWS, LXC, etc.<br><a href=\'http://www.vagrantup.com/\'>http://www.vagrantup.com/</a> ',
+'Q' => 'Vagrant ',
+'id' => 318,
+},
+{
+'A' => 'Vagrant<br><a href=\'http://www.vagrantup.com/\'>http://www.vagrantup.com/</a> ',
+'Q' => 'cross platform tool to create, boot, configure and destroy development environments. It provides a simple configuration-based approach to take a base image, boot it up, provision it (using any other provisioners), SSH, port forward, and much more. It automates the process of booting up and configuring virtual machines. It supports various providers like VirtualBox, VMWare, AWS, LXC, etc. ',
+'id' => 319,
+},
+{
+'A' => 'A Chaos Monkey for TCP, it randomly disconnects or stalls TCP connections in your application to test application tolerance and high availability. Makes sure you correctly handle these unexpected events<br><a href=\'http://vaurien.readthedocs.org/\'>http://vaurien.readthedocs.org/</a> ',
+'Q' => 'Vaurien ',
+'id' => 320,
+},
+{
+'A' => 'Vaurien<br><a href=\'http://vaurien.readthedocs.org/\'>http://vaurien.readthedocs.org/</a> ',
+'Q' => 'A Chaos Monkey for TCP, it randomly disconnects or stalls TCP connections in your application to test application tolerance and high availability. Makes sure you correctly handle these unexpected events ',
+'id' => 321,
+},
+{
+'A' => 'veewee is a great tool for building Virtual Machine images (aka base boxes). It automates most of the steps and allows you to easily create readymade images for VirtualBox/Vagrant, VMWare Fusion, KVM and Parallels. No longer need to shy away from building custom VM images!<br><a href=\'https://github.com/jedi4ever/veewee\'>https://github.com/jedi4ever/veewee</a> ',
+'Q' => 'Veewee ',
+'id' => 322,
+},
+{
+'A' => 'Veewee<br><a href=\'https://github.com/jedi4ever/veewee\'>https://github.com/jedi4ever/veewee</a> ',
+'Q' => 'veewee is a great tool for building Virtual Machine images (aka base boxes). It automates most of the steps and allows you to easily create readymade images for VirtualBox/Vagrant, VMWare Fusion, KVM and Parallels. No longer need to shy away from building custom VM images! ',
+'id' => 323,
+},
+{
+'A' => 'Allows easy provisioning of development VMs using declarative service and dependency management, built on top of Vagrant and Docker<br><a href=\'https://github.com/fgrehm/ventriloquist\'>https://github.com/fgrehm/ventriloquist</a> ',
+'Q' => 'Ventriloquist ',
+'id' => 324,
+},
+{
+'A' => 'Ventriloquist<br><a href=\'https://github.com/fgrehm/ventriloquist\'>https://github.com/fgrehm/ventriloquist</a> ',
+'Q' => 'Allows easy provisioning of development VMs using declarative service and dependency management, built on top of Vagrant and Docker ',
+'id' => 325,
+},
+{
+'A' => 'A Pallet plugin which converts VirtualBox into a cloud platform<br><a href=\'https://github.com/tbatchelli/vmfest\'>https://github.com/tbatchelli/vmfest</a> ',
+'Q' => 'VMFest ',
+'id' => 326,
+},
+{
+'A' => 'VMFest<br><a href=\'https://github.com/tbatchelli/vmfest\'>https://github.com/tbatchelli/vmfest</a> ',
+'Q' => 'A Pallet plugin which converts VirtualBox into a cloud platform ',
+'id' => 327,
+},
+{
+'A' => 'Weave creates a virtual network that connects Docker containers deployed across multiple hosts. Services provided by application containers on the weave network can be made accessible to the outside world, regardless of where those containers are running. Similarly, existing internal systems can be exposed to application containers irrespective of their location.<br><a href=\'https://github.com/zettio/weave\'>https://github.com/zettio/weave</a> ',
+'Q' => 'Weave ',
+'id' => 328,
+},
+{
+'A' => 'Weave<br><a href=\'https://github.com/zettio/weave\'>https://github.com/zettio/weave</a> ',
+'Q' => '? creates a virtual network that connects Docker containers deployed across multiple hosts. Services provided by application containers on the weave network can be made accessible to the outside world, regardless of where those containers are running. Similarly, existing internal systems can be exposed to application containers irrespective of their location. ',
+'id' => 329,
+},
+{
+'A' => 'Windows Installer XML (WiX) is an open source set of tools to create your own Windows installer packages using an XML configuration. It supports a lot of functionality, like many pre-built wizard interfaces, splitting packages into separate features, adding custom dialog boxes or wizard steps, upgrading and repairing existing installations, etc.<br><a href=\'http://wixtoolset.org/\'>http://wixtoolset.org/</a> ',
+'Q' => 'WiX Toolset ',
+'id' => 330,
+},
+{
+'A' => 'WiX Toolset<br><a href=\'http://wixtoolset.org/\'>http://wixtoolset.org/</a> ',
+'Q' => 'Windows Installer XML (WiX) is an open source set of tools to create your own Windows installer packages using an XML configuration. It supports a lot of functionality, like many pre-built wizard interfaces, splitting packages into separate features, adding custom dialog boxes or wizard steps, upgrading and repairing existing installations, etc. ',
+'id' => 331,
+},
+{
+'A' => 'An open source, enterprise-class monitoring framework<br><a href=\'http://www.zabbix.com/\'>http://www.zabbix.com/</a> ',
+'Q' => 'Zabbix ',
+'id' => 332,
+},
+{
+'A' => 'Zabbix<br><a href=\'http://www.zabbix.com/\'>http://www.zabbix.com/</a> ',
+'Q' => 'An open source, enterprise-class monitoring framework ',
+'id' => 333,
+},
+{
+'A' => 'A distributed request tracking system, useful for micro-service and distributed architectures written in Scala<br><a href=\'http://twitter.github.io/zipkin/\'>http://twitter.github.io/zipkin/</a> ',
+'Q' => 'Zipkin ',
+'id' => 334,
+},
+{
+'A' => 'Zipkin<br><a href=\'http://twitter.github.io/zipkin/\'>http://twitter.github.io/zipkin/</a> ',
+'Q' => 'A distributed request tracking system, useful for micro-service and distributed architectures written in Scala ',
+'id' => 335,
+},
+{
+'A' => 'ZooKeeper is a centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services. It is distributed and highly reliable, with Consensus, group management and presence protocols built-in.<br><a href=\'http://zookeeper.apache.org/\'>http://zookeeper.apache.org/</a> ',
+'Q' => 'Apache ZooKeeper ',
+'id' => 336,
+},
+{
+'A' => 'Apache ZooKeeper<br><a href=\'http://zookeeper.apache.org/\'>http://zookeeper.apache.org/</a> ',
+'Q' => '? is a centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services. It is distributed and highly reliable, with Consensus, group management and presence protocols built-in. ',
+'id' => 337,
+},
+);

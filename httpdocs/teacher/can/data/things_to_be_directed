@@ -1,0 +1,13 @@
+# formatted
+@val = (
+{
+'English' => 'the traffic',
+'French' => '{le circulation>s>}',
+'German' => '{der Verkehr>s>}',
+'Italian' => '{il traffico>s>}',
+'Spanish' => '{el tr/afico>s>}',
+'id' => 7,
+,
+,
+},
+);

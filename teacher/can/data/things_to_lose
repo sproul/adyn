@@ -1,0 +1,53 @@
+# formatted
+@val = (
+{
+'English' => 'our keys',
+'French' => '{notre clef>p>}',
+'German' => '{unser Schl:ussel>p>}',
+'Italian' => '{il nostro chiave>p>}',
+'Spanish' => '{nuestro llave>p>}',
+'id' => 0,
+},
+{
+'English' => 'her money',
+'French' => '{son argent>s>}',
+'German' => '{ihr Geld>s>}',
+'Italian' => '{il suo denaro>s>}',
+'Spanish' => '{su dinero>s>}',
+'id' => 1,
+},
+{
+'English' => 'the credit card',
+'French' => '{le carte>s>} de cr/edit',
+'German' => '{der Kreditkarte>s>}',
+'Italian' => '{il tessera>s>} da credito',
+'Spanish' => '{el tarjeta>s>} de cr/edito',
+'id' => 2,
+},
+{
+'English' => 'the cell phone',
+'French' => '{le t/el/ephone>s> cellulaire}',
+'German' => '{der Funktelefon>s>}',
+'German_note#Funktelefon;;German' => 'In Switzerland and Austria, a cell phone is <i>das Handy</i>.',
+'Italian' => '{il cellulare>s>}',
+'Spanish' => '{el tel/efono>s> celular}',
+'id' => 3,
+},
+{
+'English' => 'your key',
+'French' => '{ton clef>s>}',
+'German' => '{dein Schl:ussel>s>}',
+'Italian' => '{il tuo chiave>s>}',
+'Spanish' => '{tu llave>s>}',
+'id' => 4,
+},
+{
+'English' => 'money',
+'French' => '{de le argent>s>}',
+'German' => '{Geld>s>}',
+'Italian' => '{di il denaro>s>}',
+'Spanish' => '{dinero>s>}',
+'id' => 5,
+
+},
+);

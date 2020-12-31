@@ -1,0 +1,30 @@
+# formatted
+@val = (
+{
+'English' => 'supermarkets',
+'French' => '{un supermarch/e>p>}',
+'German' => '{Supermarkt>p>}',
+'Italian' => '{un supermercato>p>}',
+'Spanish' => '{supermercado>p>}',
+'Spanish_note#supermercados;;Spanish' => 'sp_some_several_particular',
+'id' => 0,
+},
+{
+'English' => 'entire villages',
+'French' => '{un village>p> entier}',
+'German' => '{ganz Dorf>p>}',
+'Italian' => '{un villaggio>p> intero}',
+'Spanish' => '{aldea>p> entero}',
+'Spanish_note#aldeas;;Spanish' => 'sp_some_several_particular',
+'id' => 1,
+},
+{
+'English' => 'churches',
+'French' => '{un /eglise>p>}',
+'German' => '{Kirche>p>}',
+'Italian' => '{un chiesa>p>}',
+'Spanish' => '{iglesia>p>}',
+'Spanish_note#iglesias;;Spanish' => 'sp_some_several_particular',
+'id' => 2,
+},
+);

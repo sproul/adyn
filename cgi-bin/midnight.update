@@ -1,0 +1,67 @@
+cp /cygdrive/c/Users/nelsons/Dropbox/adyn/httpdocs/teacher/usr/ava/data.bak /cygdrive/c/Users/nelsons/Dropbox/adyn/httpdocs/teacher/usr/ava/data; sh -x c:/Users/nelsons/Dropbox/adyn/teacher/test_update.sh
++ :
++ user=
++ weightDeltaString=
++ '[' -z '' ']'
++ user=ava
++ '[' -z '' ']'
++ weightDeltaString=verb_return_35/2
++ cd /cygdrive/c/Users/nelsons/Dropbox/adyn/cgi-bin/
++ Update ava verb_return_35/2
++ userID=ava
++ weightChanges=verb_return_35/2
++ fn=../httpdocs/teacher/usr/ava/data
++ echo 'Will update ../httpdocs/teacher/usr/ava/data: verb_return_35/2'
+Will update ../httpdocs/teacher/usr/ava/data: verb_return_35/2
++ echo debugMode=1
++ echo userID=ava
++ perl -w update.cgi
+Status: 200 OK
+Expires: Mon, 10 Mar 2014 05:27:44 GMT
+Date: Tue, 11 Mar 2014 05:27:44 GMT
+Content-Type: text/html; charset=ISO-8859-1
+
+FlattenWeights: 40:	001071/averb_do_45	to 001001/averb_do_45 (1001)
+FlattenWeights: 39:	001071/cverb_believe_44	to 001001/cverb_believe_44 (1001)
+FlattenWeights: 38:	001071/everb_fall_53	to 001001/everb_fall_53 (1001)
+FlattenWeights: 37:	001071/everb_help_9	to 001001/everb_help_9 (1001)
+FlattenWeights: 36:	001071/fverb_see_30	to 001001/fverb_see_30 (1001)
+FlattenWeights: 35:	001071/gverb_give_51	to 001001/gverb_give_51 (1001)
+FlattenWeights: 34:	001071/gverb_shout_6	to 001001/gverb_shout_6 (1001)
+FlattenWeights: 33:	001071/gvocab_animals_1	to 001001/gvocab_animals_1 (1001)
+FlattenWeights: 32:	001071/hverb_forget_47	to 001001/hverb_forget_47 (1001)
+FlattenWeights: 31:	001071/hverb_forget_61	to 001001/hverb_forget_61 (1001)
+FlattenWeights: 30:	001071/hverb_have_24	to 001001/hverb_have_24 (1001)
+FlattenWeights: 29:	001071/hverb_return_45	to 001001/hverb_return_45 (1001)
+FlattenWeights: 28:	001071/iverb_hear_39	to 001001/iverb_hear_39 (1001)
+FlattenWeights: 27:	001071/lverb_drink_53	to 001001/lverb_drink_53 (1001)
+FlattenWeights: 26:	001071/lverb_hope_24	to 001001/lverb_hope_24 (1001)
+FlattenWeights: 25:	001071/mverb_be_137	to 001001/mverb_be_137 (1001)
+FlattenWeights: 24:	001071/nverb_look_for	to 001001/nverb_look_for (1001)
+FlattenWeights: 23:	001071/pverb_open_32	to 001001/pverb_open_32 (1001)
+FlattenWeights: 22:	001071/qvocab_animals_7	to 001001/qvocab_animals_7 (1001)
+FlattenWeights: 21:	001071/rverb_lose_32	to 001001/rverb_lose_32 (1001)
+FlattenWeights: 20:	001071/sverb_live_in	to 001001/sverb_live_in (1001)
+FlattenWeights: 19:	001071/uverb_serve_26	to 001001/uverb_serve_26 (1001)
+FlattenWeights: 18:	001071/wverb_fall_55	to 001001/wverb_fall_55 (1001)
+FlattenWeights: 17:	001071/yverb_go_out	to 001001/yverb_go_out (1001)
+FlattenWeights: 16:	001071/yverb_love_30	to 001001/yverb_love_30 (1001)
+FlattenWeights: 15:	001071/zverb_enjoy_57	to 001001/zverb_enjoy_57 (1001)
+FlattenWeights: 14:	001071/zverb_know_28	to 001001/zverb_know_28 (1001)
+FlattenWeights: 13:	001072/gverb_find_41	to 001002/gverb_find_41 (1002)
+FlattenWeights: 12:	001072/hverb_bring_47	to 001002/hverb_bring_47 (1002)
+FlattenWeights: 11:	001072/hverb_come_32	to 001002/hverb_come_32 (1002)
+FlattenWeights: 10:	001072/kverb_learn_32	to 001002/kverb_learn_32 (1002)
+FlattenWeights: 9:	001072/mverb_announce_17	to 001002/mverb_announce_17 (1002)
+FlattenWeights: 8:	001072/nverb_go_6	to 001002/nverb_go_6 (1002)
+FlattenWeights: 7:	001072/overb_know_27	to 001002/overb_know_27 (1002)
+FlattenWeights: 6:	001072/overb_say_34	to 001002/overb_say_34 (1002)
+FlattenWeights: 5:	001072/sverb_meet_8	to 001002/sverb_meet_8 (1002)
+FlattenWeights: 4:	001072/sverb_need_7	to 001002/sverb_need_7 (1002)
+FlattenWeights: 3:	001072/uverb_send_45	to 001002/uverb_send_45 (1002)
+FlattenWeights: 2:	001072/wverb_enjoy_55	to 001002/wverb_enjoy_55 (1002)
+FlattenWeights: 1:	001072/xverb_laugh_23	to 001002/xverb_laugh_23 (1002)
+FlattenWeights: 0:	001073/mverb_go_53	to 001003/mverb_go_53 (1003)
+userId=ava
++ exit
+22:27:44 x lt 508$ 

@@ -1,0 +1,191 @@
+# English
+vocab_languages.0: l'anglais
+
+# Portuguese
+vocab_languages.10: le portugais
+
+# Arabic
+vocab_languages.11: l'arabe
+
+# Spanish
+vocab_languages.1: l'espagnol
+
+# French
+vocab_languages.2: le fran,cais
+
+# Italian
+vocab_languages.3: l'italien
+
+# German
+vocab_languages.4: l'allemand
+
+# Russian
+vocab_languages.5: le russe
+
+# Chinese
+vocab_languages.6: le chinois
+
+# Japanese
+vocab_languages.7: le japonais
+
+# Danish
+vocab_languages.8: le danois
+
+# Swedish
+vocab_languages.9: le su/edois
+
+# aluminum
+vocab_materials.4: l'aluminium
+
+# twenty-second
+vocab_ordinals.21: vingt-deuxi`eme
+
+# She cuts her bread at the table.
+base.215: Elle rompt son pain `a table.
+
+# ...that he celebrate [subjunctive] an enemy's death.
+verb_celebrate.4/things_to_celebrate.4: ...qu'il c/el`ebre la mort d'un ennemi.
+
+# Let's not close that shop!
+verb_close.1/things_to_close.4: Ne fermons pas cette boutique!
+
+# I will cut her arm.
+verb_cut.1/things_to_cut.1: Je couperai son bras.
+
+# She will deceive the bully.
+verb_deceive.7/people.7: Elle dupera la brute.
+
+# You [familiar, plural] washed my car.
+verb_wash.0/things_to_wash.0: Vous avez lav/e ma voiture.
+
+# We had washed his shirt.
+verb_wash.1/things_to_wash.1: Nous avions lav/e sa chemise.
+
+# You [formal, plural] will have washed her dress.
+verb_wash.2/things_to_wash.2: Vous aurez lav/e sa robe.
+
+# We used to wash his pants.
+verb_wash.3/things_to_wash.3: Nous lavions ses pantalons.
+
+# ...that I wash [subjunctive] their socks.
+verb_wash.4/things_to_wash.4: ...que je lave leurs chaussettes.
+
+# He would have washed the napkin.
+verb_wash.5/things_to_wash.5: Il aurait lav/e la serviette de table.
+
+# ...that you [formal, plural] wash [subjunctive] the floor.
+verb_wash.6/things_to_wash.6: ...que vous laviez le plancher.
+
+# They would have weighed the chicken.
+verb_weigh.1/vocab_food.7: Ils auraient pes/e le poulet.
+
+# I will have weighed the vegetables.
+verb_weigh.3/vocab_food.9: J'aurai pes/e les l/egumes.
+
+# You [formal, singular] will weigh the fruit.
+verb_weigh.4/vocab_food.10: Vous p`eserez les fruits.
+
+# English
+vocab_languages.0: l'anglais
+
+# Portuguese
+vocab_languages.10: le portugais
+
+# Arabic
+vocab_languages.11: l'arabe
+
+# Spanish
+vocab_languages.1: l'espagnol
+
+# French
+vocab_languages.2: le fran,cais
+
+# Italian
+vocab_languages.3: l'italien
+
+# German
+vocab_languages.4: l'allemand
+
+# Russian
+vocab_languages.5: le russe
+
+# Chinese
+vocab_languages.6: le chinois
+
+# Japanese
+vocab_languages.7: le japonais
+
+# Danish
+vocab_languages.8: le danois
+
+# Swedish
+vocab_languages.9: le su/edois
+
+# aluminum
+vocab_materials.4: l'aluminium
+
+# twenty-second
+vocab_ordinals.21: vingt-deuxi`eme
+
+# You [formal, singular] will devour the fruit.
+verb_devour.0/vocab_food.10: Vous d/evorerez les fruits.
+
+# He used to devour some pork.
+verb_devour.4/vocab_food.6: Il d/evorait du porc.
+
+# They devour the chicken.
+verb_devour.5/vocab_food.7: Ils d/evorent le poulet.
+
+# I devoured some cheese.
+verb_devour.6/vocab_food.8: J'ai d/evor/e du fromage.
+
+# We devour the vegetables.
+verb_devour.7/vocab_food.9: Nous d/evorons les l/egumes.
+
+# Let's not feel sad!
+verb_feel_emotionally.2/things_to_feel_emotionally.1: Ne sentons-nous pas tristes! (>>> " ne nous sentons pas tristes ! ", mais cette injonction est improbable,on dirait plutôt : " ne soyons pas tristes ! " )
+
+# ...that you [formal, singular] feel [subjunctive] a cold draft.
+verb_feel_physically.3/things_to_feel_physically.3: ...que vous sentiez un vent froid.
+
+# Let's not lead our grandmother!
+verb_lead.11/vocab_family.10: N'emmenons pas notre grand-m`ere!
+
+# You [formal, plural] lead her brother.
+verb_lead.6/vocab_family.6: Vous emmenez son fr`ere.
+
+# You [familiar, plural] lead my nephew.
+verb_lead.7/vocab_family.7: Vous emmenez mon neveu.
+
+# ...that you [formal, singular] lead [subjunctive] his niece.
+verb_lead.8/vocab_family.8: ...que vous emmeniez sa ni`ece.
+
+# ...that you [formal, plural] lead [subjunctive] her grandfather.
+verb_lead.9/vocab_family.9: ...que vous emmeniez son grand-p`ere.
+
+# You [familiar, singular] will have loaded a brass statue.
+verb_load.2/vocab_materials.2: Tu auras charg/e une statue en laiton.
+
+# We have loaded aluminum.
+verb_load.4/vocab_materials.4: Nous avons charg/e l'aluminium.
+
+# You [familiar, singular] will load some steel.
+verb_load.5/vocab_materials.5: Tu chargeras de l'acier.
+
+# They would load some metal.
+verb_load.6/vocab_materials.6: Ils chargeraient du m/etal.
+
+# You [formal, plural] will load some iron.
+verb_load.7/vocab_materials.7: Vous chargerez du fer.
+
+# You [familiar, plural] will load some plastic toys.
+verb_load.8/vocab_materials.8: Vous chargerez des jouets en plastique.
+
+# You [familiar, plural] used to load some steel.
+verb_load.9/vocab_materials.5: Vous chargiez de l'acier.
+
+# Let's not paint the sheds!
+verb_paint.3/places_to_paint.4: Ne peignons pas les hangars!
+
+# They will persuade her grandfather.
+verb_persuade.5/vocab_family.9: Ils persuaderont son grand-p`ere.

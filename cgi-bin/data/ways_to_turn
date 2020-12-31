@@ -1,0 +1,21 @@
+# formatted
+@val = (
+{
+'English' => 'to the right',
+'French' => '`a droite',
+'French_note#droite;;French' => 'Don\'t confuse <i>la droite</i>, which means <i>the right</i>, or <i>the right hand</i>, with <i>le droit</i>, which means the <i>field of law</i> (and also the <i>customs duty</i>, or any minor tax or fee).',
+'German' => 'nach rechts',
+'Italian' => 'a destra',
+'Spanish' => 'hacia {el derecha>s>}',
+'id' => 0,
+},
+{
+'English' => 'to the left',
+'French' => '`a gauche',
+'German' => 'nach links',
+'Italian_note#sinistra;;Italian' => '<i>il sinistro</i> means <i>the accident</i>, while <i>la sinistra</i> means <i>the left</i>.',
+'Italian' => 'a sinistra',
+'Spanish' => 'hacia {el izquierda>s>}',
+'id' => 1,
+},
+);

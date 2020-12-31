@@ -1,0 +1,124 @@
+<html>
+<head>
+<title>[23] Inheritance what your mother never told you, C++ FAQ Lite, Marshall Cline</title>
+<link rev=made href="mailto:cline@parashift.com">
+</head>
+<body vlink="#551a8b" text="#000000" bgcolor="#c1c1c1" alink="#ff0000" link="#0000ee">
+<a name="top"></a>
+<h1>[23] Inheritance &#151; what your mother never told you<br>
+<small><small>(Part of <a href="index.html"><em>C++ FAQ Lite</em></a>, <a href="copy-permissions.html#[1.2]">Copyright&nbsp;&copy; 1991-96</a>, <a href="http://www.cerfnet.com/~mpcline/">Marshall Cline</a>, <a href="mailto:cline@parashift.com">cline@parashift.com</a>)</small></small></h1>
+<hr width="100%" >
+<h3>FAQs in section [23]:</h3>
+<ul>
+<li><a href="strange-inheritance.html#[23.1]">[23.1] When my base class's constructor calls a
+<tt>virtual</tt> function, why doesn't my derived class's override of that <tt>virtual</tt>
+function get invoked?</a> <img src="updated.gif" alt="UPDATED!" border=0></li>
+<li><a href="strange-inheritance.html#[23.2]">[23.2] Should a derived class replace (&quot;override&quot;) a
+non-<tt>virtual</tt> function from a base class?</a></li>
+<li><a href="strange-inheritance.html#[23.3]">[23.3] What's the meaning of, <tt>Warning:&nbsp;Derived::f(float)&nbsp;hides&nbsp;Base::f(int)</tt>?</a> <img src="updated.gif" alt="UPDATED!" border=0></li>
+<li><a href="strange-inheritance.html#[23.4]">[23.4] What does it mean that the &quot;virtual table&quot; is an
+unresolved external?</a></li>
+</ul>
+<p><hr width="100%" >
+<p><a name="[23.1]"></a>
+<h3>[23.1] When my base class's constructor calls a
+<tt>virtual</tt> function, why doesn't my derived class's override of that <tt>virtual</tt>
+function get invoked? <img src="updated.gif" alt="UPDATED!" border=0></h3>
+<small><em>[Recently rewrote (on 1/97).  <a href="strange-inheritance.html#[23.3]">Click here to go to the next FAQ in the &quot;chain&quot; of recent changes<!--rawtext:[23.3]:rawtext--></a>.]</em></small>
+<p>During the <tt>class</tt> <tt>Base</tt>'s constructor, the object isn't yet a <tt>Derived</tt>, so
+if <tt>Base::Base()</tt> calls a <a href="virtual-functions.html"><tt>virtual</tt><!--rawtext:[20]:rawtext--></a>
+function <tt>virt()</tt>, the <tt>Base::virt()</tt> will be invoked, even if
+<tt>Derived::virt()</tt> exists.
+<p>Similarly, during <tt>Base</tt>'s destructor, the object is no longer a <tt>Derived</tt>, so
+when <tt>Base::~Base()</tt> calls <tt>virt()</tt>, <tt>Base::virt()</tt> gets control,
+<em>not</em> the <tt>Derived::virt()</tt> override.
+<p>You'll quickly see the wisdom of this approach when you imagine the disaster if
+<tt>Derived::virt()</tt> touched a member object from <tt>class</tt> <tt>Derived</tt>.  In
+particular, if <tt>Base::Base()</tt> called the virtual function <tt>virt()</tt>,
+this rule causes <tt>Base::virt()</tt> to be invoked.  If it weren't for this
+rule, <tt>Derived::virt()</tt> would get called before the <tt>Derived</tt> part
+of a <tt>Derived</tt> object is constructed, and <tt>Derived::virt()</tt> could
+touch unconstructed member objects from the <tt>Derived</tt> part of a
+<tt>Derived</tt> object.  That would be a disaster.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="abcs.html">Previous&nbsp;section</a> |&nbsp;<a href="private-inheritance.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[23.2]"></a>
+<h3>[23.2] Should a derived class replace (&quot;override&quot;) a
+non-<tt>virtual</tt> function from a base class?</h3>
+<p>It's legal, but it ain't moral.
+<p>Experienced C++ programmers will sometimes redefine a non-<tt>virtual</tt> function
+(e.g., the derived class implementation might make better use of the derived
+class's resources for efficiency), or to get around the <a href="strange-inheritance.html#[23.3]">hiding
+rule<!--rawtext:[23.3]:rawtext--></a>.  However the client-visible effects must be
+<em>identical,</em> since non-<tt>virtual</tt> functions are dispatched based on the
+static type of the pointer/reference rather than the dynamic type of the
+pointed-to/referenced object.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="abcs.html">Previous&nbsp;section</a> |&nbsp;<a href="private-inheritance.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[23.3]"></a>
+<h3>[23.3] What's the meaning of, <tt>Warning:&nbsp;Derived::f(float)&nbsp;hides&nbsp;Base::f(int)</tt>? <img src="updated.gif" alt="UPDATED!" border=0></h3>
+<small><em>[Recently rewritten with the <tt>using</tt> syntax; thanks to <a href="mailto:mseitz@meridian-data.com">Matt Seitz</a> (on 9/97).  <a href="coding-standards.html#[25.4]">Click here to go to the next FAQ in the &quot;chain&quot; of recent changes<!--rawtext:[25.4]:rawtext--></a>.]</em></small>
+<p>It means you're going to die.
+<p>Here's the mess you're in: if <tt>Base</tt> declares a member function <tt>f(int)</tt>, and
+<tt>Derived</tt> declares a member function <tt>f(float)</tt> (same name but different
+parameter types and/or constness), then the <tt>Base</tt> <tt>f(int)</tt> is &quot;hidden&quot; rather
+than &quot;overloaded&quot; or &quot;overridden&quot; (even if the Base <tt>f(int)</tt> is
+<a href="virtual-functions.html"><tt>virtual</tt><!--rawtext:[20]:rawtext--></a>).
+<p>Here's how you get out of the mess: <tt>Derived</tt> must have a <tt>using</tt>
+declaration of the hidden member function.  For example,
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;Base&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;f(int);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;Derived&nbsp;:&nbsp;public&nbsp;Base&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;using&nbsp;Base::f;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;This&nbsp;un-hides&nbsp;<tt>Base::f(int)</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;f(double);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};
+</code>
+<p>If the <tt>using</tt> syntax isn't supported by your compiler, redefine the
+hidden <tt>Base</tt> member function(s), <a href="strange-inheritance.html#[23.2]">even if they are
+non-<tt>virtual</tt><!--rawtext:[23.2]:rawtext--></a>.  Normally this re-definition merely calls the hidden
+<tt>Base</tt> member function using the <tt>::</tt> syntax.  E.g.,
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;Derived&nbsp;:&nbsp;public&nbsp;Base&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;f(double);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;f(int&nbsp;i)&nbsp;{&nbsp;Base::f(i);&nbsp;}&nbsp;&nbsp;</tt><em>//&nbsp;The&nbsp;redefinition&nbsp;merely&nbsp;calls&nbsp;<tt>Base::f(int)</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;};
+</code>
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="abcs.html">Previous&nbsp;section</a> |&nbsp;<a href="private-inheritance.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[23.4]"></a>
+<h3>[23.4] What does it mean that the &quot;virtual table&quot; is an
+unresolved external?</h3>
+<p>If you get a link error of the form &quot;<tt>Error:&nbsp;Unresolved&nbsp;or&nbsp;undefined&nbsp;symbols&nbsp;detected:&nbsp;virtual&nbsp;table&nbsp;for&nbsp;class&nbsp;Fred</tt>,&quot; you probably have an undefined
+<a href="virtual-functions.html"><tt>virtual</tt><!--rawtext:[20]:rawtext--></a> member function in <tt>class</tt> <tt>Fred</tt>.
+<p>The compiler typically creates a magical data structure called the &quot;virtual
+table&quot; for classes that have <tt>virtual</tt> functions (this is how it handles
+<a href="virtual-functions.html#[20.2]">dynamic binding<!--rawtext:[20.2]:rawtext--></a>).  Normally you don't
+have to know about it at all.  But if you forget to define a <tt>virtual</tt> function
+for class <tt>Fred</tt>, you will sometimes get this linker error.
+<p>Here's the nitty gritty: Many compilers put this magical &quot;virtual table&quot; in the
+compilation unit that defines the first non-<tt>inline</tt> <tt>virtual</tt> function in the
+class.  Thus if the first non-<tt>inline</tt> <tt>virtual</tt> function in <tt>Fred</tt> is
+<tt>wilma()</tt>, the compiler will put <tt>Fred</tt>'s virtual table in the same compilation
+unit where it sees <tt>Fred::wilma()</tt>.  Unfortunately if you accidentally
+forget to define <tt>Fred::wilma()</tt>, rather than getting a
+<tt>Fred::wilma()</tt> is undefined, you may get a &quot;<tt>Fred</tt>'s virtual table is
+undefined&quot;.  Sad but true.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="abcs.html">Previous&nbsp;section</a> |&nbsp;<a href="private-inheritance.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<a name="bottom"></a>
+<a href="mailto:cline@parashift.com"><img src="mbox.gif" border=2 height=26 width=89>&nbsp;E-mail the author</a><br>
+[&nbsp;<a href="index.html"><em>C++ FAQ Lite</em></a>
+|&nbsp;<a href="index.html#table-of-contents">Table&nbsp;of&nbsp;contents</a>
+|&nbsp;<a href="subject-index.html">Subject&nbsp;index</a>
+|&nbsp;<a href="copy-permissions.html#[1.1]">About&nbsp;the&nbsp;author</a>
+|&nbsp;<a href="copy-permissions.html#[1.2]">&copy;</a>
+|&nbsp;<a href="on-line-availability.html#[2.2]">Download&nbsp;your&nbsp;own&nbsp;copy</a>&nbsp;]<br>
+<small>Revised Sep 8, 1997</small>
+</body>
+</html>

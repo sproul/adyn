@@ -1,0 +1,40 @@
+<span id=data> </span>
+<script src="jquery-1.9.0.js"></script>
+<script type="text/javascript">
+var s = ""
+function x(z)
+{
+    var val
+    try
+    {
+        eval("val = " + z)
+    }
+    catch(e)
+    {
+        val = "[failed: " + e + "]"
+    }
+    add(z + " = " + val + "<br>")
+}
+
+function add(a)
+{
+    s += a
+}
+
+
+x("screenPixelToMillimeterX")
+x("screenPixelToMillimeterY")
+x("pixelUnitToMillimeterX")
+x("pixelUnitToMillimeterY")
+add("devicePixelRatio seems to be > 1 on mobile:")
+x("devicePixelRatio")
+x("$(window).width()")
+x("$(document).width()")
+x("$(window).height()")
+x("$(document).height()")
+x("getWindowManager().getDefaultDisplay().getRealMetrics(metrics)")
+x("getResources().getDisplayMetrics()")
+
+$("#data").html(s)
+
+</script>

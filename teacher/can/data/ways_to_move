@@ -1,0 +1,35 @@
+# formatted
+@val = (
+{
+'English' => 'quickly',
+'French' => 'vite',
+'German' => 'schnell',
+'Italian' => 'rapidamente',
+'Spanish' => 'r/apidamente',
+'id' => 0,
+},
+{
+'English' => 'slowly',
+'French' => 'lentement',
+'German' => 'langsam',
+'Italian' => 'lentamente',
+'Spanish' => 'lentamente',
+'id' => 1,
+},
+{
+'English' => 'here',
+'French' => 'ici',
+'German' => 'hier',
+'Italian' => 'qui',
+'Spanish' => 'aqu/i',
+'id' => 2,
+},
+{
+'English' => 'immediately',
+'French' => 'imm/ediatement',
+'German' => 'sofort',
+'Italian' => 'immediatamente',
+'Spanish' => 'inmediatamente',
+'id' => 3,
+},
+);

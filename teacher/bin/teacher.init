@@ -1,0 +1,10 @@
+#!/bin/bash -x
+. orcl.net.init_proxies.maybe
+perl.init
+cpanm CGI
+httpd.init
+
+teacher.init.vagrant
+
+exit
+bx $DROP/adyn/teacher/bin/teacher.init 

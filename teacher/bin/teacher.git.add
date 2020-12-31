@@ -1,0 +1,3 @@
+#!/bin/bash
+cd $DROP/adyn
+git add `cat $DROP/adyn/teacher/MANIFEST`

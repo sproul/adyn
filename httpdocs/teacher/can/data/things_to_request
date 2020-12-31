@@ -1,0 +1,35 @@
+@val = (
+{
+'English' => 'his wallet',
+'French' => '{son portefeuille>s>}',
+'German' => '{sein Brieftasche>s>}',
+'Italian' => '{il suo portafoglio>s>}',
+'Spanish' => '{su cartera>s>} de bolsillo',
+'id' => 0,
+},
+{
+'English' => 'my passport',
+'French' => '{mon passeport>s>}',
+'German' => '{mein ReisepaBB>s>}',
+'Italian' => '{il mio passaporto>s>}',
+'Spanish' => '{mi pasaporte>s>}',
+'id' => 1,
+},
+{
+'English' => 'some money',
+'French' => '{de le argent>s>}',
+'German' => '{Geld>s>}',
+'Italian' => '{un denaro>p>}',
+'Spanish' => '{dinero>s>}',
+'Spanish_note#dinero;;Spanish' => 'sp_some_substance_or_vague_quantity',
+'id' => 2,
+},
+{
+'English' => 'our passports',
+'French' => '{notre passeport>p>}',
+'German' => '{unser ReisepaBB>p>}',
+'Italian' => '{il nostro passaporto>p>}',
+'Spanish' => '{nuestro pasaporte>p>}',
+'id' => 3,
+},
+);

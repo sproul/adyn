@@ -1,0 +1,53 @@
+# formatted
+@val = (
+{
+'English' => 'some money',
+'French' => '{de le argent>s>}',
+'German' => '{Geld>s>}',
+'Italian' => '{di il denaro>s>}',
+'Spanish' => '{dinero>s>}',
+'Spanish_note#dinero;;Spanish' => 'sp_some_substance_or_vague_quantity',
+'id' => 0,
+},
+{
+'English' => 'your {passport>x>}',
+'French' => '{votre passeport>x>}',
+'German' => '{Ihr ReisepaBB>x>}',
+'Italian' => '{il Suo passaporto>x>}',
+'Spanish' => '{su pasaporte>x>}',
+'id' => 1,
+},
+{
+'English' => 'the ticket',
+'French' => '{le billet>s>}',
+'German' => '{der Fahrkarte>s>}',
+'Italian' => '{il biglietto>s>}',
+'Spanish' => '{el boleto>s>}',
+'id' => 2,
+},
+{
+'English' => 'a flashlight',
+'French' => '{un lampe>s>} de poche',
+'German' => '{ein Taschenlampe>s>}',
+'Italian' => '{un torcia>s>}',
+'Spanish' => '{un linterna>s>}',
+'id' => 3,
+},
+{
+'English' => 'some batteries',
+'French' => '{de le pile>p>}',
+'German' => '{Batterie>p>}',
+'Italian' => '{di il batteria>p>}',
+'Spanish' => '{un bater/ia>p>}',
+'Spanish_note#unas;;Spanish' => 'sp_some_several_particular',
+'id' => 4,
+},
+{
+'English' => 'the letter',
+'French' => '{le lettre>s>}',
+'German' => '{der Brief>s>}',
+'Italian' => '{il lettera>s>}',
+'Spanish' => '{el carta>s>}',
+'id' => 5,
+},
+);

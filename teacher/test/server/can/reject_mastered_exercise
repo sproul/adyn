@@ -1,0 +1,20 @@
+<html><header><!-- exerciseSetTargetSize=1;randomSeed=3444;userID=TEST_reject_mastered_exercise -->  <title>Teacher</title></header>
+<body bgcolor=#cccccc><font face='arial'><script language=JavaScript src=../teacher/html/new.js></script><applet codebase=../teacher/html name=teacher code=teacher.class width=1 height=1></applet><script language="JavaScript">
+var adyn_url_offset='../teacher/html/'
+var cookieInitStr='teacherCookie.whichPanel = "simple_choose.htm";teacherCookie.lang_English_checked = "true";teacherCookie.lang_Spanish_checked = "true";teacherCookie.lang_German_checked = "true";teacherCookie.lang_French_checked = "true";teacherCookie.lang_Italian_checked = "true";'
+// exerciseType=undef, chosenTenses=3, chosenTopics=1, canonizedTest=0, exerciseTargetCnt=1, reviewExerciseTargetCnt=0
+se('verb_try_7','English',"The salesman<sup>1</sup> has tried.","<br><sup>1</sup>See <a Href='javascript:Choose(\"vocab_professions\")'>exercises for vocab professions</a> to drill your professions vocabulary.",'Spanish',"El vendedor<sup>1</sup> ha tratado<sup>2</sup>.","<br><sup>1</sup>See <a Href='javascript:Choose(\"vocab_professions\")'>exercises for vocab professions</a> to drill your professions vocabulary.<br><sup>2</sup><i>ha tratado</i> together make up a <a href=../teacher/html/Spanish.html#=Verbs=past target=Spanish.html#=Verbs=past>past</a> tense form of the verb <a href=../teacher/html/Spanish_vt_tratar.html target=tratar><i>tratar</i></a> (cf. <a Href='javascript:Choose(\"verb_try\")'>exercises using the verb <i>tratar</i></a>).",'German',"Der Verk&auml;ufer<sup>1,2</sup> hat versucht<sup>3</sup>.","<br><sup>1</sup><i>Verk&auml;ufer</i> is a masculine singular noun.<br>&nbsp;&nbsp;<i>Verk&auml;ufer</i> is in the nominative case because it is the subject.<br><sup>2</sup>See <a Href='javascript:Choose(\"vocab_professions\")'>exercises for vocab professions</a> to drill your professions vocabulary.<br><sup>3</sup><i>hat versucht</i> together make up a <a href=../teacher/html/German.html#=Verbs=past target=German.html#=Verbs=past>perfect</a> tense form of the verb <a href=../teacher/html/German_vt_versuchen.html target=versuchen><i>versuchen</i></a> (cf. <a Href='javascript:Choose(\"verb_try\")'>exercises using the verb <i>versuchen</i></a>).",'French',"Le vendeur<sup>1</sup> a essay&eacute;<sup>2</sup>.","<br><sup>1</sup>See <a Href='javascript:Choose(\"vocab_professions\")'>exercises for vocab professions</a> to drill your professions vocabulary.<br><sup>2</sup><i>a essay&eacute;</i> together make up a <a href=../teacher/html/French.html#=Verbs=past target=French.html#=Verbs=past><i>pass&eacute; compos&eacute;</i></a> tense form of the verb <a href=../teacher/html/French_vt_essayer.html target=essayer><i>essayer</i></a> (cf. <a Href='javascript:Choose(\"verb_try\")'>exercises using the verb <i>essayer</i></a>).",'Italian',"Il venditore<sup>1</sup> ha provato<sup>2</sup>.","<br><sup>1</sup>See <a Href='javascript:Choose(\"vocab_professions\")'>exercises for vocab professions</a> to drill your professions vocabulary.<br><sup>2</sup><i>ha provato</i> together make up a <a href=../teacher/html/Italian.html#=Verbs=past target=Italian.html#=Verbs=past>present perfect</a> tense form of the verb <a href=../teacher/html/Italian_vt_provare.html target=provare><i>provare</i></a> (cf. <a Href='javascript:Choose(\"verb_try\")'>exercises using the verb <i>provare</i></a>).<br>&nbsp;&nbsp;To study Italian's frequently irregular past participles, go to <a Href='javascript:Choose(\"it_past\")'>Italian past and past participle drills</a>.")
+function init()
+{
+ia("verb_try_7","verb_try",7,window.name,"TEST_reject_mastered_exercise")
+}
+onload=init
+</script>
+</font>
+</body></html>
+Nelson is setting binmode to 0: c:/perl/lib/CGI.pm
+Nelson is setting binmode to 0: c:/perl/lib/CGI.pm
+Nelson is setting binmode to 0: c:/perl/lib/CGI.pm
+Nelson is setting binmode to 0: c:/perl/lib/CGI.pm
+Nelson is setting binmode to 0: c:/perl/lib/CGI.pm
+adyn_cgi_util::MailAdyn(choose.cgi exercises selected TEST_reject_mastered_exercise, verb_try_7): would mail adyn if I were on unix

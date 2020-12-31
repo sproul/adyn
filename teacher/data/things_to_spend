@@ -1,0 +1,12 @@
+# formatted
+@val = (
+{
+'English' => 'her money',
+'French' => '{son argent>s>}',
+'German' => '{ihr Geld>s>}',
+'Italian' => '{il suo denaro>s>}',
+'Spanish' => '{su dinero>s>}',
+'Spanish_note#dinero;;Spanish' => 'sp_some_substance_or_vague_quantity',
+'id' => 0,
+},
+);

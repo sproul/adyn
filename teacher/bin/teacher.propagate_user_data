@@ -1,0 +1,15 @@
+#!/bin/bash
+Prune_empty()
+{
+        find "$1" -empty  -exec rm '{}' +       # like using xargs, according to http://en.wikipedia.org/wiki/Xargs
+} 
+
+root_usr=/home/root/Dropbox/adyn/httpdocs/teacher/usr
+ec2_usr=/home/ec2-user/Dropbox/adyn/httpdocs/teacher/usr
+
+Prune_empty $root_usr
+Prune_empty $ec2_usr
+
+rsync.newest $root_usr $ec2_usr
+exit
+bx $DROP/adyn/teacher/bin/teacher.propagate_user_data 

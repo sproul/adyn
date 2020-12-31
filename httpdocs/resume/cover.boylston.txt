@@ -1,0 +1,76 @@
+	1/6 afternoon
+Hello Catherine 904.8000,
+ 
+I am writing to express my interest in the position listed under the
+heading "SENIOR JAVA/C++ Developer for Well Established Bank."
+
+I have a strong background in Java and C++, and also have done work to
+support equities and options trading and analysis, and so am well 
+acquainted with that domain.  My background includes wide exposure to
+network programming, including software interfacing with TCP/IP, UDP,
+HTTP, and FTP.  I have architected several Web applications and also 
+the database connectivity of a financial online analytical processing
+application deployed at very large banks.
+
+I will follow up with a phone call later today.
+ 
+
+
+# phone notes:
+Hello Catherine,
+
+I'm calling to follow up on my mail to you about the senior Java/C++ position with an investment bank in San Francisco.
+
+I have a strong background in Java and C++, and I have worked with securities traders before, so I have a good understanding of typical trading interfaces.
+
+My Java background:
+
+I've done financial reporting software and integration of Java accounting software for large companies.
+I've done Java-based security options pricing software, which evaluates series of related options evaluating the efficiency of their prices.
+I've done Java-based adaptive learning educational software that works over the Web.
+
+C++:
+I designed and implemented the database connectivity for an online analytical processing software package.  This was a 1 1/2-year project to support simultaneous access to Sybase, Oracle, SQL Server, Informix and Teradata, with some interesting optimizations like connection pooling and multithreading.
+
+I worked on TRW financial systems' project for American Express to automate backend credit card processing.  I did a file distribution server which performs load balancing over a network, directing workflow of credit card purchases.
+
+Also I designed and implemented software installation and licensing protection in C++ (4 Adynware).
+
+Also I designed and implemented in C++ a macro language on Windows NT, which supports generating keyboard events and manipulating windows to automate repetitive tasks.
+
+At Sybase I designed and implemented in C++ software to control UNIX workstations from PCs for automating tasks.
+
+
+
+
+
+
+I don't include much of my work in that area on my résumé because I don't think those projects were that significant from the point of view of software engineering, but in this case I actually wondered about it.  Maybe you can advise me what would be best.
+#
+
+Title:   Senior Software Developer     Skills:   Software Engineer          Date:   12-11-2002     Location:   San Francisco, CA     Area code:   415          Tax term:   FULLTIME     Pay rate:   $101-125,000     Length:   Permanent          Position ID:   43407     Dice ID:   cxboyca         Job description:    This job was originally posted December 3, 2002.
+
+SENIOR JAVA/C++ Developer for Well Established Bank
+
+We are a full-service U.S. investment bank and brokerage firm with a
+principal office in San Francisco. We deliver capital raising,
+financial advisory and risk management solutions, bulge-bracket
+trading and global distribution services, and objective research on
+global markets and growth sectors to corporations, institutional
+investors, financial institutions and government entities.
+
+We are looking for a SENIOR JAVA and C++ Software Developer. You will
+be creating an equities trading infrastructure. 50% of your time will
+be spent on architecture and design, and 50% will be spent on coding
+and debugging. 80% of your time will be spent using JAVA and 20% will
+be spent on C++.
+
+REQUIREMENTS:
+Expertise with Java, C++, object oriented development, and network
+programming. You must be a very strong coder with sharp quantitative
+skills.
+
+If you meet ALL requirements, send your resume and follow up
+with a
+phone call to Catherine at 415-904-8000.
+  Requirements: Software Engineer Travel required: none Telecommute: no

@@ -1,0 +1,3 @@
+#!/bin/bash
+$DROP/adyn/teacher/bin/teacher.filter.se_calls | grep -v 'se([^,]*,0,'
+exit

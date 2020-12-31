@@ -1,0 +1,36 @@
+# formatted
+@val = (
+{
+'English' => 'basketball',
+'French' => '{le basket>s>}',
+'German' => '{Korbball>s>}',
+'German_note#Korbball;;German' => 'Germans also say <i>der Basketball</i>, but I thought I would give you a more Teutonic-sounding word instead.',
+'Italian' => '{il pallacanestro>s>}',
+'Spanish' => '{el baloncesto>s>}',
+'id' => 0,
+},
+{
+'English' => 'soccer',
+'French' => '{le football>s>}',
+'German' => '{FuBBball>s>}',
+'Italian' => '{il calcio>s>}',
+'Spanish' => '{el f/utbol>s>}',
+'id' => 1,
+},
+{
+'English' => 'tennis',
+'French' => '{le tennis>s>}',
+'German' => 'Tennis',
+'Italian' => '{il tennis>s>}',
+'Spanish' => '{el tenis>s>}',
+'id' => 2,
+},
+{
+'English' => 'chess',
+'French' => '{le /echecs>p>}',
+'German' => '{Schach>s>}',
+'Italian' => '{il scacchi>p>}',
+'Spanish' => '{el ajedrez>s>}',
+'id' => 3,
+},
+);

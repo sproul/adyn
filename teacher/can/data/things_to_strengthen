@@ -1,0 +1,20 @@
+# formatted
+@val = (
+{
+'English' => 'the wall',
+'French' => '{le m#ur>s>}',
+'German' => '{die Wand>s>}',
+'Italian' => '{il muro>s>}',
+'Spanish' => '{el pared>s>}',
+'id' => 0,
+,
+},
+{
+'English' => 'the walls',
+'French' => '{le m#ur>p>}',
+'German' => '{die Wand>p>}',
+'Italian' => '{il muro>p>}',
+'Spanish' => '{el pared>p>}',
+'id' => 1,
+},
+);

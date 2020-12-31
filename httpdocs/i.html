@@ -1,0 +1,92 @@
+<!--Copyright 2014 Adynware Corp., all rights reserved-->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"><!doctype html>
+<head>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+    <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+    <meta name="viewport" width="device-width">
+    <script src="teacher/html/jquery-1.9.0.js"></script>
+    <script src="teacher/html/win.js"></script>
+    <script type="text/javascript">
+    function make_screen()
+    {
+    return
+        console.debug('make_screen()...')
+        var z = $("font")[1]
+        var adynware_text_width = z.offsetWidth
+        var multiplier
+        if (!adynware_text_width)
+        {
+            multiplier = 1
+        }
+        else
+        {
+            var window_width = $(window).width()
+            var adynware_text_width_ratio_to_window_width = adynware_text_width / window_width
+            var adynware_text_width_ratio_to_window_width_with_white_space = adynware_text_width_ratio_to_window_width // * 1.1
+            // we want this ratio to be around 1
+            var old_multiplier = 1
+            try
+            {
+                old_multiplier = parseInt(z.style.fontSize)
+                if (isNaN(old_multiplier))
+                {
+                    old_multiplier = 1
+                } 
+            }
+            catch(e)
+            {
+                console.debug('parseInt e: ' + e)
+                old_multiplier = 1
+            }
+            multiplier = old_multiplier / adynware_text_width_ratio_to_window_width_with_white_space
+        } 
+        z.style.fontSize = "" + multiplier + "em"
+        alert('about to do f2:')
+        $("font")[2].style.fontSize = "" + (multiplier / 2) + "em"
+        
+        //z.style.fontSize = "2em"
+        //document.body.style.fontSize = "" + multiplier + "em"
+
+        if (!z.offsetWidth)
+        {
+            console.debug("make_screen: zero z.offsetWidth seen, retrying...")
+            make_screen()
+        }
+    }
+    </script>
+<title>Adynware Corporation</title>
+</head>
+<body>
+<font face='arial'>
+
+<span id='page_header'>
+<font>A&nbsp;&nbsp;&nbsp;D&nbsp;&nbsp;&nbsp;Y&nbsp;&nbsp;&nbsp;N&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;A&nbsp;&nbsp;&nbsp;R&nbsp;&nbsp;&nbsp;E</font>
+</span>
+
+<p>
+<a href=teacher/welcome.htm>Welcome To Teacher</a><br>   <!-- was /etc/home.html -->
+<a href=teacher/html/login.htm>Teacher Login</a><br>
+<a href=teacher/teacher.html>Teacher Doc</a><br>
+<a href=teacher/faq.html>Teacher FAQ</a><br>
+<a href=http://nelson-sw.blogspot.com/>Software Utensils blog</a>
+<!--
+<a href=resume/resume.txt>Nelson Sproul's text resume</a><br>
+<a href=resume/resume.html>Nelson Sproul's searchable resume</a><br>
+<a href=resume/resume.doc>Nelson Sproul's MS Word resume</a><br>
+<a href=macro/summary.html>PC Macro32</a><br>
+<a href=web_key/summary.html>Web Keyboard for Navigator</a><br>
+<a href=wk_ie/summary.html>Web Keyboard for IE</a><br>
+<a href=http://picasaweb.google.com/nelson.sproul/>Pictures</a><br>
+-->
+<!--
+<a href=pix/index.html>Pictures</a><br>
+<a href=etc/adynware.html>About Adynware</a><br>
+<a href=order.html>Ordering</a><br>
+-->
+</font>
+    <script type="text/javascript">
+    make_screen()
+    </script>
+</body>
+</html>

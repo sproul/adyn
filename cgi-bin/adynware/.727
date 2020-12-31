@@ -1,0 +1,11 @@
+my $version = '1.104'; my $displayName = 'Web Keyboard for IE';
+use adynware_server;
+use DecorateIE;
+use adynware::DecorateIE_factory;
+
+my $decorator = DecorateIE_factory->new();
+$decorator->Configure("setVersion(\"$version\")");
+
+adynware_server::Init("wk_ie", $decorator, $displayName, $version);
+adynware_server::Main();
+## test with: perl -w wk_ie.pl

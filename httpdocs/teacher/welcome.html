@@ -1,0 +1,87 @@
+<!--Copyright 2001 Adynware Corp., all rights reserved-->
+<html>
+<head>
+<title>Welcome to teacher</title>
+</head>
+<body bgcolor=#cccccc><font face='arial'>
+<h1>Welcome!</h1>
+<h2>What is this product? </h2>
+
+Reduced to its essentials, this product is an online version of flash cards with
+<ul>
+<li>links to grammatical references </li>
+<li>links to verb tables</li>
+<li>automatic customizing to the needs of individual users</li>
+</ul>
+
+<h2>Sample Screen #1: Prompt</h2>
+
+For each exercise there is a prompt page and an answer page which serve the same function as the two sides of a flashcard.  First the user is shown the prompt page, a sample of which is shown below.  Just like with a flashcard, the user sees the prompt -- in this case, "We live in Britain" -- then translates it into the foreign language.  
+<p>
+When the user is ready to see the answer, he clicks on the <b> Show Answer</b> button, resulting in the answer page being displayed; this is analogous to flipping the flashcard:
+<br>
+<br>
+<br>
+<image src=sample/sample.1.jpg>
+
+<h2>Sample Screen #2: Answer</h2>
+It is expected that most of the time a user will be interested in a single foreign language, in which case only that language will be displayed.  In this case, the user was more ambitious, and decided to study them all simultaneously.
+<p>
+Each translation is explained in detail with hyperlinks to the appropriate sections of the online grammatical references.  Each time a verb is used, it is footnoted and linked to a complete conjugation of that verb.  Frequently there are also links to exercises pertaining to that particular verb; by following these links, the user can concentrate on a problem verb if desired.
+<p>
+There are many exercises, over 14,000 at last count.  When selecting exercises, the user has the ability to focus on particular verbs and/or particular tenses, among other criteria.
+
+<br>
+<br>
+<br>
+<image src=sample/sample.2.jpg>
+
+<h2>Fundamentals</h2>
+
+Although there is a fuller explanation in the <!--link file_teacher_help documentation--><a href=../teacher/teacher.html>documentation</a>,
+below is a quick explanation of the most fundamental concepts so that you can hopefully understand the product right off the bat.
+<!--include teacherFundamentals--><!--chunk teacherFundamentals-->
+<p>
+Initially the user fills out a form, called the <!--link exerciseSelectionPanel flashcard selection panel--><a href=../teacher/teacher.html#exerciseSelectionPanel>flashcard selection panel</a>.
+Using this form, the user is able to describe what kind of flashcards are desired.  After submitting the form, some number of flashcards -- by default 15 -- are gathered from the Web site box, and retrieved to the user's "table" -- or PC.  These flashcards make up the <!--link tableSet Table Set--><a href=../teacher/teacher.html#tableSet>Table Set</a> of flashcards, which can be thought of as the fistful of cards the user has initially grabbed out of the box to work with.
+<p>
+There is another named set of exercises the user works with, called the <!--link handSet Hand Set--><a href=../teacher/teacher.html#handSet>Hand Set</a>.  This set of exercises could be considered analogous to the small group of flashcards which the student did not already know and is actively trying to master, and thus is holding in his hands.  Initially the <!--link handSet Hand Set--><a href=../teacher/teacher.html#handSet>Hand Set</a> contains just the first exercise taken off the <!--link tableSet Table Set--><a href=../teacher/teacher.html#tableSet>Table Set</a>, the prompt for which is immediately displayed.  Typically this prompt will be a sentence in English which the user should then mentally translate.  When the user feels ready, clicking the <b> Show Answer</b> button results in the answer to the translation exercise being displayed.
+<p>
+At this point, the user has a decision to make.  If the exercise was easy, and nothing is to be gained by seeing this exercise again, then the user should click on the <b>Discard flashcard</b> button; this will result in the exercise being removed from the <!--link handSet Hand Set--><a href=../teacher/teacher.html#handSet>Hand Set</a> and discarded, never to be seen again, and then the software either
+<ul>
+<li>cycles to a previously seen exercise in the Hand Set or</li>
+<li>retrieves a new exercise from the <!--link tableSet Table Set--><a href=../teacher/teacher.html#tableSet>Table Set</a> into the <!--link handSet Hand Set--><a href=../teacher/teacher.html#handSet>Hand Set</a> to be immediately shown.</li>
+</ul>
+In the latter case, the Hand Set will grow by 1 flashcard; otherwise the Handset will stay the same size.
+<p>
+If, on the other hand, the user found the vocabulary and grammar covered by the exercise to be challenging, then clicking on the <b>Keep flashcard</b> button would be appropriate; this leads the current exercise being held in the <!--link handSet Hand Set--><a href=../teacher/teacher.html#handSet>Hand Set</a> for continuing review; meanwhile the software either
+<li>moves an additional exercise from the <!--link tableSet Table Set--><a href=../teacher/teacher.html#tableSet>Table Set</a> into the <!--link handSet Hand Set--><a href=../teacher/teacher.html#handSet>Hand Set</a> for immediate display</li>
+<li>cycles to a previously seen exercise in the Hand Set.</li>
+In the former case, the Hand Set will shrink by 1 flashcard; otherwise the Handset will stay the same size.
+<p>
+The reader will have noted from the scenarios above that the software has the latitude to cause the Hand Set
+<ul>
+<li>to grow, </li>
+<li>to remain the same size, </li>
+<li>or to shrink.</li>
+</ul>
+It decides which of these options is the most attractive by looking at the user's recent performance: 
+<ul>
+<li>If it looks like the user is having a very easy time, the software will be biased toward making the Handset bigger so as to be more challenging.  </li>
+<li>If it appears that the user is having a very hard time, the software will do what it can to reduce the size of the Hand Set, and so make it easier.  </li>
+<li>If the situation is somewhere between these extremes, the software will avoid changing the size of the Hand Set.</li>
+</ul>
+
+<p>
+The product remembers which exercises the user does not immediately discard.  Not immediately discarding an exercise is taken to be an indication that the exercise is difficult for this user, and should be added to the <!--link reviewExercises Review Set--><a href=../teacher/teacher.html#reviewExercises>Review Set</a> of exercises.  The Review Set of exercises is kept track of on the Web site, and in subsequent sessions (which could take place weeks later) when the user requests flashcards to work on, the system will automatically sprinkle exercises taken from the Review Set among those flashcards retrieved.  Thus there is a continual review of difficult items across sessions.
+<!--chunkEnd teacherFundamentals-->
+
+<h2>And finally!</h2>
+You can <a href=html/choose.html>run the product</a>.
+
+<!--include copyright--><!--chunk copyright-->
+<hr align=bottom>
+<b><font color=white size=-1><center>&copy 2002 Adynware Corp.  &nbsp All Rights Reserved.</center></font></b>
+<!--chunkEnd copyright-->
+</body>
+</html>

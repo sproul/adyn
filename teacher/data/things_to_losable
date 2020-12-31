@@ -1,0 +1,32 @@
+# formatted
+@val = (
+{
+'English' => 'the keys',
+'French' => '{le clef>p>}',
+'German' => '{der Schl:ussel>p>}',
+'Italian' => '{il chiave>p>}',
+'Spanish' => '{el llave>p>}',
+},
+{
+'English' => 'her money',
+'French' => '{son argent>s>}',
+'German' => '{ihr Geld>s>}',
+'Italian' => '{il suo denaro>s>}',
+'Spanish' => '{su dinero>s>}',
+'id' => 4,
+},
+{
+'English' => 'the credit card',
+'French' => '{le carte} de cr/edit',
+'German' => 'der kredit karte',
+'Italian' => '{il tessera} de credito',
+'Spanish' => '{el tarjeta} de cr/edito',
+},
+{
+'English' => 'the cell phone',
+'French' => '{le t/el/ephone>s> cellulaire}',
+'German' => '{der Funktelephon>s>}',
+'Italian' => '{il cellulare>s>}',
+'Spanish' => '{el tel/efono>s> celular}',
+},
+);

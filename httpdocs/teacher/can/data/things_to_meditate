@@ -1,0 +1,12 @@
+# formatted
+@val = (
+{
+'English' => 'on the meaning of life',
+'suppress_French_note#sens;;French' => 1,
+'French' => '{le sens>s>} {de le vie>s>}',
+'German' => '{der Bedeutung>s>} {der Leben>sg>}',
+'Italian' => '{su il significato>s>} {di il vita>s>}',
+'Spanish' => '{de el sentido>s>} {de el vida>s>}',
+'id' => 0,
+},
+);

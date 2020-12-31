@@ -1,0 +1,19 @@
+perl -w ndb_sql.pm
+$ sh ex_isql <  /tmp/sql/load.sql
+
+
+$ ERROR 1146 at line 1: Table 'teacher.out_verb_have' doesn't exist
+--------------
+LOAD DATA LOCAL INFILE "/tmp/sql/out_verb_have.dat" INTO TABLE 
+--------------
+
+Bye
+$ --------------
+LOAD DATA LOCAL INFILE "/tmp/sql/out_verb_have.dat" INTO TABLE out_verb_have
+--------------
+
+Query OK, 860 rows affected (0.02 sec)
+Records: 860  Deleted: 0  Skipped: 0  Warnings: 0
+
+Bye
+$ 

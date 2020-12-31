@@ -1,0 +1,35 @@
+# formatted
+@val = (
+{
+'English' => 'happily',
+'French' => 'heureusement',
+'German' => 'vergn:ugt',
+'Italian' => 'felicemente',
+'Spanish' => 'felizmente',
+'id' => 0,
+},
+{
+'English' => 'sadly',
+'French' => 'tristement',
+'German' => 'traurig',
+'Italian' => 'tristemente',
+'Spanish' => 'tristemente',
+'id' => 1,
+},
+{
+'English' => 'bitterly',
+'French' => 'avec amertume',
+'German' => 'w:utend',
+'Italian' => 'amaramente',
+'Spanish' => 'amargamente',
+'id' => 2,
+},
+{
+'English' => 'thoughtlessly',
+'French' => 'avec insouciance',
+'German' => 'un:uberlegt',
+'Italian' => 'sconsideratamente',
+'Spanish' => 'sin pensar',
+'id' => 3,
+},
+);

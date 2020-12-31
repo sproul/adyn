@@ -1,0 +1,143 @@
+<!--Copyright 2001 Adynware Corp., all rights reserved-->
+<html manifest="/teacher/teacher.appcache" xmlns="http://www.w3.org/1999/xhtml" lang="en"><!doctype html>
+<head>
+    <link rel="icon" type="image/gif" href="/favicon.GIF" />
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+    <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+    <META name="viewport" content="width=320">
+    <title>Login to Teacher</title>
+</head>
+<body bgcolor=#cccccc><font face='arial'>
+<script language=JavaScript src=forms.js></script>
+<script src="jquery-1.9.0.js"></script>
+<script src="jquery-migrate-1.2.1.js"></script>
+<script src="jquery-cookie-1.4.0/jquery.cookie.js"></script><!-- https://github.com/carhartl/jquery-cookie/blob/master/jquery.cookie.js, https://raw.github.com/carhartl/jquery-cookie/master/jquery.cookie.js -->
+<script src="julien-maurel-jQuery-Storage-API-e5a8a64/jquery.storageapi.js"></script>
+<script src="/teacher/html/test.js"></script>
+<script src="forms.js"></script>
+<script src="stg.js"></script>
+<script src="cookie_field.js"></script>
+<script src="cookie_field__defaults.js"></script>
+<script src="u.js"></script>
+<script language=JavaScript>
+
+function watch_for_enter_to_submit(e)
+{
+    if(e && e.keyCode == 13)
+    {
+        on_login_click()
+        return false
+    }
+}
+
+$(document).ready(
+function()
+{
+    document.onkeypress = watch_for_enter_to_submit
+    if (!onLine())
+    {
+        document.teacher_form.userID.focus()        
+    }
+    else
+    {
+        if (document.teacher_form.userID.value == "")
+        {
+            document.teacher_form.userID.focus()
+        }
+        else if (document.teacher_form.pw.value == "")
+        {
+            document.teacher_form.pw.focus()
+        }
+    } 
+})
+
+function Error(msg)
+{
+    $('#pw_status').html("<font color=red>" + msg + "</font>")
+}
+
+function on_login_click()
+{
+    start = 'Before you can login, you must specify your '
+    if (document.teacher_form.userID.value=="")
+    {
+	Error(start + " user ID.")
+	document.teacher_form.userID.focus()
+    }
+    else if (onLine() && document.teacher_form.pw.value=="")
+    {
+	Error(start + " password.")
+	document.teacher_form.pw.focus()
+    }
+    else
+    {
+        userID = document.teacher_form.userID.value.trim()
+        $.cookie("userID", userID)
+        var whichPanel = __get_cookie("whichPanel")
+        if (!whichPanel)
+        {
+            whichPanel = "simple_choose.htm"
+        }
+        document.teacher_form.whichPanel.value = whichPanel
+        //document.teacher_form.submit()
+        
+        if (!onLine())
+        {
+            window.location.href = "simple_choose.htm"
+        }
+        else
+        {
+            var url = "/cgi-bin/login.cgi?pw=&userID=" + userID + "&whichPanel=" + whichPanel
+            var pw = document.teacher_form.pw.value.trim()
+            var post_data = "pw=" + pw
+            $.ajax(
+            {
+                url: url,
+                type: "POST",
+                async: true,
+                data: post_data,
+                complete: function(jqXHR, textStatus)
+                {
+                    if (!jqXHR.responseText.match(/^ok: .*/))
+                    {
+                        Error(jqXHR.responseText)
+                    }
+                    else
+                    {
+                        var session_id = jqXHR.responseText.replace(/^ok: /, "")
+                        $.cookie("session_id", session_id)
+                        window.location= '/teacher/html/' + whichPanel
+                    } 
+                }
+            }
+            )
+        } 
+    }
+}
+
+</script>
+<br>
+<b><font size=+2>Login to teacher</font>
+<!-- &nbsp;&nbsp;(<font size=+0>or <a href=new_user.htm>create a new user</a> for yourself, if you haven't used teacher before.</font>) -->
+<p>
+<b>
+<form name='teacher_form'>
+<script language=JavaScript>
+forms_startTable()
+forms_field("user ID","text","userID","Enter the user ID for your account.")
+forms_field("","hidden","whichPanel","")
+if (onLine())
+{
+    forms_field_pw("<span id=pw_status></span>")
+}
+forms_button('login')
+forms_endTable()
+</script>
+</form>
+<br>
+<br>
+<br>
+</b>
+</body>
+</html>

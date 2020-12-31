@@ -1,0 +1,3 @@
+AddHandler perl-script .pl
+AddHandler cgi-script .cgi
+Options +ExecCGI

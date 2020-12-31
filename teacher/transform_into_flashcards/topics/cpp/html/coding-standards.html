@@ -1,0 +1,332 @@
+<html>
+<head>
+<title>[25] Coding standards, C++ FAQ Lite, Marshall Cline</title>
+<link rev=made href="mailto:cline@parashift.com">
+</head>
+<body vlink="#551a8b" text="#000000" bgcolor="#c1c1c1" alink="#ff0000" link="#0000ee">
+<a name="top"></a>
+<h1>[25] Coding standards<br>
+<small><small>(Part of <a href="index.html"><em>C++ FAQ Lite</em></a>, <a href="copy-permissions.html#[1.2]">Copyright&nbsp;&copy; 1991-96</a>, <a href="http://www.cerfnet.com/~mpcline/">Marshall Cline</a>, <a href="mailto:cline@parashift.com">cline@parashift.com</a>)</small></small></h1>
+<hr width="100%" >
+<h3>FAQs in section [25]:</h3>
+<ul>
+<li><a href="coding-standards.html#[25.1]">[25.1] What are some good C++ coding standards?</a></li>
+<li><a href="coding-standards.html#[25.2]">[25.2] Are coding standards necessary?  Are they
+sufficient?</a></li>
+<li><a href="coding-standards.html#[25.3]">[25.3] Should our organization determine coding standards
+from our C experience?</a></li>
+<li><a href="coding-standards.html#[25.4]">[25.4] Is the <tt>?:</tt> operator evil since it can be used to create
+unreadable code?</a> <img src="new.gif" alt="NEW!" border=0></li>
+<li><a href="coding-standards.html#[25.5]">[25.5] Should I declare locals in the middle of a function
+or at the top?</a></li>
+<li><a href="coding-standards.html#[25.6]">[25.6] What source-file-name convention is best?  <tt>foo.cpp</tt>?
+<tt>foo.C</tt>?  <tt>foo.cc</tt>?</a></li>
+<li><a href="coding-standards.html#[25.7]">[25.7] What header-file-name convention is best?  <tt>foo.H</tt>?
+<tt>foo.hh</tt>?  <tt>foo.hpp</tt>?</a></li>
+<li><a href="coding-standards.html#[25.8]">[25.8] Are there any lint-like guidelines for C++?</a></li>
+<li><a href="coding-standards.html#[25.9]">[25.9] Which is better: identifier names
+<tt>that_look_like_this</tt> or identifier names <tt>thatLookLikeThis</tt>?</a></li>
+<li><a href="coding-standards.html#[25.10]">[25.10] Are there any other sources of coding standards?</a></li>
+</ul>
+<p><hr width="100%" >
+<p><a name="[25.1]"></a>
+<h3>[25.1] What are some good C++ coding standards?</h3>
+<p>Thank you for reading this answer rather than just trying to set your own
+coding standards.
+<p>But beware that some people on <a href="news:comp.lang.c++"><tt>comp.lang.c++</tt></a> are very sensitive
+on this issue.  Nearly every software engineer has, at some point, been
+exploited by someone who used coding standards as a &quot;power play.&quot; Furthermore
+some attempts to set C++ coding standards have been made by those who didn't
+know what they were talking about, so the standards end up being based on what
+<em>was</em> the state-of-the-art when the standards setters where writing code.
+Such impositions generate an attitude of mistrust for coding standards.
+<p>Obviously anyone who asks this question wants to be trained so they
+<em>don't</em> run off on their own ignorance, but nonetheless posting a
+question such as this one to <a href="news:comp.lang.c++"><tt>comp.lang.c++</tt></a> tends to generate
+more heat than light.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="private-inheritance.html">Previous&nbsp;section</a> |&nbsp;<a href="how-to-learn-cpp.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[25.2]"></a>
+<h3>[25.2] Are coding standards necessary?  Are they
+sufficient?</h3>
+<p>Coding standards do not make non-OO programmers into OO programmers; only
+training and experience do that.  If coding standards have merit, it is that
+they discourage the petty fragmentation that occurs when large organizations
+coordinate the activities of diverse groups of programmers.
+<p>But you really want more than a coding standard.  The structure provided by
+coding standards gives neophytes one less degree of freedom to worry about,
+which is good.  However pragmatic guidelines should go well beyond
+pretty-printing standards.  Organizations need a consistent <em>philosophy</em>
+of design and implementation.  E.g., strong or weak typing?  references or
+pointers in interfaces?  stream I/O or stdio?  should C++ code call C code?
+vice versa?  how should <a href="abcs.html#[22.3]">ABCs<!--rawtext:[22.3]:rawtext--></a> be used?  should inheritance
+be used as an implementation technique or as a specification technique?  what
+testing strategy should be employed?  inspection strategy?  should interfaces
+uniformly have a <tt>get()</tt> and/or <tt>set()</tt> member function for each data member?
+should interfaces be designed from the outside-in or the inside-out?  should
+errors be handled by <tt>try</tt>/<tt>catch</tt>/<tt>throw</tt> or by return codes?  etc.
+<p>What is needed is a &quot;pseudo standard&quot; for detailed <em>design.</em> I recommend
+a three-pronged approach to achieving this standardization: training,
+<a href="how-to-learn-cpp.html#[26.1]">mentoring<!--rawtext:[26.1]:rawtext--></a>, and libraries.  Training provides &quot;intense
+instruction,&quot; mentoring allows OO to be caught rather than just taught, and
+high quality C++ class libraries provide &quot;long term instruction.&quot; There is a
+thriving commercial market for all three kinds of &quot;training.&quot; Advice by
+organizations who have been through the mill is consistent: <em>Buy, Don't
+Build.</em> Buy libraries, buy training, buy tools, buy consulting.  Companies
+who have attempted to become a self-taught tool-shop as well as an
+application/system shop have found success difficult.
+<p>Few argue that coding standards are &quot;ideal,&quot; or even &quot;good,&quot; however they are
+necessary in the kind of organizations/situations described above.
+<p>The following FAQs provide some basic guidance in conventions and styles.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="private-inheritance.html">Previous&nbsp;section</a> |&nbsp;<a href="how-to-learn-cpp.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[25.3]"></a>
+<h3>[25.3] Should our organization determine coding standards
+from our C experience?</h3>
+<p>No!
+<p>No matter how vast your C experience, no matter how advanced your C expertise,
+being a good C programmer does not make you a good C++ programmer.  Converting
+from C to C++ is more than just learning the syntax and semantics of the
+<tt>++</tt> part of C++.  Organizations who want the promise of OO, but who fail
+to put the &quot;OO&quot; into &quot;OO programming&quot;, are fooling themselves; the balance
+sheet will show their folly.
+<p>C++ coding standards should be tempered by C++ experts.  Asking
+<a href="news:comp.lang.c++"><tt>comp.lang.c++</tt></a> is a start.  Seek out experts who can help guide
+you away from pitfalls.  Get training.  Buy libraries and see if &quot;good&quot;
+libraries pass your coding standards.  Do <em>not</em> set standards by yourself
+unless you have considerable experience in C++.  Having no standard is better
+than having a bad standard, since improper &quot;official&quot; positions &quot;harden&quot; bad
+brain traces.  There is a thriving market for both C++ training and libraries
+from which to pool expertise.
+<p>One more thing: whenever something is in demand, the potential for charlatans
+increases.  Look before you leap.  Also ask for student-reviews from past
+companies, since not even expertise makes someone a good communicator.
+Finally, select a practitioner who can teach, not a full time teacher who has a
+passing knowledge of the language/paradigm.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="private-inheritance.html">Previous&nbsp;section</a> |&nbsp;<a href="how-to-learn-cpp.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[25.4]"></a>
+<h3>[25.4] Is the <tt>?:</tt> operator evil since it can be used to create
+unreadable code? <img src="new.gif" alt="NEW!" border=0></h3>
+<small><em>[Recently created (on 1/97).  <a href="mixing-c-and-cpp.html#[29.8]">Click here to go to the next FAQ in the &quot;chain&quot; of recent changes<!--rawtext:[29.8]:rawtext--></a>.]</em></small>
+<p>No, but as always, remember that readability is one of the most important
+things.
+<p>Some people feel the <tt>?:</tt> ternary operator should be avoided because they find
+it confusing at times compared to the good old <tt>if</tt> statement.  In many cases
+<tt>?:</tt> tends to make your code more difficult to read (and therefore you should
+replace those usages of <tt>?:</tt> with <tt>if</tt> statements), but there are times when
+the <tt>?:</tt> operator is clearer since it can emphasize what's really happening,
+rather than the fact that there's an <tt>if</tt> in there somewhere.
+<p>Let's start with a really simple case.  Suppose you need to print the result of
+a function call.  In that case you should put the real goal (printing) at the
+beginning of the line, and bury the function call within the line since it's
+relatively incidental (this left-right thing is based on the intuitive notion
+that most developers think the first thing on a line is the most important
+thing):
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Preferred&nbsp;(emphasizes&nbsp;the&nbsp;major&nbsp;goal&nbsp;&#151;&nbsp;printing):</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;funct();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Not&nbsp;as&nbsp;good&nbsp;(emphasizes&nbsp;the&nbsp;minor&nbsp;goal&nbsp;&#151;&nbsp;a&nbsp;function&nbsp;call):</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;functAndPrintOn(cout);
+</code>
+<p>Now let's extend this idea to the <tt>?:</tt> operator.  Suppose your real goal is to
+print something, but you need to do some incidental decision logic to figure
+out what should be printed.  Since the printing is the most important thing
+conceptually, we prefer to put it first on the line, and we prefer to bury the incidental
+decision logic.  In the example code below, variable <tt>n</tt> represents the
+number of senders of a message; the message itself is being printed to
+<tt>cout</tt>:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;n&nbsp;=&nbsp;</tt><em>/*...*/</em><tt>;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;number&nbsp;of&nbsp;senders</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Preferred&nbsp;(emphasizes&nbsp;the&nbsp;major&nbsp;goal&nbsp;&#151;&nbsp;printing):</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;"Please&nbsp;get&nbsp;back&nbsp;to&nbsp;"&nbsp;&lt;&lt;&nbsp;(n==1&nbsp;?&nbsp;"me"&nbsp;:&nbsp;"us")&nbsp;&lt;&lt;&nbsp;"&nbsp;soon!\n";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Not&nbsp;as&nbsp;good&nbsp;(emphasizes&nbsp;the&nbsp;minor&nbsp;goal&nbsp;&#151;&nbsp;a&nbsp;decision):</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;"Please&nbsp;get&nbsp;back&nbsp;to&nbsp;";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(n==1)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;"me";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;else<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;"us";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;"&nbsp;soon!\n";
+</code>
+<p>All that being said, you can get pretty outrageous and unreadable code (&quot;write
+only code&quot;) using various combinations of <tt>?:</tt>, <tt>&amp;&amp;</tt>, <tt>||</tt>, etc.  For example,
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Preferred&nbsp;(obvious&nbsp;meaning):</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(f())<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;g();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Not&nbsp;as&nbsp;good&nbsp;(harder&nbsp;to&nbsp;understand):</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;f()&nbsp;&amp;&amp;&nbsp;g();
+</code>
+<p>Personally I think the explicit <tt>if</tt> example is clearer since it emphasizes the
+major thing that's going on (a decision based on the result of calling <tt>f()</tt>)
+rather than the minor thing (calling <tt>f()</tt>).  In other words, the use of <tt>if</tt>
+here is <em>good</em> for precisely the same reason that it was <em>bad</em>
+above: we want to major on the majors and minor on the minors.
+<p>In any event, don't forget that readability is the goal (at least it's one of
+the goals).  Your goal should <em>not</em> be to avoid certain syntactic
+constructs such as <tt>?:</tt> or <tt>&amp;&amp;</tt> or <tt>||</tt> or <tt>if</tt> &#151; or even <tt>goto</tt>.  If
+you sink to the level of a &quot;Standards Bigot,&quot; you'll ultimately embarass
+yourself since there are always counterexamples to any syntax-based rule.  If
+on the other hand you emphasize broad goals and guidelines (e.g., &quot;major on the
+majors,&quot; or &quot;put the most important thing first on the line,&quot; or even &quot;make
+sure your code is obvious and readable&quot;), you're usually much better off.
+<p>Code must be written to be read, not by the compiler, but by another human
+being.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="private-inheritance.html">Previous&nbsp;section</a> |&nbsp;<a href="how-to-learn-cpp.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[25.5]"></a>
+<h3>[25.5] Should I declare locals in the middle of a function
+or at the top?</h3>
+<p>Declare near first use.
+<p>An object is initialized (constructed) the moment it is declared.  If you don't
+have enough information to initialize an object until half way down the
+function, you should create it half way down the function when it can be
+initialized correctly.  Don't initialize it to an &quot;empty&quot; value at the top then
+&quot;assign&quot; it later.  The reason for this is runtime performance.  Building an
+object correctly is faster than building it incorrectly and remodeling it
+later.  Simple examples show a factor of 350% speed hit for simple classes
+like <tt>String</tt>.  Your mileage may vary; surely the overall system degradation
+will be less that 350%, but there <em>will</em> be degradation.
+<em>Unnecessary</em> degradation.
+<p>A common retort to the above is: &quot;we'll provide <tt>set()</tt> member functions for
+every datum in our objects so the cost of construction will be spread out.&quot;
+This is worse than the performance overhead, since now you're introducing a
+maintenance nightmare.  Providing a <tt>set()</tt> member function for every datum is
+tantamount to <tt>public</tt> data: you've exposed your implementation technique to
+the world.  The only thing you've hidden is the physical <em>names</em> of your
+member objects, but the fact that you're using a <tt>List</tt> and a <tt>String</tt> and a
+<tt>float</tt>, for example, is open for all to see.
+<p>Bottom line: Locals should be declared near their first use.  Sorry that this
+isn't familiar to C experts, but new doesn't necessarily mean bad.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="private-inheritance.html">Previous&nbsp;section</a> |&nbsp;<a href="how-to-learn-cpp.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[25.6]"></a>
+<h3>[25.6] What source-file-name convention is best?  <tt>foo.cpp</tt>?
+<tt>foo.C</tt>?  <tt>foo.cc</tt>?</h3>
+<p>If you already have a convention, use it.  If not, consult your compiler to see
+what the compiler expects.  Typical answers are: <tt>.C</tt>, <tt>.cc</tt>,
+<tt>.cpp</tt>, or <tt>.cxx</tt> (naturally the <tt>.C</tt> extension assumes a
+case-sensitive file system to distinguish <tt>.C</tt> from <tt>.c</tt>).
+<p>At Paradigm Shift, Inc., we have used both <tt>.cpp</tt> for our C++ source
+files, and we have also used <tt>.C</tt>.  In the latter case, we supply the
+compiler option forces .c files to be treated as C++ source files (<tt>-Tdp</tt>
+for IBM CSet++, <tt>-cpp</tt> for Zortech C++, <tt>-P</tt> for Borland C++, etc.)
+when porting to case-insensitive file systems.  None of these approaches have
+any striking technical superiority to the others; we generally use whichever
+technique is preferred by our customer (again, these issues are dominated by
+business considerations, not by technical considerations).
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="private-inheritance.html">Previous&nbsp;section</a> |&nbsp;<a href="how-to-learn-cpp.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[25.7]"></a>
+<h3>[25.7] What header-file-name convention is best?  <tt>foo.H</tt>?
+<tt>foo.hh</tt>?  <tt>foo.hpp</tt>?</h3>
+<p>If you already have a convention, use it.  If not, and if you don't need your
+editor to distinguish between C and C++ files, simply use <tt>.h</tt>.
+Otherwise use whatever the editor wants, such as <tt>.H</tt>, <tt>.hh</tt>, or
+<tt>.hpp</tt>.
+<p>At Paradigm Shift, Inc., we tend to use either <tt>.hpp</tt> or <tt>.h</tt> for
+our C++ header files.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="private-inheritance.html">Previous&nbsp;section</a> |&nbsp;<a href="how-to-learn-cpp.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[25.8]"></a>
+<h3>[25.8] Are there any lint-like guidelines for C++?</h3>
+<p>Yes, there are some practices which are generally considered dangerous.
+However none of these are universally &quot;bad,&quot; since situations arise when
+even the worst of these is needed:
+<ul>
+<li>A <tt>class</tt> <tt>Fred</tt>'s assignment <tt>operator</tt> should return <tt>*this</tt> as a
+<tt>Fred&amp;</tt> (allows chaining of assignments)</li>
+<li>A class with any <a href="virtual-functions.html"><tt>virtual</tt><!--rawtext:[20]:rawtext--></a> functions
+ought to have a <a href="virtual-functions.html#[20.4]">virtual destructor<!--rawtext:[20.4]:rawtext--></a></li>
+<li>A class with any of {destructor, assignment <tt>operator</tt>, copy
+constructor} generally needs all 3</li>
+<li>A <tt>class</tt> <tt>Fred</tt>'s copy constructor and assignment <tt>operator</tt> should
+have <tt>const</tt> in the parameter: respectively <tt>Fred::Fred(const&nbsp;Fred&amp;)</tt> and
+<tt>Fred&amp;&nbsp;Fred::operator=&nbsp;(const&nbsp;Fred&amp;)</tt></li>
+<li>When initializing an object's member objects in the constructor,
+always use initialization lists rather than assignment.  The performance
+difference for user-defined classes can be substantial (3x!)</li>
+<li>Assignment operators should make sure that
+<a href="assignment-operators.html#[12.1]">self assignment<!--rawtext:[12.1]:rawtext--></a> does nothing,
+<a href="assignment-operators.html#[12.2]">otherwise you may have a disaster<!--rawtext:[12.2]:rawtext--></a>.  In some
+cases, this may require you to <a href="assignment-operators.html#[12.3]">add an explicit
+test to your assignment operators<!--rawtext:[12.3]:rawtext--></a>.</li>
+<li>In classes that define both <tt>+=</tt> and <tt>+</tt>, <tt>a&nbsp;+=&nbsp;b</tt>
+and <tt>a&nbsp;=&nbsp;a&nbsp;+&nbsp;b</tt> should generally do the same thing; ditto for the other
+identities of built-in types (e.g., <tt>a&nbsp;+=&nbsp;1</tt> and <tt>++a</tt>;
+<tt>p[i]</tt> and <tt>*(p+i)</tt>; etc).  This can be enforced by writing the
+binary operations using the <tt>op=</tt> forms.  E.g.,
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;Fred&nbsp;operator+&nbsp;(const&nbsp;Fred&amp;&nbsp;a,&nbsp;const&nbsp;Fred&amp;&nbsp;b)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fred&nbsp;ans&nbsp;=&nbsp;a;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;+=&nbsp;b;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;ans;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p>This way the &quot;constructive&quot; binary operators don't even need to be
+<a href="friends.html">friends<!--rawtext:[14]:rawtext--></a>.  But it is sometimes possible to more efficiently
+implement common operations (e.g., if <tt>class</tt> <tt>Fred</tt> is actually <tt>String</tt>, and
+<tt>+=</tt> has to reallocate/copy string memory, it may be better to know the
+eventual length from the beginning).</li>
+</ul>
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="private-inheritance.html">Previous&nbsp;section</a> |&nbsp;<a href="how-to-learn-cpp.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[25.9]"></a>
+<h3>[25.9] Which is better: identifier names
+<tt>that_look_like_this</tt> or identifier names <tt>thatLookLikeThis</tt>?</h3>
+<p>It's a precedent thing.  If you have a Pascal or Smalltalk background,
+<tt>youProbablySquashNamesTogether</tt> like this.  If you have an Ada
+background, <tt>You_Probably_Use_A_Large_Number_Of_Underscores</tt> like this.
+If you have a Microsoft Windows background, you probably prefer the &quot;Hungarian&quot;
+style which means you <tt>jkuidsPrefix</tt> <tt>vndskaIdentifiers</tt>
+<tt>ncqWith</tt> <tt>ksldjfTheir</tt> <tt>nmdsadType</tt>.  And then there are the
+folks with a Unix C background, who <tt>abbr</tt> <tt>evthng</tt> <tt>n</tt>
+<tt>use</tt> <tt>vry</tt> <tt>srt</tt> <tt>idntfr</tt> <tt>nms</tt>.
+<p>So there is no universal standard.  If your organization has a particular
+coding standard for identifier names, use it.  But starting another Jihad over
+this will create a lot more heat than light.  From a business perspective,
+there are only two things that matter: The code should be generally readable,
+and everyone in the organization should use the same style.
+<p>Other than that, th difs r minr.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="private-inheritance.html">Previous&nbsp;section</a> |&nbsp;<a href="how-to-learn-cpp.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[25.10]"></a>
+<h3>[25.10] Are there any other sources of coding standards?</h3>
+<p>Yep, there are several.
+<p>Here are a few sources that you might be able to use as starting points for
+developing your organization's coding standards:
+<ul>
+<li>A bunch of coding standards are provided at
+<a href="http://fndaub.fnal.gov:8000/standards/standards.html"><tt>http://fndaub.fnal.gov:8000/standards/standards.html</tt></a></li>
+<li>The Ellemtel coding guidelines are available at
+<ul>
+<li><a href="http://web2.airmail.net/~rks/ellhome.htm"><tt>http://web2.airmail.net/~rks/ellhome.htm</tt></a></li>
+<li><a href="http://www.rhi.hi.is/~harri/cpprules.html"><tt>http://www.rhi.hi.is/~harri/cpprules.html</tt></a></li>
+<li><a href="http://euagate.eua.ericsson.se/pub/eua/c++"><tt>http://euagate.eua.ericsson.se/pub/eua/c++</tt></a></li>
+<li><a href="http://nestor.ceid.upatras.gr/programming/ellemtel/ellhome.htm"><tt>http://nestor.ceid.upatras.gr/programming/ellemtel/ellhome.htm</tt></a></li>
+<li><a href="http://www.doc.ic.ac.uk/lab/cplus/c++.rules/"><tt>http://www.doc.ic.ac.uk/lab/cplus/c++.rules/</tt></a></li>
+</ul></li>
+<li>Todd Hoff's coding standard guidelines are available at
+<a href="http://www.possibility.com/cpp"><tt>http://www.possibility.com/cpp</tt></a>.
+</ul>
+<p>Note: I do <em>NOT</em> warrant or endorse these URLs and/or their contents.
+They are listed as a public service only.  I haven't checked their details, so
+I don't know if they'll help you or hurt you.  Caveat emptor.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="private-inheritance.html">Previous&nbsp;section</a> |&nbsp;<a href="how-to-learn-cpp.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<a name="bottom"></a>
+<a href="mailto:cline@parashift.com"><img src="mbox.gif" border=2 height=26 width=89>&nbsp;E-mail the author</a><br>
+[&nbsp;<a href="index.html"><em>C++ FAQ Lite</em></a>
+|&nbsp;<a href="index.html#table-of-contents">Table&nbsp;of&nbsp;contents</a>
+|&nbsp;<a href="subject-index.html">Subject&nbsp;index</a>
+|&nbsp;<a href="copy-permissions.html#[1.1]">About&nbsp;the&nbsp;author</a>
+|&nbsp;<a href="copy-permissions.html#[1.2]">&copy;</a>
+|&nbsp;<a href="on-line-availability.html#[2.2]">Download&nbsp;your&nbsp;own&nbsp;copy</a>&nbsp;]<br>
+<small>Revised Sep 8, 1997</small>
+</body>
+</html>

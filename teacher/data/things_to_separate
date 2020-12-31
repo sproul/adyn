@@ -1,0 +1,39 @@
+# formatted
+@val = (
+{
+'English' => 'the boys from the girls',
+'French_note#des;;French' => 'fr_no_partitive_with_preceding_adj',
+'French' => '{le gar,con>p>} {de le jeune fille>p>}',
+'German' => '{der Junge>p>} {von der M:adchen>p>}',
+'Italian' => '{il ragazzo>p>} {da il ragazza>p>}',
+'Spanish' => '{a el chico>p>} de {el chica>p>}',
+'Spanish_note#a;;Spanish' => 'personalA',
+'id' => 0,
+},
+{
+'English' => 'the rich people from the poor people',
+'French' => '{le gens>p> riche} {de le gens>p> pauvre}',
+'German' => '{der reich Leute>p>} {von der arme Leute>p>}',
+'Italian' => '{il persona>p> ricco} {da il persona>p> povero}',
+'Spanish' => '{a el gente>s> rico} {de el gente>s> pobre}',
+'Spanish_note#a;;Spanish' => 'personalA',
+'id' => 1,
+},
+{
+'English' => 'the children from their toys',
+'French' => '{le enfant>p>} de {leur jouet>p>}',
+'German' => '{der Kind>p>} {von ihr Spielzeug>p>}',
+'Italian' => '{il bambino>p>} {da il loro gioco>p>}',
+'Spanish' => '{a el ni~no>p>} de {su juguete>p>}',
+'Spanish_note#a;;Spanish' => 'personalA',
+'id' => 2,
+},
+{
+'English' => 'that man from his dog',
+'French' => '{ce homme>s>} de {son chien>s>}',
+'German' => '{jener Mann>s>} {von sein Hund>s>}',
+'Italian' => '{quel uomo>s>} {da il suo cane>s>}',
+'Spanish' => 'a {ese hombre>s>} {de su perro>s>}',
+'id' => 3,
+},
+);

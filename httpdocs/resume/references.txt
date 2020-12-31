@@ -1,0 +1,7 @@
+Ronan O'Neill	510.594.5914	roneill@extensity.com		supervisor at Extensity
+Shaikh Ahmad    510.594.4614 	sahmad@extensity.com		supervisor at Extensity
+JaeSon Kim	510.594.5766	jskim@extensity.com		supervisor at Extensity
+Peter Shen	415.222.5455	shenp@WellsFargo.COM		supervisor at TRW
+David Buxbaum	510.418.2733	bux@sonic.net			supervisor at TRW
+Michael Allen	415.445.5960	Michael_Allen@exigengroup.com	peer at Sybase
+John Sterling	207.842.2549	john@sterls.com			peer at Whitelight Systems

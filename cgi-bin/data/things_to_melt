@@ -1,0 +1,39 @@
+# formatted
+@val = (
+{
+'English' => 'butter',
+'French' => '{le beurre>s>}',
+'German' => '{Butter>s>}',
+'Italian' => '{il burro>s>}',
+'Spanish' => '{mantequilla>s>}',
+'Spanish_note#mantequilla;;Spanish' => 'sp_some_substance_or_vague_quantity',
+'id' => 0,
+},
+{
+'English' => 'cheese',
+'French' => '{le fromage>s>}',
+'German' => '{K:ase>s>}',
+'Italian' => '{il formaggio>s>}',
+'Spanish' => '{queso>s>}',
+'Spanish_note#queso;;Spanish' => 'sp_some_substance_or_vague_quantity',
+'id' => 1,
+},
+{
+'English' => 'chocolate',
+'French' => '{le chocolat>s>}',
+'German' => '{Schokolade>s>}',
+'Italian' => '{il cioccolata>s>}',
+'Spanish' => '{chocolate>s>}',
+'Spanish_note#chocolate;;Spanish' => 'sp_some_substance_or_vague_quantity',
+'id' => 2,
+},
+{
+'English' => 'ice',
+'French' => '{le glace>s>}',
+'German' => '{Eis>s>}',
+'Italian' => '{il ghiaccio>s>}',
+'Spanish' => '{hielo>s>}',
+'Spanish_note#hielo;;Spanish' => 'sp_some_substance_or_vague_quantity',
+'id' => 3,
+},
+);

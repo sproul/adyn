@@ -1,0 +1,6 @@
+#!/bin/bash
+export OS=win   # since the browser will run on windows
+url="`teacher.ex.url verb_speak_1`&special_op=stg_delete_all"
+teacher.ex.dump "$url"
+exit
+bx $DROP/adyn/teacher/bin/teacher.stg.clear

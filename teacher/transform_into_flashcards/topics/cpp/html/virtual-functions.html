@@ -1,0 +1,188 @@
+<html>
+<head>
+<title>[20] Inheritance virtual functions, C++ FAQ Lite, Marshall Cline</title>
+<link rev=made href="mailto:cline@parashift.com">
+</head>
+<body vlink="#551a8b" text="#000000" bgcolor="#c1c1c1" alink="#ff0000" link="#0000ee">
+<a name="top"></a>
+<h1>[20] Inheritance &#151; <tt>virtual</tt> functions<br>
+<small><small>(Part of <a href="index.html"><em>C++ FAQ Lite</em></a>, <a href="copy-permissions.html#[1.2]">Copyright&nbsp;&copy; 1991-96</a>, <a href="http://www.cerfnet.com/~mpcline/">Marshall Cline</a>, <a href="mailto:cline@parashift.com">cline@parashift.com</a>)</small></small></h1>
+<hr width="100%" >
+<h3>FAQs in section [20]:</h3>
+<ul>
+<li><a href="virtual-functions.html#[20.1]">[20.1] What is a &quot;<tt>virtual</tt> member function&quot;?</a></li>
+<li><a href="virtual-functions.html#[20.2]">[20.2] How can C++ achieve dynamic binding yet also
+static typing?</a></li>
+<li><a href="virtual-functions.html#[20.3]">[20.3] What's the difference between how <tt>virtual</tt> and non-<tt>virtual</tt>
+member functions are called?</a></li>
+<li><a href="virtual-functions.html#[20.4]">[20.4] When should my destructor be <tt>virtual</tt>?</a></li>
+<li><a href="virtual-functions.html#[20.5]">[20.5] What is a &quot;<tt>virtual</tt> constructor&quot;?</a></li>
+</ul>
+<p><hr width="100%" >
+<p><a name="[20.1]"></a>
+<h3>[20.1] What is a &quot;<tt>virtual</tt> member function&quot;?</h3>
+<p>From an OO perspective, it is the single most important feature of C++:
+<a href="big-picture.html#[6.8]">[6.8]</a>, <a href="big-picture.html#[6.9]">[6.9]</a>.
+<p>A <tt>virtual</tt> function allows derived classes to replace the implementation
+provided by the base class.  The compiler makes sure the replacement is always
+called whenever the object in question is actually of the derived class, even
+if the object is accessed by a base pointer rather than a derived pointer.
+This allows algorithms in the base class to be replaced in the derived
+class, even if users don't know about the derived class.
+<p>The derived class can either fully replace (&quot;override&quot;) the base class
+member function, or the derived class can partially replace (&quot;augment&quot;) the
+base class member function.  The latter is accomplished by having the derived
+class member function call the base class member function, if desired.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="basics-of-inheritance.html">Previous&nbsp;section</a> |&nbsp;<a href="proper-inheritance.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[20.2]"></a>
+<h3>[20.2] How can C++ achieve dynamic binding yet also
+static typing?</h3>
+<p>When you have a pointer to an object, the object may actually be of a class
+that is derived from the class of the pointer (e.g., a <tt>Vehicle*</tt> that is
+actually pointing to a <tt>Car</tt> object).  Thus there are two types: the (static)
+type of the pointer (<tt>Vehicle</tt>, in this case), and the (dynamic) type of the
+pointed-to object (<tt>Car</tt>, in this case).
+<p><em>Static typing</em> means that the legality of a member function invocation
+is checked at the earliest possible moment: by the compiler at compile time.
+The compiler uses the static type of the pointer to determine whether the
+member function invocation is legal.  If the type of the pointer can handle the
+member function, certainly the pointed-to object can handle it as well.  E.g.,
+if <tt>Vehicle</tt> has a certain member function, certainly <tt>Car</tt> also has that
+member function since <tt>Car</tt> is a kind-of <tt>Vehicle</tt>.
+<p><em>Dynamic binding</em> means that the address of the code in a member function
+invocation is determined at the last possible moment: based on the dynamic type
+of the object at run time.  It is called &quot;dynamic binding&quot; because the binding
+to the code that actually gets called is accomplished dynamically (at run
+time).  Dynamic binding is a result of <tt>virtual</tt> functions.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="basics-of-inheritance.html">Previous&nbsp;section</a> |&nbsp;<a href="proper-inheritance.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[20.3]"></a>
+<h3>[20.3] What's the difference between how <tt>virtual</tt> and non-<tt>virtual</tt>
+member functions are called?</h3>
+<p>Non-<tt>virtual</tt> member functions are resolved statically.  That is, the member
+function is selected statically (at compile-time) based on the type of the
+pointer (or reference) to the object.
+<p>In contrast, <tt>virtual</tt> member functions are resolved dynamically (at run-time).
+That is, the member function is selected dynamically (at run-time) based on the
+type of the object, not the type of the pointer/reference to that object.  This
+is called &quot;dynamic binding.&quot; Most compilers use some variant of the following
+technique: if the object has one or more <tt>virtual</tt> functions, the compiler puts
+a hidden pointer in the object called a &quot;virtual-pointer&quot; or &quot;v-pointer.&quot; This
+v-pointer points to a global table called the &quot;virtual-table&quot; or &quot;v-table.&quot;
+<p>The compiler creates a v-table for each class that has at least one <tt>virtual</tt>
+function.  For example, if class <tt>Circle</tt> has <tt>virtual</tt> functions for <tt>draw()</tt>
+and <tt>move()</tt> and <tt>resize()</tt>, there would be exactly one v-table associated with
+class <tt>Circle</tt>, even if there were a gazillion <tt>Circle</tt> objects, and the
+v-pointer of each of those <tt>Circle</tt> objects would point to the <tt>Circle</tt>
+v-table.  The v-table itself has pointers to each of the virtual functions in
+the class.  For example, the <tt>Circle</tt> v-table would have three pointers: a
+pointer to <tt>Circle::draw()</tt>, a pointer to <tt>Circle::move()</tt>, and a
+pointer to <tt>Circle::resize()</tt>.
+<p>During a dispatch of a <tt>virtual</tt> function, the run-time system follows the
+object's v-pointer to the class's v-table, then follows the appropriate slot in
+the v-table to the method code.
+<p>The space-cost overhead of the above technique is nominal: an extra pointer per
+object (but only for objects that will need to do dynamic binding), plus an
+extra pointer per method (but only for virtual methods).  The time-cost
+overhead is also fairly nominal: compared to a normal function call, a
+<tt>virtual</tt> function call requires two extra fetches (one to get the value of the
+v-pointer, a second to get the address of the method).  None of this runtime
+activity happens with non-<tt>virtual</tt> functions, since the compiler resolves
+non-<tt>virtual</tt> functions exclusively at compile-time based on the type of the
+pointer.
+<p><em>Note: the above discussion is simplified considerably, since it doesn't
+account for extra structural things like multiple inheritance, <tt>virtual</tt>
+inheritance, RTTI, etc., nor does it account for space/speed issues such as
+page faults, calling a function via a pointer-to-function, etc.  If you want to
+know about those other things, please ask <a href="news:comp.lang.c++"><tt>comp.lang.c++</tt></a>; PLEASE
+DO NOT SEND E-MAIL TO ME!</em>
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="basics-of-inheritance.html">Previous&nbsp;section</a> |&nbsp;<a href="proper-inheritance.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[20.4]"></a>
+<h3>[20.4] When should my destructor be <tt>virtual</tt>?</h3>
+<p>When you may <tt>delete</tt> a derived object via a base pointer.
+<p><tt>virtual</tt> functions bind to the code associated with the class of the object,
+rather than with the class of the pointer/reference.  When you say <tt>delete&nbsp;basePtr</tt>, and the base class has a <tt>virtual</tt> destructor, the destructor
+that gets invoked is the one associated with the type of the object
+<tt>*basePtr</tt>, rather than the one associated with the type of the pointer.
+This is generally A Good Thing.
+<p><em>TECHNO-GEEK WARNING; PUT YOUR PROPELLER HAT ON.</em> <br>
+Technically speaking, you need a base class's destructor to be <tt>virtual</tt> if and
+only if you intend to allow someone to invoke an object's destructor via a base
+class pointer (this is normally done implicitly via <tt>delete</tt>), and the object
+being destructed is of a derived class that has a non-trivial destructor.  A
+class has a non-trivial destructor if it either has an explicit destructor, or
+if it has a member object or a base class that has a non-trivial destructor
+(note that this is a recursive definition (e.g., a class has a non-trivial
+destructor if it has a member object (which has a base class (which has a
+member object (which has a base class (which has an explicit destructor)))))).
+<br>
+<em>END TECHNO-GEEK WARNING; REMOVE YOUR PROPELLER HAT</em>
+<p>If you had a hard grokking the previous rule, try this (over)simplified one on
+for size: A class should have a <tt>virtual</tt> destructor unless that class has
+<em>no</em> <tt>virtual</tt> functions.  Rationale: if you have any <tt>virtual</tt> functions
+at all, you're probably going to be doing &quot;stuff&quot; to derived objects via a base
+pointer, and some of the &quot;stuff&quot; you may do may include invoking a destructor
+(normally done implicitly via <tt>delete</tt>).  Plus once you've put the first
+<tt>virtual</tt> function into a class, you've already paid all the per-object space
+cost that you'll ever pay (one pointer per object; note that this is
+theoretically compiler-specific; in practice everyone does it pretty much the
+same way), so making the destructor virtual won't generally cost you anything
+extra.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="basics-of-inheritance.html">Previous&nbsp;section</a> |&nbsp;<a href="proper-inheritance.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[20.5]"></a>
+<h3>[20.5] What is a &quot;<tt>virtual</tt> constructor&quot;?</h3>
+<p>An idiom that allows you to do something that C++ doesn't directly support.
+<p>You can get the effect of a <tt>virtual</tt> constructor by a <tt>virtual</tt> <tt>clone()</tt>
+member function (for copy constructing), or a <tt>virtual</tt> <tt>create()</tt> member
+function (for the <a href="ctors.html#[10.4]">default constructor<!--rawtext:[10.4]:rawtext--></a>).
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;Shape&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;virtual&nbsp;~Shape()&nbsp;{&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;<a href="virtual-functions.html#[20.4]">A&nbsp;virtual&nbsp;destructor<!--rawtext:[20.4]:rawtext--></a></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;virtual&nbsp;void&nbsp;draw()&nbsp;=&nbsp;0;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;<a href="abcs.html#[22.4]">A&nbsp;pure&nbsp;virtual&nbsp;function<!--rawtext:[22.4]:rawtext--></a></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;virtual&nbsp;void&nbsp;move()&nbsp;=&nbsp;0;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;virtual&nbsp;Shape*&nbsp;clone()&nbsp;&nbsp;const&nbsp;=&nbsp;0;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Uses&nbsp;the&nbsp;copy&nbsp;constructor</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;virtual&nbsp;Shape*&nbsp;create()&nbsp;const&nbsp;=&nbsp;0;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Uses&nbsp;the&nbsp;<a href="ctors.html#[10.4]">default&nbsp;constructor<!--rawtext:[10.4]:rawtext--></a></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;Circle&nbsp;:&nbsp;public&nbsp;Shape&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Circle*&nbsp;clone()&nbsp;&nbsp;const&nbsp;{&nbsp;return&nbsp;new&nbsp;Circle(*this);&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Circle*&nbsp;create()&nbsp;const&nbsp;{&nbsp;return&nbsp;new&nbsp;Circle();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;};
+</code>
+<p>In the <tt>clone()</tt> member function, the <tt>new&nbsp;Circle(*this)</tt> code calls
+<tt>Circle</tt>'s copy constructor to copy the state of <tt>this</tt> into the newly created
+<tt>Circle</tt> object.  In the <tt>create()</tt> member function, the <tt>new&nbsp;Circle()</tt>
+code calls <tt>Circle</tt>'s <a href="ctors.html#[10.4]">default constructor<!--rawtext:[10.4]:rawtext--></a>.
+<p>Users use these as if they were &quot;<tt>virtual</tt> constructors&quot;:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;userCode(Shape&amp;&nbsp;s)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Shape*&nbsp;s2&nbsp;=&nbsp;s.clone();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Shape*&nbsp;s3&nbsp;=&nbsp;s.create();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;delete&nbsp;s2;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;You&nbsp;probably&nbsp;need&nbsp;a&nbsp;<a href="virtual-functions.html#[20.4]">virtual&nbsp;destructor<!--rawtext:[20.4]:rawtext--></a>&nbsp;here</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;delete&nbsp;s3;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p>This function will work correctly regardless of whether the <tt>Shape</tt> is a
+<tt>Circle</tt>, <tt>Square</tt>, or some other kind-of <tt>Shape</tt> that doesn't even exist yet.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="basics-of-inheritance.html">Previous&nbsp;section</a> |&nbsp;<a href="proper-inheritance.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<a name="bottom"></a>
+<a href="mailto:cline@parashift.com"><img src="mbox.gif" border=2 height=26 width=89>&nbsp;E-mail the author</a><br>
+[&nbsp;<a href="index.html"><em>C++ FAQ Lite</em></a>
+|&nbsp;<a href="index.html#table-of-contents">Table&nbsp;of&nbsp;contents</a>
+|&nbsp;<a href="subject-index.html">Subject&nbsp;index</a>
+|&nbsp;<a href="copy-permissions.html#[1.1]">About&nbsp;the&nbsp;author</a>
+|&nbsp;<a href="copy-permissions.html#[1.2]">&copy;</a>
+|&nbsp;<a href="on-line-availability.html#[2.2]">Download&nbsp;your&nbsp;own&nbsp;copy</a>&nbsp;]<br>
+<small>Revised Sep 8, 1997</small>
+</body>
+</html>

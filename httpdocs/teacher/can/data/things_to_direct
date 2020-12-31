@@ -1,0 +1,23 @@
+@val = (
+{
+'English' => 'the traffic',
+'French' => '{le circulation>s>}',
+'German' => '{der Verkehr>s>}',
+'Italian' => '{il traffico>s>}',
+'Spanish' => '{el tr/afico>s>}',
+'id' => 0,
+},
+
+#The reason I stopped using this file was that the German did not work -- "directing films" is just not a German idiom.  And I couldn't think of anything else good, so I just put a stop to it.
+
+
+
+{
+'English' => 'films',
+'French' => '{un film>p>}',
+'German' => '{Film>p>}',
+'Italian' => '{un film>p>}',
+'Spanish' => '{pel/icula>p>}',
+'id' => 1,
+},
+);

@@ -1,0 +1,16 @@
+@val = (
+{
+'English' => 'dolls',
+'French' => '{le poup/ee>p>}',
+'German' => '{Puppe>p>}',
+'Italian' => '{il bambola>p>}',
+'Spanish' => '{mu~neca>p>}',
+},
+{
+'English' => 'jewelry',
+'French' => '{le bijouterie>s>}',
+'German' => '{Schmuck>s>}',
+'Italian' => '{il gioiello>p>}',
+'Spanish' => '{joyer/ia>s>}',
+},
+);

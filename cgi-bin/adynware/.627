@@ -1,0 +1,11 @@
+my $version = '1.190'; my $displayName = 'Web Keyboard for Navigator';
+use adynware_server;
+use Decorate;
+use adynware::Decorate_factory;
+
+my $decorator = Decorate_factory->new();
+$decorator->Configure("setVersion(\"$version\")");
+
+adynware_server::Init("web_key", $decorator, $displayName, $version);
+adynware_server::Main();
+## test with: perl -w web_key.pl

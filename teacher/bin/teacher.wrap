@@ -1,0 +1,41 @@
+#!/bin/bash
+cd $DROP/adyn
+out=$TMP/teacher.tar
+tar cvf $out `cat $DROP/adyn/teacher/MANIFEST.deployment`
+ls -l $out
+zip.tar $out
+gzip $out
+ls -l $out.gz
+exit
+
+# test I: cf existing stuff, and run the new one
+
+bx $DROP/adyn/teacher/bin/teacher.wrap
+cd $DROP/
+mv adyn adyn.bak
+md adyn
+out=$TMP/teacher.tar
+cd adyn
+mv $out .
+tar xvf teacher.tar
+rm teacher.tar
+ls
+echo login, use teacher
+
+# test II: cf $TMP/adyn, which recorded a minimal, existing install
+
+bx $DROP/adyn/teacher/bin/teacher.wrap
+cd $TMP
+mv adyn adyn.ok
+mkdir adyn.new
+tar xvf ../teacher.tar
+cd ..
+diff -r adyn.new adyn.ok
+rm teacher.tar
+ls
+echo login, use teacher
+
+
+# general use:
+exit
+bx $DROP/adyn/teacher/bin/teacher.wrap /cygdrive/c/Users/nelsons/tmp/teacher.tar

@@ -1,0 +1,19 @@
+# formatted
+@val = (
+{
+'English' => 'about a hundred miles',
+'French' => '{un centaine>s>} de milles',
+'German' => '{hundert Meile>p>}',
+'Italian' => '{un centinaio>s>} {di miglio>p>}',
+'Spanish' => '{un centinar>s>} {de milla>p> ingl/es}',
+'id' => 0,
+},
+{
+'English' => 'a mile',
+'French' => '{un mille>s>}',
+'German' => '{ein Meile}',
+'Italian' => '{un miglio>s>}',
+'Spanish' => '{un milla>s> ingl/es}',
+'id' => 1,
+},
+);

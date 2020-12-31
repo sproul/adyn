@@ -1,0 +1,5 @@
+@val = (
+{
+'keys' => 'vocab_animals vocab_body vocab_days vocab_family vocab_food vocab_geography vocab_languages vocab_linking vocab_materials vocab_months_and_seasons vocab_numbers vocab_ordinals vocab_place_setting vocab_professions vocab_pronouns_possessive vocab_pronouns_subject vocab_time vocab_travel',
+},
+);

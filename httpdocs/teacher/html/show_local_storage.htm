@@ -1,0 +1,55 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"><!doctype html>
+<head>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+    <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+    <link rel="icon" type="image/gif" href="/favicon.GIF" /> 
+    <script src=/teacher/html/jquery-1.9.0.js></script>
+    <script src=jquery-cookie-1.4.0/jquery.cookie.js></script>
+    <script language=JavaScript src=julien-maurel-jQuery-Storage-API-e5a8a64/jquery.storageapi.js></script>
+    <script language=JavaScript src=stg.js></script>
+</head>
+<body bgcolor=#cccccc><font face='arial'>
+
+<span id=storage_content>
+</span>
+
+<script language="JavaScript">
+
+function show_local_storage__jquery()
+{
+    var s = null
+    // code from http://plugins.jquery.com/storageapi/
+    // doc at https://github.com/julien-maurel/jQuery-Storage-API
+    var keys = $.localStorage.keys()
+    for (var j = 0; j < keys.length; j++)
+    {
+        var key = keys[j]
+        if (!s)
+        {
+            s = ""
+        } 
+        var val = $.localStorage.get(key)
+        var s1 = key + ":" + val
+        s += "<li>" + s1 + "</li>\n"
+    }
+    if (s)
+    {
+        s = "<ul>" + s + "</ul>\n"
+    } 
+    else
+    {
+        s = "[nothing]"
+    }
+    return s
+}
+
+function init()
+{
+    $('#storage_content').html(show_local_storage__jquery())
+    //$('#storage_content').html(stg_all2html())
+}
+document.title = "show stg"
+$(document).ready(init)
+</script>
+</font>

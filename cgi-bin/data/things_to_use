@@ -1,0 +1,21 @@
+@val = (
+{
+'English' => 'old tools',
+'French_note#de;;French' => 'fr_no_partitive_with_preceding_adj',
+'French_note#vieux2;;French' => 'fr_adj_before',
+'French' => '{de vieux outil>p>}',
+'German' => '{alt Werkzeug>p>}',
+'Italian' => '{un attrezzo>p> vecchio}',
+'Spanish' => '{herramienta>p> viejo}',
+'id' => 0,
+},
+{
+'French_note#de;;French' => 'fr_no_partitive_with_preceding_adj',
+'French' => 'de {nouveau outil>p>}',
+'German' => '{alt Werkzeug>p>}',
+'Italian' => '{un attrezzo>p> nuovo}',
+'Spanish' => '{herramienta>p> nuevo}',
+'English' => 'new tools',
+'id' => 1,
+},
+);

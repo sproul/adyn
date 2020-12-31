@@ -1,0 +1,10 @@
+@val = (
+{
+'English' => 'slavery',
+'French' => '{le esclavage>s>}',
+'German' => '{Sklaverei>s>}',
+'Italian' => '{il schiavit`u>s>}',
+'Spanish' => '{el esclavitud>s>}',
+'id' => 0,
+},
+);

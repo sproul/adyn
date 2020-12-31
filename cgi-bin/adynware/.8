@@ -1,0 +1,1234 @@
+use strict;
+use diagnostics;
+package Decorate;
+use Fcntl;
+use IO::File;
+use adynware::web_site;
+use adynware::utility;
+use adynware::utility_file;
+use adynware::unique_scripts;
+
+
+
+
+my $__color = "red";
+sub setColor { ($__color) = @_; }
+
+my $__documentIDGenerator = 1;
+
+my $__enabled = 1;
+sub setEnabled { ($__enabled) = @_; }
+
+my $__expression = "<FONT color=$__color><B><SUP>%d</SUP></B></FONT>";
+sub setDefaultSuperscriptExpression { $__expression = "<FONT color=$__color><B><SUP>%d</SUP></B></FONT>"; }
+sub setSuperscriptExpression { ($__expression) = @_; }
+setDefaultSuperscriptExpression();
+
+
+my $__listFormsFirst = 0;
+sub listFormsFirst { $__listFormsFirst = 1; }
+
+my $decorate__enabledJavaScriptHeader = "";
+my $__unique = 0;
+sub setUnique { ($__unique) = @_;}
+
+my $__version = "";
+sub setVersion { ($__version) = @_; }
+
+#my $WK_FULL = 0;
+#my $WK_ACCESSKEY = 1;
+#my $__flavor = $WK_FULL;
+#sub setFlavor { my($arg) = @_; die "bad flavor" unless $arg eq "IE"; $__flavor = $WK_ACCESSKEY; }
+
+
+
+
+my $WINDOW_GOTO   = "wk_window_goto(null,";
+my $WINDOW_CREATE = "wk_window_goto(";
+
+my $decorate__disabledJavaScriptHeader =<<'EOS';
+<script language="JavaScript">
+
+var c_char_w = 119;
+var wk_chained_key_handler = null;
+
+function wk_key_handler(e) 
+{
+        if (e.target.type) return true;
+        else if (e.which==c_char_w)
+        {
+                if (confirm("Enable Web Keyboard processing?")) 
+                {
+                        window.open("http://__adynware__/perl/" + escape('Decorate::setEnabled(1)'), "tmp", "width=1,height=1");
+                        setTimeout("location.reload(true)", 500);
+                } 
+                return false;
+        }
+        if (wk_chained_key_handler) return wk_chained_key_handler();
+        return true;
+} 
+function wk_frame_onLoad()
+{
+        if (document.onKeyPress != wk_key_handler)
+        {
+                wk_chained_key_handler = document.onKeyPress;
+                //document.onKeyPress = wk_key_handler;
+        } 
+}
+document.captureEvents(Event.KEYPRESS);
+//document.onKeyPress = wk_key_handler;
+EOS
+
+$decorate__enabledJavaScriptHeader =<<'EOS';
+<script language="JavaScript">
+var disableW = false;
+var WINDOW_GOTO;
+var WINDOW_CREATE;
+var wk_action = new Array();
+var wk_chained_key_handler = null;
+var wk_chained_onerror = null;
+var wk_data = new Array();
+var wk_documentID;
+var wk_index = 0;
+var wk_itemCount = 0;
+var wk_loadComplete = false;
+var wk_minimumIndex = 0;
+
+var c_control_e = 5;
+var c_control_j = 10;
+var c_control_k = 11;
+var c_control_l = 12;
+var c_control_t = 20;
+var c_control_y = 25;
+
+var c_char_c = 99;
+var c_char_n = 110;
+var c_char_w = 119;
+var c_char_0 = 48;
+var c_char_9 = 57;
+
+function wk_key_handler(e) 
+{
+        //defaultStatus = "got " + e.which; return true;
+        if (e.which==c_control_j)
+        {
+                wk_frame_goto_next_interesting_leaf(1);
+                return false;
+        }
+        if (e.which==c_control_l)
+        {
+                wk_frame_goto_next_interesting_leaf(-1);
+                return false;
+        }
+                                    
+        if (e.target.type) 
+        {
+                if (e.which==c_control_e)
+                {
+                        e.target.blur();
+                        window.defaultStatus = "Enter jump index:";
+                        return false;
+                }
+                return true;
+        }
+        if (c_char_0 <= e.which && e.which <= c_char_9)
+        {
+                if (wk_index==0 && e.which==c_char_0)
+                {
+                        window.defaultStatus = wk_data[0];
+                }
+                wk_index = (wk_index * 10) + e.which - c_char_0;
+                var w = wk_find_item(wk_index);
+                if (w) 
+                {
+                        w.focus();
+                }
+                else
+                {
+                        wk_index = e.which - c_char_0;
+                        w = wk_find_item(wk_index);
+                        if (w) 
+                        {
+                                w.focus();
+                        }
+                        else w = window;
+                }
+                w.wk_index = wk_index;
+                wk_link_show(w, wk_index);
+                return false;
+        }
+        else if (e.which==c_char_c && 0 < wk_index && wk_index < wk_data.length)
+        {
+                window.open("http://__adynware__/setClipboard/" + escape(wk_data[wk_index]), "tmp", "width=1,height=1");
+        }
+        else if (e.which==c_char_n && 0 < wk_index && wk_index < wk_data.length)
+        {
+                if (wk_action[wk_index].indexOf(WINDOW_CREATE) >= 0)
+                {
+                        window.open(wk_data[wk_index]);
+                }
+                else
+                {
+                        defaultStatus = wk_data[wk_index] + " is not a window";
+                }
+        }
+	else if (!disableW && e.which==c_char_w)
+        {
+                if (confirm("Disable Web Keyboard until you enter 'w' in the background?")) 
+                {
+                        window.open("http://__adynware__/perl/" + escape('Decorate::setEnabled(0)'), "tmp", "width=1,height=1");
+                        setTimeout("location.reload(true)", 500);
+                } 
+                return false;
+        }
+        else 
+        {
+                var tmpIndex = wk_index;
+                wk_index = 0;
+                if (e.which==13)
+                {
+                        wk_link_goto(tmpIndex);
+                        return false;
+                }
+        }
+        var notHandled = true;
+        if (wk_chained_key_handler)
+        {
+                notHandled = wk_chained_key_handler();
+        }
+        if (notHandled) defaultStatus = "";
+        return notHandled;
+}
+function wk_get_field(originalFormIndex, originalFieldIndex, fieldName)
+{
+        var fieldIndex = originalFieldIndex;
+        for (var formIndex = originalFormIndex; formIndex < document.forms.length; formIndex++)
+        {
+                var elements = document.forms[formIndex].elements;
+                while (fieldIndex < elements.length)
+                {
+                        //alert('Examining form ' + formIndex + ': field ' + fieldIndex + ': ' + elements[fieldIndex].name);
+                        if (elements[fieldIndex].name==fieldName) return elements[fieldIndex];
+                        fieldIndex++;
+                }
+                fieldIndex = 0;
+        }
+        alert("Web Keyboard: could not find field " + fieldName + " in form " + originalFormIndex);
+        return document.forms[originalFormIndex].elements[originalFieldIndex];
+} 
+function wk_get_link(href)
+{
+        for (var j=0; j < document.links.length; j++)
+        {
+                if (document.links[j].href==href) return document.links[j];
+        }
+        alert("Web Keyboard: could not find a link with href " + href);
+        return null;
+} 
+function wk_find_item(n)
+{
+        if (n < wk_data.length && wk_data[n]) return self;
+        
+        var maxScript = wk_data.length - 1;
+        var w = wk_frame_get_next_leaf(self, 1);
+        for (var j = 0; w!=self && j < 20; j++)
+        {
+                if (w.wk_data)
+                {
+                        if ((n < w.wk_data.length) && w.wk_data[n]) return w;
+                
+                        if (maxScript < w.wk_data.length - 1) maxScript = w.wk_data.length - 1;
+                }
+                w = wk_frame_get_next_leaf(w, 1);
+        }
+        if (n > maxScript) 
+        {
+                return null;
+        } 
+        return self;
+}
+function wk_click_first_checkbox(box)
+{
+        if (eval(box + "[1]!=null"))
+        {
+                eval(box + "[0].click()");
+        }
+        else
+        {
+                eval(box + ".click()");
+        }
+}
+    
+function wk_link_goto(index) 
+{
+        if (index==0)
+        {
+                defaultStatus = "no jump index specified";
+        }
+	else if (0 < index && index < wk_data.length)
+        {
+	    if (wk_action[index] && (wk_action[index]!="JavaScript") && wk_data[index])
+	    {
+		var xx = "";
+		var s = wk_action[index] +  "wk_data[" + index + "])";
+		//alert('evaluation 1:'  + s);
+		eval(s);
+		//alert('evaluation 2:'  + xx);
+		eval(xx);
+	    }
+	    else if (wk_data[index])
+	    {
+		//alert(' evaluating ' + wk_data[index]);
+		eval(wk_data[index]);
+	    }
+	    else if (wk_action[index])
+	    {
+		var xx = "";
+		var s = wk_action[index];
+		//alert('evaluation 1b:'  + s);
+		eval(s);
+		//alert('evaluation 2b:'  + xx);
+		eval(xx);
+	    }
+        }
+}
+
+function wk_link_show(w,index)
+{
+        if (!w.wk_data) return;
+        
+        var s = "";
+        if (0 > index || index >= w.wk_data.length) return;
+        else if (0==index) s = w.wk_data[0];
+        else 
+        {    
+                s += index + ": ";
+                if (w.wk_action[index] && ((w.wk_action[index].indexOf(WINDOW_GOTO) >= 0) || (w.wk_action[index].indexOf(WINDOW_CREATE) >= 0) || (w.wk_action[index] == "JavaScript")))
+                {
+                        s += w.wk_data[index];
+                }
+                else if (w.wk_data[index] != null)
+                {
+                        s += "form field";
+                }
+		else if (w.wk_action[index])
+                {
+                        s += w.wk_action[index];
+                }
+                else
+                {
+                        s += "-";
+                }
+        }
+        w.defaultStatus = defaultStatus = s;
+}
+
+function wk_frame_dive(w, direction)
+{
+        while (w.frames.length > 0)
+        {
+                if (direction==-1)
+                {
+                        w=w.frames[0];
+                }
+                else
+                {
+                        w=w.frames[w.frames.length -1];
+                }
+        }
+        return w;
+}
+
+function wk_get_frame_name(w)
+{
+        if(w==w.top) return "window.top";
+        var parent = w.parent;
+        for (var j = 0; j < parent.frames.length; j++)
+        {
+                if(parent.frames[j]==w) return wk_get_frame_name(parent) + ".frames[" + j + "]";
+        }
+        alert(' wk_get_frame_name could not resolve a frame');
+        return "";
+}
+
+var wk_flashing = false;
+var wk_preventFlash = 0;
+function wk_flash(w)
+{
+        if (wk_preventFlash > 0)
+        {
+                wk_preventFlash--;
+                return;
+        }
+        if (wk_flashing || (w==window.top)) return;
+        wk_flashing = true;
+                        
+        var x = wk_get_frame_name(w) + ".document.bgColor = '" + w.document.bgColor + "'; wk_flashing = false";
+        w.setTimeout(x, 300);
+        if(w.document.bgColor=="#808080") w.document.bgColor = "black";
+        else                              w.document.bgColor = "gray";
+}
+
+function wk_frame_get_index(w)
+{
+        if ((w.self==window.top) || (w.parent.frames.length==1))
+        {
+                return 0;
+        }
+        var j;
+        for (j = 0; j < w.parent.frames.length; j++)
+        {
+                if (w.parent.frames[j]==w)
+                {
+                        return j;
+                }
+        }
+        alert("could not find current window in w.parent.frames");
+        return 0;
+}
+
+function wk_frame_get_sibling(w, increment)
+{
+        if (w==window.top)
+        {
+                return null;
+        }
+        var index = wk_frame_get_index(w);
+        index += increment;
+        if ((index < 0) || (index >= w.parent.frames.length))
+        {
+                return null;
+        }
+        return w.parent.frames[index];
+}
+
+function wk_frame_get_next_leaf(w, increment)
+{
+        while (w!=window.top)
+        {
+            var sibling = wk_frame_get_sibling(w, increment);
+            if(!sibling) w = w.parent;
+            else
+            {
+                w = sibling;
+                break;
+            } 
+        }
+        return wk_frame_dive(w, -increment);
+}
+function wk_frame_goto_next_interesting_leaf(increment)
+{
+        var firstNeighbor = wk_frame_get_next_leaf(self, increment);
+        var w = firstNeighbor;
+        var next = w;
+        for (var j = 0; !w.wk_itemCount && j < 20; j++)
+        {
+                w = wk_frame_get_next_leaf(w, increment);
+                                                                                
+                if (w==firstNeighbor || w==self) 
+                {
+                        next = firstNeighbor;
+                        break;
+                } 
+                next = w;
+        }
+        next.focus();
+        next.wk_index = 0;
+        wk_flash(next);
+}
+function wk_window_find(name, w)
+{
+        if (!w) return null;
+        if (w.name==name) return w;
+        for (var j = 0; j<w.frames.length; j++)
+        {
+                var hit = wk_window_find(name, w.frames[j]);
+                if (hit) return hit;
+        }
+        return null;
+}
+function wk_window_goto(windowName, link)
+{
+        var targetWindow;
+        if (windowName) targetWindow = wk_window_find(windowName, self.top);
+        else            targetWindow = self;
+                               
+        //alert("window goto(" + windowName + "," + link + "):" + targetWindow);
+        //if (targetWindow)
+        //{
+        //alert("targetWindow.top.wk_documentID=" + targetWindow.top.wk_documentID + "\ntargetWindow.wk_documentID=" + targetWindow.wk_documentID);
+        //}
+                
+        if (targetWindow
+        && targetWindow.top.wk_documentID
+        && targetWindow.wk_documentID
+        && link.charAt(0) != '#'
+        && link.indexOf("javascript:") == -1
+        && (targetWindow.top.wk_documentID != targetWindow.wk_documentID))
+        {
+                var s = "$redirectTarget='" + link + "';unique_scripts::replaceFrame(" + targetWindow.top.wk_documentID + "," + targetWindow.wk_documentID + ", '" + link  + "');";
+                s = "http://__adynware__/perl/" + escape(s);
+                if (windowName)
+                {
+                        open(s, windowName);
+                }
+                else
+                {
+                        location = s;        
+                }
+        }
+        else
+        {
+                if (windowName)
+                {
+                        open(link, windowName);        
+                }
+                else
+                {
+                        window.location = link;        
+                } 
+        } 
+}
+function wk_frame_onLoad()
+{
+        if (onerror != wk_onerror)
+        {
+                wk_chained_onerror = onerror;
+                onerror = wk_onerror;
+        } 
+        if (document.onKeyPress != wk_key_handler)
+        {
+                wk_chained_key_handler = document.onKeyPress;
+                document.onKeyPress = wk_key_handler;
+        }
+        wk_loadComplete = true;
+}
+function wk_onerror(message, URL, line)
+{
+        if (message.indexOf("access disallowed from scripts")==-1) 
+        {
+                if (wk_chained_onerror) return wk_chained_onerror();
+                return false;
+        }
+        setTimeout("defaultStatus = ''", 2000);
+        defaultStatus = "Web Keyboard: JavaScript prevents frames from different domains from communicating";
+        return true;
+} 
+
+document.captureEvents(Event.KEYPRESS);
+document.onKeyPress = wk_key_handler;
+onerror = wk_onerror;
+EOS
+
+$decorate__enabledJavaScriptHeader .= "\nWINDOW_GOTO = '$WINDOW_GOTO';\nWINDOW_CREATE = '$WINDOW_CREATE';\n";
+
+
+sub SuperScript
+{
+        my($self, $isLink, $data, $action) = @_;
+	#print "ss: isLink=$isLink, data=$data, action=$action\n";
+	
+        $self->{"itemCount"}++;
+                        
+        my $index;
+        if (defined $self->{"unique"})
+        {
+                my $x = $self->{"unique"};
+                my $documentID = $self->{"documentID"};
+                $index = $$x->getIndex($documentID, $isLink);
+                $self->{"index"} = $index + 1; 	# disaster insurance: keep in sync
+        }
+        elsif ($isLink or !defined $self->{"formFieldIndex"} or (25 < $self->{"formFieldIndex"}))
+        {
+                $index = $self->{"index"}++;
+        }
+        else
+        {
+                $index = $self->{"formFieldIndex"}++;
+        }
+                
+        if (!defined $self->{"firstItemDone"})
+        {
+                $self->{"firstItemDone"} = 1;
+                $self->{"pendingJavaScript"} .= "wk_minimumIndex=$index;\n";
+        } 
+
+	if (defined $data)
+	{
+		$data =~ s/\000//g; # remove garbage which HTML allows but JavaScript doesn't
+	}
+        if (!$isLink)
+        {
+		$data = "'$data'"       if defined $data;
+                $action = "\"$action\"" if defined $action;
+        }
+	$data = "null" if (!defined $data);
+	$self->{"pendingJavaScript"} .= "wk_data[$index]=" . $data . ";\n";
+	
+        if (defined $action)
+        {
+                $self->{"pendingJavaScript"} .= "wk_action" . "[$index]=$action;\n";
+        }
+        #print "decorate::Super script $index: $data\n";
+        return sprintf $__expression, $index, $index, $index, $index, $index;
+}
+
+sub Init
+{
+        my($self, $target, $status) = @_;
+        if (defined $target)
+        {
+                $self->{"base"} = utility_file::dirname($target) . "/";
+        }
+        else
+        {
+                $self->{"base"} = "";
+        }
+        utility::Log("decorate::Init($self, $target, $status)" . $self->{"base"});
+                        
+        $self->{"allJavaScript"} = "";
+        $self->{"documentID"} = $__documentIDGenerator++;	
+        $self->{"enabled"} = 1;
+        $self->{"fieldIndex"} = 0;	# place to keep track of form field index 
+        $self->{"formIndex"} = -1;	# place to keep track of form index 
+        $self->{"hasScriptContent"} = 0;	# is there JavaScript code in the document already?
+        $self->{"headerSeen"} = 0;
+                
+        if ($__listFormsFirst)
+        {
+                $self->{"index"} = 26;		# counter for generating superscripts for links
+                $self->{"formFieldIndex"} = 1;	# counter for generating superscripts for form fields
+        }
+        else
+        {
+                $self->{"index"} = 1;		# counter for generating superscripts for all items, unless unique
+        }
+        
+        $self->{"inputGroupIndices"} = {};	# place to keep track of radio button indices
+        $self->{"inForm"} = 0;		# are we in a form?
+        $self->{"inScript"} = 0;	# are we within a <script...</script> block?  If yes, then be careful.
+        $self->{"inComment"} = 0;	# are we within a <--...!-> HTML comment block?  If yes, then ignore fields.
+        $self->{"itemCount"} = 0;
+        $self->{"pendingJavaScript"} = "wk_documentID = " . $self->{"documentID"} . ";\n";
+        $self->{"nameGenerationIndex"} = 0;
+        $self->{"safe"} = 1;		# is it safe to insert JavaScript?
+        $self->{"slicedItem"} = "";	# holding area for link fragment which crosses the chunk boundary
+        $self->{"status"} = "Processing...";
+        $self->{"target"} = $target;
+        $self->{"unique"} = unique_scripts::findFrameGroup($target, ($status!=302));
+        return "";
+}                
+
+sub Cleanup
+{
+        my($self) = @_;
+        my $string = $self->{"slicedItem"};
+        
+        return $string unless $self->{"enabled"} and $self->{"headerSeen"};
+        
+        return "$string\n<script language=\"JavaScript\">\nwk_frame_onLoad();\n</script>\n" unless $__enabled;
+                
+                                
+        $self->{"status"} = "Done";
+        
+        $string .= $self->GetPendingJavaScript(1, "wk_frame_onLoad();", 1);
+        
+        return $string;
+}
+
+sub DoLink
+{
+	my($self, $link) = @_;
+	return "" if $link =~ /\bismap\b/i; 		# no support for image maps
+		                                                
+	my $linkDestination = undef;
+	if ($link =~ m{\bhref\s*=\s*("\s*[^"]+\s*")}i)
+	{
+		$linkDestination = $1;
+	}
+	elsif ($link =~ m{\bhref\s*=\s*('\s*[^']+\S\s*')}i)
+	{
+		$linkDestination = $1;
+	}
+	elsif ($link =~ m{\bhref\s*=\s*([^'"\s>]+)}i)
+	{
+		$linkDestination = qq("$1");
+	}
+	elsif ($link =~ m{\bhref\s*=\s*(""|'')}i)
+	{
+		; # not an anchor, but no link destination here either.  Must be an onClick...
+	}
+	else
+	{
+		return ""; # anchor
+	}
+	                        
+	my $JavaScript = undef;
+	if ($link =~ m{\bonclick\s*=\s*("[^"]+")}i)
+	{
+		$JavaScript = $1;
+	}
+	if ($link =~ m{\bonclick\s*=\s*('[^']+')}i)
+	{
+		$JavaScript = $1;
+	}
+	if (!defined $JavaScript)
+	{
+		$JavaScript = "''";
+	}
+	else
+	{
+		$JavaScript =~ s/\n/ /g;
+		$JavaScript =~ s/return\s+true\s*(['"])\s*$/$1/;
+		if (defined $linkDestination)
+		{
+			$JavaScript =~ s/this/wk_get_link($linkDestination)/g;
+		} 
+		$JavaScript =~ s/(['"])/\\$1/g;
+		$JavaScript = "'xx=' + \"$JavaScript\" + ';'";
+	}
+	                                
+	if (defined $linkDestination)
+	{
+		$linkDestination =~ s/[\015\n]//g; 		# remove ^Ms
+		                                                
+		$linkDestination =~ s/\bjavascript:/javascript:/i; # assures lowercase
+		                
+		my $mark = "";
+		if ($linkDestination =~ s/^(['"])(.*)['"]$/$2/)
+		{
+			# removed trailing and leading quotes
+			$mark = $1;
+		}
+		                                                                                                
+		$linkDestination = $mark . web_site::makeAbsolute($linkDestination, $self->{"base"}, $self->{"target"}) . $mark;
+	}
+	                                                                
+	my $target = "";
+	if ($link =~ m{\btarget\s*=\s*['"]?(\w+)}i )
+	{
+		$target = $1;
+	}
+	elsif (defined $self->{"window_target"})
+	{
+		$target = $self->{"window_target"};
+	}
+	                                        
+	if ($target)
+	{
+		$JavaScript .= " + \"$WINDOW_CREATE '$target', \"";
+	}
+	elsif (defined $linkDestination)
+	{
+		$JavaScript .= " + \"$WINDOW_GOTO\"";
+	}
+	return $self->SuperScript(1, $linkDestination, $JavaScript);
+}
+
+sub ProcessBaseStatements
+{
+	my($self, $string) = @_;
+        my $baseStatements = "";
+                
+        # capture trailing comment limit in the following regexp, so we can tell what base statements were really commented out
+        while ($string =~ /<base\b(.*?>)\s*(-->)?/gis)
+        {
+                $baseStatements .= $1 unless $2;
+        }
+        if ($baseStatements)
+        {
+                my $statement = $baseStatements;
+                                                                                                        
+                if ($statement =~ s{.*\bhref\s*=\s*}{}i)
+                {
+                        if ($statement =~ m{^'([^']*?)'}gi
+                        or  $statement =~ m{^"([^"]*?)"}gi
+                        or  $statement =~ m{^([^\s'">]+)}gi)
+                        {
+                                my $base = $self->{"base"};
+                                if (!$base)
+                                {
+                                        $base = $1;
+                                }
+                                else
+                                {
+                                        $base = web_site::makeAbsolute($1, $base, undef);
+                                }   
+                                $self->{"base"} = utility_file::dirname($base) . "/";
+                        }
+                        $statement = $baseStatements;
+                }
+                if ($statement =~ s{.*\btarget\s*=\s*}{}i)
+                {
+                        if ($statement =~ m{^'([^']*?)'}gi
+                        or  $statement =~ m{^"([^"]*?)"}gi
+                        or  $statement =~ m{^([^\s'">]+)}gi)
+                        {
+                                $self->{"window_target"} = $1;
+                        }
+                }
+        }
+}
+
+
+sub DoLinks
+{
+        my($self, $string) = @_;
+                        
+        # ignore links with no associated text (e.g., <a  href="http://alpha.cmpexpress.com/store/htmlos/27127" ></a>)
+        $string =~ s
+        {
+                <\s*a\b([^>]*>\s*)<\s*/\s*a\s*>
+        }{"<_a" . $1 . "</_a>"}egisx;
+                                
+        $string =~ s
+        {
+                <\s*a\b([^<]*?)<\s*/\s*a\s*>
+        }{"<_a" . $1 . "</_a>" . $self->DoLink($1)}egisx;
+                                
+        # process links which are terminated with /a, but have nested HTML declarations
+        $string =~ s
+        {
+                <\s*a\b(.*?)<\s*/a\s*>
+        }{"<_a" . $1 . "</_a>" . $self->DoLink($1)}egisx;
+        
+        # process links which are terminated with /td
+        $string =~ s
+        {
+                <\s*a\b(.*?)<\s*/td\s*>
+        }{"<_a" . $1 . $self->DoLink($1) . "</td>"}egisx;
+                                                                                 
+        # process links which are not terminated with /a, or which have nested font directives
+        #$string =~ s
+        #{
+        #<\s*a\b(.*?)<(.*?)>
+        #}{"<_a" . $1 . "</_a>" . $self->DoLink($1) . "<$2>"}egisx;
+                                                                                 
+                               
+        if ($string =~ s/(<\s*a\b.*$)//is)
+        {
+                my $addition = $1;
+                if ($addition =~ m{</?_a})
+                {
+                        utility::Log("confused by malformed HTML: mismatched <a> and </a> seen");
+                        $string .= $addition;	# put it back
+                }
+                else
+                {
+                        if ($self->{"slicedItem"})
+                        {
+                                utility::Log("a: already: slice:" . $self->{"slicedItem"});
+                                $self->{"slicedItem"} = $addition . $self->{"slicedItem"};
+                        }
+                        else
+                        {
+                                $self->{"slicedItem"} = $addition;
+                        }
+                }
+        }
+                                                                        
+        $string =~ s/<_a/<a/g;
+        $string =~ s{</_a}{</a}g;
+        return $string;
+}                                
+        
+sub Chunk
+{
+        my($self, $stringR) = @_;
+                                               
+        if ($self->{"slicedItem"})
+        {
+                utility::Log("chunk: slice:" . $self->{"slicedItem"});
+                $$stringR = $self->{"slicedItem"} . $$stringR;
+                $self->{"slicedItem"} = "";
+        }
+        if ($$stringR =~ s/(<[^<>]*$)//is) # grab sliced tag from the end
+        {
+                $self->{"slicedItem"} = $1;
+        }
+                                
+        #$$stringR =~ s/(<script[^>]*>)\s*<!--[^\n]*/$1 /gis; 
+        #$$stringR =~ s{-->\s*(</script)}{ $1}gis; 
+        #$$stringR =~ s/<!--.*?-->//gs; 
+                                                                        
+	if ($$stringR =~ m{<!--\s*wk_hint\s+(.*?)-->}i)
+	{
+		my $hint = $1;
+		if ($hint =~ /^disable/i)
+		{
+			$self->{"enabled"} = 0;
+			return;
+		}
+		elsif ($hint =~ /^superscript\s+(\d+)/i)
+		{
+			$self->{"index"} = $1;
+		}			
+		else
+		{
+			utility::Log("decorate did not understand wk_hint: '$hint'");
+		}
+	} 
+	
+        $self->ProcessBaseStatements($$stringR);
+                                                        
+        my $headerPreviouslyInserted = $self->{"headerSeen"};
+        if (!$headerPreviouslyInserted)
+        {
+                if ($$stringR =~ /wk_key_handler/)
+                {
+                        utility::Log($self->{"target"} . " contents already processed by Web Keyboard");
+                        $self->{"enabled"} = 0; 
+                }
+                elsif ($$stringR !~ /^\s*</s and $$stringR !~ /^\s*$/s)
+                {
+                        utility::Log($self->{"target"} . " contents do not look like HTML.  Web Keyboard will not process this file");
+                        $self->{"enabled"} = 0; 
+                }
+                else
+                {
+                        my $header = $__enabled ? $decorate__enabledJavaScriptHeader : $decorate__disabledJavaScriptHeader;
+                                                
+                        $header .= $self->{"pendingJavaScript"} . "\n";
+                        $self->{"pendingJavaScript"} = "";
+                                                
+                        $header .= "</script>\n";
+                        if ($$stringR !~ s{<HEAD>}{<HEAD>$header}i)
+                        {
+                                $$stringR = $header . $$stringR;
+                        }
+                        $self->{"headerSeen"} = 1;
+                }
+        }
+	return unless $__enabled and $self->{"enabled"};
+        if ($$stringR =~ m{\bdocument\.write}i)
+        {
+                utility::Log("saw document.write calls");
+                                                                                                
+                $self->{"safe"} = 0;
+        }
+        my $inScript = $self->{"inScript"};
+        #utility::Log("Chunk processing entrance: in script: $inScript");
+                                                                                                                                        
+        if (!$self->{"hasScriptContent"} and $$stringR =~ m{<\s*script\b}i)
+        {
+                $self->{"hasScriptContent"} = 1;
+                $self->{"safe"} = 0;
+        }
+                                                                                        
+        my @processedChunks = ();
+        my $generationIndex = 0;
+        $$stringR =~ s{</script>(.*?)<script}{$processedChunks[$generationIndex] = $self->DoChunk($1, "/script to script"), "<s__" . $generationIndex++ . "__t>"}egis;
+                                                                                                        
+        if ($inScript)
+        {
+                if ($$stringR =~ s{</script(.*)}{"</s____t" . $self->DoChunk($1, "in:/script on")}egis)
+                {
+                        $self->{"inScript"} = 0;
+                }
+        }
+        else
+        {
+                if ($$stringR =~ s{^(.*?)<script}{$self->DoChunk($1, "out: to script") . "<s____t"}egis)
+                {
+                        if ($$stringR =~ s{</script>(.*)}{"</s____t>" . $self->DoChunk($1, "out:/script on")}egis)
+                        {
+                                $self->{"inScript"} = 0;
+                        }
+                        else
+                        {
+                                $self->{"inScript"} = 1;
+                        }
+                }
+                else
+                {
+                        $$stringR = $self->DoChunk($$stringR, "out: all");
+                } 
+        }
+        $$stringR =~ s/\bs____t\b/script/g;
+        $$stringR =~ s{<s__(\d+)__t>}{"</script>" . $processedChunks[$1] . "<script"}eg;
+                                                        
+        $$stringR =~ s/<!doctype.*?>//i;  # some of the stricter doctypes reject my JavaScript
+                
+        #utility::Log("Chunk processing exit: in script: " . $self->{"inScript"});
+        if ($headerPreviouslyInserted and $self->{"pendingJavaScript"})
+        {
+                $$stringR = $self->AddJavaScript($$stringR);
+        }
+}
+
+sub DoChunk
+{
+        my($self, $string, $from) = @_;
+        #print "DoChunk!!(" . (defined $self->{"unique"}) . ") $from: $string!!\n";
+                                                                
+        if ($__unique)
+        {
+                if (!defined $self->{"unique"} and $string =~ m/<\s*frameset/is)
+                {
+                        $self->{"uniqueParent"} = unique_scripts::create($__listFormsFirst, $self->{"documentID"}, $self->{"target"});
+                }
+                if (defined $self->{"uniqueParent"})
+                {
+                        $string =~ s/(<\s*frame\b.*?src\s*=\s*['"]?([^'"\s]+))/my $x=$self->{"uniqueParent"}; $$x->addFrame(web_site::makeAbsolute($2, $self->{"base"}, undef)), $1/egi;
+                }
+        }
+                                        
+        if ($string =~ m{<\s*iframe}i)
+        {
+                $self->{"safe"} = 0;
+        }
+                                                                                      
+                                                          
+        my @htmlComments = ();
+        my $generationIndex = 0;
+        if ($self->{"inComment"})
+        {
+                if ($string =~ m/-->/)
+                {
+                        $string =~ s{(^.*?-->)}{$htmlComments[$generationIndex] = $1, "<h__" . $generationIndex++ . "__c>"}egs;
+                        $self->{"inComment"} = 0;
+                }
+        }
+                
+        if (!$self->{"inComment"})
+        {
+                $string =~ s{(<!--.*?-->)}{$htmlComments[$generationIndex] = $1, "<h__" . $generationIndex++ . "__c>"}egs;
+                if ($string =~ m/<!--/)
+                {
+                        $string =~ s{(<!--.*$)}{$htmlComments[$generationIndex] = $1, "<h__" . $generationIndex++ . "__c>"}egs;
+                        $self->{"inComment"} = 1;
+                }
+                                                
+                my $formsDone = 0;
+                if ($self->{"inForm"})
+                {
+                        if ($string =~ s{(.*?)</form>}{$self->DecorateForm($1) . "</f__m>"}ise)
+                        {
+                                $self->{"inForm"} = 0;
+                        }
+                        else
+                        {
+                                $string = $self->DecorateForm($string);
+                                $formsDone = 1;
+                        }
+                }
+                if (!$formsDone)
+                {
+                        $string =~ s{<form\b(.*?)</form>}{"<f__m" . $self->DecorateForm($1) . "</f__m>"}gise;
+                        if ($string =~ s{<form\b(.*)}{"<f__m" . $self->DecorateForm($1)}ise)
+                        {
+                                $self->{"inForm"} = 1;
+                        }
+                        else
+                        {
+                                $self->{"inForm"} = 0;
+                        }
+                        
+                }
+                $string =~ s/\bf__m\b/form/gi;
+        }                        
+        $string =~ s{<h__(\d+)__c>}{$htmlComments[$1]}eg;
+        
+        $string = $self->DoLinks($string);
+        return $string;
+}
+                                                                                                                
+sub GetPendingJavaScript
+{
+        my($self, $addScriptTags, $extra, $eof) = @_;
+        my $string = "";
+        $string .= "<script language=\"JavaScript\">\n" if $addScriptTags;
+        if ($eof or $self->{"pendingJavaScript"})
+        {
+                $self->{"allJavaScript"} .= $self->{"pendingJavaScript"};
+                if ($eof)
+                {
+                        $string .= $self->{"allJavaScript"};
+                }
+                else
+                {
+                        $string .= $self->{"pendingJavaScript"};
+                } 
+                $self->{"pendingJavaScript"} = "";
+        }
+        $string .= "wk_data[0]=\"Web Keyboard $__version: " . $self->{"status"} . "\";\n";
+        $string .= "wk_itemCount=" . $self->{"itemCount"} . ";\n";
+        $string .= "$extra\n" if $extra;
+        $string .= "</script>\n\n"  if $addScriptTags;
+        return $string;
+}
+
+sub AddJavaScript
+{
+        my($self, $string) = @_;
+        if ($self->{"hasScriptContent"})
+        {
+                if (($string =~ s{</script>}{"</script>" . $self->GetPendingJavaScript(1, '', 0)}ei)
+                ||  ($string =~ s{<script\b}{$self->GetPendingJavaScript(1, '', 0) . "<script "}ei))
+                {
+                        #print "$self: links cleared script\n";
+                }
+        }
+        elsif ($self->{"safe"})
+        {
+                if ($string =~ s{</body>}{$self->GetPendingJavaScript(1, '', 0) . "</body>"}ei)
+                {
+                        #print "$self: links cleared /html:$string\n";
+                }
+                elsif (($string =~ s{(</(a|select)>)}{"$1\n" . $self->GetPendingJavaScript(1, '', 0)}ei)
+                or  ($string =~ s{(<(a|input|select)\b)}{"\n" . $self->GetPendingJavaScript(1, '', 0)}ei)
+                )
+                {
+                        #print "$self: links cleared select/input>\n";
+                }
+        }
+        return $string;
+}
+
+
+sub DecorateForm
+{
+        my($self, $form_text) = @_;
+        utility::Log("---DecorateForm:$form_text");
+        if (!$self->{"inForm"})
+        {
+                # either we are processing the entire form, or this is the first chunk of this form
+                $self->{"fieldIndex"} = 0;
+                $self->{"formIndex"}++;
+        }
+                                        
+        # next expression gives the correct behavior (for buttons with names like
+        # ">> Next" but is too slow in some cases.
+        #$form_text =~ s{(<\s*(input|select|textarea)\b([^'">]+|"[^"]*"|'[^']*')+>)}{$self->DecorateInputField($1)}egis;
+        
+        $form_text =~ s{(<\s*(input|select|textarea)\b[^>]+>)}{$self->DecorateInputField($1)}egis;
+                        
+        # DecorateInputField prepends a '<' to the finished text; thus input fields which lack
+        # the extra '<' were not processed:
+        if (!$self->{"slicedItem"} and $form_text =~ s/([^<])(<\s*[^>]*$)/$1/is)
+        {
+                $self->{"slicedItem"} = $2;
+                utility::Log("post form: slice:" . $self->{"slicedItem"});
+        }
+        
+        $form_text =~ s/<<\s*(input|select|textarea)/<$1/gi;
+        return $form_text;
+} 
+        
+sub DecorateInputField
+{
+        my($self, $input) = @_;
+                
+        # mark this input field as processed, to prevent it from being copied into slicedItem
+        $input = "<" .  $input;  
+        
+        my $type = '';
+        if ($input =~ /\btype\s*=\s*['"]?(\w+)/i)
+        {
+                $type = $1;
+        }
+        my $name = '';
+        if ($input =~ /\bname\s*=\s*['"]?([-\w_\.]+)/i)
+        {
+                $name = $1;
+        }
+        $name = "\"$name\"";
+        
+        my $fieldIndex = $self->{"fieldIndex"}++;
+        
+        print "DecorateInputField($name($fieldIndex, $type))\n";
+        
+        my $elements = "wk_get_field($self->{'formIndex'},";
+        if ($type =~ /^button$/i)
+        {
+                return $input . $self->SuperScript(0, $elements . "$fieldIndex, $name).onclick()");
+        }
+        elsif ($type =~ /^hidden$/i)
+        {
+                return $input;
+        }
+        elsif ($type =~ /^image/i)
+        {
+                # this doesn't work.  For the case where the form contains a
+                # single input image, and is POSTed, the post data should contain
+                # "&imageInput.x=7imageInput.x=32" but does not with this method.
+                # 'next 20' image button on some search results yields this behavior
+                #return $input . $self->SuperScript(0, "document.forms[$self->{'formIndex'}].submit()");
+                $self->{"fieldIndex"}--;
+                return $input;
+        }
+        elsif ($type =~ /^(checkbox|radio|reset|submit)$/i)
+        {
+                return $input unless $name or $type !~ /^radio$/i; # anonymous radio button setting crashes navigator
+                return $input . $self->SuperScript(0, $elements . "$fieldIndex, $name).click()");
+        }
+        return $self->SuperScript(0, $elements . "$fieldIndex, $name).focus()") . $input;
+}
+
+sub Page
+{
+        my($data, $target) = @_;
+
+        my $d = Decorate->new($target, 200);
+        $d->Chunk(\$data);
+        return $data . $d->Cleanup();
+}
+
+#=====================================================================================
+# methods below
+# 
+use vars '@ISA';
+require adynware::s_user;
+@ISA = qw(s_user);
+
+sub DocumentStart
+{
+        my($self) = @_;
+        return "";
+}
+
+sub DocumentFinish
+{
+        my($self) = @_;
+        return $self->Cleanup();
+}
+
+sub DocumentChunk
+{
+        my($self, $chunk) = @_;
+        my $s = $self->Chunk($chunk);
+        #print     "\n===================================================================\n";
+        #print $s, "\n===================================================================\n";
+        return $s;
+}
+
+sub Redirect
+{
+        my($self, $oldURL, $newURL) = @_;
+        unique_scripts::redirect($oldURL, $newURL);
+}
+
+sub DisableW
+{
+	$decorate__enabledJavaScriptHeader =~ s/var disableW = false/var disableW = true/;
+}
+
+
+sub new
+{
+        my $this = shift;
+        my $target = shift;
+        my $status = shift;
+        die "target is a required argument for decorate object" unless defined $target;
+        my $class = ref($this) || $this;
+        my $self = {};
+        
+        bless $self, $class;
+        $self->Init($target, $status);
+        return $self;
+}
+
+1;
+
+# test with: sh -x $HOME/work/bin/decorator  c:/k.htm ;cat c:/k.htm
+#

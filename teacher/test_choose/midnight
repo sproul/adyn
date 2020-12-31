@@ -1,0 +1,173 @@
+sh t.sh
+user_600: 30 requests in 23.953125 seconds: 1.25244618395303
+user_1000: 30 requests in 25.234375 seconds: 1.18885448916409
+user_100: 30 requests in 22.796875 seconds: 1.31596984235778
+user_30: 30 requests in 22.4375 seconds: 1.33704735376045
+user_300: 30 requests in 23.203125 seconds: 1.29292929292929
+diff -r can/user_100.out output/user_100.out
+1,15c1,15
+< verb_act.0
+< verb_begin.32
+< verb_conclude.0
+< verb_fear.60
+< verb_go.32
+< verb_hurt.6
+< verb_intend.0
+< verb_leave.12
+< verb_make_an_effort.12
+< verb_move.52
+< verb_obtain.60
+< verb_protect.52
+< verb_swim.52
+< vocab_family.0
+< vocab_materials.0
+---
+> verb_advance_63/1035
+> verb_bring_21/1035
+> verb_err_5/1035
+> verb_excuseXYZ_2/1036
+> verb_lend_8/1035
+> verb_melt_2/1035
+> verb_pinch_5/1036
+> verb_say_52/1035
+> verb_scold.4
+> verb_see.38
+> verb_seem.11
+> verb_seize.0
+> verb_sell.29
+> verb_send.26
+> verb_separate.2
+diff -r can/user_1000.out output/user_1000.out
+1,15c1,15
+< verb_act.2
+< verb_begin.32
+< verb_conclude.1
+< verb_fear.60
+< verb_go.32
+< verb_hurt.6
+< verb_intend.0
+< verb_leave.12
+< verb_make_an_effort.12
+< verb_move.52
+< verb_obtain.60
+< verb_protect.52
+< verb_swim.52
+< verb_swim.53
+< vocab_materials.0
+---
+> verb_achieve_8/1035
+> verb_appear_15/1035
+> verb_excuseXYZ_2/1036
+> verb_intend_1/1035
+> verb_pinch_5/1036
+> verb_scold.4
+> verb_see.12
+> verb_seem.15
+> verb_seize.0
+> verb_sell.27
+> verb_send.28
+> verb_separate.6
+> verb_smell_5/1035
+> verb_speak_28/1035
+> verb_spoil_1/1035
+diff -r can/user_30.out output/user_30.out
+1,15c1,15
+< verb_act.0
+< verb_begin.32
+< verb_conclude.0
+< verb_fear.60
+< verb_go.32
+< verb_hurt.6
+< verb_intend.0
+< verb_leave.12
+< verb_make_an_effort.12
+< verb_move.52
+< verb_obtain.60
+< verb_protect.52
+< verb_swim.52
+< vocab_family.0
+< vocab_materials.0
+---
+> verb_anger_4/1035
+> verb_excuseXYZ_2/1036
+> verb_go_7/1035
+> verb_pinch_5/1036
+> verb_rip_51/1035
+> verb_scold.6
+> verb_see.12
+> verb_seem.15
+> verb_seize.0
+> verb_sell.27
+> verb_send.28
+> verb_separate.4
+> verb_serve_13/1035
+> verb_travel_49/1035
+> vocab_linking_13/1035
+diff -r can/user_300.out output/user_300.out
+1,15c1,15
+< verb_act.0
+< verb_begin.32
+< verb_conclude.0
+< verb_fear.60
+< verb_go.32
+< verb_hurt.6
+< verb_intend.0
+< verb_leave.12
+< verb_make_an_effort.12
+< verb_move.52
+< verb_obtain.60
+< verb_protect.52
+< verb_swim.52
+< vocab_family.0
+< vocab_materials.0
+---
+> verb_be_able_to_14/1035
+> verb_be_wrong_14/1035
+> verb_excuseXYZ_2/1036
+> verb_get_up_6/1035
+> verb_melt_2/1035
+> verb_pinch_5/1036
+> verb_say_34/1035
+> verb_scold.6
+> verb_see.17
+> verb_seem.24
+> verb_seize.0
+> verb_sell.28
+> verb_send.28
+> verb_send_43/1035
+> verb_separate.2
+diff -r can/user_600.out output/user_600.out
+1,15c1,15
+< verb_act.1
+< verb_begin.32
+< verb_conclude.1
+< verb_fear.60
+< verb_go.32
+< verb_hurt.6
+< verb_intend.0
+< verb_leave.12
+< verb_make_an_effort.12
+< verb_move.52
+< verb_obtain.60
+< verb_protect.52
+< verb_swim.52
+< vocab_family.0
+< vocab_materials.0
+---
+> verb_be_able_to_13/1035
+> verb_call_6/1035
+> verb_excuseXYZ_2/1036
+> verb_fear_16/1035
+> verb_pinch_5/1036
+> verb_scold.2
+> verb_see.29
+> verb_seem.15
+> verb_seize.0
+> verb_sell.27
+> verb_send.28
+> verb_separate.6
+> verb_stroke_2/1035
+> verb_study_8/1035
+> verb_want_11/1035
+cp -p output/* can
+$ 

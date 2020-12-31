@@ -1,0 +1,183 @@
+:
+catResult=""
+#catResult="yes"
+##
+
+if [ ! -d "c:/" ]; then
+	catResult="yes"
+fi
+
+
+Gen()
+{
+	cd $HOME/work/adyn.com/httpdocs/teacher
+	perl -w tx.pl -genInfrastructure
+}
+
+ChooseSet()
+{
+	echo ""
+	echo "ChooseSet $1 $2 $3"
+
+	tense=$1
+	verbs=$2
+	exerciseType=$3
+
+	REMOTE_ADDR="127.0.0.1"
+	export REMOTE_ADDR
+
+	cd $HOME/work/adyn.com/cgi-bin
+
+	if [ -n "$verbs" ]; then
+		out="${verbs}.$tense.$exerciseType"
+	elif [ -f $tense.html ]; then
+		out="${tense}_custom"	# don't let ts overwrite lang "reference" page
+	else
+		out="${tense}"
+	fi
+	rm -f $out.htm
+
+	(
+	echo "verboseMode=yes"
+	if [ $tense = "deirdre" ]; then
+		echo "resetReviewExercises=1"
+		echo "userID=deirdre"
+		echo "exerciseType=vocab_selected"
+		echo reviewPercentage=0
+		#echo "lang_Spanish=1"
+		echo "lang_French=1"
+		#echo "lang_Italian=1"
+		echo "tense=$tense"
+		echo "chosenCategories=vocab_pronouns_subject"
+		#echo "chosenCategories=vocab_family"
+		#echo "chosenCategories=vocab_time"
+		echo reviewPercentage=0
+		echo "exerciseSetTargetSize=30"
+		#echo "tense=preterite"
+	elif [ $tense = "custom" ]; then
+		echo "userID=de"
+		echo "exerciseType=vocab_selected"
+		echo "lang_German=1"
+		echo "chosenCategories=de_adjective_endings"
+		echo "exerciseSetTargetSize=14"
+		#echo "tense=preterite"
+	elif [ $tense = "custom2_gof" ]; then
+		echo reviewPercentage=100
+		echo whichPanel=choose.html
+		#echo tense=all
+		#echo randomSeed=12983
+		echo exerciseSetTargetSize=3
+		echo userID=GoF
+		echo pw=x
+		echo "lang_A=1";
+		echo "promptLang=Q";
+		#echo promptLang=English
+		echo "exerciseType=vocab_selected";
+		echo "chosenCategories=GoF"
+		#echo exerciseType=verb_common
+	elif [ $tense = "custom2_uml" ]; then
+		echo "reviewPercentage=0"
+		echo "exerciseSetTargetSize=15";
+		echo "exerciseType=vocab_selected";
+		echo "chosenCategories=uml"
+		echo "lang_A=1";
+		echo "promptLang=Q";
+		echo "userID=uml"
+		echo "randomSeed=2208"
+	elif [ $tense = "custom2_explicit" ]; then
+		echo "explicitlyRequestedExercises=base_396/verb_load_51"
+		echo "exerciseSetTargetSize=25";
+		echo "exerciseType=verb_all";
+		echo "lang_French=1";
+		echo "lang_German=1";
+		echo "lang_Italian=1";
+		echo "lang_Spanish=1";
+		#echo "canonizedTest=1";
+		echo "userID=user_100"
+	elif [ $tense = "custom2_user100" ]; then
+		echo "reviewPercentage=50"
+		echo "exerciseSetTargetSize=15";
+		echo "exerciseType=verb_all";
+		echo "lang_French=1";
+		echo "lang_German=1";
+		echo "lang_Italian=1";
+		echo "lang_Spanish=1";
+		#echo "canonizedTest=1";
+		echo "userID=user_100"
+	elif [ $tense = "custom2" ]; then
+		echo "reviewPercentage=0"
+		echo "exerciseSetTargetSize=25"
+		echo "userID=nsproul"
+		#echo "userID=interview"
+		#echo "tense=future_perfect"
+		#echo "tense=present"
+		echo "tense=all"
+		echo "chosenVerbs=verb_have"
+		echo "exerciseType=verb_selected"
+	elif [ $tense = "j2ee" ]; then
+		echo "chosenCategories=j2ee"
+		echo "chosenCategories=jwsdp"
+		echo "exerciseType=vocab_selected"
+		echo "pageFromWhichNewQueriesWillBeInitiated=/teacher/html/alln.htm"
+		echo "promptLang=Q"
+		echo "lang_A=1"
+		echo "userID=j2ee"
+		
+		
+	elif [ $tense = "custom3" ]; then
+		echo "userID=nsproul"
+		echo "exerciseType=vocab_selected"
+		#echo "exerciseType=verb_common"
+		echo "tense=subjunctive"
+		echo "userID=nsproul"
+		echo reviewPercentage=0
+		echo "exerciseSetTargetSize=15"
+	else
+		echo "userID=$tense"
+		echo "exerciseType=vocab_selected"
+		echo "promptLang=Q"
+		echo "lang_A=1"
+		echo "reviewPercentage=50"
+		echo "chosenCategories=$tense"
+		echo "exerciseSetTargetSize=25"
+	fi
+	) | perl -w choose.cgi |	# cat; return
+
+	if [ -n "$catResult" ]; then
+		cat
+	else
+		cat > $out.htm
+	fi
+}
+
+#Gen
+topic=$1
+if [ -z "$topic" ]; then
+	topic="custom2"
+fi
+
+ChooseSet $topic
+exit
+ChooseSet custom3
+ChooseSet custom2
+ChooseSet custom
+ChooseSet all all verb_all
+exit
+
+ChooseSet all all reviewExercises
+ChooseSet past write verb_selected
+ChooseSet all do base
+ChooseSet all do verb_selected
+ChooseSet all hear verb_selected
+ChooseSet all travel verb_selected
+ChooseSet all stroll verb_selected
+ChooseSet all begin verb_selected
+ChooseSet present be verb_selected
+ChooseSet present have verb_selected
+ChooseSet present go verb_selected
+ChooseSet past%20conditional have verb_selected
+ChooseSet all be verb_selected
+ChooseSet all have verb_selected
+ChooseSet all go verb_selected
+ChooseSet present all verb_all
+exit 0

@@ -1,0 +1,19 @@
+sh generate_resume.ksh
+
+stty: standard input: Inappropriate ioctl for device
+16:43:30 o7 101$ . $HOME/.bashrc; echo nmidnight init is done
+stty: standard input: Inappropriate ioctl for device
+nmidnight init is done
+16:43:35 o7 102$ sh generate_resume.ksh
+b http://127.0.0.1:81/resume/resume.html &
+b http://127.0.0.1:81/resume/mailable_resume.html &
+/cygdrive/c/users/nsproul/work/adyn.com/httpdocs/resume/resume.txt
+b http://127.0.0.1:81/resume/projects.html &
+b http://www.adyn.com/resume/resume.html &
+b http://www.adyn.com/resume/mailable_resume.html &
+b http://www.adyn.com/resume/projects.html &
+done
+16:43:38 o7 103$ gi minic
+Berkeley Minicar 2498 San Pablo Ave Berkeley, CA 94702 (510) 841-1221
+berkeley minicar 841.1221
+10:06:22 o7 104$ gi minic

@@ -1,0 +1,37 @@
+@val = (
+{
+'English' => 'to play better',
+'French' => '@@',
+'German' => '@@',
+'Italian' => '@@',
+'Spanish' => '@@',
+},
+{
+'English' => 'to learn a foreign language',
+'French' => '@@',
+'German' => '@@',
+'Italian' => '@@',
+'Spanish' => '@@',
+},
+{
+'English' => 'to work harder',
+'French' => '@@',
+'German' => '@@',
+'Italian' => '@@',
+'Spanish' => '@@',
+},
+{
+'English' => 'to lose weight',
+'French' => '@@',
+'German' => '@@',
+'Italian' => '@@',
+'Spanish' => '@@',
+},
+{
+'English' => 'to get stronger',
+'French' => '@@',
+'German' => '@@',
+'Italian' => '@@',
+'Spanish' => '@@',
+},
+);

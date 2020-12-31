@@ -1,0 +1,40 @@
+(Sect. 14) How can I play *.au files from an application? 
+ A new static method was introduced in JDK1.2 in the class Applet: 
+
+
+    public final static AudioClip newAudioClip(URL url) {
+    
+The method turns a URL (pointing to an audio file) into an AudioClip. Since the method is static it can be used without any objects of class Applet needing to exist, e.g. in an application. Once you have an AudioClip, you can play it with: 
+
+    MyAudioClip.play();
+    
+The Java Media Framework provides a richer API for playing sounds in an application. 
+For code prior to JDK 1.2, you can use the AudioClip or AudioPlayer class in sun.audio http://www.javaworld.com/javaworld/javatips/jw-javatip24.html. If you do this your code is no longer 100% pure Java code, as it relies on a vendor library. 
+
+    import sun.audio.*;
+    
+
+    URL url; ...
+    AudioStream audiostream = new AudioStream(url.openStream());
+    AudioPlayer.player.start(audiostream);
+    ...
+    AudioPlayer.player.stop(audiostream);
+    
+Also in the FAQ: 
+Use the new Java Media Framework API, allowing a wide range of video and audio formats to be played back. See previous question. 
+
+(Sect. 14) How do I read in an image file, in an application?  
+
+
+
+
+
+(Sect. 14) How can I record sounds? 
+ The Java Media Framework will eventually support this, but it does not yet. JMF 1.0.1 only supports playback. 
+JMF 1.0.1 is bundled with JDK 1.2, and available as a separate download for JDK 1.1 and Netscape Communicator 4 with Java 1.1. 
+Other sites: 
+
+
+In the meantime, there is a package for Win95/NT available at http://www.scrawl.com/store/. It supports 8, 16-bit, stereo, mono, 11025, 22050, 44100 Hz record/play, load/save .WAV files. You could also interface to native code for your platform. 
+
+

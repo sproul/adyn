@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /etc/
+Disallow: /pix/
+Disallow: /bin/
+Disallow: /resume/testimony/

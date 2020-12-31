@@ -1,0 +1,231 @@
+<!--Copyright 2001 Adynware Corp., all rights reserved-->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"><!doctype html>
+<head>
+    <link rel="icon" type="image/gif" href="/favicon.GIF" />
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+    <META name="viewport" content="width=device-width">
+    <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+</head>
+<body bgcolor=#cccccc><font face='arial'>
+
+<script src="jquery-1.9.0.js"></script>
+<script src="jquery-cookie-1.4.0/jquery.cookie.js"></script><!-- https://github.com/carhartl/jquery-cookie/blob/master/jquery.cookie.js, https://raw.github.com/carhartl/jquery-cookie/master/jquery.cookie.js -->
+<script src="julien-maurel-jQuery-Storage-API-e5a8a64/jquery.storageapi.js"></script>
+<script src="/teacher/html/test.js"></script>
+<script src="forms.js"></script>
+<script src="stg.js"></script>
+<script src="cookie_field.js"></script>
+<script src="cookie_field__defaults.js"></script>
+<script src="u.js"></script>
+<script src="choose.js"></script>
+<script src="win.js"></script>
+<script src="new2.js"></script>
+<script src=gen/choose_html_populated_selects.js></script>
+<script language="JavaScript">
+    
+function on_Short_click()
+{
+    location = adyn_url_offset + 'simple_choose.htm'
+}
+$(document).ready(
+function()
+{
+    document.onkeypress = watch_for_enter_to_submit
+    if (!userID)
+    {
+        window.location.href = adyn_url_offset + "login.htm"
+    }
+    document.teacher_form.userID.value = userID
+    
+    cookie_field__defaults("choose.htm")
+    $('#div__chosenVerbs').html(choose_html_populated_selects__chosenVerbs())
+    $('#div__chosenCategories').html(choose_html_populated_selects__chosenCategories())
+    document.title = 'Long Form: Choose Exercises for ' + userID
+    if (!onLine())
+    {
+        alert('You are offline, and in offline mode, only the short form for choosing is supported...')
+        window.location.href = "simple_choose.htm"
+    }
+})
+function SelectingVerb()
+{
+    forms_setSelected(document.teacher_form.exerciseType, "verb_selected")
+}
+
+function SelectingVocab()
+{
+    forms_setSelected(document.teacher_form.exerciseType, "vocab_selected")
+}
+
+function on_submit_click()
+{
+    if (!forms_verifyDigits(document.teacher_form.reviewPercentage, 'review exercise percentage') || (document.teacher_form.reviewPercentage.value > 100))
+    {
+	alert('The percentage of exercises which will be review exercises has to be a number from 0 to 100.\nPlease make it so and resubmit')
+	document.teacher_form.reviewPercentage.focus()
+    }
+    else
+    {
+        var url_addend
+        if (forms_getSelected(document.teacher_form.exerciseType) == "vocab_selected")
+        {
+            url_addend = forms_getSelected_as_url_addend(document.teacher_form.chosenCategories)
+        }
+        else if (forms_getSelected(document.teacher_form.exerciseType) == "verb_selected")
+        {
+            url_addend = forms_getSelected_as_url_addend(document.teacher_form.chosenVerbs)
+        }
+        else
+        {
+            url_addend = ""
+        }
+        choose_shared_submit(url_addend)
+    }
+}
+
+</script>
+
+<form name=teacher_form>
+<input type=hidden name=userID size=64>
+<input type=hidden name=whichPanel value='choose.htm'>
+
+<center>
+<table bgcolor=white border=1 cellpadding=10 cellspacing=1 width=90%>
+<tr>
+<td>
+
+<font size=+2><b>Select a set of exercises</b></font><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<input type=button name=topic_help value="Help" onClick="on_Help_click()">
+<!--
+&nbsp;&nbsp;&nbsp;&nbsp;<input type=button name=topic_help value="Overview" onClick="on_Overview_click()">
+-->
+&nbsp;&nbsp;&nbsp;&nbsp;<input type=button name=topic_help value="Reset to defaults" onClick="reset_all_to_defaults()" >
+&nbsp;&nbsp;&nbsp;&nbsp;<input type=button name=topic_help value="Short form" onClick="on_Short_click()">
+<br>
+
+
+</td>
+</tr>
+</table>
+
+<table bgcolor=white border=1 cellpadding=10 cellspacing=1 width=90%>
+<tr>
+<td><h3>1. Choose your languages</h3>
+
+<table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=100%>
+<tr>
+<td>
+<input type=checkbox id=lang_French name=lang_French value="French">French<br>
+<input type=checkbox id=lang_German name=lang_German value="German">German<br>
+<input type=checkbox id=lang_Italian name=lang_Italian value="Italian">Italian<br>
+<input type=checkbox id=lang_Spanish name=lang_Spanish value="Spanish">Spanish<br>
+</td>
+</tr>
+</table>
+
+<h3>2. Select your prompting language</h3>
+
+<table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=100%>
+<tr>
+    <td>
+        <input type=radio id=promptLang__English name=promptLang value="English">English<br>
+        <input type=radio id=promptLang__French  name=promptLang value="French">French<br>
+        <input type=radio id=promptLang__German  name=promptLang value="German">German<br>
+        <input type=radio id=promptLang__Italian name=promptLang value="Italian">Italian<br>
+        <input type=radio id=promptLang__Spanish name=promptLang value="Spanish">Spanish<br>
+    </td>
+</tr>
+</table>
+
+<h3>3. Select your tenses</h3>
+
+<table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=100%>
+    <tr>
+        <td>
+            <input type=checkbox id=tense__all       name=tense value="all"      >all      <br>
+            <input type=checkbox id=tense__present   name=tense value="present"  >present  <br>
+            <input type=checkbox id=tense__preterite name=tense value="preterite">preterite<br>
+            <input type=checkbox id=tense__past      name=tense value="past"     >past     <br>
+            <input type=checkbox id=tense__imperfect name=tense value="imperfect">imperfect<br>
+            <input type=checkbox id=tense__future name=tense value="future">future<br>
+            <input type=checkbox id=tense__conditional name=tense value="conditional">conditional<br>
+            <input type=checkbox id=tense__past_conditional name=tense value="past_conditional">past conditional<br>
+            <input type=checkbox id=tense__future_perfect name=tense value="future_perfect">future perfect<br>
+            <input type=checkbox id=tense__pluperfect name=tense value="pluperfect">pluperfect<br>
+            <input type=checkbox id=tense__subjunctive name=tense value="subjunctive">subjunctive<br>
+            <input type=checkbox id=tense__past_subjunctive name=tense value="past_subjunctive">past subjunctive<br>
+            <input type=checkbox id=tense__imperative name=tense value="imperative">imperative<br>
+            <!--   we don't have enough exercises for these tenses, and anyway they confuse non-German students
+            <input type=checkbox id=tense__k1 name=tense value="k1"><i>Konjunctiv I<br>
+            <input type=checkbox id=tense__k2 name=tense value="k2"><i>Konjunctiv II<br>
+            <input type=checkbox id=tense__past_k2 name=tense value="past_k2">pluperfect <i>Konjunctiv II<br>
+            -->
+        </td>
+    <tr>
+</table>
+
+<h3>4. Select your exercise type</h3>
+<table border=1 width=100%> <tr> <td>
+<input type=radio name=exerciseType id=exerciseType__base value="base"><b>Hardest:</b> Random sentences</td></tr></table>
+
+<table border=1 width=100%> <tr> <td>
+<input type=radio name=exerciseType id=exerciseType__reviewExercises value="reviewExercises"><b>Less hard:</b> Exercises from the <a href='javascript:window.location=adyn_url_offset + "../teacher.html#reviewExercises"'>Review Set</a></td></tr></table>
+
+<table border=1 width=100%> <tr> <td>
+<input type=radio name=exerciseType id=exerciseType__verb_all value="verb_all"><b>Even less hard:</b> Random conjugational exercises</td></tr></table>
+
+<table border=1 width=100%> <tr> <td>
+<input type=radio checked name=exerciseType id=exerciseType__verb_common value="verb_common"><b>Yet Easier:</b> Random conjugational exercises for common verbs</td></tr></table>
+
+<table border=1 width=100%> <tr> <td>
+<table border=0 cellpadding=0 cellspacing=0 width=100%>
+<tr>
+<td>
+<input type=radio name=exerciseType id=exerciseType__verb_selected value="verb_selected"><b>Even Easier:</b> conjugational exercises for:
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;<font size=-1>[To select more than one verb, hold down the control key
+<br>&nbsp;and left-click on each verb you are interested in.]</font>
+<br>
+
+<div id=div__chosenVerbs></div>
+
+</td>
+</tr>
+</table>
+</table>
+<table border=1 width=100%>
+<tr><td>
+<table border=0 cellpadding=0 cellspacing=0 width=100%>
+<tr>
+<td>
+<input type=radio name=exerciseType id=exerciseType__vocab_selected value="vocab_selected"><b>Easiest:</b> vocabulary exercises by selected category:
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;<font size=-1>[To select more than one category, hold down the control key
+<br>&nbsp;and left-click on each category you are interested in.]</font>
+<br>
+
+<div id=div__chosenCategories></div>
+
+</td>
+</tr>
+</table>
+
+</td></tr></table>
+
+<font size=+1><b>5. Get to work</b></font><br>
+<input type=text id=exerciseSetTargetSize name=exerciseSetTargetSize size=3 value='15'> exercises will be retrieved<br>
+<input type=text id=reviewPercentage name=reviewPercentage size=3 value='50'>% of exercises will come from <a href=../teacher.html#reviewExercises>Review Set</a><br>
+<input type=checkbox id=verboseMode name=verboseMode value='verboseMode'>Verbose Mode<br>
+<input type=checkbox name=resetReviewExercises value='resetReviewExercises'><a href=../teacher.html#resetReviewExercises>Empty review set</a><br>
+<input type=button name=submitButton value="Submit" onClick="on_submit_click()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</td>
+</tr>
+</table>
+
+</center>
+</form>
+</body>
+</html>

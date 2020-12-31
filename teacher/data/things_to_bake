@@ -1,0 +1,37 @@
+# formatted
+@val = (
+{
+'English' => 'a cake',
+'French' => '{un g#ateau>s>}',
+'German' => '{ein Kuchen>s>}',
+'Italian' => '{un torta>s>}',
+'Spanish' => '{un bizcocho>s>}',
+'id' => 0,
+},
+{
+'English' => 'a pie',
+'French' => '{un tarte>s>}',
+'German' => '{ein Torte>s>}',
+'Italian' => '{un torta>s>}',
+'Spanish' => '{un pastel>s>}',
+'id' => 1,
+},
+{
+'English' => 'a turkey',
+'French' => '{un dindon>s>}',
+'German' => '{ein Truthenne>s>}',
+'German_note#Truthenne>s>;;German' => 'Germans distinguish between <i>ein Truthahn</i> -- a male turkey -- and <i>eine Truthenne</i>, a female turkey.',
+'Italian' => '{un tacchino>s>}',
+'Spanish' => '{un pava>s>}',
+'id' => 2,
+},
+{
+'English' => 'turkeys',
+'French' => '{un dindon>p>}',
+'German' => '{ein Truthenne>p>}',
+'German_note#Truthenne>p>;;German' => 'Germans distinguish between <i>ein Truthahn</i> -- a male turkey -- and <i>eine Truthenne</i>, a female turkey.',
+'Italian' => '{un tacchino>p>}',
+'Spanish' => '{pava>p>}',
+'id' => 3,
+},
+);

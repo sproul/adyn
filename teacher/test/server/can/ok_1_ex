@@ -1,0 +1,20 @@
+<html><header><!-- explicitExercise=verb_be_1;randomSeed=123456;userID=langs -->  <title>Teacher</title></header>
+<body bgcolor=#cccccc><font face='arial'><script language=JavaScript src=../teacher/html/new.js></script><applet codebase=../teacher/html name=teacher code=teacher.class width=1 height=1></applet><script language="JavaScript">
+var adyn_url_offset='../teacher/html/'
+var cookieInitStr='teacherCookie.whichPanel = "simple_choose.htm";teacherCookie.lang_English_checked = "true";teacherCookie.lang_Spanish_checked = "true";teacherCookie.lang_German_checked = "true";teacherCookie.lang_French_checked = "true";teacherCookie.lang_Italian_checked = "true";'
+// exerciseType=undef, chosenTenses=undef, chosenTopics=0, canonizedTest=0, exerciseTargetCnt=15, reviewExerciseTargetCnt=7.5
+se('verb_be_1','English',"...that I be [subjunctive] healthy<sup>1</sup>.","<br><sup>1</sup>For purposes of this exercise, imagine a preceding phrase which obligates using the subjunctive.",'Spanish',"...que yo est&eacute;<sup>1</sup> saludable<sup>2</sup>.","<br><sup>1</sup><i>est&eacute;</i> is a <a href=../teacher/html/Spanish.html#=Verbs=subjunctive target=Spanish.html#=Verbs=subjunctive>subjunctive</a> mood form of the verb <a href=../teacher/html/Spanish_vt_estar.html target=estar><i>estar</i></a> (cf. <a Href='javascript:Choose(\"verb_be\")'>exercises using the verb <i>estar</i></a>).<br><sup>2</sup>Use <i>estar</i> (not <i>ser</i>) to describe changeable characteristics or mood (more at <a href=../teacher/html/Spanish.html#=Verbs=present=estar_and_ser target=Spanish><i>ser</i> and <i>estar</i></a>.",'German',"...da&szlig; ich gesund<sup>1</sup> sei<sup>2</sup>.","<br><sup>1</sup>There is no change for <i>gesund</i> because adjectives never change in German when used with a linking verb like <i>sein</i>, <i>scheinen</i>, <i>werden</i>, etc. (cf. <a href=../teacher/html/German.html#=Adjectives target=German>adjectives</a> for more info).<br><sup>2</sup><i>sei</i> is a <a href=../teacher/html/German.html#=Verbs=k1 target=German.html#=Verbs=k1><i>Konjunctiv I</i></a> tense form of the verb <a href=../teacher/html/German_vt_sein.html target=sein><i>sein</i></a> (cf. <a Href='javascript:Choose(\"verb_be\")'>exercises using the verb <i>sein</i></a>).",'French',"...que je sois<sup>1</sup> sain.","<br><sup>1</sup><i>sois</i> is a <a href=../teacher/html/French.html#=Verbs=subjunctive target=French.html#=Verbs=subjunctive>subjunctive</a> mood form of the verb <a href=../teacher/html/French_vt_e_tre.html target=#etre><i>&ecirc;tre</i></a> (cf. <a Href='javascript:Choose(\"verb_be\")'>exercises using the verb <i>&ecirc;tre</i></a>).",'Italian',"...che io sia<sup>1</sup> sano.","<br><sup>1</sup><i>sia</i> is a <a href=../teacher/html/Italian.html#=Verbs=subjunctive target=Italian.html#=Verbs=subjunctive>subjunctive</a> mood form of the verb <a href=../teacher/html/Italian_vt_essere.html target=essere><i>essere</i></a> (cf. <a Href='javascript:Choose(\"verb_be\")'>exercises using the verb <i>essere</i></a>).")
+function init()
+{
+ia("verb_be_1","verb_be",1,window.name,"langs")
+}
+onload=init
+</script>
+</font>
+</body></html>
+Nelson is setting binmode to 0: c:/perl/lib/CGI.pm
+Nelson is setting binmode to 0: c:/perl/lib/CGI.pm
+Nelson is setting binmode to 0: c:/perl/lib/CGI.pm
+Nelson is setting binmode to 0: c:/perl/lib/CGI.pm
+Nelson is setting binmode to 0: c:/perl/lib/CGI.pm
+adyn_cgi_util::MailAdyn(choose.cgi exercises selected langs, verb_be_1): would mail adyn if I were on unix

@@ -1,0 +1,912 @@
+@val = (
+{
+'A' => '&lt;html:link paramId="target"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;paramName="linkParams" paramProperty="target"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;paramScope="request" &gt;detail.html&lt;/html:link&gt;would correspond to something like ',
+'Q' => 'rewrite the following using struts constructs:<br>&nbsp;&nbsp;&lt; HREF="detail.html?&lt;%= request.getParameter("linkParams").getTarget() %&rt;"&rt;&gt;/A&rt; ',
+'id' => 0,
+},
+{
+'A' => '<font size=-1>java.util.ResourceBundle</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> pub_ Enumeration </td><td>-getKeys()</td></tr><tr><td width=20%> prot Object </td><td>-handleGetObject(String key)</td></tr><tr><td width=20%> pub_ final ResourceBundle </td><td>@getBundle(String baseName)</td></tr><tr><td width=20%> pub_ final ResourceBundle </td><td>@getBundle(String baseName, Locale locale)</td></tr><tr><td width=20%> pub_ ResourceBundle </td><td>@getBundle(String baseName, Locale locale, ClassLoader loader)</td></tr><tr><td width=20%> pub_ </td><td>ResourceBundle()</td></tr><tr><td width=20%> pub_ void </td><td>clear()</td></tr><tr><td width=20%> pub_ Object </td><td>clone()</td></tr><tr><td width=20%> pub_ boolean </td><td>equals(Object other)</td></tr><tr><td width=20%> pub_ Locale </td><td>getLocale()</td></tr><tr><td width=20%> pub_ final Object </td><td>getObject(String key)</td></tr><tr><td width=20%> pub_ final String </td><td>getString(String key)</td></tr><tr><td width=20%> pub_ final String[] </td><td>getStringArray(String key)</td></tr><tr><td width=20%> pub_ int </td><td>hashCode()</td></tr><tr><td width=20%> pub_ void </td><td>setKeyValues(ClassLoader loader, String searchName, Locale defaultLocale)</td></tr></table><br>&nbsp;&nbsp;<font size=-1>PropertyResourceBundle</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> pub_ </td><td>PropertyResourceBundle(InputStream stream) throws IOException</td></tr><tr><td width=20%> pub_ Enumeration </td><td>getKeys()</td></tr><tr><td width=20%> pub_ Object </td><td>handleGetObject(String key)</td></tr></table><br>&nbsp;&nbsp;<font size=-1>ListResourceBundle</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> prot Object[][] </td><td>-getContents()</td></tr><tr><td width=20%> pub_ </td><td>ListResourceBundle()</td></tr><tr><td width=20%> pub_ Enumeration </td><td>getKeys()</td></tr><tr><td width=20%> pub_ final Object </td><td>handleGetObject(String key)</td></tr></table><br>&nbsp;&nbsp;&nbsp;&nbsp;<font size=-1>BookstoreMessages</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> pub_ Object[][] </td><td>getContents()</td></tr></table><br>&nbsp;&nbsp;&nbsp;&nbsp;<font size=-1>BookstoreMessages_es</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> pub_ Object[][] </td><td>getContents()</td></tr></table> ',
+'Q' => 'standard Java class providing the fundamental tools for supporting messages in multiple languages ',
+'id' => 1,
+},
+{
+'A' => 'at the Controller or Action level<br>&nbsp;When pages are placed under WEB-INF, you can make all security checks at the Action or controller level, and forgo putting any type of "isLoggedIn" tag on your pages. The page should be able to assume that the Action authorized the user before forwarding control (since the user could not access the page except through an ActionForward). ',
+'Q' => 'where should logins be checked ',
+'id' => 2,
+},
+{
+'A' => 'java.util.PropertyResourceBundle is a subclass of ResourceBundle: convenient for preparing resource bundles with messages that are used in a web application, because these messages are generally text oriented.<br>Java class that allows you to define internationalized messages using the same "name=value" syntax used to initialize properties files ',
+'Q' => 'PropertyResourceBundle ',
+'id' => 3,
+},
+{
+'A' => 'java.text.MessageFormat is a class which allows you to replace portions of a message string retrieved from a resource bundle with arguments specified at run time ',
+'Q' => 'MessageFormat ',
+'id' => 4,
+},
+{
+'A' => 'The struts class org.apache.struts.util.MessageResources lets you treat a set of resource bundles like a database; allows you to request a particular message string for a particular Locale (normally one associated with the current user) instead of for the default Locale the server itself is running in. ',
+'Q' => 'MessageResources ',
+'id' => 5,
+},
+{
+'A' => 'Use reflection and metadata:<br>&nbsp;A problem with writing flexible helper action classes is populating objects of the correct type. One solution is to define a utility class that can convert an Integration layer object, like a result set, into a Map that can be used with BeanUtils.populate()to transfer data to an arbitrary bean. The bean must simply have one or more accessors that match column names in the Map (which can be generated from a ResultSet, for example). The columns that have a matching accessor will be used to populate the beans. Other accessors and columns are ignored.<br>Here is an example method using a ResultSet:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public static void populate(Object bean,ResultSet resultSet)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throws SQLException &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Build a list of relevant column properties from this resultSet<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HashMap properties = new HashMap();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Acquire resultSet MetaData<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ResultSetMetaData metaData = resultSet.getMetaData();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int cols = metaData.getColumnCount();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Scroll to next record and pump into hashmap<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (resultSet.next()) for (int i=1; i&lt;=cols ; i++) &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;properties.put(metaData.getColumnName(i),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;resultSet.getString(i));<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Set the corresponding properties of our bean<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BeanUtils.populate(bean, properties);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125; catch (Exception e) &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw new SQLException("BeanUtils.populate threw " + e.toString());<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;A base bean object can then be passed to an Integration layer helper:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public static final void selectBean(String key, String command, Object bean)<br>&nbsp;and the data can be transferred from within the data access method<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Transfer ResultSet (using reflection and metadata)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ResultSetUtils.populate(bean,resultSet);<br>&nbsp;In this case, the command and key string could retrieve many different sets of data, without creating specialized helpers for each set. A bean appropriate to the result is passed with the call, and reflection does the rest.<br>&nbsp;Here\'s another method that can be used to return a Collection of instantiated beans, each representing a row from the ResultSet.<br>&nbsp;public static Collection getCollection(Object target, ResultSet resultSet)<br>throws SQLException &#123;<br>&nbsp;// Acquire resultSet MetaData<br>ResultSetMetaData metaData = resultSet.getMetaData();<br>int cols = metaData.getColumnCount();<br>&nbsp;// Use ArrayList to maintain ResultSet sequence<br>ArrayList list = new ArrayList();<br>&nbsp;// Acquire target class<br>Class factory = target.getClass();<br>&nbsp;// Scroll to each record; copy to hashmap; populate target<br>while (resultSet.next()) &#123;<br>HashMap map = new HashMap(cols,1);<br>for (int i=1; i&lt;=cols; i++) &#123;<br>map.put(metaData.getColumnName(i),<br>resultSet.getString(i));<br>&#125;<br>// Create bean and populate from hashmap<br>try &#123;<br>Object bean = factory.newInstance();<br>BeanUtils.populate(bean,map);<br>list.add(bean);<br>&#125; catch (Exception e) &#123;<br>throw new SQLException("RequestUtils.getCollection: " + e.toString());<br>&#125;<br>&#125;<br>return ((Collection) list);<br>&#125;<br>&nbsp;Like the other method, this can be called from within a Helper action to disengage the Resource Layer from the rest of the application. All that is required is to pass along an instance of a bean which has some accessors that some column names in the ResultSet.<br>&nbsp;This is a good way to reuse beans for both pick-lists and detail pages. The detail bean can be used for both, but passed to a different query that only populates properties used on the pick-list. Since the reflection runs from the result set to the bean, you can use fewer columns than may be available on the bean. Unused properties will simply be null. ',
+'Q' => 'what\'s a good way to transfer data from a result set ',
+'id' => 6,
+},
+{
+'A' => 'Models 1, 2 ',
+'Q' => '<ul><li>using JSPs alone</li><li>using JSPs and servlets together</li></ul> ',
+'id' => 7,
+},
+{
+'A' => 'Spin ',
+'Q' => 'an authoring tool based on JavaBeans that can author servlets ',
+'id' => 8,
+},
+{
+'A' => 'some Netscape Web servers ',
+'Q' => '<ul><li>FastTrack</li><li>Enterprise</li></ul> ',
+'id' => 9,
+},
+{
+'A' => '<ul><li>binary distribution of Struts 1.0.2: <a href=\'http://jakarta.apache.org/builds/jakarta-struts/release/v1.0.2/<br>Includes<br>&nbsp\'>http://jakarta.apache.org/builds/jakarta-struts/release/v1.0.2/<br>Includes<br>&nbsp</a>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;webapps/struts-blank.war<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;webapps/struts-documentation.war<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;webapps/struts-example.war<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;webapps/struts-exercise-taglib.war<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;webapps/struts-template.war<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;webapps/struts-upload.war</li><li>library distribution: lib (no webapps)</li><li>source distribution: src</li></ul> ',
+'Q' => 'what are the various struts distributions ',
+'id' => 10,
+},
+{
+'A' => 'Apache JMeter may be used to test server performance both on static and dynamic resources (files or CGI, Servlets, Perl scripts). It may <font color=red>also be used to simulate a heavy load on a server or network</font> to test its strength or to analyse overall performance under different load types. You can use it to make a graphical analysis of your server or to test your server/script behavior under heavy concurrent load. ',
+'Q' => 'what is a program used to test Apache performance ',
+'id' => 11,
+},
+{
+'A' => 'GIFServlet ',
+'Q' => 'name an abstract base class that makes it easier to create dynamic GIFs with Servlets ',
+'id' => 12,
+},
+{
+'A' => 'a software component that makes servlets run inside existing web servers<ul><li>Apache JServ - a servlet engine for Apache Web Server; now replaced by Tomcat</li><li>Tomcat - an implementation of the Java Servlet 2.2 and JavaServer Pages 1.1 Specifications</li><li>WebSphere by IBM - Supports: Lotus Domino Go Webserver, Apache HTTP Server, IIS, and Netscape Enterprise Server</li><li>Dynamo Web Application Server by ATG</li></ul> ',
+'Q' => 'what is a Servlet Engine ',
+'id' => 13,
+},
+{
+'A' => 'a sophisticated template language for Locomotive - an Open Source Java-based Web Application Server. Locomotive is built on Java and provides integration with Apache via the Apache API, Netscape servers via NSAPI and IIS servers via the ISAPI. The Locomotive currently supports Oracle, Informix, MySQL, Cloudscape:JDBMS, SQL Server. The Locomotive supports the Servlet API, has dynamic load balancing and failover capabilities ',
+'Q' => 'STEAM ',
+'id' => 14,
+},
+{
+'A' => 'an authoring tool based on JavaBeans that can author servlets ',
+'Q' => 'Spin ',
+'id' => 15,
+},
+{
+'A' => '...simple tag handlers<br>&nbsp;[To define a tag requires that it be declared in a tag library descriptor (TLD) implemented as a tag handler (see Tag Handlers). The classes and interfaces used to implement tag handlers are contained in the javax.servlet.jsp.tagext package.]<br>&nbsp;There are two types of tag handlers: simple and classic. Simple tag handlers can be used for tags that do not employ any scripting elements (see JSP Scripting Elements) in attribute values or the tag body. Classic tag handlers must be used if scripting elements are required.<br>&nbsp;Simple tag handlers have the advantage that they can be written with the JSP language in a tag file. This method can used to advantage in tag libraries that are presentation-centric (because then template data doesn\'t have to be embedded in print statements in the tag handler) or that can take advantage of existing tag libraries. It can also be used by page authors who do not know Java. Just as a JSP page gets translated into a servlet class and then compiled, a tag file gets translated into a tag handler and then compiled.<br>&nbsp;Simple tag handlers can also be written with the Java language, by defining a class that implements the SimpleTag interface. This interface is provided for situations when the flexibility of the Java language in needed in order to write the tag handler. The SimpleTagSupport class provides a default implementation for all methods in SimpleTag. Note that the default implementation of the doTag method of SimpleTagSupport does nothing.<br>&nbsp;Classic tag handlers are written with the Java language and implement either the Tag, IterationTag, or BodyTag interface. Interfaces can be used to take an existing Java object and make it a tag handler. For newly created handlers, you can use the TagSupport and BodyTagSupport classes as base classes.<br>&nbsp;[from <a href=\'http://java.sun.com/j2ee/1.4/docs/tutorial/doc/JSPTags5.html\'>http://java.sun.com/j2ee/1.4/docs/tutorial/doc/JSPTags5.html</a>] ',
+'Q' => 'it is even easier to extend the JSP language with... ',
+'id' => 16,
+},
+{
+'A' => '<ul><li>GifEncoder by Jef Poskanser - Create and export GIFs in 100% Java</li><li>Focus on Java: Creating Images from the Command Line - a brief article describing the use of the Java 2 JPEGCodec class.</li><li>Essential JPEG by James R. Weeks (jwweks@bayou.com) - a "surprisingly fast" JPEG encoder in Java that can write to a file</li><li>Jimi by Activated Intelligence - a Java image processing toolkit: read, write, and display over 15 graphics formats</li></ul> ',
+'Q' => 'image processing servlets ',
+'id' => 17,
+},
+{
+'A' => 'Sun\'s JavaMail Home Page: <a href=\'http://java.sun.com/products/javamail/index.html\'>http://java.sun.com/products/javamail/index.html</a> ',
+'Q' => 'e-mail from Java ',
+'id' => 18,
+},
+{
+'A' => 'Apache Cocoon is an XML publishing framework. It allows you to define XML documents and transformations to be applied on it, to eventually generate a presentation format of your choice (HTML, PDF, SVG, ...).<br>&nbsp;[from <a href=\'http://xml.apache.org/cocoon/overview.html\'>http://xml.apache.org/cocoon/overview.html</a>] ',
+'Q' => 'what is Cocoon ',
+'id' => 19,
+},
+{
+'A' => '<ul><li>the obj must extend java.io.Serializable, a marker class</li><li>The ObjectInput and ObjectOutput interfaces are the basis for serialization within Java. The ObjectInputStream and ObjectOutputStream classes, respectively, implement the interfaces.</li></ul>public void save() &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;// Create a file dialog to query the user for a filename.<br>&nbsp;&nbsp;&nbsp;&nbsp;FileDialog f = new FileDialog(frame, "Save Scribble", FileDialog.SAVE);<br>&nbsp;&nbsp;&nbsp;&nbsp;f.show(); // Display the dialog and block.<br>&nbsp;&nbsp;&nbsp;&nbsp;String filename = f.getFile(); // Get the user\'s response<br>&nbsp;&nbsp;&nbsp;&nbsp;if (filename != null) &#123; // If user didn\'t click "Cancel".<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Create the necessary output streams to save the scribble.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileOutputStream fos = new FileOutputStream(filename);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Save to file<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GZIPOutputStream gzos = new GZIPOutputStream(fos);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Compressed<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ObjectOutputStream out = new ObjectOutputStream(gzos);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Save objects<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;out.writeObject(lines); // Write the entire Vector of scribbles<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;out.flush(); // Always flush the output.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;out.close(); // And close the stream.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Print out exceptions. We should really display them in a dialog...<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;catch (IOException e) &#123; System.out.println(e); &#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;public void load() &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;// Create a file dialog to query the user for a filename.<br>&nbsp;&nbsp;&nbsp;&nbsp;FileDialog f = new FileDialog(frame, "Load Scribble", FileDialog.LOAD);<br>&nbsp;&nbsp;&nbsp;&nbsp;f.show(); // Display the dialog and block.<br>&nbsp;&nbsp;&nbsp;&nbsp;String filename = f.getFile(); // Get the user\'s response<br>&nbsp;&nbsp;&nbsp;&nbsp;if (filename != null) &#123; // If user didn\'t click "Cancel".<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Create necessary input streams<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileInputStream fis = new FileInputStream(filename); // Read from<br>file<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GZIPInputStream gzis = new GZIPInputStream(fis); // Uncompress<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ObjectInputStream in = new ObjectInputStream(gzis); // Read objects<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Read in an object. It should be a vector of scribbles<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vector newlines = (Vector)in.readObject();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in.close(); // Close the stream.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lines = newlines; // Set the Vector of lines.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;repaint(); // And redisplay the scribble.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Print out exceptions. We should really display them in a dialog...<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;catch (Exception e) &#123; System.out.println(e); &#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&#125; ',
+'Q' => 'explain how to serialize an obj ',
+'id' => 20,
+},
+{
+'A' => '<ul><li>Model 1: using JSPs alone</li><li>Model 2: using JSPs and servlets together</li></ul> ',
+'Q' => 'Models 1, 2 ',
+'id' => 21,
+},
+{
+'A' => '...Craig R. McClanahan, to provide a standard MVC framework to the Java community. In July 2001, Struts 1.0 was released ',
+'Q' => 'The Struts project was launched in May 2000 by... ',
+'id' => 22,
+},
+{
+'A' => 'In the MVC design pattern, application flow is mediated by a <font color=red>central Controller</font>. The Controller delegates requests - in our case, HTTP requests - to an appropriate handler. The handlers are tied to a Model, and each <font color=red>handler acts as an adapter between the request and the Model</font>. The Model represents, or encapsulates, an application\'s business logic or state. <font color=red>Control is usually then forwarded back through the Controller to the appropriate View</font>. The forwarding can be determined by consulting a set of mappings, usually loaded from a database or configuration file. This provides a <font color=red>loose coupling between the View and Model</font>, which can make an application significantly easier to create and maintain. ',
+'Q' => 'struts: The Model-View-Controller (\'MVC\') Design Pattern ',
+'id' => 23,
+},
+{
+'A' => 'In Struts, the primary component of the Controller is a ActionServlet, configured by defining a set of ActionMappings.<br>&nbsp;The Controller<ul><li>receives requests from the client (typically a user running a web browser),</li><li>decides what business logic function is to be performed,</li><li>delegates responsibility for producing the next phase of the user interface to an appropriate View component.</li></ul>An ActionMapping defines a path that is matched against the request URI of the incoming request, and usually specifies the fully qualified class name of an Action class. ',
+'Q' => 'struts: controller duties ',
+'id' => 24,
+},
+{
+'A' => '<font color=red>Large-scale applications</font> will often <font color=red>represent</font> the set of possible business <font color=red>logic actions as methods that can be called on the beans maintaining the state information</font>. For example, you might have a shopping cart bean, stored in session scope for each current user, with properties that represent the current set of items that the user has decided to purchase. This bean might also have a checkOut() method that authorizes the user\'s credit card, and sends the order to the warehouse to be picked and shipped. Other systems will represent the available actions separately, perhaps as Session Enterprise JavaBeans (Session EJBs).<br>&nbsp;In some <font color=red>smaller scale applications</font>, on the other hand, the available <font color=red>actions might be embedded within the Action classes</font> that are part of the Controller role. This is appropriate when the logic is very simple, or where reuse of the business logic in other environments is not contemplated. The Struts framework supports any of these approaches, but strongly recommends separating the business logic ("how it\'s done") from the role that Action classes play ("what to do"). ',
+'Q' => 'struts: interaction between controller and model ',
+'id' => 25,
+},
+{
+'A' => 'Use the <font color=red>Action Token methods</font><br>&nbsp;There are methods built into the Struts action to generate <font color=red>one-use tokens</font>. A token is placed in the session when a form is populated and also into the HTML form as a hidden property. When the form is returned, the token is validated. If validation fails, then the form has already been submitted, and the user can be apprised.<br>saveToken(request)<br>on the return trip,<br>isTokenValid(request)<br>resetToken(request) ',
+'Q' => 'how do you prevent duplicate submits ',
+'id' => 26,
+},
+{
+'A' => 'Use cached forms, bookmarks, and key notifiers to implement workflows<br>&nbsp;Tasks that must be completed over more than one request (or step) can be difficult to manage in a Web application. A good approach is to setup a session manager that allows you to save attributes under a named scope, and then release them all at once. This makes it relatively easy to save information between steps, retrieve information from another step, and make it all go away when you are done. There is a new workflow proposal between Struts and the Jakarta Commons that uses a more sophisticated version of this approach.<br>&nbsp;Another helpful component for workflows is a "bookmark". This is a stored URI that will return the user to a particular page in the application. If a user exits a workflow, the exit page can be bookmarked for later return. A custom tag can be made part of the template which looks for the bookmark and displays a button to return to the bookmarked page. When a bookmark is not present, then the tag does not display the return form. This can also be used to return to a page after linking to a help area.<br>&nbsp;Many forms in a system have a key field that is used by other forms as a foreign key. When implementing wizards, setup a key notification system. Here, the Actions post the primary key for a form whenever it is accessed. (An abstract getKey() accessor on your base ActionForm is helpful here.) Other forms that use this key as a foreign key can then use the latest value to prepopulate their own related property (when null). The result is that if a user goes off to edit or add a record to complete one workflow, and the key for the related record is logged. When they return to the first workflow, the foreign key they found or added is now inserted into the form. ',
+'Q' => 'Tasks that must be completed over more than one request (or step) are tricky to manage. What\'s a good approach ',
+'id' => 27,
+},
+{
+'A' => 'think of them as a firewall between HTTP and the Action ',
+'Q' => 'analogy for the role of ActionForm beans ',
+'id' => 28,
+},
+{
+'A' => 'No. It is common in many applications to have a "form" (from the user\'s perspective) that extends over multiple pages. Think, for example, of the wizard style user interface that is commonly used when installing new applications. Struts encourages you to define a single ActionForm bean that contains properties for all of the fields, no matter which page the field is actually displayed on. Likewise, the various pages of the same form should all be submitted to the same Action Class. If you follow these suggestions, the page designers can rearrange the fields among the various pages, often without requiring changes to the processing logic. ',
+'Q' => 'Does an ActionForm\'s "form" correspond to a single JSP page in the user interface ',
+'id' => 29,
+},
+{
+'A' => 'you are <font color=red>tying this business logic to the web app environment</font>. Consider rearranging things so that your Action classes (part of the Controller role, as described below) translate all required information from the HTTP request being processed into property setter calls on your business logic beans, after which a call to an execute() method can be made. Such a business logic class can be reused in environments other than the web application for which they were initially constructed. ',
+'Q' => 'what does it mean if you find yourself having to import a javax.servlet.* class into a business logic bean ',
+'id' => 30,
+},
+{
+'A' => 'java.util.Locale. Each Locale represents a particular choice of country and language (plus an optional language variant), and also a set of formatting assumptions for things like numbers and dates. ',
+'Q' => 'The fundamental Java class supporting internationalization, corresponding to each flavor of presentation ',
+'id' => 31,
+},
+{
+'A' => 'java.util.ResourceBundle provides the fundamental tools for supporting messages in multiple languages<br>&nbsp;&nbsp;<font size=-1>java.util.ResourceBundle</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> pub_ Enumeration </td><td>-getKeys()</td></tr><tr><td width=20%> pub_ final ResourceBundle </td><td>@getBundle(String baseName)</td></tr><tr><td width=20%> pub_ final ResourceBundle </td><td>@getBundle(String baseName, Locale locale)</td></tr><tr><td width=20%> pub_ ResourceBundle </td><td>@getBundle(String baseName, Locale locale, ClassLoader loader)</td></tr><tr><td width=20%> pub_ </td><td>ResourceBundle()</td></tr><tr><td width=20%> pub_ void </td><td>clear()</td></tr><tr><td width=20%> pub_ Object </td><td>clone()</td></tr><tr><td width=20%> pub_ boolean </td><td>equals(Object other)</td></tr><tr><td width=20%> pub_ Locale </td><td>getLocale()</td></tr><tr><td width=20%> pub_ final Object </td><td>getObject(String key)</td></tr><tr><td width=20%> pub_ final String </td><td>getString(String key)</td></tr><tr><td width=20%> pub_ final String[] </td><td>getStringArray(String key)</td></tr><tr><td width=20%> pub_ int </td><td>hashCode()</td></tr><tr><td width=20%> pub_ void </td><td>setKeyValues(ClassLoader loader, String searchName, Locale defaultLocale)</td></tr><tr><td width=20%> prot void </td><td>setParent( ResourceBundle parent )</td></tr></table><br>&nbsp;&nbsp;&nbsp;<font size=-1>ListResourceBundle</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> prot Object[][] </td><td>-getContents()</td></tr><tr><td width=20%> pub_ </td><td>ListResourceBundle()</td></tr><tr><td width=20%> pub_ Enumeration </td><td>getKeys()</td></tr><tr><td width=20%> pub_ final Object </td><td>handleGetObject(String key)</td></tr></table><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size=-1>BookstoreMessages</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> pub_ Object[][] </td><td>getContents()</td></tr></table><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size=-1>BookstoreMessages_es</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> pub_ Object[][] </td><td>getContents()</td></tr></table><br>&nbsp;&nbsp;&nbsp;<font size=-1>PropertyResourceBundle</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> pub_ </td><td>PropertyResourceBundle(InputStream stream) throws IOException</td></tr><tr><td width=20%> pub_ Enumeration </td><td>getKeys()</td></tr><tr><td width=20%> pub_ Object </td><td>handleGetObject(String key)</td></tr></table> ',
+'Q' => 'standard Java class providing the fundamental tools for supporting messages in multiple languages ',
+'id' => 32,
+},
+{
+'A' => 'java.util.PropertyResourceBundle, a subclass of ResourceBundle: convenient for preparing resource bundles with messages that are used in a web application, because these messages are generally text oriented. ',
+'Q' => 'Java class that allows you to define internationalized messages using the same "name=value" syntax used to initialize properties files ',
+'id' => 33,
+},
+{
+'A' => 'java.text.MessageFormat<br>&nbsp;Java 2 platform provides three specialized subclasses of <code>Format</code>--<ul><li><code>DateFormat</code></li><li><code>MessageFormat</code></li><li><code>NumberFormat</code></li></ul>Format _________________________________ $JAVA/src/java/text/Format.java:4733<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pub_ StringBuffer -format(Object obj, StringBuffer toAppendTo, FieldPosition pos)!<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pub_ Object -parseObject(String source, ParsePosition pos)!<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;prot Field(String name)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pub_ Object clone()<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AttributedCharacterIterator createAttributedCharacterIterator( AttributedCharacterIterator iterator, AttributedCharacterIterator.Attribute key, Object value)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AttributedCharacterIterator createAttributedCharacterIterator( AttributedCharacterIterator[] iterators)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AttributedCharacterIterator createAttributedCharacterIterator( String string, AttributedCharacterIterator.Attribute key, Object value)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AttributedCharacterIterator createAttributedCharacterIterator(String s)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pub_ final String format(Object obj)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pub_ AttributedCharacterIterator formatToCharacterIterator(Object obj)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pub_ void formatted(Format.Field attr, Object value, int start, int end, StringBuffer buffer)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pub_ void formatted(int fieldID, Format.Field attr, Object value, int start, int end, StringBuffer buffer)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pub_ Object parseObject(String source) throws ParseException<br>&nbsp;<font size=-1>java.text.MessageFormat</font><table border=1 cellpadding=0 cellspacing=0 width=100%><tr><td width=20%> priv final void </td><td>@copyAndFixQuotes( String source, int start, int end, StringBuffer target)</td></tr><tr><td width=20%> priv final int </td><td>@findKeyword(String s, String[] list)</td></tr><tr><td width=20%> pub_ String </td><td>@format(String pattern, Object[] arguments)</td></tr><tr><td width=20%> new </td><td>Field()</td></tr><tr><td width=20%> prot </td><td>Field(String name)</td></tr><tr><td width=20%> pub_ </td><td>MessageFormat(String pattern)</td></tr><tr><td width=20%> pub_ </td><td>MessageFormat(String pattern, Locale locale)</td></tr><tr><td width=20%> priv void </td><td>append(StringBuffer result, CharacterIterator iterator)</td></tr><tr><td width=20%> pub_ void </td><td>applyPattern(String pattern)</td></tr><tr><td width=20%> pub_ Object </td><td>clone()</td></tr><tr><td width=20%> pub_ boolean </td><td>equals(Object obj)</td></tr><tr><td width=20%> pub_ final StringBuffer </td><td>format(Object arguments, StringBuffer result, FieldPosition pos)</td></tr><tr><td width=20%> pub_ final StringBuffer </td><td>format(Object[] arguments, StringBuffer result, FieldPosition pos)</td></tr><tr><td width=20%> pub_ AttributedCharacterIterator </td><td>formatToCharacterIterator(Object arguments)</td></tr><tr><td width=20%> pub_ Format[] </td><td>getFormats()</td></tr><tr><td width=20%> pub_ Format[] </td><td>getFormatsByArgumentIndex()</td></tr><tr><td width=20%> pub_ Locale </td><td>getLocale()</td></tr><tr><td width=20%> pub_ int </td><td>hashCode()</td></tr><tr><td width=20%> priv void </td><td>makeFormat(int position, int offsetNumber, StringBuffer[] segments)</td></tr><tr><td width=20%> pub_ Object[] </td><td>parse(String source) throws ParseException</td></tr><tr><td width=20%> pub_ Object[] </td><td>parse(String source, ParsePosition pos)</td></tr><tr><td width=20%> pub_ Object </td><td>parseObject(String source, ParsePosition pos)</td></tr><tr><td width=20%> priv void </td><td>readObject(ObjectInputStream in) throws IOException, ClassNotFoundException</td></tr><tr><td width=20%> prot Object </td><td>readResolve() throws InvalidObjectException</td></tr><tr><td width=20%> pub_ void </td><td>setFormat(int formatElementIndex, Format newFormat)</td></tr><tr><td width=20%> pub_ void </td><td>setFormatByArgumentIndex(int argumentIndex, Format newFormat)</td></tr><tr><td width=20%> pub_ void </td><td>setFormats(Format[] newFormats)</td></tr><tr><td width=20%> pub_ void </td><td>setFormatsByArgumentIndex(Format[] newFormats)</td></tr><tr><td width=20%> pub_ void </td><td>setLocale(Locale locale)</td></tr><tr><td width=20%> priv StringBuffer </td><td>subformat(Object[] arguments, StringBuffer result, FieldPosition fp, List characterIterators)</td></tr><tr><td width=20%> pub_ String </td><td>toPattern()</td></tr></table> ',
+'Q' => 'Java class which allows you to replace portions of a message string retrieved from a resource bundle with arguments specified at run time ',
+'id' => 34,
+},
+{
+'A' => 'org.apache.struts.util.MessageResources allows you to request a particular message string for a particular Locale (normally one associated with the current user) instead of for the default Locale the server itself is running in. ',
+'Q' => 'what class lets you treat a set of i18n resource bundles like a database ',
+'id' => 35,
+},
+{
+'A' => 'nothing: this is left up to the client device, which is usually a web browser.<br>&nbsp;struts-like frameworks just support the presentation of internationalized text and images to the user ',
+'Q' => 'what does a framework like Struts do to support Locale specific input methods (used with languages such as Japanese, Chinese, and Korean) ',
+'id' => 36,
+},
+{
+'A' => '...is a form that has at least one &lt;input type="file"... ',
+'Q' => 'multipart form... ',
+'id' => 37,
+},
+{
+'A' => 'There are three types of include available, depending on when you want the combination of output to occur:<ul><li>An &lt;%@ include file="xxxxx" %&gt; directive can include a file that contains Java code or JSP tags. The code in the included file can even reference variables declared earlier in the outer jsp page. The code is inlined into the other JavaServer Page before it is compiled so it can definately contain more than just HTML.</li><li>The include action (&lt;jsp:include page="xxxxx" flush="true" /&gt;) is processed at request time, and is handled transparently by the server. Among other things, that means you can conditionally perform the include by nesting it within a tag like equals by using it\'s parameter attribute.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;jsp:include page="...url.../whatever.jsp" /&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;jsp:include page="...url.../dynamic_page.cgi" flush="true" /&gt;</li><li>The bean:include tag takes either a an argument "forward" representing a logical name mapped to the jsp to include, or the "id" argument, which represents a page context String variable to print out to the jsp page.</li></ul> ',
+'Q' => 'jsp include ',
+'id' => 38,
+},
+{
+'A' => '<ul><li>fetch using a URL to the image</li><li>fetch using a URL to a Servlet which creates the image</li><li>refer to a Java applet, which then creates the image</li></ul> ',
+'Q' => 'jsp images ',
+'id' => 39,
+},
+{
+'A' => '<ul><li>Write an Action class for each logical request that may be received (extend org.apache.action.Action).</li><li>Configure a ActionMapping (in XML) for each logical request that may be submitted. The XML configuration file is usually named struts-config.xml.</li><li>Update the web application deployment descriptor file (in XML) for your application to include the necessary Struts components.</li><li>Add the appropriate Struts components to your application.</li></ul> ',
+'Q' => 'tasks to implement a struts Controller ',
+'id' => 40,
+},
+{
+'A' => 'No, use this one instead:<br>&nbsp;public ActionForward perform(ActionMapping mapping,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ActionForm form,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ServletRequest request,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ServletResponse response)<br>&nbsp;&nbsp;throws IOException, ServletException; ',
+'Q' => 'struts: what if you aren\'t using HTTP? Is overriding the following methods appropriate?<br>&nbsp;public ActionForward perform(ActionMapping mapping,<br>. ActionForm form,<br>. HttpServletRequest request,<br>. HttpServletResponse response)<br>&nbsp;&nbsp;throws IOException, ServletException; ',
+'id' => 41,
+},
+{
+'A' => 'it must be thread safe, because only one instance will be allocated for all users\' requests<br>&nbsp;so stick to local variables, if possible ',
+'Q' => 'struts: Action class pitfall ',
+'id' => 42,
+},
+{
+'A' => '...do not retain resources across requests ',
+'Q' => 'struts: for maximal scalability... ',
+'id' => 43,
+},
+{
+'A' => 'Struts controller servlet needs to know several things about how each request URI should be mapped to an appropriate Action class:<ul><li>type - Fully qualified Java <font color=red>class name of the Action implementation</font> class used by this mapping.</li><li>name - The name of the <font color=red>form bean</font> defined in the config file that this action will use</li><li>path - The <font color=red>request URI path</font> that is matched to select this mapping. See below for examples of how matching works.</li><li>unknown - Set to <font color=red>true if</font> this action should be configured as the <font color=red>default</font> for this application, to handle all requests not handled by another action. Only one action can be defined as a default within a single application.</li><li>validate - Set to true if the validate() method of the action associated with this mapping should be called.</li><li>forward - The request URI path to which control is passed when his mapping is invoked. This is an <font color=red>alternative to declaring a type property</font>.</li></ul> ',
+'Q' => 'ActionMapping ',
+'id' => 44,
+},
+{
+'A' => 'Struts includes a Digester module, which reads WEB-INF/struts-config.xml ',
+'Q' => 'who instantiates the ActionMapping objects ',
+'id' => 45,
+},
+{
+'A' => '&lt;struts-config&gt;<br>&nbsp;&nbsp;&lt;form-beans&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;form-bean<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name="logonForm"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type="org.apache.struts.example.LogonForm" /&gt;<br>&nbsp;&nbsp;&lt;/form-beans&gt;<br>&nbsp;&nbsp;&nbsp;&lt;!-- create logical name mappings for commonly used jsp pages, available through a call to your action<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mapping instance, i.e. actionMappingInstace.findForward("logicalName"): --&gt;<br>&nbsp;&nbsp;&lt;global-forwards<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type="org.apache.struts.action.ActionForward" /&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;forward name="logon" path="/logon.jsp"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;redirect="false" /&gt;<br>&nbsp;&nbsp;&lt;/global-forwards&gt;<br>&nbsp;&nbsp;&lt;action-mappings&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;action<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;path="/logon"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type="org.apache.struts.example.LogonAction"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name="logonForm"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scope="request"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;input="/logon.jsp"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unknown="false"<br>&nbsp;&nbsp;&nbsp;&nbsp;validate="true" /&gt;<br>&nbsp;&nbsp;&lt;/action-mappings&gt;<br>&lt;/struts-config&gt; ',
+'Q' => 'Struts: WEB-INF/struts-config.xml format ',
+'id' => 46,
+},
+{
+'A' => 'WEB-INF/struts-config.xml: local "forward" elements:<br>&nbsp;&lt;!-- Edit mail subscription --&gt;<br>&lt;action path="/editSubscription"<br>&nbsp;&nbsp;type="org.apache.struts.example.EditSubscriptionAction"<br>&nbsp;&nbsp;name="subscriptionForm"<br>&nbsp;&nbsp;scope="request"<br>&nbsp;&nbsp;validate="false"&gt;<br>&nbsp;&nbsp;<font color=red>&lt;forward name="failure" path="/mainMenu.jsp"/&gt;</font><br>&nbsp;&nbsp;<font color=red>&lt;forward name="success" path="/subscription.jsp"/&gt;</font><br>&lt;/action&gt; ',
+'Q' => 'Struts: how is independence maintained between the names of JSP pages and the Action classes ',
+'id' => 47,
+},
+{
+'A' => 'WEB-INF/struts-config.xml: &lt;data-sources&gt; section:<br>&nbsp;&lt;struts-config&gt;<br>&nbsp;&nbsp;&lt;data-sources&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;data-source<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;autoCommit="false"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description="Example Data Source Description"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;driverClass="org.postgresql.Driver"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;maxCount="4"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;minCount="2"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;password="mypassword"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url="jdbc:postgresql://localhost/mydatabase"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;user="myusername"/&gt;<br>&nbsp;&nbsp;&lt;/data-sources&gt;<br>&lt;/struts-config&gt; ',
+'Q' => 'Struts: how is independence maintained between the names of data sources and the Action classes ',
+'id' => 48,
+},
+{
+'A' => 'WEB-INF/web.xml ',
+'Q' => 'struts: application deployment descriptor ',
+'id' => 49,
+},
+{
+'A' => 'WEB-INF/web.xml: &lt;servlet&gt; section:<br>&nbsp;init-param\'s supported by the controller servlet are described below. (You can also find these details in the Javadocs for the ActionServlet class.) Square brackets describe the default values that are assumed if you do not provide a value for that initialization parameter.<ul><li><font color=red>application</font> - Java class name of the application resources bundle base class. [NONE]</li><li>bufferSize - The size of the input buffer used when processing file uploads. [4096]</li><li>config - Context-relative path to the XML resource containing our configuration information. [/WEB-INF/struts-config.xml]</li><li>content - Default content type and character encoding to be set on each response; may be overridden by a forwarded-to servlet or JSP page. [text/html]</li><li><font color=red>debug</font> - The debugging detail <font color=red>level for this servlet</font>, which controls how much information is logged. [0]</li><li><font color=red>detail</font> - The debugging detail <font color=red>level for the Digester</font> we utilize in initMapping(), which logs to System.out instead of the servlet log. [0]</li><li>factory - The Java class name of the MessageResourcesFactory used to create the application MessageResources object. [org.apache.struts.util.PropertyMessageResourcesFactory]</li><li>formBean - The Java class name of the ActionFormBean implementation to use [org.apache.struts.action.ActionFormBean].</li><li>forward - The Java class name of the ActionForward implementation to use [org.apache.struts.action.ActionForward]. Two convenient classes you may wish to use are:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;org.apache.struts.action.ForwardingActionForward - Subclass of org.apache.struts.action.ActionForward that defaults the redirect property to false (same as the ActionForward default value).<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;org.apache.struts.action.RedirectingActionForward - Subclass of org.apache.struts.action.ActionForward that defaults the redirect property to true.</li><li>locale - If set to true, and there is a user session, identify and store an appropriate java.util.Locale object (under the standard key identified by Action.LOCALE_KEY) in the user\'s session if there is not a Locale object there already. [true]</li><li>mapping - The Java class name of the ActionMapping implementation to use [org.apache.struts.action.ActionMapping]. Two convenient classes you may wish to use are:</li><li>org.apache.struts.action.RequestActionMapping - Subclass of org.apache.struts.action.ActionMapping that defaults the scope property to "request".</li><li>org.apache.struts.action.SessionActionMapping - Subclass of org.apache.struts.action.ActionMapping that defaults the scope property to "session". (Same as the ActionMapping default value).</li><li><font color=red>maxFileSize</font> - The maximum size (in bytes) of a file to be accepted as a file upload. Can be expressed as a number followed by a "K" "M", or "G", which are interpreted to mean kilobytes, megabytes, or gigabytes, respectively. [<font color=red>250M</font>]</li><li>multipartClass - The fully qualified name of the MultipartRequestHandler implementation class to be used for processing file uploads. [org.apache.struts.upload.DiskMultipartRequestHandler]</li><li>nocache - If set to true, add HTTP headers to every response intended to defeat browser caching of any response we generate or forward to. [false]</li><li>null - If set to true, set our application resources to return null if an unknown message key is used. Otherwise, an error message including the offending message key will be returned. [true]</li><li>tempDir - The temporary working directory to use when processing file uploads. [The working directory provided to this web application as a servlet context attribute]</li><li>validate - Are we using the new configuration file format? [true]</li><li>validating - Should we use a validating XML parse to process the configuration file (strongly recommended)? [true]</li></ul>&lt;servlet&gt;<br>&nbsp;&nbsp;&lt;servlet-name&gt;action&lt;/servlet-name&gt;<br>&nbsp;&nbsp;&lt;servlet-class&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;org.apache.struts.action.ActionServlet<br>&nbsp;&nbsp;&lt;/servlet-class&gt;<br>&nbsp;&nbsp;&lt;init-param&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;param-name&gt;application&lt;/param-name&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;param-value&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;org.apache.struts.example.ApplicationResources<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/param-value&gt;<br>&nbsp;&nbsp;&lt;/init-param&gt;<br>&nbsp;&nbsp;&lt;init-param&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;param-name&gt;config&lt;/param-name&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;param-value&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/WEB-INF/struts-config.xml<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/param-value&gt;<br>&nbsp;&nbsp;&lt;/init-param&gt;<br>&nbsp;&nbsp;&lt;init-param&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;param-name&gt;debug&lt;/param-name&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;param-value&gt;2&lt;/param-value&gt;<br>&nbsp;&nbsp;&lt;/init-param&gt;<br>&nbsp;&nbsp;&lt;init-param&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;param-name&gt;mapping&lt;/param-name&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;param-value&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;org.apache.struts.example.ApplicationMapping<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/param-value&gt;<br>&nbsp;&nbsp;&lt;/init-param&gt;<br>&nbsp;&nbsp;&lt;load-on-startup&gt;2&lt;/load-on-startup&gt;<br>&lt;/servlet&gt; ',
+'Q' => 'struts: Action Servlet Configuration ',
+'id' => 50,
+},
+{
+'A' => 'struts: application deployment descriptor ',
+'Q' => 'WEB-INF/web.xml ',
+'id' => 51,
+},
+{
+'A' => '<ul><li>prefix matching</li><li>extension matching</li></ul>Prefix matching means that you want all URLs that start (after the context path part) with a particular value to be passed to this servlet. Such an entry might look like this:<br>&nbsp;&nbsp;&nbsp;&lt;servlet-mapping&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;servlet-name&gt;action&lt;/servlet-name&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;url-pattern&gt;<font color=red>/execute/*</font>&lt;/url-pattern&gt;<br>&nbsp;&nbsp;&nbsp;&lt;/servlet-mapping&gt;<br>&nbsp;which means that a request URI to match the /logon path described earlier might look like this:<br>&nbsp;<a href=\'http://www.mycompany.com/myapplication/execute/logon<br>&nbsp\'>http://www.mycompany.com/myapplication/execute/logon<br>&nbsp</a>;where /myapplication is the context path under which your application is deployed.<br>&nbsp;Extension mapping, on the other hand, matches request URIs to the action servlet based on the fact that the URI ends with a period followed by a defined set of characters. For example, the JSP processing servlet is mapped to the *.jsp pattern so that it is called to process every JSP page that is requested. To use the *.do extension (which implies "do something"), the mapping entry would look like this:<br>&nbsp;&nbsp;&nbsp;&lt;servlet-mapping&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;servlet-name&gt;action&lt;/servlet-name&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;url-pattern&gt;<font color=red>*.do</font>&lt;/url-pattern&gt;<br>&nbsp;&nbsp;&nbsp;&lt;/servlet-mapping&gt;<br>&nbsp;and a request URI to match the /logon path described earlier might look like this:<br>&nbsp;<a href=\'http://www.mycompany.com/myapplication/logon.do\'>http://www.mycompany.com/myapplication/logon.do</a> ',
+'Q' => 'approaches to defining which URLs will be processed by the controller servlet ',
+'id' => 52,
+},
+{
+'A' => '<ul><li>The struts-bean taglib contains tags useful in accessing beans and their properties, as well as defining new beans (based on these accesses) that are accessible to the remainder of the page via scripting variables and page scope attributes. Convenient mechanisms to create new beans based on the value of request cookies, headers, and parameters are also provided.</li><li>The struts-html taglib contains tags used to create struts input forms, as well as other tags generally useful in the creation of HTML-based user interfaces.</li><li>The struts-logic taglib contains tags that are useful in managing conditional generation of output text, looping over object collections for repetitive generation of output text, and application flow management.</li><li>The struts-template taglib contains tags that define a template mechanism.</li></ul>Examples below [in reality you would only specify the taglib\'s that your application will use]:<br>&nbsp;&lt;taglib&gt;<br>&nbsp;&nbsp;&lt;taglib-uri&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;/WEB-INF/struts-bean.tld<br>&nbsp;&nbsp;&lt;/taglib-uri&gt;<br>&nbsp;&nbsp;&lt;taglib-location&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;/WEB-INF/struts-bean.tld<br>&nbsp;&nbsp;&lt;/taglib-location&gt;<br>&lt;/taglib&gt;<br>&lt;taglib&gt;<br>&nbsp;&nbsp;&lt;taglib-uri&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;/WEB-INF/struts-html.tld<br>&nbsp;&nbsp;&lt;/taglib-uri&gt;<br>&nbsp;&nbsp;&lt;taglib-location&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;/WEB-INF/struts-html.tld<br>&nbsp;&nbsp;&lt;/taglib-location&gt;<br>&lt;/taglib&gt;<br>&lt;taglib&gt;<br>&nbsp;&nbsp;&lt;taglib-uri&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;/WEB-INF/struts-logic.tld<br>&nbsp;&nbsp;&lt;/taglib-uri&gt;<br>&nbsp;&nbsp;&lt;taglib-location&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;/WEB-INF/struts-logic.tld<br>&nbsp;&nbsp;&lt;/taglib-location&gt;<br>&lt;/taglib&gt;<br>&lt;taglib&gt;<br>&nbsp;&nbsp;&lt;taglib-uri&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;/WEB-INF/struts-template.tld<br>&nbsp;&nbsp;&lt;/taglib-uri&gt;<br>&nbsp;&nbsp;&lt;taglib-location&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;/WEB-INF/struts-template.tld<br>&nbsp;&nbsp;&lt;/taglib-location&gt;<br>&lt;/taglib&gt;<br>&nbsp;This tells the JSP system where to find the tag library descriptor for this library (in your application\'s WEB-INF directory, instead of out on the Internet somewhere). ',
+'Q' => 'Struts Tag Libraries ',
+'id' => 53,
+},
+{
+'A' => '<ul><li>copy the .tld files that you require to WEB-INF.</li><li>copy struts.jar (and all of the commons-*.jar files) to WEB-INF/lib.</li></ul> ',
+'Q' => 'how do you Add Struts Components To Your Application ',
+'id' => 54,
+},
+{
+'A' => 'Lots of samples at <a href=\'http://jakarta.apache.org/struts/doc-1.0.2/userGuide/resources.html<ul><li><a\'>http://jakarta.apache.org/struts/doc-1.0.2/userGuide/resources.html<ul><li><a</a> target=win2 href="<a href=\'http://husted.com/struts/resources/MonkeyStruts.htm"><b>MonkeyStruts</b></a>\'>http://husted.com/struts/resources/MonkeyStruts.htm"><b>MonkeyStruts</b></a></a> by Arron Bates. An approach to nesting beans.</p></li><li><a target=win2 href="<a href=\'http://www.multimania.com/bist77/struts.php">&lt\'>http://www.multimania.com/bist77/struts.php">&lt</a>;font size="2"&gt;<b>REGEXP.VALIDATOR.STRUTS</b>&lt;/font&gt;</a> by Emmanuel Boudrant - A validation component that works with Struts 1.0, to manage form validation on server-side and client-side.</p></li><li><a target=win2 href="<a href=\'http://husted.com/struts/resources/struts-was.zip"><b>Struts-WAS.jar</b></a>\'>http://husted.com/struts/resources/struts-was.zip"><b>Struts-WAS.jar</b></a></a> by Christopher Assenza - Modified Struts 1.0 JAR for Websphere 3.5 or 4. Zipped for download. (For additional tips regarding Websphere 3.5 see <a target=win2 href="<a href=\'http://jakarta.apache.org/struts/installation-was352-x.html">http://jakarta.apache.org/struts/installation-was352-x.html</a>.\'>http://jakarta.apache.org/struts/installation-was352-x.html">http://jakarta.apache.org/struts/installation-was352-x.html</a>.</a>)</p></li><li><a target=win2 href="<a href=\'http://struts.application-servers.com/"><b>Struts\'>http://struts.application-servers.com/"><b>Struts</a> Layout</b></a> by Improve - An extension library to improve interfaces creation with Struts.</p></li><li><a target=win2 href="<a href=\'http://husted.com/struts/resources/indexed-tags.htm"><b>Indexed\'>http://husted.com/struts/resources/indexed-tags.htm"><b>Indexed</a> Tags</b></a> [Also available in the nightly build] by Dave Hays - Produce indexed names such as &lt;input type="text" name="parameter[0].value" value="Mac"&gt;. Link, Submit, and Select tags are included too.</p></li><li><a target=win2 href="<a href=\'http://husted.com/struts/resources/logic-niallp.htm"><b>Struts\'>http://husted.com/struts/resources/logic-niallp.htm"><b>Struts</a> IF/THEN/ELSE and SWITCH tags</b></a> by Niall Pemberton.</p></li></ul> ',
+'Q' => 'struts: Contributor Taglibs ',
+'id' => 55,
+},
+{
+'A' => '<ul><li>Java2 (i.e., version 1.2 or later) jdk</li><li>Servlet Container (e.g., Apache\'s Tomcat) compatible with the Servlet API Specification, version 2.2 or later, and the JavaServer Pages (JSP) Specification, version 1.1 or later</li><li>XML Parser, e.g., JAXP</li><li>Ant</li><li>Servlet API Classes, e.g., servlet.jar (usually comes with servlet container)</li><li>Optional lib/jdbc2_0-stdext.jar,a JDBC 2.0 implementation of javax.sql.DataSource</li><li>Jakarta Commons Packages - Struts utilizes several packages from the Jakarta Commons Project. If you are utilizing a binary distribution of Struts, the corresponding JAR files are included in the lib directory. However, if you wish to build Struts from source, you will need to download and install the following packages:<ul><li>Beanutils (Version 1.0 or later)</li><li>Collections (Version 1.0 or later)</li><li>Digester (Version 1.0 or later)</li></ul></li><li>Xalan XSLT Processor - If you are building Struts from the source distribution, you will need a version of Xalan to perform XSLT transformations. If you are using the JAXP/1.1 XML parser, you should use the version of xalan.jar shipped with it. Otherwise, download and install version 1.2 of Xalan from here.</li></ul> ',
+'Q' => 'what do you need to build struts from source ',
+'id' => 56,
+},
+{
+'A' => '<ul><li>Copy lib/commons-*.jar from the Struts distribution into the WEB-INF/lib directory of your web application.</li><li>Copy lib/struts.jar from the Struts distribution into the WEB-INF/lib directory of your web application.</li><li>Copy lib/struts-*.tld from the Struts distribution into the WEB-INF directory of your web application.</li><li>Modify the WEB-INF/web.xml file for your web application to include a &lt;servlet&gt; element to define the controller servlet, and a &lt;servlet-mapping&gt; element to establish which request URIs are mapped to this servlet. Use the WEB-INF/web.xml file from the Struts example application for a detailed example of the required syntax.</li><li>Modify the WEB-INF/web.xml file of your web application to include the following tag library declarations:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;taglib&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;taglib-uri&gt;/WEB-INF/struts-bean.tld&lt;/taglib-uri&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;taglib-location&gt;/WEB-INF/struts-bean.tld&lt;/taglib-location&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/taglib&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;taglib&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;taglib-uri&gt;/WEB-INF/struts-html.tld&lt;/taglib-uri&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;taglib-location&gt;/WEB-INF/struts-html.tld&lt;/taglib-location&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/taglib&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;taglib&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;taglib-uri&gt;/WEB-INF/struts-logic.tld&lt;/taglib-uri&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;taglib-location&gt;/WEB-INF/struts-logic.tld&lt;/taglib-location&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/taglib&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;taglib&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;taglib-uri&gt;/WEB-INF/struts-template.tld&lt;/taglib-uri&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;taglib-location&gt;/WEB-INF/struts-template.tld&lt;/taglib-location&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/taglib&gt;</li><li>Create a file WEB-INF/struts-config.xml that defines the action mappings and other characteristics of your specific application. You can use the struts-config.xml file from the Struts example application for a detailed example of the required syntax.</li><li>At the top of each JSP page that will use the Struts custom tags, add line(s) declaring the Struts custom tag libraries used on this particular page, like this:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html" %&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;%@ taglib uri="/WEB-INF/struts-template.tld" prefix="template" %&gt;</li><li>When compiling the Java classes that comprise your application, be sure to include the struts.jar and commons-*.jar files (copied earlier) on the CLASSPATH that is submitted to the compiler.</li></ul> ',
+'Q' => 'what are the environment/configuration steps required to use Struts ',
+'id' => 57,
+},
+{
+'A' => 'there may be additional steps required to make everything worked. See <a href=\'http://jakarta.apache.org/struts/installation.html\'>http://jakarta.apache.org/struts/installation.html</a> for details. ',
+'Q' => 'if installing struts with some random servlet container ',
+'id' => 58,
+},
+{
+'A' => 'Jcorporate<br><a href=\'http://www.jcorporate.com/econtent/Content.do?state=template&template=2&resource=636&db=default\'>http://www.jcorporate.com/econtent/Content.do?state=template&template=2&resource=636&db=default</a> ',
+'Q' => 'who makes Expresso ',
+'id' => 59,
+},
+{
+'A' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-html.html#html>html:html</a> ',
+'Q' => 'Render an HTML &lt;html&gt; Element ',
+'id' => 60,
+},
+{
+'A' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-template.html#get>template:get</a><br><a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/api/org/apache/struts/taglib/template/package-summary.html#package_description>sample</a> ',
+'Q' => 'Gets the content from request scope that was put there by a put tag. ',
+'id' => 61,
+},
+{
+'A' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-bean.html#include>bean:include</a><br>This tag has a function similar to that of the standard &lt;jsp:include&gt; tag, except that the response data is stored in a page scope attribute instead of being written to the output stream. If the current request is part of a session, the generated request for the include will also include the session identifier (and thus be part of the same session).<br>&nbsp;&nbsp;[do a Web query and make the resulting content available as a bean.<br><a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-bean.html#resource>bean:resource</a>] ',
+'Q' => 'Load the response from a dynamic application request and make it available as a bean. ',
+'id' => 62,
+},
+{
+'A' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-logic.html#redirect>logic:redirect</a><br>&nbsp;The redirect tag is resposible for sending a re-direct to the client\'s browser, complete with URL-rewriting if it\'s supported by the container. Its attributes are consistent with the Struts HTML link tag. The base URL is calculated based on which of the following attributes you specify (you must specify exactly one of them):<ul><li>forward - Use the value of this attribute as the name of a global ActionForward to be looked up, and use the context-relative URI found there.</li><li>href - Use the value of this attribute unchanged.</li><li>page - Use the value of this attribute as a context-relative URI, and generate a server-relative URI by including the context path.</li></ul> ',
+'Q' => 'Render an HTTP Redirect ',
+'id' => 63,
+},
+{
+'A' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-bean.html#page>bean:page</a> ',
+'Q' => 'Expose a specified item from the page context as a bean. ',
+'id' => 64,
+},
+{
+'A' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-bean.html#resource>bean:resource</a><br>&nbsp;[Load the response from a dynamic application request and make it available as a bean.<br><a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-bean.html#include>bean:include</a>]<br>This tag has a function similar to that of the standard &lt;jsp:include&gt; tag, except that the response data is stored in a page scope attribute instead of being written to the output stream. If the current request is part of a session, the generated request for the include will also include the session identifier (and thus be part of the same session). ',
+'Q' => 'do a Web query and make the resulting content available as a bean. ',
+'id' => 65,
+},
+{
+'A' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-html.html#base>html:base</a> ',
+'Q' => 'Render an HTML &lt;base&gt; Element ',
+'id' => 66,
+},
+{
+'A' => 'the "populate" utility:<br>The BeanUtils.populate()and describe() methods can be used to transfer data between beans of arbitrary types. All that is required is that the names of the public properties correspond and that the properties be native types (or arrays of native types). The wrapper objects, like Integer, are supported. Optional types, like Date, are not supported.<br>&nbsp;describe reduces the source bean to a map of String values. populate reads such a map and uses it to set the properties on the target bean. If the target type is not a String, then the String is converted to the needed type. An exception is thrown if the conversion fails.<br>&nbsp;To transfer data between any two beans:<br>&nbsp;<font color=red>BeanUtils.populate(target,BeanUtils.describe(source));</font><br>&nbsp;In some cases, a custom describe() method might be needed on an ActionForm to provide a tailored Map of the values to transfer automatically. Other values (like Dates and Timestamps) can then be set manually.<br>&nbsp;<font color=red>BeanUtils.populate( target,source.describe() );<br>target.setDate(source.getDateBinary());</font><br>&nbsp;It can be useful to encapsulate transfer methods like this as static methods on a utility class. This avoids binding the ActionForms with a specific value object, and keeps similar code together to ease maintenance.<br>&nbsp;valueUtils.populate(ValueObject target,ActionForm source);<br>valueUtils.populate(ActionForm target, ValueObject source); ',
+'Q' => 'how do you exchange data with value objects ',
+'id' => 67,
+},
+{
+'A' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-bean.html#struts>bean:struts</a><br>You must specify exactly one of the <font color=red>formBean, forward, and mapping</font> attributes to select the configuration object to be exposed.<ul><li>formBean: Specifies the name of the Struts ActionFormBean definition object to be exposed.</li><li>forward: Specifies the name of the global Struts ActionForward definition object to be exposed.</li><li>mapping: Specifies the matching path of the Struts ActionMapping definition object to be exposed.</li></ul> ',
+'Q' => 'Expose a named Struts internal configuration object as a bean. ',
+'id' => 68,
+},
+{
+'A' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-html.html#checkbox>html:checkbox</a><br><a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-html.html#multibox>html:multibox</a> ',
+'Q' => 'Render A Checkbox Input Field ',
+'id' => 69,
+},
+{
+'A' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-logic.html#iterate>logic:iterate</a><br>&nbsp;&lt;%<br>&nbsp;&nbsp;java.util.Vector vector = new java.util.Vector();<br>&nbsp;&nbsp;vector.add(new Integer(12));<br>&nbsp;&nbsp;vector.add(new Integer(5));<br>&nbsp;%&gt;<br>&lt;logic:iterate id="myCollectionElement" collection="&lt;%= vector %&gt;"&gt;<br>&nbsp;Do something with myCollectionElement<br>&lt;/logic:iterate&gt; ',
+'Q' => 'Repeat the nested body content of this tag over a specified collection. ',
+'id' => 70,
+},
+{
+'A' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-html.html#cancel>html:cancel</a> ',
+'Q' => 'Render a Cancel Button ',
+'id' => 71,
+},
+{
+'A' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-html.html#hidden>html:hidden</a> ',
+'Q' => 'Render A Hidden Field ',
+'id' => 72,
+},
+{
+'A' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-bean.html#size>bean:size</a> ',
+'Q' => 'Define a bean containing the number of elements in a Collection or Map. ',
+'id' => 73,
+},
+{
+'A' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-bean.html#message>bean:message</a> ',
+'Q' => 'Render an internationalized message string to the response. ',
+'id' => 74,
+},
+{
+'A' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-html.html#option>html:option</a> ',
+'Q' => 'Render A Select Option ',
+'id' => 75,
+},
+{
+'A' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-html.html#select>html:select</a> ',
+'Q' => 'Render A Select Element ',
+'id' => 76,
+},
+{
+'A' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-logic.html#notMatch>logic:notMatch</a><br>&nbsp;The substring matching tags take all the same arguments as the value comparison tags. You compare the String specified by value to any of the comparison values you give it, specified by cookie, header, parameter, property or name. Note that in the examples, matchTag corresponds either the match or notMatch tag. Matching tags also have an additional location attribute added:<br>&nbsp;location - has two possible values, "start" and "end". If "start", the substring is attempted to be matched at the beginning of the String, if "end", then the substring is attempted to be matched to the end of the String<br>example:<br>&lt;logic:matchTag parameter="action" value="processLogin" location="start"&gt;<br>&nbsp;&nbsp;Processing Login....<br>&lt;/logic:matchTag&gt; ',
+'Q' => 'Evaluate the nested body content of this tag if the specified value is not an appropriate substring of the requested variable. ',
+'id' => 77,
+},
+{
+'A' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-logic.html#forward>logic:forward</a> ',
+'Q' => 'Forward control to the page specified by the specified ActionForward entry. ',
+'id' => 78,
+},
+{
+'A' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-bean.html#cookie>bean:cookie</a> ',
+'Q' => 'Define a scripting variable based on the value(s) of the specified request cookie. ',
+'id' => 79,
+},
+{
+'A' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-bean.html#define>bean:define</a> ',
+'Q' => 'Define a scripting variable based on the value(s) of the specified bean property. ',
+'id' => 80,
+},
+{
+'A' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-bean.html#parameter>bean:parameter</a> ',
+'Q' => 'Define a scripting variable based on the value(s) of the specified request parameter. ',
+'id' => 81,
+},
+{
+'A' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-bean.html#header>bean:header</a> ',
+'Q' => 'Define a scripting variable based on the value(s) of the specified request header. ',
+'id' => 82,
+},
+{
+'A' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-html.html#img>html:img</a> ',
+'Q' => 'Render an HTML img tag ',
+'id' => 83,
+},
+{
+'A' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-logic.html#present>logic:present</a> ',
+'Q' => 'Generate the nested body content of this tag if the specified value is present in this request. ',
+'id' => 84,
+},
+{
+'A' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-logic.html#notPresent>logic:notPresent</a><br>&nbsp;[i.e., the specified value does not exist in the current scope] ',
+'Q' => 'Generate the nested body content of this tag if the specified value is not present in this request. ',
+'id' => 85,
+},
+{
+'A' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-html.html#submit>html:submit</a> ',
+'Q' => 'Render A Submit Button ',
+'id' => 86,
+},
+{
+'A' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-html.html#options>html:options</a> ',
+'Q' => 'Render a Collection of Select Options ',
+'id' => 87,
+},
+{
+'A' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-html.html#button>html:button</a> ',
+'Q' => 'Render A Button Input Field ',
+'id' => 88,
+},
+{
+'A' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-html.html#reset>html:reset</a> ',
+'Q' => 'Render A Reset Button Input Field ',
+'id' => 89,
+},
+{
+'A' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-html.html#radio>html:radio</a> ',
+'Q' => 'Render A Radio Button Input Field ',
+'id' => 90,
+},
+{
+'A' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-html.html#text>html:text</a> ',
+'Q' => 'Render An Input Field of Type text ',
+'id' => 91,
+},
+{
+'A' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-html.html#password>html:password</a> ',
+'Q' => 'Render A Password Input Field ',
+'id' => 92,
+},
+{
+'A' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-html.html#image>html:image</a> ',
+'Q' => 'Render an input tag of type "image" ',
+'id' => 93,
+},
+{
+'A' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-logic.html#greaterEqual>logic:greaterEqual</a> ',
+'Q' => 'Evaluate the nested body content of this tag if the requested variable is greater than or equal to the specified value. ',
+'id' => 94,
+},
+{
+'A' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-logic.html#equal>logic:equal</a> ',
+'Q' => 'Evaluate the nested body content of this tag if the requested variable is equal to the specified value. ',
+'id' => 95,
+},
+{
+'A' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-logic.html#lessEqual>logic:lessEqual</a> ',
+'Q' => 'Evaluate the nested body content of this tag if the requested variable is less than or equal to the specified value. ',
+'id' => 96,
+},
+{
+'A' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-logic.html#greaterThan>logic:greaterThan</a> ',
+'Q' => 'Evaluate the nested body content of this tag if the requested variable is greater than the specified value. ',
+'id' => 97,
+},
+{
+'A' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-logic.html#lessThan>logic:lessThan</a> ',
+'Q' => 'Evaluate the nested body content of this tag if the requested variable is less than the specified value. ',
+'id' => 98,
+},
+{
+'A' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-html.html#form>html:form</a> ',
+'Q' => 'Define An Input Form ',
+'id' => 99,
+},
+{
+'A' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-logic.html#notEqual>logic:notEqual</a> ',
+'Q' => 'Evaluate the nested body content of this tag if the requested variable is not equal to the specified value. ',
+'id' => 100,
+},
+{
+'A' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-html.html#rewrite>html:rewrite</a> ',
+'Q' => 'Render an URI ',
+'id' => 101,
+},
+{
+'A' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-html.html#textarea>html:textarea</a> ',
+'Q' => 'Render A Textarea ',
+'id' => 102,
+},
+{
+'A' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-html.html#link>html:link</a><br>1 of following is required:<ul><li>forward: Logical name of a global ActionForward that contains the actual content-relative URI of the destination of this transfer</li><li>href</li><li>linkName: Anchor name</li><li>page: relative to the context path</li></ul> ',
+'Q' => 'Render an HTML anchor or hyperlink ',
+'id' => 103,
+},
+{
+'A' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-template.html#insert>template:insert</a><br><a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/api/org/apache/struts/taglib/template/package-summary.html#package_description>sample</a> ',
+'Q' => 'includes a template. Templates are JSP pages that include parameterized content. That content comes from put tags that are children of insert tags. ',
+'id' => 104,
+},
+{
+'A' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-template.html#put>template:put</a><br><a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/api/org/apache/struts/taglib/template/package-summary.html#package_description>sample</a><br>&nbsp;think of it as a parameter being passed to the template infrastructure<br>&nbsp;<font color=red>optional direct attribute</font>:<br>&nbsp;A sample template file<br>&nbsp;&nbsp;--------------------------------------------------------------------------------<br>&lt;%@ taglib uri=\'/WEB-INF/tlds/struts-template.tld\' prefix=\'template\' %&gt;<br><font color=red>&lt;template:insert</font> template=\'/chapterTemplate.jsp\'&gt;<br>&lt;template:put name=\'title\' <font color=red>content=\'Templates\' direct=\'true\'</font>/&gt;<br>&lt;template:put name=\'header\' content=\'/header.html\' /&gt;<br>&lt;template:put name=\'sidebar\' content=\'/sidebar.jsp\' /&gt;<br>&lt;template:put name=\'content\' content=\'/introduction.html\'/&gt;<br>&lt;template:put name=\'footer\' content=\'/footer.html\' /&gt;<br><font color=red>&lt;/template:insert&gt;</font><br>&nbsp;&nbsp;&nbsp;A sample JSP using the template<br>&nbsp;&nbsp;--------------------------------------------------------------------------------<br>&lt;%@ taglib uri=\'/WEB-INF/tlds/struts-template.tld\' prefix=\'template\' %&gt;<br>&lt;template:insert template=\'/chapterTemplate.jsp\'&gt; &lt;template:put name=\'title\' content=\'Templates\' direct=\'true\'/&gt; &lt;template:put name=\'header\' content=\'/header.html\' /&gt; &lt;template:put name=\'sidebar\' content=\'/sidebar.jsp\' /&gt; &lt;template:put name=\'content\' content=\'/introduction.html\'/&gt; &lt;template:put name=\'footer\' content=\'/footer.html\' /&gt;<br>&lt;/template:insert&gt; ',
+'Q' => 'Puts content into request scope. ',
+'id' => 105,
+},
+{
+'A' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-html.html#errors>html:errors</a> ',
+'Q' => 'Conditionally display a set of accumulated error messages. ',
+'id' => 106,
+},
+{
+'A' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-html.html#file>html:file</a> ',
+'Q' => 'Render A File Select Input Field ',
+'id' => 107,
+},
+{
+'A' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-bean.html#write>bean:write</a> ',
+'Q' => 'Render the value of the specified bean property to the current JspWriter. ',
+'id' => 108,
+},
+{
+'A' => 'Render an HTML &lt;html&gt; Element ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-html.html#html>html:html</a> ',
+'id' => 109,
+},
+{
+'A' => 'Gets the content from request scope that was put there by a put tag. ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-template.html#get>template:get</a><br><a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/api/org/apache/struts/taglib/template/package-summary.html#package_description>sample</a> ',
+'id' => 110,
+},
+{
+'A' => 'Load the response from a dynamic application request and make it available as a bean.<br>&nbsp;This tag has a function similar to that of the standard &lt;jsp:include&gt; tag, except that the response data is stored in a page scope attribute instead of being written to the output stream. If the current request is part of a session, the generated request for the include will also include the session identifier (and thus be part of the same session). ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-bean.html#include>bean:include</a> ',
+'id' => 111,
+},
+{
+'A' => 'Render an HTTP Redirect ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-logic.html#redirect>logic:redirect</a> ',
+'id' => 112,
+},
+{
+'A' => 'Expose a specified item from the page context as a bean. ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-bean.html#page>bean:page</a> ',
+'id' => 113,
+},
+{
+'A' => 'do a Web query and make the resulting content available as a bean.<br>&nbsp;[Load the response from a dynamic application request and make it available as a bean.<br><a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-bean.html#include>bean:include</a><br>This tag has a function similar to that of the standard &lt;jsp:include&gt; tag, except that the response data is stored in a page scope attribute instead of being written to the output stream. If the current request is part of a session, the generated request for the include will also include the session identifier (and thus be part of the same session).] ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-bean.html#resource>bean:resource</a> ',
+'id' => 114,
+},
+{
+'A' => 'Render an HTML &lt;base&gt; Element ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-html.html#base>html:base</a> ',
+'id' => 115,
+},
+{
+'A' => 'Render A Checkbox Input Field<br>&nbsp;also:<br><a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-html.html#multibox>html:multibox</a> ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-html.html#checkbox>html:checkbox</a> ',
+'id' => 116,
+},
+{
+'A' => 'Expose a named Struts internal configuration object as a bean.<br>&nbsp;You must specify exactly one of the <font color=red>formBean, forward, and mapping</font> attributes to select the configuration object to be exposed.<ul><li>formBean: Specifies the name of the Struts ActionFormBean definition object to be exposed.</li><li>forward: Specifies the name of the global Struts ActionForward definition object to be exposed.</li><li>mapping: Specifies the matching path of the Struts ActionMapping definition object to be exposed.</li></ul> ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-bean.html#struts>bean:struts</a> ',
+'id' => 117,
+},
+{
+'A' => 'Render A Checkbox Input Field<br>&nbsp;also:<br><a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-html.html#checkbox>html:checkbox</a> ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-html.html#multibox>html:multibox</a> ',
+'id' => 118,
+},
+{
+'A' => 'Repeat the nested body content of this tag over a specified collection.<br>&nbsp;&lt;%<br>&nbsp;&nbsp;java.util.Vector vector = new java.util.Vector();<br>&nbsp;&nbsp;vector.add(new Integer(12));<br>&nbsp;&nbsp;vector.add(new Integer(5));<br>&nbsp;%&gt;<br>&lt;logic:iterate id="myCollectionElement" collection="&lt;%= vector %&gt;"&gt;<br>&nbsp;Do something with myCollectionElement<br>&lt;/logic:iterate&gt;<br>&nbsp;<font color=red>\'type\' parm</font> - Fully qualified Java class name of the element to be exposed through the JSP bean named from the id attribute. If not present, no type conversions will be performed. NOTE: The actual elements of the collection must be assignment-compatible with this class, or a request time ClassCastException will occur.<br>example:<br>&lt;% java.util.ArrayList list = new java.util.ArrayList();<br>list.add("First");<br>list.add("Second");<br>list.add("Third");<br>list.add("Fourth");<br>list.add("Fifth");<br>&nbsp;&nbsp;&nbsp;&nbsp;pageContext.setAttribute("list", list, PageContext.PAGE_SCOPE);<br>&nbsp;%&gt;<br>&nbsp;&lt;logic:iterate id="myCollectionElement" name="list" type="java.lang.String"&gt;<br>&nbsp;&nbsp;Do something with myCollectionElement<br>&lt;/logic:iterate&gt; ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-logic.html#iterate>logic:iterate</a> ',
+'id' => 119,
+},
+{
+'A' => 'Render a Cancel Button ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-html.html#cancel>html:cancel</a> ',
+'id' => 120,
+},
+{
+'A' => 'Render A Hidden Field ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-html.html#hidden>html:hidden</a> ',
+'id' => 121,
+},
+{
+'A' => 'Define a bean containing the number of elements in a Collection or Map. ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-bean.html#size>bean:size</a> ',
+'id' => 122,
+},
+{
+'A' => 'Render an internationalized message string to the response. ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-bean.html#message>bean:message</a> ',
+'id' => 123,
+},
+{
+'A' => 'Render A Select Option ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-html.html#option>html:option</a> ',
+'id' => 124,
+},
+{
+'A' => 'Render A Select Element ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-html.html#select>html:select</a> ',
+'id' => 125,
+},
+{
+'A' => 'Evaluate the nested body content of this tag if the specified value is not an appropriate substring of the requested variable. ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-logic.html#notMatch>logic:notMatch</a> ',
+'id' => 126,
+},
+{
+'A' => 'Evaluate the nested body content of this tag if the specified value is an appropriate substring of the requested variable. ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-logic.html#match>logic:match</a> ',
+'id' => 127,
+},
+{
+'A' => 'Forward control to the page specified by the specified ActionForward entry. ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-logic.html#forward>logic:forward</a> ',
+'id' => 128,
+},
+{
+'A' => 'Define a scripting variable based on the value(s) of the specified request cookie. ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-bean.html#cookie>bean:cookie</a> ',
+'id' => 129,
+},
+{
+'A' => 'Define a scripting variable based on the value(s) of the specified bean property. ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-bean.html#define>bean:define</a> ',
+'id' => 130,
+},
+{
+'A' => 'Define a scripting variable based on the value(s) of the specified request parameter. ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-bean.html#parameter>bean:parameter</a> ',
+'id' => 131,
+},
+{
+'A' => 'Define a scripting variable based on the value(s) of the specified request header. ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-bean.html#header>bean:header</a> ',
+'id' => 132,
+},
+{
+'A' => 'Render an HTML img tag ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-html.html#img>html:img</a> ',
+'id' => 133,
+},
+{
+'A' => 'Generate the nested body content of this tag if the specified value is present in this request. ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-logic.html#present>logic:present</a> ',
+'id' => 134,
+},
+{
+'A' => 'Generate the nested body content of this tag if the specified value is not present in this request.<br>[i.e., the specified value does not exist in the current scope] ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-logic.html#notPresent>logic:notPresent</a> ',
+'id' => 135,
+},
+{
+'A' => 'Render A Submit Button ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-html.html#submit>html:submit</a> ',
+'id' => 136,
+},
+{
+'A' => 'Render a Collection of Select Options ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-html.html#options>html:options</a> ',
+'id' => 137,
+},
+{
+'A' => 'Render A Button Input Field ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-html.html#button>html:button</a> ',
+'id' => 138,
+},
+{
+'A' => 'Render A Reset Button Input Field ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-html.html#reset>html:reset</a> ',
+'id' => 139,
+},
+{
+'A' => 'Render A Radio Button Input Field ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-html.html#radio>html:radio</a> ',
+'id' => 140,
+},
+{
+'A' => 'Render An Input Field of Type text ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-html.html#text>html:text</a> ',
+'id' => 141,
+},
+{
+'A' => 'Render A Password Input Field ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-html.html#password>html:password</a> ',
+'id' => 142,
+},
+{
+'A' => 'Render an input tag of type "image" ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-html.html#image>html:image</a> ',
+'id' => 143,
+},
+{
+'A' => 'Evaluate the nested body content of this tag if the requested variable is greater than or equal to the specified value. ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-logic.html#greaterEqual>logic:greaterEqual</a> ',
+'id' => 144,
+},
+{
+'A' => 'Evaluate the nested body content of this tag if the requested variable is equal to the specified value. ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-logic.html#equal>logic:equal</a> ',
+'id' => 145,
+},
+{
+'A' => 'Evaluate the nested body content of this tag if the requested variable is less than or equal to the specified value. ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-logic.html#lessEqual>logic:lessEqual</a> ',
+'id' => 146,
+},
+{
+'A' => 'Evaluate the nested body content of this tag if the requested variable is greater than the specified value. ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-logic.html#greaterThan>logic:greaterThan</a> ',
+'id' => 147,
+},
+{
+'A' => 'Evaluate the nested body content of this tag if the requested variable is less than the specified value. ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-logic.html#lessThan>logic:lessThan</a> ',
+'id' => 148,
+},
+{
+'A' => 'Define An Input Form ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-html.html#form>html:form</a> ',
+'id' => 149,
+},
+{
+'A' => 'Evaluate the nested body content of this tag if the requested variable is not equal to the specified value. ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-logic.html#notEqual>logic:notEqual</a> ',
+'id' => 150,
+},
+{
+'A' => 'Render an URI<br>useful when you want to generate a string constant for use by a JavaScript procedure.<br>will automatically apply URL rewriting, to maintain session state in the absence of cookies ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-html.html#rewrite>html:rewrite</a> ',
+'id' => 151,
+},
+{
+'A' => 'Render A Textarea ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-html.html#textarea>html:textarea</a> ',
+'id' => 152,
+},
+{
+'A' => 'Render an HTML anchor or hyperlink ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-html.html#link>html:link</a> ',
+'id' => 153,
+},
+{
+'A' => 'Inserts (includes, actually) a template. Templates are JSP pages that include parameterized content. That content comes from put tags that are children of insert tags.<br><a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/api/org/apache/struts/taglib/template/package-summary.html#package_description>sample</a> ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-template.html#insert>template:insert</a> ',
+'id' => 154,
+},
+{
+'A' => 'Puts content into request scope.<br><a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/api/org/apache/struts/taglib/template/package-summary.html#package_description>sample</a> ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-template.html#put>template:put</a> ',
+'id' => 155,
+},
+{
+'A' => 'Conditionally display a set of accumulated error messages. ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-html.html#errors>html:errors</a> ',
+'id' => 156,
+},
+{
+'A' => 'Render A File Select Input Field ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-html.html#file>html:file</a> ',
+'id' => 157,
+},
+{
+'A' => 'Render the value of the specified bean property to the current JspWriter. ',
+'Q' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-bean.html#write>bean:write</a> ',
+'id' => 158,
+},
+{
+'A' => 'java.util.Map: newer and faster because the methods are not synchronized<br>org.apache.struts.util.FastHashMap: supports fast and slow modes ',
+'Q' => 'java.util.Hashtable ',
+'id' => 159,
+},
+{
+'A' => 'Each of the available collection classes operates in one of two <font color=red>modes: fast or slow</font>. When first created, the collection operates in slow mode, which is appropriate for initially populating the contents of the collection. Once the initial population is complete, switch to fast mode by calling setFast(true) for maximum performance when most accesses are read-only.<br>&nbsp;When operating in slow mode, all methods that access this collection, even read-only methods, are synchronized - resulting in impacts on performance similar to that always performed by the Hashtable and Vector classes. This mode is appropriate when you are initializing the content of the collection, or when you need to perform a large series of updates.<br>&nbsp;Using fast mode, on the other hand, causes method calls to operate in the following manner:<br>&nbsp;Method calls that access information from the collection, but do not modify it, are executed without synchronization.<br>Method calls that modify the structure of a collection do so by synchronizing, cloning the existing collection instance, modifying the cloned instance, and then replacing the current collection instance.<br>As you can see, <font color=red>modification operations are much more expensive when operating in fast mode</font>, but doing things in this way allows read only operations, which should be the vast majority, to operate at maximum speed.<br>&nbsp;If your collection will never be accessed in a multithread environment, you should use one of the standard collection classes instead, without synchronization, for maximum performance.<br>&nbsp;Available Collection Classes<br>The following collection classes, with the ability to operate in either fast or slow mode, are included:<br>&nbsp;org.apache.struts.util.<font color=red>FastArrayList</font> - Similar in functionality to java.util.ArrayList.<br>org.apache.struts.util.<font color=red>FastHashMap</font> - Similar in functionality to java.util.HashMap.<br>org.apache.struts.util.<font color=red>FastTreeMap</font> - Similar in functionality to java.util.TreeMap.<br>&nbsp;<font color=red><b>All will be replaced by Jakarta Commons Collections packages</b></font> ',
+'Q' => 'struts: collection classes ',
+'id' => 160,
+},
+{
+'A' => '<ul><li>Open a connection on each request, do whatever processing is required, and then close the connection.<li>Open a connection for each user, and store it in the user\'s session.<li>Share a "pool" of open connections between all of the application\'s current users.</li></ul>The first strategy has the virtue of simplicity - you merely need to open a database connection any time you need one, perform the appropriate data accesses and updates, and close the connection. However, it suffers from a major disadvantage: on most databases, establishing a connection can be very time consuming (often requiring multiple seconds of clock time), in order to perform a database transaction that might take milliseconds.<br>&nbsp;Opening a connection per user, as the second strategy suggests, is similar to the approach taken with client-server applications described earlier. As long as the number of simultaneous users can be controlled at a manageable number (such as with many intranet-based applications), this approach is feasible. However, it becomes unmanageable when the number of users can climb rapidly to very large numbers (as is typical of many Internet-hosted public applications), and still requires more overhead than a strategy that would share a smaller number of connections.<br>&nbsp;Connection pooling is an implementation of the third strategy. It is based on the assumption that most users of a web application will be interacting locally with the last page that was sent to their browser. The number of users actually performing a request at any given time is usually a very small percentage of the total number of active users, and during request processing is the only time that a database connection is required.<br>&nbsp;Struts provides a simple connection pool class called <font color=red>org.apache.struts.util.GenericDataSource</font>. It allows you to configure a set of connections (with identical connection parameters) to a particular database, using a particular JDBC driver, and then share those connections among a number of simultaneously operating threads (such as the various request threads that are concurrently active in a servlet container). The GenericDataSource class implements the javax.sql.DataSource interface from the Java Database Connectivity (version 2.0) Standard Extension API, so any programs you use to access it should reference this interface, rather than the class name directly. That way, you can migrate to a more advanced connection pool implementation later, with little or no impact on your application.<br>&nbsp;For more information about the JDBC 2.0 Standard Extension API, you can download the spec (and the corresponding API classes), from <a target=win2 href=http://java.sun.com/products/jdbc><a href=\'http://java.sun.com/products/jdbc</a>.\'>http://java.sun.com/products/jdbc</a>.</a> You can also find pointers to a substantial amount of other information about available JDBC drivers, programming tutorials, and so on, at this web address. ',
+'Q' => 'what are some strategies for web applications\' management of data sources ',
+'id' => 161,
+},
+{
+'A' => 'e.g., a property named address.city returns the value retrieved by the Java expression getAddress().getCity() ',
+'Q' => 'nested names ',
+'id' => 162,
+},
+{
+'A' => '<ul><li>id - Names the scripting variable that will be created by this custom tag, as well as the key value used to locate this bean in the scope defined by the scope attribute.<li>name - Defines the key value by which an existing bean will be looked up in the scope defined by the scope attribute (if any), or by searching through the various scopes in the standard order (page, request, session, application).<li>property - Defines the name of a JavaBeans property, of the JSP bean identified by the name and (optional) scope attributes, whose value is to be used by this custom tag. If not specified, the bean identified by name is itself used as the value of interest. See below for more discussion about how a property can be referenced.<li>scope - Identifies the JSP scope ("page", "request", "session", or "application" within which a particular bean will be searched for (under the key specified by the name attribute) or created (under the key specified by the id attribute). If not specified, beans will generally be searched for in the order listed above, or created in page scope.</li></ul> ',
+'Q' => 'what are the common set of tag attributes associated with many tags from tag struts libraries ',
+'id' => 163,
+},
+{
+'A' => '"page", "request", "session", "application" ',
+'Q' => 'struts: what is the search order (of Scopes) for properties ',
+'id' => 164,
+},
+{
+'A' => '<font color=red>simple, nested, and indexed</font><br>&nbsp;Simple References - These are equivalent to the syntax you use with the standard &lt;jsp:getProperty&gt; and &lt;jsp:setProperty&gt; tags. A reference to a property named "foo" is converted into a method call to getFoo() or setFoo(value) (as appropriate), using the standard JavaBeans Specification naming conventions for bean properties. Struts uses the standard Java introspection APIs to identify the names of the actual property getter and setter methods, so your beans can provided customized method names through the use of a BeanInfo class. See the JavaBeans Specification, available at <a href=\'http://java.sun.com/products/javabeans/\'>http://java.sun.com/products/javabeans/</a>, for more information.<br>&nbsp;Nested References - Nested references are used to access a property through a hierarchy of property names separated by periods ("."), similar to the way that nested properties are accessed in JavaScript. For example, the following property reference in a getter (such as the &lt;bean:define&gt; tag discussed below):<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;property="foo.bar.baz"<br>is translated into the equivalent the Java expression:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;getFoo().getBar().getBaz()<br>If a nested reference is used in a setter (such as when an input form is processed), the property setter is called on the last property in the chain. For the above property reference, the equivalent Java expression would be:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;getFoo().getBar().setBaz(value)<br>Indexed References - Subscripts can be used to access individual elements of properties whose value is actually an array, or whose underlying JavaBean offers indexed getter and setter methods. For example, the following property reference in a getter (such as the &lt;bean:define&gt; tag discussed below):<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;property="foo[2]"<br>is translated into the equivalent of the Java expression:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;getFoo(2);<br>while the same property reference in a setter would call the equivalent of:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setFoo(2, value)<br>As you can see from the above translations, the subscripts used in indexed references are zero relative (that is, the first element in an array is foo[0]), just as is true in the Java language.<br>&nbsp;Combined References - Nesting and indexing can be combined in arbitrary ways, so that expressions like foo.bar[0].baz[2] are legal. ',
+'Q' => 'Struts: property tag has a rich syntax for getting/setting. There are three types of references supported ',
+'id' => 165,
+},
+{
+'A' => '<ul><li>Java Code in Action Classes</li><li>Java Code in Scriptlets</li><li>The Standard &lt;jsp:useBean&gt; Tag</li><li>The Struts &lt;bean:define&gt; Tag</li><li>Other Struts Copying Tags</li></ul><a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/api/org/apache/struts/taglib/bean/package-summary.html#package_description>more info</a> ',
+'Q' => 'struts: what are the different contexts in which one <font color=red>can create a new bean</font> ',
+'id' => 166,
+},
+{
+'A' => '<font color=red>Request Scope</font> - To store a bean in request scope under name "cust", your Action class would execute code similar to this:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Customer customer = ... create or acquire a customer reference ...;<br>&nbsp;&nbsp;&nbsp;&nbsp;request.setAttribute("cust", customer);<br>&nbsp;<font color=red>Session Scope</font> - To store a bean in session scope under name "user" (perhaps in a logon action), your Action class would execute code similar to this:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;User user = ... look up valid user in the database ...;<br>&nbsp;&nbsp;&nbsp;&nbsp;HttpSession session = request.getSession();<br>&nbsp;&nbsp;&nbsp;&nbsp;session.setAttribute("user", user);<br>&nbsp;<font color=red>Application Scope</font> - Generally, application scope beans are initialized in the init() method of a startup servlet. However, it is legal for an Action class to create such beans, if this is appropriate, like this:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Foo foo = ... create a Foo ...;<br>&nbsp;&nbsp;&nbsp;&nbsp;servlet.getServletContext().setAttribute("foo", foo); ',
+'Q' => 'struts: Action Classes can create beans in which scopes ',
+'id' => 167,
+},
+{
+'A' => '[<font color=red>not a recommended practice</font> in Struts-based applications (mixing business/presentation logic = no-no)]<br>&nbsp;&lt;%<br>&nbsp;&nbsp;&nbsp;&nbsp;Foo foo = ... create a foo ...;<br>&nbsp;&nbsp;&nbsp;&nbsp;pageContext.setAttribute("foo", foo, PageContext.PAGE_SCOPE);<br>&nbsp;&nbsp;&nbsp;&nbsp;pageContext.setAttribute("foo", foo, PageContext.REQUEST_SCOPE);<br>&nbsp;&nbsp;&nbsp;&nbsp;pageContext.setAttribute("foo", foo, PageContext.SESSION_SCOPE);<br>&nbsp;&nbsp;&nbsp;&nbsp;pageContext.setAttribute("foo", foo, PageContext.APPLICATION_SCOPE);<br>%&gt; ',
+'Q' => 'give examples of how Scriptlets can create beans in various scopes ',
+'id' => 168,
+},
+{
+'A' => 'You must use &lt;jsp:useBean&gt; to introduce a reference to an existing bean, if you wish to reference that bean with other standard JSP tags (such as &lt;jsp:getProperty&gt; or &lt;jsp:setProperty&gt;). If you only wish to reference such beans with other Struts tags, use of &lt;jsp:useBean&gt; is not required. ',
+'Q' => 'why would a struts programmer ever want to use jsp:useBean to create a bean ',
+'id' => 169,
+},
+{
+'A' => '<ul><li>Copy A Cookie - You can create a new bean containing a javax.servlet.http.Cookie that was included in the current request. If no cookie of the specified name was included, a request time expression will be thrown - therefore, it is common to nest the use of this tag inside a &lt;logic:present cookie="xxx"&gt; tag to ensure that the cookie was really included. If there is the possibility that more than one cookie of the same name was included, specify the "multiple" attribute (and the resulting bean will be an array of Cookies, instead of a single Cookie).<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;bean:cookie id="foo" name="cookiename"/&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;bean:cookie id="all" name="JSESSIONID" multiple="true"/&gt;</li><li>Copy A Request Header - You can create a new bean containing the value of an HTTP header included in this request. If no header of the specified name was included, a request time exception will be thrown - therefore, it is common to nest the use of this tag inside a &lt;logic:present header="xxx"&gt; tag to ensure that the header was really included. If there is the possibility that more than one header of the same name was included, specify the "multiple" attribute (and the resulting value bean will be an array of String values, instead of a single String).<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;bean:header id="agent" name="User-Agent"/&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;bean:header id="languages" name="Accept-Language" multiple="true"/&gt;</li><li>Copy A Dynamically Created Response - You can generate an internal request to the application you are running, and turn the response data that is returned from that request into a bean (of type String). One possible use for this technique is to acquire dynamically created XML formatted data that will be stored in a bean and later manipulated (such as by applying an XSLT stylesheet). If the current request is part of a session, the generated request for the include will also include the session identifier (and thus be considered part of the same session).<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;bean:include id="text" name="/generateXml?param1=a¶m2=b"/&gt;</li><li>Copy A JSP Implicitly Defined Object - You can create a bean that is one of the JSP implicitly defined objects (see the JSP spec for more details). This is useful if you wish to perform property getter actions against the implicit object with a custom tag instead of a scriptlet.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;bean:page id="app" property="application"/&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;bean:page id="sess" property="session"/&gt;</li><li>Copy A Request Parameter - You can create a new bean containing the value of a parameter included in this request. If no parameter of the specified name was included, a request time exception will be thrown - therefore, it is common to nest the use of this tag inside a &lt;logic:present parameter="xxx"&gt; tag to ensure that the parameter was really included. If there is the possibility that more than one parameter of the same name was included, specify the "multiple" attribute (and the resulting value bean will be an array of String values, instead of a single String).<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;bean:parameter id="name" name="name"/&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;bean:header id="options" name="option" multiple="true"/&gt;</li><li>Copy a Web Application Resource - You can create a new bean containing either the value of a web application resource as a String, or a java.io.InputStream for reading the content of that resource. The resource is accessed with a context-relative path (beginning with "/"), using the ServletContext.getResource() or ServletContext.getResourceAsStream() methods on the underlying application object.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;bean:resource id="deployment" name="/WEB-INF/web.xml"/&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;bean:resource id="stream" name="/WEB-INF/web.xml"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;input="true"/&gt;</li><li>Copy A Struts Configuration Object - You can create a new bean containing one of the standard Struts framework configuration objects. Doing this gives you access to the properties of the configuration object, if needed.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;bean:struts id="form" formBean="CustomerForm"/&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;bean:struts id="fwd" forward="success"/&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;bean:struts id="map" mapping="/saveCustomer"/&gt;</li></ul>&lt;/font&gt; ',
+'Q' => 'what are the struts tags which allow you to create beans by copying ',
+'id' => 170,
+},
+{
+'A' => 'this is a nested name ',
+'Q' => 'e.g., a property named address.city returns the value retrieved by the Java expression getAddress().getCity() ',
+'id' => 171,
+},
+{
+'A' => '<ul><li>Struts Common<ul><li>name The attribute name of the ActionForm bean whose properties are consulted when rendering the current value of this input field. If not specified, the bean associated with the form tag we are nested within is utilized.</li><li>property Name of the request parameter that will be included with this submission, set to the specified value.</li><li>value Value of the label to be used with this element. This value will also be submitted as the value of the specified request parameter. [Body of this tag (if any), or "Click"]</li></ul></li><li>Javascript<ul><li>onblur Executed when this element loses input focus.</li><li>onchange Executed when this element loses input focus and its value has changed.</li><li>onclick Executed when this element receives a mouse click.</li><li>ondblclick Executed when this element receives a mouse - double click.</li><li>onfocus Executed when this element receives input focus.</li><li>onkeydown Executed when this element has focus and a key is depressed.</li><li>onkeypress Executed when this element has focus and a key is depressed and released</li><li>onkeyup Executed when this element has focus and a key is released</li><li>onmousedown Executed when this element is under the mouse pointer and a mouse button is depressed.</li><li>onmousemove Executed when this element is under the mouse pointer and the pointer is moved.</li><li>onmouseout Executed when this element was under the mouse pointer but the pointer was moved outside the element.</li><li>onmouseover Executed when this element was not under the mouse pointer but the pointer is moved inside the element.</li><li>onmouseup Executed when this element is under the mouse pointer and a mouse button is released.</li></ul>And for the "parent" form tag only:<ul><li>onreset Executed if the form is reset.</li><li>onsubmit Executed if the form is submitted.</li></ul></li><li>HTML Navigation<ul><li>accesskey The keyboard character used to move focus immediately to this element.</li><li>tabindex The tab order (ascending positive integers) for this element.</li></ul></li><li>CSS<ul><li>style CSS styles to be applied to this HTML element.</li><li>styleClass CSS stylesheet class to be applied to this HTML element.</li></ul></li></ul> ',
+'Q' => 'Struts: the Common Form Tag Attributes can be divided into several categories ',
+'id' => 172,
+},
+{
+'A' => '// first queue up the error messages, possibly associating them with a property name:<br>ActionErrors errors = new ActionErrors();<br>if ((username == null) || (username.length() &lt; 1))<br>&nbsp;&nbsp;&nbsp;errors.add("username", new ActionError("error.username.required"));<br>&nbsp;In the JSP, you can display all of the pending errors with<br>&nbsp;&lt;html:errors/&gt;<br>Or, you can place specific error messages at different locations<br>&nbsp;&nbsp;&gt;td align="left"&lt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;html:text property="username" size="16" maxlength="16"/&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;html:errors property="username"/&gt;<br>&nbsp;&nbsp;&gt;/td&lt;<br>&nbsp;By default, the actual <font color=red>error message is retrieved from the application\'s standard message resource</font>. This gives you a master list of the error messages used by your application, and provides for internationalization. In the code snippet, the message corresponding to "error.username.required" would be retrieved and displayed to the user at runtime.<br>&nbsp;&nbsp;error.username.required=<li>Username is required</li>To format your messages:<br>&nbsp;&nbsp;errors.header=<h3>&lt;font color="red"&gt;Validation Error&lt;/font&gt;</h3><br>&nbsp;&nbsp;&nbsp;&nbsp;You must correct the following error(s) before proceeding:<UL>errors.footer=</ul>&lt;hr&gt; ',
+'Q' => 'struts error message handling ',
+'id' => 173,
+},
+{
+'A' => '&lt;A HREF="detail.html?&lt;%= request.getParameter("linkParams").getTarget()<br>%&gt;"&gt;</A> ',
+'Q' => 'rewrite the following using standard JSP constructs:<br>&lt;html:link paramId="target"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;paramName="linkParams" paramProperty="target"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;paramScope="request" &gt;detail.html&lt;/html:link&gt;would correspond to something like ',
+'id' => 174,
+},
+{
+'A' => '<ul><li>equal</li><li>notEqual</li><li>greaterEqual</li><li>lessEqual</li><li>greaterThan</li><li>lessThan</li><li>present</li><li>notPresent</li></li><li>match</li><li>notMatch</li></ul> ',
+'Q' => 'struts: logic tags: what are the operations ',
+'id' => 175,
+},
+{
+'A' => 'struts logic operations\' operands are called <font color=red>comparison attributes</font>.<ul><li>cookie<br>&lt;logic:someComparisonTag value="someUserName" cookie="userName"&gt;<br>&nbsp;&nbsp;User Logged In<br>&lt;/logic:someComparisonTag&gt;</li><li>header - the name of the HTTP header to compare to value<br>&lt;logic:someComparisonTag value="en_US" header="Accept-Language"&gt;<br>&nbsp;&nbsp;Welcome English-speaking User<br>&lt;/logic:someComparisonTag&gt;<br>&nbsp;&lt;logic:present header="Referer"&gt;<br>&nbsp;&nbsp;&lt;logic:match header="Referer" value="google.com"&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;I see you found our site through Google... interesting.<br>&nbsp;&nbsp;&lt;/logic:match&gt;<br>&nbsp;&nbsp;&lt;logic:notMatch header="Referer" value="google.com"&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;I see you DID NOT find our site through Google.<br>&nbsp;&nbsp;&lt;/logic:notMatch&gt;<br>&lt;/logic:present&gt;</li><li>parameter - the name of the request parameter to compare to value<br>example:<br>&lt;logic:someComparisonTag value="" parameter="username"&gt;<br>&nbsp;&nbsp;Error: a username must be specified<br>&lt;/logic:someComparisonTag&gt;</li><li>name (and possibly property)<br>name - the variable to be compared to value is the JSP bean specified by this attribute, if property is not specified, or the value of the specified property of this bean, if property is specified.<br>example:<br>&lt;%<br>&nbsp;&nbsp;String testString = "pantalones";<br>&nbsp;&nbsp;pageContext.setAttribute("testString", testString, PageContext.PAGE_SCOPE);<br>%&gt;<br>&lt;jsp:useBean id="testString" scope="page" type="java.lang.String" /&gt;<br>&lt;logic:someComparisonTag name="testString" value="pantalones"&gt;<br>&nbsp;&nbsp;Usted tiene pantalones!<br>&lt;/logic:someComparison&gt;</li></ul> ',
+'Q' => 'struts: value comparison tags: how do you define an operand ',
+'id' => 176,
+},
+{
+'A' => '<a target=win2 href=http://jakarta.apache.org/struts/doc-1.0.2/struts-logic.html#match>logic:match</a><br>&nbsp;The substring matching tags take all the same arguments as the value comparison tags. You compare the String specified by value to any of the comparison values you give it, specified by cookie, header, parameter, property or name. Note that in the examples, matchTag corresponds either the match or notMatch tag. Matching tags also have an additional location attribute added:<br>&nbsp;location - has two possible values, "start" and "end". If "start", the substring is attempted to be matched at the beginning of the String, if "end", then the substring is attempted to be matched to the end of the String<br>example:<br>&lt;logic:matchTag parameter="action" value="processLogin" location="start"&gt;<br>&nbsp;&nbsp;Processing Login....<br>&lt;/logic:matchTag&gt; ',
+'Q' => 'Evaluate the nested body content of this tag if the specified value is an appropriate substring of the requested variable. ',
+'id' => 177,
+},
+{
+'A' => '...Use &lt;html:link rewrite&gt;<br>&nbsp;The html:link rewrite accepts a context-relative URL, and also encodes it if necessary, so resources subject to container managed security can be retrieved.<br>&nbsp;&lt;LINK REL=\'stylesheet\' HREF="\'&lt;html:rewrite page="/path/to/CSS"/&gt;\' TYPE=\'text/css\'&gt; ',
+'Q' => 'when referencing stylesheets and other HTML assets... ',
+'id' => 178,
+},
+{
+'A' => 'below WEB-INF<br>&nbsp;[Note: This is not supported by all containers (e.g. WebLogic). If you believe it should be, contact your vendor. The Servlet 2.3 specification makes it much clearer that this is allowed.]<br>&nbsp;The container provides security for all files below WEB-INF. This applies to client requests, but not to forwards from the ActionServlet. Placing all JSPs below WEB-INF ensures they are only accessed through Actions, and not directly by the client or each other. This allows security to be moved up into the Controller, where it can be handled more efficiently, and out of the base presentation layer.<br>&nbsp;However, if your Java ServerPages need to access a number of other HTML resources, like images and stylesheets, it may be more convenient to leave them in the document root. If you are using Link only to Actions, then the address of your JSP\'s is never exposed anyway, and this strategy loses much of its value. The Link only to Actions strategy is usually sufficient. ',
+'Q' => 'where should jsp pages live ',
+'id' => 179,
+},
+{
+'A' => '...the standard Parameter property can be used to determine which mapping was dispatched.<br>&lt;action path="/Entry"<br>type="org.wxxi.polls.http.Client"<br>name="pollForm"<br>validate="false"<br><font color=red>parameter="input"</font>&gt;<br>&lt;forward name="continue" path="/WEB-INF/pages/Entry.jsp"/&gt;<br>&lt;/action&gt;<br>&lt;action path="/Store"<br>type="org.wxxi.polls.http.Client"<br>name="pollForm"<br>validate="true"<br>input="/WEB-INF/Form.jsp"<br><font color=red>parameter="insert"</font>&gt;<br>&lt;forward name="continue" path="/WEB-INF/pages/Results.jsp"/&gt;<br>&lt;/action&gt;<br>&nbsp;In the Action ...<br>&nbsp;&nbsp;&nbsp;&nbsp;if (("insert".equals(dispatch)) && (errors.empty())) &#123; ... ',
+'Q' => 'When more than one mapping leads to a single Action... ',
+'id' => 180,
+},
+{
+'A' => 'The general thinking is that there are at least two levels of validation. First, there is the simple domain-type checking, such as fields that are suppose to be numeric should contain only numerals. Second, there is business-logic checking, like invoice numbers are all greater than 1000 or no start dates should occur before 1984, or that the username and password match.<br>The first type is easy to automate and doesn\'t require access to the business logic, so we have a standard method that you can override if you want to do that as part of your ActionForm. With that method, therewould not be a good place for you to plug-in simple validations.<br>&nbsp;The second type gets to be application specific, and is usually handled in the Action perform method. Since you are already overriding perform, there didn\'t seem to be much value in providing a yet another method to<br>override here. ',
+'Q' => '"Submit Once, Validate Twice" ',
+'id' => 181,
+},
+);

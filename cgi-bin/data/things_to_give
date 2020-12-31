@@ -1,0 +1,45 @@
+# formatted
+@val = (
+{
+'English' => 'a present',
+'French' => '{un cadeau>s>}',
+'German' => '{ein Geschenk>s>}',
+'Italian' => '{un regalo>s>}',
+'Spanish' => '{un obsequio>s>}',
+'id' => 0,
+},
+{
+'English' => 'the car keys',
+'French' => '{le clef>p>} de voiture',
+'German' => '{der Autoschl:ussel>p>}',
+'Italian' => '{il chiave>p>} {di auto>s>}',
+'Spanish' => '{el llave>p>} de coche',
+'id' => 1,
+},
+{
+'English' => 'a kiss',
+'French' => '{un baiser>s>}',
+'German' => '{ein Kuss>s>}',
+'Italian' => '{un bacio>s>}',
+'Spanish' => '{un beso>s>}',
+'id' => 2,
+'suppress_Italian_note#bacio;;Italian' => 1,
+'suppress_Spanish_note#beso;;Spanish' => 1,
+},
+{
+'English' => 'a lot',
+'French' => 'beaucoup',
+'German' => 'viel',
+'Italian' => 'molto',
+'Spanish' => 'mucho',
+'id' => 3,
+},
+{
+'English' => 'little',
+'French' => 'peu',
+'German' => 'wenig',
+'Italian' => 'poco',
+'Spanish' => 'poco',
+'id' => 4,
+},
+);

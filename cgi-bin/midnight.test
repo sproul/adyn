@@ -1,0 +1,51 @@
+sh c:/users/nsproul/work/public/teacher/test/server/test.sh
+Test case mix_ok_and_nonexistent_2_ex...
+Test case nonexistent_2_ex...
+Test case ok_1_ex...
+Test case ok_3_ex...
+	c:/users/nsproul/work/public/teacher/test/server/input/ok_3_ex
+	c:/users/nsproul/work/public/teacher/test/server/output/ok_3_ex
+71,89c71,83
+< ass&eacute; compos&eacute;</i></a> tense form of the verb <a href=Nelson is setting binmode to 0: c:/perl/lib/CGI.pm
+< Nelson is setting binmode to 0: c:/perl/lib/CGI.pm
+< Nelson is setting binmode to 0: c:/perl/lib/CGI.pm
+< Nelson is setting binmode to 0: c:/perl/lib/CGI.pm
+< Nelson is setting binmode to 0: c:/perl/lib/CGI.pm
+< adyn_cgi_util::MailAdyn(choose.cgi exercises selected langs, verb_be_1;verb_be_2;verb_be_3): would mail adyn if I were onXX
+<  unix
+< ../teacher/html/French_vt_e_tre.html target=#etre><i>&ecirc;tre</i></a> (cf. <a Href='javascript:Choose(\"verb_be\")'>exeXX
+< rcises using the verb <i>&ecirc;tre</i></a>).<br><sup>2</sup>The <a href=../teacher/html/French.html#=Adjectives target=FXX
+< rench>adjective</a> <i>intelligent</i> becomes <i>intelligentes</i> to agree with the feminine <a href=../teacher/html/FrXX
+< ench.html#=plural target=French>plural</a> subject <i>elles</i>.",'Italian',"Loro furono<sup>1</sup> intelligenti<sup>2</XX
+< sup>.","<br><sup>1</sup><i>furono</i> is a <a href=../teacher/html/Italian.html#=Verbs=preterite target=Italian.html#=VerXX
+< bs=preterite>definite past</a> tense form of the verb <a href=../teacher/html/Italian_vt_essere.html target=essere><i>essXX
+< ere</i></a> (cf. <a Href='javascript:Choose(\"verb_be\")'>exercises using the verb <i>essere</i></a>).<br>&nbsp;&nbsp;TheXX
+<  <a href=../teacher/html/Italian.html#=Verbs=past>present perfect</a> tense would have also been correct here.<br>&nbsp;&XX
+< nbsp;To study the definite past and its many irregular conjugations, go to <a Href='javascript:Choose(\"it_past\")'>ItaliXX
+< an past and past participle drills</a>.<br><sup>2</sup>The <a href=../teacher/html/Italian.html#=Adjectives target=ItaliaXX
+< n>adjective</a> <i>intelligente</i> becomes <i>intelligenti</i> to agree with the feminine <a href=../teacher/html/ItaliaXX
+< n.html#=plural target=Italian>plural</a> subject <i>loro</i>.")
+---
+> ass&eacute; compos&eacute;</i></a> tense form of the verb <a href=../teacher/html/French_vt_e_tre.html target=#etre><i>&eXX
+> circ;tre</i></a> (cf. <a Href='javascript:Choose(\"verb_be\")'>exercises using the verb <i>&ecirc;tre</i></a>).<br><sup>2XX
+> </sup>The <a href=../teacher/html/French.html#=Adjectives target=French>adjective</a> <i>intelligent</i> becomes <i>intelXX
+> ligentes</i> to agree with the feminine <a href=../teacher/html/French.html#=plural target=French>plural</a> subject <i>eXX
+> lles</i>.",'Italian',"Loro furono<sup>1</sup> intelligenti<sup>2</sup>.","<br><sup>1</sup><i>furono</i> is a <a href=../tXX
+> eacher/html/Italian.html#=Verbs=preterite target=Italian.html#=Verbs=preterite>definite past</a> tense form of the verb <XX
+> a href=../teacher/html/Italian_vt_essere.html target=essere><i>essere</i></a> (cf. <a Href='javascript:Choose(\"verb_be\"XX
+> )'>exercises using the verb <i>essere</i></a>).<br>&nbsp;&nbsp;The <a href=../teacher/html/Italian.html#=Verbs=past>preseXX
+> nt perfect</a> tense would have also been correct here.<br>&nbsp;&nbsp;To study the definite past and its many irregular XX
+> conjugations, go to <a Href='javascript:Choose(\"it_past\")'>Italian past and past participle drills</a>.<br><sup>2</sup>XX
+> The <a href=../teacher/html/Italian.html#=Adjectives target=Italian>adjective</a> <i>intelligente</i> becomes <i>intelligXX
+> enti</i> to agree with the feminine <a href=../teacher/html/Italian.html#=plural target=Italian>plural</a> subject <i>lorXX
+> o</i>.")
+97a92,98
+> Nelson is setting binmode to 0: c:/perl/lib/CGI.pm
+> Nelson is setting binmode to 0: c:/perl/lib/CGI.pm
+> Nelson is setting binmode to 0: c:/perl/lib/CGI.pm
+> Nelson is setting binmode to 0: c:/perl/lib/CGI.pm
+> Nelson is setting binmode to 0: c:/perl/lib/CGI.pm
+> adyn_cgi_util::MailAdyn(choose.cgi exercises selected langs, verb_be_1;verb_be_2;verb_be_3): would mail adyn if I were onXX
+>  unix
+cp -p c:/users/nsproul/work/public/teacher/test/server/output/ok_3_ex c:/users/nsproul/work/public/teacher/test/server/can/ok_3_ex
+$ 

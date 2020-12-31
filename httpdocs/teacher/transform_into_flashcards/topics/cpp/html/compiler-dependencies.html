@@ -1,0 +1,300 @@
+<html>
+<head>
+<title>[33] Compiler dependencies, C++ FAQ Lite, Marshall Cline</title>
+<link rev=made href="mailto:cline@parashift.com">
+</head>
+<body vlink="#551a8b" text="#000000" bgcolor="#c1c1c1" alink="#ff0000" link="#0000ee">
+<a name="top"></a>
+<h1>[33] Compiler dependencies<br>
+<small><small>(Part of <a href="index.html"><em>C++ FAQ Lite</em></a>, <a href="copy-permissions.html#[1.2]">Copyright&nbsp;&copy; 1991-96</a>, <a href="http://www.cerfnet.com/~mpcline/">Marshall Cline</a>, <a href="mailto:cline@parashift.com">cline@parashift.com</a>)</small></small></h1>
+<hr width="100%" >
+<h3>FAQs in section [33]:</h3>
+<ul>
+<li><a href="compiler-dependencies.html#[33.1]">[33.1] How do I display text in the status bar using MFC?</a></li>
+<li><a href="compiler-dependencies.html#[33.2]">[33.2] How can I decompile an executable program back into C++ source
+code?</a></li>
+<li><a href="compiler-dependencies.html#[33.3]">[33.3] Where can I get information about the C++ compiler
+from {Borland, IBM, Microsoft, Semantic, Sun, etc.}?</a> <img src="updated.gif" alt="UPDATED!" border=0></li>
+<li><a href="compiler-dependencies.html#[33.4]">[33.4] How do compilers use &quot;over-allocation&quot;
+to remember the number of elements in an allocated array?</a></li>
+<li><a href="compiler-dependencies.html#[33.5]">[33.5] How do compilers use an &quot;associative
+array&quot; to remember the number of elements in an allocated array?</a></li>
+<li><a href="compiler-dependencies.html#[33.6]">[33.6] If name mangling was standardized, could I link code
+compiled with compilers from different compiler vendors?</a></li>
+<li><a href="compiler-dependencies.html#[33.7]">[33.7] GNU C++ (g++) produces big executables for tiny programs;
+Why?</a></li>
+<li><a href="compiler-dependencies.html#[33.8]">[33.8] Is there a <tt>yacc</tt>-able C++ grammar?</a></li>
+<li><a href="compiler-dependencies.html#[33.9]">[33.9] What is C++ 1.2?  2.0?  2.1?  3.0?</a></li>
+</ul>
+<p><hr width="100%" >
+<p><a name="[33.1]"></a>
+<h3>[33.1] How do I display text in the status bar using MFC?</h3>
+<p>Use the following code snipped:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;CString&nbsp;s&nbsp;=&nbsp;"Text";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;CStatusBar*&nbsp;p&nbsp;=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(CStatusBar*)AfxGetApp()-&gt;m_pMainWnd-&gt;GetDescendantWindow(AFX_IDW_STATUS_BAR);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;p-&gt;SetPaneText(1,&nbsp;s);
+</code>
+<p>This works with MFC v.1.00 which hopefully means it will work with other
+versions as well.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="class-libraries.html">Previous&nbsp;section</a> |&nbsp;<a href="misc-technical-issues.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[33.2]"></a>
+<h3>[33.2] How can I decompile an executable program back into C++ source
+code?</h3>
+<p>You gotta be kidding, right?
+<p>Here are a few of the <em>many</em> reasons this is not even remotely feasible:
+<ul>
+<li>What makes you think the program was written in C++ to begin
+with?</li>
+<li>Even if you are sure it was originally written (at least partially)
+in C++, which one of the gazillion C++ compilers produced it?</li>
+<li>Even if you know the compiler, which particular version of the
+compiler was used?</li>
+<li>Even if you know the compiler's manufacturer and version number,
+what compile-time options were used?</li>
+<li>Even if you know the compiler's manufacturer and version number and
+compile-time options, what third party libraries were linked-in, and what was
+their version?</li>
+<li>Even if you know all that stuff, most executables have had their
+debugging information stripped out, so the resulting decompiled code will be
+totally unreadable.</li>
+<li>Even if you know everything about the compiler, manufacturer,
+version number, compile-time options, third party libraries, and debugging
+information, the cost of writing a decompiler that works with even one
+particular compiler and has even a modest success rate at generating code would
+be a monumental effort &#151; on the par with writing the compiler itself from
+scratch.</li>
+</ul>
+<p>But the biggest question is not <em>how</em> you can decompile someone's code,
+but <em>why</em> do you want to do this?  If you're trying to reverse-engineer
+someone elses code, shame on you; go find honest work.  If you're trying to
+recover from losing your own source, the best suggestion I have is to make
+better backups next time.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="class-libraries.html">Previous&nbsp;section</a> |&nbsp;<a href="misc-technical-issues.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[33.3]"></a>
+<h3>[33.3] Where can I get information about the C++ compiler
+from {Borland, IBM, Microsoft, Semantic, Sun, etc.}? <img src="updated.gif" alt="UPDATED!" border=0></h3>
+<small><em>[Recently added HP C++ (on 1/97) and corrected the URL for <a href="http://www.symantec.com/scpp/index_product.html">Symantec C++</a> thanks to <a href="mailto:mjdl@interlog.com">Michel Joly de Lotbiniere</a> and added the URL for HP C++ thanks to <a href="mailto:greendjf@ncp.gpt.co.uk">David Green</a> (on 9/97) and corrected the URL for Microsoft Visual C++ thanks to <a href="mailto:leila.rannanjarvi@vtt.fi">Leila Rannanjarvi</a>, and added the URL for Sun C++ thanks to <a href="mailto:grunt@mathlab.sunysb.edu">Aryan Mirsepassi</a> (on 9/97).  <a href="misc-environmental-issues.html#[35.2]">Click here to go to the next FAQ in the &quot;chain&quot; of recent changes<!--rawtext:[35.2]:rawtext--></a>.]</em></small>
+<p>In alphabetical order by vendor name:
+<ul>
+<li>Borland C++ 5.0 FAQs:
+<a href="http://www.mdex.net/~kentr/bc50faq.htm"><tt>http://www.mdex.net/~kentr/bc50faq.htm</tt></a></li>
+<li>HP C++:
+<a href="http://www.hp.com/wsg/ssa/cpp/cpphome.html"><tt>http://www.hp.com/wsg/ssa/cpp/cpphome.html</tt></a></li>
+<li>IBM VisualAge C++:
+<a href="http://www.software.ibm.com/ad/cset/"><tt>http://www.software.ibm.com/ad/cset/</tt></a></li>
+<li>Metrowerks C++: <a href="http://metrowerks.com"><tt>http://metrowerks.com</tt></a> or
+<a href="http://www.metrowerks.com"><tt>http://www.metrowerks.com</tt></a></li>
+<li>Microsoft Visual C++:
+<a href="http://www.microsoft.com/visualc/"><tt>http://www.microsoft.com/visualc/</tt></a></li>
+<li>Silicon Graphics C++:
+<a href="http://www.sgi.com/Products/DevMagic/products/cplusplus.html"><tt>http://www.sgi.com/Products/DevMagic/products/cplusplus.html</tt></a></li>
+<li>Sun Visual WorkShop<sup><small>TM</small></sup> for C++:
+<a href="http://www.sun.com/workshop/products/vws/"><tt>http://www.sun.com/workshop/products/vws/</tt></a></li>
+<li>Symantec C++:
+<a href="http://www.symantec.com/scpp/index_product.html"><tt>http://www.symantec.com/scpp/index_product.html</tt></a></li>
+<li>Watcom C++:
+<a href="http://www.powersoft.com/products/languages/watccpl.html"><tt>http://www.powersoft.com/products/languages/watccpl.html</tt></a></li>
+</ul>
+<p>[If anyone has other suggestions that should go into this list, please let me
+know; thanks; (<a href="mailto:cline@parashift.com">cline@parashift.com</a>)].
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="class-libraries.html">Previous&nbsp;section</a> |&nbsp;<a href="misc-technical-issues.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[33.4]"></a>
+<h3>[33.4] How do compilers use &quot;over-allocation&quot;
+to remember the number of elements in an allocated array?</h3>
+<p>Recall that when you <tt>delete[]</tt> an array, the runtime system <a href="freestore-mgmt.html#[16.13]">magically
+knows how many destructors to run<!--rawtext:[16.13]:rawtext--></a>.  This FAQ
+describes a technique used by some C++ compilers to do this (the other common
+technique is to <a href="compiler-dependencies.html#[33.5]">use an associative
+array<!--rawtext:[33.5]:rawtext--></a>).
+<p>If the compiler uses the &quot;over-allocation&quot; technique, the code for <tt>p&nbsp;=&nbsp;new&nbsp;Fred[n]</tt> looks something like the following.  Note that <tt>WORDSIZE</tt> is an
+imaginary machine-dependent constant that is at least <tt>sizeof(size_t)</tt>,
+possibly rounded up for any alignment constraints.  On many machines, this
+constant will have a value of 4 or 8.  It is not a real C++ identifier that
+will be defined for your compiler.
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Original&nbsp;code:&nbsp;<tt>Fred*&nbsp;p&nbsp;=&nbsp;new&nbsp;Fred[n];</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;char*&nbsp;tmp&nbsp;=&nbsp;(char*)&nbsp;operator&nbsp;new[]&nbsp;(WORDSIZE&nbsp;+&nbsp;n&nbsp;*&nbsp;sizeof(Fred));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Fred*&nbsp;p&nbsp;=&nbsp;(Fred*)&nbsp;(tmp&nbsp;+&nbsp;WORDSIZE);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*(size_t*)tmp&nbsp;=&nbsp;n;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;size_t&nbsp;i;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;try&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(i&nbsp;=&nbsp;0;&nbsp;i&nbsp;&lt;&nbsp;n;&nbsp;++i)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new(p&nbsp;+&nbsp;i)&nbsp;Fred();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;<a href="dtors.html#[11.10]">Placement&nbsp;<tt>new</tt><!--rawtext:[11.10]:rawtext--></a></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;catch&nbsp;(...)&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;(i--&nbsp;!=&nbsp;0)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(p&nbsp;+&nbsp;i)-&gt;~Fred();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;<a href="dtors.html#[11.10]">Explicit&nbsp;call&nbsp;to&nbsp;the&nbsp;destructor<!--rawtext:[11.10]:rawtext--></a></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;operator&nbsp;delete[]&nbsp;((char*)p&nbsp;-&nbsp;WORDSIZE);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p>Then the <tt>delete[]&nbsp;p</tt> statement becomes:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Original&nbsp;code:&nbsp;<tt>delete[]&nbsp;p;</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;size_t&nbsp;n&nbsp;=&nbsp;*&nbsp;(size_t*)&nbsp;((char*)p&nbsp;-&nbsp;WORDSIZE);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;(n--&nbsp;!=&nbsp;0)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(p&nbsp;+&nbsp;n)-&gt;~Fred();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;operator&nbsp;delete[]&nbsp;((char*)p&nbsp;-&nbsp;WORDSIZE);
+</code>
+<p>Note that the address passed to <tt>operator&nbsp;delete[]</tt> is <em>not</em> the
+same as <tt>p</tt>.
+<p>Compared to the <a href="compiler-dependencies.html#[33.5]">associative array
+technique<!--rawtext:[33.5]:rawtext--></a>, this technique is faster,
+but more sensitive to the problem of programmers saying <tt>delete&nbsp;p</tt> rather than
+<tt>delete[]&nbsp;p</tt>.  For example, if you make a programming error by saying <tt>delete&nbsp;p</tt> where you should have said <tt>delete[]&nbsp;p</tt>, the address that is passed to
+<tt>operator&nbsp;delete(void*)</tt> is <em>not</em> the address of any valid heap
+allocation.  This will probably corrupt the heap.  Bang!  You're dead!
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="class-libraries.html">Previous&nbsp;section</a> |&nbsp;<a href="misc-technical-issues.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[33.5]"></a>
+<h3>[33.5] How do compilers use an &quot;associative
+array&quot; to remember the number of elements in an allocated array?</h3>
+<p>Recall that when you <tt>delete[]</tt> an array, the runtime system <a href="freestore-mgmt.html#[16.13]">magically
+knows how many destructors to run<!--rawtext:[16.13]:rawtext--></a>.  This FAQ
+describes a technique used by some C++ compilers to do this (the other common
+technique is to <a href="compiler-dependencies.html#[33.4]">over-allocate<!--rawtext:[33.4]:rawtext--></a>).
+<p>If the compiler uses the associative array technique, the code for <tt>p&nbsp;=&nbsp;new&nbsp;Fred[n]</tt> looks something like this (where <tt>arrayLengthAssociation</tt> is
+the imaginary name of a hidden, global associative array that maps from <tt>void*</tt>
+to &quot;size_t&quot;):
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Original&nbsp;code:&nbsp;<tt>Fred*&nbsp;p&nbsp;=&nbsp;new&nbsp;Fred[n];</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;Fred*&nbsp;p&nbsp;=&nbsp;(Fred*)&nbsp;operator&nbsp;new[]&nbsp;(n&nbsp;*&nbsp;sizeof(Fred));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;size_t&nbsp;i;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;try&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(i&nbsp;=&nbsp;0;&nbsp;i&nbsp;&lt;&nbsp;n;&nbsp;++i)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new(p&nbsp;+&nbsp;i)&nbsp;Fred();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;<a href="dtors.html#[11.10]">Placement&nbsp;<tt>new</tt><!--rawtext:[11.10]:rawtext--></a></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;catch&nbsp;(...)&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;(i--&nbsp;!=&nbsp;0)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(p&nbsp;+&nbsp;i)-&gt;~Fred();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;<a href="dtors.html#[11.10]">Explicit&nbsp;call&nbsp;to&nbsp;the&nbsp;destructor<!--rawtext:[11.10]:rawtext--></a></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;operator&nbsp;delete[]&nbsp;(p);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;arrayLengthAssociation.insert(p,&nbsp;n);
+</code>
+<p>Then the <tt>delete[]&nbsp;p</tt> statement becomes:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Original&nbsp;code:&nbsp;<tt>delete[]&nbsp;p;</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;size_t&nbsp;n&nbsp;=&nbsp;arrayLengthAssociation.lookup(p);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;(n--&nbsp;!=&nbsp;0)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(p&nbsp;+&nbsp;n)-&gt;~Fred();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;operator&nbsp;delete[]&nbsp;(p);
+</code>
+<p>Cfront uses this technique (it uses an AVL tree to implement the associative
+array).
+<p>Compared to the <a href="compiler-dependencies.html#[33.4]">over-allocation
+technique<!--rawtext:[33.4]:rawtext--></a>, the associative array
+technique is slower, but less sensitive to the problem of programmers saying
+<tt>delete&nbsp;p</tt> rather than <tt>delete[]&nbsp;p</tt>.  For example, if you make a programming
+error by saying <tt>delete&nbsp;p</tt> where you should have said <tt>delete[]&nbsp;p</tt>, only the
+first <tt>Fred</tt> in the array gets destructed, but the heap <em>may</em> survive
+(unless you've replaced <tt>operator&nbsp;delete[]</tt> with something that doesn't
+simply call <tt>operator&nbsp;delete</tt>, or unless the destructors for the other
+<tt>Fred</tt> objects were necessary).
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="class-libraries.html">Previous&nbsp;section</a> |&nbsp;<a href="misc-technical-issues.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[33.6]"></a>
+<h3>[33.6] If name mangling was standardized, could I link code
+compiled with compilers from different compiler vendors?</h3>
+<p>Short answer: Probably not.
+<p>In other words, some people would like to see name mangling standards
+incorporated into the proposed C++ ANSI standards in an attempt to avoiding
+having to purchase different versions of class libraries for different
+compiler vendors.  However name mangling differences are one of the smallest
+differences between implementations, even on the same platform.
+<p>Here is a partial list of other differences:
+<ul>
+<li>Number and type of hidden arguments to member functions.
+<ul>
+<li>is <tt>this</tt> handled specially?</li>
+<li>where is the return-by-value pointer passed?</li>
+</ul>
+</li>
+<li>Assuming a <a href="virtual-functions.html#[20.3]">v-table<!--rawtext:[20.3]:rawtext--></a> is used:
+<ul>
+<li>what is its contents and layout?</li>
+<li>where/how is the adjustment to <tt>this</tt> made for multiple and/or
+<tt>virtual</tt> inheritance?</li>
+</ul>
+</li>
+<li>How are classes laid out, including:
+<ul>
+<li>location of base classes?</li>
+<li>handling of <tt>virtual</tt> base classes?</li>
+<li>location of <a href="virtual-functions.html#[20.3]">v-pointers<!--rawtext:[20.3]:rawtext--></a>, if they are used at
+all?</li>
+</ul>
+</li>
+<li>Calling convention for functions, including:
+<ul>
+<li>where are the actual parameters placed?</li>
+<li>in what order are the actual parameters passed?</li>
+<li>how are registers saved?</li>
+<li>where does the return value go?</li>
+<li>does caller or callee pop the stack after the call?</li>
+<li>special rules for passing or returning structs or doubles?</li>
+<li>special rules for saving registers when calling leaf functions?</li>
+</ul>
+</li>
+<li>How is the run-time-type-identification laid out?</li>
+<li>How does the runtime exception handling system know which local
+objects need to be destructed during an exception throw?</li>
+</ul>
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="class-libraries.html">Previous&nbsp;section</a> |&nbsp;<a href="misc-technical-issues.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[33.7]"></a>
+<h3>[33.7] GNU C++ (g++) produces big executables for tiny programs;
+Why?</h3>
+<p>libg++ (the library used by g++) was probably compiled with debug info
+(<tt>-g</tt>).  On some machines, recompiling libg++ without debugging can save
+lots of disk space (approximately 1 MB; the down-side: you'll be unable to
+trace into libg++ calls).  Merely <tt>strip</tt>-ping the executable doesn't
+reclaim as much as recompiling without <tt>-g</tt> followed by subsequent
+<tt>strip</tt>-ping the resultant <tt>a.out</tt>'s.
+<p>Use <tt>size&nbsp;a.out</tt> to see how big the program code and data segments really
+are, rather than <tt>ls&nbsp;-s&nbsp;a.out</tt> which includes the symbol table.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="class-libraries.html">Previous&nbsp;section</a> |&nbsp;<a href="misc-technical-issues.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[33.8]"></a>
+<h3>[33.8] Is there a <tt>yacc</tt>-able C++ grammar?</h3>
+<p>There used to be a <tt>yacc</tt> grammar that was pretty close to C++.  As far
+as I am aware, it has not kept up with the evolving C++ standard.  For example,
+the grammar doesn't handle templates, &quot;exceptions&quot;, nor
+run-time-type-identification, and it deviates from the rest of the language in
+some subtle ways.
+<p>It is available at
+<a href="http://srawgw.sra.co.jp/.a/pub/cmd/c++grammar2.0.tar.gz"><tt>http://srawgw.sra.co.jp/.a/pub/cmd/c++grammar2.0.tar.gz</tt></a>
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="class-libraries.html">Previous&nbsp;section</a> |&nbsp;<a href="misc-technical-issues.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[33.9]"></a>
+<h3>[33.9] What is C++ 1.2?  2.0?  2.1?  3.0?</h3>
+<p>These are not versions of the language, but rather versions of cfront, which
+was the original C++ translator implemented by AT&amp;T.  It has become generally
+accepted to use these version numbers as if they were versions of the language
+itself.
+<p><em>Very</em> roughly speaking, these are the major features:
+<ul>
+<li>2.0 includes multiple/<tt>virtual</tt> inheritance and
+<a href="abcs.html#[22.4]">pure virtual<!--rawtext:[22.4]:rawtext--></a> functions</li>
+<li>2.1 includes semi-nested classes and
+<tt>delete[]&nbsp;pointerToArray</tt></li>
+<li>3.0 includes fully-nested classes, templates and <tt>i++</tt> <i>vs.</i>
+<tt>++i</tt></li>
+<li>4.0 will include exceptions</li>
+</ul>
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="class-libraries.html">Previous&nbsp;section</a> |&nbsp;<a href="misc-technical-issues.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<a name="bottom"></a>
+<a href="mailto:cline@parashift.com"><img src="mbox.gif" border=2 height=26 width=89>&nbsp;E-mail the author</a><br>
+[&nbsp;<a href="index.html"><em>C++ FAQ Lite</em></a>
+|&nbsp;<a href="index.html#table-of-contents">Table&nbsp;of&nbsp;contents</a>
+|&nbsp;<a href="subject-index.html">Subject&nbsp;index</a>
+|&nbsp;<a href="copy-permissions.html#[1.1]">About&nbsp;the&nbsp;author</a>
+|&nbsp;<a href="copy-permissions.html#[1.2]">&copy;</a>
+|&nbsp;<a href="on-line-availability.html#[2.2]">Download&nbsp;your&nbsp;own&nbsp;copy</a>&nbsp;]<br>
+<small>Revised Sep 8, 1997</small>
+</body>
+</html>

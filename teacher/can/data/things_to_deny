@@ -1,0 +1,28 @@
+# formatted
+@val = (
+{
+'English' => 'the allegation',
+'French' => '{le all/egation>s>}',
+'German' => '{der Behauptung>s>}',
+'Italian' => '{il accusa>s>}',
+'Spanish' => '{el alegato>s>}',
+'id' => 0,
+},
+{
+'English' => 'that story',
+'French' => '{ce histoire>s>}-l`a',
+'German' => '{jener Geschichte>s>}',
+'Italian' => '{quel storia>s>}',
+'Spanish' => '{ese cuento>s>}',
+'id' => 1,
+'suppress_Spanish_note#cuento;;Spanish' => 1,
+},
+{
+'English' => 'the allegations',
+'French' => '{le all/egation>p>}',
+'German' => '{der Behauptung>p>}',
+'Italian' => '{il accusa>p>}',
+'Spanish' => '{el alegato>p>}',
+'id' => 2,
+},
+);

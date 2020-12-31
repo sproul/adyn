@@ -1,0 +1,121 @@
+changes which might bring the VtoS mess under control some day...
+
+#generate_grammatical_reference.pl: 
+sub VTtoS
+{
+  my($verb_b, $tense) = @_;
+  #print "VtoS($verb_b, $tense)\n";
+      				
+  my $argsRef = $__g->GetVerbArgs($verb_b);
+  my $hdr_inf_a = $__g->GetEnglishHeader($verb_b);
+  my $reflexive_b = $__g->VerbArgs_get_reflexive_b($argsRef);
+    					
+  my $output;
+  if ($tense eq "present")
+  {
+    my $link;
+    if ($__doing_vt)
+    {
+      $link = grammar::GetVerbLink($verb_b);
+      my $htmlVerb_b = MeToHtml($verb_b);
+      $output = "<h3><i>"; 
+      if (defined $link)
+      { 
+	$output .= "<a href='$link'>$htmlVerb_b</a>";
+      }
+      else
+      {
+	$output .= $htmlVerb_b;
+      } 
+      $output .= "</i>: $hdr_inf_a";
+      my $paradigmVerb = $__eqVerbs{$verb_b};
+      
+      $output .= " <font size=-1>(" if $reflexive_b || defined $paradigmVerb;
+      
+      if ($reflexive_b)
+      {
+	$output .= "this is a <a href=" . grammar::MakeGrammarLink("=Verbs=reflexive")
+	. ">reflexive</a> verb";
+	
+	$output .= ", " if (defined $paradigmVerb)
+      }
+
+      if (defined $paradigmVerb)
+      {
+	$output .= "conjugated like <i><a href=" . grammar::GetVerbTableFn($paradigmVerb)
+	. ">\n$paradigmVerb\n</a></i>";
+      }
+      $output .= ")</font>"         if $reflexive_b || defined $paradigmVerb;
+                  
+      $output .= "</h3>";
+    }
+  } 
+    				
+  my $tmp = $__g->GetSingularPronouns($tense);
+  my @s = @$tmp;
+  for (my $j = 0; $j < $#s; $j++)
+  {
+    $s[$j] = $__g->Conjugate($verb_b, $tense, $s[$j], $argsRef);
+  }
+  
+  $tmp = $__g->GetPluralPronouns($tense);
+  my @p = @$tmp;
+  for (my $j = 0; $j < $#s; $j++)
+  {
+    $p[$j] = $__g->Conjugate($verb_b, $tense, $p[$j], $argsRef);
+  }
+    
+  my @header = ( $tense );
+  		
+  my $hdr = VerbtableMakeHeader($hdr_inf_a, $verb_b, $tense);
+  		
+  $output .= "<table bgcolor=#eeeeee border=1 cellpadding=5 cellspacing=5 width=100%>"
+  . "<tr>"
+  . "<td><b><center>\n"
+  . $hdr
+  . "\n</center></b></td>"
+  . "</tr>"
+  . "<tr>"
+  . "<td>"
+  . Table(\@s, \@p)
+  . "</td>"
+  . "</tr>"
+  . "</table>"
+  . "<p>";
+  		
+  return $output;
+}
+
+#French_grammar.pm:
+sub GetSingularPronouns
+{
+  my($self, $tense) = @_;
+  if ($tense eq "imperative")
+  {
+    return [ "tu" ];
+  }
+  return [ "je", "tu", "il", "elle", "on" ];
+}
+
+sub GetPluralPronouns
+{
+  my($self, $tense) = @_;
+  if ($tense eq "imperative")
+  {
+    return [ "nous", "vous" ];
+  }
+  return [ "nous", "vous", "ils", "elles" ];
+}
+
+sub Conjugate
+{
+  my($self, $verb_b, $tense, $pronoun, $argsRef) = @_;
+  my $stem = $self->GetStem($verb_b, $tense);
+  my $conjugated_b = $stem . $__endings{$tense . $pronoun};
+  if ($tense eq "imperative")
+  {
+    return [ "eng imp", "fr imp" ];
+  }
+  return [ "eng", "fr" ];    
+}
+

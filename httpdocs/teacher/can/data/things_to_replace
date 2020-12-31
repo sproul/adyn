@@ -1,0 +1,10 @@
+@val = (
+{
+'English' => 'the broken parts',
+'French' => '{le partie>p> cass/e}',
+'German' => '{der kaput Teil>p>}',
+'Italian' => '{il pezzo>p> rotto}',
+'Spanish' => '{el parte>p> roto}',
+'id' => 0,
+},
+);

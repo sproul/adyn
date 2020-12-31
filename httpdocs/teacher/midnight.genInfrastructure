@@ -1,0 +1,9 @@
+perl -w tx.pl -genInfrastructure
+teacher::Init()
+leaving teacher::Init()
+GetLangGrammar(French): got cached
+GetLangGrammar(German): got cached
+GetLangGrammar(Spanish): got cached
+GetLangGrammar(Italian): got cached
+tx::Main() end reached
+$ 

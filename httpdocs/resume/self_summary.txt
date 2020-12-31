@@ -1,0 +1,6 @@
+I am a server side enterprise software engineer with a lot of experience writing Web and financial applications in Java, Perl and C++, and with most of the major databases.
+Software I've implemented has been deployed for a number of Fortune 500 companies.
+I have extensive experience with every phase of the software development cycle, including design, implementation, testing, release engineering, and integration; my primary focus has been on implementation and testing.
+Team player?
+I am very well versed in object-oriented principles and design patterns, and my working style is very fast and very clean.
+

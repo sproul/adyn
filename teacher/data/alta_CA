@@ -1,0 +1,227 @@
+@val = (
+{
+'A' => 'safety for families ',
+'Q' => 'what did presidios provide for pueblos ',
+'id' => 0,
+},
+{
+'A' => 'the first pueblo in CA ',
+'Q' => 'San Jose ',
+'id' => 1,
+},
+{
+'A' => 'town/village ',
+'Q' => 'what is a peublo ',
+'id' => 2,
+},
+{
+'A' => 'he proved there was sea between Asia and America: the Bering Strait ',
+'Q' => 'what did Bering do ',
+'id' => 3,
+},
+{
+'A' => 'San Francisco Bay ',
+'Q' => 'what did Portola discover ',
+'id' => 4,
+},
+{
+'A' => 'Sebastian Vizcaino ',
+'Q' => 'who explored north to Cape Mendocino ',
+'id' => 5,
+},
+{
+'A' => 'Junipero serra ',
+'Q' => 'Who was the first missionary to Alta California ',
+'id' => 6,
+},
+{
+'A' => 'Hernan Cortes was a conquistador who conquered much of Mexico ',
+'Q' => 'who was Cortes ',
+'id' => 7,
+},
+{
+'A' => 'colony ',
+'Q' => 'what did Spain make of Alta California ',
+'id' => 8,
+},
+{
+'A' => 'ships coming from other parts of New Spain had to overcome contrary wind currents from the Northwest ',
+'Q' => 'why was it difficult to sail to Alta California ',
+'id' => 9,
+},
+{
+'A' => 'it is a peninsula, i.e., a stretch of land surrounded by water on three sides ',
+'Q' => 'Cortes thought Baja California was an island. What is it really ',
+'id' => 10,
+},
+{
+'A' => 'alcalde ',
+'Q' => 'for each pueblo there was an official mayor/judge called what ',
+'id' => 11,
+},
+{
+'A' => 'Adobe ',
+'Q' => 'California Indians used bricks from dried clay and straw called what ',
+'id' => 12,
+},
+{
+'A' => 'expedition ',
+'Q' => 'journey taken by a group of people for a certain reason such as exploration ',
+'id' => 13,
+},
+{
+'A' => 'convert ',
+'Q' => 'to persuade someone to change to a particular religion ',
+'id' => 14,
+},
+{
+'A' => 'revolt ',
+'Q' => 'uprising to take power away from a ruler ',
+'id' => 15,
+},
+{
+'A' => 'century ',
+'Q' => '100 years ',
+'id' => 16,
+},
+{
+'A' => 'governor ',
+'Q' => 'a person chosen to lead a colony, territory or state ',
+'id' => 17,
+},
+{
+'A' => 'mission ',
+'Q' => 'a settlement where people teach a particular religion ',
+'id' => 18,
+},
+{
+'A' => 'galleon ',
+'Q' => 'three-masted sailing ship used especially by the Spanish between the 15th and 18th century ',
+'id' => 19,
+},
+{
+'A' => 'Explorer ',
+'Q' => 'someone who travels to places previously unknown or un-navigated ',
+'id' => 20,
+},
+{
+'A' => 'Pueblo ',
+'Q' => 'Spanish town or settlement, often made of stone or Adobe ',
+'id' => 21,
+},
+{
+'A' => '- gold<br>- land<br>- to convert the Indians to Catholicism ',
+'Q' => 'why did Spain send conquistadors to North America ',
+'id' => 22,
+},
+{
+'A' => 'Juan Rodriges Cabrillo ',
+'Q' => 'who led the first European expedition to Alta California ',
+'id' => 23,
+},
+{
+'A' => 'Gold and Indians ',
+'Q' => 'what did Cabrillo and Drake fine when they came to Alta California ',
+'id' => 24,
+},
+{
+'A' => 'the natural barriers of<br>-Desert<br>-contrary ocean winds and ocean currents<br>-mountains<br>made exploration too difficult and expensive ',
+'Q' => 'why did the Spanish stop exploring Alta California after Vizcaino\'s expedition ',
+'id' => 25,
+},
+{
+'A' => 'Alta California, as far north as the Golden gate ',
+'Q' => 'where did Gaspar de Portola explore ',
+'id' => 26,
+},
+{
+'A' => 'his expedition explored California up to the Golden gate and established the Presidio of Monterey. ',
+'Q' => 'how did Portola help Spain settle Alta California ',
+'id' => 27,
+},
+{
+'A' => 'he was a priest who joined Portola\'s expedition. He wanted to establish missions. He started the Mission San Diego de Alcala in 1769 ',
+'Q' => 'who was Junipero Serra ',
+'id' => 28,
+},
+{
+'A' => 'he wanted to prevent an opening for competing nations like Russia and England ',
+'Q' => 'why did Jose de Galvez make a colony in Alta California ',
+'id' => 29,
+},
+{
+'A' => 'Junipero Serra ',
+'Q' => 'which California Padre started the Mission San Diego de Alcala in 1769 ',
+'id' => 30,
+},
+{
+'A' => 'Mission San Diego de Alcala, established 1769 [Brace: this makes logical sense because the explorers came from the south, and San Diego is at the very bottom of California] ',
+'Q' => 'what was the first mission in California ',
+'id' => 31,
+},
+{
+'A' => 'California Indians were hunters and gatherers before the missions. But the missions were based on farms. Missionaries forced Indians to change from hunting and gathering to living on the missions. They now had a much more controlled daily life of farm chores. Within the missions their cultural life was strictly oriented around the church. Missionaries accidentally spread disease among the Indians. ',
+'Q' => 'what was the impact of the missions on California Indians ',
+'id' => 32,
+},
+{
+'A' => '1. Raise animals<br>2. Grow crops<br>3. Construct missions<br>4. Attend church<br>5. Speak Spanish<br>6. Make clothes<br>7. Make iron tools ',
+'Q' => 'what did Indians have to do every day on the missions ',
+'id' => 33,
+},
+{
+'A' => 'Sir Francis Drake ',
+'Q' => 'who claimed Alta California for England ',
+'id' => 34,
+},
+{
+'A' => 'Cape Mendocino ',
+'Q' => 'how far north did Sebastian Vizcaino explore ',
+'id' => 35,
+},
+{
+'A' => 'to convert people to his religion ',
+'Q' => 'what is a missionary\'s primary goal ',
+'id' => 36,
+},
+{
+'A' => 'they wanted to be free of Mission control ',
+'Q' => 'why did California Indians revolt ',
+'id' => 37,
+},
+{
+'A' => 'along the coast so that they could be reached by ship ',
+'Q' => 'where were the missions in California ',
+'id' => 38,
+},
+{
+'A' => 'Portola ',
+'Q' => 'who was the Explorer who discovered San Francisco Bay ',
+'id' => 39,
+},
+{
+'A' => 'the Russian Vitus Bering discovered the Bering Strait ',
+'Q' => 'who proved there was sea between Asia and America ',
+'id' => 40,
+},
+{
+'A' => 'English explorer, mapped Australian coast, New Zealand, California coast ',
+'Q' => 'what did James Cook do ',
+'id' => 41,
+},
+{
+'A' => 'fort ',
+'Q' => 'what is a presidio ',
+'id' => 42,
+},
+{
+'A' => 'San Jose ',
+'Q' => 'what was the first pueblo in CA ',
+'id' => 43,
+},
+{
+'A' => 'food ',
+'Q' => 'what did pueblos provide for presidios ',
+'id' => 44,
+},
+);

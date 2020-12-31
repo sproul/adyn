@@ -1,0 +1,51 @@
+# formatted
+@val = (
+{
+'English' => 'too much',
+'French' => 'trop',
+'German' => 'zu viel',
+'Italian' => 'troppo',
+'Spanish' => 'demasiado',
+'id' => 0,
+},
+{
+'English' => 'enough',
+'French' => 'assez',
+'German' => 'genug',
+'Italian' => 'abbastanza',
+'Spanish' => 'bastante',
+'id' => 1,
+},
+{
+'English' => 'a lot',
+'French' => 'beaucoup',
+'German' => 'viel',
+'Italian' => 'molto',
+'Spanish' => 'mucho',
+'id' => 2,
+},
+{
+'English' => 'very little',
+'French' => 'tr`es peu',
+'German' => 'sehr klein',
+'Italian' => 'molto il piccolo',
+'Spanish' => 'muy peque~no',
+'id' => 3,
+},
+{
+'English' => 'the same amount',
+'French' => 'la m#eme quantit/e',
+'German' => '{der gleich Betrag>s>}',
+'Italian' => 'lo stesso quantit`a',
+'Spanish' => '{el mismo cantidad>s>}',
+'id' => 4,
+},
+{
+'English' => 'five times more',
+'French' => 'cinq fois plus',
+'German' => 'f:unf mal mehr',
+'Italian' => 'cinque volte pi`u',
+'Spanish' => 'cinco vez m/as',
+'id' => 5,
+},
+);

@@ -1,0 +1,20 @@
+#!/bin/bash
+version=$1
+
+Set_version_for_file()
+{
+        grep -n /teacher/html /tmp/k $1
+        sedi "$1" "s;/teacher/html[^/]*/;/teacher/html$version;g"
+} 
+
+Set_version_for_file $DROP/adyn/teacher/bin/teacher.test
+Set_version_for_file $DROP/adyn/cgi-bin/choose.cgi
+Set_version_for_file $DROP/adyn/cgi-bin/new_user.cgi
+Set_version_for_file $DROP/adyn/httpdocs/teacher/html*/simple_choose.htm
+Set_version_for_file $DROP/adyn/httpdocs/teacher/html*/choose.htm
+Set_version_for_file $DROP/emacs/lisp/data/n-data-menu-nfly-shortcuts.el
+cd $DROP/adyn/httpdocs/teacher
+exit
+mv html* html$version
+exit
+bx $DROP/adyn/teacher/bin/teacher.version_set 2

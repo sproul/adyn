@@ -1,0 +1,1 @@
+perl -w tx.pl -genPath cpp                   -categories Question/Answer

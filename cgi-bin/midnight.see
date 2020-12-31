@@ -1,0 +1,231 @@
+export QUERY_STRING=refresh=y; perl -w ./see_data.cgi | tee c:/users/nsproul/tmp/see.html; browser c:/users/nsproul/tmp/see.html
+
+export QUERY_STRING=refresh=y; perl -w ./see_data.cgi | tee c:/ users/nsproul/tmp/see.html; browser c:/users/nsproul/tmp/see.html
+Content-Type: text/html; charset=ISO-8859-1
+
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>see</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body>
+<br>
+  <!-- <a href=http://caps.fool.com>caps.fool.com</a> (picked CHK at 32.26 (8/31/07)<br>-->
+
+  <script language="JavaScript">
+  function refresh()
+  {
+    window.location = '/cgi-bin/see_data.cgi?refresh=y'
+  }
+  var openIndex=0
+  function open10more()
+  {
+    var last = Math.min(openIndex + 10, symbols.length)
+    // go backwards so that the browser window order will naturally lead the user through the list in the right order
+    for (var j = last-1; j >= openIndex; j--)
+    {
+      window.open('http://finance.google.com/finance?q=' + symbols[j])
+    }
+    openIndex = (last==symbols.length) ? 0 : last
+  }
+
+  </script>
+  <!--<font size=-2>-->
+  <input type=button value=re onclick="refresh()">
+  <input type=button value=more onclick="open10more()">
+  <table border=1 cellpadding=0 cellspacing=0>
+  <!--
+} Just to make my emacs indent get over to the left for the 'END':
+-->
+<tr><td><a target=JAV href=http://finance.google.com/finance?q=JAV>jav</a></td><td><font color=red>60.45</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=ABK href=http://finance.google.com/finance?q=ABK>abk</a></td><td><font color=red>104.55</font></td><td><blink><font color=#cccccc><a href=dummy_link_to_provoke_color_change>7.11</a></font></blink></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=DCP href=http://finance.google.com/finance?q=DCP>dcp</a></td><td><font color=red>48.17</font></td><td>0.29</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=ROX href=http://finance.google.com/finance?q=ROX>rox</a></td><td><font color=red>48.67</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=RPC href=http://finance.google.com/finance?q=RPC>rpc</a></td><td><font color=red>48.98</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=CTT href=http://finance.google.com/finance?q=CTT>ctt</a></td><td><font color=red>37.92</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=RNN href=http://finance.google.com/finance?q=RNN>rnn</a></td><td><font color=red>37.74</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=CMT href=http://finance.google.com/finance?q=CMT>cmt</a></td><td><font color=red>32.34</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=WEL href=http://finance.google.com/finance?q=WEL>wel</a></td><td><font color=red>25.53</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=DSTI href=http://finance.google.com/finance?q=DSTI>dsti</a></td><td><font color=red>23.67</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=CCBD href=http://finance.google.com/finance?q=CCBD>ccbd</a></td><td><font color=red>36.89</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=FSNM href=http://finance.google.com/finance?q=FSNM>fsnm</a></td><td><font color=red>21.82</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=DBTK href=http://finance.google.com/finance?q=DBTK>dbtk</a></td><td><font color=red>19.86</font></td><td>0.57</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=SBCF href=http://finance.google.com/finance?q=SBCF>sbcf</a></td><td><font color=red>19.57</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=VHI href=http://finance.google.com/finance?q=VHI>vhi</a></td><td><font color=red>22.20</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=BNCN href=http://finance.google.com/finance?q=BNCN>bncn</a></td><td><font color=red>20.73</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=CPWM href=http://finance.google.com/finance?q=CPWM>cpwm</a></td><td><font color=red>18.08</font></td><td>0.24</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=GLUU href=http://finance.google.com/finance?q=GLUU>gluu</a></td><td><font color=red>17.00</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=MIR href=http://finance.google.com/finance?q=MIR>mir</a></td><td><font color=red>18.17</font></td><td>0.00</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=HRBR href=http://finance.google.com/finance?q=HRBR>hrbr</a></td><td><font color=red>15.35</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=ATSG href=http://finance.google.com/finance?q=ATSG>atsg</a></td><td><font color=red>16.91</font></td><td><font color=#cccccc><a href=dummy_link_to_provoke_color_change>-3.73</a></font></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=LAKE href=http://finance.google.com/finance?q=LAKE>lake</a></td><td><font color=red>13.42</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=FNM href=http://finance.google.com/finance?q=FNM>fnm</a></td><td><font color=red>12.73</font></td><td><font color=#cccccc><a href=dummy_link_to_provoke_color_change>1.61</a></font></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=AKF href=http://finance.google.com/finance?q=AKF>akf</a></td><td><font color=red>12.13</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=SLI href=http://finance.google.com/finance?q=SLI>sli</a></td><td><font color=red>13.51</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=GBX href=http://finance.google.com/finance?q=GBX>gbx</a></td><td><font color=red>11.58</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=TAYD href=http://finance.google.com/finance?q=TAYD>tayd</a></td><td><font color=red>9.80</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=NLP href=http://finance.google.com/finance?q=NLP>nlp</a></td><td><font color=red>11.30</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=SMU href=http://finance.google.com/finance?q=SMU>smu</a></td><td><font color=red>9.44</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=BXG href=http://finance.google.com/finance?q=BXG>bxg</a></td><td><font color=red>8.44</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=MTW href=http://finance.google.com/finance?q=MTW>mtw</a></td><td><font color=red>8.09</font></td><td>-0.45</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=HAST href=http://finance.google.com/finance?q=HAST>hast</a></td><td><font color=red>7.58</font></td><td></td><td>KR</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=CIEN href=http://finance.google.com/finance?q=CIEN>cien</a></td><td><font color=red>7.56</font></td><td>0.17</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=BHH href=http://finance.google.com/finance?q=BHH>bhh</a></td><td><font color=red>6.65</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=ARM href=http://finance.google.com/finance?q=ARM>arm</a></td><td><font color=red>6.30</font></td><td>0.25</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=NATR href=http://finance.google.com/finance?q=NATR>natr</a></td><td><font color=red>6.38</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=NYX href=http://finance.google.com/finance?q=NYX>nyx</a></td><td><font color=red>5.90</font></td><td>0.00</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=GOLF href=http://finance.google.com/finance?q=GOLF>golf</a></td><td><font color=red>5.35</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=EXH href=http://finance.google.com/finance?q=EXH>exh</a></td><td><font color=red>5.58</font></td><td><font color=#cccccc><a href=dummy_link_to_provoke_color_change>-4.11</a></font></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=INTG href=http://finance.google.com/finance?q=INTG>intg</a></td><td><font color=red>4.32</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=MLNX href=http://finance.google.com/finance?q=MLNX>mlnx</a></td><td><font color=red>5.26</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=OSTK href=http://finance.google.com/finance?q=OSTK>ostk</a></td><td><font color=red>4.97</font></td><td><font color=#cccccc><a href=dummy_link_to_provoke_color_change>1.61</a></font></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=FUBC href=http://finance.google.com/finance?q=FUBC>fubc</a></td><td><font color=red>5.07</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=PCYC href=http://finance.google.com/finance?q=PCYC>pcyc</a></td><td><font color=red>4.87</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=LUK href=http://finance.google.com/finance?q=LUK>luk</a></td><td><font color=red>4.93</font></td><td>0.00</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=VMW href=http://finance.google.com/finance?q=VMW>vmw</a></td><td><font color=red>4.64</font></td><td>0.00</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=SFI href=http://finance.google.com/finance?q=SFI>sfi</a></td><td><font color=red>4.63</font></td><td><font color=#cccccc><a href=dummy_link_to_provoke_color_change>-1.53</a></font></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=PRI href=http://finance.google.com/finance?q=PRI>pri</a></td><td><font color=red>4.58</font></td><td>0.78</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=SFL href=http://finance.google.com/finance?q=SFL>sfl</a></td><td><font color=red>4.06</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=WBC href=http://finance.google.com/finance?q=WBC>wbc</a></td><td><font color=red>4.02</font></td><td><font color=#cccccc><a href=dummy_link_to_provoke_color_change>-2.63</a></font></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=ESA href=http://finance.google.com/finance?q=ESA>esa</a></td><td><font color=red>3.97</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=REW href=http://finance.google.com/finance?q=REW>rew</a></td><td>-0.74</td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=RRZ href=http://finance.google.com/finance?q=RRZ>rrz</a></td><td>-0.82</td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=TWM href=http://finance.google.com/finance?q=TWM>twm</a></td><td>-0.84</td><td>0.32</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+bad "error: could not extract ref_301066_l from /cygdrive/c/users/nsproul/work/adyn.com/httpdocs/see/data/KVB_mw.htm" for Last.KVB at ./see_data.cgi line 197.
+<tr><td><a target=MWN href=http://finance.google.com/finance?q=MWN>mwn</a></td><td>-0.84</td><td></td><td>KR</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=RFN href=http://finance.google.com/finance?q=RFN>rfn</a></td><td>-0.95</td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=SRTY href=http://finance.google.com/finance?q=SRTY>srty</a></td><td>-0.98</td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=TZA href=http://finance.google.com/finance?q=TZA>tza</a></td><td>-1.24</td><td>0.31</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=BXDD href=http://finance.google.com/finance?q=BXDD>bxdd</a></td><td>-2.82</td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=GGP href=http://finance.google.com/finance?q=GGP>ggp</a></td><td><font color=red>-3.59</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=KVA href=http://finance.google.com/finance?q=KVA>kva</a></td><td><font color=red>-3.68</font></td><td><font color=#cccccc><a href=dummy_link_to_provoke_color_change>-3.82</a></font></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=IBN href=http://finance.google.com/finance?q=IBN>ibn</a></td><td><font color=red>-3.69</font></td><td>0.00</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=FRZ href=http://finance.google.com/finance?q=FRZ>frz</a></td><td><font color=red>-3.70</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=KVB href=http://finance.google.com/finance?q=KVB>kvb</a></td><td></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=DVD href=http://finance.google.com/finance?q=DVD>dvd</a></td><td><font color=red>-4.00</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=MSB href=http://finance.google.com/finance?q=MSB>msb</a></td><td><font color=red>-4.28</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=VGZ href=http://finance.google.com/finance?q=VGZ>vgz</a></td><td><font color=red>-4.35</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=MTZ href=http://finance.google.com/finance?q=MTZ>mtz</a></td><td><font color=red>-4.37</font></td><td>0.70</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=SSY href=http://finance.google.com/finance?q=SSY>ssy</a></td><td><font color=red>-4.38</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=THD href=http://finance.google.com/finance?q=THD>thd</a></td><td><font color=red>-4.58</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=RVP href=http://finance.google.com/finance?q=RVP>rvp</a></td><td><font color=red>-4.73</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=CBR href=http://finance.google.com/finance?q=CBR>cbr</a></td><td><font color=red>-4.59</font></td><td>0.41</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=LZ href=http://finance.google.com/finance?q=LZ>lz</a></td><td><font color=red>-4.82</font></td><td>1.24</td><td>KR</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=PUDA href=http://finance.google.com/finance?q=PUDA>puda</a></td><td><font color=red>-4.78</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=SVT href=http://finance.google.com/finance?q=SVT>svt</a></td><td><font color=red>-4.87</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=SOXS href=http://finance.google.com/finance?q=SOXS>soxs</a></td><td><font color=red>-4.83</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=PAL href=http://finance.google.com/finance?q=PAL>pal</a></td><td><font color=red>-5.23</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=AGT href=http://finance.google.com/finance?q=AGT>agt</a></td><td><font color=red>-5.26</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=GV href=http://finance.google.com/finance?q=GV>gv</a></td><td><font color=red>-5.95</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=RAS href=http://finance.google.com/finance?q=RAS>ras</a></td><td><font color=red>-6.04</font></td><td>-0.40</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=MIM href=http://finance.google.com/finance?q=MIM>mim</a></td><td><font color=red>-6.33</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=FFI href=http://finance.google.com/finance?q=FFI>ffi</a></td><td><font color=red>-8.06</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=GLBZ href=http://finance.google.com/finance?q=GLBZ>glbz</a></td><td><font color=red>-8.20</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=ATEC href=http://finance.google.com/finance?q=ATEC>atec</a></td><td><font color=red>-8.32</font></td><td>0.22</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=LTBR href=http://finance.google.com/finance?q=LTBR>ltbr</a></td><td><font color=red>-8.48</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=VLNC href=http://finance.google.com/finance?q=VLNC>vlnc</a></td><td><font color=red>-8.49</font></td><td>-0.81</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=MTLK href=http://finance.google.com/finance?q=MTLK>mtlk</a></td><td><font color=red>-11.52</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td><a target=PXG href=http://finance.google.com/finance?q=PXG>pxg</a></td><td><font color=red>-9.51</font></td><td></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<script language='JavaScript'>
+var symbols = new Array()
+symbols.push('JAV')
+symbols.push('ABK')
+symbols.push('DCP')
+symbols.push('ROX')
+symbols.push('RPC')
+symbols.push('CTT')
+symbols.push('RNN')
+symbols.push('RNN')
+symbols.push('CMT')
+symbols.push('CMT')
+symbols.push('WEL')
+symbols.push('DSTI')
+symbols.push('CCBD')
+symbols.push('ABK')
+symbols.push('FSNM')
+symbols.push('DBTK')
+symbols.push('SBCF')
+symbols.push('VHI')
+symbols.push('BNCN')
+symbols.push('BNCN')
+symbols.push('CPWM')
+symbols.push('GLUU')
+symbols.push('CPWM')
+symbols.push('MIR')
+symbols.push('HRBR')
+symbols.push('ATSG')
+symbols.push('LAKE')
+symbols.push('FNM')
+symbols.push('VHI')
+symbols.push('AKF')
+symbols.push('SLI')
+symbols.push('GBX')
+symbols.push('TAYD')
+symbols.push('NLP')
+symbols.push('SMU')
+symbols.push('BXG')
+symbols.push('MTW')
+symbols.push('HAST')
+symbols.push('CIEN')
+symbols.push('BHH')
+symbols.push('ARM')
+symbols.push('NATR')
+symbols.push('NYX')
+symbols.push('GOLF')
+symbols.push('EXH')
+symbols.push('INTG')
+symbols.push('MLNX')
+symbols.push('OSTK')
+symbols.push('FUBC')
+symbols.push('PCYC')
+symbols.push('LUK')
+symbols.push('VMW')
+symbols.push('SFI')
+symbols.push('PRI')
+symbols.push('SFL')
+symbols.push('WBC')
+symbols.push('ESA')
+symbols.push('REW')
+symbols.push('RRZ')
+symbols.push('TWM')
+symbols.push('MWN')
+symbols.push('RFN')
+symbols.push('SRTY')
+symbols.push('TZA')
+symbols.push('BXDD')
+symbols.push('GGP')
+symbols.push('KVA')
+symbols.push('IBN')
+symbols.push('FRZ')
+symbols.push('KVB')
+symbols.push('DVD')
+symbols.push('MSB')
+symbols.push('VGZ')
+symbols.push('MTZ')
+symbols.push('SSY')
+symbols.push('THD')
+symbols.push('RVP')
+symbols.push('CBR')
+symbols.push('LZ')
+symbols.push('PUDA')
+symbols.push('SVT')
+symbols.push('SOXS')
+symbols.push('PAL')
+symbols.push('AGT')
+symbols.push('GV')
+symbols.push('RAS')
+symbols.push('MIM')
+symbols.push('FFI')
+symbols.push('GLBZ')
+symbols.push('ATEC')
+symbols.push('LTBR')
+symbols.push('VLNC')
+symbols.push('MTLK')
+symbols.push('PXG')
+</script>
+</table></body></html>
+bash: /cygdrive/c/users/nsproul/work/bin/cygwin_file_conversion_wrappers/browser: No such file or directory
+08:31:59 o7 106$ 

@@ -1,0 +1,71 @@
+#!/bin/bash
+# http://www.idautomation.com/product-support/ascii-chart-char-set.html
+sed -e "s/&#39;/'/g"    \
+-e 's;\o300;`A;g'       \
+-e 's;\o301;/A;g'       \
+-e 's;\o302;^A;g'       \
+-e 's;\o303;~A;g'       \
+-e 's;\o304;:A;g'       \
+-e 's;\o305;O-A;g'       \
+-e 's;\o306;A-E;g'       \
+-e 's;\o307;,C;g'       \
+-e 's;\o310;`E;g'       \
+-e 's;\o311;/E;g'       \
+-e 's;\o312;^E;g'       \
+-e 's;\o313;:E;g'       \
+-e 's;\o314;`E;g'       \
+-e 's;\o315;/I;g'       \
+-e 's;\o316;^I;g'       \
+-e 's;\o317;:I;g'       \
+-e 's;\o320;-D;g'       \
+-e 's;\o321;~N;g'       \
+-e 's;\o322;`O;g'       \
+-e 's;\o323;/O;g'       \
+-e 's;\o324;^O;g'       \
+-e 's;\o325;~O;g'       \
+-e 's;\o326;:O;g'       \
+-e 's;\o327;x;g'       \
+-e 's;\o330;|O;g'       \
+-e 's;\o331;`U;g'       \
+-e 's;\o332;/U;g'       \
+-e 's;\o333;^U;g'       \
+-e 's;\o334;:U;g'       \
+-e 's;\o335;`Y;g'       \
+-e 's;\o336;|b;g'       \
+-e 's;\o337;BB;g'       \
+-e 's;\o340;`a;g'       \
+-e 's;\o341;/a;g'       \
+-e 's;\o342;^a;g'       \
+-e 's;\o343;~a;g'       \
+-e 's;\o344;:a;g'       \
+-e 's;\o345;o-a;g'       \
+-e 's;\o346;a-e;g'       \
+-e 's;\o347;,c;g'       \
+-e 's;\o350;`e;g'       \
+-e 's;\o351;/e;g'       \
+-e 's;\o352;^e;g'       \
+-e 's;\o353;:e;g'       \
+-e 's;\o354;`i;g'       \
+-e 's;\o355;/i;g'       \
+-e 's;\o356;^i;g'       \
+-e 's;\o357;:i;g'       \
+-e 's;\o360;o360;g'       \
+-e 's;\o361;~n;g'       \
+-e 's;\o362;`o;g'       \
+-e 's;\o363;/o;g'       \
+-e 's;\o364;^o;g'       \
+-e 's;\o365;~o;g'       \
+-e 's;\o366;:o;g'       \
+-e 's;\o367;/;g'       \
+-e 's;\o370;|o;g'       \
+-e 's;\o371;`u;g'       \
+-e 's;\o372;/u;g'       \
+-e 's;\o373;^u;g'       \
+-e 's;\o374;:u;g'       \
+-e 's;\o375;/y;g'       \
+-e 's;\o376;|b;g'       \
+-e 's;\o377;:y;g'
+exit
+echo 'Je déteste que l&#39;homme. J&#39;adore cette femme.' | $DROP/bin/teacher.cook_goog_output 
+exit
+echo 'cómo disparar una pistola' | bx $DROP/bin/teacher.cook_goog_output

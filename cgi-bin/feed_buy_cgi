@@ -1,0 +1,25 @@
+#!/bin/sh
+name="\"Christina L. Black\""
+customerID="64756"
+product="\"macro\""
+expiration="10/99"
+card="4777957000093173"
+email="\"black@sybase.com\""
+
+Purchase()
+{
+        cd $HOME/work/public/bin/
+        (
+        echo name=$name
+        echo customerID=$customerID
+        echo product=$product
+        card=`echo $card | sed 's/./&2/g'`
+        echo x=$expiration/$card
+        echo email=$email
+        ) | perl buy.cgi
+}
+
+Purchase
+
+exit
+sh -x $HOME/work/public/bin/feed_buy_cgi 

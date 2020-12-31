@@ -1,0 +1,24 @@
+what is @@product
+
+@@product is a software tool for studying languages.
+
+how many exercises are there
+
+at the last count, over 14,000 exercises for each of the supported languages (currently Italian, German, Spanish, and French).
+
+how does the software know what exercises I should review
+
+The software keeps track of how "interesting" each flashcard is to each user by associating a numerical weight with each flashcard for each user.  The "heavier" a flashcard is, the more interesting it is for the user.  Each time the user sees a flashcard and clicks on the <b>Keep flashcard</b> button, the weight for that particular flashcard goes up.  Conversely, each time the user sees a flashcard and clicks on the Discard flashcard button, that flashcard's weight goes down.  The flashcards start with a weight of zero; flashcards with large positive weights are the most likely to be retrieved for the user as Review exercises.
+
+where can I send feedback on the product
+
+send feedback to <a href='mailto:teacher@adyn.com?subject=feedback' alt='mail teacher@adyn.com'>teacher support</a>
+
+what if you suddenly think of a verb you'd like help with - how do you get back to the verb list
+
+There are two ways that you would accomplish this:
+<ul>
+<li> If you decided that you didn't want to work on the current set of exercises anymore, you would click on the "Change topic" button; this would discard the current set of exercises and take you to the exercise selection form, where you would select the verb that you are interested (assuming that it is on my list -- since the list only contains around 150 verbs at this time, this is not a given (however, the most interesting irregular verbs should all be there).</li>
+<li>If you decided that you wanted to study some verb in addition to the current set of exercises, you would click on the "New topic" button; this would open up a new window which would show you the exercise selection form, from which you would attempt to study the new verb, if possible.</li>
+</ul>
+

@@ -1,0 +1,66 @@
+<!--Copyright 2001 Adynware Corp., all rights reserved-->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"><!doctype html>
+<head>
+    <link rel="icon" type="image/gif" href="/favicon.GIF" />
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+    <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+</head>
+<body bgcolor=#cccccc><font face='arial'>
+<script src="jquery-1.9.0.js"></script>
+<script src="jquery-migrate-1.2.1.js"></script>
+<script src="jquery-cookie-1.4.0/jquery.cookie.js"></script><!-- https://github.com/carhartl/jquery-cookie/blob/master/jquery.cookie.js, https://raw.github.com/carhartl/jquery-cookie/master/jquery.cookie.js -->
+<script src="/teacher/html/test.js"></script>
+<script src="u.js"></script>
+<script language=JavaScript>
+
+$(document).ready(
+function()
+{
+    for (var j = 0;; j++)
+    {
+        if (!test_url(j))
+        {
+            break
+        }
+    }
+})
+
+function string_maker(len)
+{
+    return Array(len / "abcd".length).join("abcd")
+}
+
+function test_url(k)
+{
+    var url = "/cgi-bin/url_tester.cgi?arg1=1"
+    for (var j = 0; j < k; j++)
+    {
+        var extra_arg = "&extra_arg" + j + "="
+        var setting = string_maker(1024 - extra_arg.length)
+        url += extra_arg + setting
+    }
+    url += "&arg2=2"
+    log('test_url(k=' + k + ')')
+    $.ajax(
+    {
+        url: url,
+        async: false,
+        complete: function(jqXHR, textStatus)
+        {
+            // 7k last successful AJAX call in firefox.
+            //
+            // IE documents 2k (or really, 2083) max URL length.
+            if (textStatus != "success")
+            {
+                alert('Failure seen at ' + k + 'k URI')
+                return false
+            }
+        }
+    }
+    )
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+#!/bin/sh
+ex=$1
+server=http://127.0.0.1
+case $OS in
+        win*)
+                port=2082
+        ;;
+        *)
+                port=82
+        ;;
+esac
+
+echo "$server:$port"
+exit
+bx $DROP/adyn/teacher/bin/teacher.get_server  verb_understand_34

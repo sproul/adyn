@@ -1,0 +1,12 @@
+# formatted
+@val = (
+{
+'English' => 'the river',
+'French' => '{le rivi`ere>s>}',
+'German' => '{der Fluss>s>}',
+'Italian' => '{il fiume>s>}',
+'Spanish' => '{el r/io>s>}',
+'id' => 0,
+'suppress_Spanish_note#r/io;;Spanish' => 1,
+},
+);

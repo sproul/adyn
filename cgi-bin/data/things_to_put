@@ -1,0 +1,44 @@
+@val = (
+{
+'English' => 'the kids in the car',
+'French' => 'les enfants dans {le voiture>s>}',
+'German' => 'die Kinder {in der Auto>s>}',
+'Italian' => 'i bambini {in il macchina>s>}',
+'Spanish' => 'los ni~nos en {el coche>s>}',
+},
+{
+'English' => 'the toys in the box',
+'French' => '{le jouet>p>} dans {le bo#ite>s>}',
+'German' => '{der Spielzeug>p>} {in der Box>s>}',
+'Italian' => '{il giocattolo>p>} {in il scatola>s>}',
+'Spanish' => '{el juguete>p>} en {el caja>s>}',
+},
+{
+'English' => 'the books on the shelf',
+'French' => '{le livre>p>} sur {le /etag`ere>s>}',
+'German' => '{der Buch>s>} auf {der Regal>sd>}',
+'Italian' => '{il libro>s>} {su il scaffale>s>}',
+'Spanish' => '{el libro>p>} en {el estante>s>}',
+},
+{
+'English' => 'the dog in the basement',
+'French' => '{le chien>s>} dans {le sous-sol>s>}',
+'German' => '{der Hund>s>} {in der Keller>sd>}',
+'Italian' => '{il cane>s>} {in il seminterrato>s>}',
+'Spanish' => '{el perro>s>} en {el s/otano>s>}',
+},
+{
+'English' => 'the lion into a cage',
+'French' => '{le lion>s>} dans {un cage>s>}',
+'German' => '{der L:owe>s>} in {ein K:afig>sd>}',
+'Italian' => '{il leone>s>} in {un gabbia>s>}',
+'Spanish' => '{el le/on>s>} en {un jaula>s>}',
+},
+{
+'English' => 'the coat into the closet',
+'French' => '{le manteau>s>} dans {le placard>s>}',
+'German' => '{der Mantel>s>} in {der Schrank>sa>}',
+'Italian' => "{il cappotto>s>} {in il armadio>s>}",
+'Spanish' => "{el abrigo>s>} en {el armario>s>}",
+},
+);

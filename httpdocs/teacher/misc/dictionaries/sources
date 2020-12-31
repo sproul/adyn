@@ -1,0 +1,16 @@
+http://www.wm.edu/CAS/modlang/grammnu.html grammar for german 
+http://www.iee.et.tu-dresden.de/cgi-bin/cgiwrap/wernerr/search.sh -- kinda busy output
+http://www-recomgen.univ-rennes1.fr/FR-Eng.html
+http://www.tu-chemnitz.de/urz/netz/forms/dict.html
+http://humanities.uchicago.edu/forms_unrest/FR-ENG.html
+
+http://www.m-w.com/
+http://www.openresources.com/cgi-bin/dict?Form=dict3&Database=wn    open src english!
+all: http://dictionaries.travlang.com/
+ftp://download.travlang.com/outgoing/french.zip
+ftp://download.travlang.com/outgoing/german.zip
+ftp://download.travlang.com/outgoing/italian.zip
+ftp://download.travlang.com/outgoing/spanish.zip
+ftp://download.travlang.com/outgoing/english.zip
+
+

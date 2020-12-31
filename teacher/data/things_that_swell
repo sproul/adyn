@@ -1,0 +1,37 @@
+# formatted
+@val = (
+{
+'English_note#finger;;English' => 'vocab_body',
+'English' => 'my finger',
+'French_note#doigt;;French' => 'vocab_body',
+'French' => '{mon doigt>s>}',
+'German_note#Finger;;German' => 'vocab_body',
+'German' => '{mein Finger>s>}',
+'Italian_note#dito;;Italian' => 'vocab_body',
+'Italian' => '{il mio dito>s>}',
+'Spanish_note#dedo;;Spanish' => 'vocab_body',
+'Spanish' => '{el dedo>s>}',
+'id' => 0,
+},
+{
+'English' => 'the balloon',
+'French' => '{le ballon>s>}',
+'German' => '{der Ballon>s>}',
+'Italian' => '{il pallone>s>}',
+'Spanish' => '{el globo>s>}',
+'id' => 1,
+},
+{
+'English_note#ankle;;English' => 'vocab_body',
+'English' => 'her ankle',
+'French_note#cheville;;French' => 'vocab_body',
+'French' => '{son cheville>s>}',
+'German_note#Kn:ochel;;German' => 'vocab_body',
+'German' => '{ihr Kn:ochel>s>}',
+'Italian_note#caviglia;;Italian' => 'vocab_body',
+'Italian' => '{il suo caviglia>s>}',
+'Spanish_note#tobillo;;Spanish' => 'vocab_body',
+'Spanish' => '{el tobillo>s>}',
+'id' => 2,
+},
+);

@@ -1,0 +1,7 @@
+echo xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|perl -w echo.cgi > k.html; b k.html
+Nelson is setting binmode to 0: c:/perl/lib/CGI.pm
+Nelson is setting binmode to 0: c:/perl/lib/CGI.pm
+Nelson is setting binmode to 0: c:/perl/lib/CGI.pm
+Nelson is setting binmode to 0: c:/perl/lib/CGI.pm
+Nelson is setting binmode to 0: c:/perl/lib/CGI.pm
+$ 

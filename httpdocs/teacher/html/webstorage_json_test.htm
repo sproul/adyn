@@ -1,0 +1,48 @@
+<script language="JavaScript">
+var json_support = true
+
+function die(s)
+{
+    alert(s)
+    throw s
+}
+
+function saveToDomStorage(key, val)
+{
+    if (window["JSON"]==null)
+    {
+        json_support = false
+        alert('JSON object not supported in this browser')
+    }
+    window.localStorage[key] = JSON.stringify(val)
+}
+
+function readFromDomStorage(key)
+{
+    if (window["JSON"]==null)
+    {
+        die('JSON object not supported in this browser')
+    }
+    return JSON.parse(window.localStorage[key])
+}
+    
+    
+var o1 = readFromDomStorage("me")
+if (o1)
+{
+    alert("initially read: " + JSON.stringify(o1))
+}
+else
+{
+    alert("initially read nothing")
+}
+
+
+o1 = new Object()
+o1["abc"] = 32
+saveToDomStorage("me", o1)
+o1 = null
+o1 = readFromDomStorage("me")
+alert("saved and read: " + JSON.stringify(o1))
+
+</script>

@@ -1,0 +1,44 @@
+# formatted
+@val = (
+{
+'English' => 'into the water',
+'French' => '{dans le eau>s>}',
+'German' => '{in der Wasser>s>}',
+'Italian' => '{in il acqua>s>}',
+'Spanish' => '{en el agua>s>}',
+'id' => 0,
+},
+{
+'English' => 'into the boiling acid',
+'French' => '{dans le acide>s> brouillant}',
+'German' => '{in der kochend S:aure>s>}',
+'Italian' => '{in il acido>s> bollendo}',
+'Spanish' => '{en el /acido>s> herviendo}',
+'id' => 1,
+},
+{
+'English' => 'onto the cement',
+'French' => 'sur {le ciment>s>}',
+'German' => '{auf der Zement>sa:since motion is implied.>}',
+'Italian' => 'sopra {il cemento>s>}',
+'Spanish' => '{en el cemento>s>}',
+'id' => 2,
+},
+{
+'English' => 'on the lawn',
+'French' => 'sur {le pelouse>s>}',
+'German' => '{auf der Rasen>sa:since motion is implied.>}',
+'Italian' => '{su il prato>s>}',
+'Spanish' => '{en el c/esped>s>}',
+'id' => 3,
+},
+{
+'English' => 'like {a rock>s>}',
+'French' => 'comme {un rocher>s>}',
+'German' => 'wie {ein Stein>s>}',
+'Italian' => 'come {un roccia>s>}',
+'suppress_Spanish_note#como;;Spanish' => 1,
+'Spanish' => 'como {un piedra>s>}',
+'id' => 4,
+},
+);

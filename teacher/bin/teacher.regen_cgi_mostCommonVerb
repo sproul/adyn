@@ -1,0 +1,15 @@
+#!/bin/bash
+cd $DROP/adyn/teacher/
+. bin/teacher.env
+
+# tx.pl.Main, if Argv_db::FlagSet("genInfrastructure")
+# teacher::GenInfrastructure
+# teacher.pm.Gen_choose_cgi_data
+perl -w tx.pl -genInfrastructure
+diff $DROP/adyn/teacher/data/cgi_mostCommonVerb $DROP/adyn/cgi-bin/data/cgi_mostCommonVerb
+cp -p $DROP/adyn/teacher/data/cgi_mostCommonVerb $DROP/adyn/cgi-bin/data/cgi_mostCommonVerb
+
+# not sure what is stomping this file
+cp -p $DROP/adyn/httpdocs/teacher/usr/t3/data.bak $DROP/adyn/httpdocs/teacher/usr/t3/data
+exit
+bx $DROP/adyn/teacher/bin/teacher.regen_cgi_mostCommonVerb 

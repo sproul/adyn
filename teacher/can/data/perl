@@ -1,0 +1,692 @@
+@val = (
+{
+'A' => '"anonymous array composer" (which is a ref) ',
+'Q' => '[ ... ] ',
+'id' => 0,
+},
+{
+'A' => 'use English;<br>$INPUT_LINE_NUMBER<br>$NR<br>The current input line number of the last filehandle that was read.<br>An explicit close on the filehandle resets the line number. ',
+'Q' => '$. ',
+'id' => 1,
+},
+{
+'A' => 'use English;<br>$INPUT_RECORD_SEPARATOR<br>$RS<br>The input record separator; newline by default. If set to the null<br>string, it treats blank lines as delimiters. ',
+'Q' => '$/ ',
+'id' => 2,
+},
+{
+'A' => 'use English;<br>$OUTPUT_FIELD_SEPARATOR<br>$OFS<br>The output field separator for the print operator. ',
+'Q' => '$, ',
+'id' => 3,
+},
+{
+'A' => 'use English;<br>$OUTPUT_RECORD_SEPARATOR<br>$ORS<br>The output record separator for the print operator. ',
+'Q' => '$&#092; ',
+'id' => 4,
+},
+{
+'A' => 'string value used to separate elements of a list<br>Default is a space. ',
+'Q' => '$LIST_SEPARATOR ',
+'id' => 5,
+},
+{
+'A' => 'use English;<br>$SUBSCRIPT_SEPARATOR<br>$SUBSEP<br>The subscript separator for multidimensional array emulation. ',
+'Q' => '$; ',
+'id' => 6,
+},
+{
+'A' => 'use English;<br>$CHILD_ERROR<br>The status returned by the last pipe close, backtick (``) command, or<br>system operator. ',
+'Q' => '$? ',
+'id' => 7,
+},
+{
+'A' => 'use English;<br>$OS_ERROR<br>$ERRNO<br>If used in a numeric context, yields the current value of the errno<br>variable, identifying the last system call error. If used in a string<br>context, yields the corresponding system error string. ',
+'Q' => '$! ',
+'id' => 8,
+},
+{
+'A' => 'use English;<br>$EVAL_ERROR<br>The Perl syntax error message from the last eval command. ',
+'Q' => '$@ ',
+'id' => 9,
+},
+{
+'A' => 'use English;<br>$PROCESS_ID<br>$PID<br>The pid of the Perl process running this script. ',
+'Q' => '$$ ',
+'id' => 10,
+},
+{
+'A' => 'use English;<br>$REAL_USER_ID<br>$UID<br>The real user ID (uid) of this process. ',
+'Q' => '$&lt; ',
+'id' => 11,
+},
+{
+'A' => 'use English;<br>$EFFECTIVE_USER_ID<br>$EUID<br>The effective uid of this process. ',
+'Q' => '$&gt; ',
+'id' => 12,
+},
+{
+'A' => 'use English;<br>$REAL_GROUP_ID<br>$GID<br>The real group ID (gid) of this process. ',
+'Q' => '$( ',
+'id' => 13,
+},
+{
+'A' => 'use English;<br>$EFFECTIVE_GROUP_ID<br>$EGID<br>The effective gid of this process. ',
+'Q' => '$) ',
+'id' => 14,
+},
+{
+'A' => 'use English;<br>$PROGRAM_NAME<br>complete path of file containing the Perl script being executed. ',
+'Q' => '$0 ',
+'id' => 15,
+},
+{
+'A' => 'The index of the first element in an array and of the first character<br>in a substring. Default is 0. ',
+'Q' => '$[ ',
+'id' => 16,
+},
+{
+'A' => 'use English;<br>$PERL_VERSION<br>Returns the version plus patchlevel divided by 1000. ',
+'Q' => '$] ',
+'id' => 17,
+},
+{
+'A' => 'use English;<br>$EXTENDED_OS_ERROR<br>Extended error message on some platforms. ',
+'Q' => '$^E ',
+'id' => 18,
+},
+{
+'A' => 'use English;<br>$SYSTEM_FD_MAX<br>The maximum system file descriptor, ordinarily 2. ',
+'Q' => '$^F ',
+'id' => 19,
+},
+{
+'A' => 'use English;<br>$OSNAME<br>Contains the name of the operating system that the current Perl<br>binary was compiled for. ',
+'Q' => '$^O ',
+'id' => 20,
+},
+{
+'A' => 'use English;<br>$BASETIME<br>The time at which the script began running, in seconds since the<br>epoch. ',
+'Q' => '$^T ',
+'id' => 21,
+},
+{
+'A' => 'use English;<br>$WARNING<br>The current value of the warning switch, either true or false. ',
+'Q' => '$^W ',
+'id' => 22,
+},
+{
+'A' => 'use English;<br>$EXECUTABLE_NAME<br>The name that the Perl binary itself was executed as. ',
+'Q' => '$^X ',
+'id' => 23,
+},
+{
+'A' => 'Contains the name of the current file when reading from &lt;ARGV&gt;. ',
+'Q' => '$ARGV ',
+'id' => 24,
+},
+{
+'A' => 'The array containing the command-line arguments intended for the<br>script. ',
+'Q' => '@ARGV ',
+'id' => 25,
+},
+{
+'A' => 'The array containing the list of places to look for Perl scripts to<br>be evaluated by the do, require, or use constructs. ',
+'Q' => '@INC ',
+'id' => 26,
+},
+{
+'A' => 'The array into which the input lines are split when the -a<br>command-line switch is given.<br>&nbsp;-a = autosplit; splits on \' \' if -n or -p<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-n: # like sed -n, or awk<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while (&lt;ARGV&gt;)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# do work<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-p: # like sed<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while (&lt;ARGV&gt;)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# do work<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;continue<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125; ',
+'Q' => '@F ',
+'id' => 27,
+},
+{
+'A' => 'The hash containing entries for the filename of each file that has<br>been included via do or require. ',
+'Q' => '%INC ',
+'id' => 28,
+},
+{
+'A' => 'The hash containing your current environment. ',
+'Q' => '%ENV ',
+'id' => 29,
+},
+{
+'A' => 'The hash used to set signal handlers for various signals. ',
+'Q' => '%SIG ',
+'id' => 30,
+},
+{
+'A' => 'The special filehandle that iterates over command line filenames in<br>@ARGV. Usually written as the null filehandle in &lt;&gt;:<br>while (&lt;&gt;)<br>&#123;<br>&nbsp;&nbsp;my $line = $_;<br>&nbsp;&nbsp;print "$line::::::::: from file whose name was passed on cmd line&#092;n";<br>&#125; ',
+'Q' => 'ARGV, as in<br>while (&lt;ARGV&gt;) ',
+'id' => 31,
+},
+{
+'A' => 'The special filehandle that refers to anything following the __END__<br>token in the file containing the script. Or, the special filehandle<br>for anything following the __DATA__ token in a required file, as long<br>as you\'re reading data in the same package __DATA__ was found in. ',
+'Q' => 'DATA ',
+'id' => 32,
+},
+{
+'A' => 'The special filehandle used to cache the information from the last<br>stat, lstat, or file test operator. ',
+'Q' => '_ (underscore) ',
+'id' => 33,
+},
+{
+'A' => 'Indicates the logical end of your program. Any following text is<br>ignored, but may be read via the DATA filehandle. ',
+'Q' => '__END__ ',
+'id' => 34,
+},
+{
+'A' => 'use English;<br>$MATCH<br>The string matched by the last successful pattern match. ',
+'Q' => '$& ',
+'id' => 35,
+},
+{
+'A' => 'use English;<br>$PREMATCH<br>The string preceding whatever was matched by the last successful<br>pattern match. ',
+'Q' => '$` ',
+'id' => 36,
+},
+{
+'A' => 'use English;<br>$POSTMATCH<br>The string following whatever was matched by the last successful<br>pattern match. ',
+'Q' => '$\' ',
+'id' => 37,
+},
+{
+'A' => 'use English;<br>$LAST_PAREN_MATCH<br>The last bracket matched by the last search pattern. This is useful<br>if you don\'t know which of a set of alternative patterns was matched.<br>For example:<br>&nbsp;&nbsp;/Version: (.*)|Revision: (.*)/ && ($rev = $+); ',
+'Q' => '$+ ',
+'id' => 38,
+},
+{
+'A' => 'use English;<br>$OUTPUT_AUTOFLUSH<br>If set to nonzero, forces an fflush(3) after every write or print on<br>the currently selected output channel. ',
+'Q' => '$| ',
+'id' => 39,
+},
+{
+'A' => '$_<br>use English;<br>$ARG ',
+'Q' => 'The default input and pattern-searching space. ',
+'id' => 40,
+},
+{
+'A' => '$.<br>use English;<br>$INPUT_LINE_NUMBER $NR ',
+'Q' => 'The current input line number of the last filehandle that was read. An explicit close on the filehandle resets the line number. ',
+'id' => 41,
+},
+{
+'A' => '$/<br>use English;<br>$INPUT_RECORD_SEPARATOR $RS ',
+'Q' => 'The input record separator; newline by default. If set to the null string, it treats blank lines as delimiters. ',
+'id' => 42,
+},
+{
+'A' => '$,<br>use English;<br>$OUTPUT_FIELD_SEPARATOR<br>$OFS<br>&nbsp;dft eq "" ',
+'Q' => 'The output field separator for args to print(). ',
+'id' => 43,
+},
+{
+'A' => 'use English;<br>$OUTPUT_RECORD_SEPARATOR $ORS<br>$&#092;<br>&nbsp;don\'t confuse this with<br>$,<br>use English;<br>$OUTPUT_FIELD_SEPARATOR<br>$OFS ',
+'Q' => 'The output record separator for the print operator. ',
+'id' => 44,
+},
+{
+'A' => 'use English;<br>$LIST_SEPARATOR<br>Default is a space. ',
+'Q' => 'string value used to separate elements of a list ',
+'id' => 45,
+},
+{
+'A' => '$;<br>use English;<br>$SUBSCRIPT_SEPARATOR $SUBSEP ',
+'Q' => 'The subscript separator for multidimensional array emulation. ',
+'id' => 46,
+},
+{
+'A' => '$?<br>use English;<br>$CHILD_ERROR ',
+'Q' => 'The status returned by the last pipe close, backtick (``) command, or system operator. ',
+'id' => 47,
+},
+{
+'A' => '$!<br>use English;<br>$OS_ERROR $ERRNO ',
+'Q' => 'If used in a numeric context, yields the current value of the errno variable, identifying the last system call error. If used in a string context, yields the corresponding system error string. ',
+'id' => 48,
+},
+{
+'A' => '$@<br>use English;<br>$EVAL_ERROR ',
+'Q' => 'The Perl syntax error message from the last eval command. ',
+'id' => 49,
+},
+{
+'A' => '$$<br>use English;<br>$PROCESS_ID $PID ',
+'Q' => 'The pid of the Perl process running this script. ',
+'id' => 50,
+},
+{
+'A' => '$&lt;<br>use English;<br>$REAL_USER_ID $UID ',
+'Q' => 'The real user ID (uid) of this process. ',
+'id' => 51,
+},
+{
+'A' => '$&gt;<br>use English;<br>$EFFECTIVE_USER_ID $EUID ',
+'Q' => 'The effective uid of this process. ',
+'id' => 52,
+},
+{
+'A' => '$(<br>use English;<br>$REAL_GROUP_ID $GID ',
+'Q' => 'The real group ID (gid) of this process. ',
+'id' => 53,
+},
+{
+'A' => '$)<br>use English;<br>$EFFECTIVE_GROUP_ID $EGID ',
+'Q' => 'The effective gid of this process. ',
+'id' => 54,
+},
+{
+'A' => '$0<br>use English;<br>$PROGRAM_NAME ',
+'Q' => 'complete path of the Perl script being executed. ',
+'id' => 55,
+},
+{
+'A' => '$[ ',
+'Q' => 'The index of the first element in an array and of the first character in a substring. Default is 0. ',
+'id' => 56,
+},
+{
+'A' => '$]<br>use English;<br>$PERL_VERSION ',
+'Q' => 'Returns the version plus patchlevel divided by 1000. ',
+'id' => 57,
+},
+{
+'A' => '$^E<br>use English;<br>$EXTENDED_OS_ERROR ',
+'Q' => 'Extended error message on some platforms. ',
+'id' => 58,
+},
+{
+'A' => '$^F<br>use English;<br>$SYSTEM_FD_MAX ',
+'Q' => 'The maximum system file descriptor, ordinarily 2. ',
+'id' => 59,
+},
+{
+'A' => '$^O<br>use English;<br>$OSNAME ',
+'Q' => 'Contains the name of the operating system that the current Perl binary was compiled for. ',
+'id' => 60,
+},
+{
+'A' => '$^T<br>use English;<br>$BASETIME ',
+'Q' => 'The time at which the script began running, in seconds since the epoch. ',
+'id' => 61,
+},
+{
+'A' => '$^W<br>use English;<br>$WARNING ',
+'Q' => 'The current value of the warning switch, either true or false. ',
+'id' => 62,
+},
+{
+'A' => '$^X<br>use English;<br>$EXECUTABLE_NAME ',
+'Q' => 'The name that the Perl binary itself was executed as. ',
+'id' => 63,
+},
+{
+'A' => '$ARGV ',
+'Q' => 'Contains the name of the current file when reading from &lt;ARGV&gt;. ',
+'id' => 64,
+},
+{
+'A' => '@ARGV ',
+'Q' => 'The array containing the command-line arguments intended for the script. ',
+'id' => 65,
+},
+{
+'A' => '@INC ',
+'Q' => 'The array containing the list of places to look for Perl scripts to be evaluated by the do, require, or use constructs. ',
+'id' => 66,
+},
+{
+'A' => '@F ',
+'Q' => 'The array into which the input lines are split when the -a command-line switch is given. ',
+'id' => 67,
+},
+{
+'A' => '%INC ',
+'Q' => 'The hash containing entries for the filename of each file that has been included via do or require. ',
+'id' => 68,
+},
+{
+'A' => '%ENV ',
+'Q' => 'The hash containing your current environment. ',
+'id' => 69,
+},
+{
+'A' => '%SIG ',
+'Q' => 'The hash used to set signal handlers for various signals. ',
+'id' => 70,
+},
+{
+'A' => 'ARGV<br>while (&lt;&gt;) or while (&lt;ARGV&gt;)<br>&#123;<br>&nbsp;&nbsp;my $line = $_;<br>&nbsp;&nbsp;print "$line::::::::: from file whose name was passed on cmd line&#092;n";<br>&#125; ',
+'Q' => 'The special filehandle that iterates over command line filenames in @ARGV. Usually written as the null filehandle in &lt;&gt;. ',
+'id' => 71,
+},
+{
+'A' => 'DATA ',
+'Q' => 'The special filehandle that refers to anything following the __END__ token in the file containing the script. Or, the special filehandle for anything following the __DATA__ token in a required file, as long as you\'re reading data in the same package __DATA__ was found in. ',
+'id' => 72,
+},
+{
+'A' => '_ (underscore) ',
+'Q' => 'The special filehandle used to cache the information from the last stat, lstat, or file test operator. ',
+'id' => 73,
+},
+{
+'A' => '__END__ ',
+'Q' => 'Indicates the logical end of your program. Any following text is ignored, but may be read via the DATA filehandle. ',
+'id' => 74,
+},
+{
+'A' => '__FILE__ ',
+'Q' => 'Represents the filename at the point in your program where it\'s used. Not interpolated into strings. ',
+'id' => 75,
+},
+{
+'A' => '__LINE__ ',
+'Q' => 'Represents the current line number. Not interpolated into strings. ',
+'id' => 76,
+},
+{
+'A' => '__PACKAGE__ ',
+'Q' => 'Represents the current package name at compile time, or undefined if there is no current package. Not interpolated into strings. ',
+'id' => 77,
+},
+{
+'A' => '$&<br>use English;<br>$MATCH ',
+'Q' => 'The string matched by the last successful pattern match. ',
+'id' => 78,
+},
+{
+'A' => '$`<br>use English;<br>$PREMATCH ',
+'Q' => 'The string preceding whatever was matched by the last successful pattern match. ',
+'id' => 79,
+},
+{
+'A' => '$\'<br>use English;<br>$POSTMATCH ',
+'Q' => 'The string following whatever was matched by the last successful pattern match. ',
+'id' => 80,
+},
+{
+'A' => 'For example:<br>&nbsp;/Version: (.*)|Revision: (.*)/ && ($rev = $+);<br>&nbsp;$+ $LAST_PAREN_MATCH ',
+'Q' => 'The last bracket matched by the last search pattern. This is useful if you don\'t know which of a set of alternative patterns was matched. ',
+'id' => 81,
+},
+{
+'A' => '$| $OUTPUT_AUTOFLUSH ',
+'Q' => 'If set to nonzero, forces an fflush(3) after every write or print on the currently selected output channel. ',
+'id' => 82,
+},
+{
+'A' => '[ ... ] (which is a ref) ',
+'Q' => 'perl: anonymous array composer ',
+'id' => 83,
+},
+{
+'A' => 'use English;<br>$ARG<br>The default input and pattern-searching space. ',
+'Q' => '$_ ',
+'id' => 84,
+},
+{
+'A' => '1 ',
+'Q' => 'my @a = (1,2,3);<br>length( @a) == ? ',
+'id' => 85,
+},
+{
+'A' => '# c:/perl/bin/lwp-request:212<br># We make our own specialization of LWP::UserAgent that ...<br>&#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;package RequestAgent;<br>&nbsp;&nbsp;&nbsp;&nbsp;@ISA = qw(LWP::UserAgent);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub new<br>&nbsp;&nbsp;&nbsp;&nbsp;&#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;my $self = LWP::UserAgent::new(@_);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$self-&gt;agent("lwp-request/$main::VERSION");<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$self;<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sub get_basic_credentials<br>&nbsp;&nbsp;&nbsp;&nbsp;&#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# new logic<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&#125; ',
+'Q' => 'locally subclass ',
+'id' => 86,
+},
+{
+'A' => 'c:/perl/site/lib/Apache/DBI.pm:<br>&nbsp;When perl is asked to load the DBI module (do not confuse this with the Apache::DBI module) if <font color=red>$ENV&#123;"GATEWAY_INTERFACE"&#125; starts with \'CGI-Perl\' and if the module Apache::DBI has been loaded, then every connect request will be forwarded</font> to the Apache::DBI module. This looks if a database handle from a previous connect request is already stored and if this handle is still valid using the ping method. If these two conditions are fulfilled it just returns the database handle. The parameters defining the connection have to be exactly the same, including the connect attributes! If there is no appropriate database handle or if the ping method fails, a new connection is established and the handle is stored for later re-use. There is no need to remove the disconnect statements from your code. They won\'t do anything because the Apache::DBI module overloads the disconnect method.<br>&nbsp;The <font color=red>Apache::DBI module still has a limitation: it keeps database connections persistent on a per process basis</font>. The problem is, if a user accesses several times a database, the http requests will be handled very likely by different servers. Every server needs to do its own connect. It would be nice, if all servers could share the database handles. Currently this is not possible, because of the distinct name-space of every process. Also it is not possible to create a database handle upon startup of the httpd and then inheriting this handle to every subsequent server. This will cause clashes when the handle is used by two processes at the same time.<br>&nbsp;With this limitation in mind, there are scenarios, where the usage of Apache::DBI is depreciated. Think about a heavy loaded Web-site where every user connects to the database with a unique userid. Every server would create many database handles each of which spawning a new backend process. In a short time this would kill the web server. ',
+'Q' => 'cache database connections from Apache ',
+'id' => 87,
+},
+{
+'A' => 'map EXPR,LIST<br>&nbsp;Evaluates the BLOCK or EXPR for each element of LIST (locally setting $_ to each element) and returns the list value composed of the results of each such evaluation. In scalar context, returns the total number of elements so generated. Evaluates BLOCK or EXPR in list context, so each element of LIST may produce zero, one, or more elements in the returned value.<br>&nbsp;&nbsp;&nbsp;&nbsp;@chars = map(chr, @nums);<br>translates a list of numbers to the corresponding characters. And<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%hash = map &#123; getkey($_) =&gt; $_ &#125; @array;<br>is just a funny way to write<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%hash = ();<br>&nbsp;&nbsp;&nbsp;&nbsp;foreach $_ (@array) &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$hash&#123;getkey($_)&#125; = $_;<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125; ',
+'Q' => 'apply a function to each element of a list ',
+'id' => 88,
+},
+{
+'A' => 'map EXPR,LIST<br>&nbsp;Evaluates the BLOCK or EXPR for each element of LIST (locally setting $_ to each element) and returns the list value composed of the results of each such evaluation. In scalar context, returns the total number of elements so generated. Evaluates BLOCK or EXPR in list context, so each element of LIST may produce zero, one, or more elements in the returned value.<br>&nbsp;&nbsp;&nbsp;&nbsp;@chars = map(chr, @nums);<br>translates a list of numbers to the corresponding characters. And<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%hash = map &#123; getkey($_) =&gt; $_ &#125; @array;<br>is just a funny way to write<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%hash = ();<br>&nbsp;&nbsp;&nbsp;&nbsp;foreach $_ (@array) &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$hash&#123;getkey($_)&#125; = $_;<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;Note that $_ is an alias to the list value, so it can be used to modify the elements of the LIST. While this is useful and supported, it can cause bizarre results if the elements of LIST are not variables. Using a regular foreach loop for this purpose would be clearer in most cases. See also grep for an array composed of those items of the original list for which the BLOCK or EXPR evaluates to true.<br>&nbsp;<font color=red>&#123; starts both hash references and blocks, so map &#123; ... could be either the start of map BLOCK LIST or map EXPR, LIST.</font> Because <font color=red>perl</font> doesn\'t look ahead for the closing &#125; it <font color=red>has to take a guess</font> at which its dealing with based what it finds just after the &#123;. Usually it gets it right, but if it doesn\'t it won\'t realize something is wrong until it gets to the &#125; and encounters the missing (or unexpected) comma. The syntax error will be reported close to the &#125; but you\'ll need to change something near the &#123; such as using a unary + to give perl some help:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%hash = map &#123; "&#092;L$_", 1 &#125; @array # perl guesses EXPR. wrong<br>&nbsp;&nbsp;&nbsp;&nbsp;%hash = map &#123; +"&#092;L$_", 1 &#125; @array # perl guesses BLOCK. right<br>&nbsp;&nbsp;&nbsp;&nbsp;%hash = map &#123; ("&#092;L$_", 1) &#125; @array # this also works<br>&nbsp;&nbsp;&nbsp;&nbsp;%hash = map &#123; lc($_), 1 &#125; @array # as does this.<br>&nbsp;&nbsp;&nbsp;&nbsp;%hash = map +( lc($_), 1 ), @array # this is EXPR and works!<br>&nbsp;&nbsp;&nbsp;&nbsp;%hash = map ( lc($_), 1 ), @array # evaluates to (1, @array)<br>or to force an anon hash constructor use +&#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;@hashes = map +&#123; lc($_), 1 &#125;, @array # EXPR, so needs , at end<br>and you get list of anonymous hashes each with only 1 entry. ',
+'Q' => 'what is the pitfall of the syntax for the "map" function ',
+'id' => 89,
+},
+{
+'A' => 'c:/Apache/logs/error.log startup msg should say ',
+'Q' => 'Apache: is mod_perl installed + running? ',
+'id' => 90,
+},
+{
+'A' => 'c:/Apache/conf/httpd.conf:<br>&nbsp;&nbsp;PerlModule Apache::Registry<br>Alias /perl/ "c:/users/nsproul/work/public/bin/"<br>&lt;Location /perl&gt;<br>&nbsp;&nbsp;Sethandler perl-script<br>&nbsp;&nbsp;PerlHandler Apache::Registry<br>&nbsp;&nbsp;Options +ExecCGI &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;<br>&nbsp;&nbsp;PerlSendHeader On<br>&lt;/Location&gt; ',
+'Q' => 'Apache: enable mod_perl ',
+'id' => 91,
+},
+{
+'A' => '$#array = 1000; ',
+'Q' => 'pre-allocate array ',
+'id' => 92,
+},
+{
+'A' => 'q/.../<br>qq/.../<br>&nbsp;The slashes can be replaced by any character. ',
+'Q' => 'avoid quotitis ',
+'id' => 93,
+},
+{
+'A' => 'automatic:<br>&nbsp;(@l1, @l2) ',
+'Q' => 'append lists ',
+'id' => 94,
+},
+{
+'A' => 'If "vec()" is used in the program, and both $s1 and $s2 are strings, then bit operators will be applied across the strings.<br>&nbsp;Otherwise, bit operator operands are converted to integers.<br>&nbsp;vec EXPR,OFFSET,BITS<br>&nbsp;Treats the string in EXPR as a bit vector made up of elements of width BITS, and returns the value of the element specified by OFFSET as an unsigned integer. BITS therefore specifies the number of bits that are reserved for each element in the bit vector. This must be a power of two from 1 to 32 (or 64, if your platform supports that).<br>If BITS is 8, ``elements\'\' coincide with bytes of the input string.<br>&nbsp;If BITS is 16 or more, bytes of the input string are grouped into chunks of size BITS/8, and each group is converted to a number as with pack()/unpack() with big-endian formats n/N (and analogously for BITS==64). See pack for details.<br>&nbsp;If bits is 4 or less, the string is broken into bytes, then the bits of each byte are broken into 8/BITS groups. Bits of a byte are numbered in a little-endian-ish way, as in 0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80. For example, breaking the single input byte chr(0x36) into two groups gives a list (0x6, 0x3); breaking it into 4 groups gives (0x2, 0x1, 0x3, 0x0).<br>&nbsp;vec may also be assigned to, in which case parentheses are needed to give the expression the correct precedence as in<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vec($image, $max_x * $x + $y, 8) = 3;<br>If the selected element is outside the string, the value 0 is returned. If an element off the end of the string is written to, Perl will first extend the string with sufficiently many zero bytes. It is an error to try to write off the beginning of the string (i.e. negative OFFSET).<br>&nbsp;The string should not contain any character with the value &gt; 255 (which can only happen if you\'re using UTF8 encoding). If it does, it will be treated as something which is not UTF8 encoded. When the vec was assigned to, other parts of your program will also no longer consider the string to be UTF8 encoded. In other words, if you do have such characters in your string, vec() will operate on the actual byte string, and not the conceptual character string.<br>&nbsp;Strings created with vec can also be manipulated with the logical operators |, &, ^, and ~. These operators will assume a bit vector operation is desired when both operands are strings. See Bitwise String Operators in the perlop manpage.<br>&nbsp;The following code will build up an ASCII string saying \'PerlPerlPerl\'. The comments show the string after each step. Note that this code works in the same way on big-endian or little-endian machines.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;my $foo = \'\';<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($foo, 0, 32) = 0x5065726C; # \'Perl\'<br>&nbsp;&nbsp;&nbsp;&nbsp;# $foo eq "Perl" eq "&#092;x50&#092;x65&#092;x72&#092;x6C", 32 bits<br>&nbsp;&nbsp;&nbsp;&nbsp;print vec($foo, 0, 8); # prints 80 == 0x50 == ord(\'P\')<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($foo, 2, 16) = 0x5065; # \'PerlPe\'<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($foo, 3, 16) = 0x726C; # \'PerlPerl\'<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($foo, 8, 8) = 0x50; # \'PerlPerlP\'<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($foo, 9, 8) = 0x65; # \'PerlPerlPe\'<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($foo, 20, 4) = 2; # \'PerlPerlPe\' . "&#092;x02"<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($foo, 21, 4) = 7; # \'PerlPerlPer\'<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# \'r\' is "&#092;x72"<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($foo, 45, 2) = 3; # \'PerlPerlPer\' . "&#092;x0c"<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($foo, 93, 1) = 1; # \'PerlPerlPer\' . "&#092;x2c"<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($foo, 94, 1) = 1; # \'PerlPerlPerl\'<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# \'l\' is "&#092;x6c"<br>To transform a bit vector into a string or list of 0\'s and 1\'s, use these:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$bits = unpack("b*", $vector);<br>&nbsp;&nbsp;&nbsp;&nbsp;@bits = split(//, unpack("b*", $vector));<br>If you know the exact length in bits, it can be used in place of the *.<br>&nbsp;Here is an example to illustrate how the bits actually fall in place:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#!/usr/bin/perl -wl<br>&nbsp;&nbsp;&nbsp;&nbsp;print &lt;&lt;\'EOT\';<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0 1 2 3<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unpack("V",$_) 01234567890123456789012345678901<br>&nbsp;&nbsp;&nbsp;&nbsp;------------------------------------------------------------------<br>&nbsp;&nbsp;&nbsp;&nbsp;EOT<br>&nbsp;&nbsp;&nbsp;&nbsp;for $w (0..3) &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$width = 2**$w;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for ($shift=0; $shift &lt; $width; ++$shift) &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for ($off=0; $off &lt; 32/$width; ++$off) &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$str = pack("B*", "0"x32);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$bits = (1&lt;&lt;$shift);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vec($str, $off, $width) = $bits;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$res = unpack("b*",$str);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$val = unpack("V", $str);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;write;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125;<br>&nbsp;&nbsp;&nbsp;&nbsp;format STDOUT =<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_,@#,@#) = @&lt;&lt; == @######### @&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;$off, $width, $bits, $val, $res<br>&nbsp;&nbsp;&nbsp;&nbsp;.<br>&nbsp;&nbsp;&nbsp;&nbsp;__END__<br>Regardless of the machine architecture on which it is run, the above example should print the following table:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0 1 2 3<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unpack("V",$_) 01234567890123456789012345678901<br>&nbsp;&nbsp;&nbsp;&nbsp;------------------------------------------------------------------<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 0, 1) = 1 == 1 10000000000000000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 1, 1) = 1 == 2 01000000000000000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 2, 1) = 1 == 4 00100000000000000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 3, 1) = 1 == 8 00010000000000000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 4, 1) = 1 == 16 00001000000000000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 5, 1) = 1 == 32 00000100000000000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 6, 1) = 1 == 64 00000010000000000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 7, 1) = 1 == 128 00000001000000000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 8, 1) = 1 == 256 00000000100000000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 9, 1) = 1 == 512 00000000010000000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_,10, 1) = 1 == 1024 00000000001000000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_,11, 1) = 1 == 2048 00000000000100000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_,12, 1) = 1 == 4096 00000000000010000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_,13, 1) = 1 == 8192 00000000000001000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_,14, 1) = 1 == 16384 00000000000000100000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_,15, 1) = 1 == 32768 00000000000000010000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_,16, 1) = 1 == 65536 00000000000000001000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_,17, 1) = 1 == 131072 00000000000000000100000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_,18, 1) = 1 == 262144 00000000000000000010000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_,19, 1) = 1 == 524288 00000000000000000001000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_,20, 1) = 1 == 1048576 00000000000000000000100000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_,21, 1) = 1 == 2097152 00000000000000000000010000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_,22, 1) = 1 == 4194304 00000000000000000000001000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_,23, 1) = 1 == 8388608 00000000000000000000000100000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_,24, 1) = 1 == 16777216 00000000000000000000000010000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_,25, 1) = 1 == 33554432 00000000000000000000000001000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_,26, 1) = 1 == 67108864 00000000000000000000000000100000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_,27, 1) = 1 == 134217728 00000000000000000000000000010000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_,28, 1) = 1 == 268435456 00000000000000000000000000001000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_,29, 1) = 1 == 536870912 00000000000000000000000000000100<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_,30, 1) = 1 == 1073741824 00000000000000000000000000000010<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_,31, 1) = 1 == 2147483648 00000000000000000000000000000001<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 0, 2) = 1 == 1 10000000000000000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 1, 2) = 1 == 4 00100000000000000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 2, 2) = 1 == 16 00001000000000000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 3, 2) = 1 == 64 00000010000000000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 4, 2) = 1 == 256 00000000100000000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 5, 2) = 1 == 1024 00000000001000000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 6, 2) = 1 == 4096 00000000000010000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 7, 2) = 1 == 16384 00000000000000100000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 8, 2) = 1 == 65536 00000000000000001000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 9, 2) = 1 == 262144 00000000000000000010000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_,10, 2) = 1 == 1048576 00000000000000000000100000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_,11, 2) = 1 == 4194304 00000000000000000000001000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_,12, 2) = 1 == 16777216 00000000000000000000000010000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_,13, 2) = 1 == 67108864 00000000000000000000000000100000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_,14, 2) = 1 == 268435456 00000000000000000000000000001000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_,15, 2) = 1 == 1073741824 00000000000000000000000000000010<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 0, 2) = 2 == 2 01000000000000000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 1, 2) = 2 == 8 00010000000000000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 2, 2) = 2 == 32 00000100000000000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 3, 2) = 2 == 128 00000001000000000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 4, 2) = 2 == 512 00000000010000000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 5, 2) = 2 == 2048 00000000000100000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 6, 2) = 2 == 8192 00000000000001000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 7, 2) = 2 == 32768 00000000000000010000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 8, 2) = 2 == 131072 00000000000000000100000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 9, 2) = 2 == 524288 00000000000000000001000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_,10, 2) = 2 == 2097152 00000000000000000000010000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_,11, 2) = 2 == 8388608 00000000000000000000000100000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_,12, 2) = 2 == 33554432 00000000000000000000000001000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_,13, 2) = 2 == 134217728 00000000000000000000000000010000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_,14, 2) = 2 == 536870912 00000000000000000000000000000100<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_,15, 2) = 2 == 2147483648 00000000000000000000000000000001<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 0, 4) = 1 == 1 10000000000000000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 1, 4) = 1 == 16 00001000000000000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 2, 4) = 1 == 256 00000000100000000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 3, 4) = 1 == 4096 00000000000010000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 4, 4) = 1 == 65536 00000000000000001000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 5, 4) = 1 == 1048576 00000000000000000000100000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 6, 4) = 1 == 16777216 00000000000000000000000010000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 7, 4) = 1 == 268435456 00000000000000000000000000001000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 0, 4) = 2 == 2 01000000000000000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 1, 4) = 2 == 32 00000100000000000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 2, 4) = 2 == 512 00000000010000000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 3, 4) = 2 == 8192 00000000000001000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 4, 4) = 2 == 131072 00000000000000000100000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 5, 4) = 2 == 2097152 00000000000000000000010000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 6, 4) = 2 == 33554432 00000000000000000000000001000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 7, 4) = 2 == 536870912 00000000000000000000000000000100<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 0, 4) = 4 == 4 00100000000000000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 1, 4) = 4 == 64 00000010000000000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 2, 4) = 4 == 1024 00000000001000000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 3, 4) = 4 == 16384 00000000000000100000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 4, 4) = 4 == 262144 00000000000000000010000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 5, 4) = 4 == 4194304 00000000000000000000001000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 6, 4) = 4 == 67108864 00000000000000000000000000100000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 7, 4) = 4 == 1073741824 00000000000000000000000000000010<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 0, 4) = 8 == 8 00010000000000000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 1, 4) = 8 == 128 00000001000000000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 2, 4) = 8 == 2048 00000000000100000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 3, 4) = 8 == 32768 00000000000000010000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 4, 4) = 8 == 524288 00000000000000000001000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 5, 4) = 8 == 8388608 00000000000000000000000100000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 6, 4) = 8 == 134217728 00000000000000000000000000010000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 7, 4) = 8 == 2147483648 00000000000000000000000000000001<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 0, 8) = 1 == 1 10000000000000000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 1, 8) = 1 == 256 00000000100000000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 2, 8) = 1 == 65536 00000000000000001000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 3, 8) = 1 == 16777216 00000000000000000000000010000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 0, 8) = 2 == 2 01000000000000000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 1, 8) = 2 == 512 00000000010000000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 2, 8) = 2 == 131072 00000000000000000100000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 3, 8) = 2 == 33554432 00000000000000000000000001000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 0, 8) = 4 == 4 00100000000000000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 1, 8) = 4 == 1024 00000000001000000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 2, 8) = 4 == 262144 00000000000000000010000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 3, 8) = 4 == 67108864 00000000000000000000000000100000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 0, 8) = 8 == 8 00010000000000000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 1, 8) = 8 == 2048 00000000000100000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 2, 8) = 8 == 524288 00000000000000000001000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 3, 8) = 8 == 134217728 00000000000000000000000000010000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 0, 8) = 16 == 16 00001000000000000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 1, 8) = 16 == 4096 00000000000010000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 2, 8) = 16 == 1048576 00000000000000000000100000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 3, 8) = 16 == 268435456 00000000000000000000000000001000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 0, 8) = 32 == 32 00000100000000000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 1, 8) = 32 == 8192 00000000000001000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 2, 8) = 32 == 2097152 00000000000000000000010000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 3, 8) = 32 == 536870912 00000000000000000000000000000100<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 0, 8) = 64 == 64 00000010000000000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 1, 8) = 64 == 16384 00000000000000100000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 2, 8) = 64 == 4194304 00000000000000000000001000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 3, 8) = 64 == 1073741824 00000000000000000000000000000010<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 0, 8) = 128 == 128 00000001000000000000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 1, 8) = 128 == 32768 00000000000000010000000000000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 2, 8) = 128 == 8388608 00000000000000000000000100000000<br>&nbsp;&nbsp;&nbsp;&nbsp;vec($_, 3, 8) = 128 == 2147483648 00000000000000000000000000000001 ',
+'Q' => '$s1 & $s2 ',
+'id' => 95,
+},
+{
+'A' => 'like C continue<br>&nbsp;A wacky alternative: to restart the loop without executing the "continue" block, do<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;redo ',
+'Q' => 'perl: <font color=red>next</font> is like C\'s... ',
+'id' => 96,
+},
+{
+'A' => 'that bit of code which executes with each iteration of the loop, e.g., "$j++" in<br>&nbsp;for (my $j = 0; $j &lt; $lksdj; $j++)<br>&#123;<br>&nbsp;&nbsp;@@<br>&#125; ',
+'Q' => 'perl: "continue" block ',
+'id' => 97,
+},
+{
+'A' => 'there are six:<br>&nbsp;&#123;n,m&#125; must occur at least n times but no more than m times<br>&#123;n,&#125; must occur at least n times<br>&#123;n&#125; must occur exactly n times<br>* &#123;0,&#125;<br>+ &#123;1,&#125;<br>? &#123;0,1&#125; ',
+'Q' => 'perl regular expressions: quantified atoms ',
+'id' => 98,
+},
+{
+'A' => 'these are the most common <font color=red>quantified atoms</font><br>there are six in all:<br>&nbsp;&#123;n,m&#125; must occur at least n times but no more than m times<br>&#123;n,&#125; must occur at least n times<br>&#123;n&#125; must occur exactly n times<br>* &#123;0,&#125;<br>+ &#123;1,&#125;<br>? &#123;0,1&#125; ',
+'Q' => 'perl regular expressions: *, +, ? ',
+'id' => 99,
+},
+{
+'A' => 'while (s/&#092;t+/\' \' x (length($&) * 8 - length($`) % 8)/e)<br>&#123;<br>&#125; ',
+'Q' => 'change all tabs to the corresponding number of spaces ',
+'id' => 100,
+},
+{
+'A' => 'do<br>&#123;<br>...<br>&#125; until (whatever); ',
+'Q' => 'perl analog to Pascal repeat loop ',
+'id' => 101,
+},
+{
+'A' => '-r File is readable by effective uid/gid.<br>-w File is writable by effective uid/gid.<br>-x File is executable by effective uid/gid.<br>-R File is readable by real uid/gid.<br>-W File is writable by real uid/gid.<br>-X File is executable by real uid/gid. ',
+'Q' => 'perl: is the file writable? ',
+'id' => 102,
+},
+{
+'A' => '-o File is owned by effective uid.<br>-O File is owned by real uid. ',
+'Q' => 'perl: who owns file X? ',
+'id' => 103,
+},
+{
+'A' => 'eight<br>&nbsp;&nbsp;&nbsp;&nbsp;-e File exists.<br>&nbsp;&nbsp;&nbsp;&nbsp;-f File is a plain file.<br>&nbsp;&nbsp;&nbsp;&nbsp;-d File is a directory.<br>&nbsp;&nbsp;&nbsp;&nbsp;-l File is a symbolic link.<br>&nbsp;&nbsp;&nbsp;&nbsp;-p File is a named pipe (FIFO), or Filehandle is a pipe.<br>&nbsp;&nbsp;&nbsp;&nbsp;-S File is a socket.<br>&nbsp;&nbsp;&nbsp;&nbsp;-b File is a block special file.<br>&nbsp;&nbsp;&nbsp;&nbsp;-c File is a character special file. ',
+'Q' => 'perl: does file X exist? ',
+'id' => 104,
+},
+{
+'A' => '-T File is an ASCII text file.<br>-B File is a "binary" file (opposite of -T). ',
+'Q' => 'is file X binary? ',
+'id' => 105,
+},
+{
+'A' => '-z File has zero size (is empty).<br>-s File has nonzero size (returns size in bytes). ',
+'Q' => 'how big is file X? ',
+'id' => 106,
+},
+{
+'A' => '-u File has setuid bit set.<br>-g File has setgid bit set.<br>-k File has sticky bit set. ',
+'Q' => 'is file X setuid? ',
+'id' => 107,
+},
+{
+'A' => '-M Age of file in days when script started.<br>-A Same for access time.<br>-C Same for inode change time. ',
+'Q' => 'how old is file X? ',
+'id' => 108,
+},
+{
+'A' => 'File is owned by effective uid. ',
+'Q' => 'perl file test: -o ',
+'id' => 109,
+},
+{
+'A' => 'File is owned by real uid. ',
+'Q' => 'perl file test: -O ',
+'id' => 110,
+},
+{
+'A' => 'File exists. ',
+'Q' => 'perl file test: -e ',
+'id' => 111,
+},
+{
+'A' => 'File is a plain file. ',
+'Q' => 'perl file test: -f ',
+'id' => 112,
+},
+{
+'A' => 'File is a directory. ',
+'Q' => 'perl file test: -d ',
+'id' => 113,
+},
+{
+'A' => 'File is a symbolic link. ',
+'Q' => 'perl file test: -l ',
+'id' => 114,
+},
+{
+'A' => 'File is a named pipe (FIFO), or Filehandle is a pipe. ',
+'Q' => 'perl file test: -p ',
+'id' => 115,
+},
+{
+'A' => 'File is a socket. ',
+'Q' => 'perl file test: -S ',
+'id' => 116,
+},
+{
+'A' => 'File is a block special file. ',
+'Q' => 'perl file test: -b ',
+'id' => 117,
+},
+{
+'A' => 'File is a character special file. ',
+'Q' => 'perl file test: -c ',
+'id' => 118,
+},
+{
+'A' => 'File is an ASCII text file. ',
+'Q' => 'perl file test: -T ',
+'id' => 119,
+},
+{
+'A' => 'File is a "binary" file (opposite of -T). ',
+'Q' => 'perl file test: -B ',
+'id' => 120,
+},
+{
+'A' => 'File has zero size (is empty). ',
+'Q' => 'perl file test: -z ',
+'id' => 121,
+},
+{
+'A' => 'File has nonzero size (returns size in bytes). ',
+'Q' => 'perl file test: -s ',
+'id' => 122,
+},
+{
+'A' => 'File has setuid bit set. ',
+'Q' => 'perl file test: -u ',
+'id' => 123,
+},
+{
+'A' => 'File has setgid bit set. ',
+'Q' => 'perl file test: -g ',
+'id' => 124,
+},
+{
+'A' => 'File has sticky bit set.<br>&nbsp;In the old days when machines did not have very much memory, the sticky bit <font color=red>was used to force a program or file to remain in memory</font>. Today, the sticky bit is largely used on publicly writable directories to ensure that users do not overwrite each other\'s files.<br>&nbsp;When the sticky bit (t) is turned on <font color=red>for a directory users can have read and/or write permissions for that directory, but they can only remove or rename files that they own</font>. The sticky bit <font color=red>on a file tells the operating system that the file will be executed frequently</font>. Files like this are kept in swap space even when they aren\'t being executed. Although this takes up swap space it greatly reduces the time it takes to execute the program. Some programs such as vi have the sticky bit turned on by default on some Unixes.<br>&nbsp;Only root is permitted to turn the sticky bit on or off. In addition the sticky bit applies to anyone who accesses the file. The syntax for setting the sticky bit on a dir /foo directory is as follows:<br>&nbsp;chmod +t /foo<br>&nbsp;The /tmp directory normally has a sticky bit set. Doing a "ls -l /tmp" will look like this:<br>&nbsp;drwxrwxrwt 5 sys sys 543 May 29 09:41 tmp<br>On some systems the sticky bit is listed in the file permissions as an upper case T. In either case it can be set using chmod +t. ',
+'Q' => 'perl file test: -k ',
+'id' => 125,
+},
+{
+'A' => 'Age of file in days when script started. ',
+'Q' => 'perl file test: -M ',
+'id' => 126,
+},
+{
+'A' => 'Age in days since last access. ',
+'Q' => 'perl file test: -A ',
+'id' => 127,
+},
+{
+'A' => 'Age in days since last inode change. ',
+'Q' => 'perl file test: -C ',
+'id' => 128,
+},
+{
+'A' => 'perl: "continue" block ',
+'Q' => 'that bit of code which executes with each iteration of the loop, e.g., "$j++" in<br>&nbsp;for (my $j = 0; $j &lt; $lksdj; $j++)<br>&#123;<br>&nbsp;&nbsp;@@<br>&#125; ',
+'id' => 129,
+},
+{
+'A' => '-f: plain file<br>-e: any file ',
+'Q' => 'perl: diff between -f and -e ',
+'id' => 130,
+},
+{
+'A' => '%hash = map &#123; getkey($_) =&gt; $_ &#125; @array; ',
+'Q' => 'rewrite the following using \'map\'<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;%hash = ();<br>&nbsp;&nbsp;&nbsp;&nbsp;foreach $_ (@array) &#123;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$hash&#123;getkey($_)&#125; = $_;<br>&nbsp;&nbsp;&nbsp;&nbsp;&#125; ',
+'id' => 131,
+},
+{
+'A' => 'c:/perl/lib/Getopt/Std.pm ',
+'Q' => 'replace Argv_db? ',
+'id' => 132,
+},
+{
+'A' => 'tie VARIABLE,CLASSNAME,LIST<br>&nbsp;&nbsp;use NDBM_File;<br>tie(%HIST, \'NDBM_File\', \'/usr/lib/news/history\', 1, 0);<br>while (($key,$val) = each %HIST) &#123;<br>print $key, \' = \', unpack(\'L\',$val), "&#092;n";<br>&#125;<br>untie(%HIST);<br>&nbsp;A class implementing a hash should have the following methods:<br>&nbsp;&nbsp;TIEHASH classname, LIST<br>DESTROY this<br>FETCH this, key<br>STORE this, key, value<br>DELETE this, key<br>EXISTS this, key<br>FIRSTKEY this<br>NEXTKEY this, lastkey<br>&nbsp;A class implementing an ordinary array should have the following<br>methods:<br>&nbsp;&nbsp;TIEARRAY classname, LIST<br>DESTROY this<br>FETCH this, key<br>STORE this, key, value<br>[others TBD]<br>&nbsp;A class implementing a scalar should have the following methods:<br>&nbsp;&nbsp;TIESCALAR classname, LIST<br>DESTROY this<br>FETCH this,<br>STORE this, value<br>&nbsp;Unlike dbmopen(), the tie() function will not use or require a module<br>for you--you need to do that explicitly yourself. See DB_File or the<br>Config module for interesting tie() implementations. ',
+'Q' => 'create a perl object, then access it as if<br>it were a hash/array/scalar ',
+'id' => 133,
+},
+{
+'A' => '$ set|grep PERL5<br>PERL5LIB=".;c:/users/ns...<br>$ pwd<br>C:/perl/lib<br>$ ',
+'Q' => 'how did I get this?<br>501 Socket does not define $Socket::VERSION--version check failed<br>BEGIN failed--compilation aborted at c:/perl/lib/IO/Socket.pm line 12. ',
+'id' => 134,
+},
+{
+'A' => 'uc EXPR<br>&nbsp;uc<br>&nbsp;Returns an uppercased version of EXPR.<br>If EXPR is omitted, uses $_.<br>&nbsp;&nbsp;ucfirst EXPR<br>&nbsp;ucfirst<br>&nbsp;Returns the value of EXPR with the first character in uppercase<br>If EXPR is omitted, uses $_. ',
+'Q' => 'mc-u in perl ',
+'id' => 135,
+},
+{
+'A' => 'chomp ',
+'Q' => 'safer version of chop ',
+'id' => 136,
+},
+{
+'A' => '@mots = ("moi", "toi"," lui", "nous"," all"); ',
+'Q' => '@mots = qw(moi you him us all); ',
+'id' => 137,
+},
+);

@@ -1,0 +1,12 @@
+(echo showAll=0; echo pattern=C#;)|perl -w resume.cgi > c:/k.html; echo browser c:/k.html
+Undefined subroutine &main::RestoreHtmlTags called at resume.cgi line 570,
+	<STDIN> line 2 (#1)
+    (F) The subroutine indicated hasn't been defined, or if it was, it has
+    since been undefined.
+    
+Uncaught exception from user code:
+	Undefined subroutine &main::RestoreHtmlTags called at resume.cgi line 570, <STDIN> line 2.
+ at resume.cgi line 570
+	main::BuildResume('C#', 0, 0, 0) called at resume.cgi line 640
+
+c:\PROGRA~1\MOZILL~1>firefox.exe "file:///c:/k.html" 

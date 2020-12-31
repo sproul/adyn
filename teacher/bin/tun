@@ -1,0 +1,4 @@
+#!/bin/bash
+$DROP/adyn/teacher/bin/teacher.user.new $@
+exit
+bx $DROP/adyn/teacher/bin/tun josh jk1

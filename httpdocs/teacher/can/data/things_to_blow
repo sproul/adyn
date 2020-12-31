@@ -1,0 +1,12 @@
+# formatted
+@val = (
+{
+'English' => 'lots of hot air',
+'French' => 'beaucoup d\'^D {air>s> chaud}',
+'German' => '{viel heiBB Luft>s>}',
+'Italian' => 'molto aereo caldo',
+'Spanish' => '{mucho aire>s> caliente}',
+'id' => 0,
+
+},
+);

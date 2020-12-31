@@ -1,0 +1,39 @@
+# formatted
+@val = (
+{
+'English' => 'summer vacation',
+'French' => '{le vacance>p>} {de /et/e>s>}',
+'German' => '{von Sommerurlaub>s>}',
+'Italian' => '{il vacanza>s> estive}',
+'Spanish' => '{el vacaci/on>p>} {de el verano>s>}',
+'id' => 0,
+},
+{
+'English' => 'being free',
+'French' => '#etre {libre>x>}',
+'German' => 'frei zu sein',
+'Italian' => 'essere {libero>x>}',
+'Spanish' => 'ser {libre>x>}',
+'id' => 1,
+'suppress_German_note#sein;;German' => 'Infinitive',
+},
+{
+'English' => 'eating a large meal',
+'French' => 'manger {un grand repas>s>}',
+'German' => '{von ein groBB Mahlzeit>s>}',
+'Italian' => 'mangiare {un grande pasto>s>}',
+'Spanish' => 'comer {un comida>s> grande}',
+'id' => 2,
+'suppress_German_note#essen;;German' => 'Infinitive',
+},
+{
+'English' => 'going to Greece',
+'French' => 'aller {en Gr`ece>s>}',
+'French_note#en;;French' => 'toFeminineCountry',
+'German' => 'nach {Griechenland>s>} zu gehen',
+'Italian' => 'ir {a il Grecia>s>}',
+'Spanish' => 'ir a {Grecia>s>}',
+'id' => 3,
+'suppress_German_note#gehen;;German' => 'Infinitive',
+},
+);

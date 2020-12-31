@@ -1,0 +1,36 @@
+# formatted
+@val = (
+{
+'English' => 'the truth',
+'French' => '{le v/erit/e>s>}',
+'German' => '{der Wahrheit>s>}',
+'Italian' => '{il verit`a>s>}',
+'Spanish' => '{el verdad>s>}',
+'id' => 0,
+},
+{
+'English' => 'what was wrong',
+'French' => 'ce qui /etait faux',
+'German' => 'was falsch war',
+'Italian' => 'che aveva torto',
+'Spanish' => 'lo que estaba equivocado',
+'expectedVerbCnt' => 1,
+'id' => 1,
+},
+{
+'English' => 'her disloyalty',
+'French' => '{son d/eloyaut/e>s>}',
+'German' => '{ihr Illoyalit:at>s>}',
+'Italian' => '{il suo slealt`a>s>}',
+'Spanish' => '{su deslealtad>s>}',
+'id' => 2,
+},
+{
+'English' => 'his error',
+'French' => '{son erreur>s>}',
+'German' => '{sein Fehler>s>}',
+'Italian' => '{il suo errore>s>}',
+'Spanish' => '{su error>s>}',
+'id' => 3,
+},
+);

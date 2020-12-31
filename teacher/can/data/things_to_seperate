@@ -1,0 +1,31 @@
+# formatted
+@val = (
+{
+'English' => 'the boys from the girls',
+'French' => 'les gar,cons du filles',
+'German' => 'die jungen vom m:adchen',
+'Italian' => 'i ragazzi dal ragazze',
+'Spanish' => 'los chicos de las chicas',
+},
+{
+'English' => 'the rich people from the poor people',
+'French' => 'les gens riches du gens',
+'German' => 'die reichen leute vom armen leute',
+'Italian' => 'le persone ricche dal persone',
+'Spanish' => 'la gente rica de la gente pobre',
+},
+{
+'English' => 'the children from their toys',
+'French' => 'les enfants de leur jouets',
+'German' => 'die kinder von ihrem spielzeuge',
+'Italian' => 'i bambini dal loro giochi',
+'Spanish' => 'los ni~nos de sus juguetes',
+},
+{
+'English' => 'that man from his dog',
+'French' => 'cet homme de son chien',
+'German' => 'jener mann von seinem hund',
+'Italian' => 'quell\'^D uomo dal suo cane',
+'Spanish' => 'ese hombre de su perro',
+},
+);

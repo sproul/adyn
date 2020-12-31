@@ -1,0 +1,7 @@
+#!/bin/sh
+ex=$1
+echo "`teacher.get_server`/cgi-bin/choose.cgi?whichPanel=choose.htm&exerciseSetTargetSize=1&promptLang=Spanish&lang_French=French&lang_German=German&lang_Italian=Italian&lang_Spanish=Spanish&specific_exercise_IDs_for_testing=$ex&userID=t&pw=x"
+exit
+bx $DROP/adyn/teacher/bin/teacher.ex.url  verb_love_6
+exit
+$DROP/adyn/teacher/bin/teacher.ex.url  verb_understand_34

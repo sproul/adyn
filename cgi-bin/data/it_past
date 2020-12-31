@@ -1,0 +1,842 @@
+@val = (
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_correre.html target=Italian_vt_correre.html>correre</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>corso</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>cors</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>corr</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>corsi</td><td>corremmo</td></tr><tr><td>corresti</td><td>correste</td></tr><tr><td>corse</td><td>corsero</td></tr></table><br><br><i>correre</i> means <i>to run</i>
+',
+'id' => 0,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_concludere.html target=Italian_vt_concludere.html>concludere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>concluso</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>conclus</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>conclud</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>conclusi</td><td>concludemmo</td></tr><tr><td>concludesti</td><td>concludeste</td></tr><tr><td>concluse</td><td>conclusero</td></tr></table><br><br><i>concludere</i> means <i>to conclude</i>
+',
+'id' => 1,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_sorgere.html target=Italian_vt_sorgere.html>sorgere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>sorto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>sors</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>sorg</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>sorsi</td><td>sorgemmo</td></tr><tr><td>sorgesti</td><td>sorgeste</td></tr><tr><td>sorse</td><td>sorsero</td></tr></table><br><br><i>sorgere</i> means <i>to rise</i>
+',
+'id' => 2,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_piacere.html target=Italian_vt_piacere.html>piacere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>piaciuto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>piacqu</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>piac</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>piacqui</td><td>piacemmo</td></tr><tr><td>piacesti</td><td>piaceste</td></tr><tr><td>piacque</td><td>piacquero</td></tr></table><br><br><i>piacere</i> means <i>to please</i>
+',
+'id' => 3,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_dipendere.html target=Italian_vt_dipendere.html>dipendere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>dipeso</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>dipes</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>dipend</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>dipesi</td><td>dipendemmo</td></tr><tr><td>dipendesti</td><td>dipendeste</td></tr><tr><td>dipese</td><td>dipesero</td></tr></table><br><br><i>dipendere</i> means <i>to depend</i>
+',
+'id' => 4,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_rimanere.html target=Italian_vt_rimanere.html>rimanere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>rimasto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>rimas</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>riman</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>rimasi</td><td>rimanemmo</td></tr><tr><td>rimanesti</td><td>rimaneste</td></tr><tr><td>rimase</td><td>rimasero</td></tr></table><br><br><i>rimanere</i> means <i>to remain</i>
+',
+'id' => 5,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_porgere.html target=Italian_vt_porgere.html>porgere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>porto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>pors</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>porg</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>porsi</td><td>porgemmo</td></tr><tr><td>porgesti</td><td>porgeste</td></tr><tr><td>porse</td><td>porsero</td></tr></table><br><br><i>porgere</i> means <i>to hold out (to give)</i>
+',
+'id' => 6,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_stringere.html target=Italian_vt_stringere.html>stringere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>stretto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>strins</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>string</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>strinsi</td><td>stringemmo</td></tr><tr><td>stringesti</td><td>stringeste</td></tr><tr><td>strinse</td><td>strinsero</td></tr></table><br><br><i>stringere</i> means <i>to tighten</i>
+',
+'id' => 7,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_distinguere.html target=Italian_vt_distinguere.html>distinguere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>distinto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>distins</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>distingu</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>distinsi</td><td>distinguemmo</td></tr><tr><td>distinguesti</td><td>distingueste</td></tr><tr><td>distinse</td><td>distinsero</td></tr></table><br><br><i>distinguere</i> means <i>to distinguish</i>
+',
+'id' => 8,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_cuocere.html target=Italian_vt_cuocere.html>cuocere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>cotto</i></font><br><br>This verb is irregular in the past<br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>cossi</td><td>cocemmo</td></tr><tr><td>cocesti</td><td>coceste</td></tr><tr><td>cosse</td><td>cossero</td></tr></table><br><br><i>cuocere</i> means <i>to cook</i>
+',
+'id' => 9,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_scorrere.html target=Italian_vt_scorrere.html>scorrere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>scorso</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>scors</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>scorr</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>scorsi</td><td>scorremmo</td></tr><tr><td>scorresti</td><td>scorreste</td></tr><tr><td>scorse</td><td>scorsero</td></tr></table><br><br><i>scorrere</i> means <i>to flow</i>
+',
+'id' => 10,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_dolere.html target=Italian_vt_dolere.html>dolere</a></i> (and what does it mean)?',
+'Italian' => 'Past participle:<font color=red><i>doluto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>dols</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>dol</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>dolsi</td><td>dolemmo</td></tr><tr><td>dolesti</td><td>doleste</td></tr><tr><td>dolse</td><td>dolsero</td></tr></table><br><br><i>dolere</i> means <i>to hurt</i>
+',
+'id' => 11,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_uscire.html target=Italian_vt_uscire.html>uscire</a></i> (and what does it mean)?',
+'Italian' => 'Past participle:<font color=red><i>uscito</i></font><br><br>Past stem: <font color=red><i>usc</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>uscii</td><td>uscimmo</td></tr><tr><td>uscisti</td><td>usciste</td></tr><tr><td>usc`i</td><td>uscirono</td></tr></table><br><br><i>uscire</i> means <i>to go out</i>
+',
+'id' => 12,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_avere.html target=Italian_vt_avere.html>avere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>avuto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>ebb</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>av</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>ebbi</td><td>avemmo</td></tr><tr><td>avesti</td><td>aveste</td></tr><tr><td>ebbe</td><td>ebbero</td></tr></table><br><br><i>avere</i> means <i>to have</i>
+',
+'id' => 13,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_fondere.html target=Italian_vt_fondere.html>fondere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>fuso</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>fus</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>fond</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>fusi</td><td>fondemmo</td></tr><tr><td>fondesti</td><td>fondeste</td></tr><tr><td>fuse</td><td>fusero</td></tr></table><br><br><i>fondere</i> means <i>to melt</i>
+',
+'id' => 14,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_richiedere.html target=Italian_vt_richiedere.html>richiedere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>richiesto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>richies</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>richied</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>richiesi</td><td>richiedemmo</td></tr><tr><td>richiedesti</td><td>richiedeste</td></tr><tr><td>richiese</td><td>richiesero</td></tr></table><br><br><i>richiedere</i> means <i>to request</i>
+',
+'id' => 15,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_crescere.html target=Italian_vt_crescere.html>crescere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>cresciuto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>crebb</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>cresc</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>crebbi</td><td>crescemmo</td></tr><tr><td>crescesti</td><td>cresceste</td></tr><tr><td>crebbe</td><td>crebbero</td></tr></table><br><br><i>crescere</i> means <i>to grow</i>
+',
+'id' => 16,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_dividere.html target=Italian_vt_dividere.html>dividere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>diviso</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>divis</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>divid</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>divisi</td><td>dividemmo</td></tr><tr><td>dividesti</td><td>divideste</td></tr><tr><td>divise</td><td>divisero</td></tr></table><br><br><i>dividere</i> means <i>to share</i>
+',
+'id' => 17,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_agire.html target=Italian_vt_agire.html>agire</a></i> (and what does it mean)?',
+'Italian' => 'Past participle:<font color=red><i>agito</i></font><br><br>Past stem: <font color=red><i>ag</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>agii</td><td>agimmo</td></tr><tr><td>agisti</td><td>agiste</td></tr><tr><td>ag`i</td><td>agirono</td></tr></table><br><br><i>agire</i> means <i>to act</i>
+',
+'id' => 18,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_friggere.html target=Italian_vt_friggere.html>friggere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>fritto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>friss</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>frigg</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>frissi</td><td>friggemmo</td></tr><tr><td>friggesti</td><td>friggeste</td></tr><tr><td>frisse</td><td>frissero</td></tr></table><br><br><i>friggere</i> means <i>to fry</i>
+',
+'id' => 19,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_spandere.html target=Italian_vt_spandere.html>spandere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>spanto</i></font><br><br>Past stem: <font color=red><i>spand</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>spandei</td><td>spandemmo</td></tr><tr><td>spandesti</td><td>spandeste</td></tr><tr><td>spand`e</td><td>spanderono</td></tr></table><br><br><i>spandere</i> means <i>to pour</i>
+',
+'id' => 20,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_uccidere.html target=Italian_vt_uccidere.html>uccidere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>ucciso</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>uccis</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>uccid</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>uccisi</td><td>uccidemmo</td></tr><tr><td>uccidesti</td><td>uccideste</td></tr><tr><td>uccise</td><td>uccisero</td></tr></table><br><br><i>uccidere</i> means <i>to kill</i>
+',
+'id' => 21,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_chiedere.html target=Italian_vt_chiedere.html>chiedere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>chiesto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>chies</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>chied</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>chiesi</td><td>chiedemmo</td></tr><tr><td>chiedesti</td><td>chiedeste</td></tr><tr><td>chiese</td><td>chiesero</td></tr></table><br><br><i>chiedere</i> means <i>to ask</i>
+',
+'id' => 22,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_arrabbiare.html target=Italian_vt_arrabbiare.html>arrabbiare</a></i> (and what does it mean)?',
+'Italian' => 'Past participle:<font color=red><i>arrabbiato</i></font><br><br>Past stem: <font color=red><i>arrabbi</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>arrabbiai</td><td>arrabbiammo</td></tr><tr><td>arrabbiasti</td><td>arrabbiaste</td></tr><tr><td>arrabbi`o</td><td>arrabbiarono</td></tr></table><br><br><i>arrabbiare</i> means <i>to anger</i>
+',
+'id' => 23,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_evadere.html target=Italian_vt_evadere.html>evadere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>evaso</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>evas</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>evad</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>evasi</td><td>evademmo</td></tr><tr><td>evadesti</td><td>evadeste</td></tr><tr><td>evase</td><td>evasero</td></tr></table><br><br><i>evadere</i> means <i>to escape</i>
+',
+'id' => 24,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_volere.html target=Italian_vt_volere.html>volere</a></i> (and what does it mean)?',
+'Italian' => 'Past participle:<font color=red><i>voluto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>voll</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>vol</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>volli</td><td>volemmo</td></tr><tr><td>volesti</td><td>voleste</td></tr><tr><td>volle</td><td>vollero</td></tr></table><br><br><i>volere</i> means <i>to want</i>
+',
+'id' => 25,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_divenire.html target=Italian_vt_divenire.html>divenire</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>divenuto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>divenn</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>diven</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>divenni</td><td>divenimmo</td></tr><tr><td>divenisti</td><td>diveniste</td></tr><tr><td>divenne</td><td>divennero</td></tr></table><br><br><i>divenire</i> means <i>to become</i>
+',
+'id' => 26,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_svegliare.html target=Italian_vt_svegliare.html>svegliare</a></i> (and what does it mean)?',
+'Italian' => 'Past participle:<font color=red><i>svegliato</i></font><br><br>Past stem: <font color=red><i>svegli</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>svegliai</td><td>svegliammo</td></tr><tr><td>svegliasti</td><td>svegliaste</td></tr><tr><td>svegli`o</td><td>svegliarono</td></tr></table><br><br><i>svegliare</i> means <i>to wake up</i>
+',
+'id' => 27,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_cadere.html target=Italian_vt_cadere.html>cadere</a></i> (and what does it mean)?',
+'Italian' => 'Past participle:<font color=red><i>caduto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>cadd</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>cad</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>caddi</td><td>cademmo</td></tr><tr><td>cadesti</td><td>cadeste</td></tr><tr><td>cadde</td><td>caddero</td></tr></table><br><br><i>cadere</i> means <i>to fall</i>
+',
+'id' => 28,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_vivere.html target=Italian_vt_vivere.html>vivere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>vissuto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>viss</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>viv</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>vissi</td><td>vivemmo</td></tr><tr><td>vivesti</td><td>viveste</td></tr><tr><td>visse</td><td>vissero</td></tr></table><br><br><i>vivere</i> means <i>to live</i>
+',
+'id' => 29,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_piovere.html target=Italian_vt_piovere.html>piovere</a></i> (and what does it mean)?',
+'Italian' => 'Past participle:<font color=red><i>piovuto</i></font><br><br>Past stem: <font color=red><i>piovv</i></font><br><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>piovve</td></tr></table><br><br><i>piovere</i> means <i>to rain</i>
+',
+'id' => 30,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_salire.html target=Italian_vt_salire.html>salire</a></i> (and what does it mean)?',
+'Italian' => 'Past participle:<font color=red><i>salito</i></font><br><br>Past stem: <font color=red><i>sal</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>salii</td><td>salimmo</td></tr><tr><td>salisti</td><td>saliste</td></tr><tr><td>sal`i</td><td>salirono</td></tr></table><br><br><i>salire</i> means <i>to get on board</i>
+',
+'id' => 31,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_dormire.html target=Italian_vt_dormire.html>dormire</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>dormito</i></font><br><br>Past stem: <font color=red><i>dorm</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>dormii</td><td>dormimmo</td></tr><tr><td>dormisti</td><td>dormiste</td></tr><tr><td>dorm`i</td><td>dormirono</td></tr></table><br><br><i>dormire</i> means <i>to sleep</i>
+',
+'id' => 32,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_studiare.html target=Italian_vt_studiare.html>studiare</a></i> (and what does it mean)?',
+'Italian' => 'Past participle:<font color=red><i>studiato</i></font><br><br>Past stem: <font color=red><i>studi</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>studiai</td><td>studiammo</td></tr><tr><td>studiasti</td><td>studiaste</td></tr><tr><td>studi`o</td><td>studiarono</td></tr></table><br><br><i>studiare</i> means <i>to study</i>
+',
+'id' => 33,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_sconfiggere.html target=Italian_vt_sconfiggere.html>sconfiggere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>sconfitto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>sconfiss</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>sconfigg</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>sconfissi</td><td>sconfiggemmo</td></tr><tr><td>sconfiggesti</td><td>sconfiggeste</td></tr><tr><td>sconfisse</td><td>sconfissero</td></tr></table><br><br><i>sconfiggere</i> means <i>to vanquish</i>
+',
+'id' => 34,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_nascere.html target=Italian_vt_nascere.html>nascere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>nato</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>nacqu</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>nasc</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>nacqui</td><td>nascemmo</td></tr><tr><td>nascesti</td><td>nasceste</td></tr><tr><td>nacque</td><td>nacquero</td></tr></table><br><br><i>nascere</i> means <i>to be born</i>
+',
+'id' => 35,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_colpire.html target=Italian_vt_colpire.html>colpire</a></i> (and what does it mean)?',
+'Italian' => 'Past participle:<font color=red><i>colpito</i></font><br><br>Past stem: <font color=red><i>colp</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>colpii</td><td>colpimmo</td></tr><tr><td>colpisti</td><td>colpiste</td></tr><tr><td>colp`i</td><td>colpirono</td></tr></table><br><br><i>colpire</i> means <i>to beat</i>
+',
+'id' => 36,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_mungere.html target=Italian_vt_mungere.html>mungere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>munto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>muns</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>mung</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>munsi</td><td>mungemmo</td></tr><tr><td>mungesti</td><td>mungeste</td></tr><tr><td>munse</td><td>munsero</td></tr></table><br><br><i>mungere</i> means <i>to milk</i>
+',
+'id' => 37,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_esplodere.html target=Italian_vt_esplodere.html>esplodere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>esploso</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>esplos</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>esplod</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>esplosi</td><td>esplodemmo</td></tr><tr><td>esplodesti</td><td>esplodeste</td></tr><tr><td>esplose</td><td>esplosero</td></tr></table><br><br><i>esplodere</i> means <i>to explode</i>
+',
+'id' => 38,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_vincere.html target=Italian_vt_vincere.html>vincere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>vinto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>vins</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>vinc</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>vinsi</td><td>vincemmo</td></tr><tr><td>vincesti</td><td>vinceste</td></tr><tr><td>vinse</td><td>vinsero</td></tr></table><br><br><i>vincere</i> means <i>to win</i>
+',
+'id' => 39,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_essere.html target=Italian_vt_essere.html>essere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>stato</i></font><br><br>This verb is irregular in the past<br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>fui</td><td>fummo</td></tr><tr><td>fosti</td><td>foste</td></tr><tr><td>fu</td><td>furono</td></tr></table><br><br><i>essere</i> means <i>to be</i>
+',
+'id' => 40,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_eccellere.html target=Italian_vt_eccellere.html>eccellere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>eccelso</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>eccels</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>eccell</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>eccelsi</td><td>eccellemmo</td></tr><tr><td>eccellesti</td><td>eccelleste</td></tr><tr><td>eccelse</td><td>eccelsero</td></tr></table><br><br><i>eccellere</i> means <i>to excel</i>
+',
+'id' => 41,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_rincrescere.html target=Italian_vt_rincrescere.html>rincrescere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>rincresciuto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>rincrebb</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>rincresc</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>rincrebbi</td><td>rincrescemmo</td></tr><tr><td>rincrescesti</td><td>rincresceste</td></tr><tr><td>rincrebbe</td><td>rincrebbero</td></tr></table><br><br><i>rincrescere</i> means <i>to regret</i>
+',
+'id' => 42,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_comprendere.html target=Italian_vt_comprendere.html>comprendere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>compreso</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>compres</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>comprend</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>compresi</td><td>comprendemmo</td></tr><tr><td>comprendesti</td><td>comprendeste</td></tr><tr><td>comprese</td><td>compresero</td></tr></table><br><br><i>comprendere</i> means <i>to understand</i>
+',
+'id' => 43,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_leggere.html target=Italian_vt_leggere.html>leggere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>letto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>less</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>legg</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>lessi</td><td>leggemmo</td></tr><tr><td>leggesti</td><td>leggeste</td></tr><tr><td>lesse</td><td>lessero</td></tr></table><br><br><i>leggere</i> means <i>to read</i>
+',
+'id' => 44,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_valere.html target=Italian_vt_valere.html>valere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>valso</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>vals</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>val</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>valsi</td><td>valemmo</td></tr><tr><td>valesti</td><td>valeste</td></tr><tr><td>valse</td><td>valsero</td></tr></table><br><br><i>valere</i> means <i>to be worth</i>
+',
+'id' => 45,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_prendere.html target=Italian_vt_prendere.html>prendere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>preso</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>pres</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>prend</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>presi</td><td>prendemmo</td></tr><tr><td>prendesti</td><td>prendeste</td></tr><tr><td>prese</td><td>presero</td></tr></table><br><br><i>prendere</i> means <i>to catch</i>
+',
+'id' => 46,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_esistere.html target=Italian_vt_esistere.html>esistere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>esistito</i></font><br><br>Past stem: <font color=red><i>esist</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>esistei</td><td>esistemmo</td></tr><tr><td>esistesti</td><td>esisteste</td></tr><tr><td>esist`e</td><td>esisterono</td></tr></table><br><br><i>esistere</i> means <i>to exist</i>
+',
+'id' => 47,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_persuadere.html target=Italian_vt_persuadere.html>persuadere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>persuaso</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>persuas</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>persuad</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>persuasi</td><td>persuademmo</td></tr><tr><td>persuadesti</td><td>persuadeste</td></tr><tr><td>persuase</td><td>persuasero</td></tr></table><br><br><i>persuadere</i> means <i>to persuade</i>
+',
+'id' => 48,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_assumere.html target=Italian_vt_assumere.html>assumere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>assunto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>assuns</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>assum</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>assunsi</td><td>assumemmo</td></tr><tr><td>assumesti</td><td>assumeste</td></tr><tr><td>assunse</td><td>assunsero</td></tr></table><br><br><i>assumere</i> means <i>to employ</i>
+',
+'id' => 49,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_chiudere.html target=Italian_vt_chiudere.html>chiudere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>chiuso</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>chius</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>chiud</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>chiusi</td><td>chiudemmo</td></tr><tr><td>chiudesti</td><td>chiudeste</td></tr><tr><td>chiuse</td><td>chiusero</td></tr></table><br><br><i>chiudere</i> means <i>to close</i>
+',
+'id' => 50,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_istruire.html target=Italian_vt_istruire.html>istruire</a></i> (and what does it mean)?',
+'Italian' => 'Past participle:<font color=red><i>istruito</i></font><br><br>Past stem: <font color=red><i>istru</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>istruii</td><td>istruimmo</td></tr><tr><td>istruisti</td><td>istruiste</td></tr><tr><td>istru`i</td><td>istruirono</td></tr></table><br><br><i>istruire</i> means <i>to instruct</i>
+',
+'id' => 51,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_permettere.html target=Italian_vt_permettere.html>permettere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>permesso</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>permis</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>permett</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>permisi</td><td>permettemmo</td></tr><tr><td>permettesti</td><td>permetteste</td></tr><tr><td>permise</td><td>permisero</td></tr></table><br><br><i>permettere</i> means <i>to permit</i>
+',
+'id' => 52,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_indulgere.html target=Italian_vt_indulgere.html>indulgere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>indulto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>induls</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>indulg</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>indulsi</td><td>indulgemmo</td></tr><tr><td>indulgesti</td><td>indulgeste</td></tr><tr><td>indulse</td><td>indulsero</td></tr></table><br><br><i>indulgere</i> means <i>to indulge</i>
+',
+'id' => 53,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_spedire.html target=Italian_vt_spedire.html>spedire</a></i> (and what does it mean)?',
+'Italian' => 'Past participle:<font color=red><i>spedito</i></font><br><br>Past stem: <font color=red><i>sped</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>spedii</td><td>spedimmo</td></tr><tr><td>spedisti</td><td>spediste</td></tr><tr><td>sped`i</td><td>spedirono</td></tr></table><br><br><i>spedire</i> means <i>to send</i>
+',
+'id' => 54,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_venire.html target=Italian_vt_venire.html>venire</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>venuto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>venn</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>ven</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>venni</td><td>venimmo</td></tr><tr><td>venisti</td><td>veniste</td></tr><tr><td>venne</td><td>vennero</td></tr></table><br><br><i>venire</i> means <i>to come</i>
+',
+'id' => 55,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_rispondere.html target=Italian_vt_rispondere.html>rispondere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>risposto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>rispos</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>rispond</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>risposi</td><td>rispondemmo</td></tr><tr><td>rispondesti</td><td>rispondeste</td></tr><tr><td>rispose</td><td>risposero</td></tr></table><br><br><i>rispondere</i> means <i>to answer</i>
+',
+'id' => 56,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_succedere.html target=Italian_vt_succedere.html>succedere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>successo</i></font><br><br>Past stem: <font color=red><i>success</i></font><br><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>successe</td></tr></table><br><br><i>succedere</i> means <i>to happen</i>
+',
+'id' => 57,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_scomparire.html target=Italian_vt_scomparire.html>scomparire</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>scomparso</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>scomparv</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>scompar</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>scomparvi</td><td>scomparimmo</td></tr><tr><td>scomparisti</td><td>scompariste</td></tr><tr><td>scomparve</td><td>scomparvero</td></tr></table><br><br><i>scomparire</i> means <i>to disappear</i>
+',
+'id' => 58,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_dispiacere.html target=Italian_vt_dispiacere.html>dispiacere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>dispiaciuto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>dispiacqu</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>dispiac</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>dispiacqui</td><td>dispiacemmo</td></tr><tr><td>dispiacesti</td><td>dispiaceste</td></tr><tr><td>dispiacque</td><td>dispiacquero</td></tr></table><br><br><i>dispiacere</i> means <i>to displease</i>
+',
+'id' => 59,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_costruire.html target=Italian_vt_costruire.html>costruire</a></i> (and what does it mean)?',
+'Italian' => 'Past participle:<font color=red><i>costruito</i></font><br><br>Past stem: <font color=red><i>costru</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>costruii</td><td>costruimmo</td></tr><tr><td>costruisti</td><td>costruiste</td></tr><tr><td>costru`i</td><td>costruirono</td></tr></table><br><br><i>costruire</i> means <i>to construct</i>
+',
+'id' => 60,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_dire.html target=Italian_vt_dire.html>dire</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>detto</i></font><br><br>This verb is irregular in the past<br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>dissi</td><td>dicemmo</td></tr><tr><td>dicesti</td><td>diceste</td></tr><tr><td>disse</td><td>dissero</td></tr></table><br><br><i>dire</i> means <i>to say</i>
+',
+'id' => 61,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_scegliere.html target=Italian_vt_scegliere.html>scegliere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>scelto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>scels</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>scegli</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>scelsi</td><td>scegliemmo</td></tr><tr><td>scegliesti</td><td>sceglieste</td></tr><tr><td>scelse</td><td>scelsero</td></tr></table><br><br><i>scegliere</i> means <i>to choose</i>
+',
+'id' => 62,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_assomigliare.html target=Italian_vt_assomigliare.html>assomigliare</a></i> (and what does it mean)?',
+'Italian' => 'Past participle:<font color=red><i>assomigliato</i></font><br><br>Past stem: <font color=red><i>assomigli</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>assomigliai</td><td>assomigliammo</td></tr><tr><td>assomigliasti</td><td>assomigliaste</td></tr><tr><td>assomigli`o</td><td>assomigliarono</td></tr></table><br><br><i>assomigliare</i> means <i>to look like</i>
+',
+'id' => 63,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_perdere.html target=Italian_vt_perdere.html>perdere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>perso</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>pers</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>perd</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>persi</td><td>perdemmo</td></tr><tr><td>perdesti</td><td>perdeste</td></tr><tr><td>perse</td><td>persero</td></tr></table><br><br><i>perdere</i> means <i>to lose</i>
+',
+'id' => 64,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_radere.html target=Italian_vt_radere.html>radere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>raso</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>ras</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>rad</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>rasi</td><td>rademmo</td></tr><tr><td>radesti</td><td>radeste</td></tr><tr><td>rase</td><td>rasero</td></tr></table><br><br><i>radere</i> means <i>to shave</i>
+',
+'id' => 65,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_raccogliere.html target=Italian_vt_raccogliere.html>raccogliere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>raccolto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>raccols</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>raccogli</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>raccolsi</td><td>raccogliemmo</td></tr><tr><td>raccogliesti</td><td>raccoglieste</td></tr><tr><td>raccolse</td><td>raccolsero</td></tr></table><br><br><i>raccogliere</i> means <i>to pick up</i>
+',
+'id' => 66,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_produrre.html target=Italian_vt_produrre.html>produrre</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>prodotto</i></font><br><br>This verb is irregular in the past<br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>produssi</td><td>producemmo</td></tr><tr><td>producesti</td><td>produceste</td></tr><tr><td>produsse</td><td>produssero</td></tr></table><br><br><i>produrre</i> means <i>to produce</i>
+',
+'id' => 67,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_porre.html target=Italian_vt_porre.html>porre</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>posto</i></font><br><br>This verb is irregular in the past<br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>posi</td><td>ponemmo</td></tr><tr><td>ponesti</td><td>poneste</td></tr><tr><td>pose</td><td>posero</td></tr></table><br><br><i>porre</i> means <i>to put</i>
+',
+'id' => 68,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_sorridere.html target=Italian_vt_sorridere.html>sorridere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>sorriso</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>sorris</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>sorrid</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>sorrisi</td><td>sorridemmo</td></tr><tr><td>sorridesti</td><td>sorrideste</td></tr><tr><td>sorrise</td><td>sorrisero</td></tr></table><br><br><i>sorridere</i> means <i>to smile</i>
+',
+'id' => 69,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_apparire.html target=Italian_vt_apparire.html>apparire</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>apparso</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>apparv</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>appar</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>apparvi</td><td>apparimmo</td></tr><tr><td>apparisti</td><td>appariste</td></tr><tr><td>apparve</td><td>apparvero</td></tr></table><br><br><i>apparire</i> means <i>to appear</i>
+',
+'id' => 70,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_dirigere.html target=Italian_vt_dirigere.html>dirigere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>diretto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>diress</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>dirig</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>diressi</td><td>dirigemmo</td></tr><tr><td>dirigesti</td><td>dirigeste</td></tr><tr><td>diresse</td><td>diressero</td></tr></table><br><br><i>dirigere</i> means <i>to direct</i>
+',
+'id' => 71,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_trarre.html target=Italian_vt_trarre.html>trarre</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>tratto</i></font><br><br>This verb is irregular in the past<br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>trassi</td><td>traemmo</td></tr><tr><td>traesti</td><td>traeste</td></tr><tr><td>trasse</td><td>trassero</td></tr></table><br><br><i>trarre</i> means <i>to pull</i>
+',
+'id' => 72,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_prevalere.html target=Italian_vt_prevalere.html>prevalere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>prevalso</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>prevals</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>preval</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>prevalsi</td><td>prevalemmo</td></tr><tr><td>prevalesti</td><td>prevaleste</td></tr><tr><td>prevalse</td><td>prevalsero</td></tr></table><br><br><i>prevalere</i> means <i>to prevail</i>
+',
+'id' => 73,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_ridere.html target=Italian_vt_ridere.html>ridere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>riso</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>ris</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>rid</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>risi</td><td>ridemmo</td></tr><tr><td>ridesti</td><td>rideste</td></tr><tr><td>rise</td><td>risero</td></tr></table><br><br><i>ridere</i> means <i>to laugh</i>
+',
+'id' => 74,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_intendere.html target=Italian_vt_intendere.html>intendere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>inteso</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>intes</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>intend</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>intesi</td><td>intendemmo</td></tr><tr><td>intendesti</td><td>intendeste</td></tr><tr><td>intese</td><td>intesero</td></tr></table><br><br><i>intendere</i> means <i>to intend</i>
+',
+'id' => 75,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_avvolgere.html target=Italian_vt_avvolgere.html>avvolgere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>avvolto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>avvols</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>avvolg</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>avvolsi</td><td>avvolgemmo</td></tr><tr><td>avvolgesti</td><td>avvolgeste</td></tr><tr><td>avvolse</td><td>avvolsero</td></tr></table><br><br><i>avvolgere</i> means <i>to wind</i>
+',
+'id' => 76,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_ottenere.html target=Italian_vt_ottenere.html>ottenere</a></i> (and what does it mean)?',
+'Italian' => 'Past participle:<font color=red><i>ottenuto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>ottenn</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>otten</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>ottenni</td><td>ottenemmo</td></tr><tr><td>ottenesti</td><td>otteneste</td></tr><tr><td>ottenne</td><td>ottennero</td></tr></table><br><br><i>ottenere</i> means <i>to obtain</i>
+',
+'id' => 77,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_promettere.html target=Italian_vt_promettere.html>promettere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>promesso</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>promis</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>promett</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>promisi</td><td>promettemmo</td></tr><tr><td>promettesti</td><td>prometteste</td></tr><tr><td>promise</td><td>promisero</td></tr></table><br><br><i>promettere</i> means <i>to promise</i>
+',
+'id' => 78,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_potere.html target=Italian_vt_potere.html>potere</a></i> (and what does it mean)?',
+'Italian' => 'Past participle:<font color=red><i>potuto</i></font><br><br>Past stem: <font color=red><i>pot</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>potei</td><td>potemmo</td></tr><tr><td>potesti</td><td>poteste</td></tr><tr><td>pot`e</td><td>poterono</td></tr></table><br><br><i>potere</i> means <i>to be able to</i>
+',
+'id' => 79,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_capire.html target=Italian_vt_capire.html>capire</a></i> (and what does it mean)?',
+'Italian' => 'Past participle:<font color=red><i>capito</i></font><br><br>Past stem: <font color=red><i>cap</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>capii</td><td>capimmo</td></tr><tr><td>capisti</td><td>capiste</td></tr><tr><td>cap`i</td><td>capirono</td></tr></table><br><br><i>capire</i> means <i>to understand</i>
+',
+'id' => 80,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_offrire.html target=Italian_vt_offrire.html>offrire</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>offerto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>offers</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>offr</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>offersi</td><td>offrimmo</td></tr><tr><td>offristi</td><td>offriste</td></tr><tr><td>offerse</td><td>offersero</td></tr></table><br><br><i>offrire</i> means <i>to offer</i>
+',
+'id' => 81,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_fingere.html target=Italian_vt_fingere.html>fingere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>finto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>fins</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>fing</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>finsi</td><td>fingemmo</td></tr><tr><td>fingesti</td><td>fingeste</td></tr><tr><td>finse</td><td>finsero</td></tr></table><br><br><i>fingere</i> means <i>to pretend</i>
+',
+'id' => 82,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_condurre.html target=Italian_vt_condurre.html>condurre</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>condotto</i></font><br><br>This verb is irregular in the past<br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>condussi</td><td>conducemmo</td></tr><tr><td>conducesti</td><td>conduceste</td></tr><tr><td>condusse</td><td>condussero</td></tr></table><br><br><i>condurre</i> means <i>to lead</i>
+',
+'id' => 83,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_soffriggere.html target=Italian_vt_soffriggere.html>soffriggere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>soffritto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>soffriss</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>soffrigg</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>soffrissi</td><td>soffriggemmo</td></tr><tr><td>soffriggesti</td><td>soffriggeste</td></tr><tr><td>soffrisse</td><td>soffrissero</td></tr></table><br><br><i>soffriggere</i> means <i>to fry lightly</i>
+',
+'id' => 84,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_proteggere.html target=Italian_vt_proteggere.html>proteggere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>protetto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>protess</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>protegg</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>protessi</td><td>proteggemmo</td></tr><tr><td>proteggesti</td><td>proteggeste</td></tr><tr><td>protesse</td><td>protessero</td></tr></table><br><br><i>proteggere</i> means <i>to protect</i>
+',
+'id' => 85,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_appendere.html target=Italian_vt_appendere.html>appendere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>appeso</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>appes</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>append</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>appesi</td><td>appendemmo</td></tr><tr><td>appendesti</td><td>appendeste</td></tr><tr><td>appese</td><td>appesero</td></tr></table><br><br><i>appendere</i> means <i>to hang</i>
+',
+'id' => 86,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_abolire.html target=Italian_vt_abolire.html>abolire</a></i> (and what does it mean)?',
+'Italian' => 'Past participle:<font color=red><i>abolito</i></font><br><br>Past stem: <font color=red><i>abol</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>abolii</td><td>abolimmo</td></tr><tr><td>abolisti</td><td>aboliste</td></tr><tr><td>abol`i</td><td>abolirono</td></tr></table><br><br><i>abolire</i> means <i>to abolish</i>
+',
+'id' => 87,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_flettere.html target=Italian_vt_flettere.html>flettere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>flesso</i></font><br><br>Past stem: <font color=red><i>flett</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>flettei</td><td>flettemmo</td></tr><tr><td>flettesti</td><td>fletteste</td></tr><tr><td>flett`e</td><td>fletterono</td></tr></table><br><br><i>flettere</i> means <i>to bend</i>
+',
+'id' => 88,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_correggere.html target=Italian_vt_correggere.html>correggere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>corretto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>corress</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>corregg</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>corressi</td><td>correggemmo</td></tr><tr><td>correggesti</td><td>correggeste</td></tr><tr><td>corresse</td><td>corressero</td></tr></table><br><br><i>correggere</i> means <i>to correct</i>
+',
+'id' => 89,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_soffrire.html target=Italian_vt_soffrire.html>soffrire</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>sofferto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>soffers</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>soffr</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>soffersi</td><td>soffrimmo</td></tr><tr><td>soffristi</td><td>soffriste</td></tr><tr><td>sofferse</td><td>soffersero</td></tr></table><br><br><i>soffrire</i> means <i>to suffer</i>
+',
+'id' => 90,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_muovere.html target=Italian_vt_muovere.html>muovere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>mosso</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>moss</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>muov</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>mossi</td><td>muovemmo</td></tr><tr><td>muovesti</td><td>muoveste</td></tr><tr><td>mosse</td><td>mossero</td></tr></table><br><br><i>muovere</i> means <i>to move</i>
+',
+'id' => 91,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_fare.html target=Italian_vt_fare.html>fare</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>fatto</i></font><br><br>This verb is irregular in the past<br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>feci</td><td>facemmo</td></tr><tr><td>facesti</td><td>faceste</td></tr><tr><td>fece</td><td>fecero</td></tr></table><br><br><i>fare</i> means <i>to do</i>
+',
+'id' => 92,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_riuscire.html target=Italian_vt_riuscire.html>riuscire</a></i> (and what does it mean)?',
+'Italian' => 'Past participle:<font color=red><i>riuscito</i></font><br><br>Past stem: <font color=red><i>riusc</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>riuscii</td><td>riuscimmo</td></tr><tr><td>riuscisti</td><td>riusciste</td></tr><tr><td>riusc`i</td><td>riuscirono</td></tr></table><br><br><i>riuscire</i> means <i>to succeed</i>
+',
+'id' => 93,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_nascondere.html target=Italian_vt_nascondere.html>nascondere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>nascosto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>nascos</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>nascond</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>nascosi</td><td>nascondemmo</td></tr><tr><td>nascondesti</td><td>nascondeste</td></tr><tr><td>nascose</td><td>nascosero</td></tr></table><br><br><i>nascondere</i> means <i>to hide</i>
+',
+'id' => 94,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_discutere.html target=Italian_vt_discutere.html>discutere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>discusso</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>discuss</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>discut</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>discussi</td><td>discutemmo</td></tr><tr><td>discutesti</td><td>discuteste</td></tr><tr><td>discusse</td><td>discussero</td></tr></table><br><br><i>discutere</i> means <i>to discuss</i>
+',
+'id' => 95,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_scendere.html target=Italian_vt_scendere.html>scendere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>sceso</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>sces</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>scend</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>scesi</td><td>scendemmo</td></tr><tr><td>scendesti</td><td>scendeste</td></tr><tr><td>scese</td><td>scesero</td></tr></table><br><br><i>scendere</i> means <i>to come down</i>
+',
+'id' => 96,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_tenere.html target=Italian_vt_tenere.html>tenere</a></i> (and what does it mean)?',
+'Italian' => 'Past participle:<font color=red><i>tenuto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>tenn</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>ten</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>tenni</td><td>tenemmo</td></tr><tr><td>tenesti</td><td>teneste</td></tr><tr><td>tenne</td><td>tennero</td></tr></table><br><br><i>tenere</i> means <i>to hold</i>
+',
+'id' => 97,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_morire.html target=Italian_vt_morire.html>morire</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>morto</i></font><br><br>Past stem: <font color=red><i>mor</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>morii</td><td>morimmo</td></tr><tr><td>moristi</td><td>moriste</td></tr><tr><td>mor`i</td><td>morirono</td></tr></table><br><br><i>morire</i> means <i>to die</i>
+',
+'id' => 98,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_comparire.html target=Italian_vt_comparire.html>comparire</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>comparso</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>comparv</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>compar</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>comparvi</td><td>comparimmo</td></tr><tr><td>comparisti</td><td>compariste</td></tr><tr><td>comparve</td><td>comparvero</td></tr></table><br><br><i>comparire</i> means <i>to appear</i>
+',
+'id' => 99,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_finire.html target=Italian_vt_finire.html>finire</a></i> (and what does it mean)?',
+'Italian' => 'Past participle:<font color=red><i>finito</i></font><br><br>Past stem: <font color=red><i>fin</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>finii</td><td>finimmo</td></tr><tr><td>finisti</td><td>finiste</td></tr><tr><td>fin`i</td><td>finirono</td></tr></table><br><br><i>finire</i> means <i>to finish</i>
+',
+'id' => 100,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_scrivere.html target=Italian_vt_scrivere.html>scrivere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>scritto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>scriss</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>scriv</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>scrissi</td><td>scrivemmo</td></tr><tr><td>scrivesti</td><td>scriveste</td></tr><tr><td>scrisse</td><td>scrissero</td></tr></table><br><br><i>scrivere</i> means <i>to write</i>
+',
+'id' => 101,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_espellere.html target=Italian_vt_espellere.html>espellere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>espulso</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>espuls</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>espell</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>espulsi</td><td>espellemmo</td></tr><tr><td>espellesti</td><td>espelleste</td></tr><tr><td>espulse</td><td>espulsero</td></tr></table><br><br><i>espellere</i> means <i>to expel</i>
+',
+'id' => 102,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_vedere.html target=Italian_vt_vedere.html>vedere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>visto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>vid</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>ved</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>vidi</td><td>vedemmo</td></tr><tr><td>vedesti</td><td>vedeste</td></tr><tr><td>vide</td><td>videro</td></tr></table><br><br><i>vedere</i> means <i>to see</i>
+',
+'id' => 103,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_andare.html target=Italian_vt_andare.html>andare</a></i> (and what does it mean)?',
+'Italian' => 'Past participle:<font color=red><i>andato</i></font><br><br>Past stem: <font color=red><i>and</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>andai</td><td>andammo</td></tr><tr><td>andasti</td><td>andaste</td></tr><tr><td>and`o</td><td>andarono</td></tr></table><br><br><i>andare</i> means <i>to go</i>
+',
+'id' => 104,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_decidere.html target=Italian_vt_decidere.html>decidere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>deciso</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>decis</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>decid</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>decisi</td><td>decidemmo</td></tr><tr><td>decidesti</td><td>decideste</td></tr><tr><td>decise</td><td>decisero</td></tr></table><br><br><i>decidere</i> means <i>to decide</i>
+',
+'id' => 105,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_giungere.html target=Italian_vt_giungere.html>giungere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>giunto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>giuns</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>giung</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>giunsi</td><td>giungemmo</td></tr><tr><td>giungesti</td><td>giungeste</td></tr><tr><td>giunse</td><td>giunsero</td></tr></table><br><br><i>giungere</i> means <i>to arrive</i>
+',
+'id' => 106,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_annoiare.html target=Italian_vt_annoiare.html>annoiare</a></i> (and what does it mean)?',
+'Italian' => 'Past participle:<font color=red><i>annoiato</i></font><br><br>Past stem: <font color=red><i>annoi</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>annoiai</td><td>annoiammo</td></tr><tr><td>annoiasti</td><td>annoiaste</td></tr><tr><td>annoi`o</td><td>annoiarono</td></tr></table><br><br><i>annoiare</i> means <i>to bore</i>
+',
+'id' => 107,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_smarrire.html target=Italian_vt_smarrire.html>smarrire</a></i> (and what does it mean)?',
+'Italian' => 'Past participle:<font color=red><i>smarrito</i></font><br><br>Past stem: <font color=red><i>smarr</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>smarrii</td><td>smarrimmo</td></tr><tr><td>smarristi</td><td>smarriste</td></tr><tr><td>smarr`i</td><td>smarrirono</td></tr></table><br><br><i>smarrire</i> means <i>to lose</i>
+',
+'id' => 108,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_torcere.html target=Italian_vt_torcere.html>torcere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>torto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>tors</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>torc</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>torsi</td><td>torcemmo</td></tr><tr><td>torcesti</td><td>torceste</td></tr><tr><td>torse</td><td>torsero</td></tr></table><br><br><i>torcere</i> means <i>to wring</i>
+',
+'id' => 109,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_mettere.html target=Italian_vt_mettere.html>mettere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>messo</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>mis</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>mett</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>misi</td><td>mettemmo</td></tr><tr><td>mettesti</td><td>metteste</td></tr><tr><td>mise</td><td>misero</td></tr></table><br><br><i>mettere</i> means <i>to put</i>
+',
+'id' => 110,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_smentire.html target=Italian_vt_smentire.html>smentire</a></i> (and what does it mean)?',
+'Italian' => 'Past participle:<font color=red><i>smentito</i></font><br><br>Past stem: <font color=red><i>sment</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>smentii</td><td>smentimmo</td></tr><tr><td>smentisti</td><td>smentiste</td></tr><tr><td>sment`i</td><td>smentirono</td></tr></table><br><br><i>smentire</i> means <i>to deny</i>
+',
+'id' => 111,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_dare.html target=Italian_vt_dare.html>dare</a></i> (and what does it mean)?',
+'Italian' => 'Past participle:<font color=red><i>dato</i></font><br><br>This verb is irregular in the past<br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>detti</td><td>demmo</td></tr><tr><td>desti</td><td>deste</td></tr><tr><td>dette</td><td>dettero</td></tr></table><br><br><i>dare</i> means <i>to give</i>
+',
+'id' => 112,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_bere.html target=Italian_vt_bere.html>bere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>bevuto</i></font><br><br>This verb is irregular in the past<br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>bevvi</td><td>bevemmo</td></tr><tr><td>bevesti</td><td>beveste</td></tr><tr><td>bevve</td><td>bevvero</td></tr></table><br><br><i>bere</i> means <i>to drink</i>
+',
+'id' => 113,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_spingere.html target=Italian_vt_spingere.html>spingere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>spinto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>spins</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>sping</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>spinsi</td><td>spingemmo</td></tr><tr><td>spingesti</td><td>spingeste</td></tr><tr><td>spinse</td><td>spinsero</td></tr></table><br><br><i>spingere</i> means <i>to push</i>
+',
+'id' => 114,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_risolvere.html target=Italian_vt_risolvere.html>risolvere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>risolto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>risols</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>risolv</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>risolsi</td><td>risolvemmo</td></tr><tr><td>risolvesti</td><td>risolveste</td></tr><tr><td>risolse</td><td>risolsero</td></tr></table><br><br><i>risolvere</i> means <i>to resolve</i>
+',
+'id' => 115,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_posedere.html target=Italian_vt_posedere.html>posedere</a></i> (and what does it mean)?',
+'Italian' => 'Past participle:<font color=red><i>poseduto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>posedett</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>posed</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>posedetti</td><td>posedemmo</td></tr><tr><td>posedesti</td><td>posedeste</td></tr><tr><td>posedette</td><td>posedettero</td></tr></table><br><br><i>posedere</i> means <i>to possess</i>
+',
+'id' => 116,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_smettere.html target=Italian_vt_smettere.html>smettere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>smesso</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>smis</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>smett</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>smisi</td><td>smettemmo</td></tr><tr><td>smettesti</td><td>smetteste</td></tr><tr><td>smise</td><td>smisero</td></tr></table><br><br><i>smettere</i> means <i>to stop</i>
+',
+'id' => 117,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_parere.html target=Italian_vt_parere.html>parere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>parso</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>parv</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>par</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>parvi</td><td>paremmo</td></tr><tr><td>paresti</td><td>pareste</td></tr><tr><td>parve</td><td>parvero</td></tr></table><br><br><i>parere</i> means <i>to look like</i>
+',
+'id' => 118,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_soddisfare.html target=Italian_vt_soddisfare.html>soddisfare</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>soddisfatto</i></font><br><br>This verb is irregular in the past<br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>soddisfeci</td><td>soddisfacemmo</td></tr><tr><td>soddisfacesti</td><td>soddisfaceste</td></tr><tr><td>soddisfece</td><td>soddisfecero</td></tr></table><br><br><i>soddisfare</i> means <i>to satisfy</i>
+',
+'id' => 119,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_cogliere.html target=Italian_vt_cogliere.html>cogliere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>colto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>cols</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>cogli</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>colsi</td><td>cogliemmo</td></tr><tr><td>cogliesti</td><td>coglieste</td></tr><tr><td>colse</td><td>colsero</td></tr></table><br><br><i>cogliere</i> means <i>to gather</i>
+',
+'id' => 120,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_parlare.html target=Italian_vt_parlare.html>parlare</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>parlato</i></font><br><br>Past stem: <font color=red><i>parl</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>parlai</td><td>parlammo</td></tr><tr><td>parlasti</td><td>parlaste</td></tr><tr><td>parl`o</td><td>parlarono</td></tr></table><br><br><i>parlare</i> means <i>to speak</i>
+',
+'id' => 121,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_sedere.html target=Italian_vt_sedere.html>sedere</a></i> (and what does it mean)?',
+'Italian' => 'Past participle:<font color=red><i>seduto</i></font><br><br>Past stem: <font color=red><i>sed</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>sedei</td><td>sedemmo</td></tr><tr><td>sedesti</td><td>sedeste</td></tr><tr><td>sed`e</td><td>sederono</td></tr></table><br><br><i>sedere</i> means <i>to sit</i>
+',
+'id' => 122,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_dovere.html target=Italian_vt_dovere.html>dovere</a></i> (and what does it mean)?',
+'Italian' => 'Past participle:<font color=red><i>dovuto</i></font><br><br>Past stem: <font color=red><i>dov</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>dovei</td><td>dovemmo</td></tr><tr><td>dovesti</td><td>doveste</td></tr><tr><td>dov`e</td><td>doverono</td></tr></table><br><br><i>dovere</i> means <i>to owe</i>
+',
+'id' => 123,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_emergere.html target=Italian_vt_emergere.html>emergere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>emerso</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>emers</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>emerg</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>emersi</td><td>emergemmo</td></tr><tr><td>emergesti</td><td>emergeste</td></tr><tr><td>emerse</td><td>emersero</td></tr></table><br><br><i>emergere</i> means <i>to emerge</i>
+',
+'id' => 124,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_preferire.html target=Italian_vt_preferire.html>preferire</a></i> (and what does it mean)?',
+'Italian' => 'Past participle:<font color=red><i>preferito</i></font><br><br>Past stem: <font color=red><i>prefer</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>preferii</td><td>preferimmo</td></tr><tr><td>preferisti</td><td>preferiste</td></tr><tr><td>prefer`i</td><td>preferirono</td></tr></table><br><br><i>preferire</i> means <i>to prefer</i>
+',
+'id' => 125,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_seppellire.html target=Italian_vt_seppellire.html>seppellire</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>sepolto</i></font><br><br>Past stem: <font color=red><i>seppell</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>seppellii</td><td>seppellimmo</td></tr><tr><td>seppellisti</td><td>seppelliste</td></tr><tr><td>seppell`i</td><td>seppellirono</td></tr></table><br><br><i>seppellire</i> means <i>to bury</i>
+',
+'id' => 126,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_mordere.html target=Italian_vt_mordere.html>mordere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>morso</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>mors</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>mord</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>morsi</td><td>mordemmo</td></tr><tr><td>mordesti</td><td>mordeste</td></tr><tr><td>morse</td><td>morsero</td></tr></table><br><br><i>mordere</i> means <i>to bite</i>
+',
+'id' => 127,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_spendere.html target=Italian_vt_spendere.html>spendere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>speso</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>spes</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>spend</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>spesi</td><td>spendemmo</td></tr><tr><td>spendesti</td><td>spendeste</td></tr><tr><td>spese</td><td>spesero</td></tr></table><br><br><i>spendere</i> means <i>to spend</i>
+',
+'id' => 128,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_tacere.html target=Italian_vt_tacere.html>tacere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>taciuto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>tacqu</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>tac</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>tacqui</td><td>tacemmo</td></tr><tr><td>tacesti</td><td>taceste</td></tr><tr><td>tacque</td><td>tacquero</td></tr></table><br><br><i>tacere</i> means <i>to be silent</i>
+',
+'id' => 129,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_aprire.html target=Italian_vt_aprire.html>aprire</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>aperto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>apers</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>apr</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>apersi</td><td>aprimmo</td></tr><tr><td>apristi</td><td>apriste</td></tr><tr><td>aperse</td><td>apersero</td></tr></table><br><br><i>aprire</i> means <i>to open</i>
+',
+'id' => 130,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_sapere.html target=Italian_vt_sapere.html>sapere</a></i> (and what does it mean)?',
+'Italian' => 'Past participle:<font color=red><i>saputo</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>sepp</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>sap</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>seppi</td><td>sapemmo</td></tr><tr><td>sapesti</td><td>sapeste</td></tr><tr><td>seppe</td><td>seppero</td></tr></table><br><br><i>sapere</i> means <i>to know</i>
+',
+'id' => 131,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_apprendere.html target=Italian_vt_apprendere.html>apprendere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>appreso</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>appres</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>apprend</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>appresi</td><td>apprendemmo</td></tr><tr><td>apprendesti</td><td>apprendeste</td></tr><tr><td>apprese</td><td>appresero</td></tr></table><br><br><i>apprendere</i> means <i>to learn</i>
+',
+'id' => 132,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_rompere.html target=Italian_vt_rompere.html>rompere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>rotto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>rupp</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>romp</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>ruppi</td><td>rompemmo</td></tr><tr><td>rompesti</td><td>rompeste</td></tr><tr><td>ruppe</td><td>ruppero</td></tr></table><br><br><i>rompere</i> means <i>to break</i>
+',
+'id' => 133,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_dipingere.html target=Italian_vt_dipingere.html>dipingere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>dipinto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>dipins</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>diping</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>dipinsi</td><td>dipingemmo</td></tr><tr><td>dipingesti</td><td>dipingeste</td></tr><tr><td>dipinse</td><td>dipinsero</td></tr></table><br><br><i>dipingere</i> means <i>to paint</i>
+',
+'id' => 134,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_scoppiare.html target=Italian_vt_scoppiare.html>scoppiare</a></i> (and what does it mean)?',
+'Italian' => 'Past participle:<font color=red><i>scoppiato</i></font><br><br>Past stem: <font color=red><i>scoppi</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>scoppiai</td><td>scoppiammo</td></tr><tr><td>scoppiasti</td><td>scoppiaste</td></tr><tr><td>scoppi`o</td><td>scoppiarono</td></tr></table><br><br><i>scoppiare</i> means <i>to burst</i>
+',
+'id' => 135,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_stare.html target=Italian_vt_stare.html>stare</a></i> (and what does it mean)?',
+'Italian' => 'Past participle:<font color=red><i>stato</i></font><br><br>This verb is irregular in the past<br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>stetti</td><td>stemmo</td></tr><tr><td>stesti</td><td>steste</td></tr><tr><td>stette</td><td>stettero</td></tr></table><br><br><i>stare</i> means <i>to stay</i>
+',
+'id' => 136,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_descrivere.html target=Italian_vt_descrivere.html>descrivere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>descritto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>descriss</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>descriv</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>descrissi</td><td>descrivemmo</td></tr><tr><td>descrivesti</td><td>descriveste</td></tr><tr><td>descrisse</td><td>descrissero</td></tr></table><br><br><i>descrivere</i> means <i>to describe</i>
+',
+'id' => 137,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_conoscere.html target=Italian_vt_conoscere.html>conoscere</a></i> (and what does it mean)?',
+'Italian' => 'Irregular past participle:<font color=red><i>conosciuto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>connobb</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>conosc</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>connobbi</td><td>conoscemmo</td></tr><tr><td>conoscesti</td><td>conosceste</td></tr><tr><td>connobbe</td><td>connobbero</td></tr></table><br><br><i>conoscere</i> means <i>to be acquainted with</i>
+',
+'id' => 138,
+},
+{
+'English' => 'What are the past stem and past participle of <i><a href=Italian_vt_mantenere.html target=Italian_vt_mantenere.html>mantenere</a></i> (and what does it mean)?',
+'Italian' => 'Past participle:<font color=red><i>mantenuto</i></font><br><br>Past stem for <i>io/Lei/loro</i>: <font color=red><i>mantenn</i></font><br>Past stem for <i>noi/voi/tu</i>: <font color=red><i>manten</i></font><br><table bgcolor=white border=1 cellpadding=0 cellspacing=0 width=50%><tr><td>mantenni</td><td>mantenemmo</td></tr><tr><td>mantenesti</td><td>manteneste</td></tr><tr><td>mantenne</td><td>mantennero</td></tr></table><br><br><i>mantenere</i> means <i>to maintain</i>
+',
+'id' => 139,
+},
+);

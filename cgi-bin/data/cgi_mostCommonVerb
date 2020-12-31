@@ -1,0 +1,5 @@
+@val = (
+{
+'keys' => 'verb_arrive verb_be verb_begin verb_believe verb_be_able_to verb_break verb_bring verb_buy verb_call verb_come verb_do verb_drink verb_eat verb_enjoy verb_fall verb_find verb_finish verb_forget verb_give verb_go verb_go_out verb_have verb_hear verb_help verb_hope verb_know verb_laugh verb_learn verb_listen verb_live verb_live_in verb_look_for verb_lose verb_love verb_meet verb_name verb_need verb_open verb_pay verb_play verb_put verb_read verb_remain verb_remember verb_return verb_say verb_see verb_sell verb_send verb_serve verb_shout verb_show verb_sing verb_sleep verb_speak verb_stop verb_study verb_swim verb_think verb_travel verb_try verb_understand verb_wait_for verb_want verb_work verb_write',
+},
+);

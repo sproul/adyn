@@ -1,0 +1,151 @@
+Nelson Sproul   
+
+nelson@adyn.com
+1209 Glen
+Berkeley, CA
+94708
+510.868.0926
+
+See http://www.adyn.com/resume/resume.html for an intelligent version of
+this resume supporting searches and filters.
+
+Languages:
+Java Perl UML XML C++ C# SQL PL/SQL LISP yacc JavaScript Bourne Shell 
+
+Software: 
+J2EE JDBC ODBC coverage Network VMware Lab Manager ant Apache Tomcat IIS JUnit AJAX 
+
+Databases: 
+Oracle MS SQL Server Sybase MySQL MS Access 
+
+OS: 
+Unix Windows 
+
+6/2008-present Principal Member of the Technical Staff for Oracle Corporation (formerly BEA Systems), San Francisco, CA
+VMware Lab Manager farm management tools:
+architected and implemented tooling to control, configure and monitor Oracle's VMware's Lab Manager farm. These tools support the parallel execution of tasks across many ESX servers (e.g., searching for processes, restarting agents, etc.)
+analysis and exposure of the VM chains on disk
+analysis of the undocumented database underlying Lab Manager
+scriptable bulk updates of VMs' contents (e.g., software updates)
+These tools are implemented in Java and Bourne shell. 
+
+Oracle Business Intelligence graphical report comparison software:
+Designed and implemented injected JavaScript report comparison software to analyze and highlight changes between reports produced by the Oracle Business Intelligence product. Taking as its input xpath expressions indicating areas of interest in Oracle build reports, this software supports comparisons between any pair of builds, thus automating what has historically been a time-consuming manual task. This software supports IE, Firefox, and Google Chrome, and uses Google Gears. 
+
+
+7/2003--5/2008 Senior Software Engineer for BEA (formerly Plumtree Software), San Francisco, CA
+Java OO VM farm controller API:
+architected and implemented an object oriented API to control VM farms such as VMware's Lab Manager. This API presents both synchronous and asynchronous interfaces with callbacks that eased integration into diverse contexts, including test scripts and AJAX monitoring web apps. Structured the code to support multiple additional VM service providers (e.g., based on Solaris zones or AIX logical partitions) without trauma. Used axis2 to generate initial wrapper code for VMware's SOAP APIs, and JDBC to operate directly on Lab Manager's undocumented internal database to provide functionality not exposed in their APIs (e.g., to allow merging VMs from building block configurations into new test configurations). 
+
+Java/AJAX SNMP resource monitor web application:
+architected and implemented web application to allocate ownership and monitor the state of machines and other network resources. The server side is a Java tomcat servlet tested and deployed on Windows, RedHat Linux, and Solaris Unix, using net-snmp to monitor the state of machines. The client is a JavaScript AJAX app presenting a spreadsheet-like interface of resource attributes chosen by the user. Used the VMware COM API to communicate with ESX and GSX servers to find and track deployed VMs. Feedback was very positive. 
+
+Java interface to NetApp LUN management:
+designed and implemented Java interface to NetApp disk, to support controlling the state of Solaris, HP-UX and AIX machine state by means of controlling LUN snapshots. Communicated with the NetApp server using SSH sessions managed using j2ssh. The work was implemented in Java. 
+
+Java/C# Selenium Remote Control AJAX test framework:
+architected and implemented proxy injection mode (a solution to the cross domain testing problem and the problem of handling multiple frames and windows). Designed and implemented browser session caching, an optimization which tripled Selenium RC's performance. Designed and implemented various AJAX features including drag-and-drop support in Selenium Core. The work was implemented in Java within the Selenium server, JavaScript within the browser AJAX client (with support for IE, Firefox, Navigator, Konqueror, and Safari), C# in the remote test client, with build infrastructure using ant and maven. 
+
+Java/C# .NET Tools Infrastructure:
+reproduced and fixed bugs in testing infrastructure. Isolated platform-specific components behind universal interfaces (e.g., designed uniform encapsulation for Jakarta JXPath and .NET XPathNavigator). Improved integration of results reporting with bug database to allow easy navigation and analysis of trees of test suites and cases. The work was executed in Java and C# under eclipse and Visual Studio.. 
+
+Port from Solaris Unix to AIX, RedHat Linux, SUSE Linux:
+Resolved platform differences between Sun JVM and runtime environment and AIX and Linux analogs. Set up VMware and Microsoft Virtual PC virtual machines to facilitate testing of RedHat Linux and SUSE Linux despite a shortage of hardware running those systems natively. Deployed first Plumtree AIX-based WebSphere portal at Unicredit Group in Milan, Italy, earning Employee Excellence Award presented by Plumtree's president. 
+
+C++ memory tuning and bug fixing for web portal components:
+Diagnosed and corrected C++ memory leaks and other memory misdeeds, fixed bugs and designed and implemented C++ tests for Plumtree's Enterprise Portal components on Solaris Unix, Windows, and AIX, controlled by ant XML scripts. Profiled coverage and performance using purify and purecov on Solaris Unix, LeakDiag on Windows. 
+
+
+2/2003--7/2003 Web Application Consultant for Monroe Securities, Chicago, IL   ASP/Securities Trade Tracking Application:
+Implemented a secure web-based application for tracking and managing the security inventory, trading activities, and capital management of Monroe Securities, a market-making firm. The software was implemented using server-side JScript (Microsoft JavaScript) ASP pages served by IIS to generate client-side JavaScript, developed under Windows. The data were stored in MS Access databases, then migrated to MS SQL Server. Integrated with Sungard BRASS data feed to import trade data. Implemented unit tests using an xUnit (language neutral version of JUnit) framework. Tuned performance on MS SQL Server. Configured security under IIS, using SSL.  
+
+FFIEC document monitor:
+Designed and implemented a process to automatically detect corporate financial filings to the government, and report on changes from previous filings. Using SOAP API calls this Java process detects document updates within seconds, caches the new documents and produces summary reports of changes to the PDF filing since the previous versions, allowing traders to quickly discern market moving aspects of these filings. 
+
+
+7/2001--2/2003 Principal Consultant for Adynware Corporation, San Francisco, CA
+Java Adaptive Learning Educational Software:
+Designed, implemented and tested Teacher, a Java-based educational tool for students of foreign languages. This application allows students to study categories of vocabulary and/or conjugations in any of several languages. The web site tracks each student's performance across categories of exercises, automatically emphasizing the student's weak areas when selecting new exercises. The product was designed with the UML and written in Java, JavaScript and HTML under Windows NT and Windows XP, and tested using JUnit and XUnit. Prototyped in Perl under Apache, then implemented in Java servlets under J2EE Tomcat with two versions: one managing a MySQL database via JDBC, and the other using an in-memory Prevayler solution. Build controlled by ant; server-side testing done using JUnit. 
+
+
+1/1999--7/2001 Software Engineer for Extensity Corporation, Emeryville, CA
+Java Accounting systems integration:
+Designed and implemented Java components integrating Extensity's expense report applications with customer accounting packages and HR Sybase, Oracle, and MS SQL servers. Extensive performance tuning of WebLogic J2EE application servers, MS SQL Server, and Oracle. Middleware customizations were implemented in Java using JDBC, SQL, and PL/SQL under Solaris Unix and Windows NT, combined with Apache and IIS. WebLogic J2EE application servers deployed and tuned for large-scale use by thousands of users at customers such as AirTouch (now Verizon), Incyte, Ogilvy, and HBO.  
+
+Java Accounting systems migration:
+Designed and implemented Perl and Bourne shell scripts under Solaris Unix and Windows NT to manage the migration of customers between major releases. Integrated and debugged Java conversion software to export data to XML and back in the new release. 
+
+Database Management Utilities:
+Designed and implemented Bourne shell, Perl and LISP scripts to generate SQL load scripts, to restore and Dump MS SQL Server and Oracle databases, and to edit database tables.  
+
+
+9/1997--1/1999 Principal Consultant for Adynware Corporation, San Francisco, CA
+C++/Perl/JavaScript Keyboard Shortcut Facility for Netscape Navigator:
+Designed, implemented and tested Web Keyboard, a software component which greatly increases the ability of Netscape Navigator users to enjoy efficient keyboard-based navigation of the web. This product was designed with the UML and written in Perl, C++, JavaScript and HTML under Windows NT (and tested under Windows 95, 98, 2000, NT and XP). This product's download is available for trial evaluation free of charge. Also wrote complete product documentation and the FAQ. 
+
+Java Web Agents:
+Designed and implemented Java agents to poll Web travel service databases on an automated basis in search of low air fares. The query component interacting with Web servers was written in Java. The parsing component which evaluates the query results was written in Perl under Windows NT. 
+
+Perl CGI Web Site Credit Card Transaction Support:
+Designed, implemented and tested Perl CGI software at Adynware Corp.'s web site to support credit card software purchases using Signio's client. Deployed on Solaris Unix. 
+
+C++/Perl/JavaScript Browser Accelerator:
+Designed, implemented and tested Browser Spinach, a proxy server which works with any web browser to improve performance over slow connections. This is accomplished by means of caching, prefetching, and other optimizations; this product's main functionality was implemented in Perl and C++ under Windows NT (and tested under Windows 95, 98 and NT), and uses multiple threads to allow executing multiple simultaneous HTTP queries. This product's interface was written in JavaScript and HTML. 
+
+Windows C++ Keyboard Macro Facility:
+Designed, implemented and tested PC Macro32, a program for automating tasks under Windows. This program can generate keystrokes, spawn programs and do some simple manipulation of windows. This product was written in C++ under Windows NT (and tested under Windows 95, 98, 2000, NT and XP), and its download is available for trial evaluation free of charge. Also wrote complete product documentation and the FAQ. 
+
+
+4/1996--9/1997 Software Engineer for Whitelight Systems, Palo Alto CA
+C++ OLAP Server Database Manager:
+Implemented C++ objects supporting communication with Oracle, Microsoft, Sybase, Teradata and Informix SQL Servers for Whitelight's OLAP product, used by Barclays and J. P. Morgan. These objects allow dynamic SQL and a full set of catalog queries, executed in multiple threads via ODBC and Sybase CT-Lib over connections pooled for scalable performance. Database vendor differences hidden behind an object-oriented interface. Written in C++ under Solaris Unix and Windows NT, and debugged using dbx and the Visual C++ IDE. 
+
+
+4/1992--4/1996 Software Engineer 2 for Sybase Corporation, Emeryville, CA
+QA test software:
+Designed and implemented software to test internal and external Sybase client libraries, verify their conformance to specification, and automatically report discrepancies and bugs. Written in C on all major UNIX platforms and Windows NT. 
+
+Threaded Scripting Language:
+Conceived and implemented a programming language supporting thread control and synchronization. This language was used for QA scripts exercising the Sybase XA transaction management product, and was written in C under Solaris Unix, using DCE.  
+
+Source Code Distribution Shell Script Suite:
+Designed and implemented a suite of Bourne shell scripts to efficiently distribute the Sybase connectivity codeline (around 5000 files) to a set of host machines for build and test, and keep these distributed codelines in sync through incremental updates. This suite smoothly handles partial network outages and host failures.  
+
+
+7/1990--3/1992 Systems Analyst for TRW Corporation, Berkeley, CA
+C: NextFile, a File-Processing, Application-Generating Language:
+Conceived and implemented a language to operate on very large structured files. Designed, implemented and tested a code generator nf which from NextFile specifications generates file processing applications in C, including integrity-checkers, file Dumpers and filters. nf was writtten in C, its parser with lex and yacc. 
+
+C: File Distribution Server:
+Implemented a server process and interface library to distribute new revisions of files over a network. This program was written in C under BSD Unix, and communicates over the network via TCP/IP, and was deployed at the credit receipt processing facilities of American Express. 
+
+C: Swapping hex Editor:
+Designed and wrote an editor which displays files in both character and hex Dump format, and which allows editing arbitrarily large files by paging portions into and out of memory. This program was written in C under BSD Unix. 
+
+C: Image Archiver:
+Designed, implemented and tested this multi-threaded program under OS/2 in C to archive massive data to hard drives. Simultaneously driving seven hard drives, this program was able to keep pace with the projected voluminous output from IBM mainframe image processing peripherals. 
+
+C: Image Server Processor Integration:
+Integrated and debugged complex multi-tasking OS/2 program suite, designed to drive mainframe peripherals and process their output. Combined system monitors, programs manipulating the 370-channel APPC (Token Ring), and the SCSI drives into a correctly functioning whole. 
+
+
+6/1988--6/1990 Software Development Engineer for Aion Corporation. Palo Alto, CA
+Pascal: Aion Development System (ADS) Port from OS/2 to MVS:
+Assisted in porting Aion's artificial intelligence expert system shell from OS/2 MS Pascal code to MVS VS Pascal, resolving compiler and environmental differences. Debugged with TSO TEST. 
+
+Pascal: SQL Client:
+Implemented full function SQL clients on OS/2 and AS/400, complete with network interfaces using LU 6.2 (APPC), giving ADS access to MS SQL Server data. OS/2 code was written in Microsoft C interfacing with the IBM Database Manager and Communications Manager, fully integrated into ADS, and debugged using Codeview and SDLC traces. AS/400 code was written in C/400 interfacing with SQL/400 and Intersystem Communications Files, and debugged using the OS/400 and EPM debuggers. 
+
+
+5/1985--12/1985, 6/1986--8/1986 Systems Programmer for I.B.M. Poughkeepsie, NY
+PL/1 SAK PRINTF Function:
+Designed and implemented library function providing mainframe PL/1 programmers automatic message storage allocation, data formatting and output writing, also in PL/1 and debugged using CP Per. 
+
+PL/1 370 Architecture Verification Test Programs:
+Implemented SAK (System Assurance Kernel, an IBM-internal 370 operating system used for testing) programs testing the mainframe 3090 370 resource reconfiguration instruction, taking memory units, CPUs, vector units, etc. on and off line. This software was written in PL/1 under VM and SAK (System Assurance Kernel, an IBM-internal 370 operating system used for testing), and debugged using CP Per. 
+
+Education:
+University of California at Berkeley, B.S. Computer Science
+University of California at Berkeley, B.A. French
+
+

@@ -1,0 +1,272 @@
+# It snows in winter.
+verb_snow.0/vocab_months_and_seasons.12: Es schneit im Winter.
+
+# It would snow in spring.
+verb_snow.1/vocab_months_and_seasons.13: Es w:urde im Fr:uhling schneien.
+
+# It will snow in summer.
+verb_snow.2/vocab_months_and_seasons.14: Es wird im Sommer schneien.
+
+# It snowed in autumn.
+verb_snow.3/vocab_months_and_seasons.15: Es hat im Herbst geschneit.
+
+# It used to snow on January thirty-first.
+verb_snow.4/vocab_months_and_seasons.16: Es schneite am einunddreiBBigsten Januar.
+
+# We spoke English.
+verb_speak.0/vocab_languages.0: Wir haben Englisch gesprochen.
+
+# You [formal, singular] had spoken Spanish.
+verb_speak.1/vocab_languages.1: Sie hatten Spanisch gesprochen.
+
+# They used to speak Portuguese.
+verb_speak.10/vocab_languages.10: Sie sprachen Portugiesisch.
+
+# You [formal, plural] speak Arabic.
+verb_speak.11/vocab_languages.11: Sie sprechen Arabisch.
+
+# He will speak French.
+verb_speak.2/vocab_languages.2: Er wird Franz:osisch sprechen.
+
+# You [familiar, singular] speak Italian.
+verb_speak.3/vocab_languages.3: Du sprichst Italienisch.
+
+# You [familiar, singular] have spoken German.
+verb_speak.4/vocab_languages.4: Du hast Deutsch gesprochen.
+
+# You [formal, plural] will speak Russian.
+verb_speak.5/vocab_languages.5: Sie werden Russisch sprechen.
+
+# We would speak Chinese.
+verb_speak.6/vocab_languages.6: Wir w:urden Chinesisch sprechen.
+
+# You [familiar, singular] used to speak Japanese.
+verb_speak.7/vocab_languages.7: Du sprachst Japanisch.
+
+# They would have spoken Danish.
+verb_speak.8/vocab_languages.8: Sie w:urden D:anisch gesprochen haben.
+
+# I spoke Swedish.
+verb_speak.9/vocab_languages.9: Ich habe Schwedisch gesprochen.
+
+# Some chicken spoiled.
+verb_spoil.0/vocab_food.7: Das Huhn ist verdorben.
+
+# Some cheese used to spoil.
+verb_spoil.1/vocab_food.8: Der K:ase verdarb.
+
+# Some vegetables will spoil.
+verb_spoil.2/vocab_food.9: Das Gem:use wird verderben.
+
+# Some fruit spoils.
+verb_spoil.3/vocab_food.10: Die Fr:uchte verderben.
+
+# A tomato would have spoiled.
+verb_spoil.4/vocab_food.11: Eine Tomate w:urde verdorben sein.
+
+# You [familiar, plural] used to stay in cheap apartments.
+verb_stay.0/places_to_live.13: Ihr bliebt in billigen Wohnungen.
+
+# She used to stay in expensive hotels.
+verb_stay.1/places_to_live.14: Sie blieb in teuren Hotels.
+
+# You [formal, plural] stayed in an expensive hotel.
+verb_stay.10/places_to_live.5: Sie sind in einem teuren Hotel geblieben.
+
+# You [formal, plural] would have stayed in a mansion.
+verb_stay.11/places_to_live.6: Sie w:urden in einem Herrenhaus geblieben sein.
+
+# I used to stay in the park.
+verb_stay.12/places_to_live.7: Ich blieb im Park.
+
+# She stays in the forest.
+verb_stay.13/places_to_live.8: Sie bleibt im Wald.
+
+# You [familiar, singular] used to stay in the sheds.
+verb_stay.14/places_to_live.9: Du bliebst in den H:utten.
+
+# They [feminine] used to stay in those beautiful palaces.
+verb_stay.15/places_to_live.10: Sie blieben in jenen sch:onen Pal:asten.
+
+# ...that they [feminine] stay [subjunctive] in simple houses.
+verb_stay.16/places_to_live.11: ...daBB sie in einfachen H:ausern blieben.
+
+# I have stayed in massive buildings.
+verb_stay.17/places_to_live.12: Ich bin in massiven Geb:auden geblieben.
+
+# She would stay in mansions.
+verb_stay.2/places_to_live.15: Sie w:urde in Herrenh:ausern bleiben.
+
+# They [feminine] would stay in parks.
+verb_stay.3/places_to_live.16: Sie w:urden in Parks bleiben.
+
+# I stay in the forests.
+verb_stay.4/places_to_live.17: Ich bleibe in den W:aldern.
+
+# You [familiar, singular] will stay in the shed.
+verb_stay.5/places_to_live.0: Du wirst in der H:utte bleiben.
+
+# You [familiar, plural] will stay in that beautiful palace.
+verb_stay.6/places_to_live.1: Ihr werdet in jenem sch:onen Palast bleiben.
+
+# We stayed in a simple house.
+verb_stay.7/places_to_live.2: Wir sind in einem einfachen Haus geblieben.
+
+# We will have stayed in a massive building.
+verb_stay.8/places_to_live.3: Wir werden in einem massiven Geb:aude geblieben sein.
+
+# She has stayed in a cheap apartment.
+verb_stay.9/places_to_live.4: Sie ist in einer billigen Wohnung geblieben.
+
+# You [formal, singular] would have stolen his wallet.
+verb_steal.0/things_to_steal.0: Sie w:urden seine Brieftasche gestohlen haben.
+
+# ...that I steal [subjunctive] some jewels.
+verb_steal.1/things_to_steal.2: ...daBB ich Juwelen st:ahle.
+
+# They [feminine] steal our passports.
+verb_steal.10/things_to_steal.11: Sie stehlen unsere Reisep:asse.
+
+# She used to steal her cars.
+verb_steal.11/things_to_steal.12: Sie stahl ihre Autos.
+
+# They [feminine] will have stolen our boats.
+verb_steal.12/things_to_steal.13: Sie werden unsere Boote gestohlen haben.
+
+# ...that we steal [subjunctive] her televisions.
+verb_steal.13/things_to_steal.15: ...daBB wir ihre Fernsehapparate st:ahlen.
+
+# Let's steal her television set!
+verb_steal.14/things_to_steal.8: Stehlen wir ihren Fernsehapparat!
+
+# ...that you steal [subjunctive] some jewels.
+verb_steal.15/things_to_steal.2: ...daBB Sie Juwelen st:ahlen.
+
+# I would steal a treasure.
+verb_steal.16/things_to_steal.3: Ich w:urde einen Schatz stehlen.
+
+# ...that you steal [subjunctive] some money.
+verb_steal.17/things_to_steal.4: ...daBB du Geld st:ahlest.
+
+# You [formal, singular] stole our boat.
+verb_steal.18/things_to_steal.6: Sie haben unser Boot gestohlen.
+
+# You [familiar, singular] stole some treasures.
+verb_steal.19/things_to_steal.9: Du hast Sch:atze gestohlen.
+
+# ...that they [feminine] steal [subjunctive] a treasure.
+verb_steal.2/things_to_steal.3: ...daBB sie einen Schatz st:ahlen.
+
+# Steal [formal, singular] their wallets!
+verb_steal.20/things_to_steal.10: Stehlen Sie ihre Brieftaschen!
+
+# She would steal our passports.
+verb_steal.21/things_to_steal.11: Sie w:urde unsere Reisep:asse stehlen.
+
+# Steal [familiar, singular] her cars!
+verb_steal.22/things_to_steal.12: Stiehl (du) ihre Autos!
+
+# You [formal, singular] have stolen our boats.
+verb_steal.23/things_to_steal.13: Sie haben unsere Boote gestohlen.
+
+# You [formal, singular] will steal some pieces of gold.
+verb_steal.24/things_to_steal.14: Sie werden Goldst:ucke stehlen.
+
+# You [familiar, singular] will steal her televisions.
+verb_steal.25/things_to_steal.15: Du wirst ihre Fernsehapparate stehlen.
+
+# They [feminine] stole some money.
+verb_steal.3/things_to_steal.4: Sie haben Geld gestohlen.
+
+# You [formal, singular] would steal her car.
+verb_steal.4/things_to_steal.5: Sie w:urden ihr Auto stehlen.
+
+# You [familiar, singular] would steal our boat.
+verb_steal.5/things_to_steal.6: Du w:urdest unser Boot stehlen.
+
+# We will steal a piece of gold.
+verb_steal.6/things_to_steal.7: Wir werden ein Goldst:uck stehlen.
+
+# Don't steal [familiar, plural] my passport!
+verb_steal.7/things_to_steal.1: Stehlt (ihr) meinen ReisepaBB nicht!
+
+# She had stolen some treasures.
+verb_steal.8/things_to_steal.9: Sie hatte Sch:atze gestohlen.
+
+# They [feminine] will steal their wallets.
+verb_steal.9/things_to_steal.10: Sie werden ihre Brieftaschen stehlen.
+
+# A farm stinks.
+verb_stink.0/things_that_stink.2: Ein Bauernhof stinkt.
+
+# The sick dog used to stink.
+verb_stink.1/things_that_stink.3: Der kranke Hund stank.
+
+# The old man stank.
+verb_stink.2/things_that_stink.4: Der alte Mann hat gestunken.
+
+# A flower will stink.
+verb_stink.3/things_that_stink.5: Eine Blume wird stinken.
+
+# You [familiar, singular] stopped his war.
+verb_stop.0/things_to_permit.5: Du hast seinen Krieg beendet.
+
+# You [familiar, plural] used to stop their game.
+verb_stop.1/things_to_permit.3: Ihr beendetet ihr Spiel.
+
+# You [formal, plural] strengthen the wall.
+verb_strengthen.0/things_to_strengthen.0: Sie st:arken die Wand.
+
+# He strengthened the walls.
+verb_strengthen.1/things_to_strengthen.1: Er hat die W:ande gest:arkt.
+
+# They used to stroke the cat.
+verb_stroke.0/things_to_stroke.0: Sie streichelten die Katze.
+
+# ...that you stroll [subjunctive] Sunday.
+verb_stroll.0/vocab_days.0: ...daBB Sie am Sonntag spazieren gingen.
+
+# You [familiar, singular] strolled Monday.
+verb_stroll.1/vocab_days.1: Du bist am Montag spazieren gegangen.
+
+# ...that they stroll [subjunctive] Friday.
+verb_stroll.2/vocab_days.5: ...daBB sie am Freitag spazieren gingen.
+
+# We will stroll Wednesday.
+verb_stroll.3/vocab_days.3: Wir werden am Mittwoch spazieren gehen.
+
+# We stroll Thursday.
+verb_stroll.4/vocab_days.4: Wir gehen am Donnerstag spazieren .
+
+# You [formal, singular] stroll Friday.
+verb_stroll.5/vocab_days.5: Sie gehen am Freitag spazieren.
+
+# You [formal, plural] would stroll Wednesday.
+verb_stroll.6/vocab_days.3: Sie w:urden am Mittwoch spazieren gehen.
+
+# You [formal, singular] have strolled every Wednesday.
+verb_stroll.7/vocab_days.7: Sie sind jeden Mittwoch spazieren gegangen.
+
+# ...that you study [subjunctive] biology.
+verb_study.0/things_to_study.0: ...daBB ihr Biologie studieret.
+
+# He used to study chemistry.
+verb_study.1/things_to_study.1: Er studierte Chemie.
+
+# You [familiar, singular] would have studied physics.
+verb_study.2/things_to_study.2: Du w:urdest Physik studiert haben.
+
+# They used to study history.
+verb_study.3/things_to_study.3: Sie studierten Geschichte.
+
+# Don't study [familiar, singular] economics!
+verb_study.4/things_to_study.4: Studiere (du) nicht Volkswirtschaft! 
+
+# I will study literature.
+verb_study.5/things_to_study.5: Ich werde Literatur studieren.
+
+# They studied astronomy.
+verb_study.6/things_to_study.6: Sie haben Astronomie studiert.
+
+# ...that you study [subjunctive] astrology.
+verb_study.7/things_to_study.7: ...daBB Sie Astrologie studieren.

@@ -1,0 +1,16 @@
+Hello,
+
+I want to express my interest in the QA Lead position.  I think that with the ever rising tide of spam there will be an expanding market for software to manage and control incoming e-mail.  Conversely, with the decline of traditional media advertising there should be ever greater demand for software which facilitates direct appeals to targeted individuals.  It appears to me that Lyris is well-positioned to benefit from these trends.
+
+I spent 4 years dedicated to QA (including 2 years as a senior contributor) at Sybase.  The primary focus of my work has subsequently been on the development and integration sides; however, my work has since my Sybase days been heavily influenced by my feeling that no software process can succeed without a strong QA and testing component.  I subscribe to the agile development philosophy, under which productivity is strengthened by integrating lightweight QA methods throughout the development process.  In my experience, this style of QA, far from being a burden, actually enhances both the quality and speed of a software organization.
+
+I would welcome an opportunity to discuss your work and my background further.
+
+
+Regards,
+
+Nelson Sproul
+
+
+P.S.: Below is my resume in plain text.  I have also attached an intelligent version of this resume supporting searches and filters.  (Note that the search capability requires an active Internet connection.)
+

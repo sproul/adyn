@@ -1,0 +1,1098 @@
+<html>
+<head>
+<title>[16] Freestore management, C++ FAQ Lite, Marshall Cline</title>
+<link rev=made href="mailto:cline@parashift.com">
+</head>
+<body vlink="#551a8b" text="#000000" bgcolor="#c1c1c1" alink="#ff0000" link="#0000ee">
+<a name="top"></a>
+<h1>[16] Freestore management<br>
+<small><small>(Part of <a href="index.html"><em>C++ FAQ Lite</em></a>, <a href="copy-permissions.html#[1.2]">Copyright&nbsp;&copy; 1991-96</a>, <a href="http://www.cerfnet.com/~mpcline/">Marshall Cline</a>, <a href="mailto:cline@parashift.com">cline@parashift.com</a>)</small></small></h1>
+<hr width="100%" >
+<h3>FAQs in section [16]:</h3>
+<ul>
+<li><a href="freestore-mgmt.html#[16.1]">[16.1] Does <tt>delete&nbsp;p</tt> delete the pointer <tt>p</tt>, or the
+pointed-to-data <tt>*p</tt>?</a></li>
+<li><a href="freestore-mgmt.html#[16.2]">[16.2] Can I <tt>free()</tt> pointers allocated with <tt>new</tt>?
+Can I <tt>delete</tt> pointers allocated with <tt>malloc()</tt>?</a></li>
+<li><a href="freestore-mgmt.html#[16.3]">[16.3] Why should I use <tt>new</tt> instead of trustworthy old
+<tt>malloc()</tt>?</a></li>
+<li><a href="freestore-mgmt.html#[16.4]">[16.4] Can I use <tt>realloc()</tt> on pointers allocated via <tt>new</tt>?</a></li>
+<li><a href="freestore-mgmt.html#[16.5]">[16.5] Do I need to check for <tt>NULL</tt> after <tt>p&nbsp;=&nbsp;new&nbsp;Fred()</tt>?</a></li>
+<li><a href="freestore-mgmt.html#[16.6]">[16.6] How can I convince my (older) compiler to
+automatically check <tt>new</tt> to see if it returns <tt>NULL</tt>?</a> <img src="updated.gif" alt="UPDATED!" border=0></li>
+<li><a href="freestore-mgmt.html#[16.7]">[16.7] Do I need to check for <tt>NULL</tt> before <tt>delete&nbsp;p</tt>?</a></li>
+<li><a href="freestore-mgmt.html#[16.8]">[16.8] What are the two steps that happen when I say <tt>delete&nbsp;p</tt>?</a></li>
+<li><a href="freestore-mgmt.html#[16.9]">[16.9] In <tt>p&nbsp;=&nbsp;new&nbsp;Fred()</tt>, does the <tt>Fred</tt>
+memory &quot;leak&quot; if the <tt>Fred</tt> constructor throws an exception?</a></li>
+<li><a href="freestore-mgmt.html#[16.10]">[16.10] How do I allocate / unallocate an array of things?</a></li>
+<li><a href="freestore-mgmt.html#[16.11]">[16.11] What if I forget the <tt>[]</tt> when <tt>delete</tt>ing array allocated
+via <tt>new&nbsp;T[n]</tt>?</a></li>
+<li><a href="freestore-mgmt.html#[16.12]">[16.12] Can I drop the <tt>[]</tt> when <tt>delete</tt>ing array of some
+built-in type (<tt>char</tt>, <tt>int</tt>, etc)?</a></li>
+<li><a href="freestore-mgmt.html#[16.13]">[16.13] After <tt>p&nbsp;=&nbsp;new&nbsp;Fred[n]</tt>, how does the
+compiler know there are <tt>n</tt> objects to be destructed during <tt>delete[]&nbsp;p</tt>?</a></li>
+<li><a href="freestore-mgmt.html#[16.14]">[16.14] Is it legal (and moral) for a member function to say <tt>delete&nbsp;this</tt>?</a></li>
+<li><a href="freestore-mgmt.html#[16.15]">[16.15] How do I allocate multidimensional arrays using <tt>new</tt>?</a> <img src="updated.gif" alt="UPDATED!" border=0></li>
+<li><a href="freestore-mgmt.html#[16.16]">[16.16] But the previous FAQ's code is SOOOO tricky and error
+prone!  Isn't there a simpler way?</a> <img src="new.gif" alt="NEW!" border=0></li>
+<li><a href="freestore-mgmt.html#[16.17]">[16.17] But the above <tt>Matrix</tt> class is specific to
+<tt>Fred</tt>!  Isn't there a way to make it generic?</a> <img src="new.gif" alt="NEW!" border=0></li>
+<li><a href="freestore-mgmt.html#[16.18]">[16.18] Does C++ have arrays whose length can be specified at
+run-time?</a></li>
+<li><a href="freestore-mgmt.html#[16.19]">[16.19] How can I force objects of my class to always be
+created via <tt>new</tt> rather than as locals or global/<tt>static</tt> objects?</a></li>
+<li><a href="freestore-mgmt.html#[16.20]">[16.20] How do I do simple reference counting?</a> <img src="updated.gif" alt="UPDATED!" border=0></li>
+<li><a href="freestore-mgmt.html#[16.21]">[16.21] How do I provide reference counting with copy-on-write
+semantics?</a></li>
+<li><a href="freestore-mgmt.html#[16.22]">[16.22] How do I provide reference counting with
+copy-on-write semantics for a hierarchy of classes?</a></li>
+</ul>
+<p><hr width="100%" >
+<p><a name="[16.1]"></a>
+<h3>[16.1] Does <tt>delete&nbsp;p</tt> delete the pointer <tt>p</tt>, or the
+pointed-to-data <tt>*p</tt>?</h3>
+<p>The pointed-to-data.
+<p>The keyword should really be <tt>delete_the_thing_pointed_to_by</tt>.  The same
+abuse of English occurs when <tt>free</tt>ing the memory pointed to by a pointer in C:
+<tt>free(p)</tt> really means <tt>free_the_stuff_pointed_to_by(p)</tt>.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="input-output.html">Previous&nbsp;section</a> |&nbsp;<a href="exceptions.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[16.2]"></a>
+<h3>[16.2] Can I <tt>free()</tt> pointers allocated with <tt>new</tt>?
+Can I <tt>delete</tt> pointers allocated with <tt>malloc()</tt>?</h3>
+<p><em>No!</em>
+<p>It is perfectly legal, moral, and wholesome to use <tt>malloc()</tt> and <tt>delete</tt> in
+the same program, or to use <tt>new</tt> and <tt>free()</tt> in the same program.
+<em>But</em> it is illegal, immoral, and despicable to call <tt>free()</tt> with a
+pointer allocated via <tt>new</tt>, or to call <tt>delete</tt> on a pointer allocated via
+<tt>malloc()</tt>.
+<p><em>Beware!</em> I occasionally get e-mail from people telling me that it works
+OK for them on machine X and compiler Y.  That does <em>not</em> make it right!
+Sometimes people say, &quot;But I'm just working with an array of <tt>char</tt>.&quot;
+Nonetheless do <em>not</em> mix <tt>malloc()</tt> and <tt>delete</tt> on the same pointer, or
+<tt>new</tt> and <tt>free()</tt> on the same pointer!  If you allocated via <tt>p&nbsp;=&nbsp;new&nbsp;char[n]</tt>, you <em>must</em> use <tt>delete[]&nbsp;p</tt>; you must <em>not</em> use
+<tt>free(p)</tt>.  Or if you allocated via <tt>p&nbsp;=&nbsp;malloc(n)</tt>, you
+<em>must</em> use <tt>free(p)</tt>; you must <em>not</em> use <tt>delete[]&nbsp;p</tt>
+or <tt>delete&nbsp;p</tt>!  Mixing these up could cause a catastrophic failure at
+runtime if the code was ported to a new machine, a new compiler, or even a new
+version of the same compiler.
+<p>You have been warned.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="input-output.html">Previous&nbsp;section</a> |&nbsp;<a href="exceptions.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[16.3]"></a>
+<h3>[16.3] Why should I use <tt>new</tt> instead of trustworthy old
+<tt>malloc()</tt>?</h3>
+<p>Constructors/destructors, type safety, overridability.
+<ul>
+<li>Constructors/destructors: unlike <tt>malloc(sizeof(Fred))</tt>,
+<tt>new&nbsp;Fred()</tt> calls <tt>Fred</tt>'s constructor.  Similarly, <tt>delete&nbsp;p</tt> calls
+<tt>*p</tt>'s destructor.</li>
+<li>Type safety: <tt>malloc()</tt> returns a <tt>void*</tt> which isn't type safe.
+<tt>new&nbsp;Fred()</tt> returns a pointer of the right type (a <tt>Fred*</tt>).</li>
+<li>Overridability: <tt>new</tt> is an <tt>operator</tt> that can be overridden by a
+class, while <tt>malloc()</tt> is not overridable on a per-class basis.</li>
+</ul>
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="input-output.html">Previous&nbsp;section</a> |&nbsp;<a href="exceptions.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[16.4]"></a>
+<h3>[16.4] Can I use <tt>realloc()</tt> on pointers allocated via <tt>new</tt>?</h3>
+<p>No!
+<p>When <tt>realloc()</tt> has to copy the allocation, it uses a <em>bitwise</em> copy
+operation, which will tear many C++ objects to shreds.  C++ objects should be
+allowed to copy themselves.  They use their own copy constructor or assignment
+operator.
+<p>Besides all that, the heap that <tt>new</tt> uses may <em>not</em> be the same as the
+heap that <tt>malloc()</tt> and <tt>realloc()</tt> use!
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="input-output.html">Previous&nbsp;section</a> |&nbsp;<a href="exceptions.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[16.5]"></a>
+<h3>[16.5] Do I need to check for <tt>NULL</tt> after <tt>p&nbsp;=&nbsp;new&nbsp;Fred()</tt>?</h3>
+<p>No!  (But if you have an old compiler, you may have to
+<a href="freestore-mgmt.html#[16.6]">force the compiler to have this
+behavior<!--rawtext:[16.6]:rawtext--></a>).
+<p>It turns out to be a real pain to always write explicit <tt>NULL</tt> tests after
+every <tt>new</tt> allocation.  Code like the following is very tedious:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;Fred*&nbsp;p&nbsp;=&nbsp;new&nbsp;Fred();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(p&nbsp;==&nbsp;NULL)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;bad_alloc();
+</code>
+<p>If your compiler doesn't support (or if you refuse to use)
+<a href="exceptions.html">exceptions<!--rawtext:[17]:rawtext--></a>, your code might be even more tedious:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;Fred*&nbsp;p&nbsp;=&nbsp;new&nbsp;Fred();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(p&nbsp;==&nbsp;NULL)&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cerr&nbsp;&lt;&lt;&nbsp;"Couldn't&nbsp;allocate&nbsp;memory&nbsp;for&nbsp;a&nbsp;Fred"&nbsp;&lt;&lt;&nbsp;endl;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;abort();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p>Take heart.  In C++, if the runtime system cannot allocate <tt>sizeof(Fred)</tt> bytes
+of memory during <tt>p&nbsp;=&nbsp;new&nbsp;Fred()</tt>, a <tt>bad_alloc</tt> exception will be
+thrown.  Unlike <tt>malloc()</tt>, <tt>new</tt> <em>never</em> returns <tt>NULL</tt>!
+<p>Therefore you should simply write:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;Fred*&nbsp;p&nbsp;=&nbsp;new&nbsp;Fred();&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;No&nbsp;need&nbsp;to&nbsp;check&nbsp;if&nbsp;<tt>p</tt>&nbsp;is&nbsp;<tt>NULL</tt></em><tt>
+</code>
+<p>However, if your compiler is old, it may not yet support this.  Find out by
+checking your compiler's documentation under &quot;<tt>new</tt>&quot;.  If you have an old
+compiler, you may have to <a href="freestore-mgmt.html#[16.6]">force the compiler to
+have this behavior<!--rawtext:[16.6]:rawtext--></a>.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="input-output.html">Previous&nbsp;section</a> |&nbsp;<a href="exceptions.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[16.6]"></a>
+<h3>[16.6] How can I convince my (older) compiler to
+automatically check <tt>new</tt> to see if it returns <tt>NULL</tt>? <img src="updated.gif" alt="UPDATED!" border=0></h3>
+<small><em>[Recently fixed bugs: new handlers don't take arguments, thanks to <a href="mailto:saaron@mpifr-bonn.mpg.de">Scott Aaron</a>; changed <tt>set_new_hanlder</tt> to <tt>set_new_handler</tt>, thanks to <a href="mailto:peter.andersson@abc.se">Peter Andersson</a> (on 1/97).  <a href="freestore-mgmt.html#[16.15]">Click here to go to the next FAQ in the &quot;chain&quot; of recent changes<!--rawtext:[16.15]:rawtext--></a>.]</em></small>
+<p>Eventually your compiler will.
+<p>If you have an old compiler that doesn't automagically perform
+<a href="freestore-mgmt.html#[16.5]">the <tt>NULL</tt> test<!--rawtext:[16.5]:rawtext--></a>, you can force the runtime
+system to do the test by installing a &quot;new handler&quot; function.  Your &quot;new
+handler&quot; function can do anything you want, such as print a message and
+<tt>abort()</tt> the program, <tt>delete</tt> some objects and return (in which case
+<tt>operator&nbsp;new</tt> will retry the allocation), <tt>throw</tt> an exception, etc.
+<p>Here's a sample &quot;new handler&quot; that prints a message and calls <tt>abort()</tt>.  The
+handler is installed using <tt>set_new_handler()</tt>:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;#include&nbsp;&lt;new.h&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;To&nbsp;get&nbsp;<tt>set_new_handler</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;#include&nbsp;&lt;stdlib.h&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;To&nbsp;get&nbsp;<tt>abort()</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;#include&nbsp;&lt;iostream.h&gt;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;To&nbsp;get&nbsp;<tt>cerr</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;myNewHandler()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;This&nbsp;is&nbsp;your&nbsp;own&nbsp;handler.&nbsp;&nbsp;It&nbsp;can&nbsp;do&nbsp;anything&nbsp;you&nbsp;want.</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cerr&nbsp;&lt;&lt;&nbsp;"Attempt&nbsp;to&nbsp;allocate&nbsp;memory&nbsp;failed!"&nbsp;&lt;&lt;&nbsp;endl;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;abort();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;main()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set_new_handler(myNewHandler);&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Install&nbsp;your&nbsp;&quot;new&nbsp;handler&quot;</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p>After the <tt>set_new_handler()</tt> line is executed, <tt>operator&nbsp;new</tt> will
+call your <tt>myNewHandler()</tt> if/when it runs out of memory.  This means
+that <tt>new</tt> will never return <tt>NULL</tt>:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;Fred*&nbsp;p&nbsp;=&nbsp;new&nbsp;Fred();&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;No&nbsp;need&nbsp;to&nbsp;check&nbsp;if&nbsp;<tt>p</tt>&nbsp;is&nbsp;<tt>NULL</tt></em><tt>
+</code>
+<p>Note: Please use this <tt>abort()</tt> approach as a last resort.  If your
+compiler supports <a href="exceptions.html">exception handling<!--rawtext:[17]:rawtext--></a>, please consider
+<tt>throw</tt>ing an exception instead of calling <tt>abort()</tt>.
+<p>Note: If some global/static object's constructor uses <tt>new</tt>, it won't use
+the <tt>myNewHandler()</tt> function since that constructor will get called
+before <tt>main()</tt> begins.  Unfortunately there's no convenient way to
+guarantee that the <tt>set_new_handler()</tt> will be called before the first
+use of <tt>new</tt>.  For example, even if you put the <tt>set_new_handler()</tt>
+call in the constructor of a global object, you still don't know if the module
+(&quot;compilation unit&quot;) that contains that global object will be elaborated first
+or last or somewhere inbetween.  Therefore you still don't have any guarantee
+that your call of <tt>set_new_handler()</tt> will happen before any other
+global's constructor gets invoked.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="input-output.html">Previous&nbsp;section</a> |&nbsp;<a href="exceptions.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[16.7]"></a>
+<h3>[16.7] Do I need to check for <tt>NULL</tt> before <tt>delete&nbsp;p</tt>?</h3>
+<p>No!
+<p>The C++ language guarantees that <tt>delete&nbsp;p</tt> will do nothing if <tt>p</tt> is equal to
+<tt>NULL</tt>.  Since you might get the test backwards, and since most testing
+methodologies force you to explicitly test every branch point, you should
+<em>not</em> put in the redundant <tt>if</tt> test.
+<p>Wrong:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(p&nbsp;!=&nbsp;NULL)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;delete&nbsp;p;
+</code>
+<p>Right:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;delete&nbsp;p;
+</code>
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="input-output.html">Previous&nbsp;section</a> |&nbsp;<a href="exceptions.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[16.8]"></a>
+<h3>[16.8] What are the two steps that happen when I say <tt>delete&nbsp;p</tt>?</h3>
+<p><tt>delete&nbsp;p</tt> is a two-step process: it calls the destructor, then releases the
+memory.  The code generated for <tt>delete&nbsp;p</tt> looks something like this (assuming
+<tt>p</tt> is of type <tt>Fred*</tt>):
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Original&nbsp;code:&nbsp;<tt>delete&nbsp;p;</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(p&nbsp;!=&nbsp;NULL)&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p-&gt;~Fred();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;operator&nbsp;delete(p);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p>The statement <tt>p-&gt;~Fred()</tt> calls the destructor for the <tt>Fred</tt> object
+pointed to by <tt>p</tt>.
+<p>The statement <tt>operator&nbsp;delete(p)</tt> calls the memory deallocation
+primitive, <tt>void&nbsp;operator&nbsp;delete(void*&nbsp;p)</tt>.  This primitive is similar in
+spirit to <tt>free(void*&nbsp;p)</tt>.  (Note, however, that these two are
+<em>not</em> interchangeable; e.g., there is no guarantee that the two memory
+deallocation primitives even use the same heap!).
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="input-output.html">Previous&nbsp;section</a> |&nbsp;<a href="exceptions.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[16.9]"></a>
+<h3>[16.9] In <tt>p&nbsp;=&nbsp;new&nbsp;Fred()</tt>, does the <tt>Fred</tt>
+memory &quot;leak&quot; if the <tt>Fred</tt> constructor throws an exception?</h3>
+<p>No.
+<p>If an exception occurs during the <tt>Fred</tt> constructor of <tt>p&nbsp;=&nbsp;new&nbsp;Fred()</tt>,
+the C++ language guarantees that the memory <tt>sizeof(Fred)</tt> bytes that were
+allocated will automagically be released back to the heap.
+<p>Here are the details: <tt>new&nbsp;Fred()</tt> is a two-step process:
+<ol>
+<li><tt>sizeof(Fred)</tt> bytes of memory are allocated using the primitive
+<tt>void*&nbsp;operator&nbsp;new(size_t&nbsp;nbytes)</tt>.  This primitive is similar in spirit
+to <tt>malloc(size_t&nbsp;nbytes)</tt>.  (Note, however, that these two are
+<em>not</em> interchangeable; e.g., there is no guarantee that the two memory
+allocation primitives even use the same heap!).</li>
+<li>It constructs an object in that memory by calling the <tt>Fred</tt>
+constructor.  The pointer returned from the first step is passed as the <tt>this</tt>
+parameter to the constructor.  This step is wrapped in a <tt>try</tt> ... <tt>catch</tt>
+block to handle the case when an exception is thrown during this
+step.</li>
+</ul>
+<p>Thus the actual generated code looks something like:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Original&nbsp;code:&nbsp;<tt>Fred*&nbsp;p&nbsp;=&nbsp;new&nbsp;Fred();</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;Fred*&nbsp;p&nbsp;=&nbsp;(Fred*)&nbsp;operator&nbsp;new(sizeof(Fred));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;try&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new(p)&nbsp;Fred();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;<a href="dtors.html#[11.10]">Placement&nbsp;<tt>new</tt><!--rawtext:[11.10]:rawtext--></a></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;catch&nbsp;(...)&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;operator&nbsp;delete(p);&nbsp;&nbsp;</tt><em>//&nbsp;Deallocate&nbsp;the&nbsp;memory</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Re-throw&nbsp;the&nbsp;exception</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p>The statement marked &quot;<a href="dtors.html#[11.10]">Placement <tt>new</tt><!--rawtext:[11.10]:rawtext--></a>&quot; calls the
+<tt>Fred</tt> constructor.  The pointer <tt>p</tt> becomes the <tt>this</tt> pointer inside the
+constructor, <tt>Fred::Fred()</tt>.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="input-output.html">Previous&nbsp;section</a> |&nbsp;<a href="exceptions.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[16.10]"></a>
+<h3>[16.10] How do I allocate / unallocate an array of things?</h3>
+<p>Use <tt>p&nbsp;=&nbsp;new&nbsp;T[n]</tt> and <tt>delete[]&nbsp;p</tt>:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;Fred*&nbsp;p&nbsp;=&nbsp;new&nbsp;Fred[100];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;delete[]&nbsp;p;
+</code>
+<p>Any time you allocate an array of objects via <tt>new</tt> (usually with the
+<tt>[</tt><em>n</em><tt>]</tt> in the <tt>new</tt> expression), you <em>must</em> use
+<tt>[]</tt> in the <tt>delete</tt> statement.  This syntax is necessary because there
+is no syntactic difference between a pointer to a thing and a pointer to an
+array of things (something we inherited from C).
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="input-output.html">Previous&nbsp;section</a> |&nbsp;<a href="exceptions.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[16.11]"></a>
+<h3>[16.11] What if I forget the <tt>[]</tt> when <tt>delete</tt>ing array allocated
+via <tt>new&nbsp;T[n]</tt>?</h3>
+<p>All life comes to a catastrophic end.
+<p>It is the programmer's &#151;not the compiler's&#151; responsibility to get the
+connection between <tt>new&nbsp;T[n]</tt> and <tt>delete[]&nbsp;p</tt> correct.  If you get
+it wrong, neither a compile-time nor a run-time error message will be generated
+by the compiler.  Heap corruption is a likely result.  Or worse.  Your program
+will probably die.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="input-output.html">Previous&nbsp;section</a> |&nbsp;<a href="exceptions.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[16.12]"></a>
+<h3>[16.12] Can I drop the <tt>[]</tt> when <tt>delete</tt>ing array of some
+built-in type (<tt>char</tt>, <tt>int</tt>, etc)?</h3>
+<p><em>No!</em>
+<p>Sometimes programmers think that the <tt>[]</tt> in the <tt>delete[]&nbsp;p</tt> only exists
+so the compiler will call the appropriate destructors for all elements in the
+array.  Because of this reasoning, they assume that an array of some built-in
+type such as <tt>char</tt> or <tt>int</tt> can be <tt>delete</tt>d without the <tt>[]</tt>.  E.g., they
+assume the following is valid code:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;userCode(int&nbsp;n)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char*&nbsp;p&nbsp;=&nbsp;new&nbsp;char[n];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;delete&nbsp;p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;&lt;&#151;&nbsp;ERROR!&nbsp;Should&nbsp;be&nbsp;<tt>delete[]&nbsp;p</tt>&nbsp;!</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p>But the above code is wrong, and it can cause a disaster at runtime.  In
+particular, the code that's called for <tt>delete&nbsp;p</tt> is <tt>operator&nbsp;delete(void*)</tt>, but the code that's called for <tt>delete[]&nbsp;p</tt> is
+<tt>operator&nbsp;delete[](void*)</tt>.  The default behavior for the latter is to
+call the former, but users are allowed to replace the latter with a different
+behavior (in which case they would normally also replace the corresponding
+<tt>new</tt> code in <tt>operator&nbsp;new[](size_t)</tt>).  If they replaced the
+<tt>delete[]</tt> code so it wasn't compatible with the <tt>delete</tt> code, and you
+called the wrong one (i.e., if you said <tt>delete&nbsp;p</tt> rather than
+<tt>delete[]&nbsp;p</tt>), you could end up with a disaster at runtime.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="input-output.html">Previous&nbsp;section</a> |&nbsp;<a href="exceptions.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[16.13]"></a>
+<h3>[16.13] After <tt>p&nbsp;=&nbsp;new&nbsp;Fred[n]</tt>, how does the
+compiler know there are <tt>n</tt> objects to be destructed during <tt>delete[]&nbsp;p</tt>?</h3>
+<p>Short answer: Magic.
+<p>Long answer: The run-time system stores the number of objects, <tt>n</tt>, somewhere
+where it can be retrieved if you only know the pointer, <tt>p</tt>.  There are two
+popluar techniques that do this.  Both these techniques are in use by
+commercial grade compilers, both have tradeoffs, and neither is perfect.  These
+techniques are:
+<ul>
+<li><a href="compiler-dependencies.html#[33.4]">Over-allocate the array and
+put <tt>n</tt> just to the left of the first <tt>Fred</tt> object<!--rawtext:[33.4]:rawtext--></a>.</li>
+<li><a href="compiler-dependencies.html#[33.5]">Use an associative array
+with <tt>p</tt> as the key and <tt>n</tt> as the value<!--rawtext:[33.5]:rawtext--></a>.</li>
+</ul>
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="input-output.html">Previous&nbsp;section</a> |&nbsp;<a href="exceptions.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[16.14]"></a>
+<h3>[16.14] Is it legal (and moral) for a member function to say <tt>delete&nbsp;this</tt>?</h3>
+<p>As long as you're careful, it's OK for an object to commit suicide
+(<tt>delete</tt> <tt>this</tt>).
+<p>Here's how I define &quot;careful&quot;:
+<ol>
+<li>You must be absolutely 100% positive sure that <tt>this</tt> object was
+allocated via <tt>new</tt> (not by <tt>new[]</tt>, nor by <a href="dtors.html#[11.10]">placement
+<tt>new</tt><!--rawtext:[11.10]:rawtext--></a>, nor a local object on the stack, nor a global, nor a
+member of another object; but by plain ordinary <tt>new</tt>).</li>
+<li>You must be absolutely 100% positive sure that your member function
+will be the last member function invoked on <tt>this</tt> object.</li>
+<li>You must be absolutely 100% positive sure that the rest of your
+member function (after the <tt>delete</tt> <tt>this</tt> line) doesn't touch any piece of
+<tt>this</tt> object (including calling any other member functions or touching any
+data members).</li>
+<li>You must be absolutely 100% positive sure that no one even touches
+the <tt>this</tt> pointer itself after the <tt>delete</tt> <tt>this</tt> line.  In other words, you
+must not examine it, compare it with another pointer, compare it with <tt>NULL</tt>,
+print it, cast it, do anything with it.</li>
+</ol>
+<p>Naturally the usual caveats apply in cases where your <tt>this</tt> pointer is a
+pointer to a base class when you don't have a <a href="virtual-functions.html#[20.4]">virtual
+destructor<!--rawtext:[20.4]:rawtext--></a>.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="input-output.html">Previous&nbsp;section</a> |&nbsp;<a href="exceptions.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[16.15]"></a>
+<h3>[16.15] How do I allocate multidimensional arrays using <tt>new</tt>? <img src="updated.gif" alt="UPDATED!" border=0></h3>
+<small><em>[Recently rewritten and expanded with a rectangular-matrix case (on 1/97).  <a href="freestore-mgmt.html#[16.16]">Click here to go to the next FAQ in the &quot;chain&quot; of recent changes<!--rawtext:[16.16]:rawtext--></a>.]</em></small>
+<p>There are many ways to do this, depending on how flexible you want the array
+sizing to be.  On one extreme, if you know all the dimensions at compile-time,
+you can allocate multidimensional arrays statically (as in C):
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;Fred&nbsp;{&nbsp;</tt><em>/*...*/</em><tt>&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;someFunction(Fred&amp;&nbsp;fred);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;manipulateArray()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;unsigned&nbsp;nrows&nbsp;=&nbsp;10;&nbsp;&nbsp;</tt><em>//&nbsp;Num&nbsp;rows&nbsp;is&nbsp;a&nbsp;compile-time&nbsp;constant</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;unsigned&nbsp;ncols&nbsp;=&nbsp;20;&nbsp;&nbsp;</tt><em>//&nbsp;Num&nbsp;columns&nbsp;is&nbsp;a&nbsp;compile-time&nbsp;constant</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fred&nbsp;matrix[nrows][ncols];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(unsigned&nbsp;i&nbsp;=&nbsp;0;&nbsp;i&nbsp;&lt;&nbsp;nrows;&nbsp;++i)&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(unsigned&nbsp;j&nbsp;=&nbsp;0;&nbsp;j&nbsp;&lt;&nbsp;ncols;&nbsp;++j)&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Here's&nbsp;the&nbsp;way&nbsp;you&nbsp;access&nbsp;the&nbsp;<tt>(i,j)</tt>&nbsp;element:</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;someFunction(&nbsp;matrix[i][j]&nbsp;);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;You&nbsp;can&nbsp;safely&nbsp;&quot;return&quot;&nbsp;without&nbsp;any&nbsp;special&nbsp;<tt>delete</tt>&nbsp;code:</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(today&nbsp;==&nbsp;"Tuesday"&nbsp;&amp;&amp;&nbsp;moon.isFull())<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Quit&nbsp;early&nbsp;on&nbsp;Tuesdays&nbsp;when&nbsp;the&nbsp;moon&nbsp;is&nbsp;full</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;No&nbsp;explicit&nbsp;<tt>delete</tt>&nbsp;code&nbsp;at&nbsp;the&nbsp;end&nbsp;of&nbsp;the&nbsp;function&nbsp;either</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p>More commonly, the size of the matrix isn't known until run-time but you know
+that it will be rectangular.  In this case you need to use the heap
+(&quot;freestore&quot;), but at least you are able to allocate all the elements in one
+freestore chunk.
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;manipulateArray(unsigned&nbsp;nrows,&nbsp;unsigned&nbsp;ncols)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fred*&nbsp;matrix&nbsp;=&nbsp;new&nbsp;Fred[nrows&nbsp;*&nbsp;ncols];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Since&nbsp;we&nbsp;used&nbsp;a&nbsp;simple&nbsp;pointer&nbsp;above,&nbsp;we&nbsp;need&nbsp;to&nbsp;be&nbsp;VERY</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;careful&nbsp;to&nbsp;avoid&nbsp;skipping&nbsp;over&nbsp;the&nbsp;<tt>delete</tt>&nbsp;code.</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;That's&nbsp;why&nbsp;we&nbsp;catch&nbsp;all&nbsp;exceptions:</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Here's&nbsp;how&nbsp;to&nbsp;access&nbsp;the&nbsp;<tt>(i,j)</tt>&nbsp;element:</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(unsigned&nbsp;i&nbsp;=&nbsp;0;&nbsp;i&nbsp;&lt;&nbsp;nrows;&nbsp;++i)&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(unsigned&nbsp;j&nbsp;=&nbsp;0;&nbsp;j&nbsp;&lt;&nbsp;ncols;&nbsp;++j)&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;someFunction(&nbsp;matrix[i*ncols&nbsp;+&nbsp;j]&nbsp;);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;If&nbsp;you&nbsp;want&nbsp;to&nbsp;quit&nbsp;early&nbsp;on&nbsp;Tuesdays&nbsp;when&nbsp;the&nbsp;moon&nbsp;is&nbsp;full,</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;make&nbsp;sure&nbsp;to&nbsp;do&nbsp;the&nbsp;<tt>delete</tt>&nbsp;along&nbsp;ALL&nbsp;return&nbsp;paths:</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(today&nbsp;==&nbsp;"Tuesday"&nbsp;&amp;&amp;&nbsp;moon.isFull())&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;delete[]&nbsp;matrix;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;catch&nbsp;(...)&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Make&nbsp;sure&nbsp;to&nbsp;do&nbsp;the&nbsp;<tt>delete</tt>&nbsp;when&nbsp;an&nbsp;exception&nbsp;is&nbsp;thrown:</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;delete[]&nbsp;matrix;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Re-throw&nbsp;the&nbsp;current&nbsp;exception</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Make&nbsp;sure&nbsp;to&nbsp;do&nbsp;the&nbsp;<tt>delete</tt>&nbsp;at&nbsp;the&nbsp;end&nbsp;of&nbsp;the&nbsp;function&nbsp;too:</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;delete[]&nbsp;matrix;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p>Finally at the other extreme, you may not even be guaranteed that the matrix is
+rectangular.  For example, if each row could have a different length, you'll
+need to allocate each row individually.  In the following function,
+<tt>ncols[i]</tt> is the number of columns in row number <tt>i</tt>, where
+<tt>i</tt> varies between <tt>0</tt> and <tt>nrows-1</tt> inclusive.
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;manipulateArray(unsigned&nbsp;nrows,&nbsp;unsigned&nbsp;ncols[])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fred**&nbsp;matrix&nbsp;=&nbsp;new&nbsp;Fred*[nrows];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(unsigned&nbsp;i&nbsp;=&nbsp;0;&nbsp;i&nbsp;&lt;&nbsp;nrows;&nbsp;++i)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;matrix[i]&nbsp;=&nbsp;new&nbsp;Fred[&nbsp;ncols[i]&nbsp;];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Since&nbsp;we&nbsp;used&nbsp;a&nbsp;simple&nbsp;pointer&nbsp;above,&nbsp;we&nbsp;need&nbsp;to&nbsp;be&nbsp;VERY</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;careful&nbsp;to&nbsp;avoid&nbsp;skipping&nbsp;over&nbsp;the&nbsp;<tt>delete</tt>&nbsp;code.</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;That's&nbsp;why&nbsp;we&nbsp;catch&nbsp;all&nbsp;exceptions:</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Here's&nbsp;how&nbsp;to&nbsp;access&nbsp;the&nbsp;<tt>(i,j)</tt>&nbsp;element:</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(unsigned&nbsp;i&nbsp;=&nbsp;0;&nbsp;i&nbsp;&lt;&nbsp;nrows;&nbsp;++i)&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(unsigned&nbsp;j&nbsp;=&nbsp;0;&nbsp;j&nbsp;&lt;&nbsp;ncols[i];&nbsp;++j)&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;someFunction(&nbsp;matrix[i][j]&nbsp;);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;If&nbsp;you&nbsp;want&nbsp;to&nbsp;quit&nbsp;early&nbsp;on&nbsp;Tuesdays&nbsp;when&nbsp;the&nbsp;moon&nbsp;is&nbsp;full,</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;make&nbsp;sure&nbsp;to&nbsp;do&nbsp;the&nbsp;<tt>delete</tt>&nbsp;along&nbsp;ALL&nbsp;return&nbsp;paths:</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(today&nbsp;==&nbsp;"Tuesday"&nbsp;&amp;&amp;&nbsp;moon.isFull())&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(unsigned&nbsp;i&nbsp;=&nbsp;nrows;&nbsp;i&nbsp;&gt;&nbsp;0;&nbsp;--i)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;delete[]&nbsp;matrix[i-1];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;delete[]&nbsp;matrix;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;catch&nbsp;(...)&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Make&nbsp;sure&nbsp;to&nbsp;do&nbsp;the&nbsp;<tt>delete</tt>&nbsp;when&nbsp;an&nbsp;exception&nbsp;is&nbsp;thrown:</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(unsigned&nbsp;i&nbsp;=&nbsp;nrows;&nbsp;i&nbsp;&gt;&nbsp;0;&nbsp;--i)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;delete[]&nbsp;matrix[i-1];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;delete[]&nbsp;matrix;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Re-throw&nbsp;the&nbsp;current&nbsp;exception</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Make&nbsp;sure&nbsp;to&nbsp;do&nbsp;the&nbsp;<tt>delete</tt>&nbsp;at&nbsp;the&nbsp;end&nbsp;of&nbsp;the&nbsp;function&nbsp;too.</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Note&nbsp;that&nbsp;deletion&nbsp;is&nbsp;the&nbsp;opposite&nbsp;order&nbsp;of&nbsp;allocation:</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(i&nbsp;=&nbsp;nrows;&nbsp;i&nbsp;&gt;&nbsp;0;&nbsp;--i)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;delete[]&nbsp;matrix[i-1];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;delete[]&nbsp;matrix;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p>Note the funny use of <tt>matrix[i-1]</tt> in the deletion process.  This
+prevents wrap-around of the <tt>unsigned</tt> value when <tt>i</tt> goes one step
+below zero.
+<p>Finally, note that <a href="proper-inheritance.html#[21.5]">pointers and arrays are evil<!--rawtext:[21.5]:rawtext--></a>.
+It is normally much better to encapsulate your pointers in a class that has a
+safe and simple interface.  <a href="freestore-mgmt.html#[16.16]">The following FAQ<!--rawtext:[16.16]:rawtext--></a>
+shows how to do this.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="input-output.html">Previous&nbsp;section</a> |&nbsp;<a href="exceptions.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[16.16]"></a>
+<h3>[16.16] But the previous FAQ's code is SOOOO tricky and error
+prone!  Isn't there a simpler way? <img src="new.gif" alt="NEW!" border=0></h3>
+<small><em>[Recently created (on 1/97) and fixed some inconsistencies between <tt>FredMatrix</tt> and <tt>Matrix</tt> thanks to <a href="mailto:jrb@goldengate.net">Jeff Baker</a> (on 9/97).  <a href="freestore-mgmt.html#[16.17]">Click here to go to the next FAQ in the &quot;chain&quot; of recent changes<!--rawtext:[16.17]:rawtext--></a>.]</em></small>
+<p>Yep.
+<p>The reason the code in <a href="freestore-mgmt.html#[16.15]">the previous FAQ<!--rawtext:[16.15]:rawtext--></a> was so
+tricky and error prone was that it used pointers, and we know that
+<a href="proper-inheritance.html#[21.5]">pointers and arrays are evil<!--rawtext:[21.5]:rawtext--></a>.  The solution is to
+encapsulate your pointers in a class that has a safe and simple interface.  For
+example, we can define a <tt>Matrix</tt> class that handles a rectangular
+matrix so our user code will be vastly simplified when compared to the
+<a href="freestore-mgmt.html#[16.15]">the rectangular matrix code from the previous FAQ<!--rawtext:[16.15]:rawtext--></a>:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;The&nbsp;code&nbsp;for&nbsp;<tt>class&nbsp;Matrix</tt>&nbsp;is&nbsp;shown&nbsp;below...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;someFunction(Fred&amp;&nbsp;fred);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;manipulateArray(unsigned&nbsp;nrows,&nbsp;unsigned&nbsp;ncols)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Matrix&nbsp;matrix(nrows,&nbsp;ncols);&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Construct&nbsp;a&nbsp;<tt>Matrix</tt>&nbsp;called&nbsp;<tt>matrix</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(unsigned&nbsp;i&nbsp;=&nbsp;0;&nbsp;i&nbsp;&lt;&nbsp;nrows;&nbsp;++i)&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(unsigned&nbsp;j&nbsp;=&nbsp;0;&nbsp;j&nbsp;&lt;&nbsp;ncols;&nbsp;++j)&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Here's&nbsp;the&nbsp;way&nbsp;you&nbsp;access&nbsp;the&nbsp;<tt>(i,j)</tt>&nbsp;element:</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;someFunction(&nbsp;matrix(i,j)&nbsp;);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;You&nbsp;can&nbsp;safely&nbsp;&quot;return&quot;&nbsp;without&nbsp;any&nbsp;special&nbsp;<tt>delete</tt>&nbsp;code:</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(today&nbsp;==&nbsp;"Tuesday"&nbsp;&amp;&amp;&nbsp;moon.isFull())<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Quit&nbsp;early&nbsp;on&nbsp;Tuesdays&nbsp;when&nbsp;the&nbsp;moon&nbsp;is&nbsp;full</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;No&nbsp;explicit&nbsp;<tt>delete</tt>&nbsp;code&nbsp;at&nbsp;the&nbsp;end&nbsp;of&nbsp;the&nbsp;function&nbsp;either</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p>The main thing to notice is the lack of clean-up code.  For example, there
+aren't any <tt>delete</tt> statements in the above code, yet there will be <em>no</em>
+memory leaks, assuming only that the <tt>Matrix</tt> destructor does its job
+correctly.
+<p>Here's the <tt>Matrix</tt> code that makes the above possible:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;Matrix&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Matrix(unsigned&nbsp;nrows,&nbsp;unsigned&nbsp;ncols);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Throws&nbsp;a&nbsp;<tt>BadSize</tt>&nbsp;object&nbsp;if&nbsp;either&nbsp;size&nbsp;is&nbsp;zero</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;BadSize&nbsp;{&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Based&nbsp;on&nbsp;the&nbsp;<a href="coding-standards.html#[25.8]">Law&nbsp;Of&nbsp;The&nbsp;Big&nbsp;Three<!--rawtext:[25.8]:rawtext--></a>:</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~Matrix();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Matrix(const&nbsp;Matrix&amp;&nbsp;m);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Matrix&amp;&nbsp;operator=&nbsp;(const&nbsp;Matrix&amp;&nbsp;m);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Access&nbsp;methods&nbsp;to&nbsp;get&nbsp;the&nbsp;<tt>(i,j)</tt>&nbsp;element:</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fred&amp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;operator()&nbsp;(unsigned&nbsp;i,&nbsp;unsigned&nbsp;j);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;Fred&amp;&nbsp;operator()&nbsp;(unsigned&nbsp;i,&nbsp;unsigned&nbsp;j)&nbsp;const;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;These&nbsp;throw&nbsp;a&nbsp;<tt>BoundsViolation</tt>&nbsp;object&nbsp;if&nbsp;<tt>i</tt>&nbsp;or&nbsp;<tt>j</tt>&nbsp;is&nbsp;too&nbsp;big</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;BoundsViolation&nbsp;{&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;private:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fred*&nbsp;data_;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unsigned&nbsp;nrows_,&nbsp;ncols_;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;inline&nbsp;Fred&amp;&nbsp;Matrix::operator()&nbsp;(unsigned&nbsp;row,&nbsp;unsigned&nbsp;col)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(row&nbsp;&gt;=&nbsp;nrows_&nbsp;||&nbsp;col&nbsp;&gt;=&nbsp;ncols_)&nbsp;throw&nbsp;BoundsViolation();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;data_[row*ncols_&nbsp;+&nbsp;col];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;inline&nbsp;const&nbsp;Fred&amp;&nbsp;Matrix::operator()&nbsp;(unsigned&nbsp;row,&nbsp;unsigned&nbsp;col)&nbsp;const<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(row&nbsp;&gt;=&nbsp;nrows_&nbsp;||&nbsp;col&nbsp;&gt;=&nbsp;ncols_)&nbsp;throw&nbsp;BoundsViolation();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;data_[row*ncols_&nbsp;+&nbsp;col];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Matrix::Matrix(unsigned&nbsp;nrows,&nbsp;unsigned&nbsp;ncols)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;data_&nbsp;&nbsp;(new&nbsp;Fred[nrows&nbsp;*&nbsp;ncols]),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nrows_&nbsp;(nrows),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ncols_&nbsp;(ncols)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(nrows&nbsp;==&nbsp;0&nbsp;||&nbsp;ncols&nbsp;==&nbsp;0)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;BadSize();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Matrix::~Matrix()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;delete[]&nbsp;data_;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p>Note that the above <tt>Matrix</tt> class accomplishes two things: it moves
+some tricky memory management code from the user code (e.g., <tt>main()</tt>) to
+the class, and it reduces the overall bulk of program (e.g., assuming
+<tt>Matrix</tt> is even mildly reusable, moving complexity from the users of
+<tt>Matrix</tt> into <tt>Matrix</tt> itself is equivalent to moving
+complexity from the many to the few.  And anyone who's seen <em>Star Trek 3</em>
+knows that the good of the many outweighs the good of the few... or the one.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="input-output.html">Previous&nbsp;section</a> |&nbsp;<a href="exceptions.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[16.17]"></a>
+<h3>[16.17] But the above <tt>Matrix</tt> class is specific to
+<tt>Fred</tt>!  Isn't there a way to make it generic? <img src="new.gif" alt="NEW!" border=0></h3>
+<small><em>[Recently created (on 9/97).  <a href="freestore-mgmt.html#[16.20]">Click here to go to the next FAQ in the &quot;chain&quot; of recent changes<!--rawtext:[16.20]:rawtext--></a>.]</em></small>
+<p>Yep; just use <a href="containers-and-templates.html">templates<!--rawtext:[31]:rawtext--></a>:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;template&lt;class&nbsp;T&gt;&nbsp;&nbsp;</tt><em>//&nbsp;See&nbsp;<a href="containers-and-templates.html">section&nbsp;on&nbsp;templates<!--rawtext:[31]:rawtext--></a>&nbsp;for&nbsp;more</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;Matrix&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Matrix(unsigned&nbsp;nrows,&nbsp;unsigned&nbsp;ncols);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Throws&nbsp;a&nbsp;<tt>BadSize</tt>&nbsp;object&nbsp;if&nbsp;either&nbsp;size&nbsp;is&nbsp;zero</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;BadSize&nbsp;{&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Based&nbsp;on&nbsp;the&nbsp;<a href="coding-standards.html#[25.8]">Law&nbsp;Of&nbsp;The&nbsp;Big&nbsp;Three<!--rawtext:[25.8]:rawtext--></a>:</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~Matrix();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Matrix(const&nbsp;Matrix&lt;T&gt;&amp;&nbsp;m);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Matrix&lt;T&gt;&amp;&nbsp;operator=&nbsp;(const&nbsp;Matrix&lt;T&gt;&amp;&nbsp;m);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Access&nbsp;methods&nbsp;to&nbsp;get&nbsp;the&nbsp;<tt>(i,j)</tt>&nbsp;element:</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T&amp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;operator()&nbsp;(unsigned&nbsp;i,&nbsp;unsigned&nbsp;j);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;T&amp;&nbsp;operator()&nbsp;(unsigned&nbsp;i,&nbsp;unsigned&nbsp;j)&nbsp;const;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;These&nbsp;throw&nbsp;a&nbsp;<tt>BoundsViolation</tt>&nbsp;object&nbsp;if&nbsp;<tt>i</tt>&nbsp;or&nbsp;<tt>j</tt>&nbsp;is&nbsp;too&nbsp;big</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;BoundsViolation&nbsp;{&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;private:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T*&nbsp;data_;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unsigned&nbsp;nrows_,&nbsp;ncols_;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;template&lt;class&nbsp;T&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;inline&nbsp;T&amp;&nbsp;Matrix&lt;T&gt;::operator()&nbsp;(unsigned&nbsp;row,&nbsp;unsigned&nbsp;col)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(row&nbsp;&gt;=&nbsp;nrows_&nbsp;||&nbsp;col&nbsp;&gt;=&nbsp;ncols_)&nbsp;throw&nbsp;BoundsViolation();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;data_[row*ncols_&nbsp;+&nbsp;col];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;template&lt;class&nbsp;T&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;inline&nbsp;const&nbsp;T&amp;&nbsp;Matrix&lt;T&gt;::operator()&nbsp;(unsigned&nbsp;row,&nbsp;unsigned&nbsp;col)&nbsp;const<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(row&nbsp;&gt;=&nbsp;nrows_&nbsp;||&nbsp;col&nbsp;&gt;=&nbsp;ncols_)&nbsp;throw&nbsp;BoundsViolation();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;data_[row*ncols_&nbsp;+&nbsp;col];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;template&lt;class&nbsp;T&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;inline&nbsp;Matrix&lt;T&gt;::Matrix(unsigned&nbsp;nrows,&nbsp;unsigned&nbsp;ncols)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;data_&nbsp;&nbsp;(new&nbsp;Fred[nrows&nbsp;*&nbsp;ncols]),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nrows_&nbsp;(nrows),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ncols_&nbsp;(ncols)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(nrows&nbsp;==&nbsp;0&nbsp;||&nbsp;ncols&nbsp;==&nbsp;0)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;BadSize();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;template&lt;class&nbsp;T&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;inline&nbsp;Matrix&lt;T&gt;::~Matrix()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;delete[]&nbsp;data_;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p>Here's one way to use this <a href="containers-and-templates.html">template<!--rawtext:[31]:rawtext--></a>:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;#include&nbsp;"Fred.hpp"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;To&nbsp;get&nbsp;the&nbsp;definition&nbsp;for&nbsp;<tt>class&nbsp;Fred</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;doSomethingWith(Fred&amp;&nbsp;fred);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;sample(unsigned&nbsp;nrows,&nbsp;unsigned&nbsp;ncols)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Matrix&lt;Fred&gt;&nbsp;matrix(nrows,&nbsp;ncols);&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Construct&nbsp;a&nbsp;<tt>Matrix&lt;Fred&gt;</tt>&nbsp;called&nbsp;<tt>matrix</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(unsigned&nbsp;i&nbsp;=&nbsp;0;&nbsp;i&nbsp;&lt;&nbsp;nrows;&nbsp;++i)&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(unsigned&nbsp;j&nbsp;=&nbsp;0;&nbsp;j&nbsp;&lt;&nbsp;ncols;&nbsp;++j)&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;doSomethingWith(&nbsp;matrix(i,j)&nbsp;);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="input-output.html">Previous&nbsp;section</a> |&nbsp;<a href="exceptions.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[16.18]"></a>
+<h3>[16.18] Does C++ have arrays whose length can be specified at
+run-time?</h3>
+<p>Yes, in the sense that <a href="class-libraries.html#[32.1]">STL<!--rawtext:[32.1]:rawtext--></a> has a <tt>vector</tt> template that
+provides this behavior.
+<p>No, in the sense that built-in array types need to have their length specified
+at compile time.
+<p>Yes, in the sense that even built-in array types can specify the first index
+bounds at run-time.  E.g., comparing with the previous FAQ, if you only need
+the first array dimension to vary then you can just ask new for an array of
+arrays, rather than an array of pointers to arrays:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;unsigned&nbsp;ncols&nbsp;=&nbsp;100;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;<tt>ncols</tt>&nbsp;=&nbsp;number&nbsp;of&nbsp;columns&nbsp;in&nbsp;the&nbsp;array</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;Fred&nbsp;{&nbsp;</tt><em>/*...*/</em><tt>&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;manipulateArray(unsigned&nbsp;nrows)&nbsp;&nbsp;</tt><em>//&nbsp;<tt>nrows</tt>&nbsp;=&nbsp;number&nbsp;of&nbsp;rows&nbsp;in&nbsp;the&nbsp;array</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fred&nbsp;(*matrix)[ncols]&nbsp;=&nbsp;new&nbsp;Fred[nrows][ncols];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;delete[]&nbsp;matrix;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p>You can't do this if you need anything other than the first dimension of the
+array to change at run-time.
+<p>But please, don't use arrays unless you have to.  <a href="proper-inheritance.html#[21.5]">Arrays
+are evil<!--rawtext:[21.5]:rawtext--></a>.  Use some object of some class if you can.  Use arrays only
+when you have to.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="input-output.html">Previous&nbsp;section</a> |&nbsp;<a href="exceptions.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[16.19]"></a>
+<h3>[16.19] How can I force objects of my class to always be
+created via <tt>new</tt> rather than as locals or global/<tt>static</tt> objects?</h3>
+<p>Use the <a href="ctors.html#[10.6]">Named Constructor Idiom<!--rawtext:[10.6]:rawtext--></a>.
+<p>As usual with the Named Constructor Idiom, the constructors are all <tt>private:</tt>
+or <tt>protected:</tt>, and there are one or more <tt>public</tt> <tt>static</tt> <tt>create()</tt> methods
+(the so-called &quot;named constructors&quot;), one per constructor.  In this case the
+<tt>create()</tt> methods allocate the objects via <tt>new</tt>.  Since the constructors
+themselves are not <tt>public</tt>, there is no other way to create objects of the
+class.
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;Fred&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;The&nbsp;<tt>create()</tt>&nbsp;methods&nbsp;are&nbsp;the&nbsp;&quot;named&nbsp;constructors&quot;:</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;Fred*&nbsp;create()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;return&nbsp;new&nbsp;Fred();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;Fred*&nbsp;create(int&nbsp;i)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;return&nbsp;new&nbsp;Fred(i);&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;Fred*&nbsp;create(const&nbsp;Fred&amp;&nbsp;fred)&nbsp;{&nbsp;return&nbsp;new&nbsp;Fred(fred);&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;private:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;The&nbsp;constructors&nbsp;themselves&nbsp;are&nbsp;<tt>private</tt>&nbsp;or&nbsp;<tt>protected</tt>:</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fred();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fred(int&nbsp;i);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fred(const&nbsp;Fred&amp;&nbsp;fred);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;};
+</code>
+<p>Now the only way to create <tt>Fred</tt> objects is via <tt>Fred::create()</tt>:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;main()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fred*&nbsp;p&nbsp;=&nbsp;Fred::create(5);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;delete&nbsp;p;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p>Make sure your constructors are in the <tt>protected:</tt> section if you expect
+<tt>Fred</tt> to have derived classes.
+<p>Note also that you can make another class <tt>Wilma</tt> a <a href="friends.html"><tt>friend</tt><!--rawtext:[14]:rawtext--></a> of <tt>Fred</tt> if you want to allow a <tt>Wilma</tt> to have a member object
+of class <tt>Fred</tt>, but of course this is a softening of the original goal, namely
+to force <tt>Fred</tt> objects to be allocated via <tt>new</tt>.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="input-output.html">Previous&nbsp;section</a> |&nbsp;<a href="exceptions.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[16.20]"></a>
+<h3>[16.20] How do I do simple reference counting? <img src="updated.gif" alt="UPDATED!" border=0></h3>
+<small><em>[Recently fixed <tt>FredPtr</tt>'s constructor thanks to <a href="mailto:wanc@cup.hp.com">Chichiang Wan</a> (on 9/97).  <a href="const-correctness.html#[18.1]">Click here to go to the next FAQ in the &quot;chain&quot; of recent changes<!--rawtext:[18.1]:rawtext--></a>.]</em></small>
+<p>If all you want is the ability to pass around a bunch of pointers to the same
+object, with the feature that the object will automagically get <tt>delete</tt>d when
+the last pointer to it disappears, you can use something like the following
+&quot;smart pointer&quot; class:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Fred.h</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;FredPtr;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;Fred&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fred()&nbsp;:&nbsp;count_(0)&nbsp;</tt><em>/*...*/</em><tt>&nbsp;{&nbsp;}&nbsp;&nbsp;</tt><em>//&nbsp;All&nbsp;ctors&nbsp;set&nbsp;<tt>count_</tt>&nbsp;to&nbsp;0&nbsp;!</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;private:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;friend&nbsp;FredPtr;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;<a href="friends.html">A&nbsp;friend&nbsp;class<!--rawtext:[14]:rawtext--></a></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unsigned&nbsp;count_;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;<tt>count_</tt>&nbsp;must&nbsp;be&nbsp;initialized&nbsp;to&nbsp;0&nbsp;by&nbsp;all&nbsp;constructors</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;<tt>count_</tt>&nbsp;is&nbsp;the&nbsp;number&nbsp;of&nbsp;<tt>FredPtr</tt>&nbsp;objects&nbsp;that&nbsp;point&nbsp;at&nbsp;<tt>this</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;FredPtr&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fred*&nbsp;operator-&gt;&nbsp;()&nbsp;{&nbsp;return&nbsp;p_;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fred&amp;&nbsp;operator*&nbsp;()&nbsp;&nbsp;{&nbsp;return&nbsp;*p_;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FredPtr(Fred*&nbsp;p)&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;p_(p)&nbsp;{&nbsp;++p_-&gt;count_;&nbsp;}&nbsp;&nbsp;</tt><em>//&nbsp;<tt>p</tt>&nbsp;must&nbsp;not&nbsp;be&nbsp;<tt>NULL</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~FredPtr()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;if&nbsp;(--p_-&gt;count_&nbsp;==&nbsp;0)&nbsp;delete&nbsp;p_;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FredPtr(const&nbsp;FredPtr&amp;&nbsp;p)&nbsp;:&nbsp;p_(p.p_)&nbsp;{&nbsp;++p_-&gt;count_;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FredPtr&amp;&nbsp;operator=&nbsp;(const&nbsp;FredPtr&amp;&nbsp;p)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;</tt><em>//&nbsp;DO&nbsp;NOT&nbsp;CHANGE&nbsp;THE&nbsp;ORDER&nbsp;OF&nbsp;THESE&nbsp;STATEMENTS!</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;(This&nbsp;order&nbsp;properly&nbsp;handles&nbsp;<a href="assignment-operators.html#[12.1]">self-assignment<!--rawtext:[12.1]:rawtext--></a>)</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;++p.p_-&gt;count_;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(--p_-&gt;count_&nbsp;==&nbsp;0)&nbsp;delete&nbsp;p_;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p_&nbsp;=&nbsp;p.p_;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;*this;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;private:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fred*&nbsp;p_;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;<tt>p_</tt>&nbsp;is&nbsp;never&nbsp;<tt>NULL</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;};
+</code>
+<p>Naturally you can use nested classes to rename <tt>FredPtr</tt> to
+<tt>Fred::Ptr</tt>.
+<p>Note that you can soften the &quot;never <tt>NULL</tt>&quot; rule above with a little more
+checking in the constructor, copy constructor, assignment operator, and
+destructor.  If you do that, you might as well put a <tt>p_&nbsp;!=&nbsp;NULL</tt> check
+into the &quot;<tt>*</tt>&quot; and &quot;<tt>-&gt;</tt>&quot; operators (at least as an <tt>assert()</tt>).  I
+would recommend against an <tt>operator&nbsp;Fred*()</tt> method, since that would
+let people accidentally get at the <tt>Fred*</tt>.
+<p>One of the implicit constraints on <tt>FredPtr</tt> is that it must only point
+to <tt>Fred</tt> objects which have been allocated via <tt>new</tt>.  If you want to be
+really safe, you can enforce this constraint by making all of <tt>Fred</tt>'s
+constructors <tt>private</tt>, and for each constructor have a <tt>public</tt> (<tt>static</tt>)
+<tt>create()</tt> method which allocates the <tt>Fred</tt> object via <tt>new</tt> and returns a
+<tt>FredPtr</tt> (not a <tt>Fred*</tt>).  That way the <em>only</em> way anyone could
+create a <tt>Fred</tt> object would be to get a <tt>FredPtr</tt> (&quot;<tt>Fred*&nbsp;p&nbsp;=&nbsp;new&nbsp;Fred()</tt>&quot; would be replaced by &quot;<tt>FredPtr&nbsp;p&nbsp;=&nbsp;Fred::create()</tt>&quot;).  Thus
+no one could accidentally subvert the reference counted mechanism.
+<p>For example, if <tt>Fred</tt> had a <tt>Fred::Fred()</tt> and a <tt>Fred::Fred(int&nbsp;i,&nbsp;int&nbsp;j)</tt>, the changes to <tt>class</tt> <tt>Fred</tt> would be:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;Fred&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;FredPtr&nbsp;create()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;return&nbsp;new&nbsp;Fred();&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;FredPtr&nbsp;create(int&nbsp;i,&nbsp;int&nbsp;j)&nbsp;{&nbsp;return&nbsp;new&nbsp;Fred(i,j);&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;private:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fred();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fred(int&nbsp;i,&nbsp;int&nbsp;j);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;};
+</code>
+<p>The end result is that you now have a way to use simple reference counting to
+provide &quot;pointer semantics&quot; for a given object.  Users of your <tt>Fred</tt> <tt>class</tt>
+explicitly use <tt>FredPtr</tt> objects, which act more or less like <tt>Fred*</tt>
+pointers.  The benefit is that users can make as many copies of their
+<tt>FredPtr</tt> &quot;smart pointer&quot; objects, and the pointed-to <tt>Fred</tt> object will
+automagically get <tt>delete</tt>d when the last such <tt>FredPtr</tt> object vanishes.
+<p>If you'd rather give your users &quot;reference semantics&quot; rather than &quot;pointer
+semantics,&quot; you can use <a href="freestore-mgmt.html#[16.21]">reference counting to provide
+&quot;copy on write&quot;<!--rawtext:[16.21]:rawtext--></a>.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="input-output.html">Previous&nbsp;section</a> |&nbsp;<a href="exceptions.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[16.21]"></a>
+<h3>[16.21] How do I provide reference counting with copy-on-write
+semantics?</h3>
+<p>The <a href="freestore-mgmt.html#[16.20]">previous FAQ<!--rawtext:[16.20]:rawtext--></a> a simple reference counting
+scheme that provided users with pointer semantics.  This FAQ describes an
+approach that provides users with reference semantics.
+<p>The basic idea is to allow users to think they're copying your <tt>Fred</tt> objects,
+but in reality the underlying implementation doesn't actually do any copying
+unless and until some user actually tries to modify the underlying <tt>Fred</tt>
+object.
+<p>Class <tt>Fred::Data</tt> houses all the data that would normally go into the
+<tt>Fred</tt> <tt>class</tt>.  <tt>Fred::Data</tt> also has an extra data member,
+<tt>count_</tt>, to manage the reference counting.  Class <tt>Fred</tt> ends up being a
+&quot;smart reference&quot; that (internally) points to a <tt>Fred::Data</tt>.
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;Fred&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fred();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;<a href="ctors.html#[10.4]">A&nbsp;default&nbsp;constructor<!--rawtext:[10.4]:rawtext--></a></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fred(int&nbsp;i,&nbsp;int&nbsp;j);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;A&nbsp;normal&nbsp;constructor</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fred(const&nbsp;Fred&amp;&nbsp;f);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fred&amp;&nbsp;operator=&nbsp;(const&nbsp;Fred&amp;&nbsp;f);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~Fred();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;sampleInspectorMethod()&nbsp;const;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;No&nbsp;changes&nbsp;to&nbsp;<tt>this</tt>&nbsp;object</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;sampleMutatorMethod();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Change&nbsp;<tt>this</tt>&nbsp;object</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;private:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;Data&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Data();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Data(int&nbsp;i,&nbsp;int&nbsp;j);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Since&nbsp;only&nbsp;<tt>Fred</tt>&nbsp;can&nbsp;access&nbsp;a&nbsp;<tt>Fred::Data</tt>&nbsp;object,</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;you&nbsp;can&nbsp;make&nbsp;<tt>Fred::Data</tt>'s&nbsp;data&nbsp;<tt>public</tt>&nbsp;if&nbsp;you&nbsp;want.</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;But&nbsp;if&nbsp;that&nbsp;makes&nbsp;you&nbsp;uncomfortable,&nbsp;make&nbsp;the&nbsp;data&nbsp;<tt>private</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;and&nbsp;make&nbsp;<tt>Fred</tt>&nbsp;a&nbsp;<a href="friends.html">friend&nbsp;class<!--rawtext:[14]:rawtext--></a>&nbsp;via&nbsp;<tt>friend&nbsp;Fred;</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unsigned&nbsp;count_;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;<tt>count_</tt>&nbsp;must&nbsp;be&nbsp;initialized&nbsp;to&nbsp;0&nbsp;by&nbsp;all&nbsp;constructors</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;<tt>count_</tt>&nbsp;is&nbsp;the&nbsp;number&nbsp;of&nbsp;<tt>Fred</tt>&nbsp;objects&nbsp;that&nbsp;point&nbsp;at&nbsp;<tt>this</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Data*&nbsp;data_;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Fred::Data::Data()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;count_(1)&nbsp;</tt><em>/*init&nbsp;other&nbsp;data*/</em><tt>&nbsp;{&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Fred::Data::Data(int&nbsp;i,&nbsp;int&nbsp;j)&nbsp;:&nbsp;count_(1)&nbsp;</tt><em>/*init&nbsp;other&nbsp;data*/</em><tt>&nbsp;{&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Fred::Fred()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;data_(new&nbsp;Data())&nbsp;{&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Fred::Fred(int&nbsp;i,&nbsp;int&nbsp;j)&nbsp;:&nbsp;data_(new&nbsp;Data(i,&nbsp;j))&nbsp;{&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Fred::Fred(const&nbsp;Fred&amp;&nbsp;f)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;data_(f.data_)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;++&nbsp;data_-&gt;count_;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Fred&amp;&nbsp;Fred::operator=&nbsp;(const&nbsp;Fred&amp;&nbsp;f)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;DO&nbsp;NOT&nbsp;CHANGE&nbsp;THE&nbsp;ORDER&nbsp;OF&nbsp;THESE&nbsp;STATEMENTS!</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;(This&nbsp;order&nbsp;properly&nbsp;handles&nbsp;<a href="assignment-operators.html#[12.1]">self-assignment<!--rawtext:[12.1]:rawtext--></a>)</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;++&nbsp;f.data_-&gt;count_;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(--data_-&gt;count_&nbsp;==&nbsp;0)&nbsp;delete&nbsp;data_;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data_&nbsp;=&nbsp;f.data_;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;*this;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Fred::~Fred()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(--data_-&gt;count_&nbsp;==&nbsp;0)&nbsp;delete&nbsp;data_;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;Fred::sampleInspectorMethod()&nbsp;const<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;This&nbsp;method&nbsp;promises&nbsp;(&quot;<tt>const</tt>&quot;)&nbsp;not&nbsp;to&nbsp;change&nbsp;anything&nbsp;in&nbsp;<tt>*data_</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Other&nbsp;than&nbsp;that,&nbsp;any&nbsp;data&nbsp;access&nbsp;would&nbsp;simply&nbsp;use&nbsp;&quot;<tt>data_-&gt;</tt>...&quot;</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;Fred::sampleMutatorMethod()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;This&nbsp;method&nbsp;might&nbsp;need&nbsp;to&nbsp;change&nbsp;things&nbsp;in&nbsp;<tt>*data_</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Thus&nbsp;it&nbsp;first&nbsp;checks&nbsp;if&nbsp;<tt>this</tt>&nbsp;is&nbsp;the&nbsp;only&nbsp;pointer&nbsp;to&nbsp;<tt>*data_</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(data_-&gt;counter&nbsp;&gt;&nbsp;1)&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Data*&nbsp;d&nbsp;=&nbsp;new&nbsp;Data(*data_);&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Invoke&nbsp;<tt>Fred::Data</tt>'s&nbsp;copy&nbsp;ctor</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;data_-&gt;counter_;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data_&nbsp;=&nbsp;d;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;assert(data_-&gt;counter_&nbsp;==&nbsp;1);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Now&nbsp;the&nbsp;method&nbsp;proceeds&nbsp;to&nbsp;access&nbsp;&quot;<tt>data_-&gt;</tt>...&quot;&nbsp;as&nbsp;normal</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p>If it is fairly common to call <tt>Fred</tt>'s <a href="ctors.html#[10.4]">default
+constructor<!--rawtext:[10.4]:rawtext--></a>, you can avoid all those <tt>new</tt> calls by sharing
+a common <tt>Fred::Data</tt> object for all <tt>Fred</tt>s that are constructed via
+<tt>Fred::Fred()</tt>.  To avoid <tt>static</tt> initialization order problems, this
+shared <tt>Fred::Data</tt> object is created &quot;on first use&quot; inside a function.
+Here are the changes that would be made to the above code (note that the shared
+<tt>Fred::Data</tt> object's destructor is never invoked; if that is a problem,
+either hope you don't have any <tt>static</tt> initialization order problems, or drop
+back to the approach described above):
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;Fred&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;private:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;Data*&nbsp;defaultData();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Fred::Fred()&nbsp;:&nbsp;data_(defaultData())&nbsp;{&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Fred::Data*&nbsp;Fred::defaultData()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;Data*&nbsp;p&nbsp;=&nbsp;NULL;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(p&nbsp;==&nbsp;NULL)&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p&nbsp;=&nbsp;new&nbsp;Data();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;++&nbsp;p-&gt;count_;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Make&nbsp;sure&nbsp;it&nbsp;never&nbsp;goes&nbsp;to&nbsp;zero</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;p;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p>Note: You can also provide <a href="freestore-mgmt.html#[16.22]">reference
+counting for a hierarchy of classes<!--rawtext:[16.22]:rawtext--></a> if your <tt>Fred</tt> class would normally
+have been a base class.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="input-output.html">Previous&nbsp;section</a> |&nbsp;<a href="exceptions.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[16.22]"></a>
+<h3>[16.22] How do I provide reference counting with
+copy-on-write semantics for a hierarchy of classes?</h3>
+<p>The <a href="freestore-mgmt.html#[16.21]">previous FAQ<!--rawtext:[16.21]:rawtext--></a> presented a reference counting
+scheme that provided users with reference semantics, but did so for a single
+class rather than for a hierarchy of classes.  This FAQ extends the previous
+technique to allow for a hierarchy of classes.  The basic difference is that
+<tt>Fred::Data</tt> is now the root of a hierarchy of classes, which probably
+cause it to have some <a href="virtual-functions.html"><tt>virtual</tt><!--rawtext:[20]:rawtext--></a> functions.  Note
+that class <tt>Fred</tt> itself will still not have any <tt>virtual</tt> functions.
+<p>The <a href="virtual-functions.html#[20.5]">Virtual Constructor Idiom<!--rawtext:[20.5]:rawtext--></a> is used to make
+copies of the <tt>Fred::Data</tt> objects.  To select which derived class to
+create, the sample code below uses the <a href="ctors.html#[10.6]">Named Constructor
+Idiom<!--rawtext:[10.6]:rawtext--></a>, but other techniques are possible (a
+<tt>switch</tt> statement in the constructor, etc).  The sample code assumes two
+derived classes: <tt>Der1</tt> and <tt>Der2</tt>.  Methods in the derived classes are unaware
+of the reference counting.
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;Fred&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;Fred&nbsp;create1(String&nbsp;s,&nbsp;int&nbsp;i);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;Fred&nbsp;create2(float&nbsp;x,&nbsp;float&nbsp;y);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fred(const&nbsp;Fred&amp;&nbsp;f);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fred&amp;&nbsp;operator=&nbsp;(const&nbsp;Fred&amp;&nbsp;f);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~Fred();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;sampleInspectorMethod()&nbsp;const;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;No&nbsp;changes&nbsp;to&nbsp;<tt>this</tt>&nbsp;object</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;sampleMutatorMethod();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Change&nbsp;<tt>this</tt>&nbsp;object</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;private:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;Data&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Data()&nbsp;:&nbsp;count_(1)&nbsp;{&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;virtual&nbsp;~Data()&nbsp;{&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;<a href="virtual-functions.html#[20.4]">A&nbsp;virtual&nbsp;destructor<!--rawtext:[20.4]:rawtext--></a></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;virtual&nbsp;Data*&nbsp;clone()&nbsp;const&nbsp;=&nbsp;0;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;<a href="virtual-functions.html#[20.5]">A&nbsp;virtual&nbsp;constructor<!--rawtext:[20.5]:rawtext--></a></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;virtual&nbsp;void&nbsp;sampleInspectorMethod()&nbsp;const&nbsp;=&nbsp;0;&nbsp;&nbsp;</tt><em>//&nbsp;<a href="abcs.html#[22.4]">A&nbsp;pure&nbsp;virtual&nbsp;function<!--rawtext:[22.4]:rawtext--></a></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;virtual&nbsp;void&nbsp;sampleMutatorMethod()&nbsp;=&nbsp;0;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unsigned&nbsp;count_;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;<tt>count_</tt>&nbsp;doesn't&nbsp;need&nbsp;to&nbsp;be&nbsp;<tt>protected</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;Der1&nbsp;:&nbsp;public&nbsp;Data&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Der1(String&nbsp;s,&nbsp;int&nbsp;i);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;virtual&nbsp;void&nbsp;sampleInspectorMethod()&nbsp;const;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;virtual&nbsp;void&nbsp;sampleMutatorMethod();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;virtual&nbsp;Data*&nbsp;clone()&nbsp;const;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;Der2&nbsp;:&nbsp;public&nbsp;Data&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Der2(float&nbsp;x,&nbsp;float&nbsp;y);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;virtual&nbsp;void&nbsp;sampleInspectorMethod()&nbsp;const;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;virtual&nbsp;void&nbsp;sampleMutatorMethod();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;virtual&nbsp;Data*&nbsp;clone()&nbsp;const;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fred(Data*&nbsp;data);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Creates&nbsp;a&nbsp;<tt>Fred</tt>&nbsp;smart-reference&nbsp;that&nbsp;owns&nbsp;<tt>*data</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;It&nbsp;is&nbsp;<tt>private</tt>&nbsp;to&nbsp;force&nbsp;users&nbsp;to&nbsp;use&nbsp;a&nbsp;<tt>createXXX()</tt>&nbsp;method</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Requirement:&nbsp;<tt>data</tt>&nbsp;must&nbsp;not&nbsp;be&nbsp;<tt>NULL</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Data*&nbsp;data_;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Invariant:&nbsp;<tt>data_</tt>&nbsp;is&nbsp;never&nbsp;<tt>NULL</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Fred::Fred(Data*&nbsp;data)&nbsp;:&nbsp;data_(data)&nbsp;&nbsp;{&nbsp;assert(data&nbsp;!=&nbsp;NULL);&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Fred&nbsp;Fred::create1(String&nbsp;s,&nbsp;int&nbsp;i)&nbsp;&nbsp;&nbsp;{&nbsp;return&nbsp;Fred(new&nbsp;Der1(s,&nbsp;i));&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Fred&nbsp;Fred::create2(float&nbsp;x,&nbsp;float&nbsp;y)&nbsp;&nbsp;{&nbsp;return&nbsp;Fred(new&nbsp;Der2(x,&nbsp;y));&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Fred::Data*&nbsp;Fred::Der1::clone()&nbsp;const&nbsp;{&nbsp;return&nbsp;new&nbsp;Der1(*this);&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Fred::Data*&nbsp;Fred::Der2::clone()&nbsp;const&nbsp;{&nbsp;return&nbsp;new&nbsp;Der2(*this);&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Fred::Fred(const&nbsp;Fred&amp;&nbsp;f)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;data_(f.data_)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;++&nbsp;data_-&gt;count_;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Fred&amp;&nbsp;Fred::operator=&nbsp;(const&nbsp;Fred&amp;&nbsp;f)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;DO&nbsp;NOT&nbsp;CHANGE&nbsp;THE&nbsp;ORDER&nbsp;OF&nbsp;THESE&nbsp;STATEMENTS!</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;(This&nbsp;order&nbsp;properly&nbsp;handles&nbsp;<a href="assignment-operators.html#[12.1]">self-assignment<!--rawtext:[12.1]:rawtext--></a>)</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;++&nbsp;f.data_-&gt;count_;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(--data_-&gt;count_&nbsp;==&nbsp;0)&nbsp;delete&nbsp;data_;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data_&nbsp;=&nbsp;f.data_;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;*this;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Fred::~Fred()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(--data_-&gt;count_&nbsp;==&nbsp;0)&nbsp;delete&nbsp;data_;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;Fred::sampleInspectorMethod()&nbsp;const<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;This&nbsp;method&nbsp;promises&nbsp;(&quot;<tt>const</tt>&quot;)&nbsp;not&nbsp;to&nbsp;change&nbsp;anything&nbsp;in&nbsp;<tt>*data_</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Therefore&nbsp;we&nbsp;simply&nbsp;&quot;pass&nbsp;the&nbsp;method&nbsp;through&quot;&nbsp;to&nbsp;<tt>*data_</tt>:</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data_-&gt;sampleInspectorMethod();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;Fred::sampleMutatorMethod()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;This&nbsp;method&nbsp;might&nbsp;need&nbsp;to&nbsp;change&nbsp;things&nbsp;in&nbsp;<tt>*data_</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Thus&nbsp;it&nbsp;first&nbsp;checks&nbsp;if&nbsp;<tt>this</tt>&nbsp;is&nbsp;the&nbsp;only&nbsp;pointer&nbsp;to&nbsp;<tt>*data_</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(data_-&gt;counter&nbsp;&gt;&nbsp;1)&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Data*&nbsp;d&nbsp;=&nbsp;data_-&gt;clone();&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;<a href="virtual-functions.html#[20.5]">The&nbsp;Virtual&nbsp;Constructor&nbsp;Idiom<!--rawtext:[20.5]:rawtext--></a></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;data_-&gt;counter_;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data_&nbsp;=&nbsp;d;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;assert(data_-&gt;counter_&nbsp;==&nbsp;1);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Now&nbsp;we&nbsp;&quot;pass&nbsp;the&nbsp;method&nbsp;through&quot;&nbsp;to&nbsp;<tt>*data_</tt>:</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data_-&gt;sampleInspectorMethod();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p>Naturally the constructors and <tt>sampleXXX</tt> methods for <tt>Fred::Der1</tt>
+and <tt>Fred::Der2</tt> will need to be implemented in whatever way is
+appropriate.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="input-output.html">Previous&nbsp;section</a> |&nbsp;<a href="exceptions.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<a name="bottom"></a>
+<a href="mailto:cline@parashift.com"><img src="mbox.gif" border=2 height=26 width=89>&nbsp;E-mail the author</a><br>
+[&nbsp;<a href="index.html"><em>C++ FAQ Lite</em></a>
+|&nbsp;<a href="index.html#table-of-contents">Table&nbsp;of&nbsp;contents</a>
+|&nbsp;<a href="subject-index.html">Subject&nbsp;index</a>
+|&nbsp;<a href="copy-permissions.html#[1.1]">About&nbsp;the&nbsp;author</a>
+|&nbsp;<a href="copy-permissions.html#[1.2]">&copy;</a>
+|&nbsp;<a href="on-line-availability.html#[2.2]">Download&nbsp;your&nbsp;own&nbsp;copy</a>&nbsp;]<br>
+<small>Revised Sep 8, 1997</small>
+</body>
+</html>

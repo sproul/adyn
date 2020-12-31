@@ -1,0 +1,7 @@
+#!/bin/bash
+for kid in ava b pay; do
+        rsync.newest /home/root/Dropbox/adyn/httpdocs/teacher/usr/$kid/data /home/ec2-user/Dropbox/adyn/httpdocs/teacher/usr/$kid/data
+done
+
+exit
+bx $DROP/adyn/teacher/bin/teacher.propagate_kids 

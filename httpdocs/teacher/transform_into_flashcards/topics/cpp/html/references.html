@@ -1,0 +1,140 @@
+<html>
+<head>
+<title>[8] References, C++ FAQ Lite, Marshall Cline</title>
+<link rev=made href="mailto:cline@parashift.com">
+</head>
+<body vlink="#551a8b" text="#000000" bgcolor="#c1c1c1" alink="#ff0000" link="#0000ee">
+<a name="top"></a>
+<h1>[8] References<br>
+<small><small>(Part of <a href="index.html"><em>C++ FAQ Lite</em></a>, <a href="copy-permissions.html#[1.2]">Copyright&nbsp;&copy; 1991-96</a>, <a href="http://www.cerfnet.com/~mpcline/">Marshall Cline</a>, <a href="mailto:cline@parashift.com">cline@parashift.com</a>)</small></small></h1>
+<hr width="100%" >
+<h3>FAQs in section [8]:</h3>
+<ul>
+<li><a href="references.html#[8.1]">[8.1] What is a reference?</a></li>
+<li><a href="references.html#[8.2]">[8.2] What happens if you assign to a reference?</a></li>
+<li><a href="references.html#[8.3]">[8.3] What happens if you return a reference?</a></li>
+<li><a href="references.html#[8.4]">[8.4] How can you reseat a reference to make it refer to a
+different object?</a></li>
+<li><a href="references.html#[8.5]">[8.5] When should I use references, and when should I use pointers?</a></li>
+</ul>
+<p><hr width="100%" >
+<p><a name="[8.1]"></a>
+<h3>[8.1] What is a reference?</h3>
+<p>An alias (an alternate name) for an object.
+<p>References are frequently used for pass-by-reference:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;swap(int&amp;&nbsp;i,&nbsp;int&amp;&nbsp;j)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;tmp&nbsp;=&nbsp;i;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i&nbsp;=&nbsp;j;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;j&nbsp;=&nbsp;tmp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;main()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;x,&nbsp;y;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;swap(x,y);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p>Here <tt>i</tt> and <tt>j</tt> are aliases for main's <tt>x</tt> and <tt>y</tt> respectively.  In other
+words, <tt>i</tt> <em>is</em> <tt>x</tt> &#151; not a pointer to <tt>x</tt>, nor a copy of <tt>x</tt>, but <tt>x</tt>
+itself.  Anything you do to <tt>i</tt> gets done to <tt>x</tt>, and vice versa.
+<p>OK.  That's how you should think of references as a programmer.  Now, at the
+risk of confusing you by giving you a different perspective, here's how
+references are implemented.  Underneath it all, a reference <tt>i</tt> to object <tt>x</tt>
+is typically the machine address of the object <tt>x</tt>.  But when the programmer
+says <tt>i++</tt>, the compiler generates code that increments <tt>x</tt>.  In
+particular, the address bits that the compiler uses to find <tt>x</tt> are not
+changed.  A C programmer will think of this as if you used the C style
+pass-by-pointer, with the syntactic variant of (1) moving the <tt>&amp;</tt> from the
+caller into the callee, and (2) eliminating the <tt>*</tt>s.  In other words, a C
+programmer will think of <tt>i</tt> as a macro for <tt>(*p)</tt>, where <tt>p</tt> is a
+pointer to <tt>x</tt> (e.g., the compiler automatically dereferences the underlying
+pointer; <tt>i++</tt> is changed to <tt>(*p)++</tt>; <tt>i&nbsp;=&nbsp;7</tt> is
+automatically changed to <tt>*p&nbsp;=&nbsp;7</tt>).
+<p><em>Important note:</em> Even though a reference is often implemented using an
+address in the underlying assembly language, please do <em>not</em> think of a
+reference as a funny looking pointer to an object.  A reference <em>is</em> the
+object.  It is not a pointer to the object, nor a copy of the object.  It
+<em>is</em> the object.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="classes-and-objects.html">Previous&nbsp;section</a> |&nbsp;<a href="inline-functions.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[8.2]"></a>
+<h3>[8.2] What happens if you assign to a reference?</h3>
+<p>You change the referent (the object to which the reference refers).
+<p>Remember: the reference <em>is</em> the referent, so changing the reference
+changes the referent.  In compiler writer lingo, a reference is an &quot;lvalue&quot;
+(something that can appear on the left hand side of an assignment <tt>operator</tt>).
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="classes-and-objects.html">Previous&nbsp;section</a> |&nbsp;<a href="inline-functions.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[8.3]"></a>
+<h3>[8.3] What happens if you return a reference?</h3>
+<p>The function call can appear on the left hand side of an assignment <tt>operator</tt>.
+<p>This ability may seem strange at first.  For example, no one thinks the
+expression <tt>f()&nbsp;=&nbsp;7</tt> makes sense.  Yet, if <tt>a</tt> is an object of
+<tt>class</tt> <tt>Array</tt>, most people think that <tt>a[i]&nbsp;=&nbsp;7</tt> makes sense even
+though <tt>a[i]</tt> is really just a function call in disguise (it calls
+<tt>Array::operator[](int)</tt>, which is the subscript <tt>operator</tt> for <tt>class</tt>
+<tt>Array</tt>).
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;Array&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;size()&nbsp;const;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float&amp;&nbsp;operator[]&nbsp;(int&nbsp;index);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;main()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Array&nbsp;a;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(int&nbsp;i&nbsp;=&nbsp;0;&nbsp;i&nbsp;&lt;&nbsp;a.size();&nbsp;++i)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a[i]&nbsp;=&nbsp;7;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;This&nbsp;line&nbsp;invokes&nbsp;<tt>Array::operator[](int)</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="classes-and-objects.html">Previous&nbsp;section</a> |&nbsp;<a href="inline-functions.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[8.4]"></a>
+<h3>[8.4] How can you reseat a reference to make it refer to a
+different object?</h3>
+<p>No way.
+<p>You can't separate the reference from the referent.
+<p>Unlike a pointer, once a reference is bound to an object, it can <em>not</em> be
+&quot;reseated&quot; to another object.  The reference itself isn't an object (it has no
+identity; taking the address of a reference gives you the address of the
+referent; remember: the reference <em>is</em> its referent).
+<p>In that sense, a reference is similar to a <a href="const-correctness.html#[18.5]"><tt>const</tt>
+pointer<!--rawtext:[18.5]:rawtext--></a> such as <tt>int*&nbsp;const&nbsp;p</tt> (as opposed to a <a href="const-correctness.html#[18.4]">pointer to <tt>const</tt><!--rawtext:[18.4]:rawtext--></a> such as <tt>const&nbsp;int*&nbsp;p</tt>).  In spite of the gross
+similarity, please don't confuse references with pointers; they're not <em>at
+all</em> the same.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="classes-and-objects.html">Previous&nbsp;section</a> |&nbsp;<a href="inline-functions.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[8.5]"></a>
+<h3>[8.5] When should I use references, and when should I use pointers?</h3>
+<p>Use references when you can, and pointers when you have to.
+<p>References are usually preferred over pointers whenever you don't need
+<a href="references.html#[8.4]">&quot;reseating&quot;<!--rawtext:[8.4]:rawtext--></a>.  This usually means that references are
+most useful in a class's <tt>public</tt> interface.  References typically appear on
+the skin of an object, and pointers on the inside.
+<p>The exception to the above is where a function's parameter or return value
+needs a &quot;sentinel&quot; reference.  This is usually best done by returning/taking a
+pointer, and giving the <tt>NULL</tt> pointer this special significance (references
+should always alias objects, not a dereferenced <tt>NULL</tt> pointer).
+<p>Note: Old line C programmers sometimes don't like references since they provide
+reference semantics that isn't explicit in the caller's code.  After some C++
+experience, however, one quickly realizes this is a form of information hiding,
+which is an asset rather than a liability.  E.g., programmers should write code
+in the language of the problem rather than the language of the machine.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="classes-and-objects.html">Previous&nbsp;section</a> |&nbsp;<a href="inline-functions.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<a name="bottom"></a>
+<a href="mailto:cline@parashift.com"><img src="mbox.gif" border=2 height=26 width=89>&nbsp;E-mail the author</a><br>
+[&nbsp;<a href="index.html"><em>C++ FAQ Lite</em></a>
+|&nbsp;<a href="index.html#table-of-contents">Table&nbsp;of&nbsp;contents</a>
+|&nbsp;<a href="subject-index.html">Subject&nbsp;index</a>
+|&nbsp;<a href="copy-permissions.html#[1.1]">About&nbsp;the&nbsp;author</a>
+|&nbsp;<a href="copy-permissions.html#[1.2]">&copy;</a>
+|&nbsp;<a href="on-line-availability.html#[2.2]">Download&nbsp;your&nbsp;own&nbsp;copy</a>&nbsp;]<br>
+<small>Revised Sep 8, 1997</small>
+</body>
+</html>

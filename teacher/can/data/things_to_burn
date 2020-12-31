@@ -1,0 +1,11 @@
+# formatted
+@val = (
+{
+'English' => 'tree branches',
+'French' => '{un branche>p>} {de arbre>s>}',
+'German' => '{Baumzweig>p>}',
+'Italian' => '{un ramo>p>} {da albero>p>}',
+'Spanish' => '{rama>p>} de /arbol',
+'id' => 0,
+},
+);

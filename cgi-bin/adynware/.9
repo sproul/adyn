@@ -1,0 +1,696 @@
+package adynware_server;
+require 5.004;
+use strict;
+use diagnostics;
+use adynware::utility;
+use adynware::q_count;
+use IO::Select;
+use IO::Socket;
+use IO::File;
+use adynware::utility_file;
+
+my $idle__NOT						=50;
+my $idle__DO_BACKGROUND_TASKS				=51;
+my $idle__TOTALLY					=52;
+
+my $HTMLHEADER = "HTTP/1.0 200 OK\nContent-type: text/html\n\n";
+
+my $state_AWAITING_RESPONSE				=2;
+
+my $server__applicationName = "uninitialized_applicationName";
+my $server__applicationVersion = "0.0";
+my $__bufferAll = 0;
+my %__buffers = ();
+my $server__customerID = 71256;
+my %server__handleStates = ();
+my $server__idleState = $idle__NOT;
+my $server__internetAvailable = 1;
+my $server__js = "";
+#my $server__massageUserPerl = 1;
+my $__memory = "";
+my $server__mostRecentDocument = "";
+my @server__noProxy = ();
+my $server__port = 38201;
+my $server__proxyServer = "";
+my $server__proxyPort = 80;
+my $__relay = 1;
+my $server__select = 0;
+my $server__shutdownRequested = 0;
+my $server__userFactory = 0;
+my %server__users = ();
+my $server__verbose = 0;
+my $server__aRequestHasBeenSeen = 0;
+my $__controllerPort = 0;
+my $__enabled = 1;
+
+#sub InternetAvailable
+#{
+#        my($host) = @_;
+#        my @tmp = gethostbyname($host);
+#        my @address = unpack('C4', $tmp[4]);
+#        return ("$address[0].$address[1].$address[2].$address[3]" ne "127.0.0.1");
+#}
+#
+sub ShutdownAtNextCheckPoint
+{
+        $server__shutdownRequested = 1;
+}
+
+sub LogState
+{
+        utility::LogState(@_);
+}
+
+sub Init
+{
+        my($programName, $user, $applicationName, $applicationVersion) = @_;
+        die "incomplete invocation of adynware_server::Init" unless defined $applicationVersion;
+                
+        #        $__memory = "";
+        #        for (my $j=0; $j<1000; $j++)
+        #        {
+        #                $__memory .= "0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789";
+        #        }
+        
+                
+        $server__userFactory = $user;
+                        
+        $server__applicationName = $applicationName;
+        $server__applicationVersion = $applicationVersion;
+                        
+        my $deleteSource = 0;
+                        
+        my $logFileName = undef;
+                
+        utility::Init($programName, $server__verbose, undef, undef, undef, undef);
+        while (@ARGV)
+        {
+                $_ = shift @ARGV;
+                if (/^-bufferAll$/)
+                {
+                        $__bufferAll = 1;
+                }
+                elsif (/^-controllerPort$/)
+                {
+                        $__controllerPort = shift @ARGV;
+                }
+                elsif (/^-customerID$/)
+                {
+                        $server__customerID = shift @ARGV;
+                }
+                elsif (/^-disableW$/)
+                {
+                        $server__userFactory->Configure("DisableW()");
+                }
+                elsif (/^-forms1to25$/)
+                {
+                        $server__userFactory->Configure("listFormsFirst()");
+                }
+                elsif (/^-log$/)
+                {
+                        $logFileName = shift @ARGV;
+                                                                                                
+                }
+                elsif (/^-logFast$/)
+                { 
+                        utility::LogInMemory(1);
+                }
+                elsif (/^-norelay$/)
+                {
+                        $__relay = 0;
+                } 
+                elsif (/^-noProxy$/)
+                {
+                        @server__noProxy = utility::constructIPMaskSet(shift @ARGV);
+                }
+                elsif (/^-port$/)
+                {
+                        $server__port = shift @ARGV;
+                }
+                elsif (/^-proxyPort$/)
+                {
+                        print "error: -proxyPort option is only valid AFTER specifying the -proxyServer option\n" unless $server__proxyServer;
+                        $server__proxyPort = shift @ARGV;
+                }
+                elsif (/^-proxyServer$/)
+                {
+                        $server__proxyServer = shift @ARGV;
+                }
+                elsif (/^-superscriptColor$/)
+                {
+                        my $color = shift @ARGV;
+                        utility::Die "-superscriptColor must be followed by an HTML color" unless defined $color and $color;
+                        $server__userFactory->Configure("setColor(\"$color\")");
+                }
+                elsif (/^-superscriptExpression$/)
+                {
+                        utility::Log("redefining superscript expression");
+                        my $expression = shift @ARGV;
+                        utility::Die "-superscriptExpression must be followed by an HTML expression for superscripts (e.g., \"<FONT color=red><B><SUP>%d</SUP></B></FONT>\")" unless defined $expression and $expression;
+                        if ($expression =~ s/^(['"])//)
+                        {
+                                my $limit = $1;
+                                my $tmp;
+                                my $terminated = 0;
+                                while ($tmp = shift @ARGV)
+                                {
+                                        $expression .= " $tmp";
+                                        utility::Log("expression is $expression");
+                                        if ($expression =~ s/$limit$//)
+                                        {
+                                                $terminated = 1;
+                                                last;
+                                        } 
+                                }
+                                utility::Die "unterminated $limit on the command line" unless $terminated;
+                                                                
+                                utility::Log("expression finally is $expression");
+                        } 
+                        $server__userFactory->Configure("setSuperscriptExpression(\"$expression\")");
+                }
+                elsif (/^-unique$/)
+                {
+                        $server__userFactory->Configure("setUnique(1)");
+                }
+                elsif (/^-v$/)
+                {
+                        $server__verbose = shift @ARGV;
+                }
+                elsif (/^-unlink$/)
+                {
+                        $deleteSource = 1;
+                }
+                elsif (/^-version$/)
+                {
+                        print "$server__applicationName $server__applicationVersion, Copyright 1998, Adynware Corp.\n";
+                        exit(0);
+                }
+		elsif (/^-(.*)/)
+		{
+			$server__userFactory->Configure($1);
+		} 
+                else
+                {
+                        print "not acting on command line argument $_";
+                }
+        }
+        if ($deleteSource)
+        {
+                unlink($0);
+        }
+        utility::Spit($server__port); #  must precede the log file creation
+                        
+                
+        if (defined $logFileName)
+        {
+                my $logFile;
+                if ($logFile = new IO::File("> $logFileName"))
+                {
+                        utility::Log("logging to $logFileName");
+                        select($logFile);
+                }
+                else
+                {
+                        utility::Log("initialization error: could not create $logFileName");
+                }
+        }
+                                                
+        utility::Init($programName, $server__verbose, undef, $server__port, $server__proxyServer, $server__proxyPort);
+                
+        utility::Log("$server__applicationName $server__applicationVersion listening to port $server__port");
+        utility::Log("$server__applicationName forwarding queries to $server__proxyServer:$server__proxyPort") if $server__proxyServer;
+        $| = 1; #because I am logging to stdout (or the log file, which is selected as stdout)
+}
+
+sub CleanupAndExit
+{
+        exit(0);
+}
+
+
+
+sub ErrorMessageToBrowser 
+{
+        my($fd, $error, $message) = @_;
+                                                                                                                                
+        my $s = "HTTP/1.0 $error OK\n" .
+        "Content-type: text/html\n\n" .
+        "<HTML><script language=javascript>alert(\"" .
+        $message .
+        "\");</script></HTML>\n";
+                
+        print $fd $s;
+        CloseClient($fd, "");
+}
+
+sub PrintToClient
+{
+        my($client, $data, $target) = @_;
+        my $length = length($data);
+        utility::Log("PrintToClient($client, $length, $target) called") if $server__verbose >= 9;
+        return 0 unless $client;                       
+                
+                
+        if (defined $__buffers{$client})
+        {
+                $__buffers{$client} .= $data;
+                return 1;
+        }
+        
+        my $result = print $client $data;
+        
+        $result = "undefined" unless defined $result;
+        utility::Log("PrintToClient returned $result") if $server__verbose >= 9;
+        if (!$result)
+        {
+                CloseClient($client, $target);
+                return 0;
+        }
+        return 1;
+}
+
+
+sub CloseClient
+{
+        my($client, $target) = @_;
+        if ($client)
+        {
+                my $buffer = delete($__buffers{ $client});
+                print $client $buffer if defined $buffer;
+                
+                #utility::Log("close client:$client $target");
+                close $client;
+        }
+        q_count::DecrementQueryCount($target);                                
+}
+
+sub SendRequest
+{
+        my($target, $machine, $port, $clientRequest, $client) = @_;
+                        
+        if ($server__proxyServer)
+        {
+                if (utility::IPInMaskSet($machine, @server__noProxy))
+		{
+			utility::Log("adynware_server not forwarding $machine request to proxy") if $server__verbose >= 9;
+		}
+		else
+		{
+			$machine = $server__proxyServer;
+                        $port = $server__proxyPort;
+                }
+        } 
+                        
+	utility::Log("adynware_server::SendRequest($target, $machine, $port)") if $server__verbose >= 9;
+        my $server = IO::Socket::INET->new(PeerAddr => $machine, PeerPort => $port, Proto => 'tcp');
+        if (!$server)
+        {
+                $server__internetAvailable = 0;
+                return 0;
+        }
+        $server__internetAvailable = 1;
+                
+        utility::SendRequest( $server, $clientRequest);
+        $server__select->add($server);
+        q_count::IncrementQueryCount($target);
+        return $server;
+}
+   
+sub DocumentFinish
+{
+        my($userKey, $target) = @_;
+        my $user = delete($server__users{$userKey});
+        utility::Log("document finish($target): $user for $userKey") if $server__verbose >= 9;
+        return "" unless $user;
+                                                
+        my $stuff = $user->DocumentFinish();
+                                                        
+        if ($server__js)
+        {
+                $stuff .= "<script JavaScript> $server__js</script>"; 
+                $server__js = "";
+        }
+        utility::Log("document finish: end string:$stuff") if $server__verbose >= 9;
+        return $stuff;
+}
+
+sub ReadResponseChunk
+{
+	my($server, $client, $contentType, $target, $firstChunk) = @_;
+	my $buffer = undef;
+	if ($firstChunk)
+	{
+		my $header = utility::ReadFirstChunk("read-chunk", $server, $target, \$buffer,\$contentType,undef,1,1);
+		if (!defined $header)
+		{
+			ErrorMessageToBrowser($client, 500, "There was no response.  $target could be down<br>or is not responding.");
+			return undef;
+		}
+		                                                                
+		if ($header !~ m{HTTP/\d+.\d+\s+(\d+)}i)
+		{
+			utility::Log("error: adynware server: could not extract status from $header");
+		}
+		else
+		{
+			my $status = $1;
+			utility::Log("adynware server: got status $status for $target from $header") if $server__verbose >= 9;
+			if ($status==302)
+			{
+				my $filter = $server__userFactory->Create("http://$target", $status);
+				if ($header =~ m{^Location:\s*(.*)}im)
+				{
+					my $newLocation = $1;
+					$filter->Redirect($target, $newLocation);
+					$contentType = "redirect";
+				}
+			}
+			elsif (($contentType =~ m{text/html.*}) && $__enabled)
+			{
+				$server__users{$client} = $server__userFactory->Create("http://$target", $status);
+				$header .= $server__users{$client}->DocumentStart(); 
+			}
+		}
+		utility::Log("writing header:'$header'") if $server__verbose >= 9;
+		return undef unless PrintToClient($client, $header, $target);
+	}
+	                                                                                                
+	my $n = undef;
+	if (defined $buffer and $buffer)
+	{
+		$n = length($buffer);
+	}
+	elsif (!$firstChunk)
+	{
+		$n = utility::Read("ReadResponseChunk", $server, \$buffer, 9184); 
+	}
+	                                                                                                
+	if (defined $n)
+	{
+		if ($n)
+		{
+			if (($contentType =~ m{text/html.*}) && $__enabled)
+			{
+				utility::Log("html chunk ($__relay) $client $target:$buffer\nEOD") if $server__verbose >= 9;
+				$server__users{$client}->DocumentChunk(\$buffer);
+				utility::Log("html processed $client $target:$buffer\nEOD") if $server__verbose >= 9;
+				if (!$__relay and !defined $__buffers{$client} and ($__bufferAll or $buffer =~ /<\s*iframe\b/i))
+				{
+					$__buffers{$client} = "";
+					utility::Log("buffering $target up to prevent deadlock") if $server__verbose >= 9;
+				} 
+			}
+			elsif ("text/plain" eq $contentType and $server__verbose >= 90)
+			{
+				my $s;
+				print "substring is ",substr($buffer, 0, 3);
+				if (substr($buffer, 0, 3) eq "GIF")
+				{
+					$s = "GIF image";
+				}
+				else
+				{
+					$s = "$buffer\nEOD";
+				} 
+				utility::Log("text chunk $client $target:$s");
+			}
+			return undef unless PrintToClient($client, $buffer, $target);
+			utility::Log("done: $n bytes\n") if $server__verbose >= 9;
+		}
+		else
+		{
+			if (($contentType =~ m{text/html.*}) && $__enabled)
+			{
+				$buffer = DocumentFinish($client, $target);
+				utility::Log("html chunk: processed:$buffer\nEOD") if $server__verbose >= 9;
+				return undef unless PrintToClient($client, $buffer, $target);
+			}
+			CloseClient($client, $target);
+			return undef;
+		}                
+	}                
+	return [$state_AWAITING_RESPONSE, $server, $client, $contentType, $target, 0, undef];
+}
+
+sub Idle
+{
+	my($timeSinceLastRequest) = @_;
+	utility::LogFlush();
+		
+	if ($__controllerPort and $server__aRequestHasBeenSeen and $timeSinceLastRequest > 120)
+	{
+		# tell webrelay to restart	
+		my $server = IO::Socket::INET->new(PeerAddr => 127.0.0.1, PeerPort => $__controllerPort, Proto => 'tcp');
+		if (!$server)
+		{
+			print "could not connect to 127.0.0.1:$__controllerPort\n";
+			return;
+		}
+		print "sending 'restart' to 127.0.0.1:$__controllerPort\n";
+		print $server "restart";
+		close $server;
+				
+		$timeSinceLastRequest = 0; # avoid an immediate repetition of this request
+	} 
+}
+
+sub IsDocument
+{
+	my($fileName) = @_;
+	return ($fileName =~ m{(\.html?\b.*|\.cgi\b.*|/)$}i);
+}
+
+sub DoCommand 
+{
+	my ($client, $clientRequest) = @_;
+	utility::Log("DoCommand($client, $clientRequest)...") if $server__verbose >= 3; 
+	                                
+	if (!defined $clientRequest or $clientRequest !~ /([^\n]*)\n/)
+	{ 
+		ErrorMessageToBrowser($client, 500, "network error: no client line 1 in header");
+		return 1;
+	}
+	my $clientFirstLine = $1;                                                                                                      
+	if ($clientFirstLine !~ /^(\S+) (.*) (\S+)$/)
+	{
+		ErrorMessageToBrowser($client, 500, "network error: can't parse client line 1 ($clientFirstLine)"); 
+		return 1;
+	}
+	my($command, $protocolAndMachineAndPortAndFile, $proto) = ($1, $2, $3);
+	                                                                                                                                                                                
+	if ($command !~ /(GET|POST)/i)
+	{
+		ErrorMessageToBrowser($client, 500, "Supporting only GET, POST, not '$command' (from $clientFirstLine)");
+		return 1;
+	}
+	                        
+	if ($protocolAndMachineAndPortAndFile !~ m<^(\w+)://([^:/]*)(:(\d+))?($|/(.*)$)> ) 
+	{
+		ErrorMessageToBrowser($client, 500, "Can't parse $protocolAndMachineAndPortAndFile from $clientRequest");
+                return 1;
+        }
+        my($protocol, $machine, $port, $file) = ($1, $2, $4, "/$6");
+        if ($protocol !~ /http/i)
+        {
+                ErrorMessageToBrowser($client, 500, "must be http ($protocol illegal)");
+                return 1;
+        }
+        $port = 80 unless defined $port;
+        
+        my $target;
+        if ($port==80) 
+        {
+                $target = $machine . $file;                        
+        } 
+        else
+        {
+                $target = $machine . ":$port" . $file;                        
+        }
+        
+        
+        if (!$server__proxyServer)
+        {
+                $clientRequest =~ s{http://[^/]*}{};  # remove protocol and host from initial line
+        }
+                
+        if ($target =~ m{__adynware__/filter/(.*)})
+        {
+		my $setting = $1;
+		if ($setting eq "on")
+		{
+			$__enabled = 1;
+			ErrorMessageToBrowser($client, 200, "Filter is on; HTML will be modified as needed.");
+		}
+		elsif ($setting eq "off")
+		{
+			$__enabled = 0;
+			ErrorMessageToBrowser($client, 200, "Filter is off; HTML will no longer be modified");
+		}
+		else
+		{
+			ErrorMessageToBrowser($client, 500, "malformed filter setting");
+		}
+		return 1;
+	} 
+                        
+        if ($target =~ m{__adynware__/([^/]+)/(.*)})
+        {
+                return utility::HandleAdynware($client, $1, $2);
+	} 
+                        
+        if ($command =~ /get/i)
+        {
+                if (IsDocument($file))
+                {
+                        $server__mostRecentDocument = $target;
+                        $clientRequest =~ s/^(If-Modified-Since:.*);.*/$1/im;
+                }
+        }
+        my $server = SendRequest($target, $machine, $port, $clientRequest, $client);
+        if (!$server)
+        {
+                ErrorMessageToBrowser($client, 500, "Can't Connect to $machine:$port");
+                return 1;
+        }
+        $server__handleStates{$server} = [ $state_AWAITING_RESPONSE, $server, $client, undef, $target, 1 ];
+        utility::Log("$server connected: $clientRequest") if $server__verbose >= 8;
+        return 0;
+}
+
+
+
+
+sub PopHash
+{
+        my($hashReference) = @_;
+        my @keys = keys %$hashReference;
+        return undef unless scalar(@keys);
+        return delete($$hashReference{ $keys[0] });
+}
+
+
+
+sub DoMain()
+{
+	my $requests = IO::Socket::INET->new(LocalPort => $server__port, Proto => 'tcp', Listen => SOMAXCONN, Reuse => 1);
+	                
+	utility::Die("$server__applicationName could not allocate a socket.  Is there nonstandard networking software on this machine?") unless defined $requests and $requests;
+	                
+	$server__select = new IO::Select($requests);
+	                                                                                
+	my @ready;
+	my $delay = 6;
+	my $timeSinceLastRequest = 0;
+	for (my $idleCount = 0;; $idleCount = q_count::GuardAgainstCorruptQueryCount($idleCount))
+	{
+		CleanupAndExit() if $server__shutdownRequested;
+		                                                                
+		my $error = 0;
+		@ready = $server__select->can_read(0); 
+		if (!scalar(@ready))
+		{
+			if (@ready = $server__select->has_error(0))
+			{
+				$error = 1;
+				utility::Log("Main: error on $ready[0]");
+			}
+		}
+		utility::Log("Main: select: activity on " . scalar(@ready) . " handles (" . q_count::GetQueryCountString() . ")") if $server__verbose >= 10;
+		if (scalar(@ready))
+		{
+			$idleCount = 0;
+		}
+		else
+		{ 
+			@ready = $server__select->can_read($delay);
+		}
+		                                                
+		if (scalar(@ready))
+		{
+			$server__idleState = $idle__NOT;
+			$timeSinceLastRequest = 0;
+		}
+		else
+		{
+			$timeSinceLastRequest += $delay;
+			Idle($timeSinceLastRequest);
+		}
+		                                
+		                                                                
+		my $handle;
+		foreach $handle (@ready)
+		{
+			$idleCount = 0;
+			if ($handle==$requests)
+			{
+				utility::Die "problems on the request socket:$!" if $error;
+				utility::Log("Main: New request: accepting...") if $server__verbose >= 8;
+				$server__aRequestHasBeenSeen = 1;
+				my $client = $requests->accept(); 
+				#my($savedSelectedFile) = select($client); $| = 1; select($savedSelectedFile); 
+				if (defined $client)
+				{
+					if (DoCommand($client, utility::ReadHeader("Main", $client)))
+					{
+						close $client;
+						utility::Log("Main: New request dealt with") if $server__verbose >= 8;
+					}
+				}
+				else
+				{
+					utility::Log("Main: got an undefined handle from accept()");
+				}
+			}
+                        else
+                        {
+                                my $state = $server__handleStates{$handle};
+                                LogState("read-ready handle", $handle, $state) if $server__verbose >= 8; 
+                                next if !defined $state;
+                                                                                                
+                                my $whatNow = shift(@$state);
+                                if ($error)
+                                {
+                                        $state = undef;
+                                }
+                                elsif ($whatNow==$state_AWAITING_RESPONSE)
+                                {
+                                        $state = ReadResponseChunk(@$state);
+                                }
+                                else
+                                {
+                                        LogState("bad op in Main", $handle, $state);
+                                        utility::Die("unexpected state in Main");
+                                }
+                                                                                                
+                                if (defined $state)
+                                {
+                                        LogState("post-read", $handle, $state) if $server__verbose >= 8;
+                                        $server__handleStates{$handle} = $state;
+                                }
+                                else
+                                {
+                                        utility::Log("Main: dropping state for $handle") if $server__verbose >= 8;
+                                        delete($server__handleStates{$handle});
+                                        utility::Log("Main: post-read: " . $handle . " closing") if $server__verbose >= 8;
+                                        $server__select->remove($handle);
+                                        close $handle;
+                                }
+                        }
+                }
+                utility::Log("Main: calling select...") if $server__verbose >= 10;
+        }
+}
+
+sub Main
+{
+        eval
+        {
+                DoMain();
+        };
+        utility::LogInMemory(0);
+        exit(0) unless ($@);
+        utility::Log("adynware_server: Main encountered trouble: $@");
+        utility::Die("adynware_server: $@");
+}
+
+1;

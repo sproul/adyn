@@ -1,0 +1,40 @@
+<html>
+<head>
+    <title>Plumtree e-mail</title>
+</head>
+<body bgcolor=#cccccc>
+<pre>
+From: Adrian McDermott
+Sent: Thursday, June 09, 2005 3:14 PM
+To: Nelson Sproul; Michael Young; Daniel Fabulich; Philip Vuncanon; Julie Fournier
+Subject: RE: preinstall.sh supports RedHat/SuSE; interface changed
+
+Nelson,
+
+Great job, thanks for doing this on short notice.
+
+ 
+
+-Adrian
+
+ 
+
+From: Nelson Sproul
+Sent: Thursday, June 09, 2005 2:59 PM
+To: Michael Young; Daniel Fabulich; Philip Vuncanon; Julie Fournier; Adrian McDermott
+Subject: preinstall.sh supports RedHat/SuSE; interface changed
+
+ 
+
+In a discussion with Mike and Dan about the strengths and weaknesses of preinstall.sh, the decision was made to prompt the user at the console to make the decisions which drive the script (e.g., whether to create a new user, and what its name should be). So for all the cases where in the past we directed users to edit the script, the user is now instead prompted.
+
+I also changed the script so that for those cases where the script is able to determine the answer to a question, it does so without asking the user. So, for example, if the user specifies a Plumtree username which corresponds to an already existing UNIX account, then the user will not be asked whether a new users should be created.
+
+I also ported the script to Linux RedHat/SuSE (turns out there were no different requirements between the two).  So in total I tested on the two Linuxes, SunOS, and AIX.
+
+I spoke with Phil about the documentation updates needed for these changes; because we are on the eve of the beta,  he thought it unlikely that these changes would make it in time.  But this is not too serious since the changes are self-explanatory, imho.
+
+-Nelson
+</pre>
+</body>
+</html>

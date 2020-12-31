@@ -1,0 +1,543 @@
+# formatted
+@val = (
+{
+'English' => 'adjective + feminine plural noun in the genitive case: what is the appropriate adjective suffix, if any?',
+'German' => '-er (from the <a href="German.html#=Adjectives=strong_endings" target=strong_endings>strong endings</a>)',
+'id' => 0,
+},
+{
+'English' => '<i>meinem</i> + adjective + masculine singular noun in the dative case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#=possessive_pronouns" target=possessive_pronouns>possessive pronoun</a> + adjective necessitates <a href="German.html#=Adjectives=mixed_endings" target=mixed_endings>mixed endings</a>)',
+'id' => 1,
+},
+{
+'English' => 'adjective + feminine singular noun in the genitive case: what is the appropriate adjective suffix, if any?',
+'German' => '-er (from the <a href="German.html#=Adjectives=strong_endings" target=strong_endings>strong endings</a>)',
+'id' => 2,
+},
+{
+'English' => '<i>diese</i> + adjective + feminine plural noun in the accusative case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#dieser" target=dieser>the demonstrative adjective (<i>dieser</i>)</a> + adjective necessitates <a href="German.html#=Adjectives=weak_endings" target=weak_endings>weak endings</a>)',
+'id' => 3,
+},
+{
+'English' => '<i>meinem</i> + adjective + neuter singular noun in the dative case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#=possessive_pronouns" target=possessive_pronouns>possessive pronoun</a> + adjective necessitates <a href="German.html#=Adjectives=mixed_endings" target=mixed_endings>mixed endings</a>)',
+'id' => 4,
+},
+{
+'English' => '<i>meiner</i> + adjective + feminine singular noun in the genitive case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#=possessive_pronouns" target=possessive_pronouns>possessive pronoun</a> + adjective necessitates <a href="German.html#=Adjectives=mixed_endings" target=mixed_endings>mixed endings</a>)',
+'id' => 5,
+},
+{
+'English' => '<i>den</i> + adjective + feminine plural noun in the dative case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#=Articles=definite_articles" target=definite_articles>definite article</a> + adjective necessitates <a href="German.html#=Adjectives=weak_endings" target=weak_endings>weak endings</a>)',
+'id' => 6,
+},
+{
+'English' => '<i>der</i> + adjective + feminine singular noun in the dative case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#=Articles=definite_articles" target=definite_articles>definite article</a> + adjective necessitates <a href="German.html#=Adjectives=weak_endings" target=weak_endings>weak endings</a>)',
+'id' => 7,
+},
+{
+'English' => '<i>diesem</i> + adjective + masculine singular noun in the dative case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#dieser" target=dieser>the demonstrative adjective (<i>dieser</i>)</a> + adjective necessitates <a href="German.html#=Adjectives=weak_endings" target=weak_endings>weak endings</a>)',
+'id' => 8,
+},
+{
+'English' => '<i>das</i> + adjective + neuter singular noun in the accusative case: what is the appropriate adjective suffix, if any?',
+'German' => '-e (<a href="German.html#=Articles=definite_articles" target=definite_articles>definite article</a> + adjective necessitates <a href="German.html#=Adjectives=weak_endings" target=weak_endings>weak endings</a>)',
+'id' => 9,
+},
+{
+'English' => '<i>diese</i> + adjective + feminine singular noun in the accusative case: what is the appropriate adjective suffix, if any?',
+'German' => '-e (<a href="German.html#dieser" target=dieser>the demonstrative adjective (<i>dieser</i>)</a> + adjective necessitates <a href="German.html#=Adjectives=weak_endings" target=weak_endings>weak endings</a>)',
+'id' => 10,
+},
+{
+'English' => '<i>dieser</i> + adjective + masculine plural noun in the genitive case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#dieser" target=dieser>the demonstrative adjective (<i>dieser</i>)</a> + adjective necessitates <a href="German.html#=Adjectives=weak_endings" target=weak_endings>weak endings</a>)',
+'id' => 11,
+},
+{
+'English' => '<i>meines</i> + adjective + neuter singular noun in the genitive case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#=possessive_pronouns" target=possessive_pronouns>possessive pronoun</a> + adjective necessitates <a href="German.html#=Adjectives=mixed_endings" target=mixed_endings>mixed endings</a>)',
+'id' => 12,
+},
+{
+'English' => 'adjective + masculine singular noun in the dative case: what is the appropriate adjective suffix, if any?',
+'German' => '-em (from the <a href="German.html#=Adjectives=strong_endings" target=strong_endings>strong endings</a>)',
+'id' => 13,
+},
+{
+'English' => '<i>dem</i> + adjective + neuter singular noun in the dative case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#=Articles=definite_articles" target=definite_articles>definite article</a> + adjective necessitates <a href="German.html#=Adjectives=weak_endings" target=weak_endings>weak endings</a>)',
+'id' => 14,
+},
+{
+'English' => '<i>diesem</i> + adjective + neuter singular noun in the dative case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#dieser" target=dieser>the demonstrative adjective (<i>dieser</i>)</a> + adjective necessitates <a href="German.html#=Adjectives=weak_endings" target=weak_endings>weak endings</a>)',
+'id' => 15,
+},
+{
+'English' => '<i>meine</i> + adjective + feminine plural noun in the accusative case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#=possessive_pronouns" target=possessive_pronouns>possessive pronoun</a> + adjective necessitates <a href="German.html#=Adjectives=mixed_endings" target=mixed_endings>mixed endings</a>)',
+'id' => 16,
+},
+{
+'English' => '<i>meinen</i> + adjective + masculine singular noun in the accusative case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#=possessive_pronouns" target=possessive_pronouns>possessive pronoun</a> + adjective necessitates <a href="German.html#=Adjectives=mixed_endings" target=mixed_endings>mixed endings</a>)',
+'id' => 17,
+},
+{
+'English' => '<i>meiner</i> + adjective + masculine plural noun in the genitive case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#=possessive_pronouns" target=possessive_pronouns>possessive pronoun</a> + adjective necessitates <a href="German.html#=Adjectives=mixed_endings" target=mixed_endings>mixed endings</a>)',
+'id' => 18,
+},
+{
+'English' => 'adjective + feminine singular noun in the accusative case: what is the appropriate adjective suffix, if any?',
+'German' => '-e (from the <a href="German.html#=Adjectives=strong_endings" target=strong_endings>strong endings</a>)',
+'id' => 19,
+},
+{
+'English' => 'adjective + neuter singular noun in the accusative case: what is the appropriate adjective suffix, if any?',
+'German' => '-es (from the <a href="German.html#=Adjectives=strong_endings" target=strong_endings>strong endings</a>)',
+'id' => 20,
+},
+{
+'English' => '<i>diese</i> + adjective + feminine plural noun in the nominative case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#dieser" target=dieser>the demonstrative adjective (<i>dieser</i>)</a> + adjective necessitates <a href="German.html#=Adjectives=weak_endings" target=weak_endings>weak endings</a>)',
+'id' => 21,
+},
+{
+'English' => '<i>dieses</i> + adjective + masculine singular noun in the genitive case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#dieser" target=dieser>the demonstrative adjective (<i>dieser</i>)</a> + adjective necessitates <a href="German.html#=Adjectives=weak_endings" target=weak_endings>weak endings</a>)',
+'id' => 22,
+},
+{
+'English' => '<i>den</i> + adjective + masculine plural noun in the dative case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#=Articles=definite_articles" target=definite_articles>definite article</a> + adjective necessitates <a href="German.html#=Adjectives=weak_endings" target=weak_endings>weak endings</a>)',
+'id' => 23,
+},
+{
+'English' => '<i>des</i> + adjective + neuter singular noun in the genitive case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#=Articles=definite_articles" target=definite_articles>definite article</a> + adjective necessitates <a href="German.html#=Adjectives=weak_endings" target=weak_endings>weak endings</a>)',
+'id' => 24,
+},
+{
+'English' => '<i>dieser</i> + adjective + feminine singular noun in the dative case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#dieser" target=dieser>the demonstrative adjective (<i>dieser</i>)</a> + adjective necessitates <a href="German.html#=Adjectives=weak_endings" target=weak_endings>weak endings</a>)',
+'id' => 25,
+},
+{
+'English' => '<i>meine</i> + adjective + neuter plural noun in the accusative case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#=possessive_pronouns" target=possessive_pronouns>possessive pronoun</a> + adjective necessitates <a href="German.html#=Adjectives=mixed_endings" target=mixed_endings>mixed endings</a>)',
+'id' => 26,
+},
+{
+'English' => '<i>meine</i> + adjective + neuter plural noun in the nominative case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#=possessive_pronouns" target=possessive_pronouns>possessive pronoun</a> + adjective necessitates <a href="German.html#=Adjectives=mixed_endings" target=mixed_endings>mixed endings</a>)',
+'id' => 27,
+},
+{
+'English' => 'adjective + neuter plural noun in the genitive case: what is the appropriate adjective suffix, if any?',
+'German' => '-er (from the <a href="German.html#=Adjectives=strong_endings" target=strong_endings>strong endings</a>)',
+'id' => 28,
+},
+{
+'English' => '<i>dieses</i> + adjective + neuter singular noun in the genitive case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#dieser" target=dieser>the demonstrative adjective (<i>dieser</i>)</a> + adjective necessitates <a href="German.html#=Adjectives=weak_endings" target=weak_endings>weak endings</a>)',
+'id' => 29,
+},
+{
+'English' => '<i>mein</i> + adjective + neuter singular noun in the nominative case: what is the appropriate adjective suffix, if any?',
+'German' => '-es (<a href="German.html#=possessive_pronouns" target=possessive_pronouns>possessive pronoun</a> + adjective necessitates <a href="German.html#=Adjectives=mixed_endings" target=mixed_endings>mixed endings</a>)',
+'id' => 30,
+},
+{
+'English' => 'adjective + neuter singular noun in the dative case: what is the appropriate adjective suffix, if any?',
+'German' => '-em (from the <a href="German.html#=Adjectives=strong_endings" target=strong_endings>strong endings</a>)',
+'id' => 31,
+},
+{
+'English' => '<i>das</i> + adjective + neuter singular noun in the nominative case: what is the appropriate adjective suffix, if any?',
+'German' => '-e (<a href="German.html#=Articles=definite_articles" target=definite_articles>definite article</a> + adjective necessitates <a href="German.html#=Adjectives=weak_endings" target=weak_endings>weak endings</a>)',
+'id' => 32,
+},
+{
+'English' => '<i>diesen</i> + adjective + neuter plural noun in the dative case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#dieser" target=dieser>the demonstrative adjective (<i>dieser</i>)</a> + adjective necessitates <a href="German.html#=Adjectives=weak_endings" target=weak_endings>weak endings</a>)',
+'id' => 33,
+},
+{
+'English' => '<i>einer</i> + adjective + feminine singular noun in the dative case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#=Articles=indefinite_articles" target=indefinite_articles>indefinite article</a> + adjective necessitates <a href="German.html#=Adjectives=mixed_endings" target=mixed_endings>mixed endings</a>)',
+'id' => 34,
+},
+{
+'English' => 'adjective + feminine plural noun in the nominative case: what is the appropriate adjective suffix, if any?',
+'German' => '-e (from the <a href="German.html#=Adjectives=strong_endings" target=strong_endings>strong endings</a>)',
+'id' => 35,
+},
+{
+'English' => 'adjective + masculine singular noun in the nominative case: what is the appropriate adjective suffix, if any?',
+'German' => '-er (from the <a href="German.html#=Adjectives=strong_endings" target=strong_endings>strong endings</a>)',
+'id' => 36,
+},
+{
+'English' => '<i>der</i> + adjective + neuter plural noun in the genitive case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#=Articles=definite_articles" target=definite_articles>definite article</a> + adjective necessitates <a href="German.html#=Adjectives=weak_endings" target=weak_endings>weak endings</a>)',
+'id' => 37,
+},
+{
+'English' => '<i>die</i> + adjective + masculine plural noun in the accusative case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#=Articles=definite_articles" target=definite_articles>definite article</a> + adjective necessitates <a href="German.html#=Adjectives=weak_endings" target=weak_endings>weak endings</a>)',
+'id' => 38,
+},
+{
+'English' => '<i>diese</i> + adjective + masculine plural noun in the nominative case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#dieser" target=dieser>the demonstrative adjective (<i>dieser</i>)</a> + adjective necessitates <a href="German.html#=Adjectives=weak_endings" target=weak_endings>weak endings</a>)',
+'id' => 39,
+},
+{
+'English' => '<i>eine</i> + adjective + feminine singular noun in the accusative case: what is the appropriate adjective suffix, if any?',
+'German' => '-e (<a href="German.html#=Articles=indefinite_articles" target=indefinite_articles>indefinite article</a> + adjective necessitates <a href="German.html#=Adjectives=mixed_endings" target=mixed_endings>mixed endings</a>)',
+'id' => 40,
+},
+{
+'English' => '<i>mein</i> + adjective + masculine singular noun in the nominative case: what is the appropriate adjective suffix, if any?',
+'German' => '-er (<a href="German.html#=possessive_pronouns" target=possessive_pronouns>possessive pronoun</a> + adjective necessitates <a href="German.html#=Adjectives=mixed_endings" target=mixed_endings>mixed endings</a>)',
+'id' => 41,
+},
+{
+'English' => 'adjective + masculine singular noun in the genitive case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (from the <a href="German.html#=Adjectives=strong_endings" target=strong_endings>strong endings</a>)',
+'id' => 42,
+},
+{
+'English' => '<i>der</i> + adjective + feminine plural noun in the genitive case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#=Articles=definite_articles" target=definite_articles>definite article</a> + adjective necessitates <a href="German.html#=Adjectives=weak_endings" target=weak_endings>weak endings</a>)',
+'id' => 43,
+},
+{
+'English' => '<i>die</i> + adjective + feminine singular noun in the accusative case: what is the appropriate adjective suffix, if any?',
+'German' => '-e (<a href="German.html#=Articles=definite_articles" target=definite_articles>definite article</a> + adjective necessitates <a href="German.html#=Adjectives=weak_endings" target=weak_endings>weak endings</a>)',
+'id' => 44,
+},
+{
+'English' => '<i>die</i> + adjective + neuter plural noun in the nominative case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#=Articles=definite_articles" target=definite_articles>definite article</a> + adjective necessitates <a href="German.html#=Adjectives=weak_endings" target=weak_endings>weak endings</a>)',
+'id' => 45,
+},
+{
+'English' => '<i>dieser</i> + adjective + neuter plural noun in the genitive case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#dieser" target=dieser>the demonstrative adjective (<i>dieser</i>)</a> + adjective necessitates <a href="German.html#=Adjectives=weak_endings" target=weak_endings>weak endings</a>)',
+'id' => 46,
+},
+{
+'English' => '<i>ein</i> + adjective + masculine singular noun in the nominative case: what is the appropriate adjective suffix, if any?',
+'German' => '-er (<a href="German.html#=Articles=indefinite_articles" target=indefinite_articles>indefinite article</a> + adjective necessitates <a href="German.html#=Adjectives=mixed_endings" target=mixed_endings>mixed endings</a>)',
+'id' => 47,
+},
+{
+'English' => '<i>meine</i> + adjective + feminine singular noun in the accusative case: what is the appropriate adjective suffix, if any?',
+'German' => '-e (<a href="German.html#=possessive_pronouns" target=possessive_pronouns>possessive pronoun</a> + adjective necessitates <a href="German.html#=Adjectives=mixed_endings" target=mixed_endings>mixed endings</a>)',
+'id' => 48,
+},
+{
+'English' => 'adjective + neuter singular noun in the genitive case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (from the <a href="German.html#=Adjectives=strong_endings" target=strong_endings>strong endings</a>)',
+'id' => 49,
+},
+{
+'English' => '<i>dem</i> + adjective + masculine singular noun in the dative case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#=Articles=definite_articles" target=definite_articles>definite article</a> + adjective necessitates <a href="German.html#=Adjectives=weak_endings" target=weak_endings>weak endings</a>)',
+'id' => 50,
+},
+{
+'English' => '<i>die</i> + adjective + masculine plural noun in the nominative case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#=Articles=definite_articles" target=definite_articles>definite article</a> + adjective necessitates <a href="German.html#=Adjectives=weak_endings" target=weak_endings>weak endings</a>)',
+'id' => 51,
+},
+{
+'English' => '<i>diesen</i> + adjective + feminine plural noun in the dative case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#dieser" target=dieser>the demonstrative adjective (<i>dieser</i>)</a> + adjective necessitates <a href="German.html#=Adjectives=weak_endings" target=weak_endings>weak endings</a>)',
+'id' => 52,
+},
+{
+'English' => '<i>dieser</i> + adjective + feminine plural noun in the genitive case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#dieser" target=dieser>the demonstrative adjective (<i>dieser</i>)</a> + adjective necessitates <a href="German.html#=Adjectives=weak_endings" target=weak_endings>weak endings</a>)',
+'id' => 53,
+},
+{
+'English' => '<i>meinen</i> + adjective + feminine plural noun in the dative case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#=possessive_pronouns" target=possessive_pronouns>possessive pronoun</a> + adjective necessitates <a href="German.html#=Adjectives=mixed_endings" target=mixed_endings>mixed endings</a>)',
+'id' => 54,
+},
+{
+'English' => 'adjective + neuter plural noun in the accusative case: what is the appropriate adjective suffix, if any?',
+'German' => '-e (from the <a href="German.html#=Adjectives=strong_endings" target=strong_endings>strong endings</a>)',
+'id' => 55,
+},
+{
+'English' => '<i>die</i> + adjective + feminine plural noun in the accusative case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#=Articles=definite_articles" target=definite_articles>definite article</a> + adjective necessitates <a href="German.html#=Adjectives=weak_endings" target=weak_endings>weak endings</a>)',
+'id' => 56,
+},
+{
+'English' => '<i>ein</i> + adjective + neuter singular noun in the nominative case: what is the appropriate adjective suffix, if any?',
+'German' => '-es (<a href="German.html#=Articles=indefinite_articles" target=indefinite_articles>indefinite article</a> + adjective necessitates <a href="German.html#=Adjectives=mixed_endings" target=mixed_endings>mixed endings</a>)',
+'id' => 57,
+},
+{
+'English' => '<i>einem</i> + adjective + masculine singular noun in the dative case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#=Articles=indefinite_articles" target=indefinite_articles>indefinite article</a> + adjective necessitates <a href="German.html#=Adjectives=mixed_endings" target=mixed_endings>mixed endings</a>)',
+'id' => 58,
+},
+{
+'English' => '<i>meine</i> + adjective + feminine singular noun in the nominative case: what is the appropriate adjective suffix, if any?',
+'German' => '-e (<a href="German.html#=possessive_pronouns" target=possessive_pronouns>possessive pronoun</a> + adjective necessitates <a href="German.html#=Adjectives=mixed_endings" target=mixed_endings>mixed endings</a>)',
+'id' => 59,
+},
+{
+'English' => '<i>die</i> + adjective + feminine singular noun in the nominative case: what is the appropriate adjective suffix, if any?',
+'German' => '-e (<a href="German.html#=Articles=definite_articles" target=definite_articles>definite article</a> + adjective necessitates <a href="German.html#=Adjectives=weak_endings" target=weak_endings>weak endings</a>)',
+'id' => 60,
+},
+{
+'English' => '<i>eine</i> + adjective + feminine singular noun in the nominative case: what is the appropriate adjective suffix, if any?',
+'German' => '-e (<a href="German.html#=Articles=indefinite_articles" target=indefinite_articles>indefinite article</a> + adjective necessitates <a href="German.html#=Adjectives=mixed_endings" target=mixed_endings>mixed endings</a>)',
+'id' => 61,
+},
+{
+'English' => '<i>meinen</i> + adjective + neuter plural noun in the dative case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#=possessive_pronouns" target=possessive_pronouns>possessive pronoun</a> + adjective necessitates <a href="German.html#=Adjectives=mixed_endings" target=mixed_endings>mixed endings</a>)',
+'id' => 62,
+},
+{
+'English' => 'adjective + feminine singular noun in the nominative case: what is the appropriate adjective suffix, if any?',
+'German' => '-e (from the <a href="German.html#=Adjectives=strong_endings" target=strong_endings>strong endings</a>)',
+'id' => 63,
+},
+{
+'English' => 'adjective + neuter plural noun in the dative case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (from the <a href="German.html#=Adjectives=strong_endings" target=strong_endings>strong endings</a>)',
+'id' => 64,
+},
+{
+'English' => 'adjective + neuter plural noun in the nominative case: what is the appropriate adjective suffix, if any?',
+'German' => '-e (from the <a href="German.html#=Adjectives=strong_endings" target=strong_endings>strong endings</a>)',
+'id' => 65,
+},
+{
+'English' => '<i>der</i> + adjective + masculine plural noun in the genitive case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#=Articles=definite_articles" target=definite_articles>definite article</a> + adjective necessitates <a href="German.html#=Adjectives=weak_endings" target=weak_endings>weak endings</a>)',
+'id' => 66,
+},
+{
+'English' => '<i>die</i> + adjective + neuter plural noun in the accusative case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#=Articles=definite_articles" target=definite_articles>definite article</a> + adjective necessitates <a href="German.html#=Adjectives=weak_endings" target=weak_endings>weak endings</a>)',
+'id' => 67,
+},
+{
+'English' => '<i>diesen</i> + adjective + masculine singular noun in the accusative case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#dieser" target=dieser>the demonstrative adjective (<i>dieser</i>)</a> + adjective necessitates <a href="German.html#=Adjectives=weak_endings" target=weak_endings>weak endings</a>)',
+'id' => 68,
+},
+{
+'English' => '<i>meiner</i> + adjective + feminine plural noun in the genitive case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#=possessive_pronouns" target=possessive_pronouns>possessive pronoun</a> + adjective necessitates <a href="German.html#=Adjectives=mixed_endings" target=mixed_endings>mixed endings</a>)',
+'id' => 69,
+},
+{
+'English' => '<i>dieser</i> + adjective + masculine singular noun in the nominative case: what is the appropriate adjective suffix, if any?',
+'German' => '-e (<a href="German.html#dieser" target=dieser>the demonstrative adjective (<i>dieser</i>)</a> + adjective necessitates <a href="German.html#=Adjectives=weak_endings" target=weak_endings>weak endings</a>)',
+'id' => 70,
+},
+{
+'English' => '<i>dieses</i> + adjective + neuter singular noun in the accusative case: what is the appropriate adjective suffix, if any?',
+'German' => '-e (<a href="German.html#dieser" target=dieser>the demonstrative adjective (<i>dieser</i>)</a> + adjective necessitates <a href="German.html#=Adjectives=weak_endings" target=weak_endings>weak endings</a>)',
+'id' => 71,
+},
+{
+'English' => '<i>meine</i> + adjective + masculine plural noun in the nominative case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#=possessive_pronouns" target=possessive_pronouns>possessive pronoun</a> + adjective necessitates <a href="German.html#=Adjectives=mixed_endings" target=mixed_endings>mixed endings</a>)',
+'id' => 72,
+},
+{
+'English' => '<i>der</i> + adjective + feminine singular noun in the genitive case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#=Articles=definite_articles" target=definite_articles>definite article</a> + adjective necessitates <a href="German.html#=Adjectives=weak_endings" target=weak_endings>weak endings</a>)',
+'id' => 73,
+},
+{
+'English' => '<i>diese</i> + adjective + masculine plural noun in the accusative case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#dieser" target=dieser>the demonstrative adjective (<i>dieser</i>)</a> + adjective necessitates <a href="German.html#=Adjectives=weak_endings" target=weak_endings>weak endings</a>)',
+'id' => 74,
+},
+{
+'English' => '<i>diesen</i> + adjective + masculine plural noun in the dative case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#dieser" target=dieser>the demonstrative adjective (<i>dieser</i>)</a> + adjective necessitates <a href="German.html#=Adjectives=weak_endings" target=weak_endings>weak endings</a>)',
+'id' => 75,
+},
+{
+'English' => '<i>dieses</i> + adjective + neuter singular noun in the nominative case: what is the appropriate adjective suffix, if any?',
+'German' => '-e (<a href="German.html#dieser" target=dieser>the demonstrative adjective (<i>dieser</i>)</a> + adjective necessitates <a href="German.html#=Adjectives=weak_endings" target=weak_endings>weak endings</a>)',
+'id' => 76,
+},
+{
+'English' => 'adjective + neuter singular noun in the nominative case: what is the appropriate adjective suffix, if any?',
+'German' => '-es (from the <a href="German.html#=Adjectives=strong_endings" target=strong_endings>strong endings</a>)',
+'id' => 77,
+},
+{
+'English' => '<i>des</i> + adjective + masculine singular noun in the genitive case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#=Articles=definite_articles" target=definite_articles>definite article</a> + adjective necessitates <a href="German.html#=Adjectives=weak_endings" target=weak_endings>weak endings</a>)',
+'id' => 78,
+},
+{
+'English' => '<i>die</i> + adjective + feminine plural noun in the nominative case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#=Articles=definite_articles" target=definite_articles>definite article</a> + adjective necessitates <a href="German.html#=Adjectives=weak_endings" target=weak_endings>weak endings</a>)',
+'id' => 79,
+},
+{
+'English' => '<i>diese</i> + adjective + neuter plural noun in the nominative case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#dieser" target=dieser>the demonstrative adjective (<i>dieser</i>)</a> + adjective necessitates <a href="German.html#=Adjectives=weak_endings" target=weak_endings>weak endings</a>)',
+'id' => 80,
+},
+{
+'English' => '<i>eines</i> + adjective + neuter singular noun in the genitive case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#=Articles=indefinite_articles" target=indefinite_articles>indefinite article</a> + adjective necessitates <a href="German.html#=Adjectives=mixed_endings" target=mixed_endings>mixed endings</a>)',
+'id' => 81,
+},
+{
+'English' => '<i>meine</i> + adjective + masculine plural noun in the accusative case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#=possessive_pronouns" target=possessive_pronouns>possessive pronoun</a> + adjective necessitates <a href="German.html#=Adjectives=mixed_endings" target=mixed_endings>mixed endings</a>)',
+'id' => 82,
+},
+{
+'English' => '<i>den</i> + adjective + masculine singular noun in the accusative case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#=Articles=definite_articles" target=definite_articles>definite article</a> + adjective necessitates <a href="German.html#=Adjectives=weak_endings" target=weak_endings>weak endings</a>)',
+'id' => 83,
+},
+{
+'English' => '<i>den</i> + adjective + neuter plural noun in the dative case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#=Articles=definite_articles" target=definite_articles>definite article</a> + adjective necessitates <a href="German.html#=Adjectives=weak_endings" target=weak_endings>weak endings</a>)',
+'id' => 84,
+},
+{
+'English' => '<i>der</i> + adjective + masculine singular noun in the nominative case: what is the appropriate adjective suffix, if any?',
+'German' => '-e (<a href="German.html#=Articles=definite_articles" target=definite_articles>definite article</a> + adjective necessitates <a href="German.html#=Adjectives=weak_endings" target=weak_endings>weak endings</a>)',
+'id' => 85,
+},
+{
+'English' => 'adjective + masculine plural noun in the accusative case: what is the appropriate adjective suffix, if any?',
+'German' => '-e (from the <a href="German.html#=Adjectives=strong_endings" target=strong_endings>strong endings</a>)',
+'id' => 86,
+},
+{
+'English' => '<i>ein</i> + adjective + neuter singular noun in the accusative case: what is the appropriate adjective suffix, if any?',
+'German' => '-es (<a href="German.html#=Articles=indefinite_articles" target=indefinite_articles>indefinite article</a> + adjective necessitates <a href="German.html#=Adjectives=mixed_endings" target=mixed_endings>mixed endings</a>)',
+'id' => 87,
+},
+{
+'English' => '<i>eines</i> + adjective + masculine singular noun in the genitive case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#=Articles=indefinite_articles" target=indefinite_articles>indefinite article</a> + adjective necessitates <a href="German.html#=Adjectives=mixed_endings" target=mixed_endings>mixed endings</a>)',
+'id' => 88,
+},
+{
+'English' => '<i>meinen</i> + adjective + masculine plural noun in the dative case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#=possessive_pronouns" target=possessive_pronouns>possessive pronoun</a> + adjective necessitates <a href="German.html#=Adjectives=mixed_endings" target=mixed_endings>mixed endings</a>)',
+'id' => 89,
+},
+{
+'English' => 'adjective + masculine plural noun in the genitive case: what is the appropriate adjective suffix, if any?',
+'German' => '-er (from the <a href="German.html#=Adjectives=strong_endings" target=strong_endings>strong endings</a>)',
+'id' => 90,
+},
+{
+'English' => 'adjective + masculine plural noun in the nominative case: what is the appropriate adjective suffix, if any?',
+'German' => '-e (from the <a href="German.html#=Adjectives=strong_endings" target=strong_endings>strong endings</a>)',
+'id' => 91,
+},
+{
+'English' => 'adjective + masculine singular noun in the accusative case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (from the <a href="German.html#=Adjectives=strong_endings" target=strong_endings>strong endings</a>)',
+'id' => 92,
+},
+{
+'English' => '<i>diese</i> + adjective + neuter plural noun in the accusative case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#dieser" target=dieser>the demonstrative adjective (<i>dieser</i>)</a> + adjective necessitates <a href="German.html#=Adjectives=weak_endings" target=weak_endings>weak endings</a>)',
+'id' => 93,
+},
+{
+'English' => '<i>dieser</i> + adjective + feminine singular noun in the genitive case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#dieser" target=dieser>the demonstrative adjective (<i>dieser</i>)</a> + adjective necessitates <a href="German.html#=Adjectives=weak_endings" target=weak_endings>weak endings</a>)',
+'id' => 94,
+},
+{
+'English' => '<i>meiner</i> + adjective + feminine singular noun in the dative case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#=possessive_pronouns" target=possessive_pronouns>possessive pronoun</a> + adjective necessitates <a href="German.html#=Adjectives=mixed_endings" target=mixed_endings>mixed endings</a>)',
+'id' => 95,
+},
+{
+'English' => '<i>einem</i> + adjective + neuter singular noun in the dative case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#=Articles=indefinite_articles" target=indefinite_articles>indefinite article</a> + adjective necessitates <a href="German.html#=Adjectives=mixed_endings" target=mixed_endings>mixed endings</a>)',
+'id' => 96,
+},
+{
+'English' => '<i>einer</i> + adjective + feminine singular noun in the genitive case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#=Articles=indefinite_articles" target=indefinite_articles>indefinite article</a> + adjective necessitates <a href="German.html#=Adjectives=mixed_endings" target=mixed_endings>mixed endings</a>)',
+'id' => 97,
+},
+{
+'English' => '<i>mein</i> + adjective + neuter singular noun in the accusative case: what is the appropriate adjective suffix, if any?',
+'German' => '-es (<a href="German.html#=possessive_pronouns" target=possessive_pronouns>possessive pronoun</a> + adjective necessitates <a href="German.html#=Adjectives=mixed_endings" target=mixed_endings>mixed endings</a>)',
+'id' => 98,
+},
+{
+'English' => 'adjective + feminine plural noun in the dative case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (from the <a href="German.html#=Adjectives=strong_endings" target=strong_endings>strong endings</a>)',
+'id' => 99,
+},
+{
+'English' => 'adjective + masculine plural noun in the dative case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (from the <a href="German.html#=Adjectives=strong_endings" target=strong_endings>strong endings</a>)',
+'id' => 100,
+},
+{
+'English' => '<i>diese</i> + adjective + feminine singular noun in the nominative case: what is the appropriate adjective suffix, if any?',
+'German' => '-e (<a href="German.html#dieser" target=dieser>the demonstrative adjective (<i>dieser</i>)</a> + adjective necessitates <a href="German.html#=Adjectives=weak_endings" target=weak_endings>weak endings</a>)',
+'id' => 101,
+},
+{
+'English' => '<i>einen</i> + adjective + masculine singular noun in the accusative case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#=Articles=indefinite_articles" target=indefinite_articles>indefinite article</a> + adjective necessitates <a href="German.html#=Adjectives=mixed_endings" target=mixed_endings>mixed endings</a>)',
+'id' => 102,
+},
+{
+'English' => '<i>meine</i> + adjective + feminine plural noun in the nominative case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#=possessive_pronouns" target=possessive_pronouns>possessive pronoun</a> + adjective necessitates <a href="German.html#=Adjectives=mixed_endings" target=mixed_endings>mixed endings</a>)',
+'id' => 103,
+},
+{
+'English' => '<i>meiner</i> + adjective + neuter plural noun in the genitive case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#=possessive_pronouns" target=possessive_pronouns>possessive pronoun</a> + adjective necessitates <a href="German.html#=Adjectives=mixed_endings" target=mixed_endings>mixed endings</a>)',
+'id' => 104,
+},
+{
+'English' => '<i>meines</i> + adjective + masculine singular noun in the genitive case: what is the appropriate adjective suffix, if any?',
+'German' => '-en (<a href="German.html#=possessive_pronouns" target=possessive_pronouns>possessive pronoun</a> + adjective necessitates <a href="German.html#=Adjectives=mixed_endings" target=mixed_endings>mixed endings</a>)',
+'id' => 105,
+},
+{
+'English' => 'adjective + feminine plural noun in the accusative case: what is the appropriate adjective suffix, if any?',
+'German' => '-e (from the <a href="German.html#=Adjectives=strong_endings" target=strong_endings>strong endings</a>)',
+'id' => 106,
+},
+{
+'English' => 'adjective + feminine singular noun in the dative case: what is the appropriate adjective suffix, if any?',
+'German' => '-er (from the <a href="German.html#=Adjectives=strong_endings" target=strong_endings>strong endings</a>)',
+'id' => 107,
+},
+);

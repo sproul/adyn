@@ -1,0 +1,28 @@
+#!/bin/bash
+
+dev_user=root
+prod_user=ec2-user
+
+Promote()
+{
+        cd /home
+        rm -rf $prod_user/Dropbox.last
+        cp.via_rsync $dev_user/Dropbox $prod_user/Dropbox.new
+        chown -R $prod_user $prod_dir.new        
+        
+        dev_dir=/var/www/adyn.dev
+        prod_dir=/var/www/adyn.prod
+        rm -rf "$prod_dir.new"
+        cp -pr "$dev_dir" "$prod_dir.new"
+        chown -R $prod_user "$prod_dir.new"
+        chgrp -R www-data   "$prod_dir.new"
+        chmod 777 "$prod_dir.new/httpdocs/teacher/usr/*/data"
+        
+        f.roll $prod_user/Dropbox
+        f.roll "$prod_dir"
+}
+
+Promote
+
+exit
+bx $DROP/adyn/teacher/bin/teacher.promote 

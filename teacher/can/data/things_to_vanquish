@@ -1,0 +1,22 @@
+# formatted
+@val = (
+{
+'English' => 'your enemy',
+'French' => '{ton ennemi>s>}',
+'German' => '{dein Feind>s>}',
+'Italian' => '{il tuo nemico>s>}',
+'Spanish' => 'a {tu enemigo>s>}',
+'Spanish_note#a;;Spanish' => 'personalA',
+'id' => 0,
+,
+},
+{
+'English' => 'his enemy',
+'French' => '{son ennemi>s>}',
+'German' => '{sein Feind>s>}',
+'Italian' => '{il suo nemico>s>}',
+'Spanish' => 'a {su enemigo>s>}',
+'Spanish_note#a;;Spanish' => 'personalA',
+'id' => 1,
+},
+);

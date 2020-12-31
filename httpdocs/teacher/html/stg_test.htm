@@ -1,0 +1,84 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"><!doctype html>
+<head>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+    <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+    <link rel="icon" type="image/gif" href="/favicon.GIF" /> 
+    <script src=/teacher/html/jquery-1.9.0.js></script>
+    <script src=jquery-cookie-1.4.0/jquery.cookie.js></script>
+    <script language=JavaScript src=julien-maurel-jQuery-Storage-API-e5a8a64/jquery.storageapi.js></script>
+    <script language=JavaScript src=stg.js></script>
+    <script language=JavaScript src=test.js></script>
+</head>
+<body bgcolor=#cccccc><font face='arial'>
+
+<input type=button onclick='javascript:stg_delete_all()' value='del all'>
+
+<span id=storage_content>
+</span>
+
+<script language="JavaScript">
+
+function test()
+{
+    stg_set('k1', 'v1')
+    stg_set('k2', 'v2')
+    var keys = stg_keys()
+    var sawK1 = false
+    var sawK2 = false
+    for (var j = 0; j < keys.length; j++)
+    {
+        var key = keys[j]
+        if (key == 'k1')
+        {
+            sawK1 = true
+            assert_eq('v1', stg_get(key))
+        }
+        else if (key == 'k2')
+        {
+            sawK2 = true
+            assert_eq('v2', stg_get(key))
+        }
+    }
+    assert(sawK1, "did not see k1 in keys")
+    assert(sawK2, "did not see k2 in keys")
+}
+
+    
+function show_local_storage__jquery()
+{
+    var s = null
+    // code from http://plugins.jquery.com/storageapi/
+    // doc at https://github.com/julien-maurel/jQuery-Storage-API
+    var keys = $.localStorage.keys()
+    for (var j = 0; j < keys.length; j++)
+    {
+        var key = keys[j]
+        if (!s)
+        {
+            s = ""
+        } 
+        var val = $.localStorage.get(key)
+        var s1 = key + ":" + val
+        s += "<li>" + s1 + "</li>\n"
+    }
+    if (s)
+    {
+        s = "<ul>" + s + "</ul>\n"
+    } 
+    else
+    {
+        s = "[nothing]"
+    }
+    return s
+}
+
+function init()
+{
+    //test()
+    //$('#storage_content').html(show_local_storage())
+    $('#storage_content').html(stg_all2html())
+}
+$(document).ready(init)
+</script>
+</font>

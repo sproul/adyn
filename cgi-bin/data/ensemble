@@ -1,0 +1,12 @@
+@val = (
+{
+'A' => 'http://edocs.bea.com/alui/devdoc/docs60/Portlets/Basics/PlumtreeDevDoc_Integration_Portlets_Basics.htm:<br>&nbsp;pagelet is a web application that produces a self-contained, reusable UI element. A portlet is a pagelet designed for use with AquaLogic Interaction portal ',
+'Q' => 'pagelets, portlets ',
+'id' => 0,
+},
+{
+'A' => 'Modeled after the “window” metaphor from desktop user interfaces, the ALI portal displays portlets as a series of windows or boxes arranged in columns on a page with borders, title bars, buttons, headers and footers rendered by the portal framework. The page layout is defined through the portal\'s administrative UI. Each My Page or community page is made up of many portlets, selected and arranged using portal editors. For example, the portlets on the Support Center community page shown below provide access to a range of resources ',
+'Q' => 'how does ALI portal organize a page? ',
+'id' => 1,
+},
+);

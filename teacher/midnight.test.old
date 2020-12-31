@@ -1,0 +1,1399 @@
+sh -x test.sh 40min
++ : 
++ mode=40min 
++ Init 
++ [ -z 40min ] 
++ can=c:/users/nsproul/work/public/teacher/can/teacher_test_output 
++ output=c:/users/nsproul/tmp/teacher_test_output 
++ rm -rf c:/users/nsproul/tmp/teacher_test_output 
++ mkdir -p c:/users/nsproul/tmp/teacher_test_output 
++ TestTopicForAllPromptingLanguages 1 base 
++ canonizedTest=1 
++ dataFile=base 
++ [ 1 ] 
++ read fn 
++ ls base.0.html base.1.html base.10.html base.100.html base.101.html base.102.html base.103.html base.104.html base.105.html base.106.html base.107.html base.108.html base.109.html base.11.html base.110.html base.111.html base.112.html base.113.html base.114.html base.115.html base.116.html base.117.html base.118.html base.119.html base.12.html base.120.html base.121.html base.122.html base.123.html base.124.html base.125.html base.126.html base.127.html base.128.html base.129.html base.13.html base.130.html base.131.html base.132.html base.133.html base.134.html base.135.html base.136.html base.137.html base.138.html base.139.html base.14.html base.140.html base.141.html base.142.html base.143.html base.144.html base.145.html base.146.html base.147.html base.148.html base.149.html base.15.html base.150.html base.151.html base.152.html base.153.html base.154.html base.155.html base.156.html base.157.html base.158.html base.159.html base.16.html base.160.html base.161.html base.162.html base.163.html base.164.html base.165.html base.166.html base.167.html base.168.html base.169.html base.17.html base.170.html base.171.html base.172.html base.173.html base.174.html base.175.html base.176.html base.177.html base.178.html base.179.html base.18.html base.180.html base.181.html base.182.html base.183.html base.184.html base.185.html base.186.html base.187.html base.188.html base.189.html base.19.html base.190.html base.191.html base.192.html base.193.html base.194.html base.195.html base.196.html base.197.html base.198.html base.199.html base.2.html base.20.html base.200.html base.201.html base.202.html base.203.html base.204.html base.205.html base.206.html base.207.html base.208.html base.209.html base.21.html base.210.html base.211.html base.212.html base.213.html base.214.html base.215.html base.216.html base.217.html base.218.html base.219.html base.22.html base.220.html base.221.html base.222.html base.223.html base.224.html base.225.html base.226.html base.227.html base.228.html base.229.html base.23.html base.230.html base.231.html base.232.html base.233.html base.234.html base.235.html base.236.html base.237.html base.238.html base.239.html base.24.html base.240.html base.241.html base.242.html base.243.html base.244.html base.245.html base.246.html base.247.html base.248.html base.249.html base.25.html base.250.html base.251.html base.252.html base.253.html base.254.html base.255.html base.256.html base.257.html base.258.html base.259.html base.26.html base.260.html base.261.html base.262.html base.263.html base.264.html base.265.html base.266.html base.267.html base.268.html base.269.html base.27.html base.270.html base.271.html base.272.html base.273.html base.274.html base.275.html base.276.html base.277.html base.278.html base.279.html base.28.html base.280.html base.281.html base.282.html base.283.html base.284.html base.285.html base.286.html base.287.html base.288.html base.289.html base.29.html base.290.html base.291.html base.292.html base.293.html base.294.html base.295.html base.296.html base.297.html base.298.html base.299.html base.3.html base.30.html base.300.html base.301.html base.302.html base.303.html base.304.html base.305.html base.306.html base.307.html base.308.html base.309.html base.31.html base.310.html base.311.html base.312.html base.313.html base.314.html base.315.html base.316.html base.317.html base.318.html base.319.html base.32.html base.320.html base.321.html base.322.html base.323.html base.324.html base.325.html base.326.html base.327.html base.328.html base.329.html base.33.html base.330.html base.331.html base.332.html base.333.html base.334.html base.335.html base.336.html base.337.html base.338.html base.339.html base.34.html base.340.html base.341.html base.342.html base.343.html base.344.html base.345.html base.346.html base.347.html base.348.html base.349.html base.35.html base.350.html base.351.html base.352.html base.353.html base.354.html base.355.html base.356.html base.357.html base.358.html base.359.html base.36.html base.360.html base.361.html base.362.html base.363.html base.364.html base.365.html base.366.html base.367.html base.368.html base.369.html base.37.html base.370.html base.371.html base.372.html base.373.html base.374.html base.375.html base.376.html base.377.html base.378.html base.379.html base.38.html base.380.html base.381.html base.382.html base.383.html base.384.html base.385.html base.386.html base.387.html base.388.html base.389.html base.39.html base.390.html base.391.html base.392.html base.393.html base.394.html base.395.html base.396.html base.397.html base.398.html base.4.html base.40.html base.41.html base.42.html base.43.html base.44.html base.45.html base.46.html base.47.html base.48.html base.49.html base.5.html base.50.html base.51.html base.52.html base.53.html base.54.html base.55.html base.56.html base.57.html base.58.html base.59.html base.6.html base.60.html base.61.html base.62.html base.63.html base.64.html base.65.html base.66.html base.67.html base.68.html base.69.html base.7.html base.70.html base.71.html base.72.html base.73.html base.74.html base.75.html base.76.html base.77.html base.78.html base.79.html base.8.html base.80.html base.81.html base.82.html base.83.html base.84.html base.85.html base.86.html base.87.html base.88.html base.89.html base.9.html base.90.html base.91.html base.92.html base.93.html base.94.html base.95.html base.96.html base.97.html base.98.html base.99.html 
++ [ -z base.0.html ] 
++ TestForAllPromptingLanguages base.0.html 1 
++ startingHtml=base.0.html 
++ canonizedTest=1 
++ Test base.0.html 1 
++ htmlExerciseFile=base.0.html 
++ echo Test base.0.html 
+Test base.0.html
++ java student base.0.html 
++ grep ^= c:/users/nsproul/tmp/teacher_test_output/base.0.html.out 
+grep: input lines truncated - result questionable
++ TestOk base.0.html 
++ htmlExerciseFile=base.0.html 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/base.0.html.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/base.0.html.out 
++ TestWithPromptingLanguageChange base.0.html Spanish 1 
++ startingHtml=base.0.html 
++ newPromptingLang=Spanish 
++ canonizedTest=1 
++ + sed -e s/.html$// -e s/$/.Spanish.htm/ 
++ echo base.0.html 
+htmlFile=base.0.Spanish.htm 
++ perl -w choose.cgi 
++ echo promptLang=Spanish 
++ echo tense=all 
++ echo userID=speraw 
++ echo exerciseType=verb_all 
++ [ -n 1 ] 
++ echo canonizedTest=1 
+(offline mode: enter name=value pairs on standard input)
++ Test base.0.Spanish.htm 
++ htmlExerciseFile=base.0.Spanish.htm 
++ echo Test base.0.Spanish.htm 
+Test base.0.Spanish.htm
++ java student base.0.Spanish.htm 
++ grep ^= c:/users/nsproul/tmp/teacher_test_output/base.0.Spanish.htm.out 
+grep: input lines truncated - result questionable
++ TestOk base.0.Spanish.htm 
++ htmlExerciseFile=base.0.Spanish.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/base.0.Spanish.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/base.0.Spanish.htm.out 
++ TestOk base.0.Spanish.htm 
++ htmlExerciseFile=base.0.Spanish.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/base.0.Spanish.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f base.0.Spanish.htm 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/base.0.Spanish.htm.out 
++ TestWithPromptingLanguageChange base.0.html French 1 
++ startingHtml=base.0.html 
++ newPromptingLang=French 
++ canonizedTest=1 
++ + echo base.0.html 
++ sed -e s/.html$// -e s/$/.French.htm/ 
+htmlFile=base.0.French.htm 
++ perl -w choose.cgi 
++ echo promptLang=French 
++ echo tense=all 
++ echo userID=speraw 
++ echo exerciseType=verb_all 
++ [ -n 1 ] 
++ echo canonizedTest=1 
+(offline mode: enter name=value pairs on standard input)
++ Test base.0.French.htm 
++ htmlExerciseFile=base.0.French.htm 
++ echo Test base.0.French.htm 
+Test base.0.French.htm
++ java student base.0.French.htm 
++ grep ^= c:/users/nsproul/tmp/teacher_test_output/base.0.French.htm.out 
+grep: input lines truncated - result questionable
++ TestOk base.0.French.htm 
++ htmlExerciseFile=base.0.French.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/base.0.French.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/base.0.French.htm.out 
++ TestOk base.0.French.htm 
++ htmlExerciseFile=base.0.French.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/base.0.French.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f base.0.French.htm 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/base.0.French.htm.out 
++ TestWithPromptingLanguageChange base.0.html Italian 1 
++ startingHtml=base.0.html 
++ newPromptingLang=Italian 
++ canonizedTest=1 
++ + echo base.0.html 
++ sed -e s/.html$// -e s/$/.Italian.htm/ 
+htmlFile=base.0.Italian.htm 
++ perl -w choose.cgi 
++ echo promptLang=Italian 
++ echo tense=all 
++ echo userID=speraw 
++ echo exerciseType=verb_all 
++ [ -n 1 ] 
++ echo canonizedTest=1 
+(offline mode: enter name=value pairs on standard input)
++ Test base.0.Italian.htm 
++ htmlExerciseFile=base.0.Italian.htm 
++ echo Test base.0.Italian.htm 
+Test base.0.Italian.htm
++ java student base.0.Italian.htm 
++ grep ^= c:/users/nsproul/tmp/teacher_test_output/base.0.Italian.htm.out 
+grep: input lines truncated - result questionable
++ TestOk base.0.Italian.htm 
++ htmlExerciseFile=base.0.Italian.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/base.0.Italian.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/base.0.Italian.htm.out 
++ TestOk base.0.Italian.htm 
++ htmlExerciseFile=base.0.Italian.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/base.0.Italian.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f base.0.Italian.htm 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/base.0.Italian.htm.out 
++ TestWithPromptingLanguageChange base.0.html German 1 
++ startingHtml=base.0.html 
++ newPromptingLang=German 
++ canonizedTest=1 
++ + echo base.0.html 
++ sed -e s/.html$// -e s/$/.German.htm/ 
+htmlFile=base.0.German.htm 
++ perl -w choose.cgi 
++ echo promptLang=German 
++ echo tense=all 
++ echo userID=speraw 
++ echo exerciseType=verb_all 
++ [ -n 1 ] 
++ echo canonizedTest=1 
+(offline mode: enter name=value pairs on standard input)
++ Test base.0.German.htm 
++ htmlExerciseFile=base.0.German.htm 
++ echo Test base.0.German.htm 
+Test base.0.German.htm
++ java student base.0.German.htm 
++ grep ^= c:/users/nsproul/tmp/teacher_test_output/base.0.German.htm.out 
+grep: input lines truncated - result questionable
++ TestOk base.0.German.htm 
++ htmlExerciseFile=base.0.German.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/base.0.German.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/base.0.German.htm.out 
++ TestOk base.0.German.htm 
++ htmlExerciseFile=base.0.German.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/base.0.German.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f base.0.German.htm 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/base.0.German.htm.out 
++ [ 1 ] 
++ read fn 
++ [ -z base.160.html ] 
++ TestForAllPromptingLanguages base.160.html 1 
++ startingHtml=base.160.html 
++ canonizedTest=1 
++ Test base.160.html 1 
++ htmlExerciseFile=base.160.html 
++ echo Test base.160.html 
+Test base.160.html
++ java student base.160.html 
++ grep ^= c:/users/nsproul/tmp/teacher_test_output/base.160.html.out 
++ TestOk base.160.html 
++ htmlExerciseFile=base.160.html 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/base.160.html.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/base.160.html.out 
++ TestWithPromptingLanguageChange base.160.html Spanish 1 
++ startingHtml=base.160.html 
++ newPromptingLang=Spanish 
++ canonizedTest=1 
++ + echo base.160.html 
++ sed -e s/.html$// -e s/$/.Spanish.htm/ 
+htmlFile=base.160.Spanish.htm 
++ perl -w choose.cgi 
++ echo promptLang=Spanish 
++ echo tense=all 
++ echo userID=speraw 
++ echo exerciseType=verb_all 
++ [ -n 1 ] 
++ echo canonizedTest=1 
+(offline mode: enter name=value pairs on standard input)
++ Test base.160.Spanish.htm 
++ htmlExerciseFile=base.160.Spanish.htm 
++ echo Test base.160.Spanish.htm 
+Test base.160.Spanish.htm
++ java student base.160.Spanish.htm 
++ grep ^= c:/users/nsproul/tmp/teacher_test_output/base.160.Spanish.htm.out 
+grep: input lines truncated - result questionable
++ TestOk base.160.Spanish.htm 
++ htmlExerciseFile=base.160.Spanish.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/base.160.Spanish.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/base.160.Spanish.htm.out 
++ TestOk base.160.Spanish.htm 
++ htmlExerciseFile=base.160.Spanish.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/base.160.Spanish.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f base.160.Spanish.htm 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/base.160.Spanish.htm.out 
++ TestWithPromptingLanguageChange base.160.html French 1 
++ startingHtml=base.160.html 
++ newPromptingLang=French 
++ canonizedTest=1 
++ + echo base.160.html 
++ sed -e s/.html$// -e s/$/.French.htm/ 
+htmlFile=base.160.French.htm 
++ perl -w choose.cgi 
++ echo promptLang=French 
++ echo tense=all 
++ echo userID=speraw 
++ echo exerciseType=verb_all 
++ [ -n 1 ] 
++ echo canonizedTest=1 
+(offline mode: enter name=value pairs on standard input)
++ Test base.160.French.htm 
++ htmlExerciseFile=base.160.French.htm 
++ echo Test base.160.French.htm 
+Test base.160.French.htm
++ java student base.160.French.htm 
++ grep ^= c:/users/nsproul/tmp/teacher_test_output/base.160.French.htm.out 
+grep: input lines truncated - result questionable
++ TestOk base.160.French.htm 
++ htmlExerciseFile=base.160.French.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/base.160.French.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/base.160.French.htm.out 
++ TestOk base.160.French.htm 
++ htmlExerciseFile=base.160.French.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/base.160.French.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f base.160.French.htm 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/base.160.French.htm.out 
++ TestWithPromptingLanguageChange base.160.html Italian 1 
++ startingHtml=base.160.html 
++ newPromptingLang=Italian 
++ canonizedTest=1 
++ + echo base.160.html 
++ sed -e s/.html$// -e s/$/.Italian.htm/ 
+htmlFile=base.160.Italian.htm 
++ perl -w choose.cgi 
++ echo promptLang=Italian 
++ echo tense=all 
++ echo userID=speraw 
++ echo exerciseType=verb_all 
++ [ -n 1 ] 
++ echo canonizedTest=1 
+(offline mode: enter name=value pairs on standard input)
++ Test base.160.Italian.htm 
++ htmlExerciseFile=base.160.Italian.htm 
++ echo Test base.160.Italian.htm 
+Test base.160.Italian.htm
++ java student base.160.Italian.htm 
++ grep ^= c:/users/nsproul/tmp/teacher_test_output/base.160.Italian.htm.out 
+grep: input lines truncated - result questionable
++ TestOk base.160.Italian.htm 
++ htmlExerciseFile=base.160.Italian.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/base.160.Italian.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/base.160.Italian.htm.out 
++ TestOk base.160.Italian.htm 
++ htmlExerciseFile=base.160.Italian.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/base.160.Italian.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f base.160.Italian.htm 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/base.160.Italian.htm.out 
++ TestWithPromptingLanguageChange base.160.html German 1 
++ startingHtml=base.160.html 
++ newPromptingLang=German 
++ canonizedTest=1 
++ + echo base.160.html 
++ sed -e s/.html$// -e s/$/.German.htm/ 
+htmlFile=base.160.German.htm 
++ perl -w choose.cgi 
++ echo promptLang=German 
++ echo tense=all 
++ echo userID=speraw 
++ echo exerciseType=verb_all 
++ [ -n 1 ] 
++ echo canonizedTest=1 
+(offline mode: enter name=value pairs on standard input)
++ Test base.160.German.htm 
++ htmlExerciseFile=base.160.German.htm 
++ echo Test base.160.German.htm 
+Test base.160.German.htm
++ java student base.160.German.htm 
++ grep ^= c:/users/nsproul/tmp/teacher_test_output/base.160.German.htm.out 
+grep: input lines truncated - result questionable
++ TestOk base.160.German.htm 
++ htmlExerciseFile=base.160.German.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/base.160.German.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/base.160.German.htm.out 
++ TestOk base.160.German.htm 
++ htmlExerciseFile=base.160.German.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/base.160.German.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f base.160.German.htm 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/base.160.German.htm.out 
++ [ 1 ] 
++ read fn 
++ [ -z l ] 
++ TestForAllPromptingLanguages l 1 
++ startingHtml=l 
++ canonizedTest=1 
++ Test l 1 
++ htmlExerciseFile=l 
++ echo Test l 
+Test l
++ java student l 
+java.io.FileNotFoundException: l
+	at java.io.FileInputStream.<init>(FileInputStream.java:64)
+	at lineReader.<init>(lineReader.java:11)
+	at student.main(student.java:211)
++ grep ^= c:/users/nsproul/tmp/teacher_test_output/l.out 
++ TestOk l 
++ htmlExerciseFile=l 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/l.log 
++ [ -n  ] 
++ echo no 
++ [ no = yes ] 
++ echo c:/users/nsproul/tmp/teacher_test_output/l.out 
++ TestWithPromptingLanguageChange l Spanish 1 
++ startingHtml=l 
++ newPromptingLang=Spanish 
++ canonizedTest=1 
++ + echo l 
++ sed -e s/.html$// -e s/$/.Spanish.htm/ 
+htmlFile=l.Spanish.htm 
++ perl -w choose.cgi 
++ echo promptLang=Spanish 
++ echo tense=all 
++ echo userID=speraw 
++ echo exerciseType=verb_all 
++ [ -n 1 ] 
++ echo canonizedTest=1 
+(offline mode: enter name=value pairs on standard input)
++ Test l.Spanish.htm 
++ htmlExerciseFile=l.Spanish.htm 
++ echo Test l.Spanish.htm 
+Test l.Spanish.htm
++ java student l.Spanish.htm 
++ grep ^= c:/users/nsproul/tmp/teacher_test_output/l.Spanish.htm.out 
+grep: input lines truncated - result questionable
++ TestOk l.Spanish.htm 
++ htmlExerciseFile=l.Spanish.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/l.Spanish.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/l.Spanish.htm.out 
++ TestOk l.Spanish.htm 
++ htmlExerciseFile=l.Spanish.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/l.Spanish.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f l.Spanish.htm 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/l.Spanish.htm.out 
++ TestWithPromptingLanguageChange l French 1 
++ startingHtml=l 
++ newPromptingLang=French 
++ canonizedTest=1 
++ + echo l 
++ sed -e s/.html$// -e s/$/.French.htm/ 
+htmlFile=l.French.htm 
++ perl -w choose.cgi 
++ echo promptLang=French 
++ echo tense=all 
++ echo userID=speraw 
++ echo exerciseType=verb_all 
++ [ -n 1 ] 
++ echo canonizedTest=1 
+(offline mode: enter name=value pairs on standard input)
++ Test l.French.htm 
++ htmlExerciseFile=l.French.htm 
++ echo Test l.French.htm 
+Test l.French.htm
++ java student l.French.htm 
++ grep ^= c:/users/nsproul/tmp/teacher_test_output/l.French.htm.out 
+grep: input lines truncated - result questionable
++ TestOk l.French.htm 
++ htmlExerciseFile=l.French.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/l.French.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/l.French.htm.out 
++ TestOk l.French.htm 
++ htmlExerciseFile=l.French.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/l.French.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f l.French.htm 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/l.French.htm.out 
++ TestWithPromptingLanguageChange l Italian 1 
++ startingHtml=l 
++ newPromptingLang=Italian 
++ canonizedTest=1 
++ + echo l 
++ sed -e s/.html$// -e s/$/.Italian.htm/ 
+htmlFile=l.Italian.htm 
++ perl -w choose.cgi 
++ echo promptLang=Italian 
++ echo tense=all 
++ echo userID=speraw 
++ echo exerciseType=verb_all 
++ [ -n 1 ] 
++ echo canonizedTest=1 
+(offline mode: enter name=value pairs on standard input)
++ Test l.Italian.htm 
++ htmlExerciseFile=l.Italian.htm 
++ echo Test l.Italian.htm 
+Test l.Italian.htm
++ java student l.Italian.htm 
++ grep ^= c:/users/nsproul/tmp/teacher_test_output/l.Italian.htm.out 
+grep: input lines truncated - result questionable
++ TestOk l.Italian.htm 
++ htmlExerciseFile=l.Italian.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/l.Italian.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/l.Italian.htm.out 
++ TestOk l.Italian.htm 
++ htmlExerciseFile=l.Italian.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/l.Italian.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f l.Italian.htm 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/l.Italian.htm.out 
++ TestWithPromptingLanguageChange l German 1 
++ startingHtml=l 
++ newPromptingLang=German 
++ canonizedTest=1 
++ + echo l 
++ sed -e s/.html$// -e s/$/.German.htm/ 
+htmlFile=l.German.htm 
++ perl -w choose.cgi 
++ echo promptLang=German 
++ echo tense=all 
++ echo userID=speraw 
++ echo exerciseType=verb_all 
++ [ -n 1 ] 
++ echo canonizedTest=1 
+(offline mode: enter name=value pairs on standard input)
++ Test l.German.htm 
++ htmlExerciseFile=l.German.htm 
++ echo Test l.German.htm 
+Test l.German.htm
++ java student l.German.htm 
++ grep ^= c:/users/nsproul/tmp/teacher_test_output/l.German.htm.out 
+grep: input lines truncated - result questionable
++ TestOk l.German.htm 
++ htmlExerciseFile=l.German.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/l.German.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/l.German.htm.out 
++ TestOk l.German.htm 
++ htmlExerciseFile=l.German.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/l.German.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f l.German.htm 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/l.German.htm.out 
++ [ 1 ] 
++ read fn 
++ [ -z 4.html ] 
++ TestForAllPromptingLanguages 4.html 1 
++ startingHtml=4.html 
++ canonizedTest=1 
++ Test 4.html 1 
++ htmlExerciseFile=4.html 
++ echo Test 4.html 
+Test 4.html
++ java student 4.html 
+java.io.FileNotFoundException: 4.html
+	at java.io.FileInputStream.<init>(FileInputStream.java:64)
+	at lineReader.<init>(lineReader.java:11)
+	at student.main(student.java:211)
++ grep ^= c:/users/nsproul/tmp/teacher_test_output/4.html.out 
++ TestOk 4.html 
++ htmlExerciseFile=4.html 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/4.html.log 
++ [ -n  ] 
++ echo no 
++ [ no = yes ] 
++ echo c:/users/nsproul/tmp/teacher_test_output/4.html.out 
++ TestWithPromptingLanguageChange 4.html Spanish 1 
++ startingHtml=4.html 
++ newPromptingLang=Spanish 
++ canonizedTest=1 
++ + echo 4.html 
++ sed -e s/.html$// -e s/$/.Spanish.htm/ 
+htmlFile=4.Spanish.htm 
++ perl -w choose.cgi 
++ echo promptLang=Spanish 
++ echo tense=all 
++ echo userID=speraw 
++ echo exerciseType=verb_all 
++ [ -n 1 ] 
++ echo canonizedTest=1 
+(offline mode: enter name=value pairs on standard input)
++ Test 4.Spanish.htm 
++ htmlExerciseFile=4.Spanish.htm 
++ echo Test 4.Spanish.htm 
+Test 4.Spanish.htm
++ java student 4.Spanish.htm 
++ grep ^= c:/users/nsproul/tmp/teacher_test_output/4.Spanish.htm.out 
+grep: input lines truncated - result questionable
++ TestOk 4.Spanish.htm 
++ htmlExerciseFile=4.Spanish.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/4.Spanish.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/4.Spanish.htm.out 
++ TestOk 4.Spanish.htm 
++ htmlExerciseFile=4.Spanish.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/4.Spanish.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f 4.Spanish.htm 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/4.Spanish.htm.out 
++ TestWithPromptingLanguageChange 4.html French 1 
++ startingHtml=4.html 
++ newPromptingLang=French 
++ canonizedTest=1 
++ + echo 4.html 
++ sed -e s/.html$// -e s/$/.French.htm/ 
+htmlFile=4.French.htm 
++ perl -w choose.cgi 
++ echo promptLang=French 
++ echo tense=all 
++ echo userID=speraw 
++ echo exerciseType=verb_all 
++ [ -n 1 ] 
++ echo canonizedTest=1 
+(offline mode: enter name=value pairs on standard input)
++ Test 4.French.htm 
++ htmlExerciseFile=4.French.htm 
++ echo Test 4.French.htm 
+Test 4.French.htm
++ java student 4.French.htm 
++ grep ^= c:/users/nsproul/tmp/teacher_test_output/4.French.htm.out 
+grep: input lines truncated - result questionable
++ TestOk 4.French.htm 
++ htmlExerciseFile=4.French.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/4.French.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/4.French.htm.out 
++ TestOk 4.French.htm 
++ htmlExerciseFile=4.French.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/4.French.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f 4.French.htm 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/4.French.htm.out 
++ TestWithPromptingLanguageChange 4.html Italian 1 
++ startingHtml=4.html 
++ newPromptingLang=Italian 
++ canonizedTest=1 
++ + echo 4.html 
++ sed -e s/.html$// -e s/$/.Italian.htm/ 
+htmlFile=4.Italian.htm 
++ perl -w choose.cgi 
++ echo promptLang=Italian 
++ echo tense=all 
++ echo userID=speraw 
++ echo exerciseType=verb_all 
++ [ -n 1 ] 
++ echo canonizedTest=1 
+(offline mode: enter name=value pairs on standard input)
++ Test 4.Italian.htm 
++ htmlExerciseFile=4.Italian.htm 
++ echo Test 4.Italian.htm 
+Test 4.Italian.htm
++ java student 4.Italian.htm 
++ grep ^= c:/users/nsproul/tmp/teacher_test_output/4.Italian.htm.out 
+grep: input lines truncated - result questionable
++ TestOk 4.Italian.htm 
++ htmlExerciseFile=4.Italian.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/4.Italian.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/4.Italian.htm.out 
++ TestOk 4.Italian.htm 
++ htmlExerciseFile=4.Italian.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/4.Italian.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f 4.Italian.htm 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/4.Italian.htm.out 
++ TestWithPromptingLanguageChange 4.html German 1 
++ startingHtml=4.html 
++ newPromptingLang=German 
++ canonizedTest=1 
++ + echo 4.html 
++ sed -e s/.html$// -e s/$/.German.htm/ 
+htmlFile=4.German.htm 
++ perl -w choose.cgi 
++ echo promptLang=German 
++ echo tense=all 
++ echo userID=speraw 
++ echo exerciseType=verb_all 
++ [ -n 1 ] 
++ echo canonizedTest=1 
+(offline mode: enter name=value pairs on standard input)
++ Test 4.German.htm 
++ htmlExerciseFile=4.German.htm 
++ echo Test 4.German.htm 
+Test 4.German.htm
++ java student 4.German.htm 
++ grep ^= c:/users/nsproul/tmp/teacher_test_output/4.German.htm.out 
+grep: input lines truncated - result questionable
++ TestOk 4.German.htm 
++ htmlExerciseFile=4.German.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/4.German.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/4.German.htm.out 
++ TestOk 4.German.htm 
++ htmlExerciseFile=4.German.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/4.German.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f 4.German.htm 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/4.German.htm.out 
++ [ 1 ] 
++ read fn 
++ [ -z .346.html ] 
++ TestForAllPromptingLanguages .346.html 1 
++ startingHtml=.346.html 
++ canonizedTest=1 
++ Test .346.html 1 
++ htmlExerciseFile=.346.html 
++ echo Test .346.html 
+Test .346.html
++ java student .346.html 
+java.io.FileNotFoundException: .346.html
+	at java.io.FileInputStream.<init>(FileInputStream.java:64)
+	at lineReader.<init>(lineReader.java:11)
+	at student.main(student.java:211)
++ grep ^= c:/users/nsproul/tmp/teacher_test_output/.346.html.out 
++ TestOk .346.html 
++ htmlExerciseFile=.346.html 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/.346.html.log 
++ [ -n  ] 
++ echo no 
++ [ no = yes ] 
++ echo c:/users/nsproul/tmp/teacher_test_output/.346.html.out 
++ TestWithPromptingLanguageChange .346.html Spanish 1 
++ startingHtml=.346.html 
++ newPromptingLang=Spanish 
++ canonizedTest=1 
++ + echo .346.html 
++ sed -e s/.html$// -e s/$/.Spanish.htm/ 
+htmlFile=.346.Spanish.htm 
++ perl -w choose.cgi 
++ echo promptLang=Spanish 
++ echo tense=all 
++ echo userID=speraw 
++ echo exerciseType=verb_all 
++ [ -n 1 ] 
++ echo canonizedTest=1 
+(offline mode: enter name=value pairs on standard input)
++ Test .346.Spanish.htm 
++ htmlExerciseFile=.346.Spanish.htm 
++ echo Test .346.Spanish.htm 
+Test .346.Spanish.htm
++ java student .346.Spanish.htm 
++ grep ^= c:/users/nsproul/tmp/teacher_test_output/.346.Spanish.htm.out 
++ TestOk .346.Spanish.htm 
++ htmlExerciseFile=.346.Spanish.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/.346.Spanish.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/.346.Spanish.htm.out 
++ TestOk .346.Spanish.htm 
++ htmlExerciseFile=.346.Spanish.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/.346.Spanish.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f .346.Spanish.htm 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/.346.Spanish.htm.out 
++ TestWithPromptingLanguageChange .346.html French 1 
++ startingHtml=.346.html 
++ newPromptingLang=French 
++ canonizedTest=1 
++ + echo .346.html 
++ sed -e s/.html$// -e s/$/.French.htm/ 
+htmlFile=.346.French.htm 
++ perl -w choose.cgi 
++ echo promptLang=French 
++ echo tense=all 
++ echo userID=speraw 
++ echo exerciseType=verb_all 
++ [ -n 1 ] 
++ echo canonizedTest=1 
+(offline mode: enter name=value pairs on standard input)
++ Test .346.French.htm 
++ htmlExerciseFile=.346.French.htm 
++ echo Test .346.French.htm 
+Test .346.French.htm
++ java student .346.French.htm 
++ grep ^= c:/users/nsproul/tmp/teacher_test_output/.346.French.htm.out 
+grep: input lines truncated - result questionable
++ TestOk .346.French.htm 
++ htmlExerciseFile=.346.French.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/.346.French.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/.346.French.htm.out 
++ TestOk .346.French.htm 
++ htmlExerciseFile=.346.French.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/.346.French.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f .346.French.htm 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/.346.French.htm.out 
++ TestWithPromptingLanguageChange .346.html Italian 1 
++ startingHtml=.346.html 
++ newPromptingLang=Italian 
++ canonizedTest=1 
++ + sed -e s/.html$// -e s/$/.Italian.htm/ 
++ echo .346.html 
+htmlFile=.346.Italian.htm 
++ perl -w choose.cgi 
++ echo promptLang=Italian 
++ echo tense=all 
++ echo userID=speraw 
++ echo exerciseType=verb_all 
++ [ -n 1 ] 
++ echo canonizedTest=1 
+(offline mode: enter name=value pairs on standard input)
++ Test .346.Italian.htm 
++ htmlExerciseFile=.346.Italian.htm 
++ echo Test .346.Italian.htm 
+Test .346.Italian.htm
++ java student .346.Italian.htm 
++ grep ^= c:/users/nsproul/tmp/teacher_test_output/.346.Italian.htm.out 
+grep: input lines truncated - result questionable
++ TestOk .346.Italian.htm 
++ htmlExerciseFile=.346.Italian.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/.346.Italian.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/.346.Italian.htm.out 
++ TestOk .346.Italian.htm 
++ htmlExerciseFile=.346.Italian.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/.346.Italian.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f .346.Italian.htm 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/.346.Italian.htm.out 
++ TestWithPromptingLanguageChange .346.html German 1 
++ startingHtml=.346.html 
++ newPromptingLang=German 
++ canonizedTest=1 
++ + echo .346.html 
++ sed -e s/.html$// -e s/$/.German.htm/ 
+htmlFile=.346.German.htm 
++ perl -w choose.cgi 
++ echo promptLang=German 
++ echo tense=all 
++ echo userID=speraw 
++ echo exerciseType=verb_all 
++ [ -n 1 ] 
++ echo canonizedTest=1 
+(offline mode: enter name=value pairs on standard input)
++ Test .346.German.htm 
++ htmlExerciseFile=.346.German.htm 
++ echo Test .346.German.htm 
+Test .346.German.htm
++ java student .346.German.htm 
++ grep ^= c:/users/nsproul/tmp/teacher_test_output/.346.German.htm.out 
+grep: input lines truncated - result questionable
++ TestOk .346.German.htm 
++ htmlExerciseFile=.346.German.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/.346.German.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/.346.German.htm.out 
++ TestOk .346.German.htm 
++ htmlExerciseFile=.346.German.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/.346.German.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f .346.German.htm 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/.346.German.htm.out 
++ [ 1 ] 
++ read fn 
++ [ -z l ] 
++ TestForAllPromptingLanguages l 1 
++ startingHtml=l 
++ canonizedTest=1 
++ Test l 1 
++ htmlExerciseFile=l 
++ echo Test l 
+Test l
++ java student l 
+java.io.FileNotFoundException: l
+	at java.io.FileInputStream.<init>(FileInputStream.java:64)
+	at lineReader.<init>(lineReader.java:11)
+	at student.main(student.java:211)
++ grep ^= c:/users/nsproul/tmp/teacher_test_output/l.out 
++ TestOk l 
++ htmlExerciseFile=l 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/l.log 
++ [ -n  ] 
++ echo no 
++ [ no = yes ] 
++ echo c:/users/nsproul/tmp/teacher_test_output/l.out 
++ TestWithPromptingLanguageChange l Spanish 1 
++ startingHtml=l 
++ newPromptingLang=Spanish 
++ canonizedTest=1 
++ + echo l 
++ sed -e s/.html$// -e s/$/.Spanish.htm/ 
+htmlFile=l.Spanish.htm 
++ perl -w choose.cgi 
++ echo promptLang=Spanish 
++ echo tense=all 
++ echo userID=speraw 
++ echo exerciseType=verb_all 
++ [ -n 1 ] 
++ echo canonizedTest=1 
+(offline mode: enter name=value pairs on standard input)
++ Test l.Spanish.htm 
++ htmlExerciseFile=l.Spanish.htm 
++ echo Test l.Spanish.htm 
+Test l.Spanish.htm
++ java student l.Spanish.htm 
++ grep ^= c:/users/nsproul/tmp/teacher_test_output/l.Spanish.htm.out 
+grep: input lines truncated - result questionable
++ TestOk l.Spanish.htm 
++ htmlExerciseFile=l.Spanish.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/l.Spanish.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/l.Spanish.htm.out 
++ TestOk l.Spanish.htm 
++ htmlExerciseFile=l.Spanish.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/l.Spanish.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f l.Spanish.htm 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/l.Spanish.htm.out 
++ TestWithPromptingLanguageChange l French 1 
++ startingHtml=l 
++ newPromptingLang=French 
++ canonizedTest=1 
++ + sed -e s/.html$// -e s/$/.French.htm/ 
++ echo l 
+htmlFile=l.French.htm 
++ perl -w choose.cgi 
++ echo promptLang=French 
++ echo tense=all 
++ echo userID=speraw 
++ echo exerciseType=verb_all 
++ [ -n 1 ] 
++ echo canonizedTest=1 
+(offline mode: enter name=value pairs on standard input)
++ Test l.French.htm 
++ htmlExerciseFile=l.French.htm 
++ echo Test l.French.htm 
+Test l.French.htm
++ java student l.French.htm 
++ grep ^= c:/users/nsproul/tmp/teacher_test_output/l.French.htm.out 
+grep: input lines truncated - result questionable
++ TestOk l.French.htm 
++ htmlExerciseFile=l.French.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/l.French.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/l.French.htm.out 
++ TestOk l.French.htm 
++ htmlExerciseFile=l.French.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/l.French.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f l.French.htm 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/l.French.htm.out 
++ TestWithPromptingLanguageChange l Italian 1 
++ startingHtml=l 
++ newPromptingLang=Italian 
++ canonizedTest=1 
++ + echo l 
++ sed -e s/.html$// -e s/$/.Italian.htm/ 
+htmlFile=l.Italian.htm 
++ perl -w choose.cgi 
++ echo promptLang=Italian 
++ echo tense=all 
++ echo userID=speraw 
++ echo exerciseType=verb_all 
++ [ -n 1 ] 
++ echo canonizedTest=1 
+(offline mode: enter name=value pairs on standard input)
++ Test l.Italian.htm 
++ htmlExerciseFile=l.Italian.htm 
++ echo Test l.Italian.htm 
+Test l.Italian.htm
++ java student l.Italian.htm 
++ grep ^= c:/users/nsproul/tmp/teacher_test_output/l.Italian.htm.out 
+grep: input lines truncated - result questionable
++ TestOk l.Italian.htm 
++ htmlExerciseFile=l.Italian.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/l.Italian.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/l.Italian.htm.out 
++ TestOk l.Italian.htm 
++ htmlExerciseFile=l.Italian.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/l.Italian.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f l.Italian.htm 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/l.Italian.htm.out 
++ TestWithPromptingLanguageChange l German 1 
++ startingHtml=l 
++ newPromptingLang=German 
++ canonizedTest=1 
++ + echo l 
++ sed -e s/.html$// -e s/$/.German.htm/ 
+htmlFile=l.German.htm 
++ perl -w choose.cgi 
++ echo promptLang=German 
++ echo tense=all 
++ echo userID=speraw 
++ echo exerciseType=verb_all 
++ [ -n 1 ] 
++ echo canonizedTest=1 
+(offline mode: enter name=value pairs on standard input)
++ Test l.German.htm 
++ htmlExerciseFile=l.German.htm 
++ echo Test l.German.htm 
+Test l.German.htm
++ java student l.German.htm 
++ grep ^= c:/users/nsproul/tmp/teacher_test_output/l.German.htm.out 
+grep: input lines truncated - result questionable
++ TestOk l.German.htm 
++ htmlExerciseFile=l.German.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/l.German.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/l.German.htm.out 
++ TestOk l.German.htm 
++ htmlExerciseFile=l.German.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/l.German.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f l.German.htm 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/l.German.htm.out 
++ [ 1 ] 
++ read fn 
++ [ -z  ] 
++ break 
++ TestTopicForAllPromptingLanguages 2 verb_have 
++ canonizedTest=2 
++ dataFile=verb_have 
++ [ 1 ] 
++ read fn 
++ ls verb_have.0.html verb_have.1.html verb_have.10.html verb_have.11.html verb_have.12.html verb_have.13.html verb_have.14.html verb_have.15.html verb_have.16.html verb_have.17.html verb_have.18.html verb_have.19.html verb_have.2.html verb_have.20.html verb_have.21.html verb_have.22.html verb_have.23.html verb_have.24.html verb_have.25.html verb_have.26.html verb_have.27.html verb_have.28.html verb_have.29.html verb_have.3.html verb_have.30.html verb_have.31.html verb_have.32.html verb_have.33.html verb_have.34.html verb_have.35.html verb_have.36.html verb_have.37.html verb_have.38.html verb_have.39.html verb_have.4.html verb_have.40.html verb_have.41.html verb_have.42.html verb_have.43.html verb_have.44.html verb_have.45.html verb_have.46.html verb_have.47.html verb_have.48.html verb_have.49.html verb_have.5.html verb_have.50.html verb_have.51.html verb_have.52.html verb_have.53.html verb_have.54.html verb_have.55.html verb_have.56.html verb_have.57.html verb_have.58.html verb_have.59.html verb_have.6.html verb_have.60.html verb_have.61.html verb_have.62.html verb_have.63.html verb_have.64.html verb_have.65.html verb_have.66.html verb_have.67.html verb_have.68.html verb_have.69.html verb_have.7.html verb_have.70.html verb_have.71.html verb_have.72.html verb_have.73.html verb_have.74.html verb_have.75.html verb_have.76.html verb_have.77.html verb_have.78.html verb_have.79.html verb_have.8.html verb_have.80.html verb_have.81.html verb_have.82.html verb_have.83.html verb_have.84.html verb_have.85.html verb_have.86.html verb_have.87.html verb_have.88.html verb_have.89.html verb_have.9.html verb_have.90.html verb_have.91.html verb_have.92.html verb_have.93.html 
++ [ -z verb_have.0.html ] 
++ TestForAllPromptingLanguages verb_have.0.html 2 
++ startingHtml=verb_have.0.html 
++ canonizedTest=2 
++ Test verb_have.0.html 2 
++ htmlExerciseFile=verb_have.0.html 
++ echo Test verb_have.0.html 
+Test verb_have.0.html
++ java student verb_have.0.html 
++ grep ^= c:/users/nsproul/tmp/teacher_test_output/verb_have.0.html.out 
++ TestOk verb_have.0.html 
++ htmlExerciseFile=verb_have.0.html 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/verb_have.0.html.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/verb_have.0.html.out 
++ TestWithPromptingLanguageChange verb_have.0.html Spanish 2 
++ startingHtml=verb_have.0.html 
++ newPromptingLang=Spanish 
++ canonizedTest=2 
++ + echo verb_have.0.html 
++ sed -e s/.html$// -e s/$/.Spanish.htm/ 
+htmlFile=verb_have.0.Spanish.htm 
++ perl -w choose.cgi 
++ echo promptLang=Spanish 
++ echo tense=all 
++ echo userID=speraw 
++ echo exerciseType=verb_all 
++ [ -n 2 ] 
++ echo canonizedTest=2 
+(offline mode: enter name=value pairs on standard input)
++ Test verb_have.0.Spanish.htm 
++ htmlExerciseFile=verb_have.0.Spanish.htm 
++ echo Test verb_have.0.Spanish.htm 
+Test verb_have.0.Spanish.htm
++ java student verb_have.0.Spanish.htm 
++ grep ^= c:/users/nsproul/tmp/teacher_test_output/verb_have.0.Spanish.htm.out 
+grep: input lines truncated - result questionable
++ TestOk verb_have.0.Spanish.htm 
++ htmlExerciseFile=verb_have.0.Spanish.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/verb_have.0.Spanish.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/verb_have.0.Spanish.htm.out 
++ TestOk verb_have.0.Spanish.htm 
++ htmlExerciseFile=verb_have.0.Spanish.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/verb_have.0.Spanish.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f verb_have.0.Spanish.htm 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/verb_have.0.Spanish.htm.out 
++ TestWithPromptingLanguageChange verb_have.0.html French 2 
++ startingHtml=verb_have.0.html 
++ newPromptingLang=French 
++ canonizedTest=2 
++ + sed -e s/.html$// -e s/$/.French.htm/ 
++ echo verb_have.0.html 
+htmlFile=verb_have.0.French.htm 
++ perl -w choose.cgi 
++ echo promptLang=French 
++ echo tense=all 
++ echo userID=speraw 
++ echo exerciseType=verb_all 
++ [ -n 2 ] 
++ echo canonizedTest=2 
+(offline mode: enter name=value pairs on standard input)
++ Test verb_have.0.French.htm 
++ htmlExerciseFile=verb_have.0.French.htm 
++ echo Test verb_have.0.French.htm 
+Test verb_have.0.French.htm
++ java student verb_have.0.French.htm 
++ grep ^= c:/users/nsproul/tmp/teacher_test_output/verb_have.0.French.htm.out 
+grep: input lines truncated - result questionable
++ TestOk verb_have.0.French.htm 
++ htmlExerciseFile=verb_have.0.French.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/verb_have.0.French.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/verb_have.0.French.htm.out 
++ TestOk verb_have.0.French.htm 
++ htmlExerciseFile=verb_have.0.French.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/verb_have.0.French.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f verb_have.0.French.htm 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/verb_have.0.French.htm.out 
++ TestWithPromptingLanguageChange verb_have.0.html Italian 2 
++ startingHtml=verb_have.0.html 
++ newPromptingLang=Italian 
++ canonizedTest=2 
++ + echo verb_have.0.html 
++ sed -e s/.html$// -e s/$/.Italian.htm/ 
+htmlFile=verb_have.0.Italian.htm 
++ perl -w choose.cgi 
++ echo promptLang=Italian 
++ echo tense=all 
++ echo userID=speraw 
++ echo exerciseType=verb_all 
++ [ -n 2 ] 
++ echo canonizedTest=2 
+(offline mode: enter name=value pairs on standard input)
++ Test verb_have.0.Italian.htm 
++ htmlExerciseFile=verb_have.0.Italian.htm 
++ echo Test verb_have.0.Italian.htm 
+Test verb_have.0.Italian.htm
++ java student verb_have.0.Italian.htm 
++ grep ^= c:/users/nsproul/tmp/teacher_test_output/verb_have.0.Italian.htm.out 
++ TestOk verb_have.0.Italian.htm 
++ htmlExerciseFile=verb_have.0.Italian.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/verb_have.0.Italian.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/verb_have.0.Italian.htm.out 
++ TestOk verb_have.0.Italian.htm 
++ htmlExerciseFile=verb_have.0.Italian.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/verb_have.0.Italian.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f verb_have.0.Italian.htm 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/verb_have.0.Italian.htm.out 
++ TestWithPromptingLanguageChange verb_have.0.html German 2 
++ startingHtml=verb_have.0.html 
++ newPromptingLang=German 
++ canonizedTest=2 
++ + echo verb_have.0.html 
++ sed -e s/.html$// -e s/$/.German.htm/ 
+htmlFile=verb_have.0.German.htm 
++ perl -w choose.cgi 
++ echo promptLang=German 
++ echo tense=all 
++ echo userID=speraw 
++ echo exerciseType=verb_all 
++ [ -n 2 ] 
++ echo canonizedTest=2 
+(offline mode: enter name=value pairs on standard input)
++ Test verb_have.0.German.htm 
++ htmlExerciseFile=verb_have.0.German.htm 
++ echo Test verb_have.0.German.htm 
+Test verb_have.0.German.htm
++ java student verb_have.0.German.htm 
++ grep ^= c:/users/nsproul/tmp/teacher_test_output/verb_have.0.German.htm.out 
+grep: input lines truncated - result questionable
++ TestOk verb_have.0.German.htm 
++ htmlExerciseFile=verb_have.0.German.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/verb_have.0.German.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/verb_have.0.German.htm.out 
++ TestOk verb_have.0.German.htm 
++ htmlExerciseFile=verb_have.0.German.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/verb_have.0.German.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f verb_have.0.German.htm 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/verb_have.0.German.htm.out 
++ [ 1 ] 
++ read fn 
++ [ -z _have.58.html ] 
++ TestForAllPromptingLanguages _have.58.html 2 
++ startingHtml=_have.58.html 
++ canonizedTest=2 
++ Test _have.58.html 2 
++ htmlExerciseFile=_have.58.html 
++ echo Test _have.58.html 
+Test _have.58.html
++ java student _have.58.html 
+java.io.FileNotFoundException: _have.58.html
+	at java.io.FileInputStream.<init>(FileInputStream.java:64)
+	at lineReader.<init>(lineReader.java:11)
+	at student.main(student.java:211)
++ grep ^= c:/users/nsproul/tmp/teacher_test_output/_have.58.html.out 
++ TestOk _have.58.html 
++ htmlExerciseFile=_have.58.html 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/_have.58.html.log 
++ [ -n  ] 
++ echo no 
++ [ no = yes ] 
++ echo c:/users/nsproul/tmp/teacher_test_output/_have.58.html.out 
++ TestWithPromptingLanguageChange _have.58.html Spanish 2 
++ startingHtml=_have.58.html 
++ newPromptingLang=Spanish 
++ canonizedTest=2 
++ + echo _have.58.html 
++ sed -e s/.html$// -e s/$/.Spanish.htm/ 
+htmlFile=_have.58.Spanish.htm 
++ perl -w choose.cgi 
++ echo promptLang=Spanish 
++ echo tense=all 
++ echo userID=speraw 
++ echo exerciseType=verb_all 
++ [ -n 2 ] 
++ echo canonizedTest=2 
+(offline mode: enter name=value pairs on standard input)
++ Test _have.58.Spanish.htm 
++ htmlExerciseFile=_have.58.Spanish.htm 
++ echo Test _have.58.Spanish.htm 
+Test _have.58.Spanish.htm
++ java student _have.58.Spanish.htm 
++ grep ^= c:/users/nsproul/tmp/teacher_test_output/_have.58.Spanish.htm.out 
+grep: input lines truncated - result questionable
++ TestOk _have.58.Spanish.htm 
++ htmlExerciseFile=_have.58.Spanish.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/_have.58.Spanish.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/_have.58.Spanish.htm.out 
++ TestOk _have.58.Spanish.htm 
++ htmlExerciseFile=_have.58.Spanish.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/_have.58.Spanish.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f _have.58.Spanish.htm 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/_have.58.Spanish.htm.out 
++ TestWithPromptingLanguageChange _have.58.html French 2 
++ startingHtml=_have.58.html 
++ newPromptingLang=French 
++ canonizedTest=2 
++ + echo _have.58.html 
++ sed -e s/.html$// -e s/$/.French.htm/ 
+htmlFile=_have.58.French.htm 
++ perl -w choose.cgi 
++ echo promptLang=French 
++ echo tense=all 
++ echo userID=speraw 
++ echo exerciseType=verb_all 
++ [ -n 2 ] 
++ echo canonizedTest=2 
+(offline mode: enter name=value pairs on standard input)
++ Test _have.58.French.htm 
++ htmlExerciseFile=_have.58.French.htm 
++ echo Test _have.58.French.htm 
+Test _have.58.French.htm
++ java student _have.58.French.htm 
++ grep ^= c:/users/nsproul/tmp/teacher_test_output/_have.58.French.htm.out 
+grep: input lines truncated - result questionable
++ TestOk _have.58.French.htm 
++ htmlExerciseFile=_have.58.French.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/_have.58.French.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/_have.58.French.htm.out 
++ TestOk _have.58.French.htm 
++ htmlExerciseFile=_have.58.French.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/_have.58.French.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f _have.58.French.htm 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/_have.58.French.htm.out 
++ TestWithPromptingLanguageChange _have.58.html Italian 2 
++ startingHtml=_have.58.html 
++ newPromptingLang=Italian 
++ canonizedTest=2 
++ + echo _have.58.html 
++ sed -e s/.html$// -e s/$/.Italian.htm/ 
+htmlFile=_have.58.Italian.htm 
++ perl -w choose.cgi 
++ echo promptLang=Italian 
++ echo tense=all 
++ echo userID=speraw 
++ echo exerciseType=verb_all 
++ [ -n 2 ] 
++ echo canonizedTest=2 
+(offline mode: enter name=value pairs on standard input)
++ Test _have.58.Italian.htm 
++ htmlExerciseFile=_have.58.Italian.htm 
++ echo Test _have.58.Italian.htm 
+Test _have.58.Italian.htm
++ java student _have.58.Italian.htm 
++ grep ^= c:/users/nsproul/tmp/teacher_test_output/_have.58.Italian.htm.out 
+grep: input lines truncated - result questionable
++ TestOk _have.58.Italian.htm 
++ htmlExerciseFile=_have.58.Italian.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/_have.58.Italian.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/_have.58.Italian.htm.out 
++ TestOk _have.58.Italian.htm 
++ htmlExerciseFile=_have.58.Italian.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/_have.58.Italian.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f _have.58.Italian.htm 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/_have.58.Italian.htm.out 
++ TestWithPromptingLanguageChange _have.58.html German 2 
++ startingHtml=_have.58.html 
++ newPromptingLang=German 
++ canonizedTest=2 
++ + echo _have.58.html 
++ sed -e s/.html$// -e s/$/.German.htm/ 
+htmlFile=_have.58.German.htm 
++ perl -w choose.cgi 
++ echo promptLang=German 
++ echo tense=all 
++ echo userID=speraw 
++ echo exerciseType=verb_all 
++ [ -n 2 ] 
++ echo canonizedTest=2 
+(offline mode: enter name=value pairs on standard input)
++ Test _have.58.German.htm 
++ htmlExerciseFile=_have.58.German.htm 
++ echo Test _have.58.German.htm 
+Test _have.58.German.htm
++ java student _have.58.German.htm 
++ grep ^= c:/users/nsproul/tmp/teacher_test_output/_have.58.German.htm.out 
+grep: input lines truncated - result questionable
++ TestOk _have.58.German.htm 
++ htmlExerciseFile=_have.58.German.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/_have.58.German.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/_have.58.German.htm.out 
++ TestOk _have.58.German.htm 
++ htmlExerciseFile=_have.58.German.htm 
++ grep ^=TEST DONE c:/users/nsproul/tmp/teacher_test_output/_have.58.German.htm.log 
++ [ -n =TEST DONE ] 
++ echo yes 
++ [ yes = yes ] 
++ rm -f _have.58.German.htm 
++ rm -f c:/users/nsproul/tmp/teacher_test_output/_have.58.German.htm.out 
++ [ 1 ] 
++ read fn 
++ [ -z  ] 
++ break 
++ Diff 
++ cd c:/users/nsproul/work/public/teacher 
++ sh ./cf.sh test 
+cp c:/users/nsproul/tmp/teacher_test_output/*log c:/users/nsproul/work/public/teacher/can/teacher_test_output
++ [ -f c:/users/nsproul/tmp/teacher_test_output/ERRORS ] 
++ echo Errors detected: 
+Errors detected:
++ cat c:/users/nsproul/tmp/teacher_test_output/ERRORS 
+c:/users/nsproul/tmp/teacher_test_output/l.out
+c:/users/nsproul/tmp/teacher_test_output/4.html.out
+c:/users/nsproul/tmp/teacher_test_output/.346.html.out
+c:/users/nsproul/tmp/teacher_test_output/l.out
+c:/users/nsproul/tmp/teacher_test_output/_have.58.html.out
++ wc -l 
++ ls c:/users/nsproul/tmp/teacher_test_output/4.French.htm.log c:/users/nsproul/tmp/teacher_test_output/4.German.htm.log c:/users/nsproul/tmp/teacher_test_output/4.Italian.htm.log c:/users/nsproul/tmp/teacher_test_output/4.Spanish.htm.log c:/users/nsproul/tmp/teacher_test_output/4.html.log c:/users/nsproul/tmp/teacher_test_output/_have.58.French.htm.log c:/users/nsproul/tmp/teacher_test_output/_have.58.German.htm.log c:/users/nsproul/tmp/teacher_test_output/_have.58.Italian.htm.log c:/users/nsproul/tmp/teacher_test_output/_have.58.Spanish.htm.log c:/users/nsproul/tmp/teacher_test_output/_have.58.html.log c:/users/nsproul/tmp/teacher_test_output/base.0.French.htm.log c:/users/nsproul/tmp/teacher_test_output/base.0.German.htm.log c:/users/nsproul/tmp/teacher_test_output/base.0.Italian.htm.log c:/users/nsproul/tmp/teacher_test_output/base.0.Spanish.htm.log c:/users/nsproul/tmp/teacher_test_output/base.0.html.log c:/users/nsproul/tmp/teacher_test_output/base.160.French.htm.log c:/users/nsproul/tmp/teacher_test_output/base.160.German.htm.log c:/users/nsproul/tmp/teacher_test_output/base.160.Italian.htm.log c:/users/nsproul/tmp/teacher_test_output/base.160.Spanish.htm.log c:/users/nsproul/tmp/teacher_test_output/base.160.html.log c:/users/nsproul/tmp/teacher_test_output/l.French.htm.log c:/users/nsproul/tmp/teacher_test_output/l.German.htm.log c:/users/nsproul/tmp/teacher_test_output/l.Italian.htm.log c:/users/nsproul/tmp/teacher_test_output/l.Spanish.htm.log c:/users/nsproul/tmp/teacher_test_output/l.log c:/users/nsproul/tmp/teacher_test_output/verb_have.0.French.htm.log c:/users/nsproul/tmp/teacher_test_output/verb_have.0.German.htm.log c:/users/nsproul/tmp/teacher_test_output/verb_have.0.Italian.htm.log c:/users/nsproul/tmp/teacher_test_output/verb_have.0.Spanish.htm.log c:/users/nsproul/tmp/teacher_test_output/verb_have.0.html.log 
++ echo      30  tests ran 
+     30  tests ran
++ exit 
+$ 

@@ -1,0 +1,36 @@
+# formatted
+@val = (
+{
+'English' => 'a shirt',
+'French' => '{un chemise>s>}',
+'German' => '{ein Hemd>s>}',
+'Italian' => '{un camicia>s>}',
+'Spanish' => '{un camisa>s>}',
+'id' => 0,
+},
+{
+'English' => 'some pants',
+'French' => '{un pantalon>p>}',
+'German' => '{Hose>p>}',
+'Italian' => '{un pantaloni>p>}',
+'Spanish' => '{un pantal/on>p>}',
+'Spanish_note#pantal/on;;Spanish' => 'sp_some__pair',
+'id' => 1,
+},
+{
+'English' => 'a jacket',
+'French' => '{un veste>s>}',
+'German' => '{ein Jacke>s>}',
+'Italian' => '{un giacca>s>}',
+'Spanish' => '{un chaqueta>s>}',
+'id' => 2,
+},
+{
+'English' => 'a coat',
+'French' => '{un manteau>s>}',
+'German' => '{ein Mantel>s>}',
+'Italian' => '{un cappotto>s>}',
+'Spanish' => '{un abrigo>s>}',
+'id' => 3,
+},
+);

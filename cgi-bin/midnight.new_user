@@ -1,0 +1,233 @@
+(echo email=axe@adyn.com; echo userID=test599; echo pw=x)|perl -w new_user.cgi
+Status: 200 OK
+Expires: Wed, 11 Sep 2002 00:42:22 GMT
+Date: Thu, 12 Sep 2002 00:42:22 GMT
+Content-Type: text/html; charset=ISO-8859-1
+
+<!--Copyright 2001 Adynware Corp., all rights reserved-->
+<html>
+<head>
+<title>Short Form to Choose Some Exercises</title>
+</head>
+<body bgcolor=#cccccc><font face='arial'>
+<script language=JavaScript src=../teacher/html/new.js></script>
+<script language=JavaScript> adyn_url_offset='../teacher/html/'
+
+
+function on_Help_click()
+{
+    window.location= adyn_url_offset + '../teacher.html#exerciseSelectionPanel'
+}
+function on_Overview_click()
+{
+    window.location= adyn_url_offset + '../teacher.html'
+}
+function _onload()
+{
+document.teacher_form.userID.value = 'test599'
+    teacher_cookie_load()
+    document.teacher_form.submitButton.focus()
+}
+
+var teacherCookie
+
+function teacher_cookie_load()
+{
+    teacherCookie = new Cookie(document, "adynware_info", 4800)
+    if (teacherCookie.load())
+    {
+	if(teacherCookie.exerciseSetTargetSize!=null)
+	document.teacher_form.exerciseSetTargetSize.value = teacherCookie.exerciseSetTargetSize
+
+	if (teacherCookie.lang_French_checked =="false")
+	document.teacher_form.lang_French.checked  = false
+	if (teacherCookie.lang_German_checked =="false")
+	document.teacher_form.lang_German.checked  = false
+	if (teacherCookie.lang_Italian_checked=="false")
+	document.teacher_form.lang_Italian.checked = false
+	if (teacherCookie.lang_Spanish_checked=="false")
+	document.teacher_form.lang_Spanish.checked = false
+
+	if(teacherCookie.userID!=null && teacherCookie.userID!="")
+	{
+	    //alert('setting userID from cookie: ' + teacherCookie.userID)
+	    document.teacher_form.userID.value = teacherCookie.userID
+	}
+	else
+	{
+	    //alert('sticking w/ userID: ' + document.teacher_form.userID.value)
+	}
+	document.teacher_form.pw.value = teacherCookie.pw
+    }
+}
+
+function teacher_cookie_store()
+{
+    teacherCookie.whichPanel = 'simple_choose.htm'
+    teacherCookie.exerciseSetTargetSize  = document.teacher_form.exerciseSetTargetSize.value
+
+    teacherCookie.lang_French_checked  = document.teacher_form.lang_French.checked
+    teacherCookie.lang_German_checked  = document.teacher_form.lang_German.checked
+    teacherCookie.lang_Italian_checked = document.teacher_form.lang_Italian.checked
+    teacherCookie.lang_Spanish_checked = document.teacher_form.lang_Spanish.checked
+    
+    teacherCookie.store()
+}
+
+function on_submit_click()
+{
+    teacher_cookie_store()
+    
+    if (!forms_verifyDigits(document.teacher_form.exerciseSetTargetSize, 'requested number of exercises') || (document.teacher_form.exerciseSetTargetSize.value < 1) || (document.teacher_form.exerciseSetTargetSize.value > 100))
+    {
+	alert('The number of exercises which will be retrieved has to be a number from 1 to 100.\nPlease make it so and resubmit')
+	document.teacher_form.exerciseSetTargetSize.focus()
+    }
+    else
+    {
+	//alert('not submitting: ')
+	
+	document.teacher_form.submit()
+	defaultStatus = 'Gathering exercises...'
+    }
+}
+
+</script>
+
+<form name=teacher_form action=../../bin/choose.cgi method=post>
+<input type=hidden name=userID size=64>
+<input type=hidden name=pw size=64>
+<input type=hidden name=whichPanel size=10 value='simple_choose.htm'>
+
+<center>
+
+
+
+
+<!-- new_user.cgi needs the h2 in the following line as a marker to modify -->
+<h1>New user <i>test599</i> was successfully created</h1><h2>Short Form to Choose Some Exercises</h2>
+
+
+
+
+
+<table bgcolor=white border=5 cellpadding=10 cellspacing=1 width=90%>
+<tr>
+<td>
+<font size=+2><b>Follow the steps below to select a set of exercises</b></font>
+&nbsp;&nbsp;&nbsp;&nbsp;<input type=button name=topic_help value="Help" onClick="on_Help_click()">
+&nbsp;&nbsp;&nbsp;&nbsp;<input type=button name=topic_help value="Overview" onClick="on_Overview_click()">
+&nbsp;&nbsp;&nbsp;&nbsp;<input type=button name=topic_help value="Long form" onClick="location=adyn_url_offset + 'choose.html'">
+<br>
+
+
+</td>
+</tr>
+</table>
+
+<table bgcolor=white border=5 cellpadding=10 cellspacing=1 width=90%>
+<tr>
+<td colspan=2>
+<h3>
+Which languages are you studying?
+</h3>
+
+<table bgcolor=white border=5 cellpadding=0 cellspacing=0 width=100%>
+<tr>
+<td><input type=checkbox checked name=lang_French value="French">French<br></td>
+<td><input type=checkbox checked name=lang_German value="German">German<br></td>
+</tr>
+<tr>
+<td><input type=checkbox checked name=lang_Italian value="Italian">Italian<br></td>
+<td><input type=checkbox checked name=lang_Spanish value="Spanish">Spanish<br></td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr>
+<td><font size=+1><b>Retrieve <input type=text name=exerciseSetTargetSize size=3 value='15'> flashcards</td>
+</tr>
+<tr>
+<td><input type=button name=submitButton value="Go" onClick="on_submit_click()"></td>
+</tr>
+</table>
+
+</center>
+</form>
+<script language=JavaScript> adyn_url_offset='../teacher/html/'
+
+onload=_onload
+</script>
+<!--Copyright 2001 Adynware Corp., all rights reserved-->
+<html>
+<head>
+<title>Welcome to teacher</title>
+</head>
+<body bgcolor=#cccccc><font face='arial'>
+<h1>Welcome!</h1>
+<h2>What is this product? </h2>
+
+Reduced to its essentials, this product is an online version of flash cards with
+<ul>
+<li>links to grammatical references </li>
+<li>links to verb tables</li>
+<li>automatic customizing to the needs of individual users</li>
+</ul>
+
+<h2>Sample Screen #1: Prompt</h2>
+
+For each exercise there is a prompt page and an answer page which serve the same function as the two sides of a flashcard.  First the user is shown the prompt page, a sample of which is shown below.  Just like with a flashcard, the user sees the prompt -- in this case, "We live in Britain" -- then translates it into the foreign language.  
+<p>
+When the user is ready to see the answer, he clicks on the <b> Show Answer</b> button, resulting in the answer page being displayed; this is analogous to flipping the flashcard:
+<br>
+<br>
+<br>
+<image src=sample.1.jpg>
+
+<h2>Sample Screen #2: Answer</h2>
+It is expected that most of the time a user will be interested in a single foreign language, in which case only that language will be displayed.  In this case, the user was more ambitious, and decided to study them all simultaneously.
+<p>
+Each translation is explained in detail with hyperlinks to the appropriate sections of the online grammatical references.  Each time a verb is used, it is footnoted and linked to a complete conjugation of that verb.  Frequently there are also links to exercises pertaining to that particular verb; by following these links, the user can concentrate on a problem verb if desired.
+<p>
+There are many exercises, over 14,000 at last count.  When selecting exercises, the user has the ability to focus on particular verbs and/or particular tenses, among other criteria.
+
+<br>
+<br>
+<br>
+<image src=sample.2.jpg>
+
+<h2>Fundamentals</h2>
+
+Although there is a fuller explanation in the <!--link file_teacher_help documentation-->,
+below is a quick explanation of the most fundamental concepts so that you can hopefully understand the product right off the bat.
+<!--include teacherFundamentals-->
+
+<h2>And finally!</h2>
+You can <a href=html/choose.html>run the product</a>.
+
+<!--include copyright-->
+</body>
+</html>
+</body>
+</html>
+Nelson is setting binmode to 0: c:/perl/lib/CGI.pm
+Nelson is setting binmode to 0: c:/perl/lib/CGI.pm
+Nelson is setting binmode to 0: c:/perl/lib/CGI.pm
+Nelson is setting binmode to 0: c:/perl/lib/CGI.pm
+Nelson is setting binmode to 0: c:/perl/lib/CGI.pm
+adyn_cgi_util::MailAdyn(successful user creation: test599 (axe@adyn.com), ): would mail adyn if I were on unix
+Use of uninitialized value in print at adyn_cgi_util.pm line 220, <GEN3> line 19 (#1)
+    (W uninitialized) An undefined value was used as if it were already
+    defined.  It was interpreted as a "" or a 0, but maybe it was a mistake.
+    To suppress this warning assign a defined value to your variables.
+    
+    To help you figure out what was undefined, perl tells you what operation
+    you used the undefined value in.  Note, however, that perl optimizes your
+    program and the operation displayed in the warning may not necessarily
+    appear literally in your program.  For example, "that $foo" is
+    usually optimized into "that " . $foo, and the warning will refer to
+    the concatenation (.) operator, even though there is no . in your
+    program.
+    
+$ 

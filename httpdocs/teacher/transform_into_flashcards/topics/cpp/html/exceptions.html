@@ -1,0 +1,133 @@
+<html>
+<head>
+<title>[17] Exceptions and error handling, C++ FAQ Lite, Marshall Cline</title>
+<link rev=made href="mailto:cline@parashift.com">
+</head>
+<body vlink="#551a8b" text="#000000" bgcolor="#c1c1c1" alink="#ff0000" link="#0000ee">
+<a name="top"></a>
+<h1>[17] Exceptions and error handling<br>
+<small><small>(Part of <a href="index.html"><em>C++ FAQ Lite</em></a>, <a href="copy-permissions.html#[1.2]">Copyright&nbsp;&copy; 1991-96</a>, <a href="http://www.cerfnet.com/~mpcline/">Marshall Cline</a>, <a href="mailto:cline@parashift.com">cline@parashift.com</a>)</small></small></h1>
+<hr width="100%" >
+<h3>FAQs in section [17]:</h3>
+<ul>
+<li><a href="exceptions.html#[17.1]">[17.1] How can I handle a constructor that fails?</a></li>
+<li><a href="exceptions.html#[17.2]">[17.2] How should I handle resources if my constructors may
+throw exceptions?</a></li>
+<li><a href="exceptions.html#[17.3]">[17.3] How do I change the string-length of an array of
+<tt>char</tt> to prevent memory leaks even if/when someone throws an exception?</a></li>
+</ul>
+<p><hr width="100%" >
+<p><a name="[17.1]"></a>
+<h3>[17.1] How can I handle a constructor that fails?</h3>
+<p>Throw an exception.
+<p>Constructors don't have a return type, so it's not possible to use error codes.
+The best way to signal constructor failure is therefore to throw an exception.
+<p>If you don't have or won't use exceptions, here's a work-around.  If a
+constructor fails, the constructor can put the object into a &quot;zombie&quot; state.
+Do this by setting an internal status bit so the object acts sort of like its
+dead even though it is technically still alive.  Then add a query (&quot;inspector&quot;)
+member function to check this &quot;zombie&quot; bit so users of your class can find
+out if their object is truly alive, or if it's a zombie (i.e., a &quot;living dead&quot;
+object).  Also you'll probably want to have your other member functions check
+this zombie bit, and, if the object isn't really alive, do a no-op (or perhaps
+something more obnoxious such as <tt>abort()</tt>).  This is really ugly, but it's the
+best you can do if you can't (or don't want to) use exceptions.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="freestore-mgmt.html">Previous&nbsp;section</a> |&nbsp;<a href="const-correctness.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[17.2]"></a>
+<h3>[17.2] How should I handle resources if my constructors may
+throw exceptions?</h3>
+<p>Every data member inside your object should clean up its own mess.
+<p>If a constructor throws an exception, the object's destructor is <em>not</em>
+run.  If your object has already done something that needs to be undone (such
+as allocating some memory, opening a file, or locking a semaphore), this &quot;stuff
+that needs to be undone&quot; <em>must</em> be remembered by a data member inside the
+object.
+<p>For example, rather than allocating memory into a raw <tt>Fred*</tt> data member, put
+the allocated memory into a &quot;smart pointer&quot; member object, and the destructor
+of this smart pointer will <tt>delete</tt> the <tt>Fred</tt> object when the smart pointer
+dies.  The standard class <tt>auto_ptr</tt> is an example of such as &quot;smart pointer&quot;
+class.  You can also <a href="freestore-mgmt.html#[16.20]">write your own reference counting
+smart pointer<!--rawtext:[16.20]:rawtext--></a>.  You can also <a href="operator-overloading.html#[13.3]">use smart pointers to
+&quot;point&quot; to disk records or objects on other machines<!--rawtext:[13.3]:rawtext--></a>.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="freestore-mgmt.html">Previous&nbsp;section</a> |&nbsp;<a href="const-correctness.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[17.3]"></a>
+<h3>[17.3] How do I change the string-length of an array of
+<tt>char</tt> to prevent memory leaks even if/when someone throws an exception?</h3>
+<p>If what you really want to do is work with strings, don't use an array of
+<tt>char</tt> in the first place, since <a href="proper-inheritance.html#[21.5]">arrays are evil<!--rawtext:[21.5]:rawtext--></a>.
+Instead use an object of some <tt>string</tt>-like class.
+<p>For example, suppose you want to get a copy of a string, fiddle with the copy,
+then append another string to the end of the fiddled copy.  The array-of-<tt>char</tt>
+approach would look something like this:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;userCode(const&nbsp;char*&nbsp;s1,&nbsp;const&nbsp;char*&nbsp;s2)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Get&nbsp;a&nbsp;copy&nbsp;of&nbsp;<tt>s1</tt>&nbsp;into&nbsp;a&nbsp;new&nbsp;string&nbsp;called&nbsp;<tt>copy</tt>:</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char*&nbsp;copy&nbsp;=&nbsp;new&nbsp;char[strlen(s1)&nbsp;+&nbsp;1];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;strcpy(copy,&nbsp;s1);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Now&nbsp;that&nbsp;we&nbsp;have&nbsp;a&nbsp;local&nbsp;pointer&nbsp;to&nbsp;freestore-allocated&nbsp;memory,</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;we&nbsp;need&nbsp;to&nbsp;use&nbsp;a&nbsp;<tt>try</tt>&nbsp;block&nbsp;to&nbsp;prevent&nbsp;memory&nbsp;leaks:</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Now&nbsp;we&nbsp;fiddle&nbsp;with&nbsp;<tt>copy</tt>&nbsp;for&nbsp;a&nbsp;while...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Later&nbsp;we&nbsp;want&nbsp;to&nbsp;append&nbsp;<tt>s2</tt>&nbsp;onto&nbsp;the&nbsp;fiddled-with&nbsp;<tt>copy</tt>:</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...&nbsp;[Here's&nbsp;where&nbsp;people&nbsp;want&nbsp;to&nbsp;reallocate&nbsp;<tt>copy</tt>]&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char*&nbsp;copy2&nbsp;=&nbsp;new&nbsp;char[strlen(copy)&nbsp;+&nbsp;strlen(s2)&nbsp;+&nbsp;1];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;strcpy(copy2,&nbsp;copy);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;strcpy(copy2&nbsp;+&nbsp;strlen(copy),&nbsp;s2);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;delete[]&nbsp;copy;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;copy&nbsp;=&nbsp;copy2;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Finally&nbsp;we&nbsp;fiddle&nbsp;with&nbsp;<tt>copy</tt>&nbsp;again...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;catch&nbsp;(...)&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;delete[]&nbsp;copy;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Prevent&nbsp;memory&nbsp;leaks&nbsp;if&nbsp;we&nbsp;got&nbsp;an&nbsp;exception</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Re-<tt>throw</tt>&nbsp;the&nbsp;current&nbsp;exception</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;delete[]&nbsp;copy;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Prevent&nbsp;memory&nbsp;leaks&nbsp;if&nbsp;we&nbsp;did&nbsp;NOT&nbsp;get&nbsp;an&nbsp;exception</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p>Using <tt>char*</tt>s like this is tedious and error prone.  Why not just use an
+object of some <tt>string</tt> class?  Your compiler probably supplies a <tt>string</tt>-like
+class, and it's probably just as fast and certainly it's a lot simpler and
+safer than the <tt>char*</tt> code that you would have to write yourself.  For
+example, if you're using the <tt>string</tt> class from the <a href="big-picture.html#[6.12]">standardization committee<!--rawtext:[6.12]:rawtext--></a>, your code might look something like this:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;#include&nbsp;&lt;string&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Let&nbsp;the&nbsp;compiler&nbsp;see&nbsp;<tt>class</tt>&nbsp;<tt>string</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;using&nbsp;namespace&nbsp;std;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;userCode(const&nbsp;string&amp;&nbsp;s1,&nbsp;const&nbsp;string&amp;&nbsp;s2)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Get&nbsp;a&nbsp;copy&nbsp;of&nbsp;<tt>s1</tt>&nbsp;into&nbsp;a&nbsp;new&nbsp;string&nbsp;called&nbsp;<tt>copy</tt>:</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string&nbsp;copy&nbsp;=&nbsp;s1;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;NOTE:&nbsp;we&nbsp;do&nbsp;NOT&nbsp;need&nbsp;a&nbsp;<tt>try</tt>&nbsp;block!</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Now&nbsp;we&nbsp;fiddle&nbsp;with&nbsp;<tt>copy</tt>&nbsp;for&nbsp;a&nbsp;while...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Later&nbsp;we&nbsp;want&nbsp;to&nbsp;append&nbsp;<tt>s2</tt>&nbsp;onto&nbsp;the&nbsp;fiddled-with&nbsp;<tt>copy</tt>:</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;copy&nbsp;+=&nbsp;s2;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;NOTE:&nbsp;we&nbsp;do&nbsp;NOT&nbsp;need&nbsp;to&nbsp;reallocate&nbsp;memory!</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Finally&nbsp;we&nbsp;fiddle&nbsp;with&nbsp;<tt>copy</tt>&nbsp;again...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;NOTE:&nbsp;we&nbsp;do&nbsp;NOT&nbsp;need&nbsp;to&nbsp;<tt>delete[]</tt>&nbsp;anything!</em><tt>
+</code>
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="freestore-mgmt.html">Previous&nbsp;section</a> |&nbsp;<a href="const-correctness.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<a name="bottom"></a>
+<a href="mailto:cline@parashift.com"><img src="mbox.gif" border=2 height=26 width=89>&nbsp;E-mail the author</a><br>
+[&nbsp;<a href="index.html"><em>C++ FAQ Lite</em></a>
+|&nbsp;<a href="index.html#table-of-contents">Table&nbsp;of&nbsp;contents</a>
+|&nbsp;<a href="subject-index.html">Subject&nbsp;index</a>
+|&nbsp;<a href="copy-permissions.html#[1.1]">About&nbsp;the&nbsp;author</a>
+|&nbsp;<a href="copy-permissions.html#[1.2]">&copy;</a>
+|&nbsp;<a href="on-line-availability.html#[2.2]">Download&nbsp;your&nbsp;own&nbsp;copy</a>&nbsp;]<br>
+<small>Revised Sep 8, 1997</small>
+</body>
+</html>

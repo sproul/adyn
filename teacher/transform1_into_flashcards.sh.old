@@ -1,0 +1,21 @@
+:
+
+Project()
+{
+	project=$1
+
+	cd $HOME/work/adyn.com/httpdocs/teacher/data
+	rm -f out_$project $project
+	
+	cd $HOME/work/adyn.com/httpdocs/teacher
+	#cd $HOME/work/adyn.com/cgi-bin
+	perl -w $HOME/work/adyn.com/httpdocs/teacher/transform_into_flashcards.pl $project
+
+	cd $HOME/work/adyn.com/httpdocs/teacher
+	perl -w tx.pl -genPath $project -categories Q/A
+}
+
+Project $1
+
+exit
+sh -x $HOME/work/adyn.com/httpdocs/teacher/transform1_into_flashcards.sh j4

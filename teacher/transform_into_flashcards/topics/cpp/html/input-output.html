@@ -1,0 +1,373 @@
+<html>
+<head>
+<title>[15] Input/output via &lt;iostream.h&gt; and &lt;stdio.h&gt;, C++ FAQ Lite, Marshall Cline</title>
+<link rev=made href="mailto:cline@parashift.com">
+</head>
+<body vlink="#551a8b" text="#000000" bgcolor="#c1c1c1" alink="#ff0000" link="#0000ee">
+<a name="top"></a>
+<h1>[15] Input/output via <tt>&lt;iostream.h&gt;</tt> and <tt>&lt;stdio.h&gt;</tt><br>
+<small><small>(Part of <a href="index.html"><em>C++ FAQ Lite</em></a>, <a href="copy-permissions.html#[1.2]">Copyright&nbsp;&copy; 1991-96</a>, <a href="http://www.cerfnet.com/~mpcline/">Marshall Cline</a>, <a href="mailto:cline@parashift.com">cline@parashift.com</a>)</small></small></h1>
+<hr width="100%" >
+<h3>FAQs in section [15]:</h3>
+<ul>
+<li><a href="input-output.html#[15.1]">[15.1] Why should I use <tt>&lt;iostream.h&gt;</tt> instead of the
+traditional <tt>&lt;stdio.h&gt;</tt>?</a></li>
+<li><a href="input-output.html#[15.2]">[15.2] Why does my program go into an infinite loop when
+someone enters an invalid input character?</a> <img src="new.gif" alt="NEW!" border=0></li>
+<li><a href="input-output.html#[15.3]">[15.3] How does that funky <tt>while&nbsp;(cin&nbsp;&gt;&gt;&nbsp;foo)</tt> syntax
+work?</a> <img src="new.gif" alt="NEW!" border=0></li>
+<li><a href="input-output.html#[15.4]">[15.4] Why does my input seem to process past the end of file?</a></li>
+<li><a href="input-output.html#[15.5]">[15.5] Why is my program ignoring my input request
+after the first iteration?</a></li>
+<li><a href="input-output.html#[15.6]">[15.6] How can I provide printing for my <tt>class</tt> <tt>Fred</tt>?</a> <img src="updated.gif" alt="UPDATED!" border=0></li>
+<li><a href="input-output.html#[15.7]">[15.7] How can I provide input for my <tt>class</tt> <tt>Fred</tt>?</a> <img src="updated.gif" alt="UPDATED!" border=0></li>
+<li><a href="input-output.html#[15.8]">[15.8] How can I provide printing for an entire hierarchy of
+classes?</a></li>
+<li><a href="input-output.html#[15.9]">[15.9] How can I &quot;reopen&quot; <tt>cin</tt> and <tt>cout</tt> in binary
+mode under DOS and/or OS/2?</a></li>
+<li><a href="input-output.html#[15.10]">[15.10] Why can't I open a file in a different directory
+such as <tt>&quot;..\test.dat&quot;</tt>?</a></li>
+</ul>
+<p><hr width="100%" >
+<p><a name="[15.1]"></a>
+<h3>[15.1] Why should I use <tt>&lt;iostream.h&gt;</tt> instead of the
+traditional <tt>&lt;stdio.h&gt;</tt>?</h3>
+<p>Increase type safety, reduce errors, improve performance, allow extensibility,
+and provide subclassability.
+<p><tt>printf()</tt> is arguably not broken, and <tt>scanf()</tt> is perhaps livable despite
+being error prone, however both are limited with respect to what C++ I/O can
+do.  C++ I/O (using <tt>&lt;&lt;</tt> and <tt>&gt;&gt;</tt>) is, relative to C (using <tt>printf()</tt> and
+<tt>scanf()</tt>):
+<ul>
+<li><em>Better type safety:</em> With <tt>&lt;iostream.h&gt;</tt>, the type of object
+being I/O'd is known statically by the compiler.  In contrast, <tt>&lt;stdio.h&gt;</tt> uses
+<tt>&quot;%&quot;</tt> fields to figure out the types dynamically.</li>
+<li><em>Less error prone:</em> With <tt>&lt;iostream.h&gt;</tt>, there are no
+redundant <tt>&quot;%&quot;</tt> tokens that have to be consistent with the actual objects
+being I/O'd.  Removing redundancy removes a class of errors.</li>
+<li><em>Extensible:</em> The C++ <tt>&lt;iostream.h&gt;</tt> mechanism allows new
+user-defined types to be I/O'd without breaking existing code.  Imagine the
+chaos if everyone was simultaneously adding new incompatible <tt>&quot;%&quot;</tt> fields
+to <tt>printf()</tt> and <tt>scanf()</tt>?!).</li>
+<li><em>Subclassable:</em> The C++ <tt>&lt;iostream.h&gt;</tt> mechanism is built from
+real classes such as <tt>ostream</tt> and <tt>istream</tt>.  Unlike <tt>&lt;stdio.h&gt;</tt>'s
+<tt>FILE*</tt>, these are real classes and hence subclassable.  This means you
+can have other user-defined things that look and act like streams, yet that do
+whatever strange and wonderful things you want.  You automatically get to use
+the zillions of lines of I/O code written by users you don't even know, and
+they don't need to know about your &quot;extended stream&quot; class.</li>
+</ul>
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="friends.html">Previous&nbsp;section</a> |&nbsp;<a href="freestore-mgmt.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[15.2]"></a>
+<h3>[15.2] Why does my program go into an infinite loop when
+someone enters an invalid input character? <img src="new.gif" alt="NEW!" border=0></h3>
+<small><em>[Recently created (on 1/97).  <a href="input-output.html#[15.3]">Click here to go to the next FAQ in the &quot;chain&quot; of recent changes<!--rawtext:[15.3]:rawtext--></a>.]</em></small>
+<p>For example, suppose you have the following code that reads integers from
+<tt>cin</tt>:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;#include&nbsp;&lt;iostream.h&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;main()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;"Enter&nbsp;numbers&nbsp;separated&nbsp;by&nbsp;whitespace&nbsp;(use&nbsp;-1&nbsp;to&nbsp;quit):&nbsp;";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;i&nbsp;=&nbsp;0;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;(i&nbsp;!=&nbsp;-1)&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cin&nbsp;&gt;&gt;&nbsp;i;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;BAD&nbsp;FORM&nbsp;&#151;&nbsp;See&nbsp;comments&nbsp;below</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;"You&nbsp;entered&nbsp;"&nbsp;&lt;&lt;&nbsp;i&nbsp;&lt;&lt;&nbsp;'\n';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p>The problem with this code is that it lacks any checking to see if someone
+entered an invalid input character.  In particuluar, if someone enters
+something that doesn't look like an integer (such as an 'x'), the stream <tt>cin</tt>
+goes into a &quot;failed state,&quot; and all subsequent input attempts return
+immediately without doing anything.  In other words, the program enters an
+infinite loop; if <tt>42</tt> was the last number that was successfully read,
+the program will print the message <tt>You&nbsp;entered&nbsp;42</tt> over and over.
+<p>An easy way to check for invalid input is to move the input request from the
+body of the <tt>while</tt> loop into the control-expression of the <tt>while</tt> loop.
+E.g.,
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;#include&nbsp;&lt;iostream.h&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;main()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;"Enter&nbsp;a&nbsp;number,&nbsp;or&nbsp;-1&nbsp;to&nbsp;quit:&nbsp;";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;i&nbsp;=&nbsp;0;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;(cin&nbsp;&gt;&gt;&nbsp;i)&nbsp;{&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;GOOD&nbsp;FORM</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(i&nbsp;==&nbsp;-1)&nbsp;break;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;"You&nbsp;entered&nbsp;"&nbsp;&lt;&lt;&nbsp;i&nbsp;&lt;&lt;&nbsp;'\n';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p>This will cause the while loop to exit either when you hit end-of-file, or when
+you enter a bad integer, or when you enter <tt>-1</tt>.
+<p>(Naturally you can eliminate the <tt>break</tt> by changing the <tt>while</tt> loop
+expression from <tt>while&nbsp;(cin&nbsp;&gt;&gt;&nbsp;i)</tt> to
+<tt>while&nbsp;((cin&nbsp;&gt;&gt;&nbsp;i)&nbsp;&amp;&amp;&nbsp;(i&nbsp;!=&nbsp;-1))</tt>, but that's not
+really the point of this FAQ since this FAQ has to do with iostreams rather
+than generic structured programming guidelines.)
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="friends.html">Previous&nbsp;section</a> |&nbsp;<a href="freestore-mgmt.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[15.3]"></a>
+<h3>[15.3] How does that funky <tt>while&nbsp;(cin&nbsp;&gt;&gt;&nbsp;foo)</tt> syntax
+work? <img src="new.gif" alt="NEW!" border=0></h3>
+<small><em>[Recently created (on 1/97).  <a href="input-output.html#[15.6]">Click here to go to the next FAQ in the &quot;chain&quot; of recent changes<!--rawtext:[15.6]:rawtext--></a>.]</em></small>
+<p>See the <a href="input-output.html#[15.2]">previous FAQ<!--rawtext:[15.2]:rawtext--></a> for an example of the
+&quot;funky <tt>while&nbsp;(cin&nbsp;&gt;&gt;&nbsp;foo)</tt> syntax.&quot;
+<p>The expression <tt>(cin&nbsp;&gt;&gt;&nbsp;foo)</tt> calls the appropriate <tt>operator&gt;&gt;</tt>
+(for example, it calls the <tt>operator&gt;&gt;</tt> that takes an <tt>istream</tt> on
+the left and, if <tt>foo</tt> is of type <tt>int</tt>, an <tt>int&amp;</tt> on the right).  The
+<tt>istream</tt> <tt>operator&gt;&gt;</tt> functions return their left argument by
+convention, which in this case means it will return <tt>cin</tt>.  Next the compiler
+notices that the returned <tt>istream</tt> is in a boolean context, so it calls
+the &quot;cast&quot; operator <tt>istream::operator&nbsp;bool()</tt>.  I.e., in this case, it
+calls <tt>cin.operator&nbsp;bool()</tt>, just as if you had casted it explicitly such
+as <tt>(bool)cin</tt> or <tt>bool(cin)</tt>.  (Note: if your compiler doesn't yet
+support the <tt>bool</tt> type, <tt>istream::operator&nbsp;void*()</tt> will be called
+instead.)
+<p>The <tt>operator&nbsp;bool()</tt> cast operator returns <tt>true</tt> if the stream is in a
+good state, or <tt>false</tt> if it's in a failed state (in the <tt>void*</tt> case, the
+return values will be some non-<tt>NULL</tt> pointer or the <tt>NULL</tt> pointer,
+respectively).  For example, if you read one too many times (e.g., if you're
+already at end-of-file), or if the actual info on the input stream isn't valid
+for the type of <tt>foo</tt> (e.g., if <tt>foo</tt> is an <tt>int</tt> and the data is
+an 'x' character), the stream will go into a failed state and the cast operator
+will return <tt>false</tt>.
+<p>The reason <tt>operator&gt;&gt;</tt> doesn't simply return a bool indicating whether it
+succeeded or failed is to support the &quot;cascading&quot; syntax:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cin&nbsp;&gt;&gt;&nbsp;foo&nbsp;&gt;&gt;&nbsp;bar;
+</code>
+<p>The <tt>operator&gt;&gt;</tt> is left-associative, which means the above is parsed as:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(cin&nbsp;&gt;&gt;&nbsp;foo)&nbsp;&gt;&gt;&nbsp;bar;
+</code>
+<p>In other words, if we replace <tt>operator&gt;&gt;</tt> with a normal function name such as
+<tt>readFrom()</tt>, this becomes the expression:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;readFrom(&nbsp;readFrom(cin,&nbsp;foo),&nbsp;bar);
+</code>
+<p>As always, we begin evaluating at the innermost expression.  Because of the
+left-associativity of <tt>operator&gt;&gt;</tt>, this happens to be the left-most
+expression, <tt>cin&nbsp;&gt;&gt;&nbsp;foo</tt>.  This expression returns <tt>cin</tt> (more precisely,
+it returns a reference to its left-hand argument) to the next expression.  The
+next expression also returns (a reference to) <tt>cin</tt>, but this second reference
+is ignored since it's the outermost expression in this &quot;expression statement.&quot;
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="friends.html">Previous&nbsp;section</a> |&nbsp;<a href="freestore-mgmt.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[15.4]"></a>
+<h3>[15.4] Why does my input seem to process past the end of file?</h3>
+<p>Because the eof state is not set until after a read is attempted past the
+end of file.  That is, reading the last byte from a file does not set the
+eof state.
+<p>For example, the following code has an off-by-one error with the count <tt>i</tt>:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;i&nbsp;=&nbsp;0;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;(!&nbsp;cin.eof())&nbsp;{&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;WRONG!</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cin&nbsp;&gt;&gt;&nbsp;x;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;++i;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Work&nbsp;with&nbsp;<tt>x</tt>&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p>What you really need is:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;i&nbsp;=&nbsp;0;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;(cin&nbsp;&gt;&gt;&nbsp;x)&nbsp;{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;RIGHT!</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;++i;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Work&nbsp;with&nbsp;<tt>x</tt>&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="friends.html">Previous&nbsp;section</a> |&nbsp;<a href="freestore-mgmt.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[15.5]"></a>
+<h3>[15.5] Why is my program ignoring my input request
+after the first iteration?</h3>
+<p>Because the numerical extractor leaves non-digits behind in the input buffer.
+<p>If your code looks like this:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;char&nbsp;name[1000];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;age;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(;;)&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;"Name:&nbsp;";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cin&nbsp;&gt;&gt;&nbsp;name;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;"Age:&nbsp;";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cin&nbsp;&gt;&gt;&nbsp;age;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p>What you really want is:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(;;)&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;"Name:&nbsp;";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cin&nbsp;&gt;&gt;&nbsp;name;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;"Age:&nbsp;";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cin&nbsp;&gt;&gt;&nbsp;age;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cin.ignore(INT_MAX,&nbsp;'\n');<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="friends.html">Previous&nbsp;section</a> |&nbsp;<a href="freestore-mgmt.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[15.6]"></a>
+<h3>[15.6] How can I provide printing for my <tt>class</tt> <tt>Fred</tt>? <img src="updated.gif" alt="UPDATED!" border=0></h3>
+<small><em>[Recently added note about cascading <tt>operator&lt;&lt;</tt> calls (on 1/97).  <a href="input-output.html#[15.7]">Click here to go to the next FAQ in the &quot;chain&quot; of recent changes<!--rawtext:[15.7]:rawtext--></a>.]</em></small>
+<p>Use <a href="operator-overloading.html"><tt>operator</tt> overloading<!--rawtext:[13]:rawtext--></a> to provide a
+<a href="friends.html"><tt>friend</tt><!--rawtext:[14]:rawtext--></a> left-shift operator, <tt>operator&lt;&lt;</tt>.
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;#include&nbsp;&lt;iostream.h&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;Fred&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;friend&nbsp;ostream&amp;&nbsp;operator&lt;&lt;&nbsp;(ostream&amp;&nbsp;o,&nbsp;const&nbsp;Fred&amp;&nbsp;fred);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;private:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;i_;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Just&nbsp;for&nbsp;illustration</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ostream&amp;&nbsp;operator&lt;&lt;&nbsp;(ostream&amp;&nbsp;o,&nbsp;const&nbsp;Fred&amp;&nbsp;fred)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;o&nbsp;&lt;&lt;&nbsp;fred.i_;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;main()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fred&nbsp;f;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;"My&nbsp;Fred&nbsp;object:&nbsp;"&nbsp;&lt;&lt;&nbsp;f&nbsp;&lt;&lt;&nbsp;"\n";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p>We use a <a href="friends.html"><tt>friend</tt><!--rawtext:[14]:rawtext--></a> rather than a member since the <tt>Fred</tt>
+parameter is second rather than first.
+<p>Note that <tt>operator&lt;&lt;</tt> returns the stream.  This is so the output operations
+can be <a href="input-output.html#[15.3]">cascaded<!--rawtext:[15.3]:rawtext--></a>.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="friends.html">Previous&nbsp;section</a> |&nbsp;<a href="freestore-mgmt.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[15.7]"></a>
+<h3>[15.7] How can I provide input for my <tt>class</tt> <tt>Fred</tt>? <img src="updated.gif" alt="UPDATED!" border=0></h3>
+<small><em>[Recently added note about cascading <tt>operator&lt;&lt;</tt> calls (on 1/97).  <a href="freestore-mgmt.html#[16.6]">Click here to go to the next FAQ in the &quot;chain&quot; of recent changes<!--rawtext:[16.6]:rawtext--></a>.]</em></small>
+<p>Use <a href="operator-overloading.html"><tt>operator</tt> overloading<!--rawtext:[13]:rawtext--></a> to provide a
+<a href="friends.html"><tt>friend</tt><!--rawtext:[14]:rawtext--></a> right-shift operator, <tt>operator&gt;&gt;</tt>.  This is
+similar to the <a href="input-output.html#[15.6]">output operator<!--rawtext:[15.6]:rawtext--></a>, except the
+parameter doesn't have a <a href="const-correctness.html"><tt>const</tt><!--rawtext:[18]:rawtext--></a>: &quot;<tt>Fred&amp;</tt>&quot;
+rather than &quot;<tt>const&nbsp;Fred&amp;</tt>&quot;.
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;#include&nbsp;&lt;iostream.h&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;Fred&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;friend&nbsp;istream&amp;&nbsp;operator&gt;&gt;&nbsp;(istream&amp;&nbsp;i,&nbsp;Fred&amp;&nbsp;fred);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;private:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;i_;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Just&nbsp;for&nbsp;illustration</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;istream&amp;&nbsp;operator&gt;&gt;&nbsp;(istream&amp;&nbsp;i,&nbsp;Fred&amp;&nbsp;fred)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;i&nbsp;&gt;&gt;&nbsp;fred.i_;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;main()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fred&nbsp;f;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;"Enter&nbsp;a&nbsp;Fred&nbsp;object:&nbsp;";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cin&nbsp;&gt;&gt;&nbsp;f;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p>Note that <tt>operator&gt;&gt;</tt> returns the stream.  This is so the input operations can
+be <a href="input-output.html#[15.3]">cascaded and/or used in a <tt>while</tt> loop or <tt>if</tt>
+statement<!--rawtext:[15.3]:rawtext--></a>.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="friends.html">Previous&nbsp;section</a> |&nbsp;<a href="freestore-mgmt.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[15.8]"></a>
+<h3>[15.8] How can I provide printing for an entire hierarchy of
+classes?</h3>
+<p>Provide a <a href="friends.html"><tt>friend</tt><!--rawtext:[14]:rawtext--></a> <a href="input-output.html#[15.6]"><tt>operator&lt;&lt;</tt><!--rawtext:[15.6]:rawtext--></a>
+that calls a <tt>protected</tt> <a href="virtual-functions.html"><tt>virtual</tt><!--rawtext:[20]:rawtext--></a> function:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;Base&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;friend&nbsp;ostream&amp;&nbsp;operator&lt;&lt;&nbsp;(ostream&amp;&nbsp;o,&nbsp;const&nbsp;Base&amp;&nbsp;b);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;protected:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;virtual&nbsp;void&nbsp;print(ostream&amp;&nbsp;o)&nbsp;const;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;inline&nbsp;ostream&amp;&nbsp;operator&lt;&lt;&nbsp;(ostream&amp;&nbsp;o,&nbsp;const&nbsp;Base&amp;&nbsp;b)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b.print(o);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;o;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;Derived&nbsp;:&nbsp;public&nbsp;Base&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;protected:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;virtual&nbsp;void&nbsp;print(ostream&amp;&nbsp;o)&nbsp;const;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;};
+</code>
+<p>The end result is that <tt>operator&lt;&lt;</tt> <em>acts</em> as if it was dynamically
+bound, even though it's a <a href="friends.html"><tt>friend</tt><!--rawtext:[14]:rawtext--></a> function.  This is
+called the Virtual Friend Function Idiom.
+<p>Note that derived classes override <tt>print(ostream&amp;)</tt> <tt>const</tt>.  In
+particular, they do <em>not</em> provide their own <tt>operator&lt;&lt;</tt>.
+<p>Naturally if <tt>Base</tt> is an <a href="abcs.html#[22.3]">ABC<!--rawtext:[22.3]:rawtext--></a>,
+<tt>Base::print(ostream&amp;)</tt> <tt>const</tt> can be declared <a href="abcs.html#[22.4]">pure <tt>virtual</tt><!--rawtext:[22.4]:rawtext--></a> using the &quot;<tt>=&nbsp;0</tt>&quot; syntax.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="friends.html">Previous&nbsp;section</a> |&nbsp;<a href="freestore-mgmt.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[15.9]"></a>
+<h3>[15.9] How can I &quot;reopen&quot; <tt>cin</tt> and <tt>cout</tt> in binary
+mode under DOS and/or OS/2?</h3>
+<p>This is implementation dependent.  Check with your compiler's documentation.
+<p>For example, suppose you want to do binary I/O using <tt>cin</tt> and <tt>cout</tt>.  Suppose
+further that your operating system (such as DOS or OS/2) insists on translating
+<tt>&quot;\r\n&quot;</tt> into <tt>&quot;\n&quot;</tt> on input from <tt>cin</tt>, and <tt>&quot;\n&quot;</tt> to
+<tt>&quot;\r\n&quot;</tt> on output to <tt>cout</tt> or <tt>cerr</tt>.
+<p>Unfortunately there is no standard way to cause <tt>cin</tt>, <tt>cout</tt>, and/or <tt>cerr</tt> to
+be opened in binary mode.  Closing the streams and attempting to reopen them in
+binary mode might have unexpected or undesirable results.
+<p>On systems where it makes a difference, the implementation might provide a way
+to make them binary streams, but you would have to check the manuals to find
+out.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="friends.html">Previous&nbsp;section</a> |&nbsp;<a href="freestore-mgmt.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[15.10]"></a>
+<h3>[15.10] Why can't I open a file in a different directory
+such as <tt>&quot;..\test.dat&quot;</tt>?</h3>
+<p>Because <tt>&quot;\t&quot;</tt> is a tab character.
+<p>You should use forward slashes in your filenames, even on an operating system
+that uses backslashes such as DOS, Windows, OS/2, etc.  For example:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;#include&nbsp;&lt;iostream.h&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#include&nbsp;&lt;fstream.h&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;main()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#if&nbsp;1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ifstsream&nbsp;file("../test.dat");&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;RIGHT!</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#else<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ifstsream&nbsp;file("..\test.dat");&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;WRONG!</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#endif<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p>Remember, the backslash (<tt>&quot;\&quot;</tt>) is used in string literals to create
+special characters: <tt>&quot;\n&quot;</tt> is a newline, <tt>&quot;\b&quot;</tt> is a backspace, and
+<tt>&quot;\t&quot;</tt> is a tab, <tt>&quot;\a&quot;</tt> is an &quot;alert&quot;, <tt>&quot;\v&quot;</tt> is a
+vertical-tab, etc.  Therefore the file name
+<tt>&quot;\version\next\alpha\beta\test.dat&quot;</tt> is interpreted as a bunch of very
+funny characters; use <tt>&quot;/version/next/alpha/beta/test.dat&quot;</tt> instead, even
+on systems that use a <tt>&quot;\&quot;</tt> as the directory separator such as DOS,
+Windows, OS/2, etc.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="friends.html">Previous&nbsp;section</a> |&nbsp;<a href="freestore-mgmt.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<a name="bottom"></a>
+<a href="mailto:cline@parashift.com"><img src="mbox.gif" border=2 height=26 width=89>&nbsp;E-mail the author</a><br>
+[&nbsp;<a href="index.html"><em>C++ FAQ Lite</em></a>
+|&nbsp;<a href="index.html#table-of-contents">Table&nbsp;of&nbsp;contents</a>
+|&nbsp;<a href="subject-index.html">Subject&nbsp;index</a>
+|&nbsp;<a href="copy-permissions.html#[1.1]">About&nbsp;the&nbsp;author</a>
+|&nbsp;<a href="copy-permissions.html#[1.2]">&copy;</a>
+|&nbsp;<a href="on-line-availability.html#[2.2]">Download&nbsp;your&nbsp;own&nbsp;copy</a>&nbsp;]<br>
+<small>Revised Sep 8, 1997</small>
+</body>
+</html>

@@ -1,0 +1,12 @@
+European languages are expressed on computers using a different character set from the one we use for English.  This character set is capable of expressing the various adornments (e.g., umlauts, accents, etc.) so common in European languages.  Unfortunately, it is a tricky business to use this character set in my computer environment.  So instead I am expressing these adornments using a simple scheme where the modified standard letter is preceded by a standard character indicating what adornment is being shown.
+
+Adornment	preceding character
+---------	-------------------
+umlaut		: (colon)
+accent grave	` (back apostrophe, from the key on the upper left of your keyboard, below the escape key)
+accent acute	/ (slash)
+circumflex	^ (carat, i.e., shift-6)
+tilde		~ (tilde, from the key on the upper left of your keyboard, below the escape key))
+
+
+Thus the French word for "summer" can be expressed by "/et/e."

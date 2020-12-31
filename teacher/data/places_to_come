@@ -1,0 +1,51 @@
+# formatted
+@val = (
+{
+'English' => 'here',
+'French' => 'l\'^D ici',
+'German' => 'hier',
+'Italian' => 'qui',
+'Spanish' => 'aqu/i',
+'id' => 0,
+},
+{
+'English' => 'there',
+'French' => 'l`a-^D bas',
+'German' => 'dort',
+'Italian' => 'l/i',
+'Spanish' => 'all/i',
+'id' => 1,
+},
+{
+'English' => 'soon',
+'French' => 'bient#ot',
+'German' => 'bald',
+'Italian' => 'presto',
+'Spanish' => 'pronto',
+'id' => 2,
+},
+{
+'English' => 'far',
+'French' => 'loin',
+'German' => 'weit',
+'Italian' => 'lontano',
+'Spanish' => 'distante',
+'id' => 3,
+},
+{
+'English' => 'quickly',
+'French' => 'rapidement',
+'German' => 'schnell',
+'Italian' => 'velocemente',
+'Spanish' => 'r/apidamente',
+'id' => 4,
+},
+{
+'English' => 'slowly',
+'French' => 'lentement',
+'German' => 'langsam',
+'Italian' => 'lentamente',
+'Spanish' => 'lentamente',
+'id' => 5,
+},
+);

@@ -1,0 +1,54 @@
+LogLevel=FATAL
+NumberOfPasswordPrompts=0
+StrictHostKeyChecking=no
+UserKnownHostsFile=/dev/null
+Host hive
+User hdfs
+Host slc08*
+User hdfs
+Host perforce.plumtree.com
+User perforce
+Host wonkaha*
+User nsproul
+Host slce09vm175*
+Host opsserversf.us.oracle.com
+User docs
+User nsproul
+Host adc00jcu*
+User nsproul
+Host adc00jcv*
+User nsproul
+Host stas*
+User root
+Host seti*
+User root
+Host rnolm*
+User root
+Host *esx*
+User root
+Host 140.84*
+User root
+Host 10.221*
+User root
+Host oelb*
+User root
+Host scorpio.us.oracle.com
+User root
+Host flanders.us.oracle.com
+User root
+Host millhouse.us.oracle.com
+User root
+Host albpm-b1.us.oracle.com
+User root
+Host perf05.us.oracle.com
+User root
+Host ralph.us.oracle.com
+User root
+Host *
+User root
+Host o1209
+Port 443
+ProxyCommand corkscrew www-proxy.us.oracle.com 80 %h %p
+Host 24.7.114.10
+Port 443
+ProxyCommand corkscrew www-proxy.us.oracle.com 80 %h %p

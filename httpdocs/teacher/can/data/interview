@@ -1,0 +1,162 @@
+@val = (
+{
+'A' => 'Use cases.<ul><li>Data structures.</li><li>Simplest possible functional framework.</li><li>Fleshed out, with focus on the areas which were the riskiest.</li><li>For teacher, I was concerned about the performance issues coming from maintaining the user database on the server.</li><li>For bs and wk, I was concerned about how to cope with poorly formed HTML.</li></ul> ',
+'Q' => 'Describe your design process for teacher, browser spinach, and Web keyboard. ',
+'id' => 0,
+},
+{
+'A' => 'Since I have only very rarely had engineers under me, I think the way I have generally shown leadership in my various<br>projects has been by my initiative in making proposals to solve problems and then implementing them. I am not a<br>passive employee.<ul><li>At Sybase, I showed leadership by responding to the building test assignment with a series of proposals for automating that job.</li><li>At TRW, the cnf and nextFile projects solved a category of problem that had been sucking up a lot of time.</li></ul> ',
+'Q' => 'What are the attributes of a good leader? communication and initiative<br>Do you consider yourself a leader?<br>Give a concrete example of leadership that you showed in a project. ',
+'id' => 1,
+},
+{
+'A' => 'For teacher, I initially specified a fairly verbose protocol of data between the server and client, but during testing<br>with slow connections, the performance was poor. I adjusted the protocol to make it lighter weight, and more<br>importantly, mood responsibility for propagating the data to the server to a background thread which would not hurt the<br>perceived performance. ',
+'Q' => 'Give me an example of planning for a complex project, and then tell me how you adjusted your plans in order to overcome<br>obstacles during the execution of this project. ',
+'id' => 2,
+},
+{
+'A' => '[also a good answer to "What do you think it takes to be successful in a company like ours?"]<br><p><br>My main strength is that I am very productive, my work is very clean; and<br>I\'m a very fast learner -- I\'m able to pick up and understand new areas<br>really quickly; and I guess the bottom line is that I do what needs to be<br>done to get the results we want. For most of the projects that I have<br>worked on there have been at least occasional crunches. But when that<br>happens, I step up my efforts in order to meet my obligations, whether<br>that means working on weekends or late at night. In one of my jobs, I<br>averaged 60 hour weeks for over a year. The way I see it, this is not an<br>ideal lifestyle, but I\'m willing to do whatever needs to be done to<br>accomplish our goals. [Tell me more about this situation where you worked<br>60 hours a week. Why was that necessary?] This was when I was working<br>for Sybase; I was asked to handle the code line administration and build<br>responsibilities for the connectivity division. The thing with this job<br>was that there was a moment-by-moment had the flow of requests that had to<br>be satisfied right away, but also a huge need for work on the software<br>infrastructure in order to automate a lot of the processes. This position<br>had been left to pretty junior people who weren\'t capable of seeing the<br>big picture and figuring out how the work could be reorganized to make it<br>a low bit more manageable. We had very recently taken on a bunch of new<br>platforms and the lack of a reliable build and has infrastructure and only<br>just become perceived as a significant problem. So I took on the<br>responsibility to deal with this and it was a very intense job because<br>during the day there were constant requests that needed to be satisfied<br>immediately, and so the way it worked, I ended up doing what I needed to<br>do to satisfy those requests, and then working late to develop the<br>software required to automate the builds and the maintenance of our code<br>lines on the various platforms. This ended up being a lengthy battle, but<br>the eventual results were very gratifying.<br><p><br>[Other examples?]<br><p><br>At Extensity it was a fairly constant theme that I was brought in to help<br>with projects that were in trouble. Here the problem was that we had a<br>product which was very complex and fragile, and also just the role of the<br>group lent itself to high-pressure: we were in direct contact with<br>customers whose processes were very dependent on what we could do for<br>them. And it didn\'t help that the product was very expensive, and so<br>customers\' expectations were generally pretty high. ',
+'Q' => 'Tell me about yourself/what are your strengths?<br>How would you describe yourself? ',
+'id' => 3,
+},
+{
+'A' => 'I know I told you that I\'m a quick learner, but I would like to say just<br>a little bit more about that. A large proportion of what I know about<br>this field comes from buying the books and studying them all the way<br>through, and then applying this knowledge. I think when facing a new<br>technology, there is an initial time which is not very fun where one<br>doesn\'t know the area well enough to always be aware of the various<br>alternatives, and where it really pays to go through the pain of<br>thoroughly studying the references and code in order to understand the<br>environment in depth. So for me, I\'ve gone through this stage of study in<br>learning the internals and system interfaces of all the operating systems<br>I\'ve worked with, and most recently I\'ve been doing this with Java and the<br>various classes supporting J2EE. ',
+'Q' => 'Examples of quick, independent learning: ',
+'id' => 4,
+},
+{
+'A' => 'I need to get stronger in j2ee.<br>I feel shy as a public speaker, and that may be helpful for my own products....@@<br>@@I really cannot think of any weaknesses which would prevent me from being<br>very effective as a software implementer. ',
+'Q' => 'What are your weaknesses? ',
+'id' => 5,
+},
+{
+'A' => 'I think in general the trade-off is between higher compensation and<br>security. (And of course, stock, although people don\'t seem to care about<br>that so much anymore.) I don\'t care so much about security because,<br>although the current job market is not good, I don\'t worry about getting<br>more work. I\'ve been very productive in all of my jobs, so the way I see<br>it, I\'ll always be able to get work from people who have worked with me<br>before even when the job market is pretty grim overall, the way it is now. ',
+'Q' => 'Why do you prefer to be a contractor instead of a full-time employee? ',
+'id' => 6,
+},
+{
+'A' => 'Although I don\'t have any CORBA projects in my work history, I actually am<br>very familiar with CORBA, and I think I would quickly be productive in<br>CORBA projects. When I was at Sybase, there was a lot of talk about using<br>CORBA for various purposes, and I thought there was a good chance that I<br>was going to get some heavy CORBA assignments. So at that time I studied<br>the architecture and the various services, and got to a decent level of<br>understanding. As it turned out, the CORBA assignments never materialized<br>-- and so I don\'t claim CORBA expertise, but I definitely understand how<br>that system works and I think I would be up to speed right away. ',
+'Q' => 'Do you know anything about CORBA? ',
+'id' => 7,
+},
+{
+'A' => 'When you work in a team, you are able to brainstorm and work together to<br>overcome problems, and this can be a powerful thing. However, the more<br>people who are involved, the more overhead you have coordinating between<br>them. So I think there is a trade-off which has to be judged according to<br>the nature of the problem being solved. If we\'re talking about a simple,<br>well understood problem, then I would prefer to work alone and just get it<br>done immediately. But if the problem is complex and not well understood,<br>then I think working together can result in fewer mistakes and<br>misunderstandings. I think this is especially true in situations where<br>the requirements are in flux, and there\'s a significant risk of doing work<br>which isn\'t going to match what is wanted by the end of the project. Then<br>I think working closely together can lead to really big savings in time<br>and effort.<br><p><br>Sure -- in my work at Extensity where I was integrating<br>customers\' accounting systems with our product, the work was very<br>dependent on exactly satisfying the customer\'s requirements, and often<br>these requirements were not specified very well. This was definitely a<br>case where, although the work was not necessarily that complex, since we<br>did not have great knowledge or familiarity with the customer\'s specific<br>systems, there was a big risk of implementing software which would not<br>conform to the customer\'s environment. So in this type of situation, I<br>thought it was extremely beneficial to keeping close contact with the<br>customer, always making sure that we were on the same page. When I was<br>working with AirTouch, I frequently integrated my software with my<br>counterpart\'s system, meaning that we had a fairly constant sanity check<br>on what we were doing; I was never in a situation where I was doing lots<br>of work which he hadn\'t seen yet, and so we could be pretty confident that<br>we were progressing toward our goal. The result in this project was that<br>we were able to make everything work without any significant missteps.<br>And an example of where working alone was beneficial: when I was<br>at Aion I wrote the database integration for the product. Although the<br>task involved lots of code and was fairly complex, I did the work with no<br>specification and no written design or review before the work was done.<br>Normally I would not be that comfortable with such a situation, but here<br>the problem was very well understood -- I knew what the interface was<br>going to be on our product\'s side, and it was just a question of making<br>the product work with all kinds of SQL data, and implementing it in clean,<br>documented code which would be easy to maintain. I knew exactly how to do<br>this, and not needing to coordinate with anyone else on the work made it<br>go a lot faster. ',
+'Q' => 'Which do you prefer, working alone or in a team?<br>Can you relate your answer to concrete examples in your work history? ',
+'id' => 8,
+},
+{
+'A' => 'This answer should be related to the question about working in teams vs.<br>working alone. If the work requires working in teams, then being on-site<br>is a big advantage. If it doesn\'t, then working off-site can be good<br>since it saves the commute time and can result in a work environment with<br>fewer distractions. ',
+'Q' => 'Which do you prefer, working in the office, or off-site? ',
+'id' => 9,
+},
+{
+'A' => 'Extensity\'s server products work with Web logic, so deploying or<br>configuring Extensity\'s product always involves setting up and configuring<br>Web logic; however, as an engineer deploying the product for individual<br>customers, my focus as a programmer was always on the custom programming<br>elements I was working with to interface between our product and the<br>customer\'s accounting and other packages. So we did use JDBC through Web<br>logic to update customer databases... I would not say that my experience<br>programming J2EE classes is very heavy, but I am very familiar with the<br>architecture and capabilities of J2EE, and I think that I will very<br>quickly be an effective programmer in a J2EE environment, just judging<br>from my experience coming up to speed in other complex environments in the<br>past. So for example, at my white light job, I needed to learn ODBC and a<br>very large set of C++ classes called ACE, as well as the Rogue Wave<br>packages, and I was effective almost immediately. At Extensity probably<br>the biggest hurdle was becoming familiar with the internal architecture of<br>Extensity\'s products, and learning how to get things done in that<br>environment, and there also I was very productive at an early date. ',
+'Q' => 'Summarize your experience with J2EE. ',
+'id' => 10,
+},
+{
+'A' => 'I feel very strong. I definitely feel in my element when I\'m programming<br>Java. I would say that this is my favorite programming language because<br>it elegantly supports implementing object-oriented solutions, so it gives<br>you lots of power, but it also is a very safe language. Not having to<br>directly manage memory except by not leaving unnecessary references hang<br>around is a real boon for a programmer. And the Java community is so<br>large and prolific, it seems to me that it is a very frequent occurrence<br>that a publicly available class will already exist which can solve<br>whenever the problem of the moment may be. ',
+'Q' => 'How strong are you in Java? ',
+'id' => 11,
+},
+{
+'A' => 'For debug I used J++, but for development I relied on emacs. ',
+'Q' => 'What programming environments have you used for Java? ',
+'id' => 12,
+},
+{
+'A' => 'I was assigned to write a back end reporting function for extensity\'s expense reports application for a particular<br>customer, and I knew from my work with the customer\'s front end rules that it was prohibited for certain expense types<br>to not use the company credit card, and yet I saw that on the back end there was no control to stop that kind of usage.<br>I think maybe the original thinking was that since the front-end in force the prohibition, that we would be safe and<br>not checking for it in the back end, but in fact there were various facilities for importing expenses which bypassed<br>the GUI, so I thought this represented a vulnerability to the system. So I proposed and implemented checks on the back<br>end to fill this gap.<br>&nbsp;&nbsp;qWhy did you leave your last job?<br>a<br>Well, I was working on a short-term contract which was renewed over 2 1/2 years, and the company was very happy with my<br>work, but as their business began to suffer, they eliminated all of their contractors as an economy move. In fact I<br>was retained for a number of months after all of the other contractors were dismissed, but eventually my turn came too,<br>over the objections of my immediate supervisors.<br><p><br>As for my work with Adynware, after working on the educational software package for a year, the software is now and<br>data and does not require a full-time effort. So it this point I\'m underemployed and ready for new work. ',
+'Q' => 'Describe a change in design that you originated based on your knowledge of business. ',
+'id' => 13,
+},
+{
+'A' => 'I\'m very happy working as a software engineer, and I don\'t particularly of aspire to, for example, become a manager. I<br>think the various technologies that we work with our advancing so fast that I really can\'t see getting bored with this<br>work. I just want to keep learning new things and keep refining my techniques in order to become more effective and<br>more productive. ',
+'Q' => 'What are your long range and short range goals and objectives? ',
+'id' => 14,
+},
+{
+'A' => 'I\'m very interested in foreign languages and I hope to be fluent in Spanish and Italian, and possibly German in another<br>decade. I\'m studying those languages with my own educational software and by reading children\'s books and watching<br>foreign news. ',
+'Q' => 'What specific goals other than those related to your occupation, have you established for yourself for the next ten<br>years? ',
+'id' => 15,
+},
+{
+'A' => 'I hope to be in the same profession, but just 5/10 years stronger and more effective than I am now. I think I am a<br>strong engineer now, but one can always improve, and it is my hope that I will do so. ',
+'Q' => 'What do you see yourself doing five years from now? Ten years from now? ',
+'id' => 16,
+},
+{
+'A' => 'I want to be a good father and husband and provide a secure and safe environment for my family. Beyond that, I hope<br>that my wife and I can achieve a lifestyle where it is possible for us to do some amount of traveling. ',
+'Q' => 'What do you really want to do in life? ',
+'id' => 17,
+},
+{
+'A' => 'As I said, my goal is to continue to develop and improve as a software engineer. To do this, unless I\'m in a real<br>crunch period, I try to put aside a few minutes every day to look at new technologies that I am interested in, like<br>struts, for example. ',
+'Q' => 'How do you plan to achieve your career goals? ',
+'id' => 18,
+},
+{
+'A' => 'The satisfaction of doing excellent work and being respected by my peers, and just being free to create software and<br>get it to people whom it will help. And oc I hope for a comfortable living. ',
+'Q' => 'What are the most important rewards you expect in your career? ',
+'id' => 19,
+},
+{
+'A' => 'I think the answer to this question really depends on market conditions. What I expect to earn today has little to do<br>with what I expected to earn a couple of years ago, and I think that predicting how the industry will of all is a very<br>ambitious endeavor. There are several conflicting trends which affect the compensation for software engineers. On the<br>one hand there is the trend toward sending this work offshore. On the other hand, the work is, in my opinion, getting<br>harder and requiring more sophistication. Of course some people would dispute this and point to such packages as<br>Visual Basic as an example of very simple software environments which are capable of producing slick looking<br>applications. I really couldn\'t guess what the sum of all these factors will be. ',
+'Q' => 'What do you expect to be earning in five years? ',
+'id' => 20,
+},
+{
+'A' => 'Because I think software engineering is more fun than any other job that I can think of. It\'s a constant battle to<br>figure out various puzzles, and it also has the satisfaction of creating something new and in a way living. ',
+'Q' => 'Why did you choose this career? ',
+'id' => 21,
+},
+{
+'A' => 'they are both important. Even if I completely loved my work, if I were paid a salary well below my market value, I<br>would feel that I was not doing the right thing for my family. And that the other end of the spectrum, even if I were<br>earning a fantastic salary, I wouldn\'t be happy if I hated the work. Full time is too long to be doing something I<br>hate. ',
+'Q' => 'What’s more important to you -- the work itself or how much you’re paid for doing it. ',
+'id' => 22,
+},
+{
+'A' => '@@white light? ',
+'Q' => 'Describe the best job you\'ve ever had. ',
+'id' => 23,
+},
+{
+'A' => 'College: doing electrical work in the cloyne crawl spaces. Hot, respirator needed. I shouldn\'t say that this work was<br>completely without its redeeming aspects. I learned something about electrical wiring. And I learned what kind of<br>work I didn\'t want to do for my career. ',
+'Q' => 'Describe the worst job you\'ve ever had. ',
+'id' => 24,
+},
+{
+'A' => 'Jacobsen: I frequently would not see him at all for a month. Then he would run into my office in a great state of<br>education: "whatever it is that you\'re doing, drop it. Instead do this!" Then he would check for status very<br>frequently for the next few days until the urgent task was done. Then he would disappear again. -- I liked the guy<br>-- and I\'m not sure the project suffered that much... ',
+'Q' => 'Describe the worst supervisor you\'ve ever had. ',
+'id' => 25,
+},
+{
+'A' => 'he would say that I was very productive, very dependable, and an excellent resource for my peers. ',
+'Q' => 'What would your last boss say about your work performance? ',
+'id' => 26,
+},
+{
+'A' => '@@my professional pride, and my desire to do a high-quality job. I want my peers to be happy with me, and I want to be<br>happy with my work. ',
+'Q' => 'What motivates you to go the extra mile on a project or job? ',
+'id' => 27,
+},
+{
+'A' => '@@because I\'ll be very productive and my work will be very high-quality, and I\'ll fit well with the department. ',
+'Q' => 'Why should I hire you? ',
+'id' => 28,
+},
+{
+'A' => '@@I\'m dedicated to the work. I learn very quickly, and I am eager to learn. ',
+'Q' => 'What qualifications do you have that make you successful in this career? ',
+'id' => 29,
+},
+{
+'A' => '@@the level of satisfaction of the customer is the final arbiter of success.<ul><li>1. Of course, we don\'t always have complete control over that, but I think it has to be the main measure.</li><li>2. also, it is sometimes for the best to do things and away which maximize customer satisfaction over the longer-term, but not in the shorter. E.g., forcing customers to upgrade to maintainable releases. Another fundamental element of success for a worker: making ambitious commitments and then successfully following through on them.</li></ul> ',
+'Q' => 'How do you determine or evaluate success? ',
+'id' => 30,
+},
+{
+'A' => 'since I was controlling all the schedules, it was generally a comfortable workload, so long as I was feeling patient<br>and it varied, but tended to be high. The product ',
+'Q' => 'Describe the workload in your current (or most recent) job. ',
+'id' => 31,
+},
+);

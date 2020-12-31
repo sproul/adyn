@@ -1,0 +1,19 @@
+
+sub DoFixups
+{
+  foreach my $verbArea (GetAllVerbAreas())
+  {
+    
+    
+    next if $verbArea eq "base";
+    my $db = tdb::GetDb();
+    print "shuffle $verbArea\n";
+
+    my $a = $db->GetUnderlyingArray($verbArea);
+    #Ndmp::Ah("a for $verbArea", @$a); exit(0);
+    my @a2;
+    nutil::shuffleCopy(\@a2, $a);
+    #Ndmp::Ah("a2 for $verbArea", @a2); 
+    $db->SetUnderlyingArray($verbArea, \@a2);
+    next;
+    

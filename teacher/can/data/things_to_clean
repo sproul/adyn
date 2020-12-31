@@ -1,0 +1,28 @@
+# formatted
+@val = (
+{
+'English' => 'my room',
+'French' => '{mon salle>s>}',
+'German' => '{mein Zimmer>s>}',
+'Italian' => '{il mio camera>s>}',
+'Spanish' => '{mi cuarto>s>}',
+'id' => 0,
+},
+{
+'English' => 'the shed',
+'French' => '{le _hangar>s>}',
+'French_note#hangar;;French' => 'This word <i>does</i> mean the same as the English word <i>hangar</i> (e.g., for airplanes).  But in French it also means <i>shed</i>.',
+'German' => '{der H:utte>s>}',
+'Italian' => '{il capannone>s>}',
+'Spanish' => '{el barraca>s>}',
+'id' => 1,
+},
+{
+'English' => 'our house',
+'French' => '{notre maison>s>}',
+'German' => '{unser Haus>s>}',
+'Italian' => '{nostro casa>s>}',
+'Spanish' => '{nuestro casa>s>}',
+'id' => 2,
+},
+);

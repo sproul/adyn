@@ -1,0 +1,1549 @@
+# You [formal, plural] abolish slavery.
+verb_abolish.0/things_to_abolish.0: Sie schaffen Sklaverei ab.
+
+# She had acquired a refrigerator.
+verb_acquire.0/things_to_buy.0: Sie hatte einen K:uhlschrank erlangt.
+
+# You [formal, singular] acquire a toaster.
+verb_acquire.1/things_to_buy.1: Sie erlangen einen Toaster.
+
+# You [formal, plural] used to acquire pants.
+verb_acquire.10/things_to_buy.64: Sie erlangten Hosen.
+
+# They [feminine] will acquire a chair.
+verb_acquire.11/things_to_buy.11: Sie werden einen Stuhl erlangen.
+
+# I have acquired a couch.
+verb_acquire.12/things_to_buy.12: Ich habe eine Couch erlangt.
+
+# You [familiar, singular] acquired some hats.
+verb_acquire.13/things_to_buy.55: Du hast H:ute erlangt.
+
+# You [formal, plural] acquire a telephone.
+verb_acquire.14/things_to_buy.14: Sie erlangen ein Telefon.
+
+# Don't acquire [familiar, singular] a television set!
+verb_acquire.15/things_to_buy.15: Erlange nicht einen Fernsehapparat!
+
+# She acquires a picture.
+verb_acquire.16/things_to_buy.16: Sie erlangt ein Bild.
+
+# You [formal, singular] will acquire a compact disc.
+verb_acquire.17/things_to_buy.17: Sie werden eine Kompaktscheibe erlangen.
+
+# You [familiar, singular] will acquire a shirt.
+verb_acquire.18/things_to_buy.18: Du wirst ein Hemd erlangen.
+
+# They [feminine] acquired some pants.
+verb_acquire.19/things_to_buy.19: Sie haben Hosen erlangt.
+
+# Acquire [formal, plural] a dishwasher!
+verb_acquire.2/things_to_buy.2: Erlangen Sie eine Geschirrsp:ulmaschine!
+
+# I acquire some socks.
+verb_acquire.20/things_to_buy.20: Ich erlange Socken.
+
+# You [familiar, plural] acquire [subjunctive] a jacket.
+verb_acquire.21/things_to_buy.21: Ihr erlanget eine Jacke.
+
+# You [familiar, plural] acquire a coat.
+verb_acquire.22/things_to_buy.22: Ihr erlangt einen Mantel.
+
+# You [formal, plural] will acquire a tie.
+verb_acquire.23/things_to_buy.23: Sie werden eine Krawatte erlangen.
+
+# You [familiar, plural] will acquire a hat.
+verb_acquire.24/things_to_buy.24: Ihr werdet einen Hut erlangen.
+
+# They [feminine] acquire a lamp.
+verb_acquire.25/things_to_buy.25: Sie erlangen eine Lampe.
+
+# I used to acquire bicycles.
+verb_acquire.26/things_to_buy.66: Ich erlangte Fahrr:ader.
+
+# You [familiar, singular] acquire [subjunctive] a rug.
+verb_acquire.27/things_to_buy.27: Du erlangest einen Teppich.
+
+# She acquires [subjunctive] a camera.
+verb_acquire.28/things_to_buy.28: Sie erlange eine Kamera.
+
+# She would acquire a backpack.
+verb_acquire.29/things_to_buy.29: Sie w:urde einen Rucksack erlangen.
+
+# We used to acquire pants.
+verb_acquire.3/things_to_buy.64: Wir erlangten Hosen.
+
+# They [feminine] acquire [subjunctive] a suitcase.
+verb_acquire.30/things_to_buy.30: Sie erlangen einen Koffer.
+
+# They [feminine] used to acquire pants.
+verb_acquire.31/things_to_buy.64: Sie erlangten Hosen.
+
+# They acquire [subjunctive] some stools.
+verb_acquire.32/things_to_buy.57: Sie erlangen Hocker.
+
+# Let's acquire some refrigerators!
+verb_acquire.33/things_to_buy.33: Erlangen wir K:uhlschr:anke!
+
+# You [familiar, plural] used to acquire books.
+verb_acquire.34/things_to_buy.65: Ihr erlangtet B:ucher.
+
+# We will acquire some dishwashers.
+verb_acquire.35/things_to_buy.35: Wir werden Geschirrsp:ulmaschinen erlangen.
+
+# You [formal, singular] used to acquire bicycles.
+verb_acquire.36/things_to_buy.66: Sie erlangten Fahrr:ader.
+
+# I would acquire some ovens.
+verb_acquire.37/things_to_buy.37: Ich w:urde :Ofen erlangen.
+
+# You [familiar, singular] have acquired some mirrors.
+verb_acquire.38/things_to_buy.38: Du hast Spiegel erlangt.
+
+# I acquire [subjunctive] some carpets.
+verb_acquire.39/things_to_buy.39: Ich erlange Teppiche.
+
+# You [familiar, plural] would have acquired an oven.
+verb_acquire.4/things_to_buy.4: Ihr w:urdet einen Ofen erlangt haben.
+
+# You [formal, singular] acquired some books.
+verb_acquire.40/things_to_buy.40: Sie haben B:ucher erlangt.
+
+# We have acquired some bicycles.
+verb_acquire.41/things_to_buy.41: Wir haben Fahrr:ader erlangt.
+
+# You [formal, singular] would acquire some lamps.
+verb_acquire.42/things_to_buy.56: Sie w:urden Lampen erlangen.
+
+# She has acquired some tables.
+verb_acquire.43/things_to_buy.43: Sie hat Tische erlangt.
+
+# She will acquire some chairs.
+verb_acquire.44/things_to_buy.44: Sie wird St:uhle erlangen.
+
+# You [formal, plural] acquire [subjunctive] some couches.
+verb_acquire.45/things_to_buy.45: Sie erlangen Couchs.
+
+# We acquire some airplanes.
+verb_acquire.46/things_to_buy.46: Wir erlangen Flugzeuge.
+
+# You [familiar, plural] would acquire some telephones.
+verb_acquire.47/things_to_buy.47: Ihr w:urdet Telefone erlangen.
+
+# You [formal, plural] acquired some televisions.
+verb_acquire.48/things_to_buy.48: Sie haben Fernsehens erlangt.
+
+# I will acquire some pictures.
+verb_acquire.49/things_to_buy.49: Ich werde Bilder erlangen.
+
+# You [familiar, singular] acquire a mirror.
+verb_acquire.5/things_to_buy.5: Du erlangst einen Spiegel.
+
+# She used to acquire books.
+verb_acquire.50/things_to_buy.65: Sie erlangte B:ucher.
+
+# We acquire [subjunctive] some shirts.
+verb_acquire.51/things_to_buy.51: Wir erlangen Hemden.
+
+# You [formal, plural] would acquire some jackets.
+verb_acquire.52/things_to_buy.52: Sie w:urden Jacken erlangen.
+
+# You [formal, singular] have acquired some coats.
+verb_acquire.53/things_to_buy.53: Sie haben M:antel erlangt.
+
+# I will have acquired a carpet.
+verb_acquire.6/things_to_buy.6: Ich werde einen Teppich erlangt haben.
+
+# You [familiar, singular] would acquire a book.
+verb_acquire.7/things_to_buy.7: Du w:urdest ein Buch erlangen.
+
+# You [familiar, singular] used to acquire books.
+verb_acquire.8/things_to_buy.65: Du erlangtest B:ucher.
+
+# You [formal, singular] acquire [subjunctive] a desk.
+verb_acquire.9/things_to_buy.9: Sie erlangen einen Schreibtisch.
+
+# first
+vocab_ordinals.0: erste
+
+# eleventh
+vocab_ordinals.10: elfte
+
+# twelfth
+vocab_ordinals.11: zw:olfte
+
+# thirteenth
+vocab_ordinals.12: dreizehnte
+
+# fourteenth
+vocab_ordinals.13: vierzehnte
+
+# fifteenth
+vocab_ordinals.14: f:unfzehnte
+
+# sixteenth
+vocab_ordinals.15: sechzehnte
+
+# seventeenth
+vocab_ordinals.16: siebzehnte
+
+# eighteenth
+vocab_ordinals.17: achtzehnte
+
+# nineteenth
+vocab_ordinals.18: neunzehnte
+
+# twentieth
+vocab_ordinals.19: zwanzigste
+
+# second
+vocab_ordinals.1: zweite
+
+# twenty-first
+vocab_ordinals.20: einundzwanzigste
+
+# twenty-second
+vocab_ordinals.21: zweiundzwanzigste
+
+# forty-eighth
+vocab_ordinals.22: achtundvierzigste
+
+# forty-first
+vocab_ordinals.23: einundvierzigste
+
+# fortieth
+vocab_ordinals.24: vierzigste
+
+# thirty-first
+vocab_ordinals.25: einunddreiBBigste
+
+# thirtieth
+vocab_ordinals.26: dreiBBigste
+
+# thirty-ninth
+vocab_ordinals.27: neununddreiBBigste
+
+# fiftieth
+vocab_ordinals.28: f:unfzigste
+
+# fifty-first
+vocab_ordinals.29: einundf:unfzigste
+
+# third
+vocab_ordinals.2: dritte
+
+# fifty-seventh
+vocab_ordinals.30: siebenundf:unfzigste
+
+# sixtieth
+vocab_ordinals.31: sechzigste
+
+# sixty-first
+vocab_ordinals.32: einundsechzigste
+
+# seventieth
+vocab_ordinals.33: siebzigste
+
+# sixty-sixth
+vocab_ordinals.34: sechsundsechzigste
+
+# seventy-first
+vocab_ordinals.35: einundsiebzigste
+
+# seventy-fifth
+vocab_ordinals.36: f:unfundsiebzigste
+
+# eightieth
+vocab_ordinals.37: achtzigste
+
+# eighty-first
+vocab_ordinals.38: einundachtzigste
+
+# eighty-fourth
+vocab_ordinals.39: vierundachtzigste
+
+# fourth
+vocab_ordinals.3: vierte
+
+# ninetieth
+vocab_ordinals.40: neunzigste
+
+# ninety-first
+vocab_ordinals.41: einundneunzigste
+
+# ninety-third
+vocab_ordinals.42: dreiundneunzigste
+
+# hundredth
+vocab_ordinals.43: hundertste
+
+# hundred-and-first
+vocab_ordinals.44: hunderterste
+
+# hundred-and-second
+vocab_ordinals.45: hundertzweite
+
+# hundred-and-twentieth
+vocab_ordinals.46: hundertzwanzigste
+
+# two-hundred-eighteenth
+vocab_ordinals.47: zweihundertachtzehnte
+
+# thousand-and-first
+vocab_ordinals.48: tausenderste
+
+# fifth
+vocab_ordinals.4: f:unfte
+
+# sixth
+vocab_ordinals.5: sechste
+
+# seventh
+vocab_ordinals.6: siebte
+
+# eighth
+vocab_ordinals.7: achte
+
+# ninth
+vocab_ordinals.8: neunte
+
+# tenth
+vocab_ordinals.9: zehnte
+
+# the knife
+vocab_place_setting.0: das Messer
+
+# the fork
+vocab_place_setting.1: die Gabel
+
+# the spoon
+vocab_place_setting.2: der L:offel
+
+# the plate
+vocab_place_setting.3: der Teller
+
+# the dish
+vocab_place_setting.4: die Sch:ussel
+
+# the cup of tea
+vocab_place_setting.5: die Tasse Tee
+
+# the glass of milk
+vocab_place_setting.6: das Glas Milch
+
+# the napkin
+vocab_place_setting.7: die Serviette
+
+# the bowl
+vocab_place_setting.8: die Sch:ussel
+
+# your [formal, singular]
+vocab_pronouns_possessive.0: Ihr
+
+# my
+vocab_pronouns_possessive.1: mein
+
+# our
+vocab_pronouns_possessive.2: unser
+
+# his
+vocab_pronouns_possessive.3: sein
+
+# her
+vocab_pronouns_possessive.4: ihr
+
+# their
+vocab_pronouns_possessive.5: ihr
+
+# your [informal, singular]
+vocab_pronouns_possessive.6: dein
+
+# I
+vocab_pronouns_subject.0: ich
+
+# you [formal, singular]
+vocab_pronouns_subject.1: Sie
+
+# he
+vocab_pronouns_subject.2: er
+
+# you [informal, singulary]
+vocab_pronouns_subject.3: du
+
+# we
+vocab_pronouns_subject.4: wir
+
+# they
+vocab_pronouns_subject.5: sie
+
+# you [informal, plural]
+vocab_pronouns_subject.6: ihr
+
+# they
+vocab_pronouns_subject.7: sie
+
+# she
+vocab_pronouns_subject.8: sie
+
+# you [formal, plural]
+vocab_pronouns_subject.9: Sie
+
+# at three o'clock in the morning
+vocab_time.0: um drei Uhr morgens
+
+# at ten o'clock at night
+vocab_time.10: um zehn Uhr abends
+
+# at quarter past four in the afternoon
+vocab_time.1: um ein Viertel nach vier Uhr mittags
+
+# at five thirty
+vocab_time.2: um f:unf Uhr dreiBBig
+
+# at half past six
+vocab_time.3: um halb sieben
+
+# at quarter of seven
+vocab_time.4: um ein Viertel vor sieben
+
+# at quarter of eight
+vocab_time.5: um dreiviertel acht
+
+# at one o'clock in the afternoon
+vocab_time.6: um ein Uhr nachmittags
+
+# at noon
+vocab_time.7: um Mittag
+
+# at midnight
+vocab_time.8: um Mitternacht
+
+# at one thirty
+vocab_time.9: um ein Uhr dreiBBig
+
+# the station
+vocab_travel.0: der Bahnhof
+
+# the baggage check room
+vocab_travel.10: die Gep:ackaufbewahrung
+
+# the baggage registration office
+vocab_travel.11: die Gep:ackabfertigung
+
+# the ticket
+vocab_travel.12: die Fahrkarte
+
+# the travel connection (e.g., from one train to another)
+vocab_travel.13: der Anschluss
+
+# the train sleeper car
+vocab_travel.14: der Schlafwagen
+
+# the train dining car
+vocab_travel.15: der Speisewagen
+
+# the subway
+vocab_travel.16: die U-bahn
+
+# the track
+vocab_travel.1: das Gleis
+
+# the train platform
+vocab_travel.2: der Bahnsteig
+
+# the train car
+vocab_travel.3: der Wagen
+
+# the train
+vocab_travel.4: der Zug
+
+# the seat
+vocab_travel.5: der Sitzplatz
+
+# the seat reservation
+vocab_travel.6: die Platzreservierung
+
+# the departure
+vocab_travel.7: die Abfahrt
+
+# the arrival
+vocab_travel.8: die Ankunft
+
+# the exit
+vocab_travel.9: der Ausgang
+
+# You [formal, singular] would have been able to escape.
+verb_be_able_to.0/things_to_be_able_to.0: Sie h:atten entfliehen k:onnen.
+
+# I am able to [subjunctive] walk.
+verb_be_able_to.1/things_to_be_able_to.2: Ich k:onne spazieren.
+
+# She used to be able to greet my mother.
+verb_be_able_to.10/things_to_be_able_to.11: Sie konnte meine Mutter gr:uBBen.
+
+# We are able to [subjunctive] scream.
+verb_be_able_to.12/things_to_be_able_to.14: Wir k:onnen schreien.
+
+# You [formal, singular] are able to [subjunctive] run.
+verb_be_able_to.13/things_to_be_able_to.16: Sie k:onnen laufen.
+
+# I would be able to shoot.
+verb_be_able_to.14/things_to_be_able_to.17: Ich k:onnte schieBBen.
+
+# You [familiar, singular] are able to [subjunctive] flee.
+verb_be_able_to.15/things_to_be_able_to.18: Du k:onnest fliehen.
+
+# She would be able to sleep.
+verb_be_able_to.16/things_to_be_able_to.3: Sie k:onnte schlafen.
+
+# You [formal, singular] have been able to relax.
+verb_be_able_to.17/things_to_be_able_to.4: Sie haben entspannen k:onnen.
+
+# You [familiar, singular] could [past tense] study.
+verb_be_able_to.18/things_to_be_able_to.5: Du hast studieren k:onnen.
+
+# You [formal, singular] will be able to read Chinese.
+verb_be_able_to.19/things_to_be_able_to.6: Sie werden Chinesisch lesen k:onnen.
+
+# They [feminine] are able to [subjunctive] sleep.
+verb_be_able_to.2/things_to_be_able_to.3: Sie k:onnen schlafen.
+
+# You [formal, plural] used to be able to speak Japanese.
+verb_be_able_to.20/things_to_be_able_to.7: Sie konnten Japanisch sprechen.
+
+# You [familiar, singular] will be able to play tennis.
+verb_be_able_to.21/things_to_be_able_to.8: Du wirst Tennis spielen k:onnen.
+
+# I used to be able to dance.
+verb_be_able_to.22/things_to_be_able_to.9: Ich konnte tanzen.
+
+# You [familiar, plural] used to be able to eat.
+verb_be_able_to.23/things_to_be_able_to.10: Ihr konntet essen.
+
+# I am able to greet my mother.
+verb_be_able_to.24/things_to_be_able_to.11: Ich kann meine Mutter gr:uBBen.
+
+# You [formal, singular] are able to construct the bridge.
+verb_be_able_to.25/things_to_be_able_to.12: Sie k:onnen die Br:ucke bauen.
+
+# You [familiar, singular] are able to crawl.
+verb_be_able_to.26/things_to_be_able_to.13: Du kannst kriechen.
+
+# You [formal, singular] would be able to relax.
+verb_be_able_to.3/things_to_be_able_to.4: Sie k:onnten entspannen.
+
+# You [familiar, singular] would be able to study.
+verb_be_able_to.4/things_to_be_able_to.5: Du k:onntest studieren.
+
+# We will be able to read Chinese.
+verb_be_able_to.5/things_to_be_able_to.6: Wir werden Chinesisch lesen k:onnen.
+
+# They [feminine] could [past tense] speak Japanese.
+verb_be_able_to.6/things_to_be_able_to.7: Sie haben Japanisch sprechen k:onnen.
+
+# She had been able to play tennis.
+verb_be_able_to.7/things_to_be_able_to.8: Sie hatte Tennis spielen k:onnen.
+
+# They [feminine] will be able to dance.
+verb_be_able_to.8/things_to_be_able_to.9: Sie werden tanzen k:onnen.
+
+# They [feminine] are able to eat.
+verb_be_able_to.9/things_to_be_able_to.10: Sie k:onnen essen.
+
+# You [formal, singular] would have been acquainted with the president.
+verb_be_acquainted_with.0/vocab_professions.0: Sie w:urden den Pr:asidenten gekannt haben.
+
+# I am acquainted with [subjunctive] the doctor.
+verb_be_acquainted_with.1/vocab_professions.2: Ich kenne den Doktor.
+
+# We are acquainted with [subjunctive] the sailor.
+verb_be_acquainted_with.10/vocab_professions.12: Wir kennen den Matrosen.
+
+# You [formal, singular] are acquainted with [subjunctive] the plumber.
+verb_be_acquainted_with.12/vocab_professions.15: Sie kennen den Klempner.
+
+# I would be acquainted with the electrician.
+verb_be_acquainted_with.13/vocab_professions.16: Ich w:urde den Elektriker kennen.
+
+# You [familiar, singular] are acquainted with [subjunctive] the pharmacist.
+verb_be_acquainted_with.14/vocab_professions.17: Du kennest den Apotheker.
+
+# You [formal, plural] had been acquainted with the professor.
+verb_be_acquainted_with.15/vocab_professions.18: Sie hatten den Professor gekannt.
+
+# You [formal, singular] were acquainted with the student.
+verb_be_acquainted_with.16/vocab_professions.19: Sie haben den Studenten gekannt.
+
+# He would be acquainted with the architect.
+verb_be_acquainted_with.17/vocab_professions.22: Er w:urde den Architekt kennen.
+
+# You [familiar, singular] were acquainted with the engineer.
+verb_be_acquainted_with.18/vocab_professions.23: Du hast den Ingenieur gekannt.
+
+# You [formal, singular] will be acquainted with the pilot.
+verb_be_acquainted_with.19/vocab_professions.24: Sie werden den Piloten kennen.
+
+# They were acquainted with the housewife.
+verb_be_acquainted_with.2/vocab_professions.3: Sie haben die Hausfrau gekannt.
+
+# You [formal, plural] used to be acquainted with the scientist.
+verb_be_acquainted_with.20/vocab_professions.25: Sie kannten den Wissenschaftler.
+
+# They [feminine] were acquainted with the janitor.
+verb_be_acquainted_with.3/vocab_professions.4: Sie haben den Hausmeister gekannt.
+
+# You [formal, singular] would be acquainted with the butcher.
+verb_be_acquainted_with.4/vocab_professions.5: Sie w:urden den Metzger kennen.
+
+# You [familiar, singular] would be acquainted with the baker.
+verb_be_acquainted_with.5/vocab_professions.6: Du w:urdest den B:acker kennen.
+
+# We will be acquainted with the salesman.
+verb_be_acquainted_with.6/vocab_professions.7: Wir werden den Verk:aufer kennen.
+
+# They [feminine] have been acquainted with the postman.
+verb_be_acquainted_with.7/vocab_professions.8: Sie haben den Brieftr:ager gekannt.
+
+# She used to be acquainted with the car mechanic.
+verb_be_acquainted_with.8/vocab_professions.9: Sie kannte den Automechaniker.
+
+# They [feminine] will have been acquainted with the policeman.
+verb_be_acquainted_with.9/vocab_professions.10: Sie werden den Polizisten gekannt haben.
+
+# They [feminine] were located in the pool.
+verb_be_located.0/places_to_go.2: Sie haben sich im Teich befunden.
+
+# I used to be located in the bus stop.
+verb_be_located.1/places_to_go.8: Ich befand mich in der Bushaltestelle.
+
+# You [familiar, singular] were located in the restaurant.
+verb_be_located.2/places_to_go.5: Du hast dich im Restaurant befunden.
+
+# You [formal, singular] were located in the movie theater.
+verb_be_located.3/places_to_go.6: Sie haben sich im Kino befunden.
+
+# You [formal, singular] used to be located in the bakery.
+verb_be_located.4/places_to_go.7: Sie befanden sich in der B:ackerei.
+
+# You [familiar, plural] are located in the bus stop.
+verb_be_located.5/places_to_go.8: Ihr befindet euch in der Bushaltestelle.
+
+# He was located in the train station.
+verb_be_located.6/places_to_go.9: Er hat sich im Bahnhof befunden.
+
+# They are located in the airport.
+verb_be_located.7/places_to_go.10: Sie befinden sich im Flughafen.
+
+# He will be located in the gym.
+verb_be_located.8/places_to_go.11: Er wird sich im Fitnessstudio befinden.
+
+# My nice friend would have been wrong.
+verb_be_wrong.0/people.8: Mein netter Freund w:urde sich get:auscht haben.
+
+# The little boy had been wrong.
+verb_be_wrong.1/people.9: Der kleine Junge hatte sich get:auscht.
+
+# The student is wrong [subjunctive].
+verb_be_wrong.2/people.10: Der Student t:ausche sich.
+
+# The ugly woman will have been wrong.
+verb_be_wrong.3/people.0: Die h:aBBliche Frau wird sich get:auscht haben.
+
+# The handsome man would be wrong.
+verb_be_wrong.4/people.1: Der h:ubsche Mann w:urde sich t:auschen.
+
+# The short woman will be wrong.
+verb_be_wrong.5/people.2: Die kleine Frau wird sich t:auschen.
+
+# The tall woman was wrong.
+verb_be_wrong.6/people.3: Die groBBe Frau hat sich get:auscht.
+
+# This arrogant guy is wrong.
+verb_be_wrong.7/people.6: Dieser arrogante Typ t:auscht sich.
+
+# The pedestrian has been wrong.
+verb_be_wrong.8/people.5: Der FuBBg:anger hat sich get:auscht.
+
+# They [feminine] will want to grow.
+verb_want.8/things_to_continue.8: Sie werden wachsen wollen.
+
+With my latest change, I never introduce infinitives with zu after modal Verbs, no matter the tense.  Review the different tenses with wollen to be sure that I'm on solid ground here.
+
+# They [feminine] want to flee.
+verb_want.9/things_to_continue.9: Sie wollen fliehen.
+
+# You [familiar, plural] washed my car.
+verb_wash.0/things_to_wash.0: Ihr habt mein Auto gewaschen.
+
+# We had washed his shirt.
+verb_wash.1/things_to_wash.1: Wir hatten sein Hemd gewaschen.
+
+# You [formal, plural] will have washed her dress.
+verb_wash.2/things_to_wash.2: Sie werden ihre Kleidung gewaschen haben.
+
+# We used to wash his pants.
+verb_wash.3/things_to_wash.3: Wir wuschen seine Hosen.
+
+# I wash [subjunctive] their socks.
+verb_wash.4/things_to_wash.4: Ich wasche ihre Socken.
+
+# He would have washed the napkin.
+verb_wash.5/things_to_wash.5: Er w:urde die Serviette gewaschen haben.
+
+# You [formal, plural] wash [subjunctive] the floor.
+verb_wash.6/things_to_wash.6: Sie waschen den Boden.
+
+# You [familiar, plural] will weigh a banana.
+verb_weigh.0/vocab_food.14: Ihr werdet eine Banane wiegen.
+
+# They would have weighed some chicken.
+verb_weigh.1/vocab_food.7: Sie w:urden etwas Huhn gewogen haben.
+
+# You [formal, singular] weighed a salad.
+verb_weigh.2/vocab_food.16: Sie haben einen Salat gewogen.
+
+# I will have weighed some vegetables.
+verb_weigh.3/vocab_food.9: Ich werde Gem:use gewogen haben.
+
+# You [formal, singular] will weigh some fruit.
+verb_weigh.4/vocab_food.10: Sie werden einige Fruchte wiegen.
+
+# You [familiar, singular] weigh a tomato.
+verb_weigh.5/vocab_food.11: Du wiegst eine Tomate.
+
+# I had weighed a potato.
+verb_weigh.6/vocab_food.12: Ich hatte eine Kartoffel gewogen.
+
+# He weighed some ham.
+verb_weigh.7/vocab_food.13: Er hat Schinken gewogen.
+
+# The beggar used to whistle.
+verb_whistle.0/people.4: Der Bettler pfiff.
+
+# My nice friend whistles.
+verb_whistle.1/people.8: Mein netter Freund pfeift.
+
+# The little boy whistled.
+verb_whistle.2/people.9: Der kleine Junge hat gepfiffen.
+
+# The student will whistle.
+verb_whistle.3/people.10: Der Student wird pfeifen.
+
+# I wish to play.
+verb_wish.0/things_to_continue.0: Ich w:unsche zu spielen.
+
+# We wish [subjunctive] to travel.
+verb_wish.1/things_to_continue.3: Wir w:unschen zu reisen.
+
+# You [familiar, singular] used to wish to drive.
+verb_wish.10/things_to_continue.13: Du w:unschtest zu fahren.
+
+# We will wish to visit.
+verb_wish.11/things_to_continue.15: Wir werden zu besuchen w:unschen.
+
+# We would wish to relax.
+verb_wish.12/things_to_continue.16: Wir w:urden zu entspannen w:unschen.
+
+# You [familiar, plural] would wish to celebrate.
+verb_wish.13/things_to_continue.17: Ihr w:urdet zu feiern w:unschen.
+
+# We wished to listen.
+verb_wish.15/things_to_continue.19: Wir w:unschten zu zuh:oren.
+
+# You [familiar, singular] wish to hunt.
+verb_wish.16/things_to_continue.20: Du w:unschst zu jagen.
+
+# You [formal, plural] used to wish to teach.
+verb_wish.17/things_to_continue.21: Sie w:unschten zu lehren.
+
+# I will wish to complain.
+verb_wish.18/things_to_continue.22: Ich werde zu klagen w:unschen.
+
+# We used to wish to steal.
+verb_wish.2/things_to_continue.4: Wir w:unschten zu stehlen.
+
+# You [familiar, singular] will have wished to give.
+verb_wish.3/things_to_continue.5: Du wirst zu geben gew:unscht haben.
+
+# You [familiar, singular] would wish to smile.
+verb_wish.4/things_to_continue.6: Du w:urdest zu l:acheln w:unschen.
+
+# You [formal, plural] would wish to laugh.
+verb_wish.5/things_to_continue.7: Sie w:urden zu lachen w:unschen.
+
+# You [formal, singular] wish to flee.
+verb_wish.6/things_to_continue.9: Sie w:unschen zu fliehen.
+
+# He wishes [subjunctive] to crawl.
+verb_wish.7/things_to_continue.10: Er w:unsche zu kriechen.
+
+# You [familiar, plural] wished to shout.
+verb_wish.8/things_to_continue.11: Ihr habt zu schreien gew:unscht.
+
+# You [familiar, singular] will wish to write.
+verb_wish.9/things_to_continue.12: Du wirst zu schreiben w:unschen.
+
+# You [familiar, plural] have worked in January.
+verb_work.0/vocab_months_and_seasons.0: Ihr habt im Januar gearbeitet.
+
+# He would have worked in February.
+verb_work.1/vocab_months_and_seasons.1: Er w:urde im Februar gearbeitet haben.
+
+# You [formal, singular] would work in spring.
+verb_work.10/vocab_months_and_seasons.13: Sie w:urden im Fr:uhling arbeiten.
+
+# You [familiar, singular] would work in summer.
+verb_work.11/vocab_months_and_seasons.14: Du w:urdest im Sommer arbeiten.
+
+# I work [subjunctive] on January thirty-first.
+verb_work.12/vocab_months_and_seasons.16: Ich arbeite am einunddreiBBigsten Januar.
+
+# We work in March.
+verb_work.2/vocab_months_and_seasons.2: Wir arbeiten im M:arz.
+
+# You [formal, singular] have worked in April.
+verb_work.3/vocab_months_and_seasons.3: Sie haben im April gearbeitet.
+
+# They had worked in May.
+verb_work.4/vocab_months_and_seasons.4: Sie hatten im Mai gearbeitet.
+
+# We will have worked in June.
+verb_work.5/vocab_months_and_seasons.5: Wir werden im Juni gearbeitet haben.
+
+# We have worked in September.
+verb_work.6/vocab_months_and_seasons.8: Wir haben im September gearbeitet.
+
+# They would work on November fifteenth.
+verb_work.7/vocab_months_and_seasons.10: Sie w:urden am f:unfzehnten November arbeiten.
+
+# I work on December first, two thousand.
+verb_work.8/vocab_months_and_seasons.11: Ich arbeite am ersten Dezember, zweitausend.
+
+# You [familiar, singular] will work in winter.
+verb_work.9/vocab_months_and_seasons.12: Du wirst im Winter arbeiten.
+
+# You [formal, singular] would have written a letter.
+verb_write.0/things_to_write.0: Sie w:urden einen Brief geschrieben haben.
+
+# They write [subjunctive] a novel.
+verb_write.1/things_to_write.2: Sie schreiben einen Roman.
+
+# They [feminine] write some books.
+verb_write.10/things_to_write.12: Sie schreiben B:ucher.
+
+# She used to write postcards.
+verb_write.11/things_to_write.15: Sie schrieb Postkarten.
+
+# They will have written some essays.
+verb_write.12/things_to_write.14: Sie werden Essays geschrieben haben.
+
+# We write [subjunctive] a poem.
+verb_write.13/things_to_write.1: Wir schreiben ein Gedicht.
+
+# Let's write a book!
+verb_write.14/things_to_write.4: Schreiben wir ein Buch!
+
+# You [formal, singular] write [subjunctive] a report.
+verb_write.15/things_to_write.5: Sie schreiben einen Bericht.
+
+# I would write an essay.
+verb_write.16/things_to_write.6: Ich w:urde einen Essay schreiben.
+
+# You [familiar, singular] write [subjunctive] a postcard.
+verb_write.17/things_to_write.7: ...daBB du eine Postkarte schreibest.
+
+# You [formal, singular] wrote some poems.
+verb_write.18/things_to_write.9: Sie haben Gedichte geschrieben.
+
+# He would write some books.
+verb_write.19/things_to_write.12: Er w:urde B:ucher schreiben.
+
+# I write [subjunctive] a story.
+verb_write.2/things_to_write.3: Ich schreibe eine Geschichte.
+
+# You [familiar, singular] wrote some reports.
+verb_write.20/things_to_write.13: Du hast Berichte geschrieben.
+
+# Write [formal, singular] some essays!
+verb_write.21/things_to_write.14: Schreiben Sie Essays!
+
+# She would write postcards.
+verb_write.22/things_to_write.15: Sie w:urde Postkarten schreiben.
+
+# You [formal, singular] would write a book.
+verb_write.3/things_to_write.4: Sie w:urden ein Buch schreiben.
+
+# You [familiar, singular] would write a report.
+verb_write.4/things_to_write.5: Du w:urdest einen Bericht schreiben.
+
+# We will write an essay.
+verb_write.5/things_to_write.6: Wir werden einen Essay schreiben.
+
+# They have written a postcard.
+verb_write.6/things_to_write.7: Sie haben eine Postkarte geschrieben.
+
+# He had written some letters.
+verb_write.7/things_to_write.8: Er hatte Briefe geschrieben.
+
+# Don't write [familiar, plural] some poems!
+verb_write.8/things_to_write.9: Schreibt (ihr) Gedichte nicht!
+
+# He used to write postcards.
+verb_write.9/things_to_write.15: Er schrieb Postkarten.
+
+# the lion
+vocab_animals.0: der L:owe
+
+# the snake
+vocab_animals.10: die Schlange
+
+# the bird
+vocab_animals.11: der Vogel
+
+# rats
+vocab_animals.12: Ratten
+
+# bears
+vocab_animals.13: B:aren
+
+# the spider
+vocab_animals.1: die Spinne
+
+# the rat
+vocab_animals.2: die Ratte
+
+# the bear
+vocab_animals.3: der B:ar
+
+# the cat
+vocab_animals.4: die Katze
+
+# the dog
+vocab_animals.5: der Hund
+
+# the deer
+vocab_animals.6: der Hirsch
+
+# the wolf
+vocab_animals.7: der Wolf
+
+# the monkey
+vocab_animals.8: der Affe
+
+# the gorilla
+vocab_animals.9: der Gorilla
+
+# the head
+vocab_body.0: der Kopf
+
+# the foot
+vocab_body.10: der FuBB
+
+# the hand
+vocab_body.11: die Hand
+
+# the wrist
+vocab_body.12: das Handgelenk
+
+# the finger
+vocab_body.13: der Finger
+
+# the ear
+vocab_body.14: das Ohr
+
+# the eye
+vocab_body.15: das Auge
+
+# the nose
+vocab_body.16: die Nase
+
+# the lips
+vocab_body.17: die Lippen
+
+# the mouth
+vocab_body.18: der Mund
+
+# the breasts
+vocab_body.19: die Br:uste
+
+# the neck
+vocab_body.1: der Hals
+
+# the thigh
+vocab_body.20: der Schenkel
+
+# the heel
+vocab_body.21: der Absatz
+
+# the toe
+vocab_body.22: der Zeh
+
+# the shoulder
+vocab_body.23: die Schulter
+
+# the back
+vocab_body.2: der R:ucken
+
+# the waist
+vocab_body.3: die Taille
+
+# the chest
+vocab_body.4: die Brust
+
+# the arm
+vocab_body.5: der Arm
+
+# the leg
+vocab_body.6: das Bein
+
+# the elbow
+vocab_body.7: der Ellbogen
+
+# the knee
+vocab_body.8: das Knie
+
+# the ankle
+vocab_body.9: der Kn:ochel
+
+# Sunday
+vocab_days.0: am Sonntag
+
+# Monday
+vocab_days.1: am Montag
+
+# Tuesday
+vocab_days.2: am Dienstag
+
+# Wednesday
+vocab_days.3: am Mittwoch
+
+# Thursday
+vocab_days.4: am Donnerstag
+
+# Friday
+vocab_days.5: am Freitag
+
+# Saturday
+vocab_days.6: am Samstag
+
+# every Wednesday
+vocab_days.7: jedem Mittwoch
+
+# my uncle
+vocab_family.0: mein Onkel
+
+# our grandmother
+vocab_family.10: unsere GroBBmutter
+
+# their daughter
+vocab_family.11: ihre Tochter
+
+# their son
+vocab_family.12: ihr Sohn
+
+# her aunt
+vocab_family.1: ihre Tante
+
+# your cousin
+vocab_family.2: Ihr Vetter
+
+# his father
+vocab_family.3: sein Vater
+
+# his mother
+vocab_family.4: seine Mutter
+
+# his sister
+vocab_family.5: seine Schwester
+
+# her brother
+vocab_family.6: ihr Bruder
+
+# my nephew
+vocab_family.7: mein Neffe
+
+# his niece
+vocab_family.8: seine Nichte
+
+# her grandfather
+vocab_family.9: ihr GroBBvater
+
+# some food
+vocab_food.0: Speise
+
+# some fruit
+vocab_food.10: Frucht
+
+# a tomato
+vocab_food.11: eine Tomate
+
+# a potato
+vocab_food.12: eine Kartoffel
+
+# some ham
+vocab_food.13: Schinken
+
+# a banana
+vocab_food.14: eine Banane
+
+# a pineapple
+vocab_food.15: eine Ananas
+
+# a salad
+vocab_food.16: ein Salat
+
+# some lettuce
+vocab_food.17: Salat
+
+# a pear
+vocab_food.18: eine Birne
+
+# some garlic
+vocab_food.19: Knoblauch
+
+# a sandwich
+vocab_food.1: ein Sandwich
+
+# some eggs
+vocab_food.20: Eier
+
+# the onion
+vocab_food.21: die Zwiebel
+
+# the chocolate
+vocab_food.22: die Schokolade
+
+# some soup
+vocab_food.2: Suppe
+
+# an apple
+vocab_food.3: ein Apfel
+
+# an orange
+vocab_food.4: eine Orange
+
+# some beef
+vocab_food.5: Rindfleisch
+
+# some pork
+vocab_food.6: Schweinefleisch
+
+# some chicken
+vocab_food.7: Huhn
+
+# some cheese
+vocab_food.8: K:ase
+
+# some vegetables
+vocab_food.9: Gem:use
+
+# England
+vocab_geography.0: England
+
+# Canada
+vocab_geography.10: Kanada
+
+# Mexico
+vocab_geography.11: Mexiko
+
+# Poland
+vocab_geography.12: Polen
+
+# Switzerland
+vocab_geography.13: die Schweiz
+
+# South Korea
+vocab_geography.14: S:udkorea
+
+# Indonesia
+vocab_geography.15: Indonesien
+
+# Australia
+vocab_geography.16: Australien
+
+# Denmark
+vocab_geography.17: D:anemark
+
+# Norway
+vocab_geography.18: Norwegen
+
+# Sweden
+vocab_geography.19: Schweden
+
+# Spain
+vocab_geography.1: Spanien
+
+# Brazil
+vocab_geography.20: Brasilien
+
+# Peru
+vocab_geography.21: Peru
+
+# Havana
+vocab_geography.22: Havanna
+
+# ancient Athens
+vocab_geography.23: altes Athen
+
+# Greece
+vocab_geography.24: Griechenland
+
+# Rome
+vocab_geography.25: Rom
+
+# London
+vocab_geography.26: London
+
+# Cuba
+vocab_geography.27: Kuba
+
+# Egypt
+vocab_geography.28: :Agypten
+
+# Algeria
+vocab_geography.29: Algerien
+
+# France
+vocab_geography.2: Frankreich
+
+# Yugoslavia
+vocab_geography.30: Yugoslavien
+
+# Serbia
+vocab_geography.31: Serbien
+
+# North America
+vocab_geography.32: N:ordamerika
+
+# Italy
+vocab_geography.3: Italien
+
+# Germany
+vocab_geography.4: Deutschland
+
+# Britain
+vocab_geography.5: Britannien
+
+# Russia
+vocab_geography.6: Russland
+
+# China
+vocab_geography.7: China
+
+# Japan
+vocab_geography.8: Japan
+
+# the United States
+vocab_geography.9: die Vereinigten Staaten
+
+# English
+vocab_languages.0: Englisch
+
+# Portuguese
+vocab_languages.10: Portugiesisch
+
+# Arabic
+vocab_languages.11: Arabisch
+
+# Spanish
+vocab_languages.1: Spanisch
+
+# French
+vocab_languages.2: Franz:osisch
+
+# Italian
+vocab_languages.3: Italienisch
+
+# German
+vocab_languages.4: Deutsch
+
+# Russian
+vocab_languages.5: Russisch
+
+# Chinese
+vocab_languages.6: Chinesisch
+
+# Japanese
+vocab_languages.7: Japanisch
+
+# Danish
+vocab_languages.8: D:anisch
+
+# Swedish
+vocab_languages.9: Schwedisch
+
+# on condition that
+vocab_linking.0: unter der Bedingung daBB
+
+# ever since
+vocab_linking.10: seit jeher
+
+# wherever
+vocab_linking.11: wo auch immer
+
+# after
+vocab_linking.12: nach
+
+# until
+vocab_linking.13: bis
+
+# so that
+vocab_linking.14: damit
+
+# with the result that
+vocab_linking.15: mit dem Ergebnis daBB
+
+# despite the fact that
+vocab_linking.16: trotzdem
+
+# while
+vocab_linking.17: w:ahrend
+
+# in the event that
+vocab_linking.18: im Fall daBB
+
+# every time that
+vocab_linking.19: jedesmal daBB
+
+# in order that
+vocab_linking.1: damit
+
+# because
+vocab_linking.20: weil
+
+# before
+vocab_linking.21: vor
+
+# provided that
+vocab_linking.22: vorausgesetzt daBB
+
+# whatever
+vocab_linking.23: was auch immer
+
+# when
+vocab_linking.24: wann
+
+# if
+vocab_linking.25: wenn
+
+# without
+vocab_linking.26: ohne
+
+# since
+vocab_linking.27: seit
+
+# once
+vocab_linking.28: einmal
+
+# except
+vocab_linking.29: auBBer
+
+# unless
+vocab_linking.2: es sei denn
+
+# even if
+vocab_linking.3: selbst wenn
+
+# as soon as
+vocab_linking.4: so bald als
+
+# although
+vocab_linking.5: obwohl
+
+# if ever
+vocab_linking.6: wenn... je
+
+# whoever
+vocab_linking.7: wer auch immer
+
+# as if
+vocab_linking.8: als wenn
+
+# however that
+vocab_linking.9: wie immer
+
+# silver coins
+vocab_materials.0: Silberm:unzen
+
+# gold bricks
+vocab_materials.1: goldene Ziegelsteine
+
+# a brass statue
+vocab_materials.2: eine Messingstatue
+
+# some copper
+vocab_materials.3: Kupfer
+
+# steel
+vocab_materials.5: Stahl
+
+# metal
+vocab_materials.6: Metall
+
+# iron
+vocab_materials.7: Eisen
+
+# some plastic toys
+vocab_materials.8: einige Plastikspielzeuge
+
+# aluminum
+vocab_materials.9: Aluminium
+
+# in January
+vocab_months_and_seasons.0: im Januar
+
+# on November fifteenth
+vocab_months_and_seasons.10: am f:unfzehnten November
+
+# on December first, two thousand
+vocab_months_and_seasons.11: am ersten Dezember, zweitausend
+
+# in winter
+vocab_months_and_seasons.12: im Winter
+
+# in spring
+vocab_months_and_seasons.13: im Fr:uhling
+
+# in summer
+vocab_months_and_seasons.14: im Sommer
+
+# in autumn
+vocab_months_and_seasons.15: im Herbst
+
+# on January thirty-first
+vocab_months_and_seasons.16: am einunddreiBBigsten Januar
+
+# in February
+vocab_months_and_seasons.1: im Februar
+
+# in March
+vocab_months_and_seasons.2: im M:arz
+
+# in April
+vocab_months_and_seasons.3: im April
+
+# in May
+vocab_months_and_seasons.4: im Mai
+
+# in June
+vocab_months_and_seasons.5: im Juni
+
+# in July
+vocab_months_and_seasons.6: im Juli
+
+# in August
+vocab_months_and_seasons.7: im August
+
+# in September
+vocab_months_and_seasons.8: im September
+
+# on October twenty-first
+vocab_months_and_seasons.9: am einundzwanzigsten Oktober
+
+# Don't appear [familiar, plural] without delay!
+verb_appear.4/ways_to_go.6: Erscheint nicht ohne Versp:atung!
+
+# Don't attend [familiar, singular] a class on history!
+verb_attend.3/things_to_study.3: Besuche eine Geschichtsklasse nicht!
+
+# Don't be [familiar, plural] sad!
+verb_be.8/transient_personal_adjectives.5: Seid nicht traurig!
+
+# Don't become [familiar, plural] less generous!
+verb_become.5/things_to_become.7: Werdet nicht weniger groBBz:ugig!
+
+# Don't begin [familiar, singular] to run!
+verb_begin.4/things_to_begin.5: Beginne nicht zu laufen!
+
+# Don't buy [familiar, singular] some cameras!
+verb_buy.48/things_to_buy.59: Kaufe Kameras nicht!
+
+# Let's not buy a lamp!
+verb_buy.70/things_to_buy.25: Kaufen wir eine Lampe nicht!
+
+# Don't buy [familiar, plural] a table!
+verb_buy.9/things_to_buy.10: Kauft einen Tisch nicht!
+
+# Don't call [familiar, plural] the architect!
+verb_call.2/vocab_professions.22: Ruft den Ahitekten nicht an!
+
+# Don't call [familiar, singular] the dentist!
+verb_call.37/vocab_professions.1: Rufe den Zahnarzt nicht an!
+
+# Don't drink [familiar, plural] beer!
+verb_drink.1/things_to_drink.1: Trinkt kein Bier.
+
+# Don't drive [familiar, plural] to the gym!
+verb_drive.28/places_to_go.11: Fahrt nicht zum Fitnessstudio!
+
+# Don't go [familiar, plural] to the beach!
+verb_go.3/places_to_go.3: Geht nicht zum Strand!
+
+# Don't kill [familiar, plural] the wolf!
+verb_kill.7/vocab_animals.7: T:otet den Wolf nicht!
+
+# Don't lead [familiar, plural] our grandmother!
+verb_lead.8/vocab_family.10: F:uhrt unsere GroBBmutter nicht!
+
+# Don't leave [familiar, singular] the garden!
+verb_leave.12/places_to_go.12: Verl:aBBt den Garten nicht!
+
+# Don't open [familiar, plural] that shop!
+verb_open.8/things_to_close.4: Macht das Gesch:aft nicht auf!
+
+# Don't pay [familiar, plural] the electricians!
+verb_pay.37/vocab_professions.43: Zahlt die Elektriker nicht!
+
+# You [familiar, singular] preferred not to fail.
+verb_prefer.5/things_to_prefer.6: Du zogst es vor nicht zu versagen.
+
+# Don't read [familiar, plural] his newspaper!
+verb_read.2/things_to_read.2: Lest seine Zeitung nicht!
+
+# Don't see [familiar, plural] their daughter!
+verb_see.7/vocab_family.11: Seht ihre Tochter nicht!
+
+# Let's not sell a hat!
+verb_sell.24/things_to_buy.24: Verkaufen wir einen Hut nicht!
+
+# Don't sell [familiar, singular] some stools!
+verb_sell.43/things_to_buy.57: Verkaufe Hocker nicht!
+
+# Don't sell [familiar, plural] a table!
+verb_sell.9/things_to_buy.10: Verkauft einen Tisch nicht!
+
+# Don't send [familiar, plural] some rewards!
+verb_send.10/things_to_receive.11: Schickt Belohnungen nicht!
+
+# Don't serve [familiar, plural] a disgusting breakfast!
+verb_serve.2/things_to_serve.2: Serviert ein anekelndes Fr:uhst:uck nicht!
+
+# Don't steal [familiar, plural] my passport!
+verb_steal.7/things_to_steal.1: Stehlt meinen ReisepaBB nicht!
+
+# Don't study [familiar, singular] economics!
+verb_study.4/things_to_study.4: Studiere Volkswirtschaft nicht!
+
+# Don't take [familiar, singular] some ovens!
+verb_take.53/things_to_buy.37: Nimm keine Ofen!
+
+# Don't take [familiar, plural] some carpets!
+verb_take.55/things_to_buy.39: Nehmt Teppiche nicht!
+
+# Let's not take some airplanes!
+verb_take.62/things_to_buy.46: Nehmen wir Flugzeuge nicht!
+
+# Don't teach [familiar, singular] the car mechanics!
+verb_teach.17/vocab_professions.36: Unterrichte die Automechaniker nicht!
+
+# Don't teach [familiar, plural] the electrician!
+verb_teach.52/vocab_professions.16: Unterrichtet den Elektriker nicht!
+
+# Don't travel [familiar, singular] to France!
+verb_travel.2/vocab_geography.2: Reist nicht nach Frankreich!
+
+# Don't wait for [familiar, singular] our bus!
+verb_wait_for.1/things_to_wait_for.1: Erwarte unseren Bus nicht!
+
+# Don't write [familiar, plural] some poems!
+verb_write.8/things_to_write.9: Schreibt Gedichte nicht!

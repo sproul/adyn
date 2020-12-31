@@ -1,0 +1,280 @@
+<html>
+<head>
+<title>[6] Big Picture issues, C++ FAQ Lite, Marshall Cline</title>
+<link rev=made href="mailto:cline@parashift.com">
+</head>
+<body vlink="#551a8b" text="#000000" bgcolor="#c1c1c1" alink="#ff0000" link="#0000ee">
+<a name="top"></a>
+<h1>[6] Big Picture issues<br>
+<small><small>(Part of <a href="index.html"><em>C++ FAQ Lite</em></a>, <a href="copy-permissions.html#[1.2]">Copyright&nbsp;&copy; 1991-96</a>, <a href="http://www.cerfnet.com/~mpcline/">Marshall Cline</a>, <a href="mailto:cline@parashift.com">cline@parashift.com</a>)</small></small></h1>
+<hr width="100%" >
+<h3>FAQs in section [6]:</h3>
+<ul>
+<li><a href="big-picture.html#[6.1]">[6.1] Is C++ a practical language?</a></li>
+<li><a href="big-picture.html#[6.2]">[6.2] Is C++ a perfect language?</a></li>
+<li><a href="big-picture.html#[6.3]">[6.3] What's the big deal with OO?</a></li>
+<li><a href="big-picture.html#[6.4]">[6.4] Is C++ better than Ada? (or Visual Basic, C, FORTRAN,
+Pascal, Smalltalk, or any other language?)</a></li>
+<li><a href="big-picture.html#[6.5]">[6.5] Who uses C++?</a></li>
+<li><a href="big-picture.html#[6.6]">[6.6] How long does it take to learn OO/C++?</a></li>
+<li><a href="big-picture.html#[6.7]">[6.7] What are some features of C++ from a business perspective?</a></li>
+<li><a href="big-picture.html#[6.8]">[6.8] Are <tt>virtual</tt> functions (dynamic binding) central to
+OO/C++?</a></li>
+<li><a href="big-picture.html#[6.9]">[6.9] I'm from Missouri.  Can you give me a simple
+reason why <tt>virtual</tt> functions (dynamic binding) make a big difference?</a></li>
+<li><a href="big-picture.html#[6.10]">[6.10] Is C++ backward compatible with ANSI/ISO-C?</a></li>
+<li><a href="big-picture.html#[6.11]">[6.11] Are there any C++ standardization efforts underway?</a></li>
+<li><a href="big-picture.html#[6.12]">[6.12] Where can I get a copy of the latest ANSI/ISO-C++ draft
+standard?</a></li>
+</ul>
+<p><hr width="100%" >
+<p><a name="[6.1]"></a>
+<h3>[6.1] Is C++ a practical language?</h3>
+<p>Yes.
+<p>C++ is a practical tool.  <a href="big-picture.html#[6.2]">It's not perfect<!--rawtext:[6.2]:rawtext--></a>, but
+it's useful.
+<p>In the world of industrial software, C++ is viewed as a solid, mature,
+mainstream tool.  It has widespread industry support which makes it &quot;good&quot; from
+an overall business perspective.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="how-to-post.html">Previous&nbsp;section</a> |&nbsp;<a href="classes-and-objects.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[6.2]"></a>
+<h3>[6.2] Is C++ a perfect language?</h3>
+<p>Nope.
+<p>C++ wasn't designed to demonstrate what a perfect OO language looks like.  It
+was designed to be a practical tool for solving real world problems.  It has a
+few warts, but the only place where it's appropriate to keep fiddling with
+something until it's perfect is in a pure academic setting.  That wasn't C++'s
+goal.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="how-to-post.html">Previous&nbsp;section</a> |&nbsp;<a href="classes-and-objects.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[6.3]"></a>
+<h3>[6.3] What's the big deal with OO?</h3>
+<p>Object-oriented techniques are the best way we know of to develop large,
+complex software applications and systems.
+<p>OO hype: the software industry is &quot;failing&quot; to meet demands for large, complex
+software systems.  But this &quot;failure&quot; is actually due to our <em>successes:</em>
+our successes have propelled users to ask for more.  Unfortunately we created a
+market hunger that the &quot;structured&quot; analysis, design and programming techniques
+couldn't satisfy.  This required us to create a better paradigm.
+<p>C++ is an OO programming language.  C++ can also be used as a traditional
+programming language (as &quot;as a better C&quot;).  However if you use it &quot;as a better
+C,&quot; don't expect to get the benefits of object-oriented programming.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="how-to-post.html">Previous&nbsp;section</a> |&nbsp;<a href="classes-and-objects.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[6.4]"></a>
+<h3>[6.4] Is C++ better than Ada? (or Visual Basic, C, FORTRAN,
+Pascal, Smalltalk, or any other language?)</h3>
+<p>This question generates much <em>much</em> more heat than light.  Please read
+the following before posting some variant of this question.
+<p>In 99% of the cases, programming language selection is dominated by business
+considerations, <em>not</em> by technical considerations.  Things that
+<em>really</em> end up mattering are things like availability of a programming
+environment for the development machine, availability of runtime environment(s)
+for the deployment machine(s), licensing/legal issues of the runtime and/or
+development environments, availability of trained developers, availability of
+consulting services, and corporate culture/politics.  These business
+considerations generally play a much greater role than compile time
+performance, runtime performance, static <i>vs.</i> dynamic typing, static <i>vs.</i> dynamic
+binding, etc.
+<p>Anyone who argues in favor of one language over another in a purely technical
+manner (i.e., who ignores the dominant business issues) exposes themself as a
+techie weenie, and deserves not to be heard.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="how-to-post.html">Previous&nbsp;section</a> |&nbsp;<a href="classes-and-objects.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[6.5]"></a>
+<h3>[6.5] Who uses C++?</h3>
+<p>Lots and lots of companies and government sites.  Lots.
+<p>The number of C++ developers doubles every year.  You can imagine that five
+people are becomming C++ developers while you read this FAQ.
+<p>Growth is one of several <a href="big-picture.html#[6.7]">critical features of C++<!--rawtext:[6.7]:rawtext--></a>.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="how-to-post.html">Previous&nbsp;section</a> |&nbsp;<a href="classes-and-objects.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[6.6]"></a>
+<h3>[6.6] How long does it take to learn OO/C++?</h3>
+<p>Companies like Paradigm Shift, Inc. <a href="mailto:info@parashift.com"><tt>info@parashift.com</tt></a>
+successfully teach standard industry &quot;short courses,&quot; where we compress a
+university semester course into one 40 hour work week.  But regardless of where
+you get your training, make sure the courses have a hands-on element, since
+most people learn best when they have projects to help the concepts &quot;gel.&quot;
+But even if they have the <em>best</em> training, they're not ready yet.
+<p>It takes 6-12 months to become proficient in OO/C++.  Less if the developers
+have easy access to a &quot;local&quot; body of experts, more if there isn't a &quot;good&quot;
+general purpose C++ class library available.  To become one of these experts
+who can mentor others takes around 3 years.
+<p>Some people never make it.  You don't have a chance unless you are teachable
+and have personal drive.  As a bare minimum on &quot;teachability,&quot; you have to be
+able to admit when you've are wrong.  As a bare minimum on &quot;drive,&quot; you must be
+willing to put in some extra hours (it's a <em>lot</em> easier to learn some new
+facts than it is to change your paradigm [i.e., to change the <em>way</em> you
+think; to change your notion of goodness; to change your mental model of the
+world of technology]).
+<p>Two things you <em>should</em> do:
+<ul>
+<li><a href="how-to-learn-cpp.html#[26.1]">Bring in a &quot;mentor&quot;<!--rawtext:[26.1]:rawtext--></a></li>
+<li>Get your people two books: one <a href="how-to-learn-cpp.html#[26.6]">to tell them
+what is legal<!--rawtext:[26.6]:rawtext--></a>, another <a href="how-to-learn-cpp.html#[26.5]">to tell them what is
+moral<!--rawtext:[26.5]:rawtext--></a></li>
+</ul>
+<p>Two things you <em>should not</em> do:
+<ul>
+<li><a href="how-to-learn-cpp.html#[26.2]">Don't bother having your people trained in
+C as a stepping-stone to learning OO/C++<!--rawtext:[26.2]:rawtext--></a></li>
+<li><a href="how-to-learn-cpp.html#[26.3]">Don't bother having your people
+trained in Smalltalk as a stepping-stone to learning OO/C++<!--rawtext:[26.3]:rawtext--></a></li>
+</ul>
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="how-to-post.html">Previous&nbsp;section</a> |&nbsp;<a href="classes-and-objects.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[6.7]"></a>
+<h3>[6.7] What are some features of C++ from a business perspective?</h3>
+<p>Here are a few features of OO/C++ from a business perspective:
+<ul>
+<li>C++ has a <a href="big-picture.html#[6.5]">huge installed base<!--rawtext:[6.5]:rawtext--></a>, which means
+you'll have <a href="big-picture.html#[6.4]">multi-vendor support for tools,
+environments, consulting services, etc.<!--rawtext:[6.4]:rawtext--></a>, plus you'll have a very valuable
+line-item on your resume</li>
+<li>C++ lets developers provide <a href="classes-and-objects.html#[7.3]">simplified
+interfaces<!--rawtext:[7.3]:rawtext--></a> to software chunks, which improves the
+defect-rate when those chunks are (re)used</li>
+<li>C++ lets you exploit developer's intuition through
+<a href="operator-overloading.html#[13.2]">operator overloading<!--rawtext:[13.2]:rawtext--></a>, which reduces the learning
+curve for (re)users</li>
+<li>C++ <a href="classes-and-objects.html#[7.4]">localizes access<!--rawtext:[7.4]:rawtext--></a> to a software chunk,
+which reduces the cost of changes.</li>
+<li>C++ reduces the <a href="classes-and-objects.html#[7.5]">safety-<em>vs.</em>-usability tradeoff<!--rawtext:[7.5]:rawtext--></a>, which improves the cost of
+(re)using a chunk of software.</li>
+<li>C++ reduces the <a href="inline-functions.html#[9.2]">safety-<em>vs.</em>-speed
+tradeoff<!--rawtext:[9.2]:rawtext--></a>, which improves defect rates without degrading
+performance.</li>
+<li>C++ gives you <a href="big-picture.html#[6.8]">inheritance and dynamic
+binding<!--rawtext:[6.8]:rawtext--></a> which let <a href="big-picture.html#[6.9]">old code call new
+code<!--rawtext:[6.9]:rawtext--></a>, making it possible to quickly
+extend/adapt your software to hit narrow market windows.</li>
+</ul>
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="how-to-post.html">Previous&nbsp;section</a> |&nbsp;<a href="classes-and-objects.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[6.8]"></a>
+<h3>[6.8] Are <tt>virtual</tt> functions (dynamic binding) central to
+OO/C++?</h3>
+<p><em>Yes!</em>
+<p>Without <a href="virtual-functions.html">virtual functions<!--rawtext:[20]:rawtext--></a>, C++ is just a
+syntactic variant of C.  <a href="operator-overloading.html">Operator overloading<!--rawtext:[13]:rawtext--></a>
+and non-<tt>virtual</tt> member functions are great, but they are, after all, just
+syntactic sugar for the more typical C notion of passing a pointer to a
+<tt>struct</tt> to a function.
+<p>From a business perspective, C++ without <tt>virtual</tt> functions has very little
+value-add over straight C.  Technical people often think that there is a large
+difference between C and non-OO C++, but without OO, difference usually isn't
+enough to justify the cost of training developers, new tools, etc.  In other
+words, if I were to advise a manager regarding whether to switch from C to
+non-OO C++ (i.e., to switch languages but not paradigms), I'd probably
+discourage him or her unless there were compelling tool-oriented reasons.  From
+a business perspective, OO can help make systems extensible andadaptable, but
+just the syntax of C++ classes without OO may not even reduce the maintenance
+cost, and it surely adds to the training cost significantly.
+<p>Bottom line: C++ without <tt>virtual</tt> is not OO.  Programming with classes but
+without dynamic binding is called &quot;object based,&quot; but not &quot;object oriented.&quot;
+Throwing out <tt>virtual</tt> functions is the same as throwing out OO.  All you have
+left is object-based programming, similar to the original Ada language (the new
+Ada language, by the way, supports true OO rather than just object-based
+programming).
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="how-to-post.html">Previous&nbsp;section</a> |&nbsp;<a href="classes-and-objects.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[6.9]"></a>
+<h3>[6.9] I'm from Missouri.  Can you give me a simple
+reason why <tt>virtual</tt> functions (dynamic binding) make a big difference?</h3>
+<p>Overview: Dynamic binding can improve reuse by letting <em>old</em> code call
+<em>new</em> code.
+<p>Before OO came along, reuse was accomplished by having new code call old code.
+For example, a programmer might write some code that called some reusable code
+such as <tt>printf()</tt>.
+<p>With OO, reuse can also be accomplished by having <em>old</em> code call
+<em>new</em> code.  For example, a programmer might write some code that is
+called by a framework that was written by their great, great grandfather.
+There's no need to change great-great-grandpa's code.  In fact, it doesn't even
+need to be recompiled.  Even if all you have left is the object file and the
+source code that great-great-grandpa wrote was lost 25 years ago, that ancient
+object file will call the new extension without anything falling apart.
+<p><em>That</em> is extensibility, and <em>that</em> is OO.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="how-to-post.html">Previous&nbsp;section</a> |&nbsp;<a href="classes-and-objects.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[6.10]"></a>
+<h3>[6.10] Is C++ backward compatible with ANSI/ISO-C?</h3>
+<p>Almost.
+<p>C++ is as close as possible to compatible with C, but no closer.  In practice,
+the major difference is that C++ requires prototypes, and that <tt>f()</tt> declares a
+function that takes no parameters (in C, <tt>f()</tt> is the same as <tt>f(...)</tt>).
+<p>There are some very subtle differences as well, like <tt>sizeof('x')</tt> is equal to
+<tt>sizeof(char)</tt> in C++ but is equal to <tt>sizeof(int)</tt> in C.  Also, C++ puts
+structure &quot;tags&quot; in the same namespace as other names, whereas C requires an
+explicit <tt>struct</tt> (e.g., the <tt>typedef&nbsp;struct&nbsp;Fred&nbsp;Fred;</tt> technique still
+works, but is redundant in C++).
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="how-to-post.html">Previous&nbsp;section</a> |&nbsp;<a href="classes-and-objects.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[6.11]"></a>
+<h3>[6.11] Are there any C++ standardization efforts underway?</h3>
+<p>Yes; ANSI (American) and ISO (International) groups are working closely with
+each other.  The ANSI-C++ committee is called &quot;X3J16&quot;.  The ISO C++ standards
+group is called &quot;WG21&quot;.  The major players in the ANSI/ISO C++ standards
+process includes just about everyone:
+<p>AT&amp;T, IBM, DEC, HP, Sun, MS, Borland, Zortech, Apple, OSF, etc ad nauseum.
+Dozens of people attend each meeting.  People come from USA, UK, Japan,
+Germany, Sweden, Denmark, France, ... (all have &quot;local&quot; committees sending
+official representatives and conducting &quot;local&quot; meetings).
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="how-to-post.html">Previous&nbsp;section</a> |&nbsp;<a href="classes-and-objects.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[6.12]"></a>
+<h3>[6.12] Where can I get a copy of the latest ANSI/ISO-C++ draft
+standard?</h3>
+<p>The ISO Committee Draft for C++ and the ANSI C++ Draft (the document that
+is going out for public review) is available from:
+<ul>
+<li><a href="http://www.cygnus.com/~mrs/wp-draft"><tt>http://www.cygnus.com/~mrs/wp-draft</tt></a></li>
+</ul>
+<p>You can also get Postscript and Adobe Acrobat versions from:
+<ul>
+<li><a href="ftp://research.att.com/dist/c++std/WP"><tt>ftp://research.att.com/dist/c++std/WP</tt></a></li>
+<li><a href="ftp://ftp.maths.warwick.ac.uk:/pub/c++/std/WP"><tt>ftp://ftp.maths.warwick.ac.uk:/pub/c++/std/WP</tt></a></li>
+<li><a href="ftp://ftpt.su.edu.au:/pub/C++/CommitteeDraft"><tt>ftp://ftpt.su.edu.au:/pub/C++/CommitteeDraft</tt></a></li>
+</ul>
+<p>You can get HTML and ASCII versions:
+<ul>
+<li><a href="ftp://ftp.cygnus.com/pub/g++"><tt>ftp://ftp.cygnus.com/pub/g++</tt></a></li>
+</ul>
+<p>You can also get a paper copy from:
+<ul>
+<li>Lynn Barra &lt;<a href="mailto:lbarra@itic.nw.dc.us"><tt>lbarra@itic.nw.dc.us</tt></a>&gt;</li>
+<li>Ask for the latest version of &quot;Draft Proposed American National
+Standard for Information Systems &#151; Programming Language C++&quot; which is
+document number CD14882</li>
+<li>It is typically shipped 2-day FedEx within the continental
+US</li>
+</ul>
+<p>You can also order a paper copy via snail-mail:
+<ul>
+<li><address>
+ X3 Secretariat<br>
+ 1250 Eye Street NW<br>
+ Suite 200<br>
+ Washington, DC 20005<br>
+ 202-626-5738
+</address></li>
+<li>Ask for the latest version of &quot;Draft Proposed American National
+Standard for Information Systems &#151; Programming Language C++&quot; which is
+document number CD14882</li>
+<li>It is typically shipped 2-day FedEx within the continental
+US</li>
+</ul>
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="how-to-post.html">Previous&nbsp;section</a> |&nbsp;<a href="classes-and-objects.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<a name="bottom"></a>
+<a href="mailto:cline@parashift.com"><img src="mbox.gif" border=2 height=26 width=89>&nbsp;E-mail the author</a><br>
+[&nbsp;<a href="index.html"><em>C++ FAQ Lite</em></a>
+|&nbsp;<a href="index.html#table-of-contents">Table&nbsp;of&nbsp;contents</a>
+|&nbsp;<a href="subject-index.html">Subject&nbsp;index</a>
+|&nbsp;<a href="copy-permissions.html#[1.1]">About&nbsp;the&nbsp;author</a>
+|&nbsp;<a href="copy-permissions.html#[1.2]">&copy;</a>
+|&nbsp;<a href="on-line-availability.html#[2.2]">Download&nbsp;your&nbsp;own&nbsp;copy</a>&nbsp;]<br>
+<small>Revised Sep 8, 1997</small>
+</body>
+</html>

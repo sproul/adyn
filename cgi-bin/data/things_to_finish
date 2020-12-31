@@ -1,0 +1,13 @@
+# formatted
+@val = (
+{
+'English' => 'the work',
+'French' => '{}le travail{le travail>s>}',
+'German' => '{der Arbeit>s>}',
+'Italian' => '{il lavoro>s>}',
+'Spanish' => '{}el trabajo{el trabajo>s>}',
+'id' => 0,
+'suppress_Italian_note#lavoro;;Italian' => 1,
+'suppress_Spanish_note#trabajo;;Spanish' => 1,
+},
+);

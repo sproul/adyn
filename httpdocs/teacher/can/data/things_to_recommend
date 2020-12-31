@@ -1,0 +1,33 @@
+# formatted
+@val = (
+{
+'English' => 'his work',
+'French' => '{son travail>s>}',
+'German' => '{sein Arbeit>s>}',
+'suppress_Italian_note#lavoro;;Italian' => 1,
+'Italian' => '{il suo lavoro>s>}',
+'Spanish' => '{su trabajo>s>}',
+'id' => 0,
+'suppress_Spanish_note#trabajo;;Spanish' => 1,
+},
+{
+'English' => 'a vacation',
+'French' => '{un vacance>p>}',
+'German' => '{ein Urlaub>s>}',
+'Italian' => '{un vacanza>s>}',
+'Spanish' => '{un vacaci/on>s>}',
+'id' => 1,
+},
+{
+'English' => 'the journey',
+'French' => '{le voyage>s>}',
+'German' => '{der Reise>s>}',
+'Italian' => '{il viaggio>s>}',
+'Spanish' => '{el viaje>s>}',
+'id' => 2,
+'suppress_French_note#voyage;;French' => 1,
+'suppress_German_note#Reise;;German' => 1,
+'suppress_Italian_note#viaggio;;Italian' => '1',
+'suppress_Spanish_note#viaje;;Spanish' => 1,
+},
+);

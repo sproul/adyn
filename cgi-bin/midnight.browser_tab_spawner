@@ -1,0 +1,104 @@
+echo 'url=http://127.0.0.1:2082/cgi-bin/choose.cgi?session_id=asos9t7PNxx/Y&whichPanel=simple_choose.htm&promptLang=Spanish&promptLang=English&exerciseSetTargetSize=30&lang_Italian=Italian&exerciseType=verb_common&reviewPercentage=50&tense=present&userID=t3, out=abc' > /www-data-msgs/browser_tab_spawner/input; (echo polling_delay_in_seconds=1; echo just_show_js=n) | perl -w /home/root/Dropbox/adyn/cgi-bin/browser_tab_spawner.cgi
+
+Status: 200 OK
+Expires: Sun, 22 Jun 2014 04:40:18 GMT
+Date: Mon, 23 Jun 2014 04:40:18 GMT
+Content-Type: text/html; charset=ISO-8859-1
+
+Use of uninitialized value $polling_delay_in_seconds in sleep at
+	/home/root/Dropbox/adyn/cgi-bin/browser_tab_spawner.cgi line 66 (#1)
+    (W uninitialized) An undefined value was used as if it were already
+    defined.  It was interpreted as a "" or a 0, but maybe it was a mistake.
+    To suppress this warning assign a defined value to your variables.
+    
+    To help you figure out what was undefined, perl will try to tell you the
+    name of the variable (if any) that was undefined. In some cases it cannot
+    do this, so it also tells you what operation you used the undefined value
+    in.  Note, however, that perl optimizes your program and the operation
+    displayed in the warning may not necessarily appear literally in your
+    program.  For example, "that $foo" is usually optimized into "that "
+    . $foo, and the warning will refer to the concatenation (.) operator,
+    even though there is no . in your program.
+    
+Use of uninitialized value $polling_delay_in_seconds in concatenation (.) or
+	string at /home/root/Dropbox/adyn/cgi-bin/browser_tab_spawner.cgi line 68 (#1)
+Read url=http://127.0.0.1:2082/cgi-bin/choose.cgi?session_id=asos9t7PNxx/Y&whichPanel=simple_choose.htm&promptLang=Spanish&promptLang=English&exerciseSetTargetSize=30&lang_Italian=Italian&exerciseType=verb_common&reviewPercentage=50&tense=present&userID=t3, out=abc<br>
+<br>
+Spawning window to http://127.0.0.1:2082/cgi-bin/choose.cgi?session_id=asos9t7PNxx/Y&whichPanel=simple_choose.htm&promptLang=Spanish&promptLang=English&exerciseSetTargetSize=30&lang_Italian=Italian&exerciseType=verb_common&reviewPercentage=50&tense=present&userID=t3...<br>
+<script type="text/javascript">var refresh_url = "/cgi-bin/browser_tab_spawner.cgi?polling_delay_in_seconds="
+
+var window_to_out_fn = new Object()
+function open_window(url, out_fn)
+{
+  win = window.open(url)
+  window_to_out_fn[win] = out_fn
+}
+
+window.setInterval(function()
+{
+  var all_work_done = true
+  for (key in window_to_out_fn)
+  {
+    all_work_done = false
+    break
+  }
+  if (all_work_done)
+  {
+    alert("time to og back refresh browser_tab_spawner.cgi: " + refresh_url)
+  }
+}), 2000)
+
+open_window("http://127.0.0.1:2082/cgi-bin/choose.cgi?session_id=asos9t7PNxx/Y&whichPanel=simple_choose.htm&promptLang=Spanish&promptLang=English&exerciseSetTargetSize=30&lang_Italian=Italian&exerciseType=verb_common&reviewPercentage=50&tense=present&userID=t3", "abc")
+</script>
+<script type="text/javascript">var refresh_url = "/cgi-bin/browser_tab_spawner.cgi?polling_delay_in_seconds="<br>
+<br>
+var window_to_out_fn = new Object()<br>
+function open_window(url, out_fn)<br>
+{<br>
+  win = window.open(url)<br>
+  window_to_out_fn[win] = out_fn<br>
+}<br>
+<br>
+window.setInterval(function()<br>
+{<br>
+  var all_work_done = true<br>
+  for (key in window_to_out_fn)<br>
+  {<br>
+    all_work_done = false<br>
+    break<br>
+  }<br>
+  if (all_work_done)<br>
+  {<br>
+    alert("time to og back refresh browser_tab_spawner.cgi: " + refresh_url)<br>
+  }<br>
+}), 2000)<br>
+<br>
+open_window("http://127.0.0.1:2082/cgi-bin/choose.cgi?session_id=asos9t7PNxx/Y&whichPanel=simple_choose.htm&promptLang=Spanish&promptLang=English&exerciseSetTargetSize=30&lang_Italian=Italian&exerciseType=verb_common&reviewPercentage=50&tense=present&userID=t3", "abc")<br>
+</script><br>
+<br>
+<script type="text/javascript">var refresh_url = "/cgi-bin/browser_tab_spawner.cgi?polling_delay_in_seconds="
+
+var window_to_out_fn = new Object()
+function open_window(url, out_fn)
+{
+  win = window.open(url)
+  window_to_out_fn[win] = out_fn
+}
+
+window.setInterval(function()
+{
+  var all_work_done = true
+  for (key in window_to_out_fn)
+  {
+    all_work_done = false
+    break
+  }
+  if (all_work_done)
+  {
+    alert("time to og back refresh browser_tab_spawner.cgi: " + refresh_url)
+  }
+}), 2000)
+
+open_window("http://127.0.0.1:2082/cgi-bin/choose.cgi?session_id=asos9t7PNxx/Y&whichPanel=simple_choose.htm&promptLang=Spanish&promptLang=English&exerciseSetTargetSize=30&lang_Italian=Italian&exerciseType=verb_common&reviewPercentage=50&tense=present&userID=t3", "abc")
+</script>
+21:40:18 root vagrant-wheezy 16$ 

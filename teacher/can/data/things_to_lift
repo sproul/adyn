@@ -1,0 +1,46 @@
+# formatted
+@val = (
+{
+'English' => 'this heavy box',
+'French' => '{ce bo#ite>s> lourd}',
+'German' => '{dieser schwer Kasten>s>}',
+'Italian' => '{questo scatola>s> pesante}',
+'Spanish' => '{este caja>s> pesado}',
+'id' => 0,
+,
+},
+{
+'English' => 'her suitcase',
+'French' => '{son valise>s>}',
+'German' => '{ihr Koffer>s>}',
+'Italian' => '{il suo valigia>s>}',
+'Spanish' => '{su maleta>s>}',
+'id' => 1,
+'z_verifiedItalian_note#la;;Italian' => 't',
+},
+{
+'English' => 'her suitcases',
+'French' => '{son valise>p>}',
+'German' => '{ihr Koffer>p>}',
+'Italian' => '{il suo valigia>p>}',
+'Spanish' => '{su maleta>p>}',
+'id' => 2,
+'z_verifiedGerman_note#Koffer;;German' => 't',
+},
+{
+'English' => 'these heavy boxes',
+'French' => '{ce bo#ite>p> lourde}',
+'German' => '{dieser schwer Kasten>p>}',
+'Italian' => '{questo scatola>p> pesante}',
+'Spanish' => '{este caja>p> pesada}',
+'id' => 3,
+},
+{
+'English' => 'heavy boxes',
+'French' => '{un bo#ite>p> lourde}',
+'German' => '{schwer Kasten>p>}',
+'Italian' => '{di il scatola>p> pesante}',
+'Spanish' => '{caja>p> pesada}',
+'id' => 4,
+},
+);

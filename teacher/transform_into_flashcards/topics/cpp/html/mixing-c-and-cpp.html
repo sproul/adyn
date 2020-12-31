@@ -1,0 +1,360 @@
+<html>
+<head>
+<title>[29] How to mix C and C++, C++ FAQ Lite, Marshall Cline</title>
+<link rev=made href="mailto:cline@parashift.com">
+</head>
+<body vlink="#551a8b" text="#000000" bgcolor="#c1c1c1" alink="#ff0000" link="#0000ee">
+<a name="top"></a>
+<h1>[29] How to mix C and C++<br>
+<small><small>(Part of <a href="index.html"><em>C++ FAQ Lite</em></a>, <a href="copy-permissions.html#[1.2]">Copyright&nbsp;&copy; 1991-96</a>, <a href="http://www.cerfnet.com/~mpcline/">Marshall Cline</a>, <a href="mailto:cline@parashift.com">cline@parashift.com</a>)</small></small></h1>
+<hr width="100%" >
+<h3>FAQs in section [29]:</h3>
+<ul>
+<li><a href="mixing-c-and-cpp.html#[29.1]">[29.1] What do I need to know when mixing C and C++ code?</a></li>
+<li><a href="mixing-c-and-cpp.html#[29.2]">[29.2] How can I include a standard C header file in my C++
+code?</a></li>
+<li><a href="mixing-c-and-cpp.html#[29.3]">[29.3] How can I include a non-system C header file in
+my C++ code?</a></li>
+<li><a href="mixing-c-and-cpp.html#[29.4]">[29.4] How can I modify my own C header files so it's
+easier to <tt>#include</tt> them in C++ code?</a></li>
+<li><a href="mixing-c-and-cpp.html#[29.5]">[29.5] How can I call a non-system C function <tt>f(int,char,float)</tt>
+from my C++ code?</a></li>
+<li><a href="mixing-c-and-cpp.html#[29.6]">[29.6] How can I create a C++ function <tt>f(int,char,float)</tt> that is
+callable by my C code?</a></li>
+<li><a href="mixing-c-and-cpp.html#[29.7]">[29.7] Why is the linker giving errors for C/C++ functions
+being called from C++/C functions?</a></li>
+<li><a href="mixing-c-and-cpp.html#[29.8]">[29.8] How can I pass an object of a C++ <tt>class</tt> to/from a C
+function?</a> <img src="updated.gif" alt="UPDATED!" border=0></li>
+<li><a href="mixing-c-and-cpp.html#[29.9]">[29.9] Can my C function directly access data in an
+object of a C++ <tt>class</tt>?</a></li>
+<li><a href="mixing-c-and-cpp.html#[29.10]">[29.10] Why do I feel like I'm &quot;further from the machine&quot; in C++
+as opposed to C?</a></li>
+</ul>
+<p><hr width="100%" >
+<p><a name="[29.1]"></a>
+<h3>[29.1] What do I need to know when mixing C and C++ code?</h3>
+<p>There are several caveats:
+<ul>
+<li>Your must use your C++ compiler when compiling <tt>main()</tt>
+(e.g., for static initialization)</li>
+<li>Your C++ compiler should direct the linking process
+(e.g., so it can get its special libraries)</li>
+<li>Your C and C++ compilers probably need to come from same vendor and
+have compatible versions (e.g., so they have the same calling
+conventions)</li>
+</ul>
+<p>In addition, you'll need to read the rest of this section to find out how to
+make your C functions callable by C++ and/or your C++ functions callable by C.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="value-vs-reference-semantics.html">Previous&nbsp;section</a> |&nbsp;<a href="pointers-to-members.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[29.2]"></a>
+<h3>[29.2] How can I include a standard C header file in my C++
+code?</h3>
+<p>To #include a standard header file (such as <tt>&lt;stdio.h&gt;</tt>), you don't have to do
+anything unusual.  E.g.,
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;This&nbsp;is&nbsp;C++&nbsp;code</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#include&nbsp;&lt;stdio.h&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Note:&nbsp;nothing&nbsp;unusual&nbsp;in&nbsp;<tt>#include</tt>&nbsp;line</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;main()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("Hello&nbsp;world\n");&nbsp;&nbsp;</tt><em>//&nbsp;Note:&nbsp;nothing&nbsp;unusual&nbsp;in&nbsp;the&nbsp;call</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p>Note: Somewhat different guidelines apply for non-system C headers.  There are
+two cases: either you <a href="mixing-c-and-cpp.html#[29.3]"><em>can't</em> change the
+header<!--rawtext:[29.3]:rawtext--></a>, or you <a href="mixing-c-and-cpp.html#[29.4]"><em>can</em> change the
+header<!--rawtext:[29.4]:rawtext--></a>.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="value-vs-reference-semantics.html">Previous&nbsp;section</a> |&nbsp;<a href="pointers-to-members.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[29.3]"></a>
+<h3>[29.3] How can I include a non-system C header file in
+my C++ code?</h3>
+<p>If you are including a C header file that isn't provided by the system, you may
+need to wrap the <tt>#include</tt> line in an <tt>extern&nbsp;<tt>C</tt> { /*...*/ }</tt>
+construct.  This tells the C++ compiler that the functions declared in the
+header file are are C functions.
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;This&nbsp;is&nbsp;C++&nbsp;code</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;extern&nbsp;"C"&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Get&nbsp;declaration&nbsp;for&nbsp;<tt>f(int&nbsp;i,&nbsp;char&nbsp;c,&nbsp;float&nbsp;x)</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#include&nbsp;"my-C-code.h"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;main()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f(7,&nbsp;'x',&nbsp;3.14);&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Note:&nbsp;nothing&nbsp;unusual&nbsp;in&nbsp;the&nbsp;call</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p>Note: Somewhat different guidelines apply for <a href="mixing-c-and-cpp.html#[29.2]">C headers provided by the
+system (such as <tt>&lt;stdio.h&gt;</tt>)<!--rawtext:[29.2]:rawtext--></a> and for <a href="mixing-c-and-cpp.html#[29.4]">C
+headers that you can change<!--rawtext:[29.4]:rawtext--></a>.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="value-vs-reference-semantics.html">Previous&nbsp;section</a> |&nbsp;<a href="pointers-to-members.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[29.4]"></a>
+<h3>[29.4] How can I modify my own C header files so it's
+easier to <tt>#include</tt> them in C++ code?</h3>
+<p>If you are including a C header file that isn't provided by the system, and if
+you are able to change the C header, you should strongly consider adding the
+<tt>extern&nbsp;<tt>C</tt> {...}</tt> logic inside the header to make it easier for C++
+users to <tt>#include</tt> it into their C++ code.  Since a C compiler won't
+understand the <tt>extern&nbsp;<tt>C</tt></tt> construct, you must wrap the <tt>extern&nbsp;<tt>C</tt>
+{</tt> and <tt>}</tt> lines in an <tt>#ifdef</tt> so they won't be seen by normal
+C compilers.
+<p>Step #1: Put the following lines at the very top of your C header file (note:
+the symbol <tt>__cplusplus</tt> is <tt>#define</tt>d if/only-if the compiler is a C++
+compiler):
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;#ifdef&nbsp;__cplusplus<br>
+&nbsp;&nbsp;&nbsp;&nbsp;extern&nbsp;"C"&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#endif
+</code>
+<p>Step #2: Put the following lines at the very bottom of your C header file:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;#ifdef&nbsp;__cplusplus<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#endif
+</code>
+<p>Now you can <tt>#include</tt> your C header without any <tt>extern&nbsp;<tt>C</tt></tt> nonsense in
+your C++ code:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;This&nbsp;is&nbsp;C++&nbsp;code</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Get&nbsp;declaration&nbsp;for&nbsp;<tt>f(int&nbsp;i,&nbsp;char&nbsp;c,&nbsp;float&nbsp;x)</tt></em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;#include&nbsp;"my-C-code.h"&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Note:&nbsp;nothing&nbsp;unusual&nbsp;in&nbsp;#include&nbsp;line</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;main()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f(7,&nbsp;'x',&nbsp;3.14);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Note:&nbsp;nothing&nbsp;unusual&nbsp;in&nbsp;the&nbsp;call</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p>Note: Somewhat different guidelines apply for <a href="mixing-c-and-cpp.html#[29.2]">C headers provided by the
+system (such as <tt>&lt;stdio.h&gt;</tt>)<!--rawtext:[29.2]:rawtext--></a> and for <a href="mixing-c-and-cpp.html#[29.3]">C
+headers that you can't change<!--rawtext:[29.3]:rawtext--></a>.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="value-vs-reference-semantics.html">Previous&nbsp;section</a> |&nbsp;<a href="pointers-to-members.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[29.5]"></a>
+<h3>[29.5] How can I call a non-system C function <tt>f(int,char,float)</tt>
+from my C++ code?</h3>
+<p>If you have an individual C function that you want to call, and for some reason
+you don't have or don't want to <tt>#include</tt> a C header file in which that
+function is declared, you can declare the individual C function in your C code
+using the <tt>extern&nbsp;<tt>C</tt></tt> syntax.  Naturally you need to use the full
+function prototype:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;extern&nbsp;"C"&nbsp;void&nbsp;f(int&nbsp;i,&nbsp;char&nbsp;c,&nbsp;float&nbsp;x);
+</code>
+<p>A block of several C functions can be grouped via braces:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;extern&nbsp;"C"&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;&nbsp;&nbsp;f(int&nbsp;i,&nbsp;char&nbsp;c,&nbsp;float&nbsp;x);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;&nbsp;&nbsp;&nbsp;g(char*&nbsp;s,&nbsp;const&nbsp;char*&nbsp;s2);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;double&nbsp;sqrtOfSumOfSquares(double&nbsp;a,&nbsp;double&nbsp;b);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p>After this you simply call the function just as if it was a C++ function:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;main()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f(7,&nbsp;'x',&nbsp;3.14);&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Note:&nbsp;nothing&nbsp;unusual&nbsp;in&nbsp;the&nbsp;call</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="value-vs-reference-semantics.html">Previous&nbsp;section</a> |&nbsp;<a href="pointers-to-members.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[29.6]"></a>
+<h3>[29.6] How can I create a C++ function <tt>f(int,char,float)</tt> that is
+callable by my C code?</h3>
+<p>The C++ compiler must know that <tt>f(int,char,float)</tt> is to be called by a C
+compiler using the <a href="mixing-c-and-cpp.html#[29.3]"><tt>extern&nbsp;<tt>C</tt></tt>
+construct<!--rawtext:[29.3]:rawtext--></a>:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;This&nbsp;is&nbsp;C++&nbsp;code</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Declare&nbsp;<tt>f(int,char,float)</tt>&nbsp;using&nbsp;<tt>extern&nbsp;<tt>C</tt></tt>:</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;extern&nbsp;"C"&nbsp;void&nbsp;f(int&nbsp;i,&nbsp;char&nbsp;c,&nbsp;float&nbsp;x);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;Define&nbsp;<tt>f(int,char,float)</tt>&nbsp;in&nbsp;some&nbsp;C++&nbsp;module:</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;f(int&nbsp;i,&nbsp;char&nbsp;c,&nbsp;float&nbsp;x)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p>The <tt>extern&nbsp;<tt>C</tt></tt> line tells the compiler that the external information
+sent to the linker should use C calling conventions and name mangling (e.g.,
+preceded by a single underscore).  Since name overloading isn't supported by C,
+you can't make several overloaded functions simultaneously callable by a C
+program.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="value-vs-reference-semantics.html">Previous&nbsp;section</a> |&nbsp;<a href="pointers-to-members.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[29.7]"></a>
+<h3>[29.7] Why is the linker giving errors for C/C++ functions
+being called from C++/C functions?</h3>
+<p>If you didn't get your <tt>extern&nbsp;<tt>C</tt></tt> right, you'll sometimes get linker
+errors rather than compiler errors.  This is due to the fact that C++ compilers
+usually &quot;mangle&quot; function names (e.g., to support function overloading)
+differently than C compilers.
+<p>See the previous two FAQs on how to use <tt>extern&nbsp;<tt>C</tt></tt>.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="value-vs-reference-semantics.html">Previous&nbsp;section</a> |&nbsp;<a href="pointers-to-members.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[29.8]"></a>
+<h3>[29.8] How can I pass an object of a C++ <tt>class</tt> to/from a C
+function? <img src="updated.gif" alt="UPDATED!" border=0></h3>
+<small><em>[Recently added <tt>#ifndef&nbsp;FRED_H</tt> / <tt>#define&nbsp;FRED_H</tt> to code (on 1/97).  <a href="compiler-dependencies.html#[33.3]">Click here to go to the next FAQ in the &quot;chain&quot; of recent changes<!--rawtext:[33.3]:rawtext--></a>.]</em></small>
+<p>Here's an example (for info on <tt>extern&nbsp;<tt>C</tt></tt>, see the previous two FAQs).
+<p><tt>Fred.h</tt>:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>/*&nbsp;This&nbsp;header&nbsp;can&nbsp;be&nbsp;read&nbsp;by&nbsp;both&nbsp;C&nbsp;and&nbsp;C++&nbsp;compilers&nbsp;*/</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;#ifndef&nbsp;FRED_H<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#define&nbsp;FRED_H<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#ifdef&nbsp;__cplusplus<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;class&nbsp;Fred&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fred();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;wilma(int);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;a_;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#else<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;typedef<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;struct&nbsp;Fred<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fred;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#endif<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#ifdef&nbsp;__cplusplus<br>
+&nbsp;&nbsp;&nbsp;&nbsp;extern&nbsp;"C"&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#endif<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#if&nbsp;defined(__STDC__)&nbsp;||&nbsp;defined(__cplusplus)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;extern&nbsp;void&nbsp;c_function(Fred*);&nbsp;&nbsp;&nbsp;</tt><em>/*&nbsp;ANSI-C&nbsp;prototypes&nbsp;*/</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;extern&nbsp;Fred*&nbsp;cplusplus_callback_function(Fred*);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#else<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;extern&nbsp;void&nbsp;c_function();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>/*&nbsp;K&amp;R&nbsp;style&nbsp;*/</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;extern&nbsp;Fred*&nbsp;cplusplus_callback_function();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#endif<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#ifdef&nbsp;__cplusplus<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#endif<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#endif&nbsp;</tt><em>/*FRED_H*/</em><tt>
+</code>
+<p><tt>Fred.cpp</tt>:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;This&nbsp;is&nbsp;C++&nbsp;code</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#include&nbsp;"Fred.h"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Fred::Fred()&nbsp;:&nbsp;a_(0)&nbsp;{&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;Fred::wilma(int&nbsp;a)&nbsp;{&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Fred*&nbsp;cplusplus_callback_function(Fred*&nbsp;fred)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fred-&gt;wilma(123);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;fred;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p><tt>main.cpp</tt>:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;This&nbsp;is&nbsp;C++&nbsp;code</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#include&nbsp;"Fred.h"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;main()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fred&nbsp;fred;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c_function(&amp;fred);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;0;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p><tt>c-function.c</tt>:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>/*&nbsp;This&nbsp;is&nbsp;C&nbsp;code&nbsp;*/</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#include&nbsp;"Fred.h"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;c_function(Fred*&nbsp;fred)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cplusplus_callback_function(fred);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p>Passing pointers to C++ objects to/from C functions will <em>fail</em> if you
+pass and get back something that isn't <em>exactly</em> the same pointer.  For
+example, <em>don't</em> pass a base class pointer and receive back a derived
+class pointer, since your C compiler won't understand the pointer conversions
+necessary to handle multiple and/or <tt>virtual</tt> inheritance.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="value-vs-reference-semantics.html">Previous&nbsp;section</a> |&nbsp;<a href="pointers-to-members.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[29.9]"></a>
+<h3>[29.9] Can my C function directly access data in an
+object of a C++ <tt>class</tt>?</h3>
+<p>Sometimes.
+<p>(For basic info on passing C++ objects to/from C functions, read the previous
+FAQ).
+<p>You can safely access a C++ object's data from a C function if the C++ class:
+<ul>
+<li>Has no <a href="virtual-functions.html"><tt>virtual</tt><!--rawtext:[20]:rawtext--></a> functions (including
+inherited <tt>virtual</tt> functions)</li>
+<li>Has all its data in the same access-level section
+(private/protected/public)</li>
+<li>Has no fully-contained subobjects with
+<a href="virtual-functions.html"><tt>virtual</tt><!--rawtext:[20]:rawtext--></a> functions</li>
+</ul>
+<p>If the C++ class has any base classes at all (or if any fully contained
+subobjects have base classes), accessing the data will <em>technically</em> be
+non-portable, since <tt>class</tt> layout under inheritance isn't imposed by the
+language.  However in practice, all C++ compilers do it the same way: the base
+class object appears first (in left-to-right order in the event of multiple
+inheritance), and member objects follow.
+<p>Furthermore, if the class (or any base class) contains any <tt>virtual</tt>
+functions, almost all C++ compliers put a <tt>void*</tt> into the object either at the
+location of the first <tt>virtual</tt> function or at the very beginning of the
+object.  Again, this is not required by the language, but it is the way
+&quot;everyone&quot; does it.
+<p>If the class has any <tt>virtual</tt> base classes, it is even more complicated
+and less portable.  One common implementation technique is for objects to
+contain an object of the <tt>virtual</tt> base class (<tt>V</tt>) last (regardless of
+where <tt>V</tt> shows up as a <tt>virtual</tt> base class in the inheritance
+hierarchy).  The rest of the object's parts appear in the normal order.  Every
+derived class that has <tt>V</tt> as a <tt>virtual</tt> base class actually has a
+<em>pointer</em> to the <tt>V</tt> part of the final object.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="value-vs-reference-semantics.html">Previous&nbsp;section</a> |&nbsp;<a href="pointers-to-members.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[29.10]"></a>
+<h3>[29.10] Why do I feel like I'm &quot;further from the machine&quot; in C++
+as opposed to C?</h3>
+<p>Because you are.
+<p>As an OO programming language, C++ allows you to model the problem domain
+itself, which allows you to program in the language of the problem domain
+rather than in the language of the solution domain.
+<p>One of C's great strengths is the fact that it has &quot;no hidden mechanism&quot;: what
+you see is what you get.  You can read a C program and &quot;see&quot; every clock cycle.
+This is not the case in C++; old line C programmers (such as many of us once
+were) are often ambivalent (can you say, &quot;hostile&quot;?) about this feature.
+However after they've made the transition to OO thinking, they often realize
+that although C++ hides some mechanism from the programmer, it also provides a
+level of abstraction and economy of expression which lowers maintenance costs
+without destroying run-time performance.
+<p>Naturally you can write bad code in any language; C++ doesn't guarantee any
+particular level of quality, reusability, abstraction, or any other measure of
+&quot;goodness.&quot;
+<p><em>C++ doesn't try to make it impossible for bad programmers to write bad
+programs; it enables reasonable developers to create superior software.</em>
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="value-vs-reference-semantics.html">Previous&nbsp;section</a> |&nbsp;<a href="pointers-to-members.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<a name="bottom"></a>
+<a href="mailto:cline@parashift.com"><img src="mbox.gif" border=2 height=26 width=89>&nbsp;E-mail the author</a><br>
+[&nbsp;<a href="index.html"><em>C++ FAQ Lite</em></a>
+|&nbsp;<a href="index.html#table-of-contents">Table&nbsp;of&nbsp;contents</a>
+|&nbsp;<a href="subject-index.html">Subject&nbsp;index</a>
+|&nbsp;<a href="copy-permissions.html#[1.1]">About&nbsp;the&nbsp;author</a>
+|&nbsp;<a href="copy-permissions.html#[1.2]">&copy;</a>
+|&nbsp;<a href="on-line-availability.html#[2.2]">Download&nbsp;your&nbsp;own&nbsp;copy</a>&nbsp;]<br>
+<small>Revised Sep 8, 1997</small>
+</body>
+</html>

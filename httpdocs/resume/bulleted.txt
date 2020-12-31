@@ -1,0 +1,158 @@
+Nelson Sproul
+
+1209 Glen Ave.
+Berkeley, CA 94708
+(510) 868-0926
+nelson@adyn.com
+
+
+Objective
+To deliver state-of-the-art software.
+
+
+Professional Profile
+* Built, stress tested, and tuned many high performance client server
+systems.
+* Delivered several web-based applications.
+* Extensive customer contact: project, professional services, support.
+* Extensive experience designing and implementing multithreaded programs
+(Java, C++).
+* Assessed web application architectures for performance bottlenecks.
+* 5 years of experience programming in Java (14 years of programming
+experience).
+* 6 years of experience programming in Perl.
+* J2EE  (Servlets, JSP, Applets, JDBC)
+* XML, HTML, SOAP
+* Object Oriented Analysis, Design, Construction.  Design patterns, UML.
+* Oracle, SQL Server, Sybase, MySQL.
+* Application experience with e-commerce, education, HR, EAI, web hosting,
+expense reports, time sheets, purchasing, financial systems, document
+processing.
+
+Employment History
+
+July 2001 - present
+Adynware Corp.
+Principal Consultant
+* Java applets, CGI, Perl, JavaScript, XML, UML.
+* Java/Perl Adaptive Learning Software over the Web.
+	* Multithreaded Java applet updates server recordkeeping in the background
+	for performance.
+	* Over 10,000 exercises for French, Spanish, German, and Italian.
+	* Software tracks students' performance; focuses on weaknesses.
+	* Automatic review of problem areas across sessions.
+	* Wrote full documentation and grammatical references.
+* Perl GUI interface to J2EE Tomcat Manager Admin Facility:
+	* Interactive form-based interface allows administrators to start, stop,
+	install, remove web applications under Tomcat.
+	
+
+January 1999 - July 2001
+Extensity Corp.
+Software Engineer
+* Designed and implemented Java components integrating Extensity's expense
+report applications with customer accounting and HR software.
+	* Extensive work with Sybase, Oracle, and Microsoft SQL servers.
+	* WebLogic J2EE application servers deployed and tuned for large-scale use
+	by thousands of users at customers such as AirTouch (now Verizon), Incyte,
+	Ogilvy, and HBO.
+	* Middleware customizations implemented in Java with JDBC, SQL, and PL/SQL
+	under Solaris Unix and Windows NT.
+* Java Accounting systems migration on Solaris Unix and Windows NT.
+	* Integrated and debugged Java conversion software to export data to XML
+	and back in the new release.
+	* Designed and implemented perl and Bourne shell scripts to migrate
+	customers between major releases.
+* Database Management Utilities: designed and implemented Bourne shell,
+perl and LISP scripts to generate SQL load scripts, to restore and dump
+Microsoft SQL Server and Oracle databases, and to edit database tables.
+
+
+September 1997 - January 1999
+Adynware Corp.
+Principal Engineer
+* C++/perl/JavaScript Keyboard Shortcut Facility for Netscape Navigator.
+	* Proxy server identifies links and form fields, numbers them, and visibly
+	superscripts them.
+	* JavaScript keyboard event handler allows users to manipulate these
+	clickable elements with keystrokes.
+* C++/perl/JavaScript Browser Accelerator.
+	* Superior performance accomplished by means of caching, prefetching, and
+	other optimizations.
+	* Advertising banners automatically suppressed by matching against a hit
+	list of regular expressions.
+	* Multithreaded to allow executing multiple simultaneous HTTP queries.
+* Adynware Corp.'s e-commerce web site.
+	* Architected and implemented support for credit card software purchases.
+	* Included online delivery of the purchased software licenses.
+	* Written in perl, JavaScript and HTML under Solaris Unix.
+* Windows C++ Keyboard Macro Facility.
+	* Designed, implemented and tested PC Macro32, a program for automating
+	tasks under Windows.
+	* Program generates keystrokes, spawns programs and manipulates windows.
+
+
+April 1996 - September 1997
+Whitelight Systems
+Software Engineer
+* Designed and implemented C++ OLAP Server Database Object.
+	* Supported Oracle, Microsoft, Sybase, Teradata and Informix SQL Servers.
+	* Included connection pooling for performance.
+	* Multithreaded approach supported multiple simultaneous queries.
+	* Written in C++ under Solaris Unix and Windows NT.
+	* System currently deployed at Barclay's and J. P. Morgan.
+
+April 1992 - April 1996
+Sybase Corp.
+Software Engineer 2
+* Designed and implemented QA test software for internal and external
+Sybase client libraries.
+	* Discrepancies and bugs automatically reported.
+	* Written in C on all major UNIX platforms and Windows NT.
+* Multithreaded Scripting Language for XA.
+	* Conceived and implemented a programming language supporting thread
+	control and synchronization.
+	* Used for QA scripts exercising Sybase XA transaction management.
+	* Implemented in C under Solaris Unix, using DCE thread primitives.
+* Source Code Distribution Shell Script Suite.
+	* Designed and implemented a suite of shell scripts to efficiently
+	distribute the Sybase connectivity codeline (> 5000 files) to a set of
+	host machines for build and test.
+	* Distributed codelines kept in sync through incremental updates.
+	* This suite detects and handles partial network outages and host failures
+	which had plagued the build on some platforms.
+
+
+July 1990 - April 1992
+TRW Financial Systems
+Systems Analyst
+* Image Server Processor Integration.
+	* Integrated and debugged complex multi-tasking OS/2 program suite to
+	drive mainframe peripherals and process their output.
+	* Optimized performance with C multithreaded approach.
+	* Combined system monitors, programs manipulating the 370-channel APPC
+	(Token Ring), and an array of disks into a correctly functioning whole.
+* File-Processing, Application-Generating Language.
+	* Conceived and implemented a language to generate applications to operate
+	on structured files.
+	* Designed, implemented and tested a code generator for this language.
+	* Written in C, its parser with lex and yacc.
+	* Suite used to generate integrity-checkers and to migrate data.
+* File Distribution Server.
+	* Implemented a server process and interface library to distribute new
+	revisions of files over a network.
+	* This program was written in C under BSD Unix, communicating over the
+	network via TCP/IP.
+	* Deployed at American Express.
+
+
+June 1988 - June 1990
+Aion Corp.
+Software Development Engineer
+* SQL Client.
+* Implemented full function SQL clients on OS/2 and AS/400, with network
+interfaces using LU 6.2 (APPC).
+* Written in C/400 interfacing with SQL/400.
+
+Education
+    BA Computer Science University of California at Berkeley, 1988.

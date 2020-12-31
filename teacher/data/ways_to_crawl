@@ -1,0 +1,53 @@
+# formatted
+@val = (
+{
+'English' => 'silently',
+'French' => 'silencieusement',
+'German' => 'lautlos',
+'Italian' => 'silenziosamente',
+'Spanish' => 'silenciosamente',
+'id' => 0,
+},
+{
+'English' => 'in the mud',
+'French' => '{dans le boue>s>}',
+'German' => '{in der Schlamm>s>}',
+'Italian' => '{in il fango>s>}',
+'Spanish' => '{en el barro>s>}',
+'id' => 1,
+},
+{
+'English' => 'in the darkness',
+'French' => 'dans {le obscurit/e>s>}',
+'German' => '{in der Dunkelheit>s>}',
+'Italian' => '{in il oscurit`a>s>}',
+'Spanish' => '{en la oscuridad>s>}',
+'id' => 2,
+},
+{
+'English' => 'toward the border',
+'French' => 'vers {le fronti`ere>s>}',
+'German' => '{zu der Grenze>s>}',
+'Italian' => '{verso il frontiera>s>}',
+'Spanish' => '{hacia el frontera>s>}',
+'id' => 3,
+'suppress_Italian_note#verso;;Italian' => 1,
+},
+{
+'English' => 'slowly',
+'French' => 'lentement',
+'German' => 'langsam',
+'Italian' => 'lentamente',
+'Spanish' => 'lentamente',
+'id' => 4,
+},
+{
+'English' => 'over the broken glass',
+'French' => 'sur {le verre>s> cass/e}',
+'German_note#Glasscherbe;;German' => 'More literally, <i>the broken glass</i> is <i>dem gebrochenen Glas</i>; but one of my German proofreaders thought <i>Glasscherbe</i> sounded better.',
+'German' => '{:uber die Glasscherbe>p>}',
+'Italian' => '{sopra il vetro>s> rotto}',
+'Spanish' => '{sobre el vidrio roto>s>}',
+'id' => 5,
+},
+);

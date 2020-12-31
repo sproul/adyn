@@ -1,0 +1,51 @@
+# formatted
+@val = (
+{
+'English' => 'the truth',
+'French' => '{le v/erit/e>s>}',
+'German' => '{der Wahrheit>s>}',
+'Italian' => '{il verit`a>s>}',
+'Spanish' => '{el verdad>s>}',
+'id' => 0,
+},
+{
+'English' => 'the truth',
+'French' => '{le v/erit/e>s>}',
+'German' => '{der Wahrheit>s>}',
+'Italian' => '{il verit`a>s>}',
+'Spanish' => '{el verdad>s>}',
+'id' => 1,
+},
+{
+'English' => 'a shape in the fog',
+'French' => '{un forme>s>} dans {le brouillard>s>}',
+'German' => '{ein Form>s>} {in der Nebel>sd:because the act of perceiving does not imply motion>}',
+'Italian' => '{un forma>s>} {in il nebbia>s>}',
+'Spanish' => '{un forma>s>} en {el niebla>s>}',
+'id' => 2,
+},
+{
+'English' => 'foreign interference',
+'French' => '{le intervention>s> /etranger}',
+'German' => '{ausl:andisch Einmischung>s>}',
+'Italian' => '{il interferenza>s> straniero}',
+'Spanish' => '{interferencia>s> extranjero}',
+'id' => 3,
+},
+{
+'English' => 'bad sportsmanship',
+'French' => '{le mauvais sportivit/e>s>}',
+'German' => '{Mangel>s>} {an sportlich Verhalten>sd:as required following ,Mangel ,an>}',
+'Italian' => '{comportamento>s> poco sportivo}',
+'Spanish' => '{deportividad>s> malo}',
+'id' => 4,
+},
+{
+'English' => 'the truth',
+'French' => '{le v/erit/e>s>}',
+'German' => '{der Wahrheit>s>}',
+'Italian' => '{il verit`a>s>}',
+'Spanish' => '{el verdad>s>}',
+'id' => 5,
+},
+);

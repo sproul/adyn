@@ -1,0 +1,136 @@
+LOAD DATA LOCAL INFILE "/tmp/sql/all.dat" INTO TABLE teacher.all;
+create table k(id varchar(32) not null, category varchar(32) not null, s text not null);
+drop database teacher;
+create database teacher;
+drop table exercises
+insert into pfr values('user', 'verb_do', 23, 1001);
+insert into exercises values('verb_do', 3, 'English', '''hi,'' he said');
+select * from exercises
+select * from teacher.all
+select * from pfr
+delete from pfr
+delete from exercises
+, orderType char not null, volumeByDollars__00000 smallint, volatility5_000 smallint, volatility20_000 smallint, vty_000 smallint, entryDate date not null, exitDate date, entryPrice_00 smallint, exitPrice_00 smallint, lowSinceEntry_00 smallint, highSinceEntry_00 smallint, days tinyint not null, reasonClosed char, minPotentialIncreasePercentage_0 smallint, maxPotentialIncreasePercentage_0 smallint, increasePercentage_0 smallint, PRIMARY KEY(symbol, exchange, strategy, orderType, entryDate, days));
+
+echo 'select count(*) from L_12 ' | ex_isql
+def:undef:3 07/28/1999: 124.810 -> 126.380 (122.750..128.690) 3-day TO
+07/23/1999:36364:IBM:NYSE:_teacher/OLHCVv5v20v100:124.000/122.630/125.440/124.810/6964200.000/2.810/2.810/2.810
+07/23/1999:36364:IBM:NYSE:S_Atlanta_System:buy::lim=0:stop=0
+
+
+drop table trades
+lean:
+
+select * from teacher.trades;
+select count(*) from teacher.L_12
+select count(*) from teacher.S_99
+select count(*) from teacher.L_99
+select * from teacher.L_99
+select count(*) from teacher.L_3 where symbol = "ISIL";
+select count(*) from teacher.trades where orderType = "L"
+select count(*) from teacher.trades where orderType = "S"
+delete from trades where year(entryDate) <> 2000;
+delete from trades;
+LOAD DATA LOCAL INFILE "c:/users/nsproul/work/ts/teacher/logs/out_trade_data/AA.2000.1.dat" INTO TABLE trades_tst;
+
+
+
+
+
+select count(*) from trades where vty < 0;
+
+select year(entryDate) from trades
+select year(entryDate), avg(maxPotentialIncreasePercentage) max, avg(minPotentialIncreasePercentage) min, count(*), strategy from trades where (orderType = "buy") and (days = 3) group by strategy, year(entryDate) order by max
+........................................^
+and (days = 3)
+and (days = 6)
+and (days = 12)
+
+select avg(maxPotentialIncreasePercentage) max, year(entryDate) y, avg(minPotentialIncreasePercentage) min, count(*), strategy from trades where (orderType = "buy") group by strategy order by max
+
+needed?
+group by y
+
+
+delete from trades_tst where strategy <> 'S_1_2_3_Reversal'
+select * from trades where strategy = 'S_1_2_3_Reversal'
+select 'S/volumeByDollars__00000 < 2*std' as condition, days, (avg(maxPotentialIncreasePercentage_0)/10) as max, (avg(minPotentialIncreasePercentage_0)/10) as min, abs(avg(maxPotentialIncreasePercentage_0) + avg(minPotentialIncreasePercentage_0))/10 AS diff, count(*) as tradeCnt, strategy from trades where (orderType = 'S') and (volumeByDollars__00000 < 2261) group by strategy having count(*) > 100 order by max
+
+
+delete from trades where strategy = "S_TRENDLINEDAILYPARA" or strategy = "S_TRENDLINE_DAILY"
+
+
+select count(*) from trades where (strategy = "S_VoltyExpan_ATR_LE") and (maxPotentialIncreasePercentage_0 > (- minPotentialIncreasePercentage_0)) group by days
+select count(*) from trades where (strategy = "S_VoltyExpan_ATR_LE") and (maxPotentialIncreasePercentage_0 < (- minPotentialIncreasePercentage_0)) group by days
+select distinct strategy from trades having count(*) = 0
+select strategy, count(*) cnt from trades where orderType = "X" group by strategy order by cnt
+select strategy, count(*) cnt from trades where orderType = "C" group by strategy order by cnt
+select orderType, count(*) cnt from trades group by orderType
+select distinct symbol from trades
+
+select avg(x.increasePercentage_0), avg(t.increasePercentage_0) from trades x, trades t where (x.orderType = "X") and (t.orderType = "L") and (x.symbol = t.symbol) and (x.entryDate = t.entryDate) and (t.days <= 6) and (x.days <= 6) and (t.reasonClosed = "T") and (x.reasonClosed = "S") group by x.strategy
+
+select strategy, orderType, count(*) cnt from trades group by strategy, orderType order by cnt
+select count(*) cnt from trades where (orderType = "S")
+select count(*) cnt from trades where (orderType = "L")
+select count(*) cnt from trades
+
+select strategy, (avg(maxPotentialIncreasePercentage_0) + avg(minPotentialIncreasePercentage_0))/10 AS diff, avg(maxPotentialIncreasePercentage_0)/10 as max, (avg(minPotentialIncreasePercentage_0)/10) as min, count(*) as tradeCnt from trades where (days=6) group by strategy order by diff
+
+
+select (avg(x.maxPotentialIncreasePercentage_0) + avg(x.minPotentialIncreasePercentage_0))/10 AS diff, (avg(x.maxPotentialIncreasePercentage_0)/10) as max, (avg(x.minPotentialIncreasePercentage_0)/10) as min, x.days, count(*) as tradeCnt, x.strategy, y.strategy, "L.12.**" as conditions from S_12 x, S_12 y where (x.symbol = y.symbol) and (x.exchange = y.exchange) and (x.entryDate = y.entryDate) and (x.days = 12) and (y.days = 12) and (x.strategy = "S_Price_Vol_Vty") and (y.strategy = "S_Price_Vol_System") group by x.strategy
+
+
+-2.061163|4.580200|-6.641364|12|10091|S_Price_Vol_Vty|S_Price_Vol_System|L.12.**
+
+select (avg(x.maxPotentialIncreasePercentage_0) + avg(x.minPotentialIncreasePercentage_0))/10 AS diff, (avg(x.maxPotentialIncreasePercentage_0)/10) as max, (avg(x.minPotentialIncreasePercentage_0)/10) as min, x.days, count(*) as tradeCnt, x.strategy, "L.12.**" as conditions from S_12 x where (x.days = 12) and (x.strategy = "S_Price_Vol_Vty") group by x.strategy
+
+
+select (avg(x.maxPotentialIncreasePercentage_0) + avg(x.minPotentialIncreasePercentage_0))/10 AS diff, (avg(x.maxPotentialIncreasePercentage_0)/10) as max, (avg(x.minPotentialIncreasePercentage_0)/10) as min, x.days, count(*) as tradeCnt, x.strategy, y.strategy, "L.12.**" as conditions from S_12 x, S_12 y where (x.symbol = y.symbol) and (x.exchange = y.exchange) and (x.entryDate = y.entryDate) and (x.days = 12) and (y.days = 12) and (x.strategy <> y.strategy) group by x.strategy order by diff
+
+select avg(days), avg(increasePercentage_0) a, strategy from teacher.L_99 group by strategy order by a
+select count(*), avg(days), avg(maxPotentialIncreasePercentage_0)/10 as max, avg(increasePercentage_0)/10 as delta, strategy from teacher.S_99 group by strategy order by delta
+select count(*), avg(days), avg(maxPotentialIncreasePercentage_0)/10 as max, avg(increasePercentage_0)/10 as delta, strategy from teacher.L_99 group by strategy order by delta
+#select avg(increasePercentage_0) a from teacher.S_99 where reasonClosed = "S"
+#
+#
+cat c:/users/nsproul/work/ts/teacher/logs/teacher.ddl | ex_isql
+cat c:/users/nsproul/work/ts/teacher/logs/drop.ddl | ex_isql
+
+cat /sql | ex_isql
+echo 'LOAD DATA LOCAL INFILE "c:/users/nsproul/work/adyn.com/httpdocs/teacher/teacher_SQL/exercises.dat" INTO TABLE teacher.exercises' | ex_isql
+SELECT * from all where id = 'out_verb_have.0' and category = 'English'
+SELECT * from all
+SELECT s from teacher.all where id = 'out_verb_have.2' and category = 'English'
+SELECT s from teacher.all where id = 'out_verb_do.12' and category = 'English'
+
+
+
+
+
+
+
+
+
+drop database teacher;
+create database teacher;
+drop table teacher.all;
+create table teacher.all(id varchar(32) not null, category varchar(32) not null, s text not null);
+LOAD DATA LOCAL INFILE "/old/j2.dat" INTO TABLE teacher.all;
+LOAD DATA LOCAL INFILE "/old/lang.dat" INTO TABLE teacher.all;
+DROP INDEX teacher_index ON teacher.all
+select count(*) from teacher.all
+CREATE UNIQUE INDEX teacher_index ON teacher.all (id, category);
+DESCRIBE teacher.all;
+SHOW table teacher.all;
+SHOW INDEX FROM teacher.all;
+delete from teacher.all where id like 'out_verb_sing%'
+select count(*) from teacher.all where id like 'cgi_%'
+cgi_verbsToExGroupedByTense.0
+!cd c:/mysql/data/; c:/mysql/bin/myisampack teacher/all
+delete from teacher.all where id like 'cgi_verbsToExGroupedByTense%' and category = 'keys'
+select * from teacher.all where id like 'cgi_verbsToExGroupedByTense%' and category = 'keys'
+select * from teacher.all where id = 'cgi_verbsToExGroupedByTense.4'
+select * from k
+delete from teacher.all where id like 'cgi_%' 
+select count(*) from teacher.all where id like 'cgi_%' 

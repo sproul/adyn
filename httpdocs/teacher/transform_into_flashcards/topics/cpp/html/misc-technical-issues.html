@@ -1,0 +1,142 @@
+<html>
+<head>
+<title>[34] Miscellaneous technical issues, C++ FAQ Lite, Marshall Cline</title>
+<link rev=made href="mailto:cline@parashift.com">
+</head>
+<body vlink="#551a8b" text="#000000" bgcolor="#c1c1c1" alink="#ff0000" link="#0000ee">
+<a name="top"></a>
+<h1>[34] Miscellaneous technical issues<br>
+<small><small>(Part of <a href="index.html"><em>C++ FAQ Lite</em></a>, <a href="copy-permissions.html#[1.2]">Copyright&nbsp;&copy; 1991-96</a>, <a href="http://www.cerfnet.com/~mpcline/">Marshall Cline</a>, <a href="mailto:cline@parashift.com">cline@parashift.com</a>)</small></small></h1>
+<hr width="100%" >
+<h3>FAQs in section [34]:</h3>
+<ul>
+<li><a href="misc-technical-issues.html#[34.1]">[34.1] Why can't the compiler find my header file in
+<tt>#include&nbsp;&quot;c:\test.hpp&quot;</tt>&nbsp;?</a></li>
+<li><a href="misc-technical-issues.html#[34.2]">[34.2] Does C++ have new scoping rules for <tt>for</tt> loops?</a></li>
+<li><a href="misc-technical-issues.html#[34.3]">[34.3] Why can't I overload a function by its return
+type?</a></li>
+<li><a href="misc-technical-issues.html#[34.4]">[34.4] What is &quot;persistence&quot;?  What is a &quot;persistent object&quot;?</a></li>
+<li><a href="misc-technical-issues.html#[34.5]">[34.5] Why is floating point so inaccurate?  Why doesn't this
+print 0.43?</a></li>
+</ul>
+<p><hr width="100%" >
+<p><a name="[34.1]"></a>
+<h3>[34.1] Why can't the compiler find my header file in
+<tt>#include&nbsp;&quot;c:\test.hpp&quot;</tt>&nbsp;?</h3>
+<p>Because <tt>&quot;\t&quot;</tt> is a tab character.
+<p>You should use forward slashes (<tt>&quot;/&quot;</tt>) rather than backslashes
+(<tt>&quot;\&quot;</tt>) in your <tt>#include</tt> filenames, even on an operating system that
+uses backslashes such as DOS, Windows, OS/2, etc.  For example:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;#if&nbsp;1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#include&nbsp;"/version/next/alpha/beta/test.hpp"&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;RIGHT!</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;#else<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#include&nbsp;"\version\next\alpha\beta\test.hpp"&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;WRONG!</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;#endif
+</code>
+<p>Note that <a href="input-output.html#[15.10]">you should use forward slashes (<tt>&quot;/&quot;</tt>) on all your
+filenames<!--rawtext:[15.10]:rawtext--></a>, not just on your <tt>#include</tt> files.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="compiler-dependencies.html">Previous&nbsp;section</a> |&nbsp;<a href="misc-environmental-issues.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[34.2]"></a>
+<h3>[34.2] Does C++ have new scoping rules for <tt>for</tt> loops?</h3>
+<p>Yep.
+<p>The following code used to be legal, but not any more, sinc <tt>i</tt>'s scope is now
+inside the <tt>for</tt> loop only:
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(int&nbsp;i&nbsp;=&nbsp;0;&nbsp;i&nbsp;&lt;&nbsp;10;&nbsp;++i)&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(&nbsp;</tt><em>/*&nbsp;something&nbsp;wierd&nbsp;*/</em><tt>&nbsp;)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(i&nbsp;!=&nbsp;10)&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;We&nbsp;exited&nbsp;the&nbsp;loop&nbsp;early;&nbsp;handle&nbsp;this&nbsp;situation&nbsp;separately</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em>//&nbsp;...</em><tt><br>
+&nbsp;&nbsp;&nbsp;&nbsp;}
+</code>
+<p>Unless you use a <tt>for</tt> loop variable after the <tt>for</tt> loop, the new scoping rule
+won't break your code.  If it does break your code, in most cases the compiler
+will give you a compile-time error message such as &quot;Variable <tt>i</tt> is not in
+scope&quot;.
+<p>Unfortunately it is possible that this new rule will silently cause your code
+to do the wrong thing.  For example, if you have a global variable <tt>i</tt>, the
+above code <tt>if&nbsp;(i&nbsp;!=&nbsp;10)</tt> silently change in meaning from the <tt>for</tt> loop
+variable <tt>i</tt> under the old rule to the global variable <tt>i</tt> under the new rule.
+This is not good.  If you're concerned, you should check with your compiler to
+see if it has some option that forces it to use the old rules with your old
+code.
+<p>Note: You should avoid having the same variable name nested scopes, such as a
+global <tt>i</tt> and a local <tt>i</tt>.  In fact, you should avoid globals althogether
+whenever you can.  If you abided by these coding standards in your old code,
+you won't be hurt by the new scoping rules for <tt>for</tt> loop variables.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="compiler-dependencies.html">Previous&nbsp;section</a> |&nbsp;<a href="misc-environmental-issues.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[34.3]"></a>
+<h3>[34.3] Why can't I overload a function by its return
+type?</h3>
+<p>If you declare both <tt>char&nbsp;f()</tt> and <tt>float&nbsp;f()</tt>, the compiler gives
+you an error message, since calling simply <tt>f()</tt> would be ambiguous.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="compiler-dependencies.html">Previous&nbsp;section</a> |&nbsp;<a href="misc-environmental-issues.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[34.4]"></a>
+<h3>[34.4] What is &quot;persistence&quot;?  What is a &quot;persistent object&quot;?</h3>
+<p>A persistent object can live after the program which created it has stopped.
+Persistent objects can even outlive different versions of the creating program,
+can outlive the disk system, the operating system, or even the hardware on
+which the OS was running when they were created.
+<p>The challenge with persistent objects is to effectively store their member
+function code out on secondary storage along with their data bits (and the data
+bits and member function code of all member objects, and of all their member
+objects and base classes, etc).  This is non-trivial when you have to do it
+yourself.  In C++, you have to do it yourself.  C++/OO databases can help hide
+the mechanism for all this.
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="compiler-dependencies.html">Previous&nbsp;section</a> |&nbsp;<a href="misc-environmental-issues.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<p><a name="[34.5]"></a>
+<h3>[34.5] Why is floating point so inaccurate?  Why doesn't this
+print 0.43?</h3>
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;#include&nbsp;&lt;iostream.h&gt;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;main()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float&nbsp;a&nbsp;=&nbsp;1000.43;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float&nbsp;b&nbsp;=&nbsp;1000.0;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;a&nbsp;-&nbsp;b&nbsp;&lt;&lt;&nbsp;'\n';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+</code>
+<p>(On one C++ implementation, this prints 0.429993)
+<p>Disclaimer: Frustration with rounding/truncation/approximation isn't really a
+C++ issue; it's a computer science issue.  However, people keep asking about
+it on <a href="news:comp.lang.c++"><tt>comp.lang.c++</tt></a>, so what follows is a nominal answer.
+<p>Answer: Floating point is an approximation.  The IEEE standard for 32 bit float
+supports 1 bit of sign, 8 bits of exponent, and 23 bits of mantissa.  Since a
+normalized binary-point mantissa always has the form 1.xxxxx... the leading 1
+is dropped and you get effectively 24 bits of mantissa.  The number 1000.43
+(and many, many others) is not exactly representable in float or double format.
+1000.43 is actually represented as the following bitpattern (the &quot;<tt>s</tt>&quot;
+shows the position of the sign bit, the &quot;<tt>e</tt>&quot;s show the positions of the
+exponent bits, and the &quot;<tt>m</tt>&quot;s show the positions of the mantissa bits):
+<p><code>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;seeeeeeeemmmmmmmmmmmmmmmmmmmmmmm&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;01000100011110100001101110000101&nbsp;
+</code>
+<p>The shifted mantissa is 1111101000.01101110000101 or 1000 + 7045/16384.  The
+fractional part is 0.429992675781.  With 24 bits of mantissa you only get
+about 1 part in 16M of precision for float.  The <tt>double</tt> type provides more
+precision (53 bits of mantissa).
+<p><small>[&nbsp;<a href="#top">Top</a> |&nbsp;<a href="#bottom">Bottom</a> |&nbsp;<a href="compiler-dependencies.html">Previous&nbsp;section</a> |&nbsp;<a href="misc-environmental-issues.html">Next&nbsp;section</a> ]</small>
+<hr width="100%" >
+<a name="bottom"></a>
+<a href="mailto:cline@parashift.com"><img src="mbox.gif" border=2 height=26 width=89>&nbsp;E-mail the author</a><br>
+[&nbsp;<a href="index.html"><em>C++ FAQ Lite</em></a>
+|&nbsp;<a href="index.html#table-of-contents">Table&nbsp;of&nbsp;contents</a>
+|&nbsp;<a href="subject-index.html">Subject&nbsp;index</a>
+|&nbsp;<a href="copy-permissions.html#[1.1]">About&nbsp;the&nbsp;author</a>
+|&nbsp;<a href="copy-permissions.html#[1.2]">&copy;</a>
+|&nbsp;<a href="on-line-availability.html#[2.2]">Download&nbsp;your&nbsp;own&nbsp;copy</a>&nbsp;]<br>
+<small>Revised Sep 8, 1997</small>
+</body>
+</html>
